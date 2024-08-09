@@ -17,6 +17,8 @@
 		B36927BB2C66B6E40089F769 /* ModuliteUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B36927BA2C66B6E40089F769 /* ModuliteUITestsLaunchTests.swift */; };
 		B36927CF2C66B8A30089F769 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B36927CE2C66B8A30089F769 /* Coordinator.swift */; };
 		B36927D12C66B8CA0089F769 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = B36927D02C66B8CA0089F769 /* Router.swift */; };
+		B36927D32C66BBC10089F769 /* SceneDelegateRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B36927D22C66BBC10089F769 /* SceneDelegateRouter.swift */; };
+		B36927D52C66BCE60089F769 /* HomeCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B36927D42C66BCE60089F769 /* HomeCoordinator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +53,8 @@
 		B36927BA2C66B6E40089F769 /* ModuliteUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModuliteUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		B36927CE2C66B8A30089F769 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		B36927D02C66B8CA0089F769 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
+		B36927D22C66BBC10089F769 /* SceneDelegateRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegateRouter.swift; sourceTree = "<group>"; };
+		B36927D42C66BCE60089F769 /* HomeCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCoordinator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -142,6 +146,7 @@
 			isa = PBXGroup;
 			children = (
 				B36927CE2C66B8A30089F769 /* Coordinator.swift */,
+				B36927D42C66BCE60089F769 /* HomeCoordinator.swift */,
 			);
 			path = Coordinators;
 			sourceTree = "<group>";
@@ -150,6 +155,7 @@
 			isa = PBXGroup;
 			children = (
 				B36927D02C66B8CA0089F769 /* Router.swift */,
+				B36927D22C66BBC10089F769 /* SceneDelegateRouter.swift */,
 			);
 			path = Routers;
 			sourceTree = "<group>";
@@ -321,6 +327,8 @@
 				B36927D12C66B8CA0089F769 /* Router.swift in Sources */,
 				B36927982C66B6E30089F769 /* AppDelegate.swift in Sources */,
 				B369279A2C66B6E30089F769 /* SceneDelegate.swift in Sources */,
+				B36927D52C66BCE60089F769 /* HomeCoordinator.swift in Sources */,
+				B36927D32C66BBC10089F769 /* SceneDelegateRouter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
