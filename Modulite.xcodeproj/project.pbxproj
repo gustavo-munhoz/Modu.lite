@@ -19,6 +19,7 @@
 		B36927D12C66B8CA0089F769 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = B36927D02C66B8CA0089F769 /* Router.swift */; };
 		B36927D32C66BBC10089F769 /* SceneDelegateRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B36927D22C66BBC10089F769 /* SceneDelegateRouter.swift */; };
 		B36927D52C66BCE60089F769 /* HomeCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B36927D42C66BCE60089F769 /* HomeCoordinator.swift */; };
+		B36927DA2C66C2770089F769 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B36927D92C66C2770089F769 /* HomeView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +56,7 @@
 		B36927D02C66B8CA0089F769 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		B36927D22C66BBC10089F769 /* SceneDelegateRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegateRouter.swift; sourceTree = "<group>"; };
 		B36927D42C66BCE60089F769 /* HomeCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCoordinator.swift; sourceTree = "<group>"; };
+		B36927D92C66C2770089F769 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -179,7 +181,9 @@
 		B36927CC2C66B86D0089F769 /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				B369279B2C66B6E30089F769 /* HomeViewController.swift */,
+				B36927D82C66C25F0089F769 /* View */,
+				B36927D72C66C2590089F769 /* Controller */,
+				B36927D62C66C2520089F769 /* ViewModel */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -190,6 +194,29 @@
 				B36927A22C66B6E40089F769 /* LaunchScreen.storyboard */,
 			);
 			path = LauchingScreen;
+			sourceTree = "<group>";
+		};
+		B36927D62C66C2520089F769 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		B36927D72C66C2590089F769 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				B369279B2C66B6E30089F769 /* HomeViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		B36927D82C66C25F0089F769 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				B36927D92C66C2770089F769 /* HomeView.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -327,6 +354,7 @@
 				B36927D12C66B8CA0089F769 /* Router.swift in Sources */,
 				B36927982C66B6E30089F769 /* AppDelegate.swift in Sources */,
 				B369279A2C66B6E30089F769 /* SceneDelegate.swift in Sources */,
+				B36927DA2C66C2770089F769 /* HomeView.swift in Sources */,
 				B36927D52C66BCE60089F769 /* HomeCoordinator.swift in Sources */,
 				B36927D32C66BBC10089F769 /* SceneDelegateRouter.swift in Sources */,
 			);
