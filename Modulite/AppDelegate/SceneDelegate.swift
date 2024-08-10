@@ -20,8 +20,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         
         window = UIWindow(windowScene: windowScene)
-        coordinator.present(animated: true, onDismiss: nil)
-        
+        coordinator.present(animated: true, onDismiss: nil)        
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
