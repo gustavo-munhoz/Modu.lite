@@ -1,7 +1,50 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
-
+    "testArray" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Values: %@, %@"
+          }
+        }
+      }
+    },
+    "testInteger" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Value: %d"
+          }
+        }
+      }
+    },
+    "testNoValue" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No values here."
+          }
+        }
+      }
+    },
+    "testString" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "String: %@"
+          }
+        }
+      }
+    }
   },
   "version" : "1.0"
 }
