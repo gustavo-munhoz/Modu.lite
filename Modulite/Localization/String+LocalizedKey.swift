@@ -59,11 +59,14 @@ extension String {
         /// - Parameter elements: An array of strings to be localized within test scenarios.
         case testArray(elements: [String])
         
+        case testTwoStrings(first: String, second: String)
+        
         /// `testNoValue` is a test-exclusive case that represents scenarios where no additional values are needed.
         /// This case is used to test the localization process where the localized string does not require any dynamic values.
         case testNoValue
         
         // MARK: - Localized Keys
+        
         
     }
     

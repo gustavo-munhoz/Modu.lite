@@ -48,6 +48,18 @@
           }
         }
       }
+    },
+    "testTwoStrings" : {
+      "comment" : "This is a test value, and should only be used for testing purposes.",
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@, %@!"
+          }
+        }
+      }
     }
   },
   "version" : "1.0"

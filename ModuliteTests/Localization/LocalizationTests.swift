@@ -21,6 +21,9 @@ class LocalizationTests: XCTestCase {
         let testArrayKey = String.LocalizedKey.testArray(elements: ["Hello", "World"])
         XCTAssertEqual(testArrayKey.key, "testArray", "The key should correctly extract 'testArray'.")
         
+        let testTwoStringsKey = String.LocalizedKey.testTwoStrings(first: "Hello", second: "World")
+        XCTAssertEqual(testTwoStringsKey.key, "testTwoStrings", "The key should correctly extract 'testTwoStrings'.")
+        
         let testNoValueKey = String.LocalizedKey.testNoValue
         XCTAssertEqual(testNoValueKey.key, "testNoValue", "The key should correctly extract 'testNoValue'.")
     }
@@ -34,6 +37,9 @@ class LocalizationTests: XCTestCase {
         
         let testArrayKey = String.LocalizedKey.testArray(elements: ["Hello", "World"])
         XCTAssertEqual(testArrayKey.values as? [String], ["Hello", "World"], "The values should correctly extract ['Hello', 'World']")
+        
+        let testTwoStringsKey = String.LocalizedKey.testTwoStrings(first: "Hello", second: "World")
+        XCTAssertEqual(testTwoStringsKey.values as? [String], ["Hello", "World"], "The values should correctly extract ['Hello', 'World']")
         
         let testNoValueKey = String.LocalizedKey.testNoValue
         XCTAssertTrue(testNoValueKey.values.isEmpty, "There should be no values associated with 'testNoValue'.")
@@ -50,6 +56,9 @@ class LocalizationTests: XCTestCase {
         
         let arrayResult = String.localized(for: .testArray(elements: ["String 1", "String 2"]))
         XCTAssertEqual(arrayResult, "Strings: String 1, String 2", "The localized string should correctly format.")
+        
+        let twoStringsResult = String.localized(for: .testTwoStrings(first: "Hello", second: "World"))
+        XCTAssertEqual(twoStringsResult, "Hello, World!", "The localized string should correctly format.")
         
         let noneResult = String.localized(for: .testNoValue)
         XCTAssertEqual(noneResult, "No values here.", "The localized string should match the key with no values.")
