@@ -2,17 +2,19 @@
   "sourceLanguage" : "en",
   "strings" : {
     "testArray" : {
+      "comment" : "This is a test value, and should only be used for testing purposes.",
       "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Values: %@, %@"
+            "value" : "Strings: %@, %@"
           }
         }
       }
     },
     "testInteger" : {
+      "comment" : "This is a test value, and should only be used for testing purposes.",
       "extractionState" : "manual",
       "localizations" : {
         "en" : {
@@ -24,6 +26,7 @@
       }
     },
     "testNoValue" : {
+      "comment" : "This is a test value, and should only be used for testing purposes.",
       "extractionState" : "manual",
       "localizations" : {
         "en" : {
@@ -35,6 +38,7 @@
       }
     },
     "testString" : {
+      "comment" : "This is a test value, and should only be used for testing purposes.",
       "extractionState" : "manual",
       "localizations" : {
         "en" : {

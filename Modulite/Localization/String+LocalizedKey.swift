@@ -27,15 +27,40 @@ extension String {
         /// Computes an array of `CVarArg` suitable for string formatting, reflecting the associated values of the enum case.
         /// Uses reflection to access and cast the associated values to `CVarArg` for use in formatted strings.
         var values: [CVarArg] {
-            guard let associatedValue = Mirror(reflecting: self).children.first?.value else { return [] }
+            let mirror = Mirror(reflecting: self)
+            guard let associated = mirror.children.first?.value else { return [] }
             
-            return Mirror(reflecting: associatedValue).children.compactMap { $0.value as? CVarArg }
+            var extractedValues = [CVarArg]()
+            let valuesMirror = Mirror(reflecting: associated)
+            for child in valuesMirror.children {
+                if let array = child.value as? [CVarArg] {
+                    extractedValues.append(contentsOf: array)
+                } else if let value = child.value as? CVarArg {
+                    extractedValues.append(value)
+                }
+            }
+            
+            return extractedValues
         }
 
         // MARK: - Test cases
+        /// `testInteger` is a test-exclusive case designed to be used in unit testing environments.
+        /// This case holds an integer value used for testing localized string handling.
+        /// - Parameter value: An integer to be localized within test scenarios.
         case testInteger(value: Int)
+        
+        /// `testString` is a test-exclusive case designed for testing the localization of strings.
+        /// This case allows for the inclusion of a string to be used in localized outputs during tests.
+        /// - Parameter text: A string that is intended to test string localization.
         case testString(text: String)
+        
+        /// `testArray` is a test-exclusive case used to test the localization of array elements.
+        /// This case is particularly useful for testing localized strings that incorporate multiple elements from an array.
+        /// - Parameter elements: An array of strings to be localized within test scenarios.
         case testArray(elements: [String])
+        
+        /// `testNoValue` is a test-exclusive case that represents scenarios where no additional values are needed.
+        /// This case is used to test the localization process where the localized string does not require any dynamic values.
         case testNoValue
         
         // MARK: - Localized Keys
