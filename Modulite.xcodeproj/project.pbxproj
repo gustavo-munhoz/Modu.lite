@@ -12,6 +12,12 @@
 		B34F3DF52C6701870041D7BD /* String+LocalizedKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = B34F3DF42C6701870041D7BD /* String+LocalizedKey.swift */; };
 		B34F3DF82C69A3810041D7BD /* DebugOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B34F3DF72C69A3810041D7BD /* DebugOptions.swift */; };
 		B34F3DFB2C69AF230041D7BD /* LocalizationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B34F3DFA2C69AF230041D7BD /* LocalizationTests.swift */; };
+		B34F3DFD2C6A92890041D7BD /* RootTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B34F3DFC2C6A92890041D7BD /* RootTabBarController.swift */; };
+		B34F3E032C6A93A30041D7BD /* BlockAppsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B34F3E022C6A93A30041D7BD /* BlockAppsViewController.swift */; };
+		B34F3E052C6A93AC0041D7BD /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B34F3E042C6A93AC0041D7BD /* SettingsViewController.swift */; };
+		B34F3E072C6A93B30041D7BD /* UsageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B34F3E062C6A93B30041D7BD /* UsageViewController.swift */; };
+		B34F3E092C6A96A20041D7BD /* RootTabCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B34F3E082C6A96A20041D7BD /* RootTabCoordinator.swift */; };
+		B34F3E0B2C6A9E350041D7BD /* HomeNavigationRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B34F3E0A2C6A9E350041D7BD /* HomeNavigationRouter.swift */; };
 		B36927982C66B6E30089F769 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B36927972C66B6E30089F769 /* AppDelegate.swift */; };
 		B369279A2C66B6E30089F769 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B36927992C66B6E30089F769 /* SceneDelegate.swift */; };
 		B369279C2C66B6E30089F769 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B369279B2C66B6E30089F769 /* HomeViewController.swift */; };
@@ -49,6 +55,12 @@
 		B34F3DF42C6701870041D7BD /* String+LocalizedKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+LocalizedKey.swift"; sourceTree = "<group>"; };
 		B34F3DF72C69A3810041D7BD /* DebugOptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebugOptions.swift; sourceTree = "<group>"; };
 		B34F3DFA2C69AF230041D7BD /* LocalizationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizationTests.swift; sourceTree = "<group>"; };
+		B34F3DFC2C6A92890041D7BD /* RootTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootTabBarController.swift; sourceTree = "<group>"; };
+		B34F3E022C6A93A30041D7BD /* BlockAppsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockAppsViewController.swift; sourceTree = "<group>"; };
+		B34F3E042C6A93AC0041D7BD /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		B34F3E062C6A93B30041D7BD /* UsageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsageViewController.swift; sourceTree = "<group>"; };
+		B34F3E082C6A96A20041D7BD /* RootTabCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootTabCoordinator.swift; sourceTree = "<group>"; };
+		B34F3E0A2C6A9E350041D7BD /* HomeNavigationRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeNavigationRouter.swift; sourceTree = "<group>"; };
 		B36927942C66B6E30089F769 /* Modulite.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Modulite.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B36927972C66B6E30089F769 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B36927992C66B6E30089F769 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -109,6 +121,30 @@
 				B34F3DFA2C69AF230041D7BD /* LocalizationTests.swift */,
 			);
 			path = Localization;
+			sourceTree = "<group>";
+		};
+		B34F3DFF2C6A936C0041D7BD /* Usage */ = {
+			isa = PBXGroup;
+			children = (
+				B34F3E062C6A93B30041D7BD /* UsageViewController.swift */,
+			);
+			path = Usage;
+			sourceTree = "<group>";
+		};
+		B34F3E002C6A93700041D7BD /* BlockApps */ = {
+			isa = PBXGroup;
+			children = (
+				B34F3E022C6A93A30041D7BD /* BlockAppsViewController.swift */,
+			);
+			path = BlockApps;
+			sourceTree = "<group>";
+		};
+		B34F3E012C6A93800041D7BD /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				B34F3E042C6A93AC0041D7BD /* SettingsViewController.swift */,
+			);
+			path = Settings;
 			sourceTree = "<group>";
 		};
 		B369278B2C66B6E30089F769 = {
@@ -179,6 +215,7 @@
 			children = (
 				B36927CE2C66B8A30089F769 /* Coordinator.swift */,
 				B36927D42C66BCE60089F769 /* HomeCoordinator.swift */,
+				B34F3E082C6A96A20041D7BD /* RootTabCoordinator.swift */,
 			);
 			path = Coordinators;
 			sourceTree = "<group>";
@@ -188,6 +225,7 @@
 			children = (
 				B36927D02C66B8CA0089F769 /* Router.swift */,
 				B36927D22C66BBC10089F769 /* SceneDelegateRouter.swift */,
+				B34F3E0A2C6A9E350041D7BD /* HomeNavigationRouter.swift */,
 			);
 			path = Routers;
 			sourceTree = "<group>";
@@ -202,8 +240,12 @@
 		B36927CB2C66B8430089F769 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
-				B36927CD2C66B88F0089F769 /* LauchingScreen */,
+				B34F3DFC2C6A92890041D7BD /* RootTabBarController.swift */,
+				B34F3E002C6A93700041D7BD /* BlockApps */,
 				B36927CC2C66B86D0089F769 /* Home */,
+				B36927CD2C66B88F0089F769 /* LauchingScreen */,
+				B34F3E012C6A93800041D7BD /* Settings */,
+				B34F3DFF2C6A936C0041D7BD /* Usage */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -391,10 +433,16 @@
 				B36927D12C66B8CA0089F769 /* Router.swift in Sources */,
 				B36927982C66B6E30089F769 /* AppDelegate.swift in Sources */,
 				B369279A2C66B6E30089F769 /* SceneDelegate.swift in Sources */,
+				B34F3E0B2C6A9E350041D7BD /* HomeNavigationRouter.swift in Sources */,
 				B36927DA2C66C2770089F769 /* HomeView.swift in Sources */,
 				B36927D52C66BCE60089F769 /* HomeCoordinator.swift in Sources */,
 				B36927D32C66BBC10089F769 /* SceneDelegateRouter.swift in Sources */,
+				B34F3DFD2C6A92890041D7BD /* RootTabBarController.swift in Sources */,
+				B34F3E092C6A96A20041D7BD /* RootTabCoordinator.swift in Sources */,
 				B34F3DF82C69A3810041D7BD /* DebugOptions.swift in Sources */,
+				B34F3E052C6A93AC0041D7BD /* SettingsViewController.swift in Sources */,
+				B34F3E032C6A93A30041D7BD /* BlockAppsViewController.swift in Sources */,
+				B34F3E072C6A93B30041D7BD /* UsageViewController.swift in Sources */,
 				B34F3DF52C6701870041D7BD /* String+LocalizedKey.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
