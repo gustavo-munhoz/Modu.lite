@@ -11,9 +11,9 @@ class RootTabBarController: UITabBarController {
            
     override func viewDidLoad() {
         tabBar.barTintColor = .tabBarBackground
+        tabBar.backgroundColor = .tabBarBackground
+        tabBar.tintColor = .turquoise
     }
     
-    override func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
-        
-    }
+    
 }
