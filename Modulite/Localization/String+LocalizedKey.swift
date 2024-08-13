@@ -75,6 +75,9 @@ extension String {
         /// The cases should be 1-1 with `Localizable.xcstrings` keys.
         
         case homeViewControllerTabBarItemTitle
+        case usageViewControllerTabBarItemTitle
+        case blockAppsViewControllerTabBarItemTitle
+        case settingsViewControllerTabBarItemTitle
     }
         
     
