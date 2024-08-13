@@ -59,6 +59,12 @@ extension String {
         /// - Parameter elements: An array of strings to be localized within test scenarios.
         case testArray(elements: [String])
         
+        /// `testTwoStrings` is a test-exclusive enum case used to test functionalities that require two separate string inputs.
+        /// This case is designed to facilitate testing scenarios where two distinct string values need to be validated or processed together.
+        /// For example, it could be used to test concatenation, comparison, or any function that manipulates two strings.
+        /// - Parameters:
+        ///   - first: The first string used for testing. This could represent data like a user's first name, an email, or any textual input.
+        ///   - second: The second string used for testing. This could represent additional data like a user's last name, a confirmation of the email, or another textual input.
         case testTwoStrings(first: String, second: String)
         
         /// `testNoValue` is a test-exclusive case that represents scenarios where no additional values are needed.
@@ -66,9 +72,11 @@ extension String {
         case testNoValue
         
         // MARK: - Localized Keys
+        /// The cases should be 1-1 with `Localizable.xcstrings` keys.
         
-        
+        case homeViewControllerTabBarItemTitle
     }
+        
     
     /// Returns a localized string using the key and associated values defined by the `LocalizedKey` enum.
     /// Utilizes the `NSLocalizedString` function to fetch the appropriate translation for the key,

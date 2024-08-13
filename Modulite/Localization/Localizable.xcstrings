@@ -1,6 +1,17 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
+    "homeViewControllerTabBarItemTitle" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Home"
+          }
+        }
+      }
+    },
     "testArray" : {
       "comment" : "This is a test value, and should only be used for testing purposes.",
       "extractionState" : "manual",
