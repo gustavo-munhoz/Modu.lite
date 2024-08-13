@@ -9,61 +9,95 @@ import UIKit
 
 class HomeViewController: UIViewController {
 
+    // MARK: - Properties
     let homeView = HomeView()
+    var viewModel: HomeViewModel?
     
+    // MARK: - Lifecycle
     override func loadView() {
         self.view = homeView
+        homeView.setCollectionViewDelegates(to: self)
+        homeView.setCollectionViewDataSources(to: self)
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        // FIXME: Make image be on bottom-left of navbar with large title
         
+        setupViewModel()
+        setupNavigationBar()
+        
+    }
+    
+    // MARK: - Setup methods
+    private func setupViewModel() {
+        self.viewModel = HomeViewModel()
+    }
+    
+    private func setupNavigationBar() {
+        if let image = UIImage(named: "navbar-app-name") {
+            let imageView = UIImageView(image: image)
+            imageView.contentMode = .scaleAspectFit
+
+            imageView.frame = CGRect(x: 0, y: 0, width: 226, height: 32)
+            
+            navigationItem.titleView = imageView
+            
+        } else {
+            print("Image not found")
+        }
     }
 }
 
 extension HomeViewController: UICollectionViewDataSource {
-    func numberOfSections(in collectionView: UICollectionView) -> Int {
-        3
-    }
-    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        // FIXME: Get cells from ViewModel.
-        switch section {
+        guard let viewModel = viewModel else { return 0 }
+        
+        switch collectionView {
+        case homeView.mainWidgetsCollectionView: return viewModel.mainWidgets.count
+        case homeView.auxiliaryWidgetsCollectionView: return viewModel.auxiliaryWidgets.count
+        case homeView.tipsCollectionView: return viewModel.tips.count
         default: return 0
         }
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        switch indexPath.section {
-        case 0:
-            guard let cell = collectionView.dequeueReusableCell(
-                withReuseIdentifier: MainWidgetCollectionViewCell.reuseId,
-                for: indexPath
-            ) as? MainWidgetCollectionViewCell else {
-                fatalError("Error dequeueing MainWidget cell.")
+        switch collectionView {
+        case homeView.mainWidgetsCollectionView:
+            guard let viewModel = viewModel,
+                  let cell = collectionView.dequeueReusableCell(
+                    withReuseIdentifier: MainWidgetCollectionViewCell.reuseId,
+                    for: indexPath
+                  ) as? MainWidgetCollectionViewCell else {
+                fatalError("Could not dequeue MainWidgetCollectionViewCell.")
             }
+            
+            cell.configure(with: viewModel.mainWidgets[indexPath.row])
+            
             return cell
             
-        case 1:
+        case homeView.auxiliaryWidgetsCollectionView:
             guard let cell = collectionView.dequeueReusableCell(
                 withReuseIdentifier: AuxiliaryWidgetCollectionViewCell.reuseId,
                 for: indexPath
             ) as? AuxiliaryWidgetCollectionViewCell else {
-                fatalError("Error dequeueing AuxiliaryWidget cell.")
+                fatalError("Could not dequeue AuxiliaryWidgetCollectionViewCell.")
             }
+            
             return cell
             
-        case 2:
+        case homeView.tipsCollectionView:
             guard let cell = collectionView.dequeueReusableCell(
                 withReuseIdentifier: TipCollectionViewCell.reuseId,
                 for: indexPath
             ) as? TipCollectionViewCell else {
-                fatalError("Error dequeueing Tip cell.")
+                fatalError("Could not dequeue TipCollectionViewCell.")
             }
+            
             return cell
             
         default:
-            fatalError("Unexpected Section.")
+            fatalError("Unsupported collection view.")
         }
     }
     
@@ -80,25 +114,26 @@ extension HomeViewController: UICollectionViewDataSource {
             fatalError("Error dequeueing Header cell.")
         }
         
-        header.titleLabel.text = getHeaderText(for: indexPath)
+        header.setup(title: getHeaderText(for: collectionView))
         return header
     }
     
-    private func getHeaderText(for indexPath: IndexPath) -> String {
-        return [
-            String.localized(for: .homeViewMainSectionHeaderTitle),
-            String.localized(for: .homeViewAuxiliarySectionHeaderTitle),
-            String.localized(for: .homeViewTipsSectionHeaderTitle),
-        ][indexPath.row]
+    private func getHeaderText(for collectionView: UICollectionView) -> String {
+        switch collectionView {
+        case homeView.mainWidgetsCollectionView: return .localized(for: .homeViewMainSectionHeaderTitle)
+        case homeView.auxiliaryWidgetsCollectionView: return .localized(for: .homeViewAuxiliarySectionHeaderTitle)
+        case homeView.tipsCollectionView: return .localized(for: .homeViewTipsSectionHeaderTitle)
+        default: return ""
+        }
     }
 }
 
 extension HomeViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        switch indexPath.section {
-        case 0: return CGSize(width: 192, height: 235)
-        case 1: return CGSize(width: 192, height: 130)
-        case 2: return CGSize(width: 200, height: 150)
+        switch collectionView {
+        case homeView.mainWidgetsCollectionView: return CGSize(width: 192, height: 235)
+        case homeView.auxiliaryWidgetsCollectionView: return CGSize(width: 192, height: 130)
+        case homeView.tipsCollectionView: return CGSize(width: 200, height: 150)        
         default: return .zero
         }
     }
