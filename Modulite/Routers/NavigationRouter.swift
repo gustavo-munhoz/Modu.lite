@@ -1,5 +1,5 @@
 //
-//  HomeNavigationRouter.swift
+//  NavigationRouter.swift
 //  Modulite
 //
 //  Created by Gustavo Munhoz Correa on 12/08/24.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class HomeNavigationRouter: NSObject {
+class NavigationRouter: NSObject {
     private let navigationController: UINavigationController
     private let routerRootController: UIViewController?
     /// A dictionary that contains dismiss closures for children `UIViewControllers`.
@@ -21,7 +21,7 @@ class HomeNavigationRouter: NSObject {
     }
 }
 
-extension HomeNavigationRouter: Router {
+extension NavigationRouter: Router {
     func present(_ viewController: UIViewController, animated: Bool, onDismiss: (() -> Void)?) {
         onDismissForViewController[viewController] = onDismiss
         navigationController.pushViewController(viewController, animated: animated)
@@ -45,7 +45,7 @@ extension HomeNavigationRouter: Router {
     }
 }
 
-extension HomeNavigationRouter: UINavigationControllerDelegate {
+extension NavigationRouter: UINavigationControllerDelegate {
     func navigationController(_ navigationController: UINavigationController, didShow viewController: UIViewController, animated: Bool) {
       guard let dismissedVC = navigationController.transitionCoordinator?.viewController(forKey: .from),
             !navigationController.viewControllers.contains(dismissedVC) else { return }
