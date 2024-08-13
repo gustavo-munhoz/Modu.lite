@@ -8,23 +8,10 @@
 import UIKit
 import SnapKit
 
-class HomeView: UIView {
+class HomeView: UIScrollView {
     
     // MARK: - Properties
-    private(set) lazy var stackView: UIStackView = {
-        let stack = UIStackView(arrangedSubviews: [
-            mainWidgetsCollectionView,
-            auxiliaryWidgetsCollectionView,
-            tipsCollectionView
-        ])
-//        stack.translatesAutoresizingMaskIntoConstraints = false
-        stack.axis = .vertical
-        stack.alignment = .fill
-        stack.distribution = .fillProportionally
-        stack.spacing = 24
-        
-        return stack
-    }()
+    private let contentView = UIView()
     
     private(set) lazy var mainWidgetsCollectionView: UICollectionView = createCollectionView(for: .mainWidgets)
     private(set) lazy var auxiliaryWidgetsCollectionView: UICollectionView = createCollectionView(for: .auxiliaryWidgets)
@@ -65,7 +52,7 @@ class HomeView: UIView {
     
     private func getGroupSizeForCollectionViewLayout(for section: ViewSection) -> CGSize {
         switch section {
-        case .mainWidgets: return CGSizeMake(192, 235)
+        case .mainWidgets: return CGSizeMake(192, 240)
         case .auxiliaryWidgets: return CGSizeMake(192, 130)
         case .tips: return CGSizeMake(200, 150)
         }
@@ -86,7 +73,7 @@ class HomeView: UIView {
             let section = NSCollectionLayoutSection(group: group)
             section.orthogonalScrollingBehavior = .continuous
             
-            let headerSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .estimated(50))
+            let headerSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .estimated(60))
             let header = NSCollectionLayoutBoundarySupplementaryItem(layoutSize: headerSize, elementKind: UICollectionView.elementKindSectionHeader, alignment: .top)
             section.boundarySupplementaryItems = [header]
             
@@ -95,10 +82,12 @@ class HomeView: UIView {
         
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.backgroundColor = .clear
-        collectionView.translatesAutoresizingMaskIntoConstraints = false
+        collectionView.alwaysBounceVertical = false
+        collectionView.showsVerticalScrollIndicator = false
+        collectionView.showsHorizontalScrollIndicator = false
+
         return collectionView
     }
-
     
     private func setupCollectionViews() {
         mainWidgetsCollectionView.register(MainWidgetCollectionViewCell.self, forCellWithReuseIdentifier: MainWidgetCollectionViewCell.reuseId)
@@ -112,12 +101,35 @@ class HomeView: UIView {
     }
     
     private func addSubviews() {
-        addSubview(stackView)
+        addSubview(contentView)
+        contentView.addSubview(mainWidgetsCollectionView)
+        contentView.addSubview(auxiliaryWidgetsCollectionView)
+        contentView.addSubview(tipsCollectionView)
     }
     
     private func setupConstraints() {
-        stackView.snp.makeConstraints { make in
-            make.edges.equalTo(safeAreaLayoutGuide).inset(24)
+        contentView.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
+            make.width.equalToSuperview()
+            make.height.equalTo(700)  // Adjust based on your content
+        }
+                
+        mainWidgetsCollectionView.snp.makeConstraints { make in
+            make.left.right.equalToSuperview().inset(24)
+            make.top.equalToSuperview()
+            make.height.equalTo(300)
+        }
+        
+        auxiliaryWidgetsCollectionView.snp.makeConstraints { make in
+            make.top.equalTo(mainWidgetsCollectionView.snp.bottom)
+            make.left.right.equalTo(mainWidgetsCollectionView)
+            make.height.equalTo(190)
+        }
+        
+        tipsCollectionView.snp.makeConstraints { make in
+            make.top.equalTo(auxiliaryWidgetsCollectionView.snp.bottom)
+            make.left.right.equalTo(auxiliaryWidgetsCollectionView)
+            make.height.equalTo(210)
         }
     }
 }
