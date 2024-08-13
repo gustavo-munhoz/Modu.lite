@@ -74,10 +74,16 @@ extension String {
         // MARK: - Localized Keys
         /// The cases should be 1-1 with `Localizable.xcstrings` keys.
         
+        // MARK: Tab Bar Titles
         case homeViewControllerTabBarItemTitle
         case usageViewControllerTabBarItemTitle
         case blockAppsViewControllerTabBarItemTitle
         case settingsViewControllerTabBarItemTitle
+        
+        // MARK: HomeView & HomeViewController
+        case homeViewMainSectionHeaderTitle
+        case homeViewAuxiliarySectionHeaderTitle
+        case homeViewTipsSectionHeaderTitle
     }
         
     

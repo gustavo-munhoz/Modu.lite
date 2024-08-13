@@ -12,6 +12,17 @@
         }
       }
     },
+    "homeViewAuxiliarySectionHeaderTitle" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "My widgets (Auxiliary)"
+          }
+        }
+      }
+    },
     "homeViewControllerTabBarItemTitle" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -19,6 +30,28 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Home"
+          }
+        }
+      }
+    },
+    "homeViewMainSectionHeaderTitle" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "My widgets (Main)"
+          }
+        }
+      }
+    },
+    "homeViewTipsSectionHeaderTitle" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tips & more"
           }
         }
       }
