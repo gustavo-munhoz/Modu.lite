@@ -8,12 +8,14 @@
 import UIKit
 
 class HomeNavigationRouter: NSObject {
-    unowned let parentViewController: UIViewController
-    private let navigationController = UINavigationController()
+    private let navigationController: UINavigationController
+    private let routerRootController: UIViewController?
+    /// A dictionary that contains dismiss closures for children `UIViewControllers`.
     private var onDismissForViewController: [UIViewController: (() -> Void)] = [:]
     
-    init(parentViewController: UIViewController) {
-        self.parentViewController = parentViewController
+    init(navigationController: UINavigationController) {
+        self.navigationController = navigationController
+        self.routerRootController = navigationController.viewControllers.first
         super.init()
         self.navigationController.delegate = self
     }
@@ -22,13 +24,17 @@ class HomeNavigationRouter: NSObject {
 extension HomeNavigationRouter: Router {
     func present(_ viewController: UIViewController, animated: Bool, onDismiss: (() -> Void)?) {
         onDismissForViewController[viewController] = onDismiss
-        
         navigationController.pushViewController(viewController, animated: animated)
     }
     
     func dismiss(animated: Bool) {
-        performOnDismissed(for: navigationController.viewControllers.first!)
-        parentViewController.dismiss(animated: animated)
+        guard let routerRootController = routerRootController else {
+            navigationController.popToRootViewController(animated: animated)
+            return
+        }
+        
+        performOnDismissed(for: routerRootController)
+        navigationController.popToViewController(routerRootController, animated: animated)
     }
     
     private func performOnDismissed(for viewController: UIViewController) {
