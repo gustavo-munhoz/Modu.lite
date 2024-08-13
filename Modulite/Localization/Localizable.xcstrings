@@ -1,6 +1,17 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
+    "blockAppsViewControllerTabBarItemTitle" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Block apps"
+          }
+        }
+      }
+    },
     "homeViewControllerTabBarItemTitle" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -8,6 +19,17 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Home"
+          }
+        }
+      }
+    },
+    "settingsViewControllerTabBarItemTitle" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Settings"
           }
         }
       }
@@ -68,6 +90,17 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "%@, %@!"
+          }
+        }
+      }
+    },
+    "usageViewControllerTabBarItemTitle" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Usage"
           }
         }
       }
