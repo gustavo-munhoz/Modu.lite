@@ -117,7 +117,15 @@ extension HomeViewController: UICollectionViewDataSource {
             fatalError("Error dequeueing Header cell.")
         }
         
-        header.setup(title: getHeaderText(for: collectionView))
+        header.setup(
+            title: getHeaderText(for: collectionView),
+            buttonImage: collectionView === homeView.tipsCollectionView ? UIImage(systemName: "ellipsis")! : UIImage(systemName: "plus.circle")!,
+            buttonColor: collectionView === homeView.tipsCollectionView ? .systemGray : .turquoise,
+            buttonAction: {
+                // TODO: Implement actions
+            }
+        )
+        
         return header
     }
     

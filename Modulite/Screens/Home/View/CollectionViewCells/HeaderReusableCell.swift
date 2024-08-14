@@ -13,9 +13,10 @@ class HeaderReusableCell: UICollectionViewCell {
     
     // MARK: - Properties
     
+    var onButtonTap: (() -> Void)?
+    
     private(set) lazy var titleLabel: UILabel = {
         let view = UILabel()
-        view.translatesAutoresizingMaskIntoConstraints = false
         
         let fd = UIFontDescriptor.preferredFontDescriptor(withTextStyle: .title2)
         let customFd = fd.addingAttributes([.traits: [
@@ -28,15 +29,36 @@ class HeaderReusableCell: UICollectionViewCell {
     }()
     
     private(set) lazy var actionButton: UIButton = {
-        let view = UIButton()
-        view.translatesAutoresizingMaskIntoConstraints = false
+        var config = UIButton.Configuration.plain()
+        let fd = UIFontDescriptor.preferredFontDescriptor(withTextStyle: .title2)
+        let customFd = fd.addingAttributes([.traits: [
+            UIFontDescriptor.TraitKey.weight: UIFont.Weight.bold
+        ]])
+        
+        config.preferredSymbolConfigurationForImage = .init(font: UIFont(descriptor: customFd, size: 0))
+        
+        let view = UIButton(configuration: config)
+        view.addTarget(self, action: #selector(handleButtonTap), for: .touchUpInside)
+        
+        view.configurationUpdateHandler = { button in
+            switch button.state {
+            case .highlighted:
+                button.alpha = 0.6
+            default:
+                button.alpha = 1
+            }
+        }
         
         return view
     }()
     
     // MARK: - Setup methods
     
-    func setup(title: String) {
+    func setup(title: String, buttonImage: UIImage, buttonColor: UIColor = .turquoise, buttonAction: @escaping () -> Void) {
+        actionButton.configuration?.image = buttonImage
+        actionButton.configuration?.baseForegroundColor = buttonColor
+        onButtonTap = buttonAction
+        
         addSubviews()
         setupContraints()
         
@@ -56,5 +78,11 @@ class HeaderReusableCell: UICollectionViewCell {
         actionButton.snp.makeConstraints { make in
             make.top.right.bottom.equalToSuperview()
         }
+    }
+    
+    // MARK: - Actions
+    
+    @objc func handleButtonTap() {
+        onButtonTap?()
     }
 }

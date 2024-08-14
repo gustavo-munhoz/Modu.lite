@@ -89,7 +89,7 @@ class HomeView: UIScrollView {
             let section = NSCollectionLayoutSection(group: group)
             section.orthogonalScrollingBehavior = .continuous
             
-            let headerSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .estimated(60))
+            let headerSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .absolute(60))
             let header = NSCollectionLayoutBoundarySupplementaryItem(layoutSize: headerSize, elementKind: UICollectionView.elementKindSectionHeader, alignment: .top)
             section.boundarySupplementaryItems = [header]
             
@@ -107,14 +107,35 @@ class HomeView: UIScrollView {
     
     /// Registers cell and header types for each collection view.
     private func setupCollectionViews() {
-        mainWidgetsCollectionView.register(MainWidgetCollectionViewCell.self, forCellWithReuseIdentifier: MainWidgetCollectionViewCell.reuseId)
-        mainWidgetsCollectionView.register(HeaderReusableCell.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: HeaderReusableCell.reuseId)
+        mainWidgetsCollectionView.register(
+            MainWidgetCollectionViewCell.self,
+            forCellWithReuseIdentifier: MainWidgetCollectionViewCell.reuseId
+        )
+        mainWidgetsCollectionView.register(
+            HeaderReusableCell.self,
+            forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader,
+            withReuseIdentifier: HeaderReusableCell.reuseId
+        )
         
-        auxiliaryWidgetsCollectionView.register(AuxiliaryWidgetCollectionViewCell.self, forCellWithReuseIdentifier: AuxiliaryWidgetCollectionViewCell.reuseId)
-        auxiliaryWidgetsCollectionView.register(HeaderReusableCell.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: HeaderReusableCell.reuseId)
+        auxiliaryWidgetsCollectionView.register(
+            AuxiliaryWidgetCollectionViewCell.self,
+            forCellWithReuseIdentifier: AuxiliaryWidgetCollectionViewCell.reuseId
+        )
+        auxiliaryWidgetsCollectionView.register(
+            HeaderReusableCell.self,
+            forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader,
+            withReuseIdentifier: HeaderReusableCell.reuseId
+        )
         
-        tipsCollectionView.register(TipCollectionViewCell.self, forCellWithReuseIdentifier: TipCollectionViewCell.reuseId)
-        tipsCollectionView.register(HeaderReusableCell.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: HeaderReusableCell.reuseId)
+        tipsCollectionView.register(
+            TipCollectionViewCell.self,
+            forCellWithReuseIdentifier: TipCollectionViewCell.reuseId
+        )
+        tipsCollectionView.register(
+            HeaderReusableCell.self,
+            forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader,
+            withReuseIdentifier: HeaderReusableCell.reuseId
+        )
     }
     
     /// Adds all subviews to the contentView, which is then added to the UIScrollView.

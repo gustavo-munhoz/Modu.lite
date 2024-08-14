@@ -317,8 +317,8 @@
 		B36927D82C66C25F0089F769 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				B34F3E122C6B93AB0041D7BD /* CollectionViewCells */,
 				B36927D92C66C2770089F769 /* HomeView.swift */,
+				B34F3E122C6B93AB0041D7BD /* CollectionViewCells */,
 			);
 			path = View;
 			sourceTree = "<group>";
