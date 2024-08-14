@@ -16,7 +16,6 @@ class MainWidgetCollectionViewCell: UICollectionViewCell {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        backgroundColor = .systemTeal
         setupImageView()
     }
 

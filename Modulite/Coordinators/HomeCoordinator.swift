@@ -30,3 +30,15 @@ class HomeCoordinator: Coordinator {
         router.present(vc, animated: animated, onDismiss: onDismiss)
     }
 }
+
+extension HomeCoordinator: HomeNavigationFlowDelegate {
+    func navigateToWidgetSetup(forWidgetId id: UUID) {
+        // FIXME: Identify widget and set/create data for it
+        let viewController = WidgetSetupViewController()
+        viewController.hidesBottomBarWhenPushed = true
+        
+        router.present(viewController, animated: true) {
+            // TODO: Save widget if already exists?
+        }
+    }
+}

@@ -11,7 +11,7 @@ class HomeViewController: UIViewController {
 
     // MARK: - Properties
     let homeView = HomeView()
-    var viewModel: HomeViewModel?
+    let viewModel = HomeViewModel()
     
     // MARK: - Lifecycle
     override func loadView() {
@@ -22,16 +22,13 @@ class HomeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
-        setupViewModel()
+                        
         setupNavigationBar()
-        
     }
     
     // MARK: - Setup methods
-    private func setupViewModel() {
-        self.viewModel = HomeViewModel()
+    func setViewModelNavigationDelegate(to delegate: HomeNavigationFlowDelegate) {
+        viewModel.delegate = delegate
     }
     
     private func setupNavigationBar() {
@@ -49,9 +46,9 @@ class HomeViewController: UIViewController {
     }
 }
 
+// MARK: - UICollectionViewDataSource
 extension HomeViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        guard let viewModel = viewModel else { return 0 }
         
         switch collectionView {
         case homeView.mainWidgetsCollectionView: return viewModel.mainWidgets.count
@@ -64,8 +61,7 @@ extension HomeViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         switch collectionView {
         case homeView.mainWidgetsCollectionView:
-            guard let viewModel = viewModel,
-                  let cell = collectionView.dequeueReusableCell(
+            guard let cell = collectionView.dequeueReusableCell(
                     withReuseIdentifier: MainWidgetCollectionViewCell.reuseId,
                     for: indexPath
                   ) as? MainWidgetCollectionViewCell else {
@@ -77,8 +73,7 @@ extension HomeViewController: UICollectionViewDataSource {
             return cell
             
         case homeView.auxiliaryWidgetsCollectionView:
-            guard let viewModel = viewModel,
-                  let cell = collectionView.dequeueReusableCell(
+            guard let cell = collectionView.dequeueReusableCell(
                 withReuseIdentifier: AuxiliaryWidgetCollectionViewCell.reuseId,
                 for: indexPath
             ) as? AuxiliaryWidgetCollectionViewCell else {
@@ -116,21 +111,33 @@ extension HomeViewController: UICollectionViewDataSource {
         ) as? HeaderReusableCell else {
             fatalError("Error dequeueing Header cell.")
         }
-        
-        header.setup(title: getHeaderText(for: collectionView))
-        return header
-    }
-    
-    private func getHeaderText(for collectionView: UICollectionView) -> String {
-        switch collectionView {
-        case homeView.mainWidgetsCollectionView: return .localized(for: .homeViewMainSectionHeaderTitle)
-        case homeView.auxiliaryWidgetsCollectionView: return .localized(for: .homeViewAuxiliarySectionHeaderTitle)
-        case homeView.tipsCollectionView: return .localized(for: .homeViewTipsSectionHeaderTitle)
-        default: return ""
+            
+        if collectionView === homeView.tipsCollectionView {
+            header.setup(
+                title: .localized(for: .homeViewTipsSectionHeaderTitle),
+                buttonImage: UIImage(systemName: "ellipsis")!,
+                buttonColor: .systemGray,
+                buttonAction: {
+                    // TODO: Implement this
+                }
+            )
+        } else {
+            header.setup(
+                title: .localized(for: .homeViewMainSectionHeaderTitle),
+                buttonImage: UIImage(systemName: "plus.circle")!,
+                buttonAction: { [weak self] in
+                    guard let self = self else { return }
+                    self.viewModel.startWidgetSetupFlow()
+                }
+            )
         }
+        
+        
+        return header
     }
 }
 
+// MARK: - UICollectionViewDelegate
 extension HomeViewController: UICollectionViewDelegate {
     // TODO: Implement this
 }
