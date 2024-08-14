@@ -57,7 +57,7 @@ class RootTabCoordinator: Coordinator {
             selectedImageName: "house.fill"
         )
         let homeRouter = NavigationRouter(navigationController: navigationController)
-        let homeCoordinator = HomeCoordinator(router: homeRouter)        
+        let homeCoordinator = HomeCoordinator(router: homeRouter)
         viewController.setViewModelNavigationDelegate(to: homeCoordinator)
         
         children.append(homeCoordinator)
