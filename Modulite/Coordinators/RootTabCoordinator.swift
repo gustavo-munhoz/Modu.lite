@@ -49,14 +49,17 @@ class RootTabCoordinator: Coordinator {
     /// Creates and configures the Home tab with a navigation controller.
     /// - Returns: A configured navigation controller for the Home tab.
     private func configureHome() -> UINavigationController {
-        let navigationController = UINavigationController(rootViewController: HomeViewController())
+        let viewController = HomeViewController()
+        let navigationController = UINavigationController(rootViewController: viewController)
         navigationController.tabBarItem = createTabBarItem(
             titleKey: .homeViewControllerTabBarItemTitle,
             imageName: "house",
             selectedImageName: "house.fill"
         )
         let homeRouter = NavigationRouter(navigationController: navigationController)
-        let homeCoordinator = HomeCoordinator(router: homeRouter)
+        let homeCoordinator = HomeCoordinator(router: homeRouter)        
+        viewController.setViewModelNavigationDelegate(to: homeCoordinator)
+        
         children.append(homeCoordinator)
         return navigationController
     }
