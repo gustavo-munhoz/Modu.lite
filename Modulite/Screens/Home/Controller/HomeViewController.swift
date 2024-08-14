@@ -22,7 +22,7 @@ class HomeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // FIXME: Make image be on bottom-left of navbar with large title
+        
         
         setupViewModel()
         setupNavigationBar()
@@ -35,11 +35,11 @@ class HomeViewController: UIViewController {
     }
     
     private func setupNavigationBar() {
+        // FIXME: Make image be on bottom-left of navbar with large title
+        
         if let image = UIImage(named: "navbar-app-name") {
             let imageView = UIImageView(image: image)
             imageView.contentMode = .scaleAspectFit
-
-            imageView.frame = CGRect(x: 0, y: 0, width: 226, height: 32)
             
             navigationItem.titleView = imageView
             
@@ -77,12 +77,15 @@ extension HomeViewController: UICollectionViewDataSource {
             return cell
             
         case homeView.auxiliaryWidgetsCollectionView:
-            guard let cell = collectionView.dequeueReusableCell(
+            guard let viewModel = viewModel,
+                  let cell = collectionView.dequeueReusableCell(
                 withReuseIdentifier: AuxiliaryWidgetCollectionViewCell.reuseId,
                 for: indexPath
             ) as? AuxiliaryWidgetCollectionViewCell else {
                 fatalError("Could not dequeue AuxiliaryWidgetCollectionViewCell.")
             }
+            
+            cell.configure(with: viewModel.auxiliaryWidgets[indexPath.row])
             
             return cell
             
@@ -128,17 +131,6 @@ extension HomeViewController: UICollectionViewDataSource {
     }
 }
 
-extension HomeViewController: UICollectionViewDelegateFlowLayout {
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        switch collectionView {
-        case homeView.mainWidgetsCollectionView: return CGSize(width: 192, height: 235)
-        case homeView.auxiliaryWidgetsCollectionView: return CGSize(width: 192, height: 130)
-        case homeView.tipsCollectionView: return CGSize(width: 200, height: 150)        
-        default: return .zero
-        }
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
-        return CGSize(width: collectionView.bounds.width, height: 50)
-    }
+extension HomeViewController: UICollectionViewDelegate {
+    // TODO: Implement this
 }

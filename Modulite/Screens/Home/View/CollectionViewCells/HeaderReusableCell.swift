@@ -11,6 +11,8 @@ import SnapKit
 class HeaderReusableCell: UICollectionViewCell {
     static let reuseId = "HeaderReusableCell"
     
+    // MARK: - Properties
+    
     private(set) lazy var titleLabel: UILabel = {
         let view = UILabel()
         view.translatesAutoresizingMaskIntoConstraints = false
@@ -31,4 +33,28 @@ class HeaderReusableCell: UICollectionViewCell {
         
         return view
     }()
+    
+    // MARK: - Setup methods
+    
+    func setup(title: String) {
+        addSubviews()
+        setupContraints()
+        
+        titleLabel.text = title
+    }
+    
+    private func addSubviews() {
+        addSubview(titleLabel)
+        addSubview(actionButton)
+    }
+    
+    private func setupContraints() {
+        titleLabel.snp.makeConstraints { make in
+            make.top.left.bottom.equalToSuperview()
+        }
+        
+        actionButton.snp.makeConstraints { make in
+            make.top.right.bottom.equalToSuperview()
+        }
+    }
 }
