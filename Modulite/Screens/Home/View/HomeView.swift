@@ -64,47 +64,6 @@ class HomeView: UIScrollView {
         tipsCollectionView.dataSource = dataSource
     }
     
-    /// Calculates and returns the appropriate size for a given collection view layout section.
-    private func getGroupSizeForCollectionViewLayout(for section: ViewSection) -> CGSize {
-        switch section {
-        case .mainWidgets: return CGSize(width: 192, height: 240)
-        case .auxiliaryWidgets: return CGSize(width: 192, height: 130)
-        case .tips: return CGSize(width: 200, height: 150)
-        }
-    }
-    
-    /// Creates and returns a collection view configured with a compositional layout based on the section type.
-    private func createCollectionView(for section: ViewSection) -> UICollectionView {
-        let layout = UICollectionViewCompositionalLayout { [weak self] (sectionIndex, layoutEnvironment) -> NSCollectionLayoutSection? in
-            guard let self = self else { return nil }
-            
-            let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .fractionalHeight(1.0))
-            let item = NSCollectionLayoutItem(layoutSize: itemSize)
-            
-            let size = self.getGroupSizeForCollectionViewLayout(for: section)
-            
-            let groupSize = NSCollectionLayoutSize(widthDimension: .absolute(size.width), heightDimension: .absolute(size.height))
-            let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
-            
-            let section = NSCollectionLayoutSection(group: group)
-            section.orthogonalScrollingBehavior = .continuous
-            
-            let headerSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .absolute(60))
-            let header = NSCollectionLayoutBoundarySupplementaryItem(layoutSize: headerSize, elementKind: UICollectionView.elementKindSectionHeader, alignment: .top)
-            section.boundarySupplementaryItems = [header]
-            
-            return section
-        }
-        
-        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
-        collectionView.backgroundColor = .clear
-        collectionView.alwaysBounceVertical = false
-        collectionView.showsVerticalScrollIndicator = false
-        collectionView.showsHorizontalScrollIndicator = false
-
-        return collectionView
-    }
-    
     /// Registers cell and header types for each collection view.
     private func setupCollectionViews() {
         mainWidgetsCollectionView.register(
@@ -170,5 +129,57 @@ class HomeView: UIScrollView {
             make.left.right.equalToSuperview()
             make.height.equalTo(210)
         }
+    }
+    
+    // MARK: - Helper methods
+    
+    /// Calculates and returns the appropriate size for a given collection view layout section.
+    private func getGroupSizeForCollectionViewLayout(for section: ViewSection) -> CGSize {
+        switch section {
+        case .mainWidgets: return CGSize(width: 192, height: 240)
+        case .auxiliaryWidgets: return CGSize(width: 192, height: 130)
+        case .tips: return CGSize(width: 200, height: 150)
+        }
+    }
+    
+    /// Creates and returns a collection view configured with a compositional layout based on the section type.
+    private func createCollectionView(for section: ViewSection) -> UICollectionView {
+        let layout = UICollectionViewCompositionalLayout { [weak self] (sectionIndex, layoutEnvironment) -> NSCollectionLayoutSection? in
+            guard let self = self else { return nil }
+            
+            let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .fractionalHeight(1.0))
+            let item = NSCollectionLayoutItem(layoutSize: itemSize)
+            
+            let size = self.getGroupSizeForCollectionViewLayout(for: section)
+            
+            let groupSize = NSCollectionLayoutSize(widthDimension: .absolute(size.width), heightDimension: .absolute(size.height))
+            let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
+            
+            let section = NSCollectionLayoutSection(group: group)
+            section.orthogonalScrollingBehavior = .continuous
+            
+            let headerSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .absolute(60))
+            let header = NSCollectionLayoutBoundarySupplementaryItem(layoutSize: headerSize, elementKind: UICollectionView.elementKindSectionHeader, alignment: .top)
+            section.boundarySupplementaryItems = [header]
+            
+            return section
+        }
+        
+        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        collectionView.clipsToBounds = false
+        collectionView.backgroundColor = .clear
+        collectionView.alwaysBounceVertical = false
+        collectionView.showsVerticalScrollIndicator = false
+        collectionView.showsHorizontalScrollIndicator = false
+
+        return collectionView
+    }
+    
+    // TODO: Implement this
+    private func createSeparator() -> UIView {
+        let separator = UIView()
+        separator.frame = CGRect(x: 0, y: 0, width: bounds.width - 48, height: 2)
+        
+        return separator
     }
 }
