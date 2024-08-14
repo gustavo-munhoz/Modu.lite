@@ -11,6 +11,7 @@ class WidgetSetupView: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
+        backgroundColor = .screenBackground
         addSubviews()
         setupConstraints()
     }
