@@ -273,7 +273,7 @@
 				B34F3DFC2C6A92890041D7BD /* RootTabBarController.swift */,
 				B34F3E002C6A93700041D7BD /* BlockApps */,
 				B36927CC2C66B86D0089F769 /* Home */,
-				B36927CD2C66B88F0089F769 /* LauchingScreen */,
+				B36927CD2C66B88F0089F769 /* LaunchScreen */,
 				B34F3E012C6A93800041D7BD /* Settings */,
 				B34F3DFF2C6A936C0041D7BD /* Usage */,
 			);
@@ -290,12 +290,12 @@
 			path = Home;
 			sourceTree = "<group>";
 		};
-		B36927CD2C66B88F0089F769 /* LauchingScreen */ = {
+		B36927CD2C66B88F0089F769 /* LaunchScreen */ = {
 			isa = PBXGroup;
 			children = (
 				B36927A22C66B6E40089F769 /* LaunchScreen.storyboard */,
 			);
-			path = LauchingScreen;
+			path = LaunchScreen;
 			sourceTree = "<group>";
 		};
 		B36927D62C66C2520089F769 /* ViewModel */ = {
