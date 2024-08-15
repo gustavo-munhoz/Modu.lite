@@ -1,5 +1,5 @@
 //
-//  HeaderReusableCell.swift
+//  HomeHeaderReusableCell.swift
 //  Modulite
 //
 //  Created by Gustavo Munhoz Correa on 13/08/24.
@@ -8,8 +8,8 @@
 import UIKit
 import SnapKit
 
-class HeaderReusableCell: UICollectionViewCell {
-    static let reuseId = "HeaderReusableCell"
+class HomeHeaderReusableCell: UICollectionViewCell {
+    static let reuseId = "HomeHeaderReusableCell"
     
     // MARK: - Properties
     
