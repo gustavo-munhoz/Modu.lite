@@ -10,8 +10,8 @@ import UIKit
 class HomeViewController: UIViewController {
 
     // MARK: - Properties
-    let homeView = HomeView()
-    let viewModel = HomeViewModel()
+    private let homeView = HomeView()
+    private let viewModel = HomeViewModel()
     
     // MARK: - Lifecycle
     override func loadView() {
@@ -106,9 +106,9 @@ extension HomeViewController: UICollectionViewDataSource {
         
         guard let header = collectionView.dequeueReusableSupplementaryView(
             ofKind: kind,
-            withReuseIdentifier: HeaderReusableCell.reuseId,
+            withReuseIdentifier: HomeHeaderReusableCell.reuseId,
             for: indexPath
-        ) as? HeaderReusableCell else {
+        ) as? HomeHeaderReusableCell else {
             fatalError("Error dequeueing Header cell.")
         }
             

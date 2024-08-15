@@ -71,9 +71,9 @@ class HomeView: UIScrollView {
             forCellWithReuseIdentifier: MainWidgetCollectionViewCell.reuseId
         )
         mainWidgetsCollectionView.register(
-            HeaderReusableCell.self,
+            HomeHeaderReusableCell.self,
             forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader,
-            withReuseIdentifier: HeaderReusableCell.reuseId
+            withReuseIdentifier: HomeHeaderReusableCell.reuseId
         )
         
         auxiliaryWidgetsCollectionView.register(
@@ -81,9 +81,9 @@ class HomeView: UIScrollView {
             forCellWithReuseIdentifier: AuxiliaryWidgetCollectionViewCell.reuseId
         )
         auxiliaryWidgetsCollectionView.register(
-            HeaderReusableCell.self,
+            HomeHeaderReusableCell.self,
             forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader,
-            withReuseIdentifier: HeaderReusableCell.reuseId
+            withReuseIdentifier: HomeHeaderReusableCell.reuseId
         )
         
         tipsCollectionView.register(
@@ -91,9 +91,9 @@ class HomeView: UIScrollView {
             forCellWithReuseIdentifier: TipCollectionViewCell.reuseId
         )
         tipsCollectionView.register(
-            HeaderReusableCell.self,
+            HomeHeaderReusableCell.self,
             forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader,
-            withReuseIdentifier: HeaderReusableCell.reuseId
+            withReuseIdentifier: HomeHeaderReusableCell.reuseId
         )
     }
     
