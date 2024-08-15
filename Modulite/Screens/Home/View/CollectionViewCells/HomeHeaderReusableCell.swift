@@ -1,5 +1,5 @@
 //
-//  HeaderReusableCell.swift
+//  HomeHeaderReusableCell.swift
 //  Modulite
 //
 //  Created by Gustavo Munhoz Correa on 13/08/24.
@@ -8,8 +8,8 @@
 import UIKit
 import SnapKit
 
-class HeaderReusableCell: UICollectionViewCell {
-    static let reuseId = "HeaderReusableCell"
+class HomeHeaderReusableCell: UICollectionViewCell {
+    static let reuseId = "HomeHeaderReusableCell"
     
     // MARK: - Properties
     
@@ -17,12 +17,8 @@ class HeaderReusableCell: UICollectionViewCell {
     
     private(set) lazy var titleLabel: UILabel = {
         let view = UILabel()
-        
-        let fd = UIFontDescriptor.preferredFontDescriptor(withTextStyle: .title2)
-        let customFd = fd.addingAttributes([.traits: [
-            UIFontDescriptor.TraitKey.weight: UIFont.Weight.bold
-        ]])
-        view.font = UIFont(descriptor: customFd, size: 0)
+                
+        view.font = UIFont(textStyle: .title2, weight: .bold)
         view.textColor = .textPrimary
         
         return view
