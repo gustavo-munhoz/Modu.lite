@@ -5,4 +5,9 @@
 //  Created by Gustavo Munhoz Correa on 15/08/24.
 //
 
-import Foundation
+import UIKit
+import Combine
+
+class WidgetSetupViewModel: NSObject {
+    @Published var widgetStyles: [UIImage] = []
+}
