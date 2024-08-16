@@ -22,7 +22,7 @@ class HomeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-                        
+
         setupNavigationBar()
     }
     
@@ -123,6 +123,7 @@ extension HomeViewController: UICollectionViewDataSource {
             )
         } else {
             header.setup(
+                // FIXME: Change auxiliary text
                 title: .localized(for: .homeViewMainSectionHeaderTitle),
                 buttonImage: UIImage(systemName: "plus.circle")!,
                 buttonAction: { [weak self] in
