@@ -35,6 +35,7 @@
 		B34F3E312C6E87A50041D7BD /* StyleCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B34F3E302C6E87A50041D7BD /* StyleCollectionViewCell.swift */; };
 		B34F3E332C6E8AA60041D7BD /* UITextField+HorizontalPadding.swift in Sources */ = {isa = PBXBuildFile; fileRef = B34F3E322C6E8AA60041D7BD /* UITextField+HorizontalPadding.swift */; };
 		B34F3E352C6E93570041D7BD /* WidgetSetupViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B34F3E342C6E93570041D7BD /* WidgetSetupViewModel.swift */; };
+		B34F3E372C6FDEAA0041D7BD /* SelectedAppCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B34F3E362C6FDEAA0041D7BD /* SelectedAppCollectionViewCell.swift */; };
 		B36927982C66B6E30089F769 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B36927972C66B6E30089F769 /* AppDelegate.swift */; };
 		B369279A2C66B6E30089F769 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B36927992C66B6E30089F769 /* SceneDelegate.swift */; };
 		B369279C2C66B6E30089F769 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B369279B2C66B6E30089F769 /* HomeViewController.swift */; };
@@ -95,6 +96,7 @@
 		B34F3E302C6E87A50041D7BD /* StyleCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StyleCollectionViewCell.swift; sourceTree = "<group>"; };
 		B34F3E322C6E8AA60041D7BD /* UITextField+HorizontalPadding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+HorizontalPadding.swift"; sourceTree = "<group>"; };
 		B34F3E342C6E93570041D7BD /* WidgetSetupViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetSetupViewModel.swift; sourceTree = "<group>"; };
+		B34F3E362C6FDEAA0041D7BD /* SelectedAppCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedAppCollectionViewCell.swift; sourceTree = "<group>"; };
 		B36927942C66B6E30089F769 /* Modulite.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Modulite.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B36927972C66B6E30089F769 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B36927992C66B6E30089F769 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -240,19 +242,20 @@
 		B34F3E2C2C6E86B90041D7BD /* Setup */ = {
 			isa = PBXGroup;
 			children = (
-				B34F3E2F2C6E87870041D7BD /* StylesCollectionViewCells */,
+				B34F3E2F2C6E87870041D7BD /* CollectionViewCells */,
 				B34F3E252C6D36C20041D7BD /* WidgetSetupView.swift */,
 			);
 			path = Setup;
 			sourceTree = "<group>";
 		};
-		B34F3E2F2C6E87870041D7BD /* StylesCollectionViewCells */ = {
+		B34F3E2F2C6E87870041D7BD /* CollectionViewCells */ = {
 			isa = PBXGroup;
 			children = (
 				B34F3E2D2C6E87350041D7BD /* SetupHeaderReusableCell.swift */,
 				B34F3E302C6E87A50041D7BD /* StyleCollectionViewCell.swift */,
+				B34F3E362C6FDEAA0041D7BD /* SelectedAppCollectionViewCell.swift */,
 			);
-			path = StylesCollectionViewCells;
+			path = CollectionViewCells;
 			sourceTree = "<group>";
 		};
 		B369278B2C66B6E30089F769 = {
@@ -570,6 +573,7 @@
 				B34F3E2E2C6E87350041D7BD /* SetupHeaderReusableCell.swift in Sources */,
 				B34F3E162C6B93EA0041D7BD /* AuxiliaryWidgetCollectionViewCell.swift in Sources */,
 				B34F3E332C6E8AA60041D7BD /* UITextField+HorizontalPadding.swift in Sources */,
+				B34F3E372C6FDEAA0041D7BD /* SelectedAppCollectionViewCell.swift in Sources */,
 				B34F3E072C6A93B30041D7BD /* UsageViewController.swift in Sources */,
 				B34F3E222C6D36390041D7BD /* WidgetEditorViewController.swift in Sources */,
 				B34F3E312C6E87A50041D7BD /* StyleCollectionViewCell.swift in Sources */,

@@ -19,22 +19,48 @@ class SetupHeaderReusableCell: UICollectionViewCell {
         return view
     }()
     
+    private(set) lazy var searchBar: UISearchBar = {
+        let view = UISearchBar()
+        view.placeholder = .localized(for: .setupHeaderSearchBarPlaceholder)
+        
+        
+        return view
+    }()
+    
     // MARK: - Setup methods
     
-    func setup(title: String) {                
+    func setup(title: String, containsSearchBar: Bool = false) {
+        backgroundColor = .screenBackground
         titleLabel.attributedText = createTextWithAsterisk(with: title)
         
-        addSubviews()
-        setupConstraints()
+        addSubviews(containsSearchBar: containsSearchBar)
+        setupConstraints(containsSearchBar: containsSearchBar)
     }
     
-    private func addSubviews() {
+    private func addSubviews(containsSearchBar: Bool) {
         addSubview(titleLabel)
+        
+        if containsSearchBar {
+            addSubview(searchBar)
+        }
     }
     
-    private func setupConstraints() {
-        titleLabel.snp.makeConstraints { make in
-            make.edges.equalToSuperview()
+    private func setupConstraints(containsSearchBar: Bool) {
+        if containsSearchBar {
+            titleLabel.snp.makeConstraints { make in
+                make.left.right.top.equalToSuperview()
+            }
+            
+            searchBar.snp.makeConstraints { make in
+                make.left.right.equalTo(titleLabel)
+                make.top.equalTo(titleLabel.snp.bottom).offset(8)
+                make.height.equalTo(37)
+            }
+            
+        } else {
+            titleLabel.snp.makeConstraints { make in
+                make.edges.equalToSuperview()
+            }
         }
     }
     
