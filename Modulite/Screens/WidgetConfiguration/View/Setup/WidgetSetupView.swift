@@ -8,9 +8,11 @@
 import UIKit
 import SnapKit
 
-class WidgetSetupView: UIView {
+class WidgetSetupView: UIScrollView {
     
     // MARK: - Properties
+    
+    private let contentView = UIView()
     
     private(set) lazy var widgetNameTextField: UITextField = {
         let textField = UITextField()
@@ -19,23 +21,48 @@ class WidgetSetupView: UIView {
         textField.textColor = .textPrimary
         textField.backgroundColor = .beige
         
-        textField.layer.cornerRadius = 18
-        textField.setLeftPaddingPoints(20)
+        textField.layer.cornerRadius = 12
+        textField.setLeftPaddingPoints(15)
         
         return textField
     }()
     
     private(set) lazy var stylesCollectionView: UICollectionView = {
-        let layout = createCollectionViewLayout()
+        let layout = createStylesCollectionViewLayout()
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         
         collectionView.clipsToBounds = false
+        collectionView.isScrollEnabled = false
         collectionView.backgroundColor = .clear
         collectionView.alwaysBounceVertical = false
         collectionView.showsHorizontalScrollIndicator = false
         collectionView.showsVerticalScrollIndicator = false
         
         return collectionView
+    }()
+    
+    private(set) lazy var selectedAppsCollectionView: UICollectionView = {
+        let layout = createAppsCollectionViewLayout()
+        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
+                
+        collectionView.clipsToBounds = true
+        collectionView.backgroundColor = .clear
+        collectionView.alwaysBounceVertical = false
+        collectionView.showsHorizontalScrollIndicator = false
+        collectionView.showsVerticalScrollIndicator = false
+        collectionView.bounces = false
+        
+        return collectionView
+    }()
+    
+    private(set) lazy var nextViewButton: UIButton = {
+        var config = UIButton.Configuration.filled()
+        config.baseForegroundColor = .textPrimary
+        config.baseBackgroundColor = .turquoise
+        
+        let view = UIButton(configuration: config)
+        
+        return view
     }()
     
     // MARK: - Initializers
@@ -45,7 +72,7 @@ class WidgetSetupView: UIView {
         backgroundColor = .screenBackground
         addSubviews()
         setupConstraints()
-        setupCollectionView()
+        setupCollectionViews()
     }
     
     required init?(coder: NSCoder) {
@@ -56,13 +83,15 @@ class WidgetSetupView: UIView {
     
     func setCollectionViewDataSources(to dataSource: UICollectionViewDataSource) {
         self.stylesCollectionView.dataSource = dataSource
+        self.selectedAppsCollectionView.dataSource = dataSource
     }
     
     func setCollectionViewDelegates(to delegate: UICollectionViewDelegate) {
         self.stylesCollectionView.delegate = delegate
+        self.selectedAppsCollectionView.delegate = delegate
     }
     
-    private func setupCollectionView() {
+    private func setupCollectionViews() {
         stylesCollectionView.register(
             StyleCollectionViewCell.self,
             forCellWithReuseIdentifier: StyleCollectionViewCell.reuseId
@@ -73,29 +102,62 @@ class WidgetSetupView: UIView {
             forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader,
             withReuseIdentifier: SetupHeaderReusableCell.reuseId
         )
+                
+        selectedAppsCollectionView.register(
+            SelectedAppCollectionViewCell.self,
+            forCellWithReuseIdentifier: SelectedAppCollectionViewCell.reuseId
+        
+        )
+        
+        selectedAppsCollectionView.register(
+            SetupHeaderReusableCell.self,
+            forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader,
+            withReuseIdentifier: SetupHeaderReusableCell.reuseId
+        )
     }
     
     private func addSubviews() {
-        addSubview(widgetNameTextField)
-        addSubview(stylesCollectionView)
+        addSubview(contentView)
+        contentView.addSubview(widgetNameTextField)
+        contentView.addSubview(stylesCollectionView)
+        contentView.addSubview(selectedAppsCollectionView)
+        contentView.addSubview(nextViewButton)
     }
     
     private func setupConstraints() {
+        contentView.snp.makeConstraints { make in
+            make.edges.equalToSuperview().inset(UIEdgeInsets(top: 24, left: 24, bottom: 0, right: -24))
+            make.width.equalToSuperview().offset(-48)
+            make.height.equalTo(700)
+        }
+        
         widgetNameTextField.snp.makeConstraints { make in
-            make.top.equalTo(safeAreaLayoutGuide).inset(8)
-            make.left.right.equalToSuperview().inset(24)
+            make.left.right.top.equalToSuperview()
             make.height.equalTo(37)
         }
         
         stylesCollectionView.snp.makeConstraints { make in
-            make.left.right.equalTo(widgetNameTextField)
+            make.left.right.equalToSuperview()
             make.top.equalTo(widgetNameTextField.snp.bottom).offset(24)
             make.height.equalTo(270)
+        }
+        
+        selectedAppsCollectionView.snp.makeConstraints { make in
+            make.left.right.equalToSuperview()
+            make.top.equalTo(stylesCollectionView.snp.bottom).offset(12)
+            make.height.equalTo(280)
+        }
+        
+        nextViewButton.snp.makeConstraints { make in
+            make.right.equalToSuperview()
+            make.top.equalTo(selectedAppsCollectionView.snp.bottom).offset(18)
+            make.width.equalTo(130)
+            make.height.equalTo(45)
         }
     }
     
     // MARK: - Helper methods
-    private func createCollectionViewLayout() -> UICollectionViewCompositionalLayout {
+    private func createStylesCollectionViewLayout() -> UICollectionViewCompositionalLayout {
         let layout = UICollectionViewCompositionalLayout { (sectionIndex, layoutEnvironment) -> NSCollectionLayoutSection? in
             
             let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(1))
@@ -118,6 +180,33 @@ class WidgetSetupView: UIView {
             return section
         }
         
+        return layout
+    }
+    
+    private func createAppsCollectionViewLayout() -> UICollectionViewCompositionalLayout {
+        let layout = UICollectionViewCompositionalLayout { (sectionIndex, layoutEnvironment) -> NSCollectionLayoutSection? in
+                        
+            let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(1))
+            let item = NSCollectionLayoutItem(layoutSize: itemSize)
+                        
+            let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .absolute(34))
+            let group = NSCollectionLayoutGroup.vertical(layoutSize: groupSize, subitems: [item])
+                        
+            let section = NSCollectionLayoutSection(group: group)
+                        
+            let headerSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .absolute(90))
+            let header = NSCollectionLayoutBoundarySupplementaryItem(
+                layoutSize: headerSize,
+                elementKind: UICollectionView.elementKindSectionHeader,
+                alignment: .top
+            )
+                        
+            header.pinToVisibleBounds = true
+            
+            section.boundarySupplementaryItems = [header]
+            
+            return section
+        }
         return layout
     }
 }
