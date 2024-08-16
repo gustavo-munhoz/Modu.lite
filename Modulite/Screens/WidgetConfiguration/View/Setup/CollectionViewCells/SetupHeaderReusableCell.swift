@@ -23,6 +23,23 @@ class SetupHeaderReusableCell: UICollectionViewCell {
         let view = UISearchBar()
         view.placeholder = .localized(for: .setupHeaderSearchBarPlaceholder)
         
+        view.searchTextField.backgroundColor = .clear
+        view.backgroundColor = .clear
+        view.barTintColor = .clear
+        view.backgroundImage = UIImage()
+        
+        view.layer.cornerRadius = 12
+        view.layer.borderWidth = 1
+        view.layer.borderColor = UIColor.systemGray.cgColor
+        
+        view.setImage(
+            UIImage(systemName: "magnifyingglass")!.withTintColor(
+                .turquoise,
+                renderingMode: .alwaysOriginal
+            ),
+            for: .search,
+            state: .normal
+        )
         
         return view
     }()
