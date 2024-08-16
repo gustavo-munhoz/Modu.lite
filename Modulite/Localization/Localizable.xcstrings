@@ -67,6 +67,17 @@
         }
       }
     },
+    "setupHeaderSearchBarPlaceholder" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Search apps..."
+          }
+        }
+      }
+    },
     "testArray" : {
       "comment" : "This is a test value, and should only be used for testing purposes.",
       "extractionState" : "manual",
@@ -134,6 +145,28 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Usage"
+          }
+        }
+      }
+    },
+    "widgetSetupViewAppsHeaderTitle" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Select up to 6 apps"
+          }
+        }
+      }
+    },
+    "widgetSetupViewStyleHeaderTitle" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Select widget style"
           }
         }
       }
