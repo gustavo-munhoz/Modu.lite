@@ -14,8 +14,7 @@ class SetupHeaderReusableCell: UICollectionViewCell {
     private(set) lazy var titleLabel: UILabel = {
         let view = UILabel()
         view.textColor = .textPrimary
-        
-        
+                
         return view
     }()
     
@@ -97,7 +96,7 @@ class SetupHeaderReusableCell: UICollectionViewCell {
         completeText.append(NSAttributedString("  "))
         completeText.addAttributes(
             [.font: UIFont(textStyle: .title2, weight: .heavy)],
-            range: NSMakeRange(0, 1)
+            range: NSRange(location: 0, length: 1)
         )
         
         let titleString = NSAttributedString(string: text, attributes: [

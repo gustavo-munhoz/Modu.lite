@@ -15,5 +15,4 @@ class RootTabBarController: UITabBarController {
         tabBar.tintColor = .turquoise
     }
     
-    
 }

@@ -131,6 +131,4 @@ class RootTabCoordinator: Coordinator {
             selectedImage: UIImage(systemName: selectedImageName)
         )
     }
-
 }
-

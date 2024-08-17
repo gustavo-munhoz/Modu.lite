@@ -71,7 +71,11 @@ extension NavigationRouter: UINavigationControllerDelegate {
     ///   - navigationController: The navigation controller performing the transition.
     ///   - viewController: The view controller that was shown in the transition.
     ///   - animated: A Boolean value indicating whether the transition was animated.
-    func navigationController(_ navigationController: UINavigationController, didShow viewController: UIViewController, animated: Bool) {
+    func navigationController(
+        _ navigationController: UINavigationController,
+        didShow viewController: UIViewController,
+        animated: Bool
+    ) {
         guard let dismissedVC = navigationController.transitionCoordinator?.viewController(forKey: .from),
               !navigationController.viewControllers.contains(dismissedVC) else { return }
         

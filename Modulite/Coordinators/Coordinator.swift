@@ -30,7 +30,7 @@ protocol Coordinator: AnyObject {
     ///   - child: The child coordinator to present.
     ///   - animated: Determines if the presentation should be animated.
     func presentChild(_ child: Coordinator, animated: Bool)
-    
+        
     /// Presents a child coordinator and provides a closure to handle when it's dismissed.
     /// - Parameters:
     ///   - child: The child coordinator to present.

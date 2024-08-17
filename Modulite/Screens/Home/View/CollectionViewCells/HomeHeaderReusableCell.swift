@@ -50,7 +50,12 @@ class HomeHeaderReusableCell: UICollectionViewCell {
     
     // MARK: - Setup methods
     
-    func setup(title: String, buttonImage: UIImage, buttonColor: UIColor = .turquoise, buttonAction: @escaping () -> Void) {
+    func setup(
+        title: String,
+        buttonImage: UIImage,
+        buttonColor: UIColor = .turquoise,
+        buttonAction: @escaping () -> Void
+    ) {
         actionButton.configuration?.image = buttonImage
         actionButton.configuration?.baseForegroundColor = buttonColor
         onButtonTap = buttonAction

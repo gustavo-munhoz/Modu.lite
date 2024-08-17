@@ -58,7 +58,11 @@ extension HomeViewController: UICollectionViewDataSource {
         }
     }
     
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+    func collectionView(
+        _ collectionView: UICollectionView,
+        cellForItemAt indexPath: IndexPath
+    ) -> UICollectionViewCell {
+        
         switch collectionView {
         case homeView.mainWidgetsCollectionView:
             guard let cell = collectionView.dequeueReusableCell(
@@ -99,7 +103,11 @@ extension HomeViewController: UICollectionViewDataSource {
         }
     }
     
-    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+    func collectionView(
+        _ collectionView: UICollectionView,
+        viewForSupplementaryElementOfKind kind: String,
+        at indexPath: IndexPath
+    ) -> UICollectionReusableView {
         guard kind == UICollectionView.elementKindSectionHeader else {
             return UICollectionReusableView()
         }
@@ -132,7 +140,6 @@ extension HomeViewController: UICollectionViewDataSource {
                 }
             )
         }
-        
         
         return header
     }

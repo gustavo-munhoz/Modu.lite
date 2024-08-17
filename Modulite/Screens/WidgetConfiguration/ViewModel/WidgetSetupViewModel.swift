@@ -20,7 +20,7 @@ class WidgetSetupViewModel: NSObject {
         UIImage(systemName: "house.fill")!,
         UIImage(systemName: "house.fill")!,
         UIImage(systemName: "house.fill")!,
-        UIImage(systemName: "house.fill")!,
+        UIImage(systemName: "house.fill")!
     ]
     
     @Published var apps: [String] = [
@@ -29,7 +29,7 @@ class WidgetSetupViewModel: NSObject {
         "Facebook",
         "PicPay",
         "Snapchat",
-        "Woofy",
+        "Woofy"
     ]
     
     @Published var selectedApps: [String] = []

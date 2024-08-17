@@ -10,11 +10,13 @@ import Foundation
 extension String {
     
     /// Represents keys for localized strings in the app, allowing for dynamic localization with associated values.
+    /// The cases should be 1-1 with `Localizable.xcstrings` keys.
     public enum LocalizedKey {
         // MARK: - Computed Properties
         
         /// Computes the key for localization by extracting the case name from the enum instance.
-        /// Uses reflection to find the label of the first child of the enum case, which represents the case name without associated values.
+        /// Uses reflection to find the label of the first child of the enum case, 
+        /// which represents the case name without associated values.
         /// Falls back to the default description if no label is found.
          var key: String {
             if let nameRemovingValues = Mirror(reflecting: self).children.first?.label {
@@ -24,7 +26,8 @@ extension String {
             return String(describing: self)
         }
         
-        /// Computes an array of `CVarArg` suitable for string formatting, reflecting the associated values of the enum case.
+        /// Computes an array of `CVarArg` suitable for string formatting,
+        /// reflecting the associated values of the enum case.
         /// Uses reflection to access and cast the associated values to `CVarArg` for use in formatted strings.
         var values: [CVarArg] {
             let mirror = Mirror(reflecting: self)
@@ -55,24 +58,31 @@ extension String {
         case testString(text: String)
         
         /// `testArray` is a test-exclusive case used to test the localization of array elements.
-        /// This case is particularly useful for testing localized strings that incorporate multiple elements from an array.
+        /// This case is particularly useful for testing localized strings that 
+        /// incorporate multiple elements from an array.
         /// - Parameter elements: An array of strings to be localized within test scenarios.
         case testArray(elements: [String])
         
-        /// `testTwoStrings` is a test-exclusive enum case used to test functionalities that require two separate string inputs.
-        /// This case is designed to facilitate testing scenarios where two distinct string values need to be validated or processed together.
-        /// For example, it could be used to test concatenation, comparison, or any function that manipulates two strings.
+        /// `testTwoStrings` is a test-exclusive enum case used to test functionalities
+        ///  that require two separate string inputs.
+        /// This case is designed to facilitate testing scenarios where two distinct string 
+        /// values need to be validated or processed together.
+        /// For example, it could be used to test concatenation, comparison, 
+        /// or any function that manipulates two strings.
         /// - Parameters:
-        ///   - first: The first string used for testing. This could represent data like a user's first name, an email, or any textual input.
-        ///   - second: The second string used for testing. This could represent additional data like a user's last name, a confirmation of the email, or another textual input.
+        ///   - first: The first string used for testing. This could represent data 
+        ///   like a user's first name, an email, or any textual input.
+        ///   - second: The second string used for testing. This could represent additional 
+        ///   data like a user's last name, a confirmation of the email, or another textual input.
         case testTwoStrings(first: String, second: String)
         
-        /// `testNoValue` is a test-exclusive case that represents scenarios where no additional values are needed.
-        /// This case is used to test the localization process where the localized string does not require any dynamic values.
+        /// `testNoValue` is a test-exclusive case that represents scenarios 
+        /// where no additional values are needed.
+        /// This case is used to test the localization process where the localized 
+        /// string does not require any dynamic values.
         case testNoValue
         
         // MARK: - Localized Keys
-        /// The cases should be 1-1 with `Localizable.xcstrings` keys.
         
         // MARK: Tab Bar Titles
         case homeViewControllerTabBarItemTitle
@@ -90,8 +100,7 @@ extension String {
         case widgetSetupViewAppsHeaderTitle
         case setupHeaderSearchBarPlaceholder
     }
-        
-    
+            
     /// Returns a localized string using the key and associated values defined by the `LocalizedKey` enum.
     /// Utilizes the `NSLocalizedString` function to fetch the appropriate translation for the key,
     /// and formats it with any associated values using `String(format:arguments:)`.
