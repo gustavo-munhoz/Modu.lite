@@ -15,10 +15,4 @@ class WidgetEditorViewController: UIViewController {
         view = editorView
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        
-    }
 }
-

@@ -24,7 +24,7 @@ class HomeViewModel: NSObject {
     
     @Published var auxiliaryWidgets: [UIImage] = [
         UIImage(systemName: "trash.fill")!,
-        UIImage(systemName: "trash.fill")!,
+        UIImage(systemName: "trash.fill")!
     ]
     
     @Published var tips: [UIImage] = []

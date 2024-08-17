@@ -32,4 +32,3 @@ class SceneDelegateRouter: Router {
     /// - Parameter animated: Ignored as there is no dismissal action.
     func dismiss(animated: Bool) { }
 }
-

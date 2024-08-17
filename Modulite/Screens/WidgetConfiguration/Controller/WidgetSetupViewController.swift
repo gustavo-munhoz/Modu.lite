@@ -31,10 +31,14 @@ extension WidgetSetupViewController: UICollectionViewDataSource {
         case setupView.stylesCollectionView: return viewModel.widgetStyles.count
         case setupView.selectedAppsCollectionView: return viewModel.apps.count
         default: return 0
-        }        
+        }
     }
     
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {        
+    func collectionView(
+        _ collectionView: UICollectionView,
+        cellForItemAt indexPath: IndexPath
+    ) -> UICollectionViewCell {
+        
         switch collectionView {
         case setupView.stylesCollectionView:
             guard let cell = collectionView.dequeueReusableCell(
@@ -61,7 +65,12 @@ extension WidgetSetupViewController: UICollectionViewDataSource {
         }
     }
     
-    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+    func collectionView(
+        _ collectionView: UICollectionView,
+        viewForSupplementaryElementOfKind kind: String,
+        at indexPath: IndexPath
+    ) -> UICollectionReusableView {
+        
         guard kind == UICollectionView.elementKindSectionHeader else {
             return UICollectionReusableView()
         }
@@ -86,12 +95,9 @@ extension WidgetSetupViewController: UICollectionViewDataSource {
         
         return header
     }
-    
-    
 }
 
 // MARK: - UICollectionViewDelegate
 extension WidgetSetupViewController: UICollectionViewDelegate {
     
 }
-

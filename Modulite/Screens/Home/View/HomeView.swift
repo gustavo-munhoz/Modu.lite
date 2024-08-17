@@ -8,7 +8,8 @@
 import UIKit
 import SnapKit
 
-/// `HomeView` is a scrollable container view that includes three different sections, each represented by a `UICollectionView`.
+/// `HomeView` is a scrollable container view that includes three different sections, 
+/// each represented by a `UICollectionView`.
 /// These collections are used for displaying main widgets, auxiliary widgets, and tips respectively.
 class HomeView: UIScrollView {
     
@@ -18,10 +19,10 @@ class HomeView: UIScrollView {
     private let contentView = UIView()
     
     /// Collection view for displaying main widgets.
-    private(set) lazy var mainWidgetsCollectionView: UICollectionView = createCollectionView(for: .mainWidgets)
+    private(set) lazy var mainWidgetsCollectionView = createCollectionView(for: .mainWidgets)
     
     /// Collection view for displaying auxiliary widgets.
-    private(set) lazy var auxiliaryWidgetsCollectionView: UICollectionView = createCollectionView(for: .auxiliaryWidgets)
+    private(set) lazy var auxiliaryWidgetsCollectionView = createCollectionView(for: .auxiliaryWidgets)
     
     /// Collection view for displaying tips.
     private(set) lazy var tipsCollectionView: UICollectionView = createCollectionView(for: .tips)
@@ -144,24 +145,38 @@ class HomeView: UIScrollView {
     
     /// Creates and returns a collection view configured with a compositional layout based on the section type.
     private func createCollectionView(for section: ViewSection) -> UICollectionView {
-        let layout = UICollectionViewCompositionalLayout { [weak self] (sectionIndex, layoutEnvironment) -> NSCollectionLayoutSection? in
+        let layout = UICollectionViewCompositionalLayout { [weak self] _, _ -> NSCollectionLayoutSection? in
             guard let self = self else { return nil }
             
-            let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .fractionalHeight(1.0))
+            let itemSize = NSCollectionLayoutSize(
+                widthDimension: .fractionalWidth(1.0),
+                heightDimension: .fractionalHeight(1.0)
+            )
             let item = NSCollectionLayoutItem(layoutSize: itemSize)
             
             let size = self.getGroupSizeForCollectionViewLayout(for: section)
             
-            let groupSize = NSCollectionLayoutSize(widthDimension: .absolute(size.width), heightDimension: .absolute(size.height))
-            let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
+            let groupSize = NSCollectionLayoutSize(
+                widthDimension: .absolute(size.width),
+                heightDimension: .absolute(size.height)
+            )
             
+            let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
             let section = NSCollectionLayoutSection(group: group)
             section.orthogonalScrollingBehavior = .continuous
             
-            let headerSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .absolute(60))
-            let header = NSCollectionLayoutBoundarySupplementaryItem(layoutSize: headerSize, elementKind: UICollectionView.elementKindSectionHeader, alignment: .top)
-            section.boundarySupplementaryItems = [header]
+            let headerSize = NSCollectionLayoutSize(
+                widthDimension: .fractionalWidth(1.0),
+                heightDimension: .absolute(60)
+            )
             
+            let header = NSCollectionLayoutBoundarySupplementaryItem(
+                layoutSize: headerSize,
+                elementKind: UICollectionView.elementKindSectionHeader,
+                alignment: .top
+            )
+            
+            section.boundarySupplementaryItems = [header]
             return section
         }
         

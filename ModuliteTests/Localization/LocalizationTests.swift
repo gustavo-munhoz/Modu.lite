@@ -9,8 +9,7 @@ import XCTest
 @testable import Modulite
 
 class LocalizationTests: XCTestCase {
-    
-    
+        
     func testLocalizedKeyExtraction() {
         let testIntKey = String.LocalizedKey.testInteger(value: 123)
         XCTAssertEqual(testIntKey.key, "testInteger", "The key should correctly extract 'testInteger'.")
@@ -33,18 +32,29 @@ class LocalizationTests: XCTestCase {
         XCTAssertEqual(testIntKey.values as? [Int], [123], "The values should correctly extract [123].")
         
         let testStringKey = String.LocalizedKey.testString(text: "Hello, world!")
-        XCTAssertEqual(testStringKey.values as? [String], ["Hello, world!"], "The values should correctly extract ['Hello, world!'].")
+        XCTAssertEqual(
+            testStringKey.values as? [String],
+            ["Hello, world!"],
+            "The values should correctly extract ['Hello, world!']."
+        )
         
         let testArrayKey = String.LocalizedKey.testArray(elements: ["Hello", "World"])
-        XCTAssertEqual(testArrayKey.values as? [String], ["Hello", "World"], "The values should correctly extract ['Hello', 'World']")
+        XCTAssertEqual(
+            testArrayKey.values as? [String],
+            ["Hello", "World"],
+            "The values should correctly extract ['Hello', 'World']"
+        )
         
         let testTwoStringsKey = String.LocalizedKey.testTwoStrings(first: "Hello", second: "World")
-        XCTAssertEqual(testTwoStringsKey.values as? [String], ["Hello", "World"], "The values should correctly extract ['Hello', 'World']")
+        XCTAssertEqual(
+            testTwoStringsKey.values as? [String],
+            ["Hello", "World"],
+            "The values should correctly extract ['Hello', 'World']"
+        )
         
         let testNoValueKey = String.LocalizedKey.testNoValue
         XCTAssertTrue(testNoValueKey.values.isEmpty, "There should be no values associated with 'testNoValue'.")
     }
-    
     
     func testLocalizedMethod() {
 

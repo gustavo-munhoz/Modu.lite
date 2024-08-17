@@ -16,7 +16,7 @@ extension UIFont {
             descriptor:
                 .preferredFontDescriptor(withTextStyle: textStyle)
                 .addingAttributes([.traits: [
-                    UIFontDescriptor.TraitKey.weight: weight,
+                    UIFontDescriptor.TraitKey.weight: weight
                 ]]),
             size: 0
         )
