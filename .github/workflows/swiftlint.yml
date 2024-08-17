@@ -1,0 +1,17 @@
+name: SwiftLint
+
+on: [pull_request]
+
+jobs:
+  swiftlint:
+    runs-on: macos-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Install SwiftLint
+        run: brew install swiftlint
+
+      - name: Run SwiftLint
+        run: swiftlint
+        working-directory: ${{github.workspace}}
