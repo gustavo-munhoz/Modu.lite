@@ -72,7 +72,9 @@ class WidgetSetupView: UIScrollView {
         backgroundColor = .screenBackground
         addSubviews()
         setupConstraints()
+        setupTapGestures()
         setupCollectionViews()
+        registerForKeyboardNotifications()
     }
     
     required init?(coder: NSCoder) {
@@ -89,6 +91,27 @@ class WidgetSetupView: UIScrollView {
     func setCollectionViewDelegates(to delegate: UICollectionViewDelegate) {
         self.stylesCollectionView.delegate = delegate
         self.selectedAppsCollectionView.delegate = delegate
+    }
+    
+    private func registerForKeyboardNotifications() {
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(keyboardWillShow),
+            name: UIResponder.keyboardWillShowNotification,
+            object: nil
+        )
+
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(keyboardWillHide),
+            name: UIResponder.keyboardWillHideNotification,
+            object: nil
+        )
+    }
+    
+    private func setupTapGestures() {
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleDismissiveTap))
+        addGestureRecognizer(tapGesture)
     }
     
     private func setupCollectionViews() {
@@ -153,6 +176,32 @@ class WidgetSetupView: UIScrollView {
             make.top.equalTo(selectedAppsCollectionView.snp.bottom).offset(18)
             make.width.equalTo(130)
             make.height.equalTo(45)
+        }
+    }
+    
+    // MARK: - Actions
+    @objc private func handleDismissiveTap() {
+        endEditing(true)
+    }
+    
+    @objc func keyboardWillShow(notification: NSNotification) {
+        if let keyboardSize =
+            (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
+            if frame.origin.y == 0 && !widgetNameTextField.isFirstResponder {
+                UIView.animate(
+                    withDuration: 0.25,
+                    delay: 0,
+                    options: .curveEaseInOut
+                ) { [weak self] in
+                    self?.frame.origin.y -= keyboardSize.height
+                }
+            }
+        }
+    }
+
+    @objc func keyboardWillHide(notification: NSNotification) {
+        if frame.origin.y != 0 {
+            frame.origin.y = 0
         }
     }
     
@@ -228,5 +277,11 @@ class WidgetSetupView: UIScrollView {
             return section
         }
         return layout
+    }
+    
+    // MARK: - Deinit
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self)
     }
 }
