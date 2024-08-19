@@ -84,6 +84,9 @@ extension String {
         
         // MARK: - Localized Keys
         
+        // MARK: - Reusable texts
+        case next
+        
         // MARK: Tab Bar Titles
         case homeViewControllerTabBarItemTitle
         case usageViewControllerTabBarItemTitle

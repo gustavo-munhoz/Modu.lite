@@ -45,7 +45,13 @@ class SetupHeaderReusableCell: UICollectionViewCell {
     
     // MARK: - Setup methods
     
-    func setup(title: String, containsSearchBar: Bool = false) {
+    func setup(
+        title: String,
+        containsSearchBar: Bool = false,
+        searchBarDelegate: UISearchBarDelegate? = nil
+    ) {
+        searchBar.delegate = searchBarDelegate
+        
         backgroundColor = .screenBackground
         titleLabel.attributedText = createTextWithAsterisk(with: title)
         
