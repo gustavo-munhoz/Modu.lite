@@ -33,6 +33,13 @@ class HomeViewController: UIViewController {
     
     private func setupNavigationBar() {
         // FIXME: Make image be on bottom-left of navbar with large title
+            
+        let appearance = UINavigationBarAppearance()
+        appearance.configureWithOpaqueBackground()
+        appearance.backgroundColor = UIColor.screenBackground
+                
+        navigationController?.navigationBar.standardAppearance = appearance
+        navigationController?.navigationBar.scrollEdgeAppearance = appearance
         
         if let image = UIImage(named: "navbar-app-name") {
             let imageView = UIImageView(image: image)
