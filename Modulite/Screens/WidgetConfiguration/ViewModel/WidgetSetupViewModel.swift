@@ -23,7 +23,7 @@ class WidgetSetupViewModel: NSObject {
         UIImage(systemName: "house.fill")!
     ]
     
-    @Published var apps: [String] = [
+    private var allApps: [String] = [
         "Whats App",
         "Instagram",
         "Facebook",
@@ -32,5 +32,19 @@ class WidgetSetupViewModel: NSObject {
         "Woofy"
     ]
     
+    @Published var apps: [String]
+    
     @Published var selectedApps: [String] = []
+    
+    override init() {
+        self.apps = allApps
+    }
+    
+    func filterApps(for query: String) {
+        guard !query.isEmpty else {
+            apps = allApps
+            return
+        }
+        apps = allApps.filter { $0.lowercased().contains(query.lowercased())}
+    }
 }
