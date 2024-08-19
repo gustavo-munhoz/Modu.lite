@@ -28,7 +28,13 @@ class WidgetSetupView: UIScrollView {
     }()
     
     private(set) lazy var stylesCollectionView: UICollectionView = {
-        let layout = createStylesCollectionViewLayout()
+        let layout = createCompositionalLayout(
+            groupSize: NSCollectionLayoutSize(widthDimension: .absolute(192), heightDimension: .absolute(234)),
+            scrollOrientation: .horizontal,
+            hasContinuousScrollingBehavior: true,
+            headerHeight: 40
+        )
+        
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         
         collectionView.clipsToBounds = false
@@ -42,7 +48,12 @@ class WidgetSetupView: UIScrollView {
     }()
     
     private(set) lazy var selectedAppsCollectionView: UICollectionView = {
-        let layout = createAppsCollectionViewLayout()
+        let layout = createCompositionalLayout(
+            groupSize: NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .absolute(34)),
+            scrollOrientation: .vertical,
+            hasContinuousScrollingBehavior: false,
+            headerHeight: 90
+        )
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
                 
         collectionView.clipsToBounds = true
@@ -50,7 +61,7 @@ class WidgetSetupView: UIScrollView {
         collectionView.alwaysBounceVertical = false
         collectionView.showsHorizontalScrollIndicator = false
         collectionView.showsVerticalScrollIndicator = false
-        collectionView.bounces = false
+        collectionView.isScrollEnabled = false
         
         return collectionView
     }()
@@ -59,9 +70,25 @@ class WidgetSetupView: UIScrollView {
         var config = UIButton.Configuration.filled()
         config.baseForegroundColor = .textPrimary
         config.baseBackgroundColor = .turquoise
+        config.title = .localized(for: .next)
+        config.imagePlacement = .trailing
+        config.image = UIImage(systemName: "arrow.right")
+        config.imagePadding = 10
+        config.preferredSymbolConfigurationForImage = .init(pointSize: 20, weight: .bold)
+        
+        // TODO: Add customized font
         
         let view = UIButton(configuration: config)
         
+        return view
+    }()
+    
+    /// I hate this, but this text field is necessary to not dismiss the `UISearchBar` keyboard
+    /// when reloading `selectedAppsCollectionView`'s data.
+    private(set) lazy var textFieldDummy: UITextField = {
+        let view = UITextField()
+        view.isHidden = true
+        view.frame = CGRect(origin: .zero, size: .zero)
         return view
     }()
     
@@ -140,6 +167,7 @@ class WidgetSetupView: UIScrollView {
     }
     
     private func addSubviews() {
+        addSubview(textFieldDummy)
         addSubview(contentView)
         contentView.addSubview(widgetNameTextField)
         contentView.addSubview(stylesCollectionView)
@@ -168,7 +196,7 @@ class WidgetSetupView: UIScrollView {
         selectedAppsCollectionView.snp.makeConstraints { make in
             make.left.right.equalToSuperview()
             make.top.equalTo(stylesCollectionView.snp.bottom).offset(12)
-            make.height.equalTo(280)
+            make.height.equalTo(300)
         }
         
         nextViewButton.snp.makeConstraints { make in
@@ -206,76 +234,55 @@ class WidgetSetupView: UIScrollView {
     }
     
     // MARK: - Helper methods
-    private func createStylesCollectionViewLayout() -> UICollectionViewCompositionalLayout {
-        let layout = UICollectionViewCompositionalLayout { _, _ -> NSCollectionLayoutSection? in
+    private enum ScrollOrientation {
+        case vertical
+        case horizontal
+    }
+    
+    private func createCompositionalLayout(
+        groupSize: NSCollectionLayoutSize,
+        scrollOrientation: ScrollOrientation,
+        hasContinuousScrollingBehavior: Bool,
+        headerHeight: CGFloat
+    ) -> UICollectionViewCompositionalLayout {
+        let layout = UICollectionViewCompositionalLayout { sectionIndex, _ -> NSCollectionLayoutSection? in
             
-            let itemSize = NSCollectionLayoutSize(
-                widthDimension: .fractionalWidth(1),
-                heightDimension: .fractionalHeight(1)
+            let item = NSCollectionLayoutItem(
+                layoutSize: NSCollectionLayoutSize(
+                    widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(1)
+                )
             )
-            let item = NSCollectionLayoutItem(layoutSize: itemSize)
             
-            let groupSize = NSCollectionLayoutSize(
-                widthDimension: .absolute(192),
-                heightDimension: .absolute(234)
-            )
-            
-            let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
+            var group: NSCollectionLayoutGroup
+            if scrollOrientation == .vertical {
+                group = .vertical(layoutSize: groupSize, subitems: [item])
+            } else {
+                group = .horizontal(layoutSize: groupSize, subitems: [item])
+            }
             
             let section = NSCollectionLayoutSection(group: group)
-            section.orthogonalScrollingBehavior = .continuous
+            if hasContinuousScrollingBehavior {
+                section.orthogonalScrollingBehavior = .continuous
+            }
             
-            let headerSize = NSCollectionLayoutSize(
-                widthDimension: .fractionalWidth(1),
-                heightDimension: .absolute(40)
-            )
+            if sectionIndex == 0 {
+                let headerSize = NSCollectionLayoutSize(
+                    widthDimension: .fractionalWidth(1),
+                    heightDimension: .absolute(headerHeight)
+                )
+                
+                let header = NSCollectionLayoutBoundarySupplementaryItem(
+                    layoutSize: headerSize,
+                    elementKind: UICollectionView.elementKindSectionHeader,
+                    alignment: .top
+                )
+                header.pinToVisibleBounds = true
+                section.boundarySupplementaryItems = [header]
+            }
             
-            let header = NSCollectionLayoutBoundarySupplementaryItem(
-                layoutSize: headerSize,
-                elementKind: UICollectionView.elementKindSectionHeader,
-                alignment: .top
-            )
-            
-            section.boundarySupplementaryItems = [header]
             return section
         }
         
-        return layout
-    }
-    
-    private func createAppsCollectionViewLayout() -> UICollectionViewCompositionalLayout {
-        let layout = UICollectionViewCompositionalLayout { _, _ -> NSCollectionLayoutSection? in
-                        
-            let itemSize = NSCollectionLayoutSize(
-                widthDimension: .fractionalWidth(1),
-                heightDimension: .fractionalHeight(1)
-            )
-            let item = NSCollectionLayoutItem(layoutSize: itemSize)
-                        
-            let groupSize = NSCollectionLayoutSize(
-                widthDimension: .fractionalWidth(1),
-                heightDimension: .absolute(34)
-            )
-            
-            let group = NSCollectionLayoutGroup.vertical(layoutSize: groupSize, subitems: [item])
-                        
-            let section = NSCollectionLayoutSection(group: group)
-                        
-            let headerSize = NSCollectionLayoutSize(
-                widthDimension: .fractionalWidth(1),
-                heightDimension: .absolute(90)
-            )
-            
-            let header = NSCollectionLayoutBoundarySupplementaryItem(
-                layoutSize: headerSize,
-                elementKind: UICollectionView.elementKindSectionHeader,
-                alignment: .top
-            )
-            header.pinToVisibleBounds = true
-            
-            section.boundarySupplementaryItems = [header]
-            return section
-        }
         return layout
     }
     
