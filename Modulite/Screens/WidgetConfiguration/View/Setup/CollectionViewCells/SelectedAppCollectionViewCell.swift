@@ -32,11 +32,15 @@ class SelectedAppCollectionViewCell: UICollectionViewCell {
     
     // MARK: - Setup methods
 
-    func addSubviews() {
+    func setup(with name: String) {
+        self.nameLabel.text = name
+    }
+    
+    private func addSubviews() {
         addSubview(nameLabel)
     }
     
-    func setupConstraints() {
+    private func setupConstraints() {
         nameLabel.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }
