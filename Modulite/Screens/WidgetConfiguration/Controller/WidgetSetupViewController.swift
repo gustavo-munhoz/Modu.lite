@@ -26,7 +26,13 @@ class WidgetSetupViewController: UIViewController {
 
 // MARK: - UICollectionViewDataSource
 extension WidgetSetupViewController: UICollectionViewDataSource {
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        2
+    }
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        guard section != 0 else { return 0 }
+        
         switch collectionView {
         case setupView.stylesCollectionView: return viewModel.widgetStyles.count
         case setupView.selectedAppsCollectionView: return viewModel.apps.count
@@ -59,6 +65,8 @@ extension WidgetSetupViewController: UICollectionViewDataSource {
                 fatalError("Could not dequeue StyleCollectionViewCell")
             }
             
+            cell.setup(with: viewModel.apps[indexPath.row])
+            
             return cell
         
         default: fatalError("Unsupported View Controller.")
@@ -74,7 +82,7 @@ extension WidgetSetupViewController: UICollectionViewDataSource {
         guard kind == UICollectionView.elementKindSectionHeader else {
             return UICollectionReusableView()
         }
-                        
+        
         guard let header = collectionView.dequeueReusableSupplementaryView(
             ofKind: kind,
             withReuseIdentifier: SetupHeaderReusableCell.reuseId,
@@ -89,7 +97,8 @@ extension WidgetSetupViewController: UICollectionViewDataSource {
         } else {
             header.setup(
                 title: .localized(for: .widgetSetupViewAppsHeaderTitle),
-                containsSearchBar: true
+                containsSearchBar: true,
+                searchBarDelegate: self
             )
         }
         
@@ -100,4 +109,21 @@ extension WidgetSetupViewController: UICollectionViewDataSource {
 // MARK: - UICollectionViewDelegate
 extension WidgetSetupViewController: UICollectionViewDelegate {
     
+}
+
+// MARK: - UISearchBarDelegate
+extension WidgetSetupViewController: UISearchBarDelegate {
+        
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        viewModel.filterApps(for: searchText)
+        
+        UIView.performWithoutAnimation {
+            // Making textFieldDummy the first responder seems to be necessary to not 
+            // dismiss the keyboard when updating the collection view data.
+            // I thought updating the section would fix it, but apparently it didn't.
+            setupView.textFieldDummy.becomeFirstResponder()
+            setupView.selectedAppsCollectionView.reloadSections(IndexSet(integer: 1))
+            searchBar.becomeFirstResponder()
+        }
+    }
 }
