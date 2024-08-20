@@ -16,6 +16,16 @@ class WidgetLayoutCell: UICollectionViewCell {
         return view
     }()
     
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        addSubviews()
+        setupConstraints()
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     private func addSubviews() {
         addSubview(image)
     }
@@ -26,4 +36,3 @@ class WidgetLayoutCell: UICollectionViewCell {
         }
     }
 }
-
