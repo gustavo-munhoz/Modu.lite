@@ -7,6 +7,11 @@
 
 import UIKit
 
+protocol HomeNavigationFlowDelegate: AnyObject {
+    func navigateToWidgetSetup(forWidgetId id: UUID)
+    func navigateToWidgetEditor(forWidgetId id: UUID)
+}
+
 /// A `Coordinator` that manages the presentation of the home screen in the application.
 class HomeCoordinator: Coordinator {
     /// Child coordinators managed by this coordinator.
@@ -34,11 +39,15 @@ class HomeCoordinator: Coordinator {
 extension HomeCoordinator: HomeNavigationFlowDelegate {
     func navigateToWidgetSetup(forWidgetId id: UUID) {
         // FIXME: Identify widget and set/create data for it
-        let viewController = WidgetSetupViewController()
+        let viewController = WidgetSetupViewController.instantiate(delegate: self)
         viewController.hidesBottomBarWhenPushed = true
         
         router.present(viewController, animated: true) {
             // TODO: Save widget if already exists?
         }
+    }
+    
+    func navigateToWidgetEditor(forWidgetId id: UUID) {
+        
     }
 }

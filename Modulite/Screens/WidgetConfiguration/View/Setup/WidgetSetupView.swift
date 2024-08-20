@@ -68,15 +68,14 @@ class WidgetSetupView: UIScrollView {
     
     private(set) lazy var nextViewButton: UIButton = {
         var config = UIButton.Configuration.filled()
-        config.baseForegroundColor = .textPrimary
         config.baseBackgroundColor = .turquoise
         config.title = .localized(for: .next)
         config.imagePlacement = .trailing
         config.image = UIImage(systemName: "arrow.right")
         config.imagePadding = 10
         config.preferredSymbolConfigurationForImage = .init(pointSize: 20, weight: .bold)
-        
-        // TODO: Add customized font
+        config.baseForegroundColor = .white
+        // TODO: Finish customizations
         
         let view = UIButton(configuration: config)
         

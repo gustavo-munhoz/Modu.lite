@@ -8,10 +8,6 @@
 import UIKit
 import Combine
 
-protocol HomeNavigationFlowDelegate: AnyObject {
-    func navigateToWidgetSetup(forWidgetId id: UUID)
-}
-
 class HomeViewModel: NSObject {
     
     weak var delegate: HomeNavigationFlowDelegate?
