@@ -39,7 +39,7 @@ class HomeCoordinator: Coordinator {
 extension HomeCoordinator: HomeNavigationFlowDelegate {
     func navigateToWidgetSetup(forWidgetId id: UUID) {
         // FIXME: Identify widget and set/create data for it
-        let viewController = WidgetSetupViewController.instantiate(delegate: self)
+        let viewController = WidgetSetupViewController.instantiate(widgetId: id, delegate: self)
         viewController.hidesBottomBarWhenPushed = true
         
         router.present(viewController, animated: true) {
@@ -48,6 +48,10 @@ extension HomeCoordinator: HomeNavigationFlowDelegate {
     }
     
     func navigateToWidgetEditor(forWidgetId id: UUID) {
+        let viewController = WidgetEditorViewController.instantiate(widgetId: id, delegate: self)
         
+        router.present(viewController, animated: true) {
+            
+        }
     }
 }
