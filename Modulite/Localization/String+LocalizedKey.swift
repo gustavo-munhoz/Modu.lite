@@ -102,6 +102,11 @@ extension String {
         case widgetSetupViewStyleHeaderTitle
         case widgetSetupViewAppsHeaderTitle
         case setupHeaderSearchBarPlaceholder
+        
+        // MARK: - WidgetEditorView & WidgetEditorViewController
+        case widgetEditorViewWidgetLayoutTitle
+        case widgetEditorViewWidgetModuleTitle
+        case widgetEditorViewWidgetWallpaperTitle
     }
             
     /// Returns a localized string using the key and associated values defined by the `LocalizedKey` enum.
