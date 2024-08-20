@@ -37,6 +37,8 @@
 		B34F3E352C6E93570041D7BD /* WidgetSetupViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B34F3E342C6E93570041D7BD /* WidgetSetupViewModel.swift */; };
 		B34F3E372C6FDEAA0041D7BD /* SelectedAppCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B34F3E362C6FDEAA0041D7BD /* SelectedAppCollectionViewCell.swift */; };
 		B34F3E3A2C74BFB00041D7BD /* WidgetEditorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B34F3E392C74BFB00041D7BD /* WidgetEditorViewModel.swift */; };
+		B34F3E3E2C74CE090041D7BD /* EditorSectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = B34F3E3D2C74CE090041D7BD /* EditorSectionHeader.swift */; };
+		B34F3E402C74E3270041D7BD /* WidgetLayoutCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B34F3E3F2C74E3270041D7BD /* WidgetLayoutCell.swift */; };
 		B36927982C66B6E30089F769 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B36927972C66B6E30089F769 /* AppDelegate.swift */; };
 		B369279A2C66B6E30089F769 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B36927992C66B6E30089F769 /* SceneDelegate.swift */; };
 		B369279C2C66B6E30089F769 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B369279B2C66B6E30089F769 /* HomeViewController.swift */; };
@@ -99,6 +101,8 @@
 		B34F3E342C6E93570041D7BD /* WidgetSetupViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetSetupViewModel.swift; sourceTree = "<group>"; };
 		B34F3E362C6FDEAA0041D7BD /* SelectedAppCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedAppCollectionViewCell.swift; sourceTree = "<group>"; };
 		B34F3E392C74BFB00041D7BD /* WidgetEditorViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetEditorViewModel.swift; sourceTree = "<group>"; };
+		B34F3E3D2C74CE090041D7BD /* EditorSectionHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditorSectionHeader.swift; sourceTree = "<group>"; };
+		B34F3E3F2C74E3270041D7BD /* WidgetLayoutCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetLayoutCell.swift; sourceTree = "<group>"; };
 		B36927942C66B6E30089F769 /* Modulite.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Modulite.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B36927972C66B6E30089F769 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B36927992C66B6E30089F769 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -218,8 +222,8 @@
 		B34F3E1F2C6D36090041D7BD /* View */ = {
 			isa = PBXGroup;
 			children = (
+				B34F3E3B2C74C2640041D7BD /* Editor */,
 				B34F3E2C2C6E86B90041D7BD /* Setup */,
-				B34F3E232C6D366A0041D7BD /* WidgetEditorView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -257,6 +261,24 @@
 				B34F3E2D2C6E87350041D7BD /* SetupHeaderReusableCell.swift */,
 				B34F3E302C6E87A50041D7BD /* StyleCollectionViewCell.swift */,
 				B34F3E362C6FDEAA0041D7BD /* SelectedAppCollectionViewCell.swift */,
+			);
+			path = CollectionViewCells;
+			sourceTree = "<group>";
+		};
+		B34F3E3B2C74C2640041D7BD /* Editor */ = {
+			isa = PBXGroup;
+			children = (
+				B34F3E3C2C74CD160041D7BD /* CollectionViewCells */,
+				B34F3E232C6D366A0041D7BD /* WidgetEditorView.swift */,
+				B34F3E3D2C74CE090041D7BD /* EditorSectionHeader.swift */,
+			);
+			path = Editor;
+			sourceTree = "<group>";
+		};
+		B34F3E3C2C74CD160041D7BD /* CollectionViewCells */ = {
+			isa = PBXGroup;
+			children = (
+				B34F3E3F2C74E3270041D7BD /* WidgetLayoutCell.swift */,
 			);
 			path = CollectionViewCells;
 			sourceTree = "<group>";
@@ -586,6 +608,7 @@
 				B36927DA2C66C2770089F769 /* HomeView.swift in Sources */,
 				B36927D52C66BCE60089F769 /* HomeCoordinator.swift in Sources */,
 				B36927D32C66BBC10089F769 /* SceneDelegateRouter.swift in Sources */,
+				B34F3E3E2C74CE090041D7BD /* EditorSectionHeader.swift in Sources */,
 				B34F3DFD2C6A92890041D7BD /* RootTabBarController.swift in Sources */,
 				B34F3E112C6B0DDD0041D7BD /* SettingsCoordinator.swift in Sources */,
 				B34F3E142C6B93C80041D7BD /* MainWidgetCollectionViewCell.swift in Sources */,
@@ -594,6 +617,7 @@
 				B34F3DF82C69A3810041D7BD /* DebugOptions.swift in Sources */,
 				B34F3E052C6A93AC0041D7BD /* SettingsViewController.swift in Sources */,
 				B34F3E032C6A93A30041D7BD /* BlockAppsViewController.swift in Sources */,
+				B34F3E402C74E3270041D7BD /* WidgetLayoutCell.swift in Sources */,
 				B34F3E1C2C6BD3DA0041D7BD /* HomeViewModel.swift in Sources */,
 				B34F3E182C6B93FA0041D7BD /* TipCollectionViewCell.swift in Sources */,
 				B34F3E2B2C6E83800041D7BD /* UIFont+TraitedTextStyle.swift in Sources */,
