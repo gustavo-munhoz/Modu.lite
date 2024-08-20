@@ -36,6 +36,7 @@
 		B34F3E332C6E8AA60041D7BD /* UITextField+HorizontalPadding.swift in Sources */ = {isa = PBXBuildFile; fileRef = B34F3E322C6E8AA60041D7BD /* UITextField+HorizontalPadding.swift */; };
 		B34F3E352C6E93570041D7BD /* WidgetSetupViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B34F3E342C6E93570041D7BD /* WidgetSetupViewModel.swift */; };
 		B34F3E372C6FDEAA0041D7BD /* SelectedAppCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B34F3E362C6FDEAA0041D7BD /* SelectedAppCollectionViewCell.swift */; };
+		B34F3E3A2C74BFB00041D7BD /* WidgetEditorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B34F3E392C74BFB00041D7BD /* WidgetEditorViewModel.swift */; };
 		B36927982C66B6E30089F769 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B36927972C66B6E30089F769 /* AppDelegate.swift */; };
 		B369279A2C66B6E30089F769 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B36927992C66B6E30089F769 /* SceneDelegate.swift */; };
 		B369279C2C66B6E30089F769 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B369279B2C66B6E30089F769 /* HomeViewController.swift */; };
@@ -97,6 +98,7 @@
 		B34F3E322C6E8AA60041D7BD /* UITextField+HorizontalPadding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+HorizontalPadding.swift"; sourceTree = "<group>"; };
 		B34F3E342C6E93570041D7BD /* WidgetSetupViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetSetupViewModel.swift; sourceTree = "<group>"; };
 		B34F3E362C6FDEAA0041D7BD /* SelectedAppCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedAppCollectionViewCell.swift; sourceTree = "<group>"; };
+		B34F3E392C74BFB00041D7BD /* WidgetEditorViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetEditorViewModel.swift; sourceTree = "<group>"; };
 		B36927942C66B6E30089F769 /* Modulite.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Modulite.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B36927972C66B6E30089F769 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B36927992C66B6E30089F769 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -208,6 +210,7 @@
 			isa = PBXGroup;
 			children = (
 				B34F3E342C6E93570041D7BD /* WidgetSetupViewModel.swift */,
+				B34F3E392C74BFB00041D7BD /* WidgetEditorViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -604,6 +607,7 @@
 				B34F3DF52C6701870041D7BD /* String+LocalizedKey.swift in Sources */,
 				B34F3E282C6D36D40041D7BD /* WidgetSetupViewController.swift in Sources */,
 				B34F3E262C6D36C20041D7BD /* WidgetSetupView.swift in Sources */,
+				B34F3E3A2C74BFB00041D7BD /* WidgetEditorViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
