@@ -17,7 +17,6 @@ class WidgetEditorViewController: UIViewController {
         editorView.setLayoutCollectionViewDelegate(to: self)
         editorView.setLayoutCollectionViewDataSource(to: self)
     }
-    
 }
 
 extension WidgetEditorViewController {
@@ -50,6 +49,8 @@ extension WidgetEditorViewController: UICollectionViewDataSource {
                 withReuseIdentifier: WidgetLayoutCell.reuseId,
                 for: indexPath
             ) as? WidgetLayoutCell else { fatalError("Could not dequeue `WidgetLayoutCell`.")}
+            
+            cell.startWiggling()
             
             return cell
         default:
