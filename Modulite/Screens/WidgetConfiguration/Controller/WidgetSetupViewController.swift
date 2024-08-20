@@ -12,6 +12,8 @@ class WidgetSetupViewController: UIViewController {
     private let setupView = WidgetSetupView()
     private let viewModel = WidgetSetupViewModel()
     
+    weak var delegate: HomeNavigationFlowDelegate?
+    
     override func loadView() {
         view = setupView
     }
@@ -125,5 +127,13 @@ extension WidgetSetupViewController: UISearchBarDelegate {
             setupView.selectedAppsCollectionView.reloadSections(IndexSet(integer: 1))
             searchBar.becomeFirstResponder()
         }
+    }
+}
+
+extension WidgetSetupViewController {
+    class func instantiate(delegate: HomeNavigationFlowDelegate) -> WidgetSetupViewController {
+        let vc = WidgetSetupViewController()
+        vc.delegate = delegate
+        return vc
     }
 }
