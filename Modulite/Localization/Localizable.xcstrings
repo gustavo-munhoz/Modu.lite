@@ -160,6 +160,39 @@
         }
       }
     },
+    "widgetEditorViewWidgetLayoutTitle" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Edit widget layout"
+          }
+        }
+      }
+    },
+    "widgetEditorViewWidgetModuleTitle" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Edit module style"
+          }
+        }
+      }
+    },
+    "widgetEditorViewWidgetWallpaperTitle" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Download your matching wallpaper"
+          }
+        }
+      }
+    },
     "widgetSetupViewAppsHeaderTitle" : {
       "extractionState" : "manual",
       "localizations" : {

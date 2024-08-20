@@ -33,7 +33,7 @@ class SetupHeaderReusableCell: UICollectionViewCell {
         
         view.setImage(
             UIImage(systemName: "magnifyingglass")!.withTintColor(
-                .turquoise,
+                .fiestaGreen,
                 renderingMode: .alwaysOriginal
             ),
             for: .search,
@@ -52,7 +52,7 @@ class SetupHeaderReusableCell: UICollectionViewCell {
     ) {
         searchBar.delegate = searchBarDelegate
         
-        backgroundColor = .screenBackground
+        backgroundColor = .whiteTurnip
         titleLabel.attributedText = createTextWithAsterisk(with: title)
         
         addSubviews(containsSearchBar: containsSearchBar)
@@ -91,7 +91,7 @@ class SetupHeaderReusableCell: UICollectionViewCell {
     private func createTextWithAsterisk(with text: String) -> NSAttributedString {
         let imageAttachment = NSTextAttachment(
             image: UIImage(systemName: "asterisk")!
-                .withTintColor(.appYellow, renderingMode: .alwaysOriginal)
+                .withTintColor(.lemonYellow, renderingMode: .alwaysOriginal)
         )
         
         imageAttachment.bounds = CGRect(x: 0, y: -2.5, width: 21, height: 21)

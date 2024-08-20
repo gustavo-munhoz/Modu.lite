@@ -9,7 +9,12 @@ import UIKit
 import Combine
 
 class WidgetSetupViewModel: NSObject {
-    @Published var widgetStyles: [UIImage] = [
+    
+    private(set) weak var delegate: HomeNavigationFlowDelegate?
+    
+    private(set) var widgetId: UUID!
+    
+    @Published private(set) var widgetStyles: [UIImage] = [
         UIImage(systemName: "house.fill")!,
         UIImage(systemName: "house.fill")!,
         UIImage(systemName: "house.fill")!,
@@ -32,13 +37,25 @@ class WidgetSetupViewModel: NSObject {
         "Woofy"
     ]
     
-    @Published var apps: [String]
+    @Published private(set) var apps: [String]
     
-    @Published var selectedApps: [String] = []
+    @Published private(set) var selectedApps: [String] = []
     
     override init() {
         self.apps = allApps
     }
+    
+    // MARK: - Setters
+    
+    func setDelegate(to delegate: HomeNavigationFlowDelegate) {
+        self.delegate = delegate
+    }
+    
+    func setWidgetId(to id: UUID) {
+        self.widgetId = id
+    }
+    
+    // MARK: - Actions
     
     func filterApps(for query: String) {
         guard !query.isEmpty else {
@@ -46,5 +63,9 @@ class WidgetSetupViewModel: NSObject {
             return
         }
         apps = allApps.filter { $0.lowercased().contains(query.lowercased())}
+    }
+    
+    func proceedToWidgetEditor() {
+        delegate?.navigateToWidgetEditor(forWidgetId: widgetId)
     }
 }

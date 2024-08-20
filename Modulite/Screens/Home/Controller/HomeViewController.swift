@@ -36,7 +36,7 @@ class HomeViewController: UIViewController {
             
         let appearance = UINavigationBarAppearance()
         appearance.configureWithOpaqueBackground()
-        appearance.backgroundColor = UIColor.screenBackground
+        appearance.backgroundColor = UIColor.whiteTurnip
                 
         navigationController?.navigationBar.standardAppearance = appearance
         navigationController?.navigationBar.scrollEdgeAppearance = appearance

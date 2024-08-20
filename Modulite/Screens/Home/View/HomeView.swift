@@ -37,7 +37,7 @@ class HomeView: UIScrollView {
     // MARK: - Initializers
     override init(frame: CGRect) {
         super.init(frame: frame)
-        backgroundColor = .screenBackground
+        backgroundColor = .whiteTurnip
         showsVerticalScrollIndicator = false
         
         addSubviews()
