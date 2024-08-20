@@ -21,7 +21,7 @@ class WidgetSetupView: UIScrollView {
         textField.placeholder = "Widget 1"
         textField.font = UIFont(textStyle: .title2, weight: .bold)
         textField.textColor = .textPrimary
-        textField.backgroundColor = .beige
+        textField.backgroundColor = .potatoYellow
         
         textField.layer.cornerRadius = 12
         textField.setLeftPaddingPoints(15)
@@ -70,7 +70,7 @@ class WidgetSetupView: UIScrollView {
     
     private(set) lazy var nextViewButton: UIButton = {
         var config = UIButton.Configuration.filled()
-        config.baseBackgroundColor = .turquoise
+        config.baseBackgroundColor = .fiestaGreen
         config.title = .localized(for: .next)
         config.imagePlacement = .trailing
         config.image = UIImage(systemName: "arrow.right")
@@ -103,7 +103,7 @@ class WidgetSetupView: UIScrollView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        backgroundColor = .screenBackground
+        backgroundColor = .whiteTurnip
         addSubviews()
         setupConstraints()
         setupTapGestures()

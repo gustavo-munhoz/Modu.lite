@@ -53,7 +53,7 @@ class HomeHeaderReusableCell: UICollectionViewCell {
     func setup(
         title: String,
         buttonImage: UIImage,
-        buttonColor: UIColor = .turquoise,
+        buttonColor: UIColor = .fiestaGreen,
         buttonAction: @escaping () -> Void
     ) {
         actionButton.configuration?.image = buttonImage
