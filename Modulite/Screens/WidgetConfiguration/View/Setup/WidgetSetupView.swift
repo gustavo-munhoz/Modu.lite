@@ -12,6 +12,8 @@ class WidgetSetupView: UIScrollView {
     
     // MARK: - Properties
     
+    var onNextButtonPressed: (() -> Void)?
+    
     private let contentView = UIView()
     
     private(set) lazy var widgetNameTextField: UITextField = {
@@ -78,6 +80,7 @@ class WidgetSetupView: UIScrollView {
         // TODO: Finish customizations
         
         let view = UIButton(configuration: config)
+        view.addTarget(self, action: #selector(handleNextButtonPressed), for: .touchUpInside)
         
         return view
     }()
@@ -90,6 +93,11 @@ class WidgetSetupView: UIScrollView {
         view.frame = CGRect(origin: .zero, size: .zero)
         return view
     }()
+    
+    // MARK: - Actions
+    @objc private func handleNextButtonPressed() {
+        onNextButtonPressed?()
+    }
     
     // MARK: - Initializers
     

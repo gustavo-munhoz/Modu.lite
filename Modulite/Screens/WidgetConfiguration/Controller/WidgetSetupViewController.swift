@@ -12,8 +12,6 @@ class WidgetSetupViewController: UIViewController {
     private let setupView = WidgetSetupView()
     private let viewModel = WidgetSetupViewModel()
     
-    weak var delegate: HomeNavigationFlowDelegate?
-    
     override func loadView() {
         view = setupView
     }
@@ -23,6 +21,7 @@ class WidgetSetupViewController: UIViewController {
         
         setupView.setCollectionViewDelegates(to: self)
         setupView.setCollectionViewDataSources(to: self)
+        setupView.onNextButtonPressed = viewModel.proceedToWidgetEditor
     }
 }
 
@@ -131,9 +130,11 @@ extension WidgetSetupViewController: UISearchBarDelegate {
 }
 
 extension WidgetSetupViewController {
-    class func instantiate(delegate: HomeNavigationFlowDelegate) -> WidgetSetupViewController {
+    class func instantiate(widgetId: UUID, delegate: HomeNavigationFlowDelegate) -> WidgetSetupViewController {
         let vc = WidgetSetupViewController()
-        vc.delegate = delegate
+        vc.viewModel.setWidgetId(to: widgetId)
+        vc.viewModel.setDelegate(to: delegate)
+        
         return vc
     }
 }
