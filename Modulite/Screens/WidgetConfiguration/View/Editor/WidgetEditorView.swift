@@ -33,7 +33,7 @@ class WidgetEditorView: UIScrollView {
     
     private(set) lazy var moduleStyleHeader: UILabel = {
         let view = UILabel()
-        view.text = .localized(for: .widgetEditorViewWidgetModuleTitle)
+        view.text = .localized(for: .widgetEditorViewWidgetModuleStyleTitle)
         view.font = UIFont(textStyle: .body, symbolicTraits: .traitBold.union(.traitItalic))
         
         return view
@@ -41,9 +41,30 @@ class WidgetEditorView: UIScrollView {
     
     private(set) lazy var moduleStyleCollectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
+        layout.itemSize = CGSize(width: 100, height: 145)
+        layout.scrollDirection = .horizontal
+        layout.minimumLineSpacing = 25
+        layout.sectionInset = .init(top: 0, left: 30, bottom: 0, right: 30)
         
         let view = UICollectionView(frame: .zero, collectionViewLayout: layout)
         view.backgroundColor = .potatoYellow
+        view.layer.cornerRadius = 20
+        view.showsHorizontalScrollIndicator = false
+        
+        return view
+    }()
+    
+    private(set) lazy var moduleColorCollectionView: UICollectionView = {
+        let layout = UICollectionViewFlowLayout()
+        layout.itemSize = CGSize(width: 37, height: 37)
+        layout.scrollDirection = .horizontal
+        layout.minimumLineSpacing = 30
+        layout.sectionInset = .init(top: 0, left: 30, bottom: 0, right: 30)
+        
+        let view = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        view.backgroundColor = .potatoYellow
+        view.layer.cornerRadius = 20
+        view.showsHorizontalScrollIndicator = false
         
         return view
     }()
@@ -73,16 +94,20 @@ class WidgetEditorView: UIScrollView {
     
     // MARK: - Setup methods
     
-    func setLayoutCollectionViewDelegate(
+    func setCollectionViewDelegates(
         to delegate: UICollectionViewDelegate & UICollectionViewDragDelegate & UICollectionViewDropDelegate
     ) {
         widgetLayoutCollectionView.delegate = delegate
         widgetLayoutCollectionView.dragDelegate = delegate
         widgetLayoutCollectionView.dropDelegate = delegate
+        moduleStyleCollectionView.delegate = delegate
+        moduleColorCollectionView.delegate = delegate
     }
     
-    func setLayoutCollectionViewDataSource(to dataSource: UICollectionViewDataSource) {
+    func setCollectionViewDataSources(to dataSource: UICollectionViewDataSource) {
         widgetLayoutCollectionView.dataSource = dataSource
+        moduleStyleCollectionView.dataSource = dataSource
+        moduleColorCollectionView.dataSource = dataSource
     }
     
     func setLayoutHeaderInfoAction(_ action: @escaping () -> Void) {
@@ -94,6 +119,21 @@ class WidgetEditorView: UIScrollView {
             WidgetLayoutCell.self,
             forCellWithReuseIdentifier: WidgetLayoutCell.reuseId
         )
+        
+        widgetLayoutCollectionView.register(
+            WidgetEmptyCell.self,
+            forCellWithReuseIdentifier: WidgetEmptyCell.reuseId
+        )
+        
+        moduleStyleCollectionView.register(
+            ModuleStyleCell.self,
+            forCellWithReuseIdentifier: ModuleStyleCell.reuseId
+        )
+        
+        moduleColorCollectionView.register(
+            ModuleColorCell.self,
+            forCellWithReuseIdentifier: ModuleColorCell.reuseId
+        )
     }
     
     private func addSubviews() {
@@ -102,6 +142,7 @@ class WidgetEditorView: UIScrollView {
         contentView.addSubview(widgetLayoutCollectionView)
         contentView.addSubview(moduleStyleHeader)
         contentView.addSubview(moduleStyleCollectionView)
+        contentView.addSubview(moduleColorCollectionView)
         contentView.addSubview(wallpaperHeader)
     }
     
@@ -132,11 +173,18 @@ class WidgetEditorView: UIScrollView {
         moduleStyleCollectionView.snp.makeConstraints { make in
             make.top.equalTo(moduleStyleHeader.snp.bottom).offset(15)
             make.height.equalTo(180)
-            make.left.right.equalToSuperview()
+            make.left.equalToSuperview()
+            make.width.equalToSuperview().offset(44)
+        }
+        
+        moduleColorCollectionView.snp.makeConstraints { make in
+            make.top.equalTo(moduleStyleCollectionView.snp.bottom).offset(24)
+            make.height.equalTo(60)
+            make.left.width.equalTo(moduleStyleCollectionView)
         }
         
         wallpaperHeader.snp.makeConstraints { make in
-            make.top.equalTo(moduleStyleCollectionView.snp.bottom).offset(24)
+            make.top.equalTo(moduleColorCollectionView.snp.bottom).offset(24)
             make.left.right.equalToSuperview()
         }
     }
@@ -167,5 +215,4 @@ class WidgetEditorView: UIScrollView {
         }
         return layout
     }
-
 }
