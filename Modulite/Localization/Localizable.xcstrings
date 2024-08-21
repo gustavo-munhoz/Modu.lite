@@ -171,13 +171,13 @@
         }
       }
     },
-    "widgetEditorViewWidgetModuleTitle" : {
+    "widgetEditorViewWidgetModuleStyleTitle" : {
       "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Edit module style"
+            "value" : "Edit module style & color"
           }
         }
       }

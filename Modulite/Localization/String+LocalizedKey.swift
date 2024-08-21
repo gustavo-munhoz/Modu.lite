@@ -105,7 +105,7 @@ extension String {
         
         // MARK: - WidgetEditorView & WidgetEditorViewController
         case widgetEditorViewWidgetLayoutTitle
-        case widgetEditorViewWidgetModuleTitle
+        case widgetEditorViewWidgetModuleStyleTitle
         case widgetEditorViewWidgetWallpaperTitle
     }
             
