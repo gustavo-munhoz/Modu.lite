@@ -33,7 +33,7 @@ class WidgetEditorView: UIScrollView {
     
     private(set) lazy var moduleStyleHeader: UILabel = {
         let view = UILabel()
-        view.text = .localized(for: .widgetEditorViewWidgetModuleTitle)
+        view.text = .localized(for: .widgetEditorViewWidgetModuleStyleTitle)
         view.font = UIFont(textStyle: .body, symbolicTraits: .traitBold.union(.traitItalic))
         
         return view
@@ -93,6 +93,11 @@ class WidgetEditorView: UIScrollView {
         widgetLayoutCollectionView.register(
             WidgetLayoutCell.self,
             forCellWithReuseIdentifier: WidgetLayoutCell.reuseId
+        )
+        
+        widgetLayoutCollectionView.register(
+            WidgetEmptyCell.self,
+            forCellWithReuseIdentifier: WidgetEmptyCell.reuseId
         )
     }
     
