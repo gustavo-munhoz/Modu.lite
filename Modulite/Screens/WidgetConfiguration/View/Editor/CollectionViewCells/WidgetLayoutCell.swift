@@ -16,6 +16,16 @@ class WidgetLayoutCell: UICollectionViewCell {
         return view
     }()
     
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        addSubviews()
+        setupConstraints()
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     private func addSubviews() {
         addSubview(image)
     }
@@ -27,3 +37,20 @@ class WidgetLayoutCell: UICollectionViewCell {
     }
 }
 
+extension WidgetLayoutCell {
+    func startWiggling() {
+        let rotation = CABasicAnimation(keyPath: "transform.rotation")
+        rotation.fromValue = -0.03
+        rotation.toValue = 0.03
+        rotation.duration = 0.1
+        rotation.repeatCount = Float.infinity
+        rotation.autoreverses = true
+
+        layer.add(rotation, forKey: "rotation")
+
+    }
+
+    func stopWiggling() {
+        layer.removeAllAnimations()
+    }
+}

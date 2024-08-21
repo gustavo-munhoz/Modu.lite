@@ -21,10 +21,13 @@ class WidgetEditorView: UIScrollView {
     }()
     
     private(set) lazy var widgetLayoutCollectionView: UICollectionView = {
-        let layout = UICollectionViewFlowLayout()
+        let layout = createCompositionalLayout()
         
         let view = UICollectionView(frame: .zero, collectionViewLayout: layout)
-        view.backgroundColor = .red
+        view.backgroundColor = .clear
+        view.dragInteractionEnabled = true
+        view.isScrollEnabled = false
+        
         return view
     }()
     
@@ -70,6 +73,18 @@ class WidgetEditorView: UIScrollView {
     
     // MARK: - Setup methods
     
+    func setLayoutCollectionViewDelegate(
+        to delegate: UICollectionViewDelegate & UICollectionViewDragDelegate & UICollectionViewDropDelegate
+    ) {
+        widgetLayoutCollectionView.delegate = delegate
+        widgetLayoutCollectionView.dragDelegate = delegate
+        widgetLayoutCollectionView.dropDelegate = delegate
+    }
+    
+    func setLayoutCollectionViewDataSource(to dataSource: UICollectionViewDataSource) {
+        widgetLayoutCollectionView.dataSource = dataSource
+    }
+    
     func setLayoutHeaderInfoAction(_ action: @escaping () -> Void) {
         layoutHeader.onInfoButtonPressed = action
     }
@@ -79,8 +94,6 @@ class WidgetEditorView: UIScrollView {
             WidgetLayoutCell.self,
             forCellWithReuseIdentifier: WidgetLayoutCell.reuseId
         )
-        
-        
     }
     
     private func addSubviews() {
@@ -106,13 +119,14 @@ class WidgetEditorView: UIScrollView {
         
         widgetLayoutCollectionView.snp.makeConstraints { make in
             make.top.equalTo(layoutHeader.snp.bottom).offset(12)
+            make.centerX.equalToSuperview()
             make.width.equalTo(338)
             make.height.equalTo(354)
         }
         
         moduleStyleHeader.snp.makeConstraints { make in
             make.top.equalTo(widgetLayoutCollectionView.snp.bottom).offset(24)
-            make.width.equalToSuperview()
+            make.width.centerX.equalToSuperview()
         }
         
         moduleStyleCollectionView.snp.makeConstraints { make in
@@ -126,4 +140,32 @@ class WidgetEditorView: UIScrollView {
             make.left.right.equalToSuperview()
         }
     }
+    
+    // MARK: - Helper methods
+    private func createCompositionalLayout() -> UICollectionViewLayout {
+        let layout = UICollectionViewCompositionalLayout { _, _ -> NSCollectionLayoutSection? in
+            let itemSize = NSCollectionLayoutSize(
+                widthDimension: .fractionalWidth(1/3),
+                heightDimension: .fractionalHeight(1.0)
+            )
+            let item = NSCollectionLayoutItem(layoutSize: itemSize)
+            item.contentInsets = NSDirectionalEdgeInsets(top: 5, leading: 5, bottom: 5, trailing: 5)
+
+            let groupSize = NSCollectionLayoutSize(
+                widthDimension: .fractionalWidth(1.0),
+                heightDimension: .fractionalHeight(0.5)
+            )
+            let group = NSCollectionLayoutGroup.horizontal(
+                layoutSize: groupSize,
+                subitems: Array(repeating: item, count: 3)
+            )
+
+            let section = NSCollectionLayoutSection(group: group)
+            section.interGroupSpacing = 5
+            
+            return section
+        }
+        return layout
+    }
+
 }
