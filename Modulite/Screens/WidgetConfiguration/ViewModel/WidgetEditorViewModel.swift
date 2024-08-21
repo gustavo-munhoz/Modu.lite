@@ -18,6 +18,18 @@ class WidgetEditorViewModel: NSObject {
     
     @Published private(set) var displayedApps: [UIImage?] = Array(repeating: nil, count: 6)
     
+    private(set) var availableStyles = [
+        UIImage(systemName: "house.fill")!.withTintColor(.white, renderingMode: .alwaysOriginal),
+        UIImage(systemName: "house.fill")!.withTintColor(.red, renderingMode: .alwaysOriginal),
+        UIImage(systemName: "house.fill")!.withTintColor(.yellow, renderingMode: .alwaysOriginal),
+        UIImage(systemName: "house.fill")!.withTintColor(.green, renderingMode: .alwaysOriginal),
+        UIImage(systemName: "house.fill")!.withTintColor(.blue, renderingMode: .alwaysOriginal)
+    ]
+    
+    private(set) var availableColors: [UIColor] = [
+        .red, .blue, .systemPink, .green        
+    ]
+    
     override init() {
         super.init()
         
