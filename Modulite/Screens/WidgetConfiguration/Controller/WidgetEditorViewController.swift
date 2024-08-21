@@ -33,7 +33,7 @@ extension WidgetEditorViewController {
 extension WidgetEditorViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if collectionView === editorView.widgetLayoutCollectionView {
-            return viewModel.displayedApps.count - 1
+            return viewModel.displayedApps.count
         }
         return 0
     }
@@ -45,14 +45,27 @@ extension WidgetEditorViewController: UICollectionViewDataSource {
         
         switch collectionView {
         case editorView.widgetLayoutCollectionView:
-            guard let cell = collectionView.dequeueReusableCell(
-                withReuseIdentifier: WidgetLayoutCell.reuseId,
-                for: indexPath
-            ) as? WidgetLayoutCell else { fatalError("Could not dequeue `WidgetLayoutCell`.")}
-            
-            cell.startWiggling()
-            
-            return cell
+            if viewModel.displayedApps[indexPath.row] == nil {
+                guard let cell = collectionView.dequeueReusableCell(
+                    withReuseIdentifier: WidgetEmptyCell.reuseId,
+                    for: indexPath
+                ) as? WidgetEmptyCell else {
+                    fatalError("Could not dequeue WidgetEmptyCell.")
+                }
+                return cell
+                
+            } else {
+                guard let cell = collectionView.dequeueReusableCell(
+                    withReuseIdentifier: WidgetLayoutCell.reuseId,
+                    for: indexPath
+                ) as? WidgetLayoutCell else {
+                    fatalError("Could not dequeue WidgetLayoutCell.")
+                }
+                
+                cell.startWiggling()
+                return cell
+            }
+
         default:
             fatalError("Unsupported `UICollectionView`.")
         }
@@ -71,7 +84,7 @@ extension WidgetEditorViewController: UICollectionViewDragDelegate {
         itemsForBeginning session: any UIDragSession,
         at indexPath: IndexPath
     ) -> [UIDragItem] {
-        let item = viewModel.displayedApps[indexPath.row]
+        guard let item = viewModel.displayedApps[indexPath.row] else { return [] }
         let itemProvider = NSItemProvider(object: item as UIImage)
         let dragItem = UIDragItem(itemProvider: itemProvider)
         dragItem.localObject = item
@@ -109,12 +122,10 @@ extension WidgetEditorViewController: UICollectionViewDropDelegate {
             let items = coordinator.items
             if items.count == 1, let item = items.first, let sourceIndexPath = item.sourceIndexPath {
                 collectionView.performBatchUpdates { [weak self] in
-                    guard let viewModel = self?.viewModel,
-                          let image = item.dragItem.localObject as? UIImage
+                    guard let viewModel = self?.viewModel
                     else { return }
                     
-                    viewModel.removeCell(at: sourceIndexPath.item)
-                    viewModel.insertCell(image, at: destinationIndexPath.item)
+                    viewModel.moveItem(from: sourceIndexPath.item, to: destinationIndexPath.item)
                     
                     collectionView.deleteItems(at: [sourceIndexPath])
                     collectionView.insertItems(at: [destinationIndexPath])
