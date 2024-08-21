@@ -52,6 +52,7 @@
 		B36927D32C66BBC10089F769 /* SceneDelegateRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B36927D22C66BBC10089F769 /* SceneDelegateRouter.swift */; };
 		B36927D52C66BCE60089F769 /* HomeCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B36927D42C66BCE60089F769 /* HomeCoordinator.swift */; };
 		B36927DA2C66C2770089F769 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B36927D92C66C2770089F769 /* HomeView.swift */; };
+		B377D0FB2C764F85005B715A /* WidgetEmptyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B377D0FA2C764F85005B715A /* WidgetEmptyCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -120,6 +121,7 @@
 		B36927D22C66BBC10089F769 /* SceneDelegateRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegateRouter.swift; sourceTree = "<group>"; };
 		B36927D42C66BCE60089F769 /* HomeCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCoordinator.swift; sourceTree = "<group>"; };
 		B36927D92C66C2770089F769 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		B377D0FA2C764F85005B715A /* WidgetEmptyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetEmptyCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -279,6 +281,7 @@
 			isa = PBXGroup;
 			children = (
 				B34F3E3F2C74E3270041D7BD /* WidgetLayoutCell.swift */,
+				B377D0FA2C764F85005B715A /* WidgetEmptyCell.swift */,
 			);
 			path = CollectionViewCells;
 			sourceTree = "<group>";
@@ -602,6 +605,7 @@
 				B369279C2C66B6E30089F769 /* HomeViewController.swift in Sources */,
 				B34F3E0D2C6B0C790041D7BD /* UsageCoordinator.swift in Sources */,
 				B36927D12C66B8CA0089F769 /* Router.swift in Sources */,
+				B377D0FB2C764F85005B715A /* WidgetEmptyCell.swift in Sources */,
 				B36927982C66B6E30089F769 /* AppDelegate.swift in Sources */,
 				B369279A2C66B6E30089F769 /* SceneDelegate.swift in Sources */,
 				B34F3E0B2C6A9E350041D7BD /* NavigationRouter.swift in Sources */,
