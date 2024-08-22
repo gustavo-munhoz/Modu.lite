@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SnapKit
 
 class ModuleStyleCell: UICollectionViewCell {
     static let reuseId = "ModuleStyleCell"
@@ -14,22 +15,34 @@ class ModuleStyleCell: UICollectionViewCell {
     
     private(set) lazy var styleImageView: UIImageView = {
         let view = UIImageView()
+        view.layer.cornerRadius = 12
+        view.clipsToBounds = true
         
         return view
     }()
     
     // MARK: - Setup
-    func setup(with image: UIImage) {
-        styleImageView.image = image
+    func setup(with image: UIImage, blendColor: UIColor? = nil) {
+        if let color = blendColor {
+            styleImageView.image = ImageProcessingFactory.createColorBlendedImage(
+                image,
+                mode: .plusDarker,
+                color: color
+            )
+            
+        } else {
+            styleImageView.image = image
+        }
+        
         addSubviews()
         setupConstraints()
     }
     
-    func addSubviews() {
+    private func addSubviews() {
         addSubview(styleImageView)
     }
     
-    func setupConstraints() {
+    private func setupConstraints() {
         styleImageView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }
