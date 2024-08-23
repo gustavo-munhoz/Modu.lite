@@ -9,90 +9,91 @@ import UIKit
 import Combine
 
 class WidgetEditorViewModel: NSObject {
-    
-    private(set) var widgetId: UUID!
-    
+        
     private(set) weak var delegate: HomeNavigationFlowDelegate?
     
-    private let selectedApps: [UIImage] = Array(repeating: UIImage(named: "att-regular2")!, count: 4)
+    @Published private(set) var selectedCellIndex: Int?
     
-    @Published private(set) var displayedModules: [UIImage?] = Array(repeating: nil, count: 6)
+    unowned let builder: WidgetConfigurationBuilder
     
-    private(set) lazy var availableStyles = [
-        baseImage, baseImage, baseImage, baseImage
-    ]
-    
-    private(set) var availableColors: [UIColor] = [
-        .eggYolk, .cupcake, .sweetTooth, .sugarMint, .burntEnds
-    ]
-    
-    private let baseImage = UIImage(named: "att-regular2")!
-    
-    @Published private(set) var editingCellWithIndex: Int?
-    
-    override init() {
+    init(
+        widgetBuider: WidgetConfigurationBuilder,
+        delegate: HomeNavigationFlowDelegate
+    ) {
+        builder = widgetBuider
+        self.delegate = delegate
         super.init()
-                        
-        for i in 0..<selectedApps.count {
-            displayedModules[i] = selectedApps[i]
-        }
+    }
+    
+    // MARK: - Getters
+    
+    func getCurrentModules() -> [ModuleConfiguration?] {
+        builder.getCurrentModules()
+    }
+    
+    func getModule(at index: Int) -> ModuleConfiguration? {
+        builder.getModule(at: index)
+    }
+    
+    func getAvailableStyles() -> [ModuleStyle] {
+        builder.getAvailableStyles()
+    }
+    
+    func getAvailableStyle(at index: Int) -> ModuleStyle? {
+        builder.getAvailableStyle(at: index)
+    }
+    
+    func getAvailableColors() -> [UIColor] {
+        builder.getAvailableColors()
+    }
+    
+    func getAvailableColor(at index: Int) -> UIColor? {
+        builder.getAvailableColor(at: index)
+    }
+    
+    func isModuleEmpty(at index: Int) -> Bool {
+        builder.isModuleEmpty(at: index)
     }
     
     // MARK: - Setters
-    func setDelegate(to delegate: HomeNavigationFlowDelegate) {
-        self.delegate = delegate
-    }
-    
-    func setWidgetId(to id: UUID) {
-        self.widgetId = id
-    }
     
     func setEditingCell(at index: Int) {
-        editingCellWithIndex = index
+        selectedCellIndex = index
     }
     
     func clearEditingCell() {
-        editingCellWithIndex = nil
+        selectedCellIndex = nil
     }
     
     // MARK: - Actions
     func moveItem(from sourceIndex: Int, to destinationIndex: Int) {
-        guard sourceIndex != destinationIndex,
-              sourceIndex >= 0, sourceIndex < displayedModules.count,
-              destinationIndex >= 0, destinationIndex < displayedModules.count else {
-            print("Invalid indices")
-            return
-        }
-
-        let movingItem = displayedModules[sourceIndex]
-        displayedModules.remove(at: sourceIndex)
-        displayedModules.insert(movingItem, at: destinationIndex)
+        builder.moveItem(from: sourceIndex, to: destinationIndex)
     }
 
-    func applyColorToSelectedCell(color: UIColor) {
-        guard let index = editingCellWithIndex else {
+    func applyColorToSelectedCell(color: UIColor? = .clear) {
+        guard let index = selectedCellIndex else {
             print("Tried to edit item without selecting any.")
             return
         }
-        
-        guard displayedModules[index] != nil else {
-            print("Item at position \(index) is nil")
-            return
-        }
-        
-        displayedModules[index] = ImageProcessingFactory.createColorBlendedImage(
-            baseImage,
-            mode: .plusDarker,
-            color: color
-        )
-        
-        availableStyles = availableStyles.map { _ in
-            ImageProcessingFactory.createColorBlendedImage(
-                baseImage,
-                mode: .plusDarker,
-                color: color
-            )!
-        }
+//        
+//        guard displayedModules[index] != nil else {
+//            print("Item at position \(index) is nil")
+//            return
+//        }
+//        
+//        displayedModules[index] = ImageProcessingFactory.createColorBlendedImage(
+//            baseImage,
+//            mode: .plusDarker,
+//            color: color
+//        )
+//        
+//        availableStyles = availableStyles.map { _ in
+//            ImageProcessingFactory.createColorBlendedImage(
+//                baseImage,
+//                mode: .plusDarker,
+//                color: color
+//            )!
+//        }
     }
     
 //    func insertCell(_ image: UIImage, at index: Int) {
