@@ -22,17 +22,10 @@ class ModuleStyleCell: UICollectionViewCell {
     }()
     
     // MARK: - Setup
-    func setup(with image: UIImage, blendColor: UIColor? = nil) {
-        if let color = blendColor {
-            styleImageView.image = ImageProcessingFactory.createColorBlendedImage(
-                image,
-                mode: .plusDarker,
-                color: color
-            )
-            
-        } else {
-            styleImageView.image = image
-        }
+    func setup(with image: UIImage) {
+        subviews.forEach { $0.removeFromSuperview() }
+        
+        styleImageView.image = image
         
         addSubviews()
         setupConstraints()

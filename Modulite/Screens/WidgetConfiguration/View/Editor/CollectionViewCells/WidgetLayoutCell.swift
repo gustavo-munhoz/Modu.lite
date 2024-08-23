@@ -21,18 +21,9 @@ class WidgetLayoutCell: UICollectionViewCell {
     
     // MARK: - Setup Methods
     
-    func setup(with image: UIImage, blendColor: UIColor? = nil) {
+    func setup(with image: UIImage) {
         subviews.forEach { $0.removeFromSuperview() }
-        
-        if let color = blendColor {
-            moduleImageView.image = ImageProcessingFactory.createColorBlendedImage(
-                image,
-                mode: .plusDarker,
-                color: color
-            )
-        } else {
-            moduleImageView.image = image
-        }
+        moduleImageView.image = image
         
         addSubviews()
         setupConstraints()
