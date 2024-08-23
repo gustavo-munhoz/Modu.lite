@@ -57,10 +57,7 @@ extension WidgetEditorViewController: UICollectionViewDataSource {
                 fatalError("Could not dequeue ModuleStyleCell.")
             }
             
-            cell.setup(
-                with: viewModel.availableStyles[indexPath.row],
-                blendColor: .lemonYellow
-            )
+            cell.setup(with: viewModel.availableStyles[indexPath.row])
             
             return cell
             
@@ -104,8 +101,8 @@ extension WidgetEditorViewController: UICollectionViewDataSource {
             }
             
             cell.setup(with: image)
-            
             cell.startWiggling()
+            
             return cell
         }
     }
@@ -119,15 +116,11 @@ extension WidgetEditorViewController: UICollectionViewDelegate {
             viewModel.setEditingCell(at: indexPath.row)
             
         case editorView.moduleColorCollectionView:
-            guard let itemIndex = viewModel.editingCellWithIndex else {
-                print("Tried to edit item without selecting any.")
-                return
-            }
-            viewModel.applyColorToCell(
-                at: itemIndex,
+            viewModel.applyColorToSelectedCell(
                 color: viewModel.availableColors[indexPath.row]
             )
             
+            editorView.moduleStyleCollectionView.reloadData()
             editorView.widgetLayoutCollectionView.reloadData()
             
         default: return

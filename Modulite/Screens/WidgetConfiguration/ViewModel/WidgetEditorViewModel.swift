@@ -23,7 +23,7 @@ class WidgetEditorViewModel: NSObject {
     ]
     
     private(set) var availableColors: [UIColor] = [
-        .red, .blue, .systemPink, .green
+        .eggYolk, .cupcake, .sweetTooth, .sugarMint, .burntEnds
     ]
     
     private let baseImage = UIImage(named: "att-regular2")!
@@ -69,13 +69,13 @@ class WidgetEditorViewModel: NSObject {
         displayedModules.insert(movingItem, at: destinationIndex)
     }
 
-    func applyColorToCell(at index: Int, color: UIColor) {
-        guard index >= 0 && index < displayedModules.count else {
-            print("Index out of range in displayedModules")
+    func applyColorToSelectedCell(color: UIColor) {
+        guard let index = editingCellWithIndex else {
+            print("Tried to edit item without selecting any.")
             return
         }
         
-        guard let image = displayedModules[index] else {
+        guard displayedModules[index] != nil else {
             print("Item at position \(index) is nil")
             return
         }
@@ -85,6 +85,14 @@ class WidgetEditorViewModel: NSObject {
             mode: .plusDarker,
             color: color
         )
+        
+        availableStyles = availableStyles.map { _ in
+            ImageProcessingFactory.createColorBlendedImage(
+                baseImage,
+                mode: .plusDarker,
+                color: color
+            )!
+        }
     }
     
 //    func insertCell(_ image: UIImage, at index: Int) {
