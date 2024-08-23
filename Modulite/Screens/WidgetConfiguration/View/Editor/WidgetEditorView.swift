@@ -118,8 +118,8 @@ class WidgetEditorView: UIScrollView {
     
     private func setupCollectionViews() {
         widgetLayoutCollectionView.register(
-            WidgetLayoutCell.self,
-            forCellWithReuseIdentifier: WidgetLayoutCell.reuseId
+            WidgetModuleCell.self,
+            forCellWithReuseIdentifier: WidgetModuleCell.reuseId
         )
         
         widgetLayoutCollectionView.register(

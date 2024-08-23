@@ -10,7 +10,7 @@ import UIKit
 class WidgetEditorViewController: UIViewController {
     
     private let editorView = WidgetEditorView()
-    private let viewModel = WidgetEditorViewModel()
+    private var viewModel: WidgetEditorViewModel!
     
     override func loadView() {
         view = editorView
@@ -20,10 +20,12 @@ class WidgetEditorViewController: UIViewController {
 }
 
 extension WidgetEditorViewController {
-    class func instantiate(widgetId: UUID, delegate: HomeNavigationFlowDelegate) -> WidgetEditorViewController {
+    class func instantiate(
+        builder: WidgetConfigurationBuilder,
+        delegate: HomeNavigationFlowDelegate
+    ) -> WidgetEditorViewController {
         let vc = WidgetEditorViewController()
-        vc.viewModel.setWidgetId(to: widgetId)
-        vc.viewModel.setDelegate(to: delegate)
+        vc.viewModel = WidgetEditorViewModel(widgetBuider: builder, delegate: delegate)
         
         return vc
     }
@@ -33,9 +35,9 @@ extension WidgetEditorViewController {
 extension WidgetEditorViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         switch collectionView {
-        case editorView.widgetLayoutCollectionView: return viewModel.displayedModules.count
-        case editorView.moduleStyleCollectionView: return viewModel.availableStyles.count
-        case editorView.moduleColorCollectionView: return viewModel.availableColors.count
+        case editorView.widgetLayoutCollectionView: return viewModel.getCurrentModules().count
+        case editorView.moduleStyleCollectionView: return viewModel.getAvailableStyles().count
+        case editorView.moduleColorCollectionView: return viewModel.getAvailableColors().count
         default: return 0
         }
     }
@@ -47,34 +49,35 @@ extension WidgetEditorViewController: UICollectionViewDataSource {
         
         switch collectionView {
         case editorView.widgetLayoutCollectionView:
+            // MARK: - Create cells for widget
             return handleLayoutCellCreation(for: collectionView, indexPath: indexPath)
 
         case editorView.moduleStyleCollectionView:
-            guard let cell = collectionView.dequeueReusableCell(
-                withReuseIdentifier: ModuleStyleCell.reuseId,
-                for: indexPath
-            ) as? ModuleStyleCell else {
+            // MARK: - Create cells for module styles
+            guard let style = viewModel.getAvailableStyle(at: indexPath.row),
+                  let cell = collectionView.dequeueReusableCell(
+                    withReuseIdentifier: ModuleStyleCell.reuseId,
+                    for: indexPath
+                  ) as? ModuleStyleCell else {
                 fatalError("Could not dequeue ModuleStyleCell.")
             }
             
-            cell.setup(
-                with: viewModel.availableStyles[indexPath.row],
-                blendColor: .lemonYellow
-            )
-            
+            cell.setup(with: style)
             return cell
             
         case editorView.moduleColorCollectionView:
-            guard let cell = collectionView.dequeueReusableCell(
-                withReuseIdentifier: ModuleColorCell.reuseId,
-                for: indexPath
-            ) as? ModuleColorCell else {
+            // MARK: - Create cells for colors
+            guard let color = viewModel.getAvailableColor(at: indexPath.row),
+                  let cell = collectionView.dequeueReusableCell(
+                    withReuseIdentifier: ModuleColorCell.reuseId,
+                    for: indexPath
+                  ) as? ModuleColorCell else {
                 fatalError("Could not dequeue ModuleColorCell.")
             }
             
-            cell.setup(with: viewModel.availableColors[indexPath.row])
-            
+            cell.setup(with: color)
             return cell
+            
         default:
             fatalError("Unsupported `UICollectionView`.")
         }
@@ -85,7 +88,7 @@ extension WidgetEditorViewController: UICollectionViewDataSource {
         indexPath: IndexPath
     ) -> UICollectionViewCell {
         
-        if viewModel.displayedModules[indexPath.row] == nil {
+        if viewModel.isModuleEmpty(at: indexPath.row) {
             guard let cell = collectionView.dequeueReusableCell(
                 withReuseIdentifier: WidgetEmptyCell.reuseId,
                 for: indexPath
@@ -95,17 +98,21 @@ extension WidgetEditorViewController: UICollectionViewDataSource {
             return cell
             
         } else {
-            guard let image = viewModel.displayedModules[indexPath.row],
+            guard let module = viewModel.getModule(at: indexPath.row),
                   let cell = collectionView.dequeueReusableCell(
-                withReuseIdentifier: WidgetLayoutCell.reuseId,
+                withReuseIdentifier: WidgetModuleCell.reuseId,
                 for: indexPath
-            ) as? WidgetLayoutCell else {
-                fatalError("Could not dequeue WidgetLayoutCell.")
+            ) as? WidgetModuleCell else {
+                fatalError("Could not dequeue WidgetModuleCell.")
             }
             
-            cell.setup(with: image)
+            if let index = viewModel.selectedCellIndex {
+                cell.setEditable(index == indexPath.row)
+            } else {
+                cell.startWiggling()
+            }
             
-            cell.startWiggling()
+            cell.setup(with: module)
             return cell
         }
     }
@@ -116,18 +123,40 @@ extension WidgetEditorViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         switch collectionView {
         case editorView.widgetLayoutCollectionView:
-            viewModel.setEditingCell(at: indexPath.row)
+            // MARK: - Handle widget cell touch
             
-        case editorView.moduleColorCollectionView:
-            guard let itemIndex = viewModel.editingCellWithIndex else {
-                print("Tried to edit item without selecting any.")
+            if viewModel.selectedCellIndex == indexPath.row {
+                viewModel.clearEditingCell()
+                
+                collectionView.subviews.forEach { cell in
+                    guard let cell = cell as? WidgetModuleCell else { return }
+                    cell.setEditable(true)
+                }
+                
                 return
             }
-            viewModel.applyColorToCell(
-                at: itemIndex,
-                color: viewModel.availableColors[indexPath.row]
+            
+            viewModel.setEditingCell(at: indexPath.row)
+            // escurecer todas as outras
+            
+            collectionView.subviews.forEach { cell in
+                guard let cell = cell as? WidgetModuleCell else { return }
+                
+                let row = collectionView.indexPath(for: cell)?.row
+                cell.setEditable(viewModel.selectedCellIndex == row)
+            }
+            
+            return
+            
+        case editorView.moduleColorCollectionView:
+            // MARK: - Handle module style touch
+            
+            // FIXME: Is resetting alphas in widgetLayoutCollectionView
+            viewModel.applyColorToSelectedCell(
+                color: viewModel.getAvailableColor(at: indexPath.row)
             )
             
+            editorView.moduleStyleCollectionView.reloadData()
             editorView.widgetLayoutCollectionView.reloadData()
             
         default: return
@@ -142,8 +171,11 @@ extension WidgetEditorViewController: UICollectionViewDragDelegate {
         itemsForBeginning session: any UIDragSession,
         at indexPath: IndexPath
     ) -> [UIDragItem] {
-        guard let item = viewModel.displayedModules[indexPath.row] else { return [] }
-        let itemProvider = NSItemProvider(object: item as UIImage)
+        guard let item = viewModel.getModule(at: indexPath.row),
+              let image = item.resultingImage
+        else { return [] }
+        
+        let itemProvider = NSItemProvider(object: image as UIImage)
         let dragItem = UIDragItem(itemProvider: itemProvider)
         dragItem.localObject = item
         

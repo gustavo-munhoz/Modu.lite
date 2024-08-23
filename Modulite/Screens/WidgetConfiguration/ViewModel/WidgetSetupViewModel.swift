@@ -14,6 +14,9 @@ class WidgetSetupViewModel: NSObject {
     
     private(set) var widgetId: UUID!
     
+    // FIXME: Builder must me instantiated from selected style
+    private let builder = WidgetConfigurationBuilder(style: WidgetStyleFactory.styleForKey(.analog))
+    
     @Published private(set) var widgetStyles: [UIImage] = [
         UIImage(systemName: "house.fill")!,
         UIImage(systemName: "house.fill")!,
@@ -66,6 +69,6 @@ class WidgetSetupViewModel: NSObject {
     }
     
     func proceedToWidgetEditor() {
-        delegate?.navigateToWidgetEditor(forWidgetId: widgetId)
+        delegate?.navigateToWidgetEditor(withBuilder: builder)
     }
 }

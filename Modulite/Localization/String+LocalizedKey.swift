@@ -107,6 +107,9 @@ extension String {
         case widgetEditorViewWidgetLayoutTitle
         case widgetEditorViewWidgetModuleStyleTitle
         case widgetEditorViewWidgetWallpaperTitle
+        
+        // MARK: - Widget Styles
+        case widgetStyleNameAnalog
     }
             
     /// Returns a localized string using the key and associated values defined by the `LocalizedKey` enum.

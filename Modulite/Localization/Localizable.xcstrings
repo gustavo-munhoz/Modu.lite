@@ -214,6 +214,17 @@
           }
         }
       }
+    },
+    "widgetStyleNameAnalog" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Analog"
+          }
+        }
+      }
     }
   },
   "version" : "1.0"
