@@ -10,28 +10,40 @@ import UIKit
 class WidgetLayoutCell: UICollectionViewCell {
     static let reuseId = "WidgetLayoutCell"
     
-    private(set) lazy var image: UIImageView = {
-        let view = UIImageView(image: UIImage(systemName: "house.fill"))
+    // MARK: - Properties
+    private(set) lazy var moduleImageView: UIImageView = {
+        let view = UIImageView()
+        view.layer.cornerRadius = 12
+        view.clipsToBounds = true
         
         return view
     }()
     
-    override init(frame: CGRect) {
-        super.init(frame: frame)
+    // MARK: - Setup Methods
+    
+    func setup(with image: UIImage, blendColor: UIColor? = nil) {
+        subviews.forEach { $0.removeFromSuperview() }
+        
+        if let color = blendColor {
+            moduleImageView.image = ImageProcessingFactory.createColorBlendedImage(
+                image,
+                mode: .plusDarker,
+                color: color
+            )
+        } else {
+            moduleImageView.image = image
+        }
+        
         addSubviews()
         setupConstraints()
     }
     
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
     private func addSubviews() {
-        addSubview(image)
+        addSubview(moduleImageView)
     }
     
     private func setupConstraints() {
-        image.snp.makeConstraints { make in
+        moduleImageView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }
     }

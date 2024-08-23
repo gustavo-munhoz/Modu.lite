@@ -14,27 +14,27 @@ class WidgetEditorViewModel: NSObject {
     
     private(set) weak var delegate: HomeNavigationFlowDelegate?
     
-    private let selectedApps: [UIImage] = Array(repeating: UIImage(systemName: "house.fill")!, count: 4)
+    private let selectedApps: [UIImage] = Array(repeating: UIImage(named: "att-regular2")!, count: 4)
     
-    @Published private(set) var displayedApps: [UIImage?] = Array(repeating: nil, count: 6)
+    @Published private(set) var displayedModules: [UIImage?] = Array(repeating: nil, count: 6)
     
-    private(set) var availableStyles = [
-        UIImage(systemName: "house.fill")!.withTintColor(.white, renderingMode: .alwaysOriginal),
-        UIImage(systemName: "house.fill")!.withTintColor(.red, renderingMode: .alwaysOriginal),
-        UIImage(systemName: "house.fill")!.withTintColor(.yellow, renderingMode: .alwaysOriginal),
-        UIImage(systemName: "house.fill")!.withTintColor(.green, renderingMode: .alwaysOriginal),
-        UIImage(systemName: "house.fill")!.withTintColor(.blue, renderingMode: .alwaysOriginal)
+    private(set) lazy var availableStyles = [
+        baseImage, baseImage, baseImage, baseImage
     ]
     
     private(set) var availableColors: [UIColor] = [
-        .red, .blue, .systemPink, .green        
+        .red, .blue, .systemPink, .green
     ]
+    
+    private let baseImage = UIImage(named: "att-regular2")!
+    
+    @Published private(set) var editingCellWithIndex: Int?
     
     override init() {
         super.init()
-        
+                        
         for i in 0..<selectedApps.count {
-            displayedApps[i] = selectedApps[i]
+            displayedModules[i] = selectedApps[i]
         }
     }
     
@@ -47,31 +47,57 @@ class WidgetEditorViewModel: NSObject {
         self.widgetId = id
     }
     
+    func setEditingCell(at index: Int) {
+        editingCellWithIndex = index
+    }
+    
+    func clearEditingCell() {
+        editingCellWithIndex = nil
+    }
+    
     // MARK: - Actions
     func moveItem(from sourceIndex: Int, to destinationIndex: Int) {
         guard sourceIndex != destinationIndex,
-              sourceIndex >= 0, sourceIndex < displayedApps.count,
-              destinationIndex >= 0, destinationIndex < displayedApps.count else {
+              sourceIndex >= 0, sourceIndex < displayedModules.count,
+              destinationIndex >= 0, destinationIndex < displayedModules.count else {
             print("Invalid indices")
             return
         }
 
-        let movingItem = displayedApps[sourceIndex]
-        displayedApps.remove(at: sourceIndex)
-        displayedApps.insert(movingItem, at: destinationIndex)
+        let movingItem = displayedModules[sourceIndex]
+        displayedModules.remove(at: sourceIndex)
+        displayedModules.insert(movingItem, at: destinationIndex)
     }
 
+    func applyColorToCell(at index: Int, color: UIColor) {
+        guard index >= 0 && index < displayedModules.count else {
+            print("Index out of range in displayedModules")
+            return
+        }
+        
+        guard let image = displayedModules[index] else {
+            print("Item at position \(index) is nil")
+            return
+        }
+        
+        displayedModules[index] = ImageProcessingFactory.createColorBlendedImage(
+            baseImage,
+            mode: .plusDarker,
+            color: color
+        )
+    }
+    
 //    func insertCell(_ image: UIImage, at index: Int) {
 //        guard index >= 0 && index < 6 else {
 //            fatalError("Tried to insert cell at invalid index: \(index)")
 //        }
-//        displayedApps[index] = image
+//        displayedModules[index] = image
 //    }
 //    
 //    func removeCell(at index: Int) {
 //        guard index >= 0 && index < 6 else {
 //            fatalError("Tried to remove cell at invalid index: \(index)")
 //        }
-//        displayedApps[index] = nil
+//        displayedModules[index] = nil
 //    }
 }

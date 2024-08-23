@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SnapKit
 
 class WidgetEditorView: UIScrollView {
     
@@ -27,6 +28,7 @@ class WidgetEditorView: UIScrollView {
         view.backgroundColor = .clear
         view.dragInteractionEnabled = true
         view.isScrollEnabled = false
+        view.clipsToBounds = false
         
         return view
     }()

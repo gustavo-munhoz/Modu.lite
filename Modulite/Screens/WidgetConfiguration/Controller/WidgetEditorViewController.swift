@@ -33,7 +33,7 @@ extension WidgetEditorViewController {
 extension WidgetEditorViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         switch collectionView {
-        case editorView.widgetLayoutCollectionView: return viewModel.displayedApps.count
+        case editorView.widgetLayoutCollectionView: return viewModel.displayedModules.count
         case editorView.moduleStyleCollectionView: return viewModel.availableStyles.count
         case editorView.moduleColorCollectionView: return viewModel.availableColors.count
         default: return 0
@@ -57,7 +57,10 @@ extension WidgetEditorViewController: UICollectionViewDataSource {
                 fatalError("Could not dequeue ModuleStyleCell.")
             }
             
-            cell.setup(with: viewModel.availableStyles[indexPath.row])
+            cell.setup(
+                with: viewModel.availableStyles[indexPath.row],
+                blendColor: .lemonYellow
+            )
             
             return cell
             
@@ -82,7 +85,7 @@ extension WidgetEditorViewController: UICollectionViewDataSource {
         indexPath: IndexPath
     ) -> UICollectionViewCell {
         
-        if viewModel.displayedApps[indexPath.row] == nil {
+        if viewModel.displayedModules[indexPath.row] == nil {
             guard let cell = collectionView.dequeueReusableCell(
                 withReuseIdentifier: WidgetEmptyCell.reuseId,
                 for: indexPath
@@ -92,12 +95,15 @@ extension WidgetEditorViewController: UICollectionViewDataSource {
             return cell
             
         } else {
-            guard let cell = collectionView.dequeueReusableCell(
+            guard let image = viewModel.displayedModules[indexPath.row],
+                  let cell = collectionView.dequeueReusableCell(
                 withReuseIdentifier: WidgetLayoutCell.reuseId,
                 for: indexPath
             ) as? WidgetLayoutCell else {
                 fatalError("Could not dequeue WidgetLayoutCell.")
             }
+            
+            cell.setup(with: image)
             
             cell.startWiggling()
             return cell
@@ -107,7 +113,26 @@ extension WidgetEditorViewController: UICollectionViewDataSource {
 
 // MARK: - UICollectionViewDelegate
 extension WidgetEditorViewController: UICollectionViewDelegate {
-    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        switch collectionView {
+        case editorView.widgetLayoutCollectionView:
+            viewModel.setEditingCell(at: indexPath.row)
+            
+        case editorView.moduleColorCollectionView:
+            guard let itemIndex = viewModel.editingCellWithIndex else {
+                print("Tried to edit item without selecting any.")
+                return
+            }
+            viewModel.applyColorToCell(
+                at: itemIndex,
+                color: viewModel.availableColors[indexPath.row]
+            )
+            
+            editorView.widgetLayoutCollectionView.reloadData()
+            
+        default: return
+        }
+    }
 }
 
 // MARK: - UICollectionViewDragDelegate
@@ -117,7 +142,7 @@ extension WidgetEditorViewController: UICollectionViewDragDelegate {
         itemsForBeginning session: any UIDragSession,
         at indexPath: IndexPath
     ) -> [UIDragItem] {
-        guard let item = viewModel.displayedApps[indexPath.row] else { return [] }
+        guard let item = viewModel.displayedModules[indexPath.row] else { return [] }
         let itemProvider = NSItemProvider(object: item as UIImage)
         let dragItem = UIDragItem(itemProvider: itemProvider)
         dragItem.localObject = item

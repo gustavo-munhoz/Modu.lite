@@ -55,6 +55,7 @@
 		B377D0FB2C764F85005B715A /* WidgetEmptyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B377D0FA2C764F85005B715A /* WidgetEmptyCell.swift */; };
 		B3CDD7012C766F2E00E558F8 /* ModuleStyleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3CDD7002C766F2E00E558F8 /* ModuleStyleCell.swift */; };
 		B3CDD7032C767FD300E558F8 /* ModuleColorCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3CDD7022C767FD300E558F8 /* ModuleColorCell.swift */; };
+		B3CDD7072C77C59B00E558F8 /* ImageProcessingFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3CDD7062C77C59B00E558F8 /* ImageProcessingFactory.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -126,6 +127,7 @@
 		B377D0FA2C764F85005B715A /* WidgetEmptyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetEmptyCell.swift; sourceTree = "<group>"; };
 		B3CDD7002C766F2E00E558F8 /* ModuleStyleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModuleStyleCell.swift; sourceTree = "<group>"; };
 		B3CDD7022C767FD300E558F8 /* ModuleColorCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModuleColorCell.swift; sourceTree = "<group>"; };
+		B3CDD7062C77C59B00E558F8 /* ImageProcessingFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageProcessingFactory.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -315,6 +317,7 @@
 		B36927962C66B6E30089F769 /* Modulite */ = {
 			isa = PBXGroup;
 			children = (
+				B3CDD7052C77C51500E558F8 /* Factories */,
 				B34F3E292C6E83670041D7BD /* Extensions */,
 				B34F3DF72C69A3810041D7BD /* DebugOptions.swift */,
 				B36927A52C66B6E40089F769 /* Info.plist */,
@@ -441,6 +444,14 @@
 				B34F3E122C6B93AB0041D7BD /* CollectionViewCells */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		B3CDD7052C77C51500E558F8 /* Factories */ = {
+			isa = PBXGroup;
+			children = (
+				B3CDD7062C77C59B00E558F8 /* ImageProcessingFactory.swift */,
+			);
+			path = Factories;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -623,6 +634,7 @@
 				B34F3DFD2C6A92890041D7BD /* RootTabBarController.swift in Sources */,
 				B34F3E112C6B0DDD0041D7BD /* SettingsCoordinator.swift in Sources */,
 				B34F3E142C6B93C80041D7BD /* MainWidgetCollectionViewCell.swift in Sources */,
+				B3CDD7072C77C59B00E558F8 /* ImageProcessingFactory.swift in Sources */,
 				B34F3E092C6A96A20041D7BD /* RootTabCoordinator.swift in Sources */,
 				B34F3E352C6E93570041D7BD /* WidgetSetupViewModel.swift in Sources */,
 				B34F3DF82C69A3810041D7BD /* DebugOptions.swift in Sources */,
