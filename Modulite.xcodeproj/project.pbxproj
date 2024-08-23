@@ -53,6 +53,10 @@
 		B36927D52C66BCE60089F769 /* HomeCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B36927D42C66BCE60089F769 /* HomeCoordinator.swift */; };
 		B36927DA2C66C2770089F769 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B36927D92C66C2770089F769 /* HomeView.swift */; };
 		B377D0FB2C764F85005B715A /* WidgetEmptyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B377D0FA2C764F85005B715A /* WidgetEmptyCell.swift */; };
+		B3C1877F2C78D1E000A891A8 /* WidgetModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3C1877E2C78D1E000A891A8 /* WidgetModel.swift */; };
+		B3C187822C79009B00A891A8 /* WidgetConfigurationBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3C187812C79009B00A891A8 /* WidgetConfigurationBuilder.swift */; };
+		B3C187842C791D1300A891A8 /* WidgetStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3C187832C791D1300A891A8 /* WidgetStyle.swift */; };
+		B3C187862C79208600A891A8 /* WidgetStyleFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3C187852C79208600A891A8 /* WidgetStyleFactory.swift */; };
 		B3CDD7012C766F2E00E558F8 /* ModuleStyleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3CDD7002C766F2E00E558F8 /* ModuleStyleCell.swift */; };
 		B3CDD7032C767FD300E558F8 /* ModuleColorCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3CDD7022C767FD300E558F8 /* ModuleColorCell.swift */; };
 		B3CDD7072C77C59B00E558F8 /* ImageProcessingFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3CDD7062C77C59B00E558F8 /* ImageProcessingFactory.swift */; };
@@ -125,6 +129,10 @@
 		B36927D42C66BCE60089F769 /* HomeCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCoordinator.swift; sourceTree = "<group>"; };
 		B36927D92C66C2770089F769 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		B377D0FA2C764F85005B715A /* WidgetEmptyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetEmptyCell.swift; sourceTree = "<group>"; };
+		B3C1877E2C78D1E000A891A8 /* WidgetModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetModel.swift; sourceTree = "<group>"; };
+		B3C187812C79009B00A891A8 /* WidgetConfigurationBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetConfigurationBuilder.swift; sourceTree = "<group>"; };
+		B3C187832C791D1300A891A8 /* WidgetStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetStyle.swift; sourceTree = "<group>"; };
+		B3C187852C79208600A891A8 /* WidgetStyleFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetStyleFactory.swift; sourceTree = "<group>"; };
 		B3CDD7002C766F2E00E558F8 /* ModuleStyleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModuleStyleCell.swift; sourceTree = "<group>"; };
 		B3CDD7022C767FD300E558F8 /* ModuleColorCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModuleColorCell.swift; sourceTree = "<group>"; };
 		B3CDD7062C77C59B00E558F8 /* ImageProcessingFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageProcessingFactory.swift; sourceTree = "<group>"; };
@@ -317,6 +325,7 @@
 		B36927962C66B6E30089F769 /* Modulite */ = {
 			isa = PBXGroup;
 			children = (
+				B3C187802C79008800A891A8 /* Builders */,
 				B3CDD7052C77C51500E558F8 /* Factories */,
 				B34F3E292C6E83670041D7BD /* Extensions */,
 				B34F3DF72C69A3810041D7BD /* DebugOptions.swift */,
@@ -385,6 +394,8 @@
 		B36927CA2C66B83E0089F769 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				B3C1877E2C78D1E000A891A8 /* WidgetModel.swift */,
+				B3C187832C791D1300A891A8 /* WidgetStyle.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -446,10 +457,19 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		B3C187802C79008800A891A8 /* Builders */ = {
+			isa = PBXGroup;
+			children = (
+				B3C187812C79009B00A891A8 /* WidgetConfigurationBuilder.swift */,
+			);
+			path = Builders;
+			sourceTree = "<group>";
+		};
 		B3CDD7052C77C51500E558F8 /* Factories */ = {
 			isa = PBXGroup;
 			children = (
 				B3CDD7062C77C59B00E558F8 /* ImageProcessingFactory.swift */,
+				B3C187852C79208600A891A8 /* WidgetStyleFactory.swift */,
 			);
 			path = Factories;
 			sourceTree = "<group>";
@@ -620,6 +640,7 @@
 				B36927CF2C66B8A30089F769 /* Coordinator.swift in Sources */,
 				B34F3E242C6D366A0041D7BD /* WidgetEditorView.swift in Sources */,
 				B369279C2C66B6E30089F769 /* HomeViewController.swift in Sources */,
+				B3C187842C791D1300A891A8 /* WidgetStyle.swift in Sources */,
 				B34F3E0D2C6B0C790041D7BD /* UsageCoordinator.swift in Sources */,
 				B36927D12C66B8CA0089F769 /* Router.swift in Sources */,
 				B377D0FB2C764F85005B715A /* WidgetEmptyCell.swift in Sources */,
@@ -630,6 +651,8 @@
 				B36927D52C66BCE60089F769 /* HomeCoordinator.swift in Sources */,
 				B3CDD7032C767FD300E558F8 /* ModuleColorCell.swift in Sources */,
 				B36927D32C66BBC10089F769 /* SceneDelegateRouter.swift in Sources */,
+				B3C187822C79009B00A891A8 /* WidgetConfigurationBuilder.swift in Sources */,
+				B3C1877F2C78D1E000A891A8 /* WidgetModel.swift in Sources */,
 				B34F3E3E2C74CE090041D7BD /* EditorSectionHeader.swift in Sources */,
 				B34F3DFD2C6A92890041D7BD /* RootTabBarController.swift in Sources */,
 				B34F3E112C6B0DDD0041D7BD /* SettingsCoordinator.swift in Sources */,
@@ -642,6 +665,7 @@
 				B34F3E032C6A93A30041D7BD /* BlockAppsViewController.swift in Sources */,
 				B34F3E402C74E3270041D7BD /* WidgetLayoutCell.swift in Sources */,
 				B34F3E1C2C6BD3DA0041D7BD /* HomeViewModel.swift in Sources */,
+				B3C187862C79208600A891A8 /* WidgetStyleFactory.swift in Sources */,
 				B34F3E182C6B93FA0041D7BD /* TipCollectionViewCell.swift in Sources */,
 				B34F3E2B2C6E83800041D7BD /* UIFont+TraitedTextStyle.swift in Sources */,
 				B34F3E2E2C6E87350041D7BD /* SetupHeaderReusableCell.swift in Sources */,
