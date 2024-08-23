@@ -100,10 +100,10 @@ extension WidgetEditorViewController: UICollectionViewDataSource {
         } else {
             guard let module = viewModel.getModule(at: indexPath.row),
                   let cell = collectionView.dequeueReusableCell(
-                withReuseIdentifier: WidgetLayoutCell.reuseId,
+                withReuseIdentifier: WidgetModuleCell.reuseId,
                 for: indexPath
-            ) as? WidgetLayoutCell else {
-                fatalError("Could not dequeue WidgetLayoutCell.")
+            ) as? WidgetModuleCell else {
+                fatalError("Could not dequeue WidgetModuleCell.")
             }
             
             if let index = viewModel.selectedCellIndex {
@@ -129,7 +129,7 @@ extension WidgetEditorViewController: UICollectionViewDelegate {
                 viewModel.clearEditingCell()
                 
                 collectionView.subviews.forEach { cell in
-                    guard let cell = cell as? WidgetLayoutCell else { return }
+                    guard let cell = cell as? WidgetModuleCell else { return }
                     cell.setEditable(true)
                 }
                 
@@ -140,7 +140,7 @@ extension WidgetEditorViewController: UICollectionViewDelegate {
             // escurecer todas as outras
             
             collectionView.subviews.forEach { cell in
-                guard let cell = cell as? WidgetLayoutCell else { return }
+                guard let cell = cell as? WidgetModuleCell else { return }
                 
                 let row = collectionView.indexPath(for: cell)?.row
                 cell.setEditable(viewModel.selectedCellIndex == row)

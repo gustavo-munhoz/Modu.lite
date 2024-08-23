@@ -38,7 +38,7 @@
 		B34F3E372C6FDEAA0041D7BD /* SelectedAppCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B34F3E362C6FDEAA0041D7BD /* SelectedAppCollectionViewCell.swift */; };
 		B34F3E3A2C74BFB00041D7BD /* WidgetEditorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B34F3E392C74BFB00041D7BD /* WidgetEditorViewModel.swift */; };
 		B34F3E3E2C74CE090041D7BD /* EditorSectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = B34F3E3D2C74CE090041D7BD /* EditorSectionHeader.swift */; };
-		B34F3E402C74E3270041D7BD /* WidgetLayoutCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B34F3E3F2C74E3270041D7BD /* WidgetLayoutCell.swift */; };
+		B34F3E402C74E3270041D7BD /* WidgetModuleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B34F3E3F2C74E3270041D7BD /* WidgetModuleCell.swift */; };
 		B36927982C66B6E30089F769 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B36927972C66B6E30089F769 /* AppDelegate.swift */; };
 		B369279A2C66B6E30089F769 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B36927992C66B6E30089F769 /* SceneDelegate.swift */; };
 		B369279C2C66B6E30089F769 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B369279B2C66B6E30089F769 /* HomeViewController.swift */; };
@@ -110,7 +110,7 @@
 		B34F3E362C6FDEAA0041D7BD /* SelectedAppCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedAppCollectionViewCell.swift; sourceTree = "<group>"; };
 		B34F3E392C74BFB00041D7BD /* WidgetEditorViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetEditorViewModel.swift; sourceTree = "<group>"; };
 		B34F3E3D2C74CE090041D7BD /* EditorSectionHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditorSectionHeader.swift; sourceTree = "<group>"; };
-		B34F3E3F2C74E3270041D7BD /* WidgetLayoutCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetLayoutCell.swift; sourceTree = "<group>"; };
+		B34F3E3F2C74E3270041D7BD /* WidgetModuleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetModuleCell.swift; sourceTree = "<group>"; };
 		B36927942C66B6E30089F769 /* Modulite.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Modulite.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B36927972C66B6E30089F769 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B36927992C66B6E30089F769 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -294,7 +294,7 @@
 		B34F3E3C2C74CD160041D7BD /* CollectionViewCells */ = {
 			isa = PBXGroup;
 			children = (
-				B34F3E3F2C74E3270041D7BD /* WidgetLayoutCell.swift */,
+				B34F3E3F2C74E3270041D7BD /* WidgetModuleCell.swift */,
 				B377D0FA2C764F85005B715A /* WidgetEmptyCell.swift */,
 				B3CDD7002C766F2E00E558F8 /* ModuleStyleCell.swift */,
 				B3CDD7022C767FD300E558F8 /* ModuleColorCell.swift */,
@@ -663,7 +663,7 @@
 				B34F3DF82C69A3810041D7BD /* DebugOptions.swift in Sources */,
 				B34F3E052C6A93AC0041D7BD /* SettingsViewController.swift in Sources */,
 				B34F3E032C6A93A30041D7BD /* BlockAppsViewController.swift in Sources */,
-				B34F3E402C74E3270041D7BD /* WidgetLayoutCell.swift in Sources */,
+				B34F3E402C74E3270041D7BD /* WidgetModuleCell.swift in Sources */,
 				B34F3E1C2C6BD3DA0041D7BD /* HomeViewModel.swift in Sources */,
 				B3C187862C79208600A891A8 /* WidgetStyleFactory.swift in Sources */,
 				B34F3E182C6B93FA0041D7BD /* TipCollectionViewCell.swift in Sources */,
