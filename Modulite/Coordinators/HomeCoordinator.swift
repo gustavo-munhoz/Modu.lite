@@ -9,7 +9,7 @@ import UIKit
 
 protocol HomeNavigationFlowDelegate: AnyObject {
     func navigateToWidgetSetup(forWidgetId id: UUID)
-    func navigateToWidgetEditor(forWidgetId id: UUID)
+    func navigateToWidgetEditor(withBuilder builder: WidgetConfigurationBuilder)
 }
 
 /// A `Coordinator` that manages the presentation of the home screen in the application.
@@ -47,8 +47,11 @@ extension HomeCoordinator: HomeNavigationFlowDelegate {
         }
     }
     
-    func navigateToWidgetEditor(forWidgetId id: UUID) {
-        let viewController = WidgetEditorViewController.instantiate(widgetId: id, delegate: self)
+    func navigateToWidgetEditor(withBuilder builder: WidgetConfigurationBuilder) {
+        let viewController = WidgetEditorViewController.instantiate(
+            builder: builder,
+            delegate: self
+        )
         
         router.present(viewController, animated: true) {
             
