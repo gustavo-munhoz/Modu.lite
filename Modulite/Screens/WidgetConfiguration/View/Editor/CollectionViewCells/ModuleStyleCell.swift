@@ -22,10 +22,10 @@ class ModuleStyleCell: UICollectionViewCell {
     }()
     
     // MARK: - Setup
-    func setup(with image: UIImage) {
+    func setup(with style: ModuleStyle) {
         subviews.forEach { $0.removeFromSuperview() }
         
-        styleImageView.image = image
+        styleImageView.image = style.image
         
         addSubviews()
         setupConstraints()
