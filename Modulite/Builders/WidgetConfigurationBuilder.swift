@@ -11,25 +11,10 @@ class WidgetConfigurationBuilder {
     
     private var configuration: WidgetConfiguration
     
-    let tempModules: [ModuleConfiguration] = [
-        ModuleConfiguration(
-            appName: "",
-            associatedURLScheme: nil,
-            selectedStyle: ModuleStyle(imageName: "analog-regular"),
-            selectedColor: nil
-        ),
-        ModuleConfiguration(
-            appName: "",
-            associatedURLScheme: nil,
-            selectedStyle: ModuleStyle(imageName: "analog-knob"),
-            selectedColor: .cupcake
-        )
-    ]
-    
     init(style: WidgetStyle) {
         configuration = WidgetConfiguration(
             style: style,
-            modules: tempModules + Array(repeating: nil, count: 3)
+            modules: Array(repeating: nil, count: 6)
         )
     }
     
