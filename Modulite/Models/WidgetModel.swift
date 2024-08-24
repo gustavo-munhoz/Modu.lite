@@ -23,13 +23,17 @@ class ModuleConfiguration {
     var appName: String
     var associatedURLScheme: URL?
     var selectedStyle: ModuleStyle
-    var selectedColor: UIColor
+    var selectedColor: UIColor?
     var resultingImage: UIImage? {
-        ImageProcessingFactory.createColorBlendedImage(
-            selectedStyle.image,
-            mode: .plusDarker,
-            color: selectedColor
-        )
+        if let color = selectedColor {
+            return ImageProcessingFactory.createColorBlendedImage(
+                selectedStyle.image,
+                mode: .plusDarker,
+                color: color
+            )
+        } else {
+            return selectedStyle.image
+        }
     }
     
     /// Initializes a new module configuration with detailed customization options.
@@ -37,7 +41,7 @@ class ModuleConfiguration {
         appName: String,
         associatedURLScheme: URL?,
         selectedStyle: ModuleStyle,
-        selectedColor: UIColor
+        selectedColor: UIColor?
     ) {
         self.appName = appName
         self.associatedURLScheme = associatedURLScheme
