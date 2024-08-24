@@ -20,7 +20,7 @@ class WidgetStyleFactory {
                     ModuleStyle(imageName: "analog-sound"),
                     ModuleStyle(imageName: "analog-switch")
                 ],
-                colors: [.eggYolk, .cupcake, .sweetTooth, .sugarMint, .burntEnds]
+                colors: [.white, .eggYolk, .cupcake, .sweetTooth, .sugarMint, .burntEnds]
             )
         }
     }
