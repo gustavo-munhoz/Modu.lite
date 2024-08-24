@@ -29,16 +29,11 @@ class WidgetConfigurationBuilder {
     init(style: WidgetStyle) {
         configuration = WidgetConfiguration(
             style: style,
-            backgroundImage: nil,
             modules: tempModules + Array(repeating: nil, count: 3)
         )
     }
     
     // MARK: - Setters
-    
-    func setWidgetBackgroundImage(_ image: UIImage) {
-        configuration.backgroundImage = image
-    }
     
     func insertModule(_ module: ModuleConfiguration, at index: Int) {
         assert(index >= 0 && index < configuration.modules.count, "Tried to insert module at an invalid index.")

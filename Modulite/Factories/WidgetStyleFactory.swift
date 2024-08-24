@@ -13,6 +13,7 @@ class WidgetStyleFactory {
         case .analog:
             return WidgetStyle(
                 name: .localized(for: .widgetStyleNameAnalog),
+                backgroundImage: nil,
                 styles: [
                     ModuleStyle(imageName: "analog-regular"),
                     ModuleStyle(imageName: "analog-knob"),

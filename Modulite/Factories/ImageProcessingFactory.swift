@@ -25,5 +25,5 @@ class ImageProcessingFactory {
         UIGraphicsEndImageContext()
         
         return blendedImage
-    }    
+    }
 }

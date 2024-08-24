@@ -53,8 +53,6 @@ class ModuleConfiguration {
 /// Manages the overall configuration of a widget, including its background and modules.
 class WidgetConfiguration {
     let widgetStyle: WidgetStyle
-    
-    var backgroundImage: UIImage?
     var modules: [ModuleConfiguration?]
     
     var availableStyles: [ModuleStyle] {
@@ -67,23 +65,19 @@ class WidgetConfiguration {
     
     init(
         style: WidgetStyle,
-        backgroundImage: UIImage?,
         modules: [ModuleConfiguration?]
     ) {
         self.widgetStyle = style
-        self.backgroundImage = backgroundImage
         self.modules = modules
     }
 }
 
 /// Finalizes the configuration of a widget, simplifying it by removing options and keeping only selected settings.
 class WidgetFinalConfiguration {
-    var backgroundImage: UIImage?
     var modules: [ModuleConfiguration?]
 
     /// Creates a finalized configuration from a given WidgetConfiguration, focusing on selected options.
     init(from configuration: WidgetConfiguration) {
-        self.backgroundImage = configuration.backgroundImage
         self.modules = configuration.modules.map { module in
             guard let module = module else { return nil }
             
