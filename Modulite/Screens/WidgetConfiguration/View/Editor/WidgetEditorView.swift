@@ -53,6 +53,9 @@ class WidgetEditorView: UIScrollView {
         view.layer.cornerRadius = 20
         view.showsHorizontalScrollIndicator = false
         
+        view.alpha = 0.55
+        view.isUserInteractionEnabled = false
+        
         return view
     }()
     
@@ -67,6 +70,9 @@ class WidgetEditorView: UIScrollView {
         view.backgroundColor = .potatoYellow
         view.layer.cornerRadius = 20
         view.showsHorizontalScrollIndicator = false
+        
+        view.alpha = 0.55
+        view.isUserInteractionEnabled = false
         
         return view
     }()
@@ -92,6 +98,36 @@ class WidgetEditorView: UIScrollView {
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    // MARK: - Actions
+    func updateCollectionViewConstraints(_ collectionView: UICollectionView, percentage: CGFloat) {
+        let offset = 48 * percentage
+        
+        collectionView.snp.updateConstraints { make in
+            make.left.equalToSuperview().offset(-offset)
+        }
+        UIView.animate(withDuration: 0.3) {
+            self.layoutIfNeeded()
+        }
+    }
+    
+    func enableStylingCollectionViews() {
+        UIView.animate(withDuration: 0.25) { [weak self] in
+            self?.moduleStyleCollectionView.alpha = 1
+            self?.moduleColorCollectionView.alpha = 1
+            self?.moduleStyleCollectionView.isUserInteractionEnabled = true
+            self?.moduleColorCollectionView.isUserInteractionEnabled = true
+        }
+    }
+    
+    func disableStylingCollectionViews() {
+        UIView.animate(withDuration: 0.25) { [weak self] in
+            self?.moduleStyleCollectionView.alpha = 0.55
+            self?.moduleColorCollectionView.alpha = 0.55
+            self?.moduleStyleCollectionView.isUserInteractionEnabled = false
+            self?.moduleColorCollectionView.isUserInteractionEnabled = false
+        }
     }
     
     // MARK: - Setup methods
@@ -182,7 +218,8 @@ class WidgetEditorView: UIScrollView {
         moduleColorCollectionView.snp.makeConstraints { make in
             make.top.equalTo(moduleStyleCollectionView.snp.bottom).offset(24)
             make.height.equalTo(60)
-            make.left.width.equalTo(moduleStyleCollectionView)
+            make.left.equalToSuperview()
+            make.width.equalTo(moduleStyleCollectionView)
         }
         
         wallpaperHeader.snp.makeConstraints { make in

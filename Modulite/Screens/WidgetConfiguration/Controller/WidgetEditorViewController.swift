@@ -87,7 +87,6 @@ extension WidgetEditorViewController: UICollectionViewDataSource {
         for collectionView: UICollectionView,
         indexPath: IndexPath
     ) -> UICollectionViewCell {
-        
         if viewModel.isModuleEmpty(at: indexPath.row) {
             guard let cell = collectionView.dequeueReusableCell(
                 withReuseIdentifier: WidgetEmptyCell.reuseId,
@@ -120,6 +119,26 @@ extension WidgetEditorViewController: UICollectionViewDataSource {
 
 // MARK: - UICollectionViewDelegate
 extension WidgetEditorViewController: UICollectionViewDelegate {
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let totalScrollWidth = scrollView.contentSize.width - scrollView.bounds.width
+        let currentScrollPosition = scrollView.contentOffset.x
+        let scrollPercentage = currentScrollPosition / totalScrollWidth
+        
+        if scrollView === editorView.moduleStyleCollectionView {
+            editorView.updateCollectionViewConstraints(
+                editorView.moduleStyleCollectionView,
+                percentage: scrollPercentage
+            )
+        }
+        
+        if scrollView === editorView.moduleColorCollectionView {
+            editorView.updateCollectionViewConstraints(
+                editorView.moduleColorCollectionView,
+                percentage: scrollPercentage
+            )
+        }
+    }
+    
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         switch collectionView {
         case editorView.widgetLayoutCollectionView:
@@ -127,7 +146,7 @@ extension WidgetEditorViewController: UICollectionViewDelegate {
             
             if viewModel.selectedCellIndex == indexPath.row {
                 viewModel.clearEditingCell()
-                
+                editorView.disableStylingCollectionViews()
                 collectionView.subviews.forEach { cell in
                     guard let cell = cell as? WidgetModuleCell else { return }
                     cell.setEditable(true)
@@ -137,7 +156,7 @@ extension WidgetEditorViewController: UICollectionViewDelegate {
             }
             
             viewModel.setEditingCell(at: indexPath.row)
-            // escurecer todas as outras
+            editorView.enableStylingCollectionViews()
             
             collectionView.subviews.forEach { cell in
                 guard let cell = cell as? WidgetModuleCell else { return }
@@ -148,14 +167,26 @@ extension WidgetEditorViewController: UICollectionViewDelegate {
             
             return
             
-        case editorView.moduleColorCollectionView:
+        case editorView.moduleStyleCollectionView:
             // MARK: - Handle module style touch
             
-            // FIXME: Is resetting alphas in widgetLayoutCollectionView
-            viewModel.applyColorToSelectedCell(
-                color: viewModel.getAvailableColor(at: indexPath.row)
-            )
+            guard let style = viewModel.getAvailableStyle(at: indexPath.row) else {
+                print("No styles found at \(indexPath.row)")
+                return
+            }
             
+            viewModel.applyStyleToSelectedCell(style)
+            editorView.widgetLayoutCollectionView.reloadData()
+            
+        case editorView.moduleColorCollectionView:
+            // MARK: - Handle module color touch
+            
+            guard let color = viewModel.getAvailableColor(at: indexPath.row) else {
+                print("No colors found at \(indexPath.row)")
+                return
+            }
+            
+            viewModel.applyColorToSelectedCell(color)
             editorView.moduleStyleCollectionView.reloadData()
             editorView.widgetLayoutCollectionView.reloadData()
             
