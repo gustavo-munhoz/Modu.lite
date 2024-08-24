@@ -144,28 +144,17 @@ extension WidgetEditorViewController: UICollectionViewDelegate {
         case editorView.widgetLayoutCollectionView:
             // MARK: - Handle widget cell touch
             
-            if viewModel.selectedCellIndex == indexPath.row {
-                viewModel.clearEditingCell()
-                editorView.disableStylingCollectionViews()
-                collectionView.subviews.forEach { cell in
-                    guard let cell = cell as? WidgetModuleCell else { return }
-                    cell.setEditable(true)
-                }
-                
+            if viewModel.isModuleEmpty(at: indexPath.row) {
+                // TODO: Handle creating new cell
                 return
             }
             
-            viewModel.setEditingCell(at: indexPath.row)
-            editorView.enableStylingCollectionViews()
-            
-            collectionView.subviews.forEach { cell in
-                guard let cell = cell as? WidgetModuleCell else { return }
-                
-                let row = collectionView.indexPath(for: cell)?.row
-                cell.setEditable(viewModel.selectedCellIndex == row)
+            if viewModel.selectedCellIndex == indexPath.row {
+                clearSelectedCell(in: collectionView)
+                return
             }
             
-            return
+            selectCell(in: collectionView, at: indexPath.row)
             
         case editorView.moduleStyleCollectionView:
             // MARK: - Handle module style touch
@@ -193,6 +182,27 @@ extension WidgetEditorViewController: UICollectionViewDelegate {
         default: return
         }
     }
+    
+    private func clearSelectedCell(in collectionView: UICollectionView) {
+        viewModel.clearEditingCell()
+        editorView.disableStylingCollectionViews()
+        collectionView.subviews.forEach { cell in
+            guard let cell = cell as? WidgetModuleCell else { return }
+            cell.setEditable(true)
+        }
+    }
+    
+    private func selectCell(in collectionView: UICollectionView, at index: Int) {
+        viewModel.setEditingCell(at: index)
+        editorView.enableStylingCollectionViews()
+        
+        collectionView.subviews.forEach { cell in
+            guard let cell = cell as? WidgetModuleCell else { return }
+            
+            let row = collectionView.indexPath(for: cell)?.row
+            cell.setEditable(viewModel.selectedCellIndex == row)
+        }
+    }
 }
 
 // MARK: - UICollectionViewDragDelegate
@@ -216,7 +226,6 @@ extension WidgetEditorViewController: UICollectionViewDragDelegate {
 
 // MARK: - UICollectionViewDropDelegate
 extension WidgetEditorViewController: UICollectionViewDropDelegate {
-    
     func collectionView(
         _ collectionView: UICollectionView,
         canHandle session: any UIDropSession
