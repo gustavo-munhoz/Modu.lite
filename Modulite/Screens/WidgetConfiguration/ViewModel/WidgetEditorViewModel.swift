@@ -27,6 +27,24 @@ class WidgetEditorViewModel: NSObject {
     
     // MARK: - Getters
     
+    func getColorFromSelectedModule() -> UIColor? {
+        guard let index = selectedCellIndex else {
+            print("Tried to get color without selecting any module.")
+            return nil
+        }
+        
+        return builder.getModule(at: index)?.selectedColor
+    }
+    
+    func getStyleFromSelectedModule() -> ModuleStyle? {
+        guard let index = selectedCellIndex else {
+            print("Tried to get style without selecting any module.")
+            return nil
+        }
+        
+        return builder.getModule(at: index)?.selectedStyle
+    }
+    
     func getCurrentModules() -> [ModuleConfiguration?] {
         builder.getCurrentModules()
     }
@@ -70,7 +88,7 @@ class WidgetEditorViewModel: NSObject {
         builder.moveItem(from: sourceIndex, to: destinationIndex)
     }
 
-    func applyColorToSelectedCell(_ color: UIColor) {
+    func applyColorToSelectedModule(_ color: UIColor) {
         guard let index = selectedCellIndex else {
             print("Tried to edit item without selecting any.")
             return
@@ -79,7 +97,7 @@ class WidgetEditorViewModel: NSObject {
         builder.setModuleColor(at: index, color: color)
     }
     
-    func applyStyleToSelectedCell(_ style: ModuleStyle) {
+    func applyStyleToSelectedModule(_ style: ModuleStyle) {
         guard let index = selectedCellIndex else {
             print("Tried to edit item without selecting any.")
             return
