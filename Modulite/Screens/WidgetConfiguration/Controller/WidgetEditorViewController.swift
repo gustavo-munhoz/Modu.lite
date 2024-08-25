@@ -119,6 +119,8 @@ extension WidgetEditorViewController: UICollectionViewDataSource {
 
 // MARK: - UICollectionViewDelegate
 extension WidgetEditorViewController: UICollectionViewDelegate {
+    
+    // MARK: - Change internal collectionView's position based on scroll %
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let totalScrollWidth = scrollView.contentSize.width - scrollView.bounds.width
         let currentScrollPosition = scrollView.contentOffset.x
@@ -164,6 +166,7 @@ extension WidgetEditorViewController: UICollectionViewDelegate {
                 return
             }
             
+            selectStyleCell(style: style)
             viewModel.applyStyleToSelectedModule(style)
             editorView.widgetLayoutCollectionView.reloadData()
             
@@ -177,10 +180,23 @@ extension WidgetEditorViewController: UICollectionViewDelegate {
             
             selectColorCell(color: color)
             viewModel.applyColorToSelectedModule(color)
-            editorView.moduleStyleCollectionView.reloadData()
             editorView.widgetLayoutCollectionView.reloadData()
             
         default: return
+        }
+    }
+    
+    private func clearSelectedStyleCell() {
+        editorView.moduleStyleCollectionView.visibleCells.forEach { cell in
+            guard let cell = cell as? ModuleStyleCell else { return }
+            cell.setSelected(to: false)
+        }
+    }
+    
+    private func selectStyleCell(style: ModuleStyle) {
+        editorView.moduleStyleCollectionView.visibleCells.forEach { cell in
+            guard let cell = cell as? ModuleStyleCell else { return }
+            cell.setSelected(to: cell.style?.id == style.id)
         }
     }
     
@@ -205,6 +221,7 @@ extension WidgetEditorViewController: UICollectionViewDelegate {
             guard let cell = cell as? WidgetModuleCell else { return }
             cell.setEditable(true)
         }
+        clearSelectedStyleCell()
         clearSelectedColorCell()
     }
     
@@ -219,7 +236,11 @@ extension WidgetEditorViewController: UICollectionViewDelegate {
             cell.setEditable(self?.viewModel.selectedCellIndex == row)
         }
         
-        guard let selectedColor = viewModel.getColorFromSelectedModule() else { return }
+        guard let selectedStyle = viewModel.getStyleFromSelectedModule(),
+              let selectedColor = viewModel.getColorFromSelectedModule()
+        else { return }
+        
+        selectStyleCell(style: selectedStyle)
         selectColorCell(color: selectedColor)
     }
 }
