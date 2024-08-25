@@ -150,11 +150,11 @@ extension WidgetEditorViewController: UICollectionViewDelegate {
             }
             
             if viewModel.selectedCellIndex == indexPath.row {
-                clearSelectedCell(in: collectionView)
+                clearSelectedModuleCell()
                 return
             }
             
-            selectCell(in: collectionView, at: indexPath.row)
+            selectModuleCell(at: indexPath.row)
             
         case editorView.moduleStyleCollectionView:
             // MARK: - Handle module style touch
@@ -164,7 +164,7 @@ extension WidgetEditorViewController: UICollectionViewDelegate {
                 return
             }
             
-            viewModel.applyStyleToSelectedCell(style)
+            viewModel.applyStyleToSelectedModule(style)
             editorView.widgetLayoutCollectionView.reloadData()
             
         case editorView.moduleColorCollectionView:
@@ -175,7 +175,8 @@ extension WidgetEditorViewController: UICollectionViewDelegate {
                 return
             }
             
-            viewModel.applyColorToSelectedCell(color)
+            selectColorCell(color: color)
+            viewModel.applyColorToSelectedModule(color)
             editorView.moduleStyleCollectionView.reloadData()
             editorView.widgetLayoutCollectionView.reloadData()
             
@@ -183,25 +184,43 @@ extension WidgetEditorViewController: UICollectionViewDelegate {
         }
     }
     
-    private func clearSelectedCell(in collectionView: UICollectionView) {
-        viewModel.clearEditingCell()
-        editorView.disableStylingCollectionViews()
-        collectionView.subviews.forEach { cell in
-            guard let cell = cell as? WidgetModuleCell else { return }
-            cell.setEditable(true)
+    private func clearSelectedColorCell() {
+        editorView.moduleColorCollectionView.visibleCells.forEach { cell in
+            guard let cell = cell as? ModuleColorCell else { return }
+            cell.setSelected(to: false)
         }
     }
     
-    private func selectCell(in collectionView: UICollectionView, at index: Int) {
+    private func selectColorCell(color: UIColor) {
+        editorView.moduleColorCollectionView.visibleCells.forEach { cell in
+            guard let cell = cell as? ModuleColorCell else { return }
+            cell.setSelected(to: cell.color == color)
+        }
+    }
+    
+    private func clearSelectedModuleCell() {
+        viewModel.clearEditingCell()
+        editorView.disableStylingCollectionViews()
+        editorView.widgetLayoutCollectionView.subviews.forEach { cell in
+            guard let cell = cell as? WidgetModuleCell else { return }
+            cell.setEditable(true)
+        }
+        clearSelectedColorCell()
+    }
+    
+    private func selectModuleCell(at index: Int) {
         viewModel.setEditingCell(at: index)
         editorView.enableStylingCollectionViews()
         
-        collectionView.subviews.forEach { cell in
+        editorView.widgetLayoutCollectionView.subviews.forEach { [weak self] cell in
             guard let cell = cell as? WidgetModuleCell else { return }
             
-            let row = collectionView.indexPath(for: cell)?.row
-            cell.setEditable(viewModel.selectedCellIndex == row)
+            let row = self?.editorView.widgetLayoutCollectionView.indexPath(for: cell)?.row
+            cell.setEditable(self?.viewModel.selectedCellIndex == row)
         }
+        
+        guard let selectedColor = viewModel.getColorFromSelectedModule() else { return }
+        selectColorCell(color: selectedColor)
     }
 }
 
