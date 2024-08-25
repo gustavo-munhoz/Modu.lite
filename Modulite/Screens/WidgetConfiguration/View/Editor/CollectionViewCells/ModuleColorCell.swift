@@ -11,9 +11,22 @@ class ModuleColorCell: UICollectionViewCell {
     static let reuseId = "ModuleColorCell"
     
     // MARK: - Properties
+    
+    private var isColorSelected: Bool = true {
+        didSet {
+            updateBorder()
+        }
+    }
+    
+    var color: UIColor?
+    
     private(set) lazy var circleLayer: CAShapeLayer = {
         let circle = CAShapeLayer()
-        circle.path = UIBezierPath(ovalIn: CGRect(origin: .zero, size: frame.size)).cgPath
+        
+        let insetBounds = bounds.insetBy(dx: 2, dy: 2)
+        
+        circle.path = UIBezierPath(ovalIn: insetBounds).cgPath
+        circle.lineWidth = 2
         
         return circle
     }()
@@ -35,6 +48,17 @@ class ModuleColorCell: UICollectionViewCell {
     }
     
     func setup(with color: UIColor) {
+        self.color = color
         circleLayer.fillColor = color.cgColor
     }
+    
+    // MARK: - Actions
+    
+    func setSelected(to isSelected: Bool) {
+        isColorSelected = isSelected
+    }
+    
+    private func updateBorder() {
+        circleLayer.strokeColor = isColorSelected ? UIColor.textPrimary.cgColor : UIColor.clear.cgColor
+    }    
 }
