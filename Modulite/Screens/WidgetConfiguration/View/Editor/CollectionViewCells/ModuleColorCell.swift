@@ -12,11 +12,7 @@ class ModuleColorCell: UICollectionViewCell {
     
     // MARK: - Properties
     
-    private var isColorSelected: Bool = true {
-        didSet {
-            updateBorder()
-        }
-    }
+    private var isColorSelected: Bool = false
     
     var color: UIColor?
     
@@ -56,9 +52,10 @@ class ModuleColorCell: UICollectionViewCell {
     
     func setSelected(to isSelected: Bool) {
         isColorSelected = isSelected
+        updateBorder()
     }
     
     private func updateBorder() {
         circleLayer.strokeColor = isColorSelected ? UIColor.textPrimary.cgColor : UIColor.clear.cgColor
-    }    
+    }
 }
