@@ -70,43 +70,21 @@ class WidgetEditorViewModel: NSObject {
         builder.moveItem(from: sourceIndex, to: destinationIndex)
     }
 
-    func applyColorToSelectedCell(color: UIColor? = .clear) {
+    func applyColorToSelectedCell(_ color: UIColor) {
         guard let index = selectedCellIndex else {
             print("Tried to edit item without selecting any.")
             return
         }
-//        
-//        guard displayedModules[index] != nil else {
-//            print("Item at position \(index) is nil")
-//            return
-//        }
-//        
-//        displayedModules[index] = ImageProcessingFactory.createColorBlendedImage(
-//            baseImage,
-//            mode: .plusDarker,
-//            color: color
-//        )
-//        
-//        availableStyles = availableStyles.map { _ in
-//            ImageProcessingFactory.createColorBlendedImage(
-//                baseImage,
-//                mode: .plusDarker,
-//                color: color
-//            )!
-//        }
+        
+        builder.setModuleColor(at: index, color: color)
     }
     
-//    func insertCell(_ image: UIImage, at index: Int) {
-//        guard index >= 0 && index < 6 else {
-//            fatalError("Tried to insert cell at invalid index: \(index)")
-//        }
-//        displayedModules[index] = image
-//    }
-//    
-//    func removeCell(at index: Int) {
-//        guard index >= 0 && index < 6 else {
-//            fatalError("Tried to remove cell at invalid index: \(index)")
-//        }
-//        displayedModules[index] = nil
-//    }
+    func applyStyleToSelectedCell(_ style: ModuleStyle) {
+        guard let index = selectedCellIndex else {
+            print("Tried to edit item without selecting any.")
+            return
+        }
+        
+        builder.setModuleStyle(at: index, style: style)
+    }
 }

@@ -9,11 +9,18 @@ import UIKit
 
 class WidgetStyle {
     var name: String
+    var backgroundImage: UIImage?
     var styles: [ModuleStyle]
     var colors: [UIColor]
 
-    init(name: String, styles: [ModuleStyle], colors: [UIColor]) {
+    init(
+        name: String,
+        backgroundImage: UIImage?,
+        styles: [ModuleStyle],
+        colors: [UIColor]
+    ) {
         self.name = name
+        self.backgroundImage = backgroundImage
         self.styles = styles
         self.colors = colors
     }

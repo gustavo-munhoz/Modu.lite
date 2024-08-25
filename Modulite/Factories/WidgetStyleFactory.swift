@@ -13,6 +13,7 @@ class WidgetStyleFactory {
         case .analog:
             return WidgetStyle(
                 name: .localized(for: .widgetStyleNameAnalog),
+                backgroundImage: nil,
                 styles: [
                     ModuleStyle(imageName: "analog-regular"),
                     ModuleStyle(imageName: "analog-knob"),
@@ -20,7 +21,7 @@ class WidgetStyleFactory {
                     ModuleStyle(imageName: "analog-sound"),
                     ModuleStyle(imageName: "analog-switch")
                 ],
-                colors: [.eggYolk, .cupcake, .sweetTooth, .sugarMint, .burntEnds]
+                colors: [.white, .eggYolk, .cupcake, .sweetTooth, .sugarMint, .burntEnds]
             )
         }
     }
