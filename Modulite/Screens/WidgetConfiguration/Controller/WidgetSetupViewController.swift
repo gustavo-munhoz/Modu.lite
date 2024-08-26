@@ -10,7 +10,7 @@ import UIKit
 class WidgetSetupViewController: UIViewController {
     
     private let setupView = WidgetSetupView()
-    private let viewModel = WidgetSetupViewModel()
+    private let viewModel = WidgetSetupViewModel(appInfoDatabase: SwiftDataAppInfoDatabaseAdapter())
     
     override func loadView() {
         view = setupView
@@ -66,7 +66,7 @@ extension WidgetSetupViewController: UICollectionViewDataSource {
                 fatalError("Could not dequeue StyleCollectionViewCell")
             }
             
-            cell.setup(with: viewModel.apps[indexPath.row])
+            cell.setup(with: viewModel.apps[indexPath.row].name)
             
             return cell
         
