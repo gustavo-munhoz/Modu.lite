@@ -60,6 +60,10 @@
 		B3CDD7012C766F2E00E558F8 /* ModuleStyleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3CDD7002C766F2E00E558F8 /* ModuleStyleCell.swift */; };
 		B3CDD7032C767FD300E558F8 /* ModuleColorCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3CDD7022C767FD300E558F8 /* ModuleColorCell.swift */; };
 		B3CDD7072C77C59B00E558F8 /* ImageProcessingFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3CDD7062C77C59B00E558F8 /* ImageProcessingFactory.swift */; };
+		B3F054362C7CF6CB0057F04D /* AppInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3F054352C7CF6CB0057F04D /* AppInfo.swift */; };
+		B3F0543A2C7CFC090057F04D /* AppInfoDatabaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3F054392C7CFC090057F04D /* AppInfoDatabaseService.swift */; };
+		B3F0543C2C7D04D60057F04D /* apps.json in Resources */ = {isa = PBXBuildFile; fileRef = B3F0543B2C7D04D60057F04D /* apps.json */; };
+		B3F0543F2C7D0E430057F04D /* SwiftDataDatabaseAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3F0543E2C7D0E430057F04D /* SwiftDataDatabaseAdapter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -136,6 +140,10 @@
 		B3CDD7002C766F2E00E558F8 /* ModuleStyleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModuleStyleCell.swift; sourceTree = "<group>"; };
 		B3CDD7022C767FD300E558F8 /* ModuleColorCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModuleColorCell.swift; sourceTree = "<group>"; };
 		B3CDD7062C77C59B00E558F8 /* ImageProcessingFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageProcessingFactory.swift; sourceTree = "<group>"; };
+		B3F054352C7CF6CB0057F04D /* AppInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppInfo.swift; sourceTree = "<group>"; };
+		B3F054392C7CFC090057F04D /* AppInfoDatabaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppInfoDatabaseService.swift; sourceTree = "<group>"; };
+		B3F0543B2C7D04D60057F04D /* apps.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = apps.json; sourceTree = "<group>"; };
+		B3F0543E2C7D0E430057F04D /* SwiftDataDatabaseAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftDataDatabaseAdapter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -338,6 +346,7 @@
 				B36927CA2C66B83E0089F769 /* Models */,
 				B36927C92C66B8380089F769 /* Routers */,
 				B36927CB2C66B8430089F769 /* Screens */,
+				B3F054382C7CFA660057F04D /* Services */,
 			);
 			path = Modulite;
 			sourceTree = "<group>";
@@ -397,6 +406,7 @@
 			children = (
 				B3C1877E2C78D1E000A891A8 /* WidgetModel.swift */,
 				B3C187832C791D1300A891A8 /* WidgetStyle.swift */,
+				B3F054352C7CF6CB0057F04D /* AppInfo.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -480,6 +490,24 @@
 			children = (
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		B3F054382C7CFA660057F04D /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				B3F0543D2C7D0E2B0057F04D /* AppInfoDatabase */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		B3F0543D2C7D0E2B0057F04D /* AppInfoDatabase */ = {
+			isa = PBXGroup;
+			children = (
+				B3F0543B2C7D04D60057F04D /* apps.json */,
+				B3F054392C7CFC090057F04D /* AppInfoDatabaseService.swift */,
+				B3F0543E2C7D0E430057F04D /* SwiftDataDatabaseAdapter.swift */,
+			);
+			path = AppInfoDatabase;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -594,6 +622,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B36927A12C66B6E40089F769 /* Assets.xcassets in Resources */,
+				B3F0543C2C7D04D60057F04D /* apps.json in Resources */,
 				B36927A42C66B6E40089F769 /* Base in Resources */,
 				B34F3DF32C6701740041D7BD /* Localizable.xcstrings in Resources */,
 			);
@@ -649,6 +678,7 @@
 				B34F3E242C6D366A0041D7BD /* WidgetEditorView.swift in Sources */,
 				B369279C2C66B6E30089F769 /* HomeViewController.swift in Sources */,
 				B3C187842C791D1300A891A8 /* WidgetStyle.swift in Sources */,
+				B3F0543F2C7D0E430057F04D /* SwiftDataDatabaseAdapter.swift in Sources */,
 				B34F3E0D2C6B0C790041D7BD /* UsageCoordinator.swift in Sources */,
 				B36927D12C66B8CA0089F769 /* Router.swift in Sources */,
 				B377D0FB2C764F85005B715A /* WidgetEmptyCell.swift in Sources */,
@@ -684,8 +714,10 @@
 				B34F3E072C6A93B30041D7BD /* UsageViewController.swift in Sources */,
 				B34F3E222C6D36390041D7BD /* WidgetEditorViewController.swift in Sources */,
 				B34F3E312C6E87A50041D7BD /* StyleCollectionViewCell.swift in Sources */,
+				B3F054362C7CF6CB0057F04D /* AppInfo.swift in Sources */,
 				B34F3DF52C6701870041D7BD /* String+LocalizedKey.swift in Sources */,
 				B34F3E282C6D36D40041D7BD /* WidgetSetupViewController.swift in Sources */,
+				B3F0543A2C7CFC090057F04D /* AppInfoDatabaseService.swift in Sources */,
 				B34F3E262C6D36C20041D7BD /* WidgetSetupView.swift in Sources */,
 				B34F3E3A2C74BFB00041D7BD /* WidgetEditorViewModel.swift in Sources */,
 			);
