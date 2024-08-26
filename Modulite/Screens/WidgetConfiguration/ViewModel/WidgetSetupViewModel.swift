@@ -7,12 +7,15 @@
 
 import UIKit
 import Combine
+import SwiftData
 
 class WidgetSetupViewModel: NSObject {
-    
+        
     private(set) weak var delegate: HomeNavigationFlowDelegate?
     
     private(set) var widgetId: UUID!
+    
+    private let appsDatabase: AppInfoDatabaseService
     
     // FIXME: Builder must me instantiated from selected style
     private let builder = WidgetConfigurationBuilder(style: WidgetStyleFactory.styleForKey(.analog))
@@ -31,21 +34,17 @@ class WidgetSetupViewModel: NSObject {
         UIImage(systemName: "house.fill")!
     ]
     
-    private var allApps: [String] = [
-        "Whats App",
-        "Instagram",
-        "Facebook",
-        "PicPay",
-        "Snapchat",
-        "Woofy"
-    ]
+    private var allApps: [AppInfo]!
     
-    @Published private(set) var apps: [String]
+    @Published private(set) var apps: [AppInfo]
     
     @Published private(set) var selectedApps: [String] = []
     
-    override init() {
-        self.apps = allApps
+    init(appInfoDatabase: AppInfoDatabaseService) {
+        appsDatabase = appInfoDatabase
+        
+        allApps = appsDatabase.fetchApps()
+        apps = allApps
     }
     
     // MARK: - Setters
@@ -65,7 +64,7 @@ class WidgetSetupViewModel: NSObject {
             apps = allApps
             return
         }
-        apps = allApps.filter { $0.lowercased().contains(query.lowercased())}
+        apps = allApps.filter { $0.name.lowercased().contains(query.lowercased()) }
     }
     
     func proceedToWidgetEditor() {

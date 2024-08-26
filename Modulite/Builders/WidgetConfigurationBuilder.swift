@@ -11,10 +11,27 @@ class WidgetConfigurationBuilder {
     
     private var configuration: WidgetConfiguration
     
+    // FIXME: This may be breaking the code a bit, must test after further development
+    // It is not reusing the instances of style!
+    let tempModules: [ModuleConfiguration] = [
+        ModuleConfiguration(
+            appName: "",
+            associatedURLScheme: nil,
+            selectedStyle: ModuleStyle(imageName: "analog-regular"),
+            selectedColor: .white
+        ),
+        ModuleConfiguration(
+            appName: "",
+            associatedURLScheme: nil,
+            selectedStyle: ModuleStyle(imageName: "analog-knob"),
+            selectedColor: .cupcake
+        )
+    ]
+    
     init(style: WidgetStyle) {
         configuration = WidgetConfiguration(
             style: style,
-            modules: Array(repeating: nil, count: 6)
+            modules: tempModules + Array(repeating: nil, count: 3)
         )
     }
     

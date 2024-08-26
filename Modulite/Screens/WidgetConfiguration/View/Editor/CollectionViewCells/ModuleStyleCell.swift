@@ -57,7 +57,7 @@ class ModuleStyleCell: UICollectionViewCell {
     
     private func updateBorder() {
         if isModuleSelected {
-            styleImageView.layer.borderColor = UIColor.textPrimary.cgColor
+            styleImageView.layer.borderColor = UIColor.systemGray.cgColor
             
         } else {
             styleImageView.layer.borderColor = UIColor.clear.cgColor
