@@ -56,6 +56,6 @@ class ModuleColorCell: UICollectionViewCell {
     }
     
     private func updateBorder() {
-        circleLayer.strokeColor = isColorSelected ? UIColor.textPrimary.cgColor : UIColor.clear.cgColor
+        circleLayer.strokeColor = isColorSelected ? UIColor.systemGray.cgColor : UIColor.clear.cgColor
     }
 }
