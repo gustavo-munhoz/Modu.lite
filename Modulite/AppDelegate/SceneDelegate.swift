@@ -13,6 +13,48 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     lazy var router = SceneDelegateRouter(window: window!)
     lazy var coordinator = RootTabCoordinator(router: router)
 
+    // MARK: - Handle Deeplink
+    func scene(
+        _ scene: UIScene,
+        openURLContexts URLContexts: Set<UIOpenURLContext>
+    ) {
+        guard let url = URLContexts.first?.url else {
+            return
+        }
+        
+        _ = handleDeepLink(url: url)
+    }
+
+    private func handleDeepLink(url: URL) -> Bool {
+        guard let scheme = url.scheme, scheme == "moduliteapp" else {
+            return false
+        }
+
+        guard let host = url.host else {
+            return false
+        }
+
+        switch host {
+        case "app":
+            if let queryItems = URLComponents(url: url, resolvingAgainstBaseURL: false)?.queryItems,
+               let parameter = queryItems.first(where: { $0.name == "app" })?.value {
+                performAction(with: parameter)
+                return true
+            }
+            return false
+
+        default:
+            return false
+        }
+    }
+    
+    private func performAction(with parameter: String) {
+        print("Performing action for app: \(parameter)")
+        UIApplication.shared.open(URL(string: parameter)!)
+
+    }
+    
+    
     func scene(
         _ scene: UIScene,
         willConnectTo session: UISceneSession,
@@ -25,6 +67,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         window = UIWindow(windowScene: windowScene)
         coordinator.present(animated: true, onDismiss: nil)
+        
+        if let url = connectionOptions.urlContexts.first?.url {
+            _ = handleDeepLink(url: url)
+        }
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {

@@ -7,6 +7,21 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AFBBC5032C7E459900A9B256 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AFBBC4EB2C7E457C00A9B256 /* WidgetKit.framework */; };
+		AFBBC5042C7E459900A9B256 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AFBBC4ED2C7E457C00A9B256 /* SwiftUI.framework */; };
+		AFBBC5072C7E459900A9B256 /* ModuliteWidgetBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFBBC5062C7E459900A9B256 /* ModuliteWidgetBundle.swift */; };
+		AFBBC5092C7E459900A9B256 /* ModuliteWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFBBC5082C7E459900A9B256 /* ModuliteWidget.swift */; };
+		AFBBC50B2C7E459A00A9B256 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AFBBC50A2C7E459A00A9B256 /* Assets.xcassets */; };
+		AFBBC50F2C7E459A00A9B256 /* ModuliteWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = AFBBC5022C7E459900A9B256 /* ModuliteWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		AFBBC5152C7E486900A9B256 /* WidgetDatabaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFBBC5142C7E486900A9B256 /* WidgetDatabaseService.swift */; };
+		AFBBC5162C7E491200A9B256 /* WidgetDatabaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFBBC5142C7E486900A9B256 /* WidgetDatabaseService.swift */; };
+		AFBBC5182C7E493100A9B256 /* SwiftDataWidgetDatabaseAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFBBC5172C7E493100A9B256 /* SwiftDataWidgetDatabaseAdapter.swift */; };
+		AFBBC5192C7E49B400A9B256 /* SwiftDataWidgetDatabaseAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFBBC5172C7E493100A9B256 /* SwiftDataWidgetDatabaseAdapter.swift */; };
+		AFBBC51C2C7E4AEB00A9B256 /* WidgetButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFBBC51B2C7E4AEB00A9B256 /* WidgetButtonView.swift */; };
+		AFBBC51E2C7E4C8500A9B256 /* WidgetButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFBBC51B2C7E4AEB00A9B256 /* WidgetButtonView.swift */; };
+		AFBBC5202C7E4D6900A9B256 /* WidgetButtonLabelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFBBC51F2C7E4D6900A9B256 /* WidgetButtonLabelView.swift */; };
+		AFBBC5212C7E4E0700A9B256 /* WidgetButtonLabelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFBBC51F2C7E4D6900A9B256 /* WidgetButtonLabelView.swift */; };
+		AFBBC5222C7E5D8D00A9B256 /* AppInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3F054352C7CF6CB0057F04D /* AppInfo.swift */; };
 		B34F3DF02C66EACE0041D7BD /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = B34F3DEF2C66EACE0041D7BD /* SnapKit */; };
 		B34F3DF32C6701740041D7BD /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = B34F3DF22C6701740041D7BD /* Localizable.xcstrings */; };
 		B34F3DF52C6701870041D7BD /* String+LocalizedKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = B34F3DF42C6701870041D7BD /* String+LocalizedKey.swift */; };
@@ -67,6 +82,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		AFBBC50D2C7E459A00A9B256 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B369278C2C66B6E30089F769 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = AFBBC5012C7E459900A9B256;
+			remoteInfo = ModuliteWidgetExtension;
+		};
 		B36927AB2C66B6E40089F769 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = B369278C2C66B6E30089F769 /* Project object */;
@@ -83,7 +105,32 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		AFBBC4FD2C7E457E00A9B256 /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				AFBBC50F2C7E459A00A9B256 /* ModuliteWidgetExtension.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		AFBBC4EB2C7E457C00A9B256 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
+		AFBBC4ED2C7E457C00A9B256 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
+		AFBBC5022C7E459900A9B256 /* ModuliteWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = ModuliteWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		AFBBC5062C7E459900A9B256 /* ModuliteWidgetBundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModuliteWidgetBundle.swift; sourceTree = "<group>"; };
+		AFBBC5082C7E459900A9B256 /* ModuliteWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModuliteWidget.swift; sourceTree = "<group>"; };
+		AFBBC50A2C7E459A00A9B256 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		AFBBC50C2C7E459A00A9B256 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AFBBC5142C7E486900A9B256 /* WidgetDatabaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetDatabaseService.swift; sourceTree = "<group>"; };
+		AFBBC5172C7E493100A9B256 /* SwiftDataWidgetDatabaseAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftDataWidgetDatabaseAdapter.swift; sourceTree = "<group>"; };
+		AFBBC51B2C7E4AEB00A9B256 /* WidgetButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetButtonView.swift; sourceTree = "<group>"; };
+		AFBBC51F2C7E4D6900A9B256 /* WidgetButtonLabelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetButtonLabelView.swift; sourceTree = "<group>"; };
 		B34F3DF22C6701740041D7BD /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
 		B34F3DF42C6701870041D7BD /* String+LocalizedKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+LocalizedKey.swift"; sourceTree = "<group>"; };
 		B34F3DF72C69A3810041D7BD /* DebugOptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebugOptions.swift; sourceTree = "<group>"; };
@@ -147,6 +194,15 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		AFBBC4FF2C7E459900A9B256 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AFBBC5042C7E459900A9B256 /* SwiftUI.framework in Frameworks */,
+				AFBBC5032C7E459900A9B256 /* WidgetKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		B36927912C66B6E30089F769 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -172,6 +228,28 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		AFBBC5052C7E459900A9B256 /* ModuliteWidget */ = {
+			isa = PBXGroup;
+			children = (
+				AFBBC5062C7E459900A9B256 /* ModuliteWidgetBundle.swift */,
+				AFBBC5082C7E459900A9B256 /* ModuliteWidget.swift */,
+				AFBBC51B2C7E4AEB00A9B256 /* WidgetButtonView.swift */,
+				AFBBC51F2C7E4D6900A9B256 /* WidgetButtonLabelView.swift */,
+				AFBBC50A2C7E459A00A9B256 /* Assets.xcassets */,
+				AFBBC50C2C7E459A00A9B256 /* Info.plist */,
+			);
+			path = ModuliteWidget;
+			sourceTree = "<group>";
+		};
+		AFBBC5132C7E484D00A9B256 /* WidgetDatabase */ = {
+			isa = PBXGroup;
+			children = (
+				AFBBC5142C7E486900A9B256 /* WidgetDatabaseService.swift */,
+				AFBBC5172C7E493100A9B256 /* SwiftDataWidgetDatabaseAdapter.swift */,
+			);
+			path = WidgetDatabase;
+			sourceTree = "<group>";
+		};
 		B34F3DF12C6701070041D7BD /* Localization */ = {
 			isa = PBXGroup;
 			children = (
@@ -314,6 +392,7 @@
 			isa = PBXGroup;
 			children = (
 				B36927962C66B6E30089F769 /* Modulite */,
+				AFBBC5052C7E459900A9B256 /* ModuliteWidget */,
 				B36927AD2C66B6E40089F769 /* ModuliteTests */,
 				B36927B72C66B6E40089F769 /* ModuliteUITests */,
 				B36927952C66B6E30089F769 /* Products */,
@@ -327,6 +406,7 @@
 				B36927942C66B6E30089F769 /* Modulite.app */,
 				B36927AA2C66B6E40089F769 /* ModuliteTests.xctest */,
 				B36927B42C66B6E40089F769 /* ModuliteUITests.xctest */,
+				AFBBC5022C7E459900A9B256 /* ModuliteWidgetExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -488,6 +568,8 @@
 		B3F054342C7CC4890057F04D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				AFBBC4EB2C7E457C00A9B256 /* WidgetKit.framework */,
+				AFBBC4ED2C7E457C00A9B256 /* SwiftUI.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -495,6 +577,7 @@
 		B3F054382C7CFA660057F04D /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				AFBBC5132C7E484D00A9B256 /* WidgetDatabase */,
 				B3F0543D2C7D0E2B0057F04D /* AppInfoDatabase */,
 			);
 			path = Services;
@@ -513,6 +596,23 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		AFBBC5012C7E459900A9B256 /* ModuliteWidgetExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AFBBC5102C7E459A00A9B256 /* Build configuration list for PBXNativeTarget "ModuliteWidgetExtension" */;
+			buildPhases = (
+				AFBBC4FE2C7E459900A9B256 /* Sources */,
+				AFBBC4FF2C7E459900A9B256 /* Frameworks */,
+				AFBBC5002C7E459900A9B256 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ModuliteWidgetExtension;
+			productName = ModuliteWidgetExtension;
+			productReference = AFBBC5022C7E459900A9B256 /* ModuliteWidgetExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 		B36927932C66B6E30089F769 /* Modulite */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = B36927BE2C66B6E40089F769 /* Build configuration list for PBXNativeTarget "Modulite" */;
@@ -521,10 +621,12 @@
 				B36927902C66B6E30089F769 /* Sources */,
 				B36927912C66B6E30089F769 /* Frameworks */,
 				B36927922C66B6E30089F769 /* Resources */,
+				AFBBC4FD2C7E457E00A9B256 /* Embed Foundation Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				AFBBC50E2C7E459A00A9B256 /* PBXTargetDependency */,
 			);
 			name = Modulite;
 			packageProductDependencies = (
@@ -580,6 +682,9 @@
 				LastSwiftUpdateCheck = 1540;
 				LastUpgradeCheck = 1540;
 				TargetAttributes = {
+					AFBBC5012C7E459900A9B256 = {
+						CreatedOnToolsVersion = 15.4;
+					};
 					B36927932C66B6E30089F769 = {
 						CreatedOnToolsVersion = 15.4;
 					};
@@ -612,11 +717,20 @@
 				B36927932C66B6E30089F769 /* Modulite */,
 				B36927A92C66B6E40089F769 /* ModuliteTests */,
 				B36927B32C66B6E40089F769 /* ModuliteUITests */,
+				AFBBC5012C7E459900A9B256 /* ModuliteWidgetExtension */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		AFBBC5002C7E459900A9B256 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AFBBC50B2C7E459A00A9B256 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		B36927922C66B6E30089F769 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -668,6 +782,20 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		AFBBC4FE2C7E459900A9B256 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AFBBC5192C7E49B400A9B256 /* SwiftDataWidgetDatabaseAdapter.swift in Sources */,
+				AFBBC5092C7E459900A9B256 /* ModuliteWidget.swift in Sources */,
+				AFBBC51C2C7E4AEB00A9B256 /* WidgetButtonView.swift in Sources */,
+				AFBBC5072C7E459900A9B256 /* ModuliteWidgetBundle.swift in Sources */,
+				AFBBC5162C7E491200A9B256 /* WidgetDatabaseService.swift in Sources */,
+				AFBBC5202C7E4D6900A9B256 /* WidgetButtonLabelView.swift in Sources */,
+				AFBBC5222C7E5D8D00A9B256 /* AppInfo.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		B36927902C66B6E30089F769 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -680,13 +808,17 @@
 				B3C187842C791D1300A891A8 /* WidgetStyle.swift in Sources */,
 				B3F0543F2C7D0E430057F04D /* SwiftDataDatabaseAdapter.swift in Sources */,
 				B34F3E0D2C6B0C790041D7BD /* UsageCoordinator.swift in Sources */,
+				AFBBC5152C7E486900A9B256 /* WidgetDatabaseService.swift in Sources */,
 				B36927D12C66B8CA0089F769 /* Router.swift in Sources */,
+				AFBBC5182C7E493100A9B256 /* SwiftDataWidgetDatabaseAdapter.swift in Sources */,
 				B377D0FB2C764F85005B715A /* WidgetEmptyCell.swift in Sources */,
 				B36927982C66B6E30089F769 /* AppDelegate.swift in Sources */,
 				B369279A2C66B6E30089F769 /* SceneDelegate.swift in Sources */,
 				B34F3E0B2C6A9E350041D7BD /* NavigationRouter.swift in Sources */,
 				B36927DA2C66C2770089F769 /* HomeView.swift in Sources */,
 				B36927D52C66BCE60089F769 /* HomeCoordinator.swift in Sources */,
+				AFBBC5212C7E4E0700A9B256 /* WidgetButtonLabelView.swift in Sources */,
+				AFBBC51E2C7E4C8500A9B256 /* WidgetButtonView.swift in Sources */,
 				B3CDD7032C767FD300E558F8 /* ModuleColorCell.swift in Sources */,
 				B36927D32C66BBC10089F769 /* SceneDelegateRouter.swift in Sources */,
 				B3C187822C79009B00A891A8 /* WidgetConfigurationBuilder.swift in Sources */,
@@ -744,6 +876,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		AFBBC50E2C7E459A00A9B256 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = AFBBC5012C7E459900A9B256 /* ModuliteWidgetExtension */;
+			targetProxy = AFBBC50D2C7E459A00A9B256 /* PBXContainerItemProxy */;
+		};
 		B36927AC2C66B6E40089F769 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = B36927932C66B6E30089F769 /* Modulite */;
@@ -768,6 +905,66 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		AFBBC5112C7E459A00A9B256 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 0.1;
+				DEVELOPMENT_TEAM = L2AH2M48T4;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = ModuliteWidget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = ModuliteWidget;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 0.1;
+				PRODUCT_BUNDLE_IDENTIFIER = dev.mnhz.modu.lite.ModuliteWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		AFBBC5122C7E459A00A9B256 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 0.1;
+				DEVELOPMENT_TEAM = L2AH2M48T4;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = ModuliteWidget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = ModuliteWidget;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 0.1;
+				PRODUCT_BUNDLE_IDENTIFIER = dev.mnhz.modu.lite.ModuliteWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 		B36927BC2C66B6E40089F769 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -890,12 +1087,13 @@
 		B36927BF2C66B6E40089F769 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 7U55BCTM6U;
+				CURRENT_PROJECT_VERSION = 0.1;
+				DEVELOPMENT_TEAM = L2AH2M48T4;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Modulite/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Modu.lite;
@@ -921,12 +1119,13 @@
 		B36927C02C66B6E40089F769 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 7U55BCTM6U;
+				CURRENT_PROJECT_VERSION = 0.1;
+				DEVELOPMENT_TEAM = L2AH2M48T4;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Modulite/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Modu.lite;
@@ -956,7 +1155,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 7U55BCTM6U;
+				DEVELOPMENT_TEAM = L2AH2M48T4;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
 				MARKETING_VERSION = 1.0;
@@ -976,7 +1175,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 7U55BCTM6U;
+				DEVELOPMENT_TEAM = L2AH2M48T4;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
 				MARKETING_VERSION = 1.0;
@@ -995,7 +1194,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 7U55BCTM6U;
+				DEVELOPMENT_TEAM = L2AH2M48T4;
 				GENERATE_INFOPLIST_FILE = YES;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = dev.mnhz.ModuliteUITests;
@@ -1013,7 +1212,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 7U55BCTM6U;
+				DEVELOPMENT_TEAM = L2AH2M48T4;
 				GENERATE_INFOPLIST_FILE = YES;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = dev.mnhz.ModuliteUITests;
@@ -1028,6 +1227,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		AFBBC5102C7E459A00A9B256 /* Build configuration list for PBXNativeTarget "ModuliteWidgetExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AFBBC5112C7E459A00A9B256 /* Debug */,
+				AFBBC5122C7E459A00A9B256 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		B369278F2C66B6E30089F769 /* Build configuration list for PBXProject "Modulite" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
