@@ -17,28 +17,18 @@ class WidgetSetupViewModel: NSObject {
     
     private let appsDatabase: AppInfoDatabaseService
     
-    // FIXME: Builder must me instantiated from selected style
-    private let builder = WidgetConfigurationBuilder(style: WidgetStyleFactory.styleForKey(.analog))
-    
-    @Published private(set) var widgetStyles: [UIImage] = [
-        UIImage(systemName: "house.fill")!,
-        UIImage(systemName: "house.fill")!,
-        UIImage(systemName: "house.fill")!,
-        UIImage(systemName: "house.fill")!,
-        UIImage(systemName: "house.fill")!,
-        UIImage(systemName: "house.fill")!,
-        UIImage(systemName: "house.fill")!,
-        UIImage(systemName: "house.fill")!,
-        UIImage(systemName: "house.fill")!,
-        UIImage(systemName: "house.fill")!,
-        UIImage(systemName: "house.fill")!
+    @Published private(set) var widgetStyles: [WidgetStyle] = [
+        WidgetStyleFactory.styleForKey(.analog),
+        WidgetStyleFactory.styleForKey(.analog),
+        WidgetStyleFactory.styleForKey(.analog)
     ]
     
     private var allApps: [AppInfo]!
     
     @Published private(set) var apps: [AppInfo]
     
-    @Published private(set) var selectedApps: [String] = []
+    @Published private(set) var selectedStyle: WidgetStyle?
+    @Published private(set) var selectedApps: [AppInfo] = []
     
     init(appInfoDatabase: AppInfoDatabaseService) {
         appsDatabase = appInfoDatabase
@@ -59,6 +49,38 @@ class WidgetSetupViewModel: NSObject {
     
     // MARK: - Actions
     
+    func selectStyle(at index: Int) {
+        guard index >= 0, index < widgetStyles.count else {
+            print("Tried selecting a style at an invalid index.")
+            return
+        }
+        
+        guard selectedStyle != widgetStyles[index] else {
+            print("Tried to select an already selected style.")
+            return
+        }
+        
+        selectedStyle = widgetStyles[index]
+    }
+    
+    func clearSelectedStyle() {
+        selectedStyle = nil
+    }
+    
+    func selectApp(at index: Int) {
+        guard index >= 0, index < apps.count else {
+            print("Tried selecting app at an invalid index.")
+            return
+        }
+        
+        guard selectedApps.count < 6 else {
+            print("Tried to select more than 6 apps.")
+            return
+        }
+        
+        selectedApps.append(apps[index])
+    }
+    
     func filterApps(for query: String) {
         guard !query.isEmpty else {
             apps = allApps
@@ -68,6 +90,18 @@ class WidgetSetupViewModel: NSObject {
     }
     
     func proceedToWidgetEditor() {
+        guard let selectedStyle = selectedStyle else {
+            fatalError("Tried to create a Builder without selecting a style.")
+        }
+        
+        guard selectedApps.count > 0, selectedApps.count <= 6 else {
+            fatalError("Tried to create a Builder with an invalid number of apps.")
+        }
+        
+        let builder = WidgetConfigurationBuilder(
+            style: selectedStyle,
+            apps: selectedApps
+        )
         delegate?.navigateToWidgetEditor(withBuilder: builder)
     }
 }
