@@ -145,7 +145,10 @@ class WidgetSetupView: UIScrollView {
     
     private func setupTapGestures() {
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleDismissiveTap))
+        
         addGestureRecognizer(tapGesture)
+        
+        tapGesture.cancelsTouchesInView = false
     }
     
     private func setupCollectionViews() {
