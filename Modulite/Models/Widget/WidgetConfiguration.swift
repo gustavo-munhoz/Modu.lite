@@ -42,12 +42,7 @@ class WidgetFinalConfiguration {
                 appName: module.appName,
                 associatedURLScheme: module.associatedURLScheme,
                 selectedStyle: module.selectedStyle,
-                selectedColor: module.selectedColor,
-                // TODO: Create config for each style
-                textConfiguration: ModuleAppNameTextConfiguration(
-                    font: UIFont(textStyle: .body, weight: .regular),
-                    textColor: .blue
-                )
+                selectedColor: module.selectedColor
             )
         }
     }
