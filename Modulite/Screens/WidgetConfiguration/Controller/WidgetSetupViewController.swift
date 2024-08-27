@@ -55,7 +55,7 @@ extension WidgetSetupViewController: UICollectionViewDataSource {
                 fatalError("Could not dequeue StyleCollectionViewCell")
             }
             
-            cell.setup(with: viewModel.widgetStyles[indexPath.row])
+            cell.setup(with: viewModel.widgetStyles[indexPath.row].coverImage)
             return cell
             
         case setupView.selectedAppsCollectionView:
@@ -109,7 +109,17 @@ extension WidgetSetupViewController: UICollectionViewDataSource {
 
 // MARK: - UICollectionViewDelegate
 extension WidgetSetupViewController: UICollectionViewDelegate {
-    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        switch collectionView {
+        case setupView.stylesCollectionView:
+            viewModel.selectStyle(at: indexPath.row)
+            
+        case setupView.selectedAppsCollectionView:
+            viewModel.selectApp(at: indexPath.row)
+            
+        default: return
+        }
+    }
 }
 
 // MARK: - UISearchBarDelegate

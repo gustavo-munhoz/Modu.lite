@@ -7,12 +7,17 @@
 
 import UIKit
 
+enum WidgetStyleKey {
+    case analog
+}
+
 class WidgetStyleFactory {
     static func styleForKey(_ key: WidgetStyleKey) -> WidgetStyle {
         switch key {
         case .analog:
             return WidgetStyle(
                 name: .localized(for: .widgetStyleNameAnalog),
+                coverImage: UIImage(systemName: "house.fill")!, // FIXME: Implement this
                 backgroundImage: nil,
                 styles: [
                     ModuleStyle(imageName: "analog-regular"),

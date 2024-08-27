@@ -14,7 +14,7 @@ class WidgetEditorViewModel: NSObject {
     
     @Published private(set) var selectedCellIndex: Int?
     
-    unowned let builder: WidgetConfigurationBuilder
+    let builder: WidgetConfigurationBuilder
     
     init(
         widgetBuider: WidgetConfigurationBuilder,
