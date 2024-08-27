@@ -7,49 +7,6 @@
 
 import UIKit
 
-/// Represents the style of a module, allowing the choice from multiple styles.
-class ModuleStyle {
-    let id = UUID()
-    var image: UIImage
-    
-    /// Initializes a new style with an optional image.
-    init(imageName: String) {
-        self.image = UIImage(named: imageName)!
-    }
-}
-
-/// Stores configuration settings for an individual module within the widget.
-class ModuleConfiguration {
-    var appName: String
-    var associatedURLScheme: URL?
-    var selectedStyle: ModuleStyle
-    var selectedColor: UIColor?
-    var resultingImage: UIImage? {
-        if let color = selectedColor {
-            return ImageProcessingFactory.createColorBlendedImage(
-                selectedStyle.image,
-                mode: .plusDarker,
-                color: color
-            )
-        } else {
-            return selectedStyle.image
-        }
-    }
-    
-    /// Initializes a new module configuration with detailed customization options.
-    init(
-        appName: String,
-        associatedURLScheme: URL?,
-        selectedStyle: ModuleStyle,
-        selectedColor: UIColor?
-    ) {
-        self.appName = appName
-        self.associatedURLScheme = associatedURLScheme
-        self.selectedStyle = selectedStyle
-        self.selectedColor = selectedColor
-    }
-}
-
 /// Manages the overall configuration of a widget, including its background and modules.
 class WidgetConfiguration {
     let widgetStyle: WidgetStyle

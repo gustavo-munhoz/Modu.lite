@@ -14,20 +14,29 @@ class WidgetStyle {
     var backgroundImage: UIImage?
     var styles: [ModuleStyle]
     var colors: [UIColor]
+    var textConfiguration: ModuleAppNameTextConfiguration
 
     // MARK: - Initalizers
     init(
         name: String,
         coverImage: UIImage,
         backgroundImage: UIImage?,
-        styles: [ModuleStyle],
-        colors: [UIColor]
+        styles: [ModuleStyle] = [],
+        colors: [UIColor] = [],
+        textConfiguration: ModuleAppNameTextConfiguration
     ) {
         self.name = name
         self.coverImage = coverImage
         self.backgroundImage = backgroundImage
         self.styles = styles
         self.colors = colors
+        self.textConfiguration = textConfiguration
+    }
+    
+    // MARK: - Setters
+    
+    func setModuleStyles(to styles: [ModuleStyle]) {
+        self.styles = styles
     }
     
     // MARK: - Helper methods

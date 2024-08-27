@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SnapKit
 
 class WidgetModuleCell: UICollectionViewCell {
     static let reuseId = "WidgetModuleCell"
@@ -18,6 +19,13 @@ class WidgetModuleCell: UICollectionViewCell {
         view.clipsToBounds = true
         
         return view
+    }()
+    
+    private(set) lazy var appNameLabel: UILabel = {
+        let label = UILabel()
+        label.adjustsFontSizeToFitWidth = true
+        
+        return label
     }()
     
     // MARK: - Setup Methods
@@ -33,17 +41,28 @@ class WidgetModuleCell: UICollectionViewCell {
         subviews.forEach { $0.removeFromSuperview() }
         moduleImageView.image = module.resultingImage
         
+        appNameLabel.text = module.appName
+        appNameLabel.configure(with: module.textConfiguration)
+        
         addSubviews()
         setupConstraints()
     }
     
     private func addSubviews() {
         addSubview(moduleImageView)
+        addSubview(appNameLabel)
     }
     
     private func setupConstraints() {
         moduleImageView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
+        }
+        
+        appNameLabel.snp.makeConstraints { make in
+            make.centerY.equalTo(snp.bottom).multipliedBy(0.82)
+            make.height.equalTo(20)
+            make.width.equalToSuperview().multipliedBy(0.85)
+            make.centerX.equalToSuperview()
         }
     }
     

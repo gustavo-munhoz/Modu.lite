@@ -15,19 +15,34 @@ class WidgetStyleFactory {
     static func styleForKey(_ key: WidgetStyleKey) -> WidgetStyle {
         switch key {
         case .analog:
-            return WidgetStyle(
+            let textConfig = ModuleAppNameTextConfiguration()
+                .font(UIFont(textStyle: .caption2, weight: .semibold))
+                .textColor(.iceCold)
+                .shadow(color: .iceCold, blurRadius: 5)
+                .textCase(.lower)
+                .removingSpaces()
+                .preffix(".")
+                        
+            let style = WidgetStyle(
                 name: .localized(for: .widgetStyleNameAnalog),
-                coverImage: UIImage(systemName: "house.fill")!, // FIXME: Implement this
+                coverImage: UIImage(systemName: "house.fill")!,
+                // FIXME: Implement this
                 backgroundImage: nil,
-                styles: [
-                    ModuleStyle(imageName: "analog-regular"),
-                    ModuleStyle(imageName: "analog-knob"),
-                    ModuleStyle(imageName: "analog-screen"),
-                    ModuleStyle(imageName: "analog-sound"),
-                    ModuleStyle(imageName: "analog-switch")
-                ],
-                colors: [.white, .eggYolk, .cupcake, .sweetTooth, .sugarMint, .burntEnds]
+                colors: [.white, .eggYolk, .cupcake, .sweetTooth, .sugarMint, .burntEnds],
+                textConfiguration: textConfig
             )
+            
+            let moduleStyles = [
+                ModuleStyle(from: style, imageName: "analog-regular"),
+                ModuleStyle(from: style, imageName: "analog-knob"),
+                ModuleStyle(from: style, imageName: "analog-screen"),
+                ModuleStyle(from: style, imageName: "analog-sound"),
+                ModuleStyle(from: style, imageName: "analog-switch")
+            ]
+            
+            style.setModuleStyles(to: moduleStyles)
+            
+            return style
         }
     }
 }
