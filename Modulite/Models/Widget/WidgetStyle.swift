@@ -13,6 +13,7 @@ class WidgetStyle {
     var coverImage: UIImage
     var backgroundImage: UIImage?
     var styles: [ModuleStyle]
+    var emptyModuleStyle: ModuleStyle?
     var colors: [UIColor]
     var textConfiguration: ModuleAppNameTextConfiguration
 
@@ -22,6 +23,7 @@ class WidgetStyle {
         coverImage: UIImage,
         backgroundImage: UIImage?,
         styles: [ModuleStyle] = [],
+        emptyModuleStyle: ModuleStyle? = nil,
         colors: [UIColor] = [],
         textConfiguration: ModuleAppNameTextConfiguration
     ) {
@@ -29,6 +31,7 @@ class WidgetStyle {
         self.coverImage = coverImage
         self.backgroundImage = backgroundImage
         self.styles = styles
+        self.emptyModuleStyle = emptyModuleStyle
         self.colors = colors
         self.textConfiguration = textConfiguration
     }
@@ -37,6 +40,10 @@ class WidgetStyle {
     
     func setModuleStyles(to styles: [ModuleStyle]) {
         self.styles = styles
+    }
+    
+    func setEmptyStyle(to style: ModuleStyle) {
+        self.emptyModuleStyle = style
     }
     
     // MARK: - Helper methods
