@@ -24,6 +24,7 @@ class WidgetModuleCell: UICollectionViewCell {
     private(set) lazy var appNameLabel: UILabel = {
         let label = UILabel()
         label.adjustsFontSizeToFitWidth = true
+        label.minimumScaleFactor = 0.8
         
         return label
     }()
@@ -41,8 +42,10 @@ class WidgetModuleCell: UICollectionViewCell {
         subviews.forEach { $0.removeFromSuperview() }
         moduleImageView.image = module.resultingImage
         
-        appNameLabel.text = module.appName
-        appNameLabel.configure(with: module.textConfiguration)
+        if module.appName != nil {
+            appNameLabel.text = module.appName
+            appNameLabel.configure(with: module.textConfiguration)
+        }
         
         addSubviews()
         setupConstraints()
@@ -61,7 +64,7 @@ class WidgetModuleCell: UICollectionViewCell {
         appNameLabel.snp.makeConstraints { make in
             make.centerY.equalTo(snp.bottom).multipliedBy(0.82)
             make.height.equalTo(20)
-            make.width.equalToSuperview().multipliedBy(0.85)
+            make.width.equalToSuperview().multipliedBy(0.8)
             make.centerX.equalToSuperview()
         }
     }

@@ -22,7 +22,7 @@ class ModuleStyle {
 
 /// Stores configuration settings for an individual module within the widget.
 class ModuleConfiguration {
-    var appName: String
+    var appName: String?
     var associatedURLScheme: URL?
     var selectedStyle: ModuleStyle
     var selectedColor: UIColor?
@@ -44,7 +44,7 @@ class ModuleConfiguration {
     
     /// Initializes a new module configuration with detailed customization options.
     init(
-        appName: String,
+        appName: String?,
         associatedURLScheme: URL?,
         selectedStyle: ModuleStyle,
         selectedColor: UIColor?
@@ -53,5 +53,20 @@ class ModuleConfiguration {
         self.associatedURLScheme = associatedURLScheme
         self.selectedStyle = selectedStyle
         self.selectedColor = selectedColor
+    }
+}
+
+extension ModuleConfiguration {
+    static func empty(style: WidgetStyle) -> ModuleConfiguration {
+        guard let style = style.emptyModuleStyle else {
+            fatalError("WidgetStyle does not have an empty module style.")
+        }
+        
+        return ModuleConfiguration(
+            appName: nil,
+            associatedURLScheme: nil,
+            selectedStyle: style,
+            selectedColor: nil
+        )
     }
 }

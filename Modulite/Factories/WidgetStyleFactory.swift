@@ -22,7 +22,7 @@ class WidgetStyleFactory {
                 .textCase(.lower)
                 .removingSpaces()
                 .preffix(".")
-                        
+
             let style = WidgetStyle(
                 name: .localized(for: .widgetStyleNameAnalog),
                 coverImage: UIImage(systemName: "house.fill")!,
@@ -41,6 +41,7 @@ class WidgetStyleFactory {
             ]
             
             style.setModuleStyles(to: moduleStyles)
+            style.setEmptyStyle(to: ModuleStyle(from: style, imageName: "analog-empty"))
             
             return style
         }

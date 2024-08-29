@@ -18,13 +18,13 @@ extension UILabel {
         }
         
         let attributedString = NSMutableAttributedString(string: text ?? "")
-        let shadow = NSShadow()
         
         font = config.font
         textColor = config.textColor
         textAlignment = config.textAlignment ?? .center
                 
         if let shadowColor = config.shadowColor {
+            let shadow = NSShadow()
             shadow.shadowColor = shadowColor
             shadow.shadowBlurRadius = config.shadowBlurRadius ?? 0
             shadow.shadowOffset = config.shadowOffset ?? .zero

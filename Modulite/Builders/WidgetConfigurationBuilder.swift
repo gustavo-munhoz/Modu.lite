@@ -11,17 +11,29 @@ class WidgetConfigurationBuilder {
     
     private var configuration: WidgetConfiguration
     
-    init(style: WidgetStyle, apps: [AppInfo]) {
-        configuration = WidgetConfiguration(
-            style: style,
-            modules: apps.map {
+    init(style: WidgetStyle, apps: [AppInfo?]) {
+        var modules: [ModuleConfiguration?] = []
+        
+        apps.forEach { app in
+            guard let app = app else {
+                modules.append(
+                    ModuleConfiguration.empty(style: style)
+                )
+                return
+            }
+            
+            modules.append(
                 ModuleConfiguration(
-                    appName: $0.name,
-                    associatedURLScheme: URL(string: $0.urlScheme),
+                    appName: app.name,
+                    associatedURLScheme: URL(string: app.urlScheme),
                     selectedStyle: style.getRandomStyle(),
                     selectedColor: nil
                 )
-            }
+            )
+        }
+        configuration = WidgetConfiguration(
+            style: style,
+            modules: modules
         )
     }
     
