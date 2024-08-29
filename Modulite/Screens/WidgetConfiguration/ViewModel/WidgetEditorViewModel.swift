@@ -13,7 +13,7 @@ class WidgetEditorViewModel: NSObject {
     private(set) weak var delegate: HomeNavigationFlowDelegate?
     
     @Published private(set) var selectedCellIndex: Int?
-    
+        
     let builder: WidgetConfigurationBuilder
     
     init(

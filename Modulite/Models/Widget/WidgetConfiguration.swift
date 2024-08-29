@@ -10,7 +10,7 @@ import UIKit
 /// Manages the overall configuration of a widget, including its background and modules.
 class WidgetConfiguration {
     let widgetStyle: WidgetStyle
-    var modules: [ModuleConfiguration?]
+    var modules: [ModuleConfiguration]
     
     var availableStyles: [ModuleStyle] {
         widgetStyle.styles
@@ -22,7 +22,7 @@ class WidgetConfiguration {
     
     init(
         style: WidgetStyle,
-        modules: [ModuleConfiguration?]
+        modules: [ModuleConfiguration]
     ) {
         self.widgetStyle = style
         self.modules = modules
@@ -36,8 +36,6 @@ class WidgetFinalConfiguration {
     /// Creates a finalized configuration from a given WidgetConfiguration, focusing on selected options.
     init(from configuration: WidgetConfiguration) {
         self.modules = configuration.modules.map { module in
-            guard let module = module else { return nil }
-            
             return ModuleConfiguration(
                 appName: module.appName,
                 associatedURLScheme: module.associatedURLScheme,

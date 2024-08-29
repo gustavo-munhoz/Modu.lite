@@ -6,8 +6,6 @@
 //
 
 import UIKit
-import Combine
-import SwiftData
 
 class WidgetSetupViewModel: NSObject {
         
@@ -28,7 +26,7 @@ class WidgetSetupViewModel: NSObject {
     @Published private(set) var apps: [AppInfo]
     
     @Published private(set) var selectedStyle: WidgetStyle?
-    @Published private(set) var selectedApps: [AppInfo] = []
+    @Published private(set) var selectedApps: [AppInfo?] = []
     
     init(appInfoDatabase: AppInfoDatabaseService) {
         appsDatabase = appInfoDatabase
@@ -96,6 +94,10 @@ class WidgetSetupViewModel: NSObject {
         
         guard selectedApps.count > 0, selectedApps.count <= 6 else {
             fatalError("Tried to create a Builder with an invalid number of apps.")
+        }
+        
+        while selectedApps.count < 6 {
+            selectedApps.append(nil)
         }
         
         let builder = WidgetConfigurationBuilder(

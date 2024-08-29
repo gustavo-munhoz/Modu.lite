@@ -67,7 +67,6 @@
 		B36927D32C66BBC10089F769 /* SceneDelegateRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B36927D22C66BBC10089F769 /* SceneDelegateRouter.swift */; };
 		B36927D52C66BCE60089F769 /* HomeCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B36927D42C66BCE60089F769 /* HomeCoordinator.swift */; };
 		B36927DA2C66C2770089F769 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B36927D92C66C2770089F769 /* HomeView.swift */; };
-		B377D0FB2C764F85005B715A /* WidgetEmptyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B377D0FA2C764F85005B715A /* WidgetEmptyCell.swift */; };
 		B3C1877F2C78D1E000A891A8 /* WidgetConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3C1877E2C78D1E000A891A8 /* WidgetConfiguration.swift */; };
 		B3C187822C79009B00A891A8 /* WidgetConfigurationBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3C187812C79009B00A891A8 /* WidgetConfigurationBuilder.swift */; };
 		B3C187842C791D1300A891A8 /* WidgetStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3C187832C791D1300A891A8 /* WidgetStyle.swift */; };
@@ -183,7 +182,6 @@
 		B36927D22C66BBC10089F769 /* SceneDelegateRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegateRouter.swift; sourceTree = "<group>"; };
 		B36927D42C66BCE60089F769 /* HomeCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCoordinator.swift; sourceTree = "<group>"; };
 		B36927D92C66C2770089F769 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
-		B377D0FA2C764F85005B715A /* WidgetEmptyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetEmptyCell.swift; sourceTree = "<group>"; };
 		B3C1877E2C78D1E000A891A8 /* WidgetConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetConfiguration.swift; sourceTree = "<group>"; };
 		B3C187812C79009B00A891A8 /* WidgetConfigurationBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetConfigurationBuilder.swift; sourceTree = "<group>"; };
 		B3C187832C791D1300A891A8 /* WidgetStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetStyle.swift; sourceTree = "<group>"; };
@@ -391,7 +389,6 @@
 			isa = PBXGroup;
 			children = (
 				B34F3E3F2C74E3270041D7BD /* WidgetModuleCell.swift */,
-				B377D0FA2C764F85005B715A /* WidgetEmptyCell.swift */,
 				B3CDD7002C766F2E00E558F8 /* ModuleStyleCell.swift */,
 				B3CDD7022C767FD300E558F8 /* ModuleColorCell.swift */,
 			);
@@ -831,7 +828,6 @@
 				AFBBC5152C7E486900A9B256 /* WidgetDatabaseService.swift in Sources */,
 				B36927D12C66B8CA0089F769 /* Router.swift in Sources */,
 				AFBBC5182C7E493100A9B256 /* SwiftDataWidgetDatabaseAdapter.swift in Sources */,
-				B377D0FB2C764F85005B715A /* WidgetEmptyCell.swift in Sources */,
 				B36927982C66B6E30089F769 /* AppDelegate.swift in Sources */,
 				B369279A2C66B6E30089F769 /* SceneDelegate.swift in Sources */,
 				B34F3E0B2C6A9E350041D7BD /* NavigationRouter.swift in Sources */,

@@ -36,6 +36,8 @@ class WidgetModuleCell: UICollectionViewCell {
         setEditable(false)
         stopWiggling()
         moduleImageView.alpha = 0.5
+        appNameLabel.alpha = 0.5
+        appNameLabel.text = nil
     }
     
     func setup(with module: ModuleConfiguration) {
@@ -76,6 +78,7 @@ class WidgetModuleCell: UICollectionViewCell {
         
         UIView.animate(withDuration: 0.25) { [weak self] in
             self?.moduleImageView.alpha = value ?  1 : 0.5
+            self?.appNameLabel.alpha = value ?  1 : 0.5
         }
         if value { startWiggling() } else { stopWiggling() }
     }
