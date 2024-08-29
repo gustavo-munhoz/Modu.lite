@@ -12,7 +12,7 @@ class WidgetConfigurationBuilder {
     private var configuration: WidgetConfiguration
     
     init(style: WidgetStyle, apps: [AppInfo?]) {
-        var modules: [ModuleConfiguration?] = []
+        var modules: [ModuleConfiguration] = []
         
         apps.forEach { app in
             guard let app = app else {
@@ -39,29 +39,16 @@ class WidgetConfigurationBuilder {
     
     // MARK: - Setters
     
-    func insertModule(_ module: ModuleConfiguration, at index: Int) {
-        assert(index >= 0 && index < configuration.modules.count, "Tried to insert module at an invalid index.")
-        assert(configuration.modules[index] == nil, "Tried to add module in a non-empty space.")
-        
-        configuration.modules[index] = module
-    }
-    
-    func removeModule(at index: Int) {
-        assert(index >= 0 && index < configuration.modules.count, "Tried to remove module at an invalid index.")
-        
-        configuration.modules[index] = nil
-    }
-    
     func setModuleStyle(at index: Int, style: ModuleStyle) {
         assert(index >= 0 && index < configuration.modules.count, "Tried to insert module at an invalid index.")
         
         if let style = configuration.availableStyles.first(where: { $0.id == style.id }) {
-            configuration.modules[index]?.selectedStyle = style
+            configuration.modules[index].selectedStyle = style
         } else {
             print("Tried to set a style that is not available.")
         }
         
-        configuration.modules[index]?.selectedStyle = style
+        configuration.modules[index].selectedStyle = style
     }
     
     func setModuleColor(at index: Int, color: UIColor) {
@@ -69,7 +56,7 @@ class WidgetConfigurationBuilder {
         
         assert(configuration.availableColors.contains(color), "Tried to set a color that is not available.")
         
-        configuration.modules[index]?.selectedColor = color
+        configuration.modules[index].selectedColor = color
     }
     
     // MARK: - Useful Methods
@@ -118,7 +105,7 @@ class WidgetConfigurationBuilder {
     
     func isModuleEmpty(at index: Int) -> Bool {
         guard index >= 0, index < 6 else { return false }
-        return configuration.modules[index] == nil
+        return configuration.modules[index].isEmpty
     }
     
     // MARK: - Build

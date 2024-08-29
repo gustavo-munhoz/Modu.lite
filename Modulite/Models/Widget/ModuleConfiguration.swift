@@ -22,6 +22,10 @@ class ModuleStyle {
 
 /// Stores configuration settings for an individual module within the widget.
 class ModuleConfiguration {
+    var isEmpty: Bool {
+        appName == nil
+    }
+    
     var appName: String?
     var associatedURLScheme: URL?
     var selectedStyle: ModuleStyle
