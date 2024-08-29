@@ -112,11 +112,14 @@ class WidgetEditorView: UIScrollView {
         }
     }
     
-    func enableStylingCollectionViews() {
+    func enableStylingCollectionViews(didSelectEmptyCell value: Bool = false) {
         UIView.animate(withDuration: 0.25) { [weak self] in
-            self?.moduleStyleCollectionView.alpha = 1
+            if !value {
+                self?.moduleStyleCollectionView.alpha = 1
+                self?.moduleStyleCollectionView.isUserInteractionEnabled = true
+            }
+            
             self?.moduleColorCollectionView.alpha = 1
-            self?.moduleStyleCollectionView.isUserInteractionEnabled = true
             self?.moduleColorCollectionView.isUserInteractionEnabled = true
         }
     }
@@ -156,11 +159,6 @@ class WidgetEditorView: UIScrollView {
         widgetLayoutCollectionView.register(
             WidgetModuleCell.self,
             forCellWithReuseIdentifier: WidgetModuleCell.reuseId
-        )
-        
-        widgetLayoutCollectionView.register(
-            WidgetEmptyCell.self,
-            forCellWithReuseIdentifier: WidgetEmptyCell.reuseId
         )
         
         moduleStyleCollectionView.register(

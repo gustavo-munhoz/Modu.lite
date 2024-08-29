@@ -87,33 +87,22 @@ extension WidgetEditorViewController: UICollectionViewDataSource {
         for collectionView: UICollectionView,
         indexPath: IndexPath
     ) -> UICollectionViewCell {
-        if viewModel.isModuleEmpty(at: indexPath.row) {
-            guard let cell = collectionView.dequeueReusableCell(
-                withReuseIdentifier: WidgetEmptyCell.reuseId,
-                for: indexPath
-            ) as? WidgetEmptyCell else {
-                fatalError("Could not dequeue WidgetEmptyCell.")
-            }
-            return cell
-            
-        } else {
-            guard let module = viewModel.getModule(at: indexPath.row),
-                  let cell = collectionView.dequeueReusableCell(
-                withReuseIdentifier: WidgetModuleCell.reuseId,
-                for: indexPath
-            ) as? WidgetModuleCell else {
-                fatalError("Could not dequeue WidgetModuleCell.")
-            }
-            
-            if let index = viewModel.selectedCellIndex {
-                cell.setEditable(index == indexPath.row)
-            } else {
-                cell.startWiggling()
-            }
-            
-            cell.setup(with: module)
-            return cell
+        guard let module = viewModel.getModule(at: indexPath.row),
+              let cell = collectionView.dequeueReusableCell(
+            withReuseIdentifier: WidgetModuleCell.reuseId,
+            for: indexPath
+        ) as? WidgetModuleCell else {
+            fatalError("Could not dequeue WidgetModuleCell.")
         }
+        
+        if let index = viewModel.selectedCellIndex {
+            cell.setEditable(index == indexPath.row)
+        } else {
+            cell.startWiggling()
+        }
+        
+        cell.setup(with: module)
+        return cell
     }
 }
 
@@ -145,12 +134,6 @@ extension WidgetEditorViewController: UICollectionViewDelegate {
         switch collectionView {
         case editorView.widgetLayoutCollectionView:
             // MARK: - Handle widget cell touch
-            
-            if viewModel.isModuleEmpty(at: indexPath.row) {
-                // TODO: Handle creating new cell
-                return
-            }
-            
             if viewModel.selectedCellIndex == indexPath.row {
                 clearSelectedModuleCell()
                 return
@@ -227,7 +210,9 @@ extension WidgetEditorViewController: UICollectionViewDelegate {
     
     private func selectModuleCell(at index: Int) {
         viewModel.setEditingCell(at: index)
-        editorView.enableStylingCollectionViews()
+        editorView.enableStylingCollectionViews(
+            didSelectEmptyCell: viewModel.isModuleEmpty(at: index)
+        )
         
         editorView.widgetLayoutCollectionView.subviews.forEach { [weak self] cell in
             guard let cell = cell as? WidgetModuleCell else { return }
