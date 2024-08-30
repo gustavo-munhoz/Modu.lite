@@ -193,6 +193,28 @@
         }
       }
     },
+    "usageViewComparisonOverview" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Comparison overview"
+          }
+        }
+      }
+    },
+    "usageViewControllerNavigationTitle" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "My screen time"
+          }
+        }
+      }
+    },
     "usageViewControllerTabBarItemTitle" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -200,6 +222,28 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Usage"
+          }
+        }
+      }
+    },
+    "usageViewOnPhone" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "on your phone today"
+          }
+        }
+      }
+    },
+    "usageViewYouHaveSpent" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "You have spent"
           }
         }
       }
