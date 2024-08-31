@@ -4,10 +4,12 @@
 //
 //  Created by Gustavo Munhoz Correa on 23/08/24.
 //
-
+import SwiftUI
 import UIKit
+import SwiftData
 
 /// Manages the overall configuration of a widget, including its background and modules.
+
 class WidgetConfiguration {
     let widgetStyle: WidgetStyle
     var modules: [ModuleConfiguration]
@@ -29,19 +31,31 @@ class WidgetConfiguration {
     }
 }
 
-/// Finalizes the configuration of a widget, simplifying it by removing options and keeping only selected settings.
-class WidgetFinalConfiguration {
-    var modules: [ModuleConfiguration?]
+@Model
+class WidgetPersistableConfiguration {
+    @Attribute(.unique) let id: UUID
+    let widgetStyleKey: WidgetStyleKey
+    let modules: [ModulePersistableConfiguration]
+    
+    init(id: UUID, widgetStyleKey: WidgetStyleKey, modules: [ModulePersistableConfiguration]) {
+        self.id = id
+        self.widgetStyleKey = widgetStyleKey
+        self.modules = modules
+    }
+}
 
-    /// Creates a finalized configuration from a given WidgetConfiguration, focusing on selected options.
-    init(from configuration: WidgetConfiguration) {
-        self.modules = configuration.modules.map { module in
-            return ModuleConfiguration(
-                appName: module.appName,
-                associatedURLScheme: module.associatedURLScheme,
-                selectedStyle: module.selectedStyle,
-                selectedColor: module.selectedColor
-            )
-        }
+extension WidgetConfiguration {
+    convenience init(persistableConfiguration config: WidgetPersistableConfiguration) {
+        let style = WidgetStyleFactory.styleForKey(config.widgetStyleKey)
+        
+        self.init(
+            style: style,
+            modules: config.modules.map {
+                ModuleConfiguration(
+                    widgetStyle: style,
+                    persistedConfiguration: $0
+                )
+            }
+        )
     }
 }
