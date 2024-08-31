@@ -6,19 +6,7 @@
 //
 
 import UIKit
-
-/// Represents the style of a module, allowing the choice from multiple styles.
-class ModuleStyle {
-    let id = UUID()
-    unowned var widgetStyle: WidgetStyle
-    var image: UIImage
-    
-    /// Initializes a new style with an optional image.
-    init(from style: WidgetStyle, imageName: String) {
-        self.widgetStyle = style
-        self.image = UIImage(named: imageName)!
-    }
-}
+import SwiftData
 
 /// Stores configuration settings for an individual module within the widget.
 class ModuleConfiguration {
@@ -30,6 +18,7 @@ class ModuleConfiguration {
     var associatedURLScheme: URL?
     var selectedStyle: ModuleStyle
     var selectedColor: UIColor?
+    
     var textConfiguration: ModuleAppNameTextConfiguration {
         selectedStyle.widgetStyle.textConfiguration
     }
@@ -72,5 +61,79 @@ extension ModuleConfiguration {
             selectedStyle: style,
             selectedColor: nil
         )
+    }
+}
+
+extension ModuleConfiguration {
+    convenience init(widgetStyle: WidgetStyle, persistedConfiguration config: ModulePersistableConfiguration) {
+        var url: URL?
+        if let urlString = config.url {
+            url = URL(string: urlString)
+        }
+        
+        self.init(
+            appName: config.appName,
+            associatedURLScheme: url,
+            selectedStyle: ModuleStyle(
+                from: widgetStyle,
+                key: config.moduleKey
+            ),
+            selectedColor: config.color
+        )
+    }
+}
+
+@Model
+class ModulePersistableConfiguration {
+    let appName: String?
+    let url: String?
+    @Attribute(.transformable(by: UIColorValueTransformer.self)) let color: UIColor
+    let moduleKey: ModuleStyleKey
+    
+    let moduleButtonImageData: Data
+    
+    init(
+        appName: String?,
+        url: String?,
+        color: UIColor,
+        moduleKey: ModuleStyleKey,
+        moduleButtonImageData: Data
+    ) {
+        self.appName = appName
+        self.url = url
+        self.color = color
+        self.moduleKey = moduleKey
+        self.moduleButtonImageData = moduleButtonImageData
+    }
+}
+
+@objc(UIColorValueTransformer)
+final class UIColorValueTransformer: ValueTransformer {
+
+    override static func transformedValueClass() -> AnyClass {
+        return UIColor.self
+    }
+
+    // return data
+    override func transformedValue(_ value: Any?) -> Any? {
+        guard let color = value as? UIColor else { return nil }
+        do {
+            let data = try NSKeyedArchiver.archivedData(withRootObject: color, requiringSecureCoding: true)
+            return data
+        } catch {
+            return nil
+        }
+    }
+
+    // return UIColor
+    override func reverseTransformedValue(_ value: Any?) -> Any? {
+        guard let data = value as? Data else { return nil }
+    
+        do {
+            let color = try NSKeyedUnarchiver.unarchivedObject(ofClass: UIColor.self, from: data)
+            return color
+        } catch {
+            return nil
+        }
     }
 }

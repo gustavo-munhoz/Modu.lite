@@ -6,12 +6,14 @@
 //
 
 import UIKit
+import SwiftData
 
-enum WidgetStyleKey {
+enum WidgetStyleKey: Codable {
     case analog
 }
 
 class WidgetStyleFactory {
+    
     static func styleForKey(_ key: WidgetStyleKey) -> WidgetStyle {
         switch key {
         case .analog:

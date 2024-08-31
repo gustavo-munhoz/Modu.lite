@@ -9,7 +9,7 @@ import UIKit
 
 class WidgetConfigurationBuilder {
     
-    private var configuration: WidgetConfiguration
+    private var configuration: ModuliteWidgetConfiguration
     
     init(style: WidgetStyle, apps: [AppInfo?]) {
         var modules: [ModuleConfiguration] = []
@@ -31,7 +31,7 @@ class WidgetConfigurationBuilder {
                 )
             )
         }
-        configuration = WidgetConfiguration(
+        configuration = ModuliteWidgetConfiguration(
             style: style,
             modules: modules
         )
@@ -109,7 +109,7 @@ class WidgetConfigurationBuilder {
     }
     
     // MARK: - Build
-    func build() -> WidgetFinalConfiguration {
-        WidgetFinalConfiguration(from: configuration)
+    func build() {
+        
     }
 }
