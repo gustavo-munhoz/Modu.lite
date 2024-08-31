@@ -6,8 +6,10 @@
 //
 
 import Foundation
-
-// TODO: Make more protocol to service
-//protocol WidgetDatabaseService {
-//    func fetchWidgets() -> WidgetFinalConfiguration
-//}
+ 
+protocol WidgetDatabaseService {
+    func fetchAllWidgets() -> [WidgetPersistableConfiguration]
+    func saveWidget(configuration: WidgetPersistableConfiguration)
+    func fetchWidget(with id: UUID) -> WidgetPersistableConfiguration?
+    func deleteWidget(with id: UUID)
+}

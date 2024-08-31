@@ -14,11 +14,11 @@ class SwiftDataAppInfoDatabaseAdapter: AppInfoDatabaseService {
     var container: ModelContainer?
     var context: ModelContext?
     
-    // MARK: - Lifecycler
+    // MARK: - Lifecycle
     init() {
         do {
             container = try ModelContainer(for: AppInfo.self)
-            if let container {
+            if let container = self.container {
                 context = ModelContext(container)
             }
         } catch {
