@@ -67,6 +67,7 @@
 		B36927D32C66BBC10089F769 /* SceneDelegateRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B36927D22C66BBC10089F769 /* SceneDelegateRouter.swift */; };
 		B36927D52C66BCE60089F769 /* HomeCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B36927D42C66BCE60089F769 /* HomeCoordinator.swift */; };
 		B36927DA2C66C2770089F769 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B36927D92C66C2770089F769 /* HomeView.swift */; };
+		B372846A2C81096A00D9A1E7 /* ModuleStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = B37284692C81096A00D9A1E7 /* ModuleStyle.swift */; };
 		B3C1877F2C78D1E000A891A8 /* WidgetConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3C1877E2C78D1E000A891A8 /* WidgetConfiguration.swift */; };
 		B3C187822C79009B00A891A8 /* WidgetConfigurationBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3C187812C79009B00A891A8 /* WidgetConfigurationBuilder.swift */; };
 		B3C187842C791D1300A891A8 /* WidgetStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3C187832C791D1300A891A8 /* WidgetStyle.swift */; };
@@ -182,6 +183,7 @@
 		B36927D22C66BBC10089F769 /* SceneDelegateRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegateRouter.swift; sourceTree = "<group>"; };
 		B36927D42C66BCE60089F769 /* HomeCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCoordinator.swift; sourceTree = "<group>"; };
 		B36927D92C66C2770089F769 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		B37284692C81096A00D9A1E7 /* ModuleStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModuleStyle.swift; sourceTree = "<group>"; };
 		B3C1877E2C78D1E000A891A8 /* WidgetConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetConfiguration.swift; sourceTree = "<group>"; };
 		B3C187812C79009B00A891A8 /* WidgetConfigurationBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetConfigurationBuilder.swift; sourceTree = "<group>"; };
 		B3C187832C791D1300A891A8 /* WidgetStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetStyle.swift; sourceTree = "<group>"; };
@@ -578,6 +580,7 @@
 				B3C187832C791D1300A891A8 /* WidgetStyle.swift */,
 				B3EB15B52C7E4BF0003B1960 /* ModuleConfiguration.swift */,
 				B3EB15B82C7E4CD6003B1960 /* ModuleAppNameTextConfiguration.swift */,
+				B37284692C81096A00D9A1E7 /* ModuleStyle.swift */,
 			);
 			path = Widget;
 			sourceTree = "<group>";
@@ -844,6 +847,7 @@
 				B34F3E3E2C74CE090041D7BD /* EditorSectionHeader.swift in Sources */,
 				B34F3DFD2C6A92890041D7BD /* RootTabBarController.swift in Sources */,
 				B34F3E112C6B0DDD0041D7BD /* SettingsCoordinator.swift in Sources */,
+				B372846A2C81096A00D9A1E7 /* ModuleStyle.swift in Sources */,
 				B34F3E142C6B93C80041D7BD /* MainWidgetCollectionViewCell.swift in Sources */,
 				B3CDD7072C77C59B00E558F8 /* ImageProcessingFactory.swift in Sources */,
 				B34F3E092C6A96A20041D7BD /* RootTabCoordinator.swift in Sources */,
