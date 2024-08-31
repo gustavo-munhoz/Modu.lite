@@ -10,7 +10,7 @@ import SwiftData
 
 /// Manages the overall configuration of a widget, including its background and modules.
 
-class WidgetConfiguration {
+class ModuliteWidgetConfiguration {
     let widgetStyle: WidgetStyle
     var modules: [ModuleConfiguration]
     
@@ -44,7 +44,7 @@ class WidgetPersistableConfiguration {
     }
 }
 
-extension WidgetConfiguration {
+extension ModuliteWidgetConfiguration {
     convenience init(persistableConfiguration config: WidgetPersistableConfiguration) {
         let style = WidgetStyleFactory.styleForKey(config.widgetStyleKey)
         
