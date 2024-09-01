@@ -109,7 +109,7 @@ class WidgetConfigurationBuilder {
     }
     
     // MARK: - Build
-    func build() {
-        
+    func build() -> ModuliteWidgetConfiguration {
+        configuration
     }
 }

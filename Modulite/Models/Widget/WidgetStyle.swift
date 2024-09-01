@@ -9,6 +9,7 @@ import UIKit
 
 class WidgetStyle {
     // MARK: - Properties
+    let key: WidgetStyleKey
     var name: String
     var coverImage: UIImage
     var backgroundImage: UIImage?
@@ -19,6 +20,7 @@ class WidgetStyle {
 
     // MARK: - Initalizers
     init(
+        key: WidgetStyleKey,
         name: String,
         coverImage: UIImage,
         backgroundImage: UIImage?,
@@ -27,6 +29,7 @@ class WidgetStyle {
         colors: [UIColor] = [],
         textConfiguration: ModuleAppNameTextConfiguration
     ) {
+        self.key = key
         self.name = name
         self.coverImage = coverImage
         self.backgroundImage = backgroundImage

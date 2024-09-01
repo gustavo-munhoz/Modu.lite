@@ -16,16 +16,23 @@ class WidgetEditorViewController: UIViewController {
         view = editorView
         editorView.setCollectionViewDelegates(to: self)
         editorView.setCollectionViewDataSources(to: self)
+        editorView.onSaveButtonTapped = viewModel.saveWidget
     }
 }
 
 extension WidgetEditorViewController {
     class func instantiate(
+        widgetDatabaseService: WidgetDatabaseService,
         builder: WidgetConfigurationBuilder,
         delegate: HomeNavigationFlowDelegate
     ) -> WidgetEditorViewController {
         let vc = WidgetEditorViewController()
-        vc.viewModel = WidgetEditorViewModel(widgetBuider: builder, delegate: delegate)
+        
+        vc.viewModel = WidgetEditorViewModel(
+            widgetDatabaseService: widgetDatabaseService,
+            widgetBuider: builder,
+            delegate: delegate
+        )
         
         return vc
     }

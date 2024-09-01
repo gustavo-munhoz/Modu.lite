@@ -13,14 +13,18 @@ class WidgetEditorViewModel: NSObject {
     private(set) weak var delegate: HomeNavigationFlowDelegate?
     
     @Published private(set) var selectedCellIndex: Int?
-        
+    
+    private let widgetDatabaseService: WidgetDatabaseService
+    
     let builder: WidgetConfigurationBuilder
     
     init(
+        widgetDatabaseService: WidgetDatabaseService,
         widgetBuider: WidgetConfigurationBuilder,
         delegate: HomeNavigationFlowDelegate
     ) {
         builder = widgetBuider
+        self.widgetDatabaseService = widgetDatabaseService
         self.delegate = delegate
         super.init()
     }
@@ -84,6 +88,12 @@ class WidgetEditorViewModel: NSObject {
     }
     
     // MARK: - Actions
+    func saveWidget() {
+        let widgetConfig = builder.build().createPersistableObject()
+        
+        widgetDatabaseService.saveWidget(configuration: widgetConfig)
+    }
+    
     func moveItem(from sourceIndex: Int, to destinationIndex: Int) {
         builder.moveItem(from: sourceIndex, to: destinationIndex)
     }

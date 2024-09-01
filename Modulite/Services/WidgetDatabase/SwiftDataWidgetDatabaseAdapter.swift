@@ -18,6 +18,10 @@ class SwiftDataWidgetDatabaseAdapter: WidgetDatabaseService {
     
     init() {
         do {
+            ValueTransformer.setValueTransformer(
+                UIColorValueTransformer(),
+                forName: NSValueTransformerName("UIColorValueTransformer")
+            )
             container = try ModelContainer(for: WidgetPersistableConfiguration.self)
             if let container = self.container {
                 context = ModelContext(container)
@@ -44,6 +48,7 @@ class SwiftDataWidgetDatabaseAdapter: WidgetDatabaseService {
         guard let context = context else { return }
         
         context.insert(configuration)
+        print("Widget saved successfully.")
     }
     
     func fetchWidget(with id: UUID) -> WidgetPersistableConfiguration? {
