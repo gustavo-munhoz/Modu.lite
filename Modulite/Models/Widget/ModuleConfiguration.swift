@@ -47,6 +47,25 @@ class ModuleConfiguration {
         self.selectedStyle = selectedStyle
         self.selectedColor = selectedColor
     }
+    
+    func generateWidgetButtonImageData() -> Data? {
+        let cell = WidgetModuleCell()
+        cell.setup(with: self)
+        cell.frame = CGRect(
+            x: 0,
+            y: 0,
+            width: 108,
+            height: 170
+        )
+        cell.layoutIfNeeded()
+        
+        let renderer = UIGraphicsImageRenderer(bounds: cell.bounds)
+        
+        let image = renderer.image { rendererContext in
+            cell.layer.render(in: rendererContext.cgContext)
+        }
+        return image.pngData()
+    }
 }
 
 extension ModuleConfiguration {
@@ -81,13 +100,28 @@ extension ModuleConfiguration {
             selectedColor: config.color
         )
     }
+    
+    // TODO: REFACTOR TO PROTOCOL
+    func createPersistableObject() -> ModulePersistableConfiguration {
+        guard let data = self.generateWidgetButtonImageData() else {
+            fatalError("Unable to generate png data from module cell.")
+        }
+        
+        return ModulePersistableConfiguration(
+            appName: appName,
+            url: associatedURLScheme?.absoluteString,
+            color: selectedColor,
+            moduleKey: selectedStyle.key,
+            moduleButtonImageData: data
+        )
+    }
 }
 
 @Model
 class ModulePersistableConfiguration {
     let appName: String?
     let url: String?
-    @Attribute(.transformable(by: UIColorValueTransformer.self)) let color: UIColor
+    @Attribute(.transformable(by: UIColorValueTransformer.self)) let color: UIColor?
     let moduleKey: ModuleStyleKey
     
     let moduleButtonImageData: Data
@@ -95,7 +129,7 @@ class ModulePersistableConfiguration {
     init(
         appName: String?,
         url: String?,
-        color: UIColor,
+        color: UIColor?,
         moduleKey: ModuleStyleKey,
         moduleButtonImageData: Data
     ) {
