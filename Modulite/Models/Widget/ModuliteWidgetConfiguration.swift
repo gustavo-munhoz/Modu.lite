@@ -29,6 +29,14 @@ class ModuliteWidgetConfiguration {
         self.widgetStyle = style
         self.modules = modules
     }
+    
+    func createPersistableObject() -> WidgetPersistableConfiguration {
+        WidgetPersistableConfiguration(
+            id: UUID(),
+            widgetStyleKey: widgetStyle.key,
+            modules: modules.map { $0.createPersistableObject() }
+        )
+    }
 }
 
 @Model
