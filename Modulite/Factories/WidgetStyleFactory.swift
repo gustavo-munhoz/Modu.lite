@@ -26,6 +26,7 @@ class WidgetStyleFactory {
                 .preffix(".")
 
             let style = WidgetStyle(
+                key: .analog,
                 name: .localized(for: .widgetStyleNameAnalog),
                 coverImage: UIImage(systemName: "house.fill")!,
                 // FIXME: Implement this
@@ -35,15 +36,23 @@ class WidgetStyleFactory {
             )
             
             let moduleStyles = [
-                ModuleStyle(from: style, imageName: "analog-regular"),
-                ModuleStyle(from: style, imageName: "analog-knob"),
-                ModuleStyle(from: style, imageName: "analog-screen"),
-                ModuleStyle(from: style, imageName: "analog-sound"),
-                ModuleStyle(from: style, imageName: "analog-switch")
+                ModuleStyle(from: style, key: .analogRegular),
+                ModuleStyle(from: style, key: .analogKnob),
+                ModuleStyle(from: style, key: .analogScreen),
+                ModuleStyle(from: style, key: .analogSound),
+                ModuleStyle(from: style, key: .analogSwitch)
             ]
             
+//            let moduleStyles = [
+//                ModuleStyle(from: style, imageName: "analog-regular"),
+//                ModuleStyle(from: style, imageName: "analog-knob"),
+//                ModuleStyle(from: style, imageName: "analog-screen"),
+//                ModuleStyle(from: style, imageName: "analog-sound"),
+//                ModuleStyle(from: style, imageName: "analog-switch")
+//            ]
+            
             style.setModuleStyles(to: moduleStyles)
-            style.setEmptyStyle(to: ModuleStyle(from: style, imageName: "analog-empty"))
+            style.setEmptyStyle(to: ModuleStyle(from: style, key: .analogEmpty))
             
             return style
         }
