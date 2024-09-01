@@ -12,6 +12,8 @@ class WidgetEditorView: UIScrollView {
     
     // MARK: - Properties
     
+    var onSaveButtonTapped: (() -> Void)?
+    
     private let contentView = UIView()
     
     private(set) lazy var layoutHeader: EditorSectionHeader = {
@@ -84,6 +86,15 @@ class WidgetEditorView: UIScrollView {
         return view
     }()
     
+    private(set) lazy var saveWidgetButton: UIButton = {
+        var config = UIButton.Configuration.filled()
+        config.title = "Save Widget"
+        
+        let view = UIButton(configuration: config)
+        view.addTarget(self, action: #selector(didPressSaveButton), for: .touchUpInside)
+        return view
+    }()
+    
     // MARK: - Initializers
     
     override init(frame: CGRect) {
@@ -98,39 +109,6 @@ class WidgetEditorView: UIScrollView {
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
-    }
-    
-    // MARK: - Actions
-    func updateCollectionViewConstraints(_ collectionView: UICollectionView, percentage: CGFloat) {
-        let offset = 48 * percentage
-        
-        collectionView.snp.updateConstraints { make in
-            make.left.equalToSuperview().offset(-offset)
-        }
-        UIView.animate(withDuration: 0.3) {
-            self.layoutIfNeeded()
-        }
-    }
-    
-    func enableStylingCollectionViews(didSelectEmptyCell value: Bool = false) {
-        UIView.animate(withDuration: 0.25) { [weak self] in
-            if !value {
-                self?.moduleStyleCollectionView.alpha = 1
-                self?.moduleStyleCollectionView.isUserInteractionEnabled = true
-            }
-            
-            self?.moduleColorCollectionView.alpha = 1
-            self?.moduleColorCollectionView.isUserInteractionEnabled = true
-        }
-    }
-    
-    func disableStylingCollectionViews() {
-        UIView.animate(withDuration: 0.25) { [weak self] in
-            self?.moduleStyleCollectionView.alpha = 0.55
-            self?.moduleColorCollectionView.alpha = 0.55
-            self?.moduleStyleCollectionView.isUserInteractionEnabled = false
-            self?.moduleColorCollectionView.isUserInteractionEnabled = false
-        }
     }
     
     // MARK: - Setup methods
@@ -180,6 +158,7 @@ class WidgetEditorView: UIScrollView {
         contentView.addSubview(moduleStyleCollectionView)
         contentView.addSubview(moduleColorCollectionView)
         contentView.addSubview(wallpaperHeader)
+        contentView.addSubview(saveWidgetButton)
     }
     
     private func setupConstraints() {
@@ -223,6 +202,50 @@ class WidgetEditorView: UIScrollView {
         wallpaperHeader.snp.makeConstraints { make in
             make.top.equalTo(moduleColorCollectionView.snp.bottom).offset(24)
             make.left.right.equalToSuperview()
+        }
+        
+        saveWidgetButton.snp.makeConstraints { make in
+            make.top.equalTo(wallpaperHeader.snp.bottom).offset(24)
+            make.centerX.equalToSuperview()
+            make.width.equalTo(182)
+            make.height.equalTo(44)
+        }
+    }
+    
+    // MARK: - Actions
+    @objc private func didPressSaveButton() {
+        onSaveButtonTapped?()
+    }
+    
+    func updateCollectionViewConstraints(_ collectionView: UICollectionView, percentage: CGFloat) {
+        let offset = 48 * percentage
+        
+        collectionView.snp.updateConstraints { make in
+            make.left.equalToSuperview().offset(-offset)
+        }
+        UIView.animate(withDuration: 0.3) {
+            self.layoutIfNeeded()
+        }
+    }
+    
+    func enableStylingCollectionViews(didSelectEmptyCell value: Bool = false) {
+        UIView.animate(withDuration: 0.25) { [weak self] in
+            if !value {
+                self?.moduleStyleCollectionView.alpha = 1
+                self?.moduleStyleCollectionView.isUserInteractionEnabled = true
+            }
+            
+            self?.moduleColorCollectionView.alpha = 1
+            self?.moduleColorCollectionView.isUserInteractionEnabled = true
+        }
+    }
+    
+    func disableStylingCollectionViews() {
+        UIView.animate(withDuration: 0.25) { [weak self] in
+            self?.moduleStyleCollectionView.alpha = 0.55
+            self?.moduleColorCollectionView.alpha = 0.55
+            self?.moduleStyleCollectionView.isUserInteractionEnabled = false
+            self?.moduleColorCollectionView.isUserInteractionEnabled = false
         }
     }
     
