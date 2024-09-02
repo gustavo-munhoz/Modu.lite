@@ -15,12 +15,6 @@ class ModuleStyle {
     let key: ModuleStyleKey
     var image: UIImage
     
-    /// Initializes a new style with an optional image.
-//    init(from style: WidgetStyle, imageName: String) {
-//        self.widgetStyle = style
-//        self.image = UIImage(named: imageName)!
-//    }
-    
     init(from style: WidgetStyle, key: ModuleStyleKey) {
         self.widgetStyle = style
         self.key = key
