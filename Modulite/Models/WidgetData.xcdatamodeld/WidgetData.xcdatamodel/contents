@@ -1,2 +1,21 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="22758" systemVersion="23E214" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithSwiftData="YES" userDefinedModelVersionIdentifier=""/>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="22758" systemVersion="23E214" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithSwiftData="YES" userDefinedModelVersionIdentifier="">
+    <entity name="AppInfo" representedClassName="AppInfo" syncable="YES">
+        <attribute name="name" attributeType="String"/>
+        <attribute name="urlScheme" attributeType="URI"/>
+    </entity>
+    <entity name="PersistableModuleConfiguration" representedClassName="PersistableModuleConfiguration" syncable="YES">
+        <attribute name="appName" optional="YES" attributeType="String"/>
+        <attribute name="resultingImageURL" attributeType="URI"/>
+        <attribute name="selectedColor" attributeType="Transformable" valueTransformerName="UIColorValueTransformer"/>
+        <attribute name="selectedStyleKey" attributeType="String"/>
+        <attribute name="urlScheme" optional="YES" attributeType="URI"/>
+        <relationship name="widget" maxCount="1" deletionRule="Nullify" destinationEntity="PersistableWidgetConfiguration" inverseName="modules" inverseEntity="PersistableWidgetConfiguration"/>
+    </entity>
+    <entity name="PersistableWidgetConfiguration" representedClassName="PersistableWidgetConfiguration" syncable="YES">
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="resultingImageURL" attributeType="URI"/>
+        <attribute name="widgetStyleKey" optional="YES" attributeType="String"/>
+        <relationship name="modules" toMany="YES" minCount="1" maxCount="6" deletionRule="Nullify" destinationEntity="PersistableModuleConfiguration" inverseName="widget" inverseEntity="PersistableModuleConfiguration"/>
+    </entity>
+</model>
