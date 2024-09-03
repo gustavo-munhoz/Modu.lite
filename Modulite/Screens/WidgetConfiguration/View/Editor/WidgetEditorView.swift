@@ -12,7 +12,7 @@ class WidgetEditorView: UIScrollView {
     
     // MARK: - Properties
     
-    var onSaveButtonTapped: (() -> Void)?
+    var onSaveButtonTapped: ((UICollectionView) -> Void)?
     
     private let contentView = UIView()
     
@@ -214,7 +214,7 @@ class WidgetEditorView: UIScrollView {
     
     // MARK: - Actions
     @objc private func didPressSaveButton() {
-        onSaveButtonTapped?()
+        onSaveButtonTapped?(self.widgetLayoutCollectionView)
     }
     
     func updateCollectionViewConstraints(_ collectionView: UICollectionView, percentage: CGFloat) {

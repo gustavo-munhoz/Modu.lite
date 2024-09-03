@@ -8,10 +8,6 @@
 import UIKit
 import SwiftData
 
-enum WidgetStyleKey: Codable {
-    case analog
-}
-
 class WidgetStyleFactory {
     
     static func styleForKey(_ key: WidgetStyleKey) -> WidgetStyle {
@@ -42,15 +38,7 @@ class WidgetStyleFactory {
                 ModuleStyle(from: style, key: .analogSound),
                 ModuleStyle(from: style, key: .analogSwitch)
             ]
-            
-//            let moduleStyles = [
-//                ModuleStyle(from: style, imageName: "analog-regular"),
-//                ModuleStyle(from: style, imageName: "analog-knob"),
-//                ModuleStyle(from: style, imageName: "analog-screen"),
-//                ModuleStyle(from: style, imageName: "analog-sound"),
-//                ModuleStyle(from: style, imageName: "analog-switch")
-//            ]
-            
+
             style.setModuleStyles(to: moduleStyles)
             style.setEmptyStyle(to: ModuleStyle(from: style, key: .analogEmpty))
             

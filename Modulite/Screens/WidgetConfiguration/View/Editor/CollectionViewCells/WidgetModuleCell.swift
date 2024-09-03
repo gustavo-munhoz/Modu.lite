@@ -15,8 +15,6 @@ class WidgetModuleCell: UICollectionViewCell {
         
     private(set) lazy var moduleImageView: UIImageView = {
         let view = UIImageView()
-        view.layer.cornerRadius = 12
-        view.clipsToBounds = true
         
         return view
     }()
@@ -43,6 +41,9 @@ class WidgetModuleCell: UICollectionViewCell {
     func setup(with module: ModuleConfiguration) {
         subviews.forEach { $0.removeFromSuperview() }
         moduleImageView.image = module.resultingImage
+        
+        layer.cornerRadius = 12
+        clipsToBounds = true
         
         if module.appName != nil {
             appNameLabel.text = module.appName

@@ -9,7 +9,7 @@ import UIKit
 
 class WidgetSetupViewController: UIViewController {
     
-    private let setupView = WidgetSetupView()    
+    private let setupView = WidgetSetupView()
     private var viewModel = WidgetSetupViewModel()
     
     override func loadView() {

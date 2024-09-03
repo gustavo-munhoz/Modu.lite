@@ -7,10 +7,55 @@
 //
 
 import CoreData
+import UIKit
 
 extension PersistableWidgetConfiguration {
-    @NSManaged var name: String
+    @NSManaged var id: UUID
+    @NSManaged var name: String?
     @NSManaged var resultingImageURL: URL
     @NSManaged var widgetStyleKey: String
-    @NSManaged var modules: [PersistableModuleConfiguration]
+    @NSManaged var modules: NSSet
+}
+
+extension PersistableWidgetConfiguration {
+    static func createFromWidgetConfiguration(
+        _ config: ModuliteWidgetConfiguration,
+        widgetImage: UIImage,
+        using managedObjectContext: NSManagedObjectContext
+    ) {
+        let widget = PersistableWidgetConfiguration(context: managedObjectContext)
+        
+        widget.id = UUID()
+        widget.name = config.name
+        widget.widgetStyleKey = config.widgetStyle.key.rawValue
+        
+        let widgetImageUrl = FileManagerImagePersistenceController.shared.saveWidget(
+            image: widgetImage,
+            for: widget.id
+        )
+        
+        widget.resultingImageURL = widgetImageUrl
+        
+        for module in config.modules {
+            let moduleImage = module.generateWidgetButtonImage()
+            let persistentModule = PersistableModuleConfiguration.instantiateFromConfiguration(
+                module,
+                widgetId: widget.id,
+                moduleImage: moduleImage,
+                using: managedObjectContext
+            )
+            
+            widget.modules = widget.modules.adding(persistentModule) as NSSet
+        }
+        
+        do {
+            try managedObjectContext.save()
+            
+            print("Widget \(widget.id) saved successfully.")
+            
+        } catch {
+            FileManagerImagePersistenceController.shared.deleteWidget(with: widget.id)
+            fatalError("Error creating widget persistent config: \(error.localizedDescription)")
+        }
+    }
 }

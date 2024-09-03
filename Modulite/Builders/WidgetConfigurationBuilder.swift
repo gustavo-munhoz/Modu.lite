@@ -14,16 +14,17 @@ class WidgetConfigurationBuilder {
     init(style: WidgetStyle, apps: [AppInfo?]) {
         var modules: [ModuleConfiguration] = []
         
-        apps.forEach { app in
+        for (idx, app) in apps.enumerated() {
             guard let app = app else {
                 modules.append(
-                    ModuleConfiguration.empty(style: style)
+                    ModuleConfiguration.empty(style: style, at: idx)
                 )
-                return
+                continue
             }
             
             modules.append(
                 ModuleConfiguration(
+                    index: idx,
                     appName: app.name,
                     associatedURLScheme: app.urlScheme,
                     selectedStyle: style.getRandomStyle(),
@@ -31,6 +32,7 @@ class WidgetConfigurationBuilder {
                 )
             )
         }
+        
         configuration = ModuliteWidgetConfiguration(
             style: style,
             modules: modules
@@ -70,6 +72,11 @@ class WidgetConfigurationBuilder {
         }
         
         let movingItem = configuration.modules[sourceIndex]
+        let replacedItem = configuration.modules[destinationIndex]
+                
+        replacedItem.index = sourceIndex
+        movingItem.index = destinationIndex
+        
         configuration.modules.remove(at: sourceIndex)
         configuration.modules.insert(movingItem, at: destinationIndex)
     }

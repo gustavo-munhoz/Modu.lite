@@ -7,6 +7,10 @@
 
 import UIKit
 
+enum WidgetStyleKey: String, Codable {
+    case analog
+}
+
 class WidgetStyle {
     // MARK: - Properties
     let key: WidgetStyleKey
