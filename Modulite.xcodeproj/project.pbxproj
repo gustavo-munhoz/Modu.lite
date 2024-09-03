@@ -33,6 +33,15 @@
 		B32B60F02C876F4A007DDCE3 /* FileManagerImagePersistenceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B32B60EF2C876F4A007DDCE3 /* FileManagerImagePersistenceController.swift */; };
 		B32B60F22C878290007DDCE3 /* UIView+asImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = B32B60F12C878290007DDCE3 /* UIView+asImage.swift */; };
 		B32B60F32C8782E2007DDCE3 /* UIView+asImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = B32B60F12C878290007DDCE3 /* UIView+asImage.swift */; };
+		B32B60F42C87AB75007DDCE3 /* PersistableModuleConfiguration+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = B32B60B92C864807007DDCE3 /* PersistableModuleConfiguration+CoreDataClass.swift */; };
+		B32B60F52C87AB85007DDCE3 /* WidgetData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B32B60C02C864BB2007DDCE3 /* WidgetData.xcdatamodeld */; };
+		B32B60F62C87AB8F007DDCE3 /* PersistableWidgetConfiguration+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = B32B60C52C865042007DDCE3 /* PersistableWidgetConfiguration+CoreDataProperties.swift */; };
+		B32B60F72C87ABC1007DDCE3 /* PersistableModuleConfiguration+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = B32B60BE2C864AD9007DDCE3 /* PersistableModuleConfiguration+CoreDataProperties.swift */; };
+		B32B60F82C87AC5F007DDCE3 /* PersistableWidgetConfiguration+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = B32B60C42C865042007DDCE3 /* PersistableWidgetConfiguration+CoreDataClass.swift */; };
+		B32B60F92C87AC81007DDCE3 /* FileManagerImagePersistenceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B32B60EF2C876F4A007DDCE3 /* FileManagerImagePersistenceController.swift */; };
+		B32B60FA2C87AC84007DDCE3 /* CoreDataPersistenceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B32B60B32C864247007DDCE3 /* CoreDataPersistenceController.swift */; };
+		B32B60FB2C87AC8D007DDCE3 /* AppInfoData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B32B60C92C8657EC007DDCE3 /* AppInfoData.swift */; };
+		B32B60FC2C87AC90007DDCE3 /* AppInfo+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = B32B60B62C864301007DDCE3 /* AppInfo+CoreDataProperties.swift */; };
 		B34F3DF02C66EACE0041D7BD /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = B34F3DEF2C66EACE0041D7BD /* SnapKit */; };
 		B34F3DF32C6701740041D7BD /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = B34F3DF22C6701740041D7BD /* Localizable.xcstrings */; };
 		B34F3DF52C6701870041D7BD /* String+LocalizedKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = B34F3DF42C6701870041D7BD /* String+LocalizedKey.swift */; };
@@ -878,19 +887,28 @@
 				B37284722C82992C00D9A1E7 /* String+TextCase.swift in Sources */,
 				B37284742C82995C00D9A1E7 /* UIFont+TraitedTextStyle.swift in Sources */,
 				AFBBC5092C7E459900A9B256 /* ModuliteWidget.swift in Sources */,
+				B32B60F82C87AC5F007DDCE3 /* PersistableWidgetConfiguration+CoreDataClass.swift in Sources */,
+				B32B60F42C87AB75007DDCE3 /* PersistableModuleConfiguration+CoreDataClass.swift in Sources */,
 				B372846D2C8298EB00D9A1E7 /* ModuleStyle.swift in Sources */,
 				B32B60F32C8782E2007DDCE3 /* UIView+asImage.swift in Sources */,
 				B32B60A62C838ED9007DDCE3 /* UILabel+AppNameConfiguration.swift in Sources */,
 				B37284752C82996600D9A1E7 /* String+LocalizedKey.swift in Sources */,
+				B32B60FA2C87AC84007DDCE3 /* CoreDataPersistenceController.swift in Sources */,
 				AFBBC51C2C7E4AEB00A9B256 /* WidgetButtonView.swift in Sources */,
+				B32B60F72C87ABC1007DDCE3 /* PersistableModuleConfiguration+CoreDataProperties.swift in Sources */,
 				B37284772C829A8C00D9A1E7 /* WidgetStyleFactory.swift in Sources */,
+				B32B60FB2C87AC8D007DDCE3 /* AppInfoData.swift in Sources */,
 				B37284702C82990B00D9A1E7 /* WidgetStyle.swift in Sources */,
 				AFBBC5072C7E459900A9B256 /* ModuliteWidgetBundle.swift in Sources */,
 				B32B60A52C838EB0007DDCE3 /* WidgetModuleCell.swift in Sources */,
+				B32B60FC2C87AC90007DDCE3 /* AppInfo+CoreDataProperties.swift in Sources */,
+				B32B60F52C87AB85007DDCE3 /* WidgetData.xcdatamodeld in Sources */,
 				B37284762C82997700D9A1E7 /* ImageProcessingFactory.swift in Sources */,
+				B32B60F62C87AB8F007DDCE3 /* PersistableWidgetConfiguration+CoreDataProperties.swift in Sources */,
 				B37284712C82992200D9A1E7 /* ModuleAppNameTextConfiguration.swift in Sources */,
 				AFBBC5202C7E4D6900A9B256 /* WidgetButtonLabelView.swift in Sources */,
 				AFBBC5222C7E5D8D00A9B256 /* AppInfo+CoreDataClass.swift in Sources */,
+				B32B60F92C87AC81007DDCE3 /* FileManagerImagePersistenceController.swift in Sources */,
 				B372846E2C8298F100D9A1E7 /* ModuleConfiguration.swift in Sources */,
 				B372846B2C8298BB00D9A1E7 /* ModuliteWidgetConfiguration.swift in Sources */,
 			);
