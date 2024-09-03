@@ -22,14 +22,12 @@ class WidgetEditorViewController: UIViewController {
 
 extension WidgetEditorViewController {
     class func instantiate(
-        widgetDatabaseService: WidgetDatabaseService,
         builder: WidgetConfigurationBuilder,
         delegate: HomeNavigationFlowDelegate
     ) -> WidgetEditorViewController {
         let vc = WidgetEditorViewController()
         
         vc.viewModel = WidgetEditorViewModel(
-            widgetDatabaseService: widgetDatabaseService,
             widgetBuider: builder,
             delegate: delegate
         )

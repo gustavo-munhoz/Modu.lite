@@ -48,10 +48,8 @@ extension HomeCoordinator: HomeNavigationFlowDelegate {
     }
     
     func navigateToWidgetEditor(withBuilder builder: WidgetConfigurationBuilder) {
-        let widgetDatabase = SwiftDataWidgetDatabaseAdapter()
         
-        let viewController = WidgetEditorViewController.instantiate(
-            widgetDatabaseService: widgetDatabase,
+        let viewController = WidgetEditorViewController.instantiate(            
             builder: builder,
             delegate: self
         )

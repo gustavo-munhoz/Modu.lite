@@ -14,17 +14,13 @@ class WidgetEditorViewModel: NSObject {
     
     @Published private(set) var selectedCellIndex: Int?
     
-    private let widgetDatabaseService: WidgetDatabaseService
-    
     let builder: WidgetConfigurationBuilder
     
     init(
-        widgetDatabaseService: WidgetDatabaseService,
         widgetBuider: WidgetConfigurationBuilder,
         delegate: HomeNavigationFlowDelegate
     ) {
         builder = widgetBuider
-        self.widgetDatabaseService = widgetDatabaseService
         self.delegate = delegate
         super.init()
     }
@@ -89,9 +85,7 @@ class WidgetEditorViewModel: NSObject {
     
     // MARK: - Actions
     func saveWidget() {
-        let widgetConfig = builder.build().createPersistableObject()
-        
-        widgetDatabaseService.saveWidget(configuration: widgetConfig)
+        // TODO:
     }
     
     func moveItem(from sourceIndex: Int, to destinationIndex: Int) {
