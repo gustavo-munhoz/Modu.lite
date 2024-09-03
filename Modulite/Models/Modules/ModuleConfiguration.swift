@@ -14,6 +14,7 @@ class ModuleConfiguration {
         appName == nil
     }
     
+    var index: Int
     var appName: String?
     var associatedURLScheme: URL?
     var selectedStyle: ModuleStyle
@@ -37,18 +38,20 @@ class ModuleConfiguration {
     
     /// Initializes a new module configuration with detailed customization options.
     init(
+        index: Int,
         appName: String?,
         associatedURLScheme: URL?,
         selectedStyle: ModuleStyle,
         selectedColor: UIColor?
     ) {
+        self.index = index
         self.appName = appName
         self.associatedURLScheme = associatedURLScheme
         self.selectedStyle = selectedStyle
         self.selectedColor = selectedColor
     }
     
-    func generateWidgetButtonImageData() -> Data? {
+    func generateWidgetButtonImage() -> UIImage {
         let cell = WidgetModuleCell()
         cell.setup(with: self)
         cell.frame = CGRect(
@@ -59,22 +62,18 @@ class ModuleConfiguration {
         )
         cell.layoutIfNeeded()
         
-        let renderer = UIGraphicsImageRenderer(bounds: cell.bounds)
-        
-        let image = renderer.image { rendererContext in
-            cell.layer.render(in: rendererContext.cgContext)
-        }
-        return image.pngData()
+        return cell.asImage()
     }
 }
 
 extension ModuleConfiguration {
-    static func empty(style: WidgetStyle) -> ModuleConfiguration {
+    static func empty(style: WidgetStyle, at idx: Int) -> ModuleConfiguration {
         guard let style = style.emptyModuleStyle else {
             fatalError("WidgetStyle does not have an empty module style.")
         }
         
         return ModuleConfiguration(
+            index: idx,
             appName: nil,
             associatedURLScheme: nil,
             selectedStyle: style,
