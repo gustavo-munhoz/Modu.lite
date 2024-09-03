@@ -13,8 +13,6 @@ class WidgetSetupViewModel: NSObject {
     
     private(set) var widgetId: UUID!
     
-    private let appsDatabase: AppInfoDatabaseService
-    
     @Published private(set) var widgetStyles: [WidgetStyle] = [
         WidgetStyleFactory.styleForKey(.analog),
         WidgetStyleFactory.styleForKey(.analog),
@@ -23,15 +21,14 @@ class WidgetSetupViewModel: NSObject {
     
     private var allApps: [AppInfo]!
     
-    @Published private(set) var apps: [AppInfo]
+    @Published private(set) var apps: [AppInfo] = []
     
     @Published private(set) var selectedStyle: WidgetStyle?
     @Published private(set) var selectedApps: [AppInfo?] = []
-    
-    init(appInfoDatabase: AppInfoDatabaseService) {
-        appsDatabase = appInfoDatabase
-        
-        allApps = appsDatabase.fetchApps()
+            
+    override init() {
+        super.init()
+        allApps = CoreDataPersistenceController.shared.fetchApps()
         apps = allApps
     }
     

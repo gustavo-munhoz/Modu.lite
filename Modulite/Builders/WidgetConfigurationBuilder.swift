@@ -25,7 +25,7 @@ class WidgetConfigurationBuilder {
             modules.append(
                 ModuleConfiguration(
                     appName: app.name,
-                    associatedURLScheme: URL(string: app.urlScheme),
+                    associatedURLScheme: app.urlScheme,
                     selectedStyle: style.getRandomStyle(),
                     selectedColor: nil
                 )

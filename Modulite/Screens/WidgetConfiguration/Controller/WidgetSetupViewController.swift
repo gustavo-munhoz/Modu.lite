@@ -9,8 +9,8 @@ import UIKit
 
 class WidgetSetupViewController: UIViewController {
     
-    private let setupView = WidgetSetupView()
-    private let viewModel = WidgetSetupViewModel(appInfoDatabase: SwiftDataAppInfoDatabaseAdapter())
+    private let setupView = WidgetSetupView()    
+    private var viewModel = WidgetSetupViewModel()
     
     override func loadView() {
         view = setupView
