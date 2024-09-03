@@ -10,6 +10,7 @@ import UIKit
 /// Manages the overall configuration of a widget, including its background and modules.
 
 class ModuliteWidgetConfiguration {
+    var name: String?
     let widgetStyle: WidgetStyle
     var modules: [ModuleConfiguration]
     

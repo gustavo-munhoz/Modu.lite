@@ -7,12 +7,13 @@
     <entity name="PersistableModuleConfiguration" representedClassName="PersistableModuleConfiguration" syncable="YES">
         <attribute name="appName" optional="YES" attributeType="String"/>
         <attribute name="resultingImageURL" attributeType="URI"/>
-        <attribute name="selectedColor" attributeType="Transformable" valueTransformerName="UIColorValueTransformer"/>
+        <attribute name="selectedColor" optional="YES" attributeType="Transformable" valueTransformerName="UIColorValueTransformer"/>
         <attribute name="selectedStyleKey" attributeType="String"/>
         <attribute name="urlScheme" optional="YES" attributeType="URI"/>
         <relationship name="widget" maxCount="1" deletionRule="Nullify" destinationEntity="PersistableWidgetConfiguration" inverseName="modules" inverseEntity="PersistableWidgetConfiguration"/>
     </entity>
     <entity name="PersistableWidgetConfiguration" representedClassName="PersistableWidgetConfiguration" syncable="YES">
+        <attribute name="id" attributeType="UUID" usesScalarValueType="NO"/>
         <attribute name="name" optional="YES" attributeType="String"/>
         <attribute name="resultingImageURL" attributeType="URI"/>
         <attribute name="widgetStyleKey" optional="YES" attributeType="String"/>
