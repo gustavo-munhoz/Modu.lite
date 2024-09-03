@@ -6,6 +6,7 @@
 //
 
 import CoreData
+import UIKit
 
 struct CoreDataPersistenceController {
     
@@ -90,5 +91,19 @@ extension CoreDataPersistenceController {
         } catch {
             print("Failed to populate appInfo table with error \(error.localizedDescription)")
         }
+    }
+}
+
+// MARK: - Widget persistence
+extension CoreDataPersistenceController {
+    func registerWidget(
+        _ config: ModuliteWidgetConfiguration,
+        widgetImage: UIImage
+    ) {
+        PersistableWidgetConfiguration.createFromWidgetConfiguration(
+            config,
+            widgetImage: widgetImage,
+            using: container.viewContext
+        )
     }
 }
