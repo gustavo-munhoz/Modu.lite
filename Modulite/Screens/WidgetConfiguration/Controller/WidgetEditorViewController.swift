@@ -16,7 +16,7 @@ class WidgetEditorViewController: UIViewController {
         view = editorView
         editorView.setCollectionViewDelegates(to: self)
         editorView.setCollectionViewDataSources(to: self)
-        editorView.onSaveButtonTapped = viewModel.saveWidget
+        editorView.onSaveButtonTapped = viewModel.saveWidget(from:)
     }
 }
 

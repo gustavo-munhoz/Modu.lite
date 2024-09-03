@@ -84,8 +84,12 @@ class WidgetEditorViewModel: NSObject {
     }
     
     // MARK: - Actions
-    func saveWidget() {
-        // TODO:
+    func saveWidget(from collectionView: UICollectionView) {
+        let widgetConfiguration = builder.build()
+        CoreDataPersistenceController.shared.registerWidget(
+            widgetConfiguration,
+            widgetImage: collectionView.asImage()
+        )
     }
     
     func moveItem(from sourceIndex: Int, to destinationIndex: Int) {
