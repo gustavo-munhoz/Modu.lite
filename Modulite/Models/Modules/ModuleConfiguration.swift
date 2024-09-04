@@ -81,3 +81,22 @@ extension ModuleConfiguration {
         )
     }
 }
+
+extension ModuleConfiguration {
+    convenience init(
+        widgetStyle: WidgetStyle,
+        persistedConfiguration config: PersistableModuleConfiguration
+    ) {
+        guard let key = ModuleStyleKey(rawValue: config.selectedStyleKey) else {
+            fatalError("Unable to create ModuleStyle from persisted key.")
+        }
+        
+        self.init(
+            index: Int(config.index),
+            appName: config.appName,
+            associatedURLScheme: config.urlScheme,
+            selectedStyle: ModuleStyle(from: widgetStyle, key: key),
+            selectedColor: config.selectedColor
+        )
+    }
+}
