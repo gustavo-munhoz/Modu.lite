@@ -55,7 +55,13 @@ extension WidgetSetupViewController: UICollectionViewDataSource {
                 fatalError("Could not dequeue StyleCollectionViewCell")
             }
             
-            cell.setup(with: viewModel.widgetStyles[indexPath.row].coverImage)
+            let style = viewModel.widgetStyles[indexPath.row]
+            
+            cell.setup(
+                image: style.coverImage,
+                title: style.name
+            )
+            
             return cell
             
         case setupView.selectedAppsCollectionView:

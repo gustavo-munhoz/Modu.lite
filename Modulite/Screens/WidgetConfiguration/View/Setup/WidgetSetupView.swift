@@ -31,10 +31,13 @@ class WidgetSetupView: UIScrollView {
     
     private(set) lazy var stylesCollectionView: UICollectionView = {
         let layout = createCompositionalLayout(
-            groupSize: NSCollectionLayoutSize(widthDimension: .absolute(192), heightDimension: .absolute(234)),
+            groupSize: NSCollectionLayoutSize(
+                widthDimension: .absolute(192),
+                heightDimension: .absolute(234)
+            ),
             scrollOrientation: .horizontal,
             hasContinuousScrollingBehavior: true,
-            headerHeight: 40
+            headerHeight: 50
         )
         
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
