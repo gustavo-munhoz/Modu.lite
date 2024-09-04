@@ -96,6 +96,19 @@ extension CoreDataPersistenceController {
 
 // MARK: - Widget persistence
 extension CoreDataPersistenceController {
+    
+    func fetchWidgets() -> [PersistableWidgetConfiguration] {
+        let request = PersistableWidgetConfiguration.basicFetchRequest()
+        
+        do {
+            return try container.viewContext.fetch(request)
+            
+        } catch {
+            print("Error fetching widgets: \(error.localizedDescription)")
+            return []
+        }
+    }
+    
     func registerWidget(
         _ config: ModuliteWidgetConfiguration,
         widgetImage: UIImage

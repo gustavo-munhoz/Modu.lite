@@ -59,3 +59,14 @@ extension PersistableWidgetConfiguration {
         }
     }
 }
+
+extension PersistableWidgetConfiguration {
+    static func basicFetchRequest() -> NSFetchRequest<PersistableWidgetConfiguration> {
+        guard let request = PersistableWidgetConfiguration.fetchRequest()
+                as? NSFetchRequest<PersistableWidgetConfiguration> else {
+            fatalError("Could not create PersistableWidgetConfiguration fetch request.")
+        }
+        
+        return request
+    }
+}

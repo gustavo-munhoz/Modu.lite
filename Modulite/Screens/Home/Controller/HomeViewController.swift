@@ -79,7 +79,7 @@ extension HomeViewController: UICollectionViewDataSource {
                 fatalError("Could not dequeue MainWidgetCollectionViewCell.")
             }
             
-            cell.configure(with: viewModel.mainWidgets[indexPath.row])
+            cell.configure(with: viewModel.mainWidgets[indexPath.row].resultingImage)
             
             return cell
             
@@ -126,8 +126,29 @@ extension HomeViewController: UICollectionViewDataSource {
         ) as? HomeHeaderReusableCell else {
             fatalError("Error dequeueing Header cell.")
         }
+        
+        switch collectionView {
+        case homeView.mainWidgetsCollectionView:
+            header.setup(
+                title: .localized(for: .homeViewMainSectionHeaderTitle),
+                buttonImage: UIImage(systemName: "plus.circle")!,
+                buttonAction: { [weak self] in
+                    guard let self = self else { return }
+                    self.viewModel.startWidgetSetupFlow()
+                }
+            )
             
-        if collectionView === homeView.tipsCollectionView {
+        case homeView.auxiliaryWidgetsCollectionView:
+            header.setup(
+                title: .localized(for: .homeViewAuxiliarySectionHeaderTitle),
+                buttonImage: UIImage(systemName: "plus.circle")!,
+                buttonAction: { [weak self] in
+                    guard let self = self else { return }
+                    self.viewModel.startWidgetSetupFlow()
+                }
+            )
+            
+        case homeView.tipsCollectionView:
             header.setup(
                 title: .localized(for: .homeViewTipsSectionHeaderTitle),
                 buttonImage: UIImage(systemName: "ellipsis")!,
@@ -136,16 +157,8 @@ extension HomeViewController: UICollectionViewDataSource {
                     // TODO: Implement this
                 }
             )
-        } else {
-            header.setup(
-                // FIXME: Change auxiliary text
-                title: .localized(for: .homeViewMainSectionHeaderTitle),
-                buttonImage: UIImage(systemName: "plus.circle")!,
-                buttonAction: { [weak self] in
-                    guard let self = self else { return }
-                    self.viewModel.startWidgetSetupFlow()
-                }
-            )
+            
+        default: fatalError("Unsupported collection view.")
         }
         
         return header

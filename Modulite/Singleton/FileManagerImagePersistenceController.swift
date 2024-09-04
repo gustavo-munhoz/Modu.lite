@@ -13,6 +13,22 @@ class FileManagerImagePersistenceController {
     
     private init() { }
     
+    func getWidgetImage(with id: UUID) -> UIImage? {
+        guard let url = getDirectory(for: id) else {
+            print("Directory not found for widget with ID \(id)")
+            return nil
+        }
+        
+        let completeUrl = url.appending(component: "widget.png")
+        
+        if let imageData = try? Data(contentsOf: completeUrl) {
+            return UIImage(data: imageData)
+        } else {
+            print("Unable to load image data from \(completeUrl)")
+            return nil
+        }
+    }
+    
     func saveWidget(image: UIImage, for widgetId: UUID) -> URL {
         let (widgetDirectory, _) = setupDirectories(for: widgetId)
         return saveImage(image, in: widgetDirectory, withName: "widget")
