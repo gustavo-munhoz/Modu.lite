@@ -521,7 +521,6 @@
 				B36927CA2C66B83E0089F769 /* Models */,
 				B36927C92C66B8380089F769 /* Routers */,
 				B36927CB2C66B8430089F769 /* Screens */,
-				B3F054382C7CFA660057F04D /* Services */,
 			);
 			path = Modulite;
 			sourceTree = "<group>";
@@ -679,13 +678,6 @@
 				AFBBC4ED2C7E457C00A9B256 /* SwiftUI.framework */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		B3F054382C7CFA660057F04D /* Services */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Services;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
