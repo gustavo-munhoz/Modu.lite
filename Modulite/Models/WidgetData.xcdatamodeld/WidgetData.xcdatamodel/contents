@@ -6,6 +6,7 @@
     </entity>
     <entity name="PersistableModuleConfiguration" representedClassName="PersistableModuleConfiguration" syncable="YES">
         <attribute name="appName" optional="YES" attributeType="String"/>
+        <attribute name="index" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="resultingImageURL" attributeType="URI"/>
         <attribute name="selectedColor" optional="YES" attributeType="Transformable" valueTransformerName="UIColorValueTransformer"/>
         <attribute name="selectedStyleKey" attributeType="String"/>

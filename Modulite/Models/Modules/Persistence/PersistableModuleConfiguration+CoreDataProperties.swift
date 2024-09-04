@@ -9,6 +9,7 @@ import UIKit
 import CoreData
 
 extension PersistableModuleConfiguration {
+    @NSManaged var index: Int16
     @NSManaged var appName: String?
     @NSManaged var urlScheme: URL?
     @NSManaged var selectedStyleKey: String
@@ -25,6 +26,7 @@ extension PersistableModuleConfiguration {
     ) -> PersistableModuleConfiguration {
         let module = PersistableModuleConfiguration(context: managedObjectContext)
         
+        module.index = Int16(config.index)
         module.appName = config.appName
         module.urlScheme = config.associatedURLScheme
         module.selectedStyleKey = config.selectedStyle.key.rawValue
