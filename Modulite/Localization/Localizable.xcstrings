@@ -67,6 +67,17 @@
         }
       }
     },
+    "searchAppsHelperText" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tap Search Apps again if you want to change the selected apps"
+          }
+        }
+      }
+    },
     "settingsViewControllerTabBarItemTitle" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -200,6 +211,17 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Select up to 6 apps"
+          }
+        }
+      }
+    },
+    "widgetSetupViewSearchAppsButtonTitle" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "SEARCH APPS"
           }
         }
       }
