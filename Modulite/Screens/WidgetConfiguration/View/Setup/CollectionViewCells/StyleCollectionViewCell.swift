@@ -26,7 +26,7 @@ class StyleCollectionViewCell: UICollectionViewCell {
         label.textAlignment = .center
         
         return label
-    }()    
+    }()
     
     func setup(image: UIImage, title: String) {
         subviews.forEach { $0.removeFromSuperview() }
