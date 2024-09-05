@@ -121,6 +121,9 @@ extension String {
         case usageViewOnPhone
         case usageViewControllerNavigationTitle
         case usageViewComparisonOverview
+        case usageDailyAvarageYesterday
+        case usageDailyAvarageLastWeek 
+        case usageHowSpentYourTime
         
         // MARK: - Widget Styles
         case widgetStyleNameAnalog

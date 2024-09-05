@@ -6,6 +6,8 @@
 //
 
 import UIKit
+import DeviceActivity
+import FamilyControls
 
 class UsageViewController: UIViewController {
     
@@ -19,6 +21,18 @@ class UsageViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let ac = AuthorizationCenter.shared
+
+        Task {
+            do {
+                try await ac.requestAuthorization(for: .individual)
+            }
+            catch {
+                print("Authorization Error")
+            }
+        }
+        
         
     }
     

@@ -193,6 +193,39 @@
         }
       }
     },
+    "usageDailyAvarageLastWeek" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Your daily average last week"
+          }
+        }
+      }
+    },
+    "usageDailyAvarageYesterday" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Your daily average yesterday"
+          }
+        }
+      }
+    },
+    "usageHowSpentYourTime" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "How you've spent your time"
+          }
+        }
+      }
+    },
     "usageViewComparisonOverview" : {
       "extractionState" : "manual",
       "localizations" : {
