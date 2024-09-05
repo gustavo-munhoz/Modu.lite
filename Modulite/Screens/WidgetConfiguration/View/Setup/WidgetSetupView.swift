@@ -30,15 +30,7 @@ class WidgetSetupView: UIScrollView {
     }()
     
     private(set) lazy var stylesCollectionView: UICollectionView = {
-        let layout = createCompositionalLayout(
-            groupSize: NSCollectionLayoutSize(
-                widthDimension: .absolute(192),
-                heightDimension: .absolute(234)
-            ),
-            scrollOrientation: .horizontal,
-            hasContinuousScrollingBehavior: true,
-            headerHeight: 50
-        )
+        let layout = WidgetSetupStyleCompositionalLayout()
         
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         
@@ -52,13 +44,30 @@ class WidgetSetupView: UIScrollView {
         return collectionView
     }()
     
-    private(set) lazy var selectedAppsCollectionView: UICollectionView = {
-        let layout = createCompositionalLayout(
-            groupSize: NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .absolute(34)),
-            scrollOrientation: .vertical,
-            hasContinuousScrollingBehavior: false,
-            headerHeight: 90
+    // TODO: Create custom view with app count
+    private(set) lazy var selectAppsTitle: UILabel = {
+        let label = UILabel()
+        label.attributedText = CustomizedTextFactory.createTextWithAsterisk(
+            with: .localized(for: .widgetSetupViewAppsHeaderTitle)
         )
+        
+        return label
+    }()
+    
+    private(set) lazy var searchAppsButton: UIButton = {
+        var config = UIButton.Configuration.filled()
+        config.baseBackgroundColor = .carrotOrange
+        config.title = .localized(for: .widgetSetupViewSearchAppsButtonTitle)
+        config.image = UIImage(systemName: "magnifyingglass")
+        config.imagePadding = 10
+        
+        let view = UIButton(configuration: config)
+        
+        return view
+    }()
+    
+    private(set) lazy var selectedAppsCollectionView: UICollectionView = {
+        let layout = WidgetSetupAppsTagFlowLayout()
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
                 
         collectionView.clipsToBounds = true
@@ -69,6 +78,17 @@ class WidgetSetupView: UIScrollView {
         collectionView.isScrollEnabled = false
         
         return collectionView
+    }()
+    
+    private(set) lazy var searchAppsHelperText: UILabel = {
+        let label = UILabel()
+        
+        label.text = .localized(for: .searchAppsHelperText)
+        label.font = UIFont(textStyle: .caption1, symbolicTraits: .traitItalic)
+        label.textColor = .systemGray
+        label.numberOfLines = -1
+        
+        return label
     }()
     
     private(set) lazy var nextViewButton: UIButton = {
@@ -107,6 +127,8 @@ class WidgetSetupView: UIScrollView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         backgroundColor = .whiteTurnip
+        showsVerticalScrollIndicator = false
+        
         addSubviews()
         setupConstraints()
         setupTapGestures()
@@ -119,6 +141,12 @@ class WidgetSetupView: UIScrollView {
     }
     
     // MARK: - Setup methods
+    
+    func updateSelectedAppsCollectionViewHeight() {
+        selectedAppsCollectionView.snp.updateConstraints { make in
+            make.height.greaterThanOrEqualTo(selectedAppsCollectionView.contentSize.height)
+        }
+    }
     
     func setCollectionViewDataSources(to dataSource: UICollectionViewDataSource) {
         self.stylesCollectionView.dataSource = dataSource
@@ -184,15 +212,18 @@ class WidgetSetupView: UIScrollView {
         addSubview(contentView)
         contentView.addSubview(widgetNameTextField)
         contentView.addSubview(stylesCollectionView)
+        contentView.addSubview(selectAppsTitle)
+        contentView.addSubview(searchAppsButton)
         contentView.addSubview(selectedAppsCollectionView)
+        contentView.addSubview(searchAppsHelperText)
         contentView.addSubview(nextViewButton)
     }
     
     private func setupConstraints() {
         contentView.snp.makeConstraints { make in
-            make.edges.equalToSuperview().inset(UIEdgeInsets(top: 24, left: 24, bottom: 0, right: -24))
+            make.edges.equalToSuperview().inset(UIEdgeInsets(top: 16, left: 24, bottom: 0, right: -24))
             make.width.equalToSuperview().offset(-48)
-            make.height.equalTo(700)
+            make.height.greaterThanOrEqualTo(700).priority(.required)
         }
         
         widgetNameTextField.snp.makeConstraints { make in
@@ -202,21 +233,41 @@ class WidgetSetupView: UIScrollView {
         
         stylesCollectionView.snp.makeConstraints { make in
             make.left.right.equalToSuperview()
-            make.top.equalTo(widgetNameTextField.snp.bottom).offset(24)
+            make.top.equalTo(widgetNameTextField.snp.bottom).offset(16)
             make.height.equalTo(270)
+        }
+        
+        selectAppsTitle.snp.makeConstraints { make in
+            make.left.right.equalToSuperview()
+            make.top.equalTo(stylesCollectionView.snp.bottom).offset(24)
+        }
+        
+        searchAppsButton.snp.makeConstraints { make in
+            make.centerX.equalToSuperview()
+            make.width.equalTo(230)
+            make.height.equalTo(45)
+            make.top.equalTo(selectAppsTitle.snp.bottom).offset(15)
         }
         
         selectedAppsCollectionView.snp.makeConstraints { make in
             make.left.right.equalToSuperview()
-            make.top.equalTo(stylesCollectionView.snp.bottom).offset(12)
-            make.height.equalTo(300)
+            make.top.equalTo(searchAppsButton.snp.bottom).offset(20)
+            make.bottom.equalTo(searchAppsHelperText.snp.top).offset(-12)
+            make.height.greaterThanOrEqualTo(150)
+        }
+        
+        searchAppsHelperText.snp.makeConstraints { make in
+            make.left.equalToSuperview()
+            make.width.equalTo(200)
+            make.height.equalTo(32)
+            make.bottom.equalTo(nextViewButton.snp.top).offset(-21)
         }
         
         nextViewButton.snp.makeConstraints { make in
             make.right.equalToSuperview()
-            make.top.equalTo(selectedAppsCollectionView.snp.bottom).offset(18)
             make.width.equalTo(130)
             make.height.equalTo(45)
+            make.bottom.equalToSuperview()
         }
     }
     
@@ -244,59 +295,6 @@ class WidgetSetupView: UIScrollView {
         if frame.origin.y != 0 {
             frame.origin.y = 0
         }
-    }
-    
-    // MARK: - Helper methods
-    private enum ScrollOrientation {
-        case vertical
-        case horizontal
-    }
-    
-    private func createCompositionalLayout(
-        groupSize: NSCollectionLayoutSize,
-        scrollOrientation: ScrollOrientation,
-        hasContinuousScrollingBehavior: Bool,
-        headerHeight: CGFloat
-    ) -> UICollectionViewCompositionalLayout {
-        let layout = UICollectionViewCompositionalLayout { sectionIndex, _ -> NSCollectionLayoutSection? in
-            
-            let item = NSCollectionLayoutItem(
-                layoutSize: NSCollectionLayoutSize(
-                    widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(1)
-                )
-            )
-            
-            var group: NSCollectionLayoutGroup
-            if scrollOrientation == .vertical {
-                group = .vertical(layoutSize: groupSize, subitems: [item])
-            } else {
-                group = .horizontal(layoutSize: groupSize, subitems: [item])
-            }
-            
-            let section = NSCollectionLayoutSection(group: group)
-            if hasContinuousScrollingBehavior {
-                section.orthogonalScrollingBehavior = .continuous
-            }
-            
-            if sectionIndex == 0 {
-                let headerSize = NSCollectionLayoutSize(
-                    widthDimension: .fractionalWidth(1),
-                    heightDimension: .absolute(headerHeight)
-                )
-                
-                let header = NSCollectionLayoutBoundarySupplementaryItem(
-                    layoutSize: headerSize,
-                    elementKind: UICollectionView.elementKindSectionHeader,
-                    alignment: .top
-                )
-                header.pinToVisibleBounds = true
-                section.boundarySupplementaryItems = [header]
-            }
-            
-            return section
-        }
-        
-        return layout
     }
     
     // MARK: - Deinit

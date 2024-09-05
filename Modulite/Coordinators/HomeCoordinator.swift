@@ -49,7 +49,7 @@ extension HomeCoordinator: HomeNavigationFlowDelegate {
     
     func navigateToWidgetEditor(withBuilder builder: WidgetConfigurationBuilder) {
         
-        let viewController = WidgetEditorViewController.instantiate(            
+        let viewController = WidgetEditorViewController.instantiate(
             builder: builder,
             delegate: self
         )
