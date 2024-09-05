@@ -24,7 +24,7 @@ class WidgetSetupViewModel: NSObject {
     @Published private(set) var apps: [AppInfo] = []
     
     @Published private(set) var selectedStyle: WidgetStyle?
-    @Published private(set) var selectedApps: [AppInfo?] = []
+    @Published private(set) var selectedApps: [AppInfo] = []
             
     override init() {
         super.init()
@@ -93,13 +93,15 @@ class WidgetSetupViewModel: NSObject {
             fatalError("Tried to create a Builder with an invalid number of apps.")
         }
         
-        while selectedApps.count < 6 {
-            selectedApps.append(nil)
+        var finalAppList: [AppInfo?] = selectedApps
+        
+        while finalAppList.count < 6 {
+            finalAppList.append(nil)
         }
         
         let builder = WidgetConfigurationBuilder(
             style: selectedStyle,
-            apps: selectedApps
+            apps: finalAppList
         )
         delegate?.navigateToWidgetEditor(withBuilder: builder)
     }
