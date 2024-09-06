@@ -45,6 +45,11 @@
 		B32B60FE2C88E43F007DDCE3 /* CustomizedTextFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = B32B60FD2C88E43F007DDCE3 /* CustomizedTextFactory.swift */; };
 		B32B61012C88EC1A007DDCE3 /* WidgetSetupStyleCompositionalLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = B32B61002C88EC1A007DDCE3 /* WidgetSetupStyleCompositionalLayout.swift */; };
 		B32B61032C88EE1E007DDCE3 /* WidgetSetupAppsTagFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = B32B61022C88EE1E007DDCE3 /* WidgetSetupAppsTagFlowLayout.swift */; };
+		B32B61062C8A4140007DDCE3 /* ModalNavigationRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B32B61052C8A4140007DDCE3 /* ModalNavigationRouter.swift */; };
+		B32B610A2C8A4485007DDCE3 /* SelectAppsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B32B61092C8A4485007DDCE3 /* SelectAppsView.swift */; };
+		B32B610C2C8A449C007DDCE3 /* SelectAppsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B32B610B2C8A449C007DDCE3 /* SelectAppsViewController.swift */; };
+		B32B610E2C8A4517007DDCE3 /* SelectAppsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B32B610D2C8A4517007DDCE3 /* SelectAppsCoordinator.swift */; };
+		B32B61102C8A474B007DDCE3 /* SelectAppsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B32B610F2C8A474B007DDCE3 /* SelectAppsViewModel.swift */; };
 		B34F3DF02C66EACE0041D7BD /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = B34F3DEF2C66EACE0041D7BD /* SnapKit */; };
 		B34F3DF32C6701740041D7BD /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = B34F3DF22C6701740041D7BD /* Localizable.xcstrings */; };
 		B34F3DF52C6701870041D7BD /* String+LocalizedKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = B34F3DF42C6701870041D7BD /* String+LocalizedKey.swift */; };
@@ -179,6 +184,11 @@
 		B32B61002C88EC1A007DDCE3 /* WidgetSetupStyleCompositionalLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetSetupStyleCompositionalLayout.swift; sourceTree = "<group>"; };
 		B32B61022C88EE1E007DDCE3 /* WidgetSetupAppsTagFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetSetupAppsTagFlowLayout.swift; sourceTree = "<group>"; };
 		B32B61042C88F594007DDCE3 /* Modulite.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Modulite.entitlements; sourceTree = "<group>"; };
+		B32B61052C8A4140007DDCE3 /* ModalNavigationRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalNavigationRouter.swift; sourceTree = "<group>"; };
+		B32B61092C8A4485007DDCE3 /* SelectAppsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectAppsView.swift; sourceTree = "<group>"; };
+		B32B610B2C8A449C007DDCE3 /* SelectAppsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectAppsViewController.swift; sourceTree = "<group>"; };
+		B32B610D2C8A4517007DDCE3 /* SelectAppsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectAppsCoordinator.swift; sourceTree = "<group>"; };
+		B32B610F2C8A474B007DDCE3 /* SelectAppsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectAppsViewModel.swift; sourceTree = "<group>"; };
 		B34F3DF22C6701740041D7BD /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
 		B34F3DF42C6701870041D7BD /* String+LocalizedKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+LocalizedKey.swift"; sourceTree = "<group>"; };
 		B34F3DF72C69A3810041D7BD /* DebugOptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebugOptions.swift; sourceTree = "<group>"; };
@@ -356,6 +366,23 @@
 			path = CollectionViewLayouts;
 			sourceTree = "<group>";
 		};
+		B32B61072C8A4406007DDCE3 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				B36927D42C66BCE60089F769 /* HomeCoordinator.swift */,
+				B32B610D2C8A4517007DDCE3 /* SelectAppsCoordinator.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		B32B61082C8A4462007DDCE3 /* SelectApps */ = {
+			isa = PBXGroup;
+			children = (
+				B32B61092C8A4485007DDCE3 /* SelectAppsView.swift */,
+			);
+			path = SelectApps;
+			sourceTree = "<group>";
+		};
 		B34F3DF12C6701070041D7BD /* Localization */ = {
 			isa = PBXGroup;
 			children = (
@@ -423,6 +450,7 @@
 			children = (
 				B34F3E342C6E93570041D7BD /* WidgetSetupViewModel.swift */,
 				B34F3E392C74BFB00041D7BD /* WidgetEditorViewModel.swift */,
+				B32B610F2C8A474B007DDCE3 /* SelectAppsViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -441,6 +469,7 @@
 			children = (
 				B34F3E272C6D36D40041D7BD /* WidgetSetupViewController.swift */,
 				B34F3E212C6D36390041D7BD /* WidgetEditorViewController.swift */,
+				B32B610B2C8A449C007DDCE3 /* SelectAppsViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -461,6 +490,7 @@
 		B34F3E2C2C6E86B90041D7BD /* Setup */ = {
 			isa = PBXGroup;
 			children = (
+				B32B61082C8A4462007DDCE3 /* SelectApps */,
 				B32B60FF2C88EC07007DDCE3 /* CollectionViewLayouts */,
 				B34F3E2F2C6E87870041D7BD /* CollectionViewCells */,
 				B34F3E252C6D36C20041D7BD /* WidgetSetupView.swift */,
@@ -573,8 +603,8 @@
 		B36927C82C66B8330089F769 /* Coordinators */ = {
 			isa = PBXGroup;
 			children = (
+				B32B61072C8A4406007DDCE3 /* Home */,
 				B36927CE2C66B8A30089F769 /* Coordinator.swift */,
-				B36927D42C66BCE60089F769 /* HomeCoordinator.swift */,
 				B34F3E082C6A96A20041D7BD /* RootTabCoordinator.swift */,
 				B34F3E0C2C6B0C790041D7BD /* UsageCoordinator.swift */,
 				B34F3E0E2C6B0D340041D7BD /* BlockAppsCoordinator.swift */,
@@ -589,6 +619,7 @@
 				B36927D02C66B8CA0089F769 /* Router.swift */,
 				B36927D22C66BBC10089F769 /* SceneDelegateRouter.swift */,
 				B34F3E0A2C6A9E350041D7BD /* NavigationRouter.swift */,
+				B32B61052C8A4140007DDCE3 /* ModalNavigationRouter.swift */,
 			);
 			path = Routers;
 			sourceTree = "<group>";
@@ -939,6 +970,7 @@
 				B369279C2C66B6E30089F769 /* HomeViewController.swift in Sources */,
 				B3C187842C791D1300A891A8 /* WidgetStyle.swift in Sources */,
 				B34F3E0D2C6B0C790041D7BD /* UsageCoordinator.swift in Sources */,
+				B32B61102C8A474B007DDCE3 /* SelectAppsViewModel.swift in Sources */,
 				B36927D12C66B8CA0089F769 /* Router.swift in Sources */,
 				B36927982C66B6E30089F769 /* AppDelegate.swift in Sources */,
 				B369279A2C66B6E30089F769 /* SceneDelegate.swift in Sources */,
@@ -953,6 +985,7 @@
 				B3EB15B92C7E4CD6003B1960 /* ModuleAppNameTextConfiguration.swift in Sources */,
 				B3EB15B62C7E4BF0003B1960 /* ModuleConfiguration.swift in Sources */,
 				B36927D32C66BBC10089F769 /* SceneDelegateRouter.swift in Sources */,
+				B32B61062C8A4140007DDCE3 /* ModalNavigationRouter.swift in Sources */,
 				B3C187822C79009B00A891A8 /* WidgetConfigurationBuilder.swift in Sources */,
 				B3C1877F2C78D1E000A891A8 /* ModuliteWidgetConfiguration.swift in Sources */,
 				B32B60FE2C88E43F007DDCE3 /* CustomizedTextFactory.swift in Sources */,
@@ -970,6 +1003,8 @@
 				B32B61032C88EE1E007DDCE3 /* WidgetSetupAppsTagFlowLayout.swift in Sources */,
 				B34F3E052C6A93AC0041D7BD /* SettingsViewController.swift in Sources */,
 				B32B60CA2C8657EC007DDCE3 /* AppInfoData.swift in Sources */,
+				B32B610E2C8A4517007DDCE3 /* SelectAppsCoordinator.swift in Sources */,
+				B32B610A2C8A4485007DDCE3 /* SelectAppsView.swift in Sources */,
 				B34F3E032C6A93A30041D7BD /* BlockAppsViewController.swift in Sources */,
 				B34F3E402C74E3270041D7BD /* WidgetModuleCell.swift in Sources */,
 				B34F3E1C2C6BD3DA0041D7BD /* HomeViewModel.swift in Sources */,
@@ -983,6 +1018,7 @@
 				B34F3E2E2C6E87350041D7BD /* SetupHeaderReusableCell.swift in Sources */,
 				B34F3E162C6B93EA0041D7BD /* AuxiliaryWidgetCollectionViewCell.swift in Sources */,
 				B34F3E332C6E8AA60041D7BD /* UITextField+HorizontalPadding.swift in Sources */,
+				B32B610C2C8A449C007DDCE3 /* SelectAppsViewController.swift in Sources */,
 				B34F3E372C6FDEAA0041D7BD /* SelectedAppCollectionViewCell.swift in Sources */,
 				B3CDD7012C766F2E00E558F8 /* ModuleStyleCell.swift in Sources */,
 				B34F3E072C6A93B30041D7BD /* UsageViewController.swift in Sources */,
