@@ -436,8 +436,8 @@
 		B34F3E1D2C6D35D50041D7BD /* WidgetConfiguration */ = {
 			isa = PBXGroup;
 			children = (
-				B350C0542C8B90C70035682F /* SelectApps */,
 				B350C0502C8B90A90035682F /* Setup */,
+				B350C0542C8B90C70035682F /* SelectApps */,
 				B350C04C2C8B90710035682F /* Editor */,
 			);
 			path = WidgetConfiguration;
