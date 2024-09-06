@@ -6,36 +6,52 @@
 //
 
 import UIKit
+import SnapKit
 
 class StyleCollectionViewCell: UICollectionViewCell {
     static let reuseId = "StyleCollectionViewCell"
     
-    let imageView = UIImageView()
-    
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        setupImageView()
-    }
-
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-
-    private func setupImageView() {
-        imageView.contentMode = .scaleAspectFit
-        imageView.clipsToBounds = true
-        contentView.addSubview(imageView)
-        imageView.translatesAutoresizingMaskIntoConstraints = false
+    private(set) lazy var styleImageView: UIImageView = {
+        let view = UIImageView()
+        view.contentMode = .scaleAspectFit
+        view.clipsToBounds = true
         
-        NSLayoutConstraint.activate([
-            imageView.topAnchor.constraint(equalTo: contentView.topAnchor),
-            imageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
-            imageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
-            imageView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor)
-        ])
+        return view
+    }()
+    
+    private(set) lazy var styleTitle: UILabel = {
+        let label = UILabel()
+        label.font = UIFont(textStyle: .body, weight: .semibold)
+        label.textColor = .systemGray
+        label.textAlignment = .center
+        
+        return label
+    }()
+    
+    func setup(image: UIImage, title: String) {
+        subviews.forEach { $0.removeFromSuperview() }
+        
+        styleImageView.image = image
+        styleTitle.text = title
+        
+        addSubviews()
+        setupConstraints()
     }
     
-    func setup(with image: UIImage) {
-        imageView.image = image
+    private func addSubviews() {
+        addSubview(styleImageView)
+        addSubview(styleTitle)
+    }
+    
+    private func setupConstraints() {
+        styleImageView.snp.makeConstraints { make in
+            make.height.equalTo(187)
+            make.left.right.top.equalToSuperview()
+        }
+        
+        styleTitle.snp.makeConstraints { make in
+            make.top.equalTo(styleImageView.snp.bottom).offset(16)
+            make.left.right.equalToSuperview()
+        }
     }
 }

@@ -8,8 +8,9 @@
 import UIKit
 
 protocol HomeNavigationFlowDelegate: AnyObject {
-    func navigateToWidgetSetup(forWidgetId id: UUID)
+    func navigateToWidgetSetup(forWidgetId id: UUID?)
     func navigateToWidgetEditor(withBuilder builder: WidgetConfigurationBuilder)
+    func widgetSetupViewControllerDidPressSearchApps(_ viewController: WidgetSetupViewController)
 }
 
 /// A `Coordinator` that manages the presentation of the home screen in the application.
@@ -31,15 +32,15 @@ class HomeCoordinator: Coordinator {
     ///   - animated: Determines if the presentation should be animated.
     ///   - onDismiss: Optional closure to execute when the home view controller is dismissed.
     func present(animated: Bool, onDismiss: (() -> Void)?) {
-        let vc = HomeViewController()
+        let vc = HomeViewController.instantiate(delegate: self)
         router.present(vc, animated: animated, onDismiss: onDismiss)
     }
 }
 
 extension HomeCoordinator: HomeNavigationFlowDelegate {
-    func navigateToWidgetSetup(forWidgetId id: UUID) {
+    func navigateToWidgetSetup(forWidgetId id: UUID? = nil) {
         // FIXME: Identify widget and set/create data for it
-        let viewController = WidgetSetupViewController.instantiate(widgetId: id, delegate: self)
+        let viewController = WidgetSetupViewController.instantiate(widgetId: id ?? UUID(), delegate: self)
         viewController.hidesBottomBarWhenPushed = true
         
         router.present(viewController, animated: true) {
@@ -49,7 +50,7 @@ extension HomeCoordinator: HomeNavigationFlowDelegate {
     
     func navigateToWidgetEditor(withBuilder builder: WidgetConfigurationBuilder) {
         
-        let viewController = WidgetEditorViewController.instantiate(            
+        let viewController = WidgetEditorViewController.instantiate(
             builder: builder,
             delegate: self
         )
@@ -57,5 +58,11 @@ extension HomeCoordinator: HomeNavigationFlowDelegate {
         router.present(viewController, animated: true) {
             
         }
+    }
+    
+    func widgetSetupViewControllerDidPressSearchApps(_ viewController: WidgetSetupViewController) {
+        let router = ModalNavigationRouter(parentViewController: viewController)
+        let coordinator = SelectAppsCoordinator(router: router)
+        presentChild(coordinator, animated: true)
     }
 }

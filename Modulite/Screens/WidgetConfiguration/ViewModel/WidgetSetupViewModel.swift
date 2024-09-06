@@ -8,8 +8,6 @@
 import UIKit
 
 class WidgetSetupViewModel: NSObject {
-        
-    private(set) weak var delegate: HomeNavigationFlowDelegate?
     
     private(set) var widgetId: UUID!
     
@@ -24,19 +22,16 @@ class WidgetSetupViewModel: NSObject {
     @Published private(set) var apps: [AppInfo] = []
     
     @Published private(set) var selectedStyle: WidgetStyle?
-    @Published private(set) var selectedApps: [AppInfo?] = []
+    @Published private(set) var selectedApps: [AppInfo] = []
             
     override init() {
         super.init()
         allApps = CoreDataPersistenceController.shared.fetchApps()
         apps = allApps
+        selectedApps.append(apps[0])
     }
     
     // MARK: - Setters
-    
-    func setDelegate(to delegate: HomeNavigationFlowDelegate) {
-        self.delegate = delegate
-    }
     
     func setWidgetId(to id: UUID) {
         self.widgetId = id
@@ -84,7 +79,7 @@ class WidgetSetupViewModel: NSObject {
         apps = allApps.filter { $0.name.lowercased().contains(query.lowercased()) }
     }
     
-    func proceedToWidgetEditor() {
+    func createWidgetBuilder() -> WidgetConfigurationBuilder {
         guard let selectedStyle = selectedStyle else {
             fatalError("Tried to create a Builder without selecting a style.")
         }
@@ -93,14 +88,17 @@ class WidgetSetupViewModel: NSObject {
             fatalError("Tried to create a Builder with an invalid number of apps.")
         }
         
-        while selectedApps.count < 6 {
-            selectedApps.append(nil)
+        var finalAppList: [AppInfo?] = selectedApps
+        
+        while finalAppList.count < 6 {
+            finalAppList.append(nil)
         }
         
         let builder = WidgetConfigurationBuilder(
             style: selectedStyle,
-            apps: selectedApps
+            apps: finalAppList
         )
-        delegate?.navigateToWidgetEditor(withBuilder: builder)
+        
+        return builder
     }
 }

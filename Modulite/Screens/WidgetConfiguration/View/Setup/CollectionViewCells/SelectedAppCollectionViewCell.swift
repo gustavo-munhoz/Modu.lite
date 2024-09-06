@@ -15,34 +15,59 @@ class SelectedAppCollectionViewCell: UICollectionViewCell {
     
     private(set) lazy var nameLabel: UILabel = {
         let view = UILabel()
-        view.text = "testeeeee"
+        view.font = UIFont(textStyle: .title3, weight: .semibold)
         
         return view
     }()
     
-    override init(frame: CGRect) {
-        super.init(frame: frame)
+    private(set) lazy var removeButton: UIButton = {
+        var config = UIButton.Configuration.plain()
+        
+        config.image = UIImage(systemName: "xmark")?.withTintColor(
+            .carrotOrange,
+            renderingMode: .alwaysOriginal
+        )
+        
+        config.preferredSymbolConfigurationForImage = .init(
+            pointSize: 10,
+            weight: .semibold
+        )
+        
+        let view = UIButton(configuration: config)
+        
+        return view
+    }()
+        
+    // MARK: - Setup methods
+    
+    func setup(with name: String) {
+        subviews.forEach { $0.removeFromSuperview() }
+        
+        layer.cornerRadius = 8
+        layer.borderWidth = 2
+        layer.borderColor = UIColor.carrotOrange.cgColor
+        
+        self.nameLabel.text = name
         addSubviews()
         setupConstraints()
     }
     
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
-    // MARK: - Setup methods
-
-    func setup(with name: String) {
-        self.nameLabel.text = name
-    }
-    
     private func addSubviews() {
         addSubview(nameLabel)
+        addSubview(removeButton)
     }
     
     private func setupConstraints() {
         nameLabel.snp.makeConstraints { make in
-            make.edges.equalToSuperview()
+            make.left.top.bottom.equalToSuperview().inset(12)
+            
+        }
+        
+        removeButton.snp.makeConstraints { make in
+            make.height.width.equalTo(10)
+            make.centerY.equalToSuperview()
+            make.left.equalTo(nameLabel.snp.right).offset(10)
+            make.right.equalToSuperview().inset(12)
         }
     }
 }

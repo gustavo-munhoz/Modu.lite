@@ -24,7 +24,7 @@ class WidgetStyleFactory {
             let style = WidgetStyle(
                 key: .analog,
                 name: .localized(for: .widgetStyleNameAnalog),
-                coverImage: UIImage(systemName: "house.fill")!,
+                coverImage: UIImage(named: "analog-style-cover")!,
                 // FIXME: Implement this
                 backgroundImage: nil,
                 colors: [.white, .eggYolk, .cupcake, .sweetTooth, .sugarMint, .burntEnds],

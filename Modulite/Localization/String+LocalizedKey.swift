@@ -101,7 +101,9 @@ extension String {
         // MARK: - WidgetSetupView & WidgetSetupViewController
         case widgetSetupViewStyleHeaderTitle
         case widgetSetupViewAppsHeaderTitle
+        case widgetSetupViewSearchAppsButtonTitle
         case setupHeaderSearchBarPlaceholder
+        case searchAppsHelperText
         
         // MARK: - WidgetEditorView & WidgetEditorViewController
         case widgetEditorViewWidgetLayoutTitle

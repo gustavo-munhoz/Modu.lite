@@ -13,6 +13,8 @@ class HomeViewController: UIViewController {
     private let homeView = HomeView()
     private let viewModel = HomeViewModel()
     
+    weak var delegate: HomeNavigationFlowDelegate?
+    
     // MARK: - Lifecycle
     override func loadView() {
         self.view = homeView
@@ -27,10 +29,6 @@ class HomeViewController: UIViewController {
     }
     
     // MARK: - Setup methods
-    func setViewModelNavigationDelegate(to delegate: HomeNavigationFlowDelegate) {
-        viewModel.delegate = delegate
-    }
-    
     private func setupNavigationBar() {
         // FIXME: Make image be on bottom-left of navbar with large title
             
@@ -50,6 +48,14 @@ class HomeViewController: UIViewController {
         } else {
             print("Image not found")
         }
+    }
+}
+
+extension HomeViewController {
+    class func instantiate(delegate: HomeNavigationFlowDelegate) -> HomeViewController {
+        let homeVC = HomeViewController()
+        homeVC.delegate = delegate
+        return homeVC
     }
 }
 
@@ -134,7 +140,7 @@ extension HomeViewController: UICollectionViewDataSource {
                 buttonImage: UIImage(systemName: "plus.circle")!,
                 buttonAction: { [weak self] in
                     guard let self = self else { return }
-                    self.viewModel.startWidgetSetupFlow()
+                    self.delegate?.navigateToWidgetSetup(forWidgetId: nil)
                 }
             )
             
@@ -144,7 +150,8 @@ extension HomeViewController: UICollectionViewDataSource {
                 buttonImage: UIImage(systemName: "plus.circle")!,
                 buttonAction: { [weak self] in
                     guard let self = self else { return }
-                    self.viewModel.startWidgetSetupFlow()
+                    let id = self.viewModel.mainWidgets[indexPath.row]
+                    self.delegate?.navigateToWidgetSetup(forWidgetId: nil)
                 }
             )
             

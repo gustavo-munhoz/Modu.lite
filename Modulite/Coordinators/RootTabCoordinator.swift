@@ -58,7 +58,7 @@ class RootTabCoordinator: Coordinator {
         )
         let homeRouter = NavigationRouter(navigationController: navigationController)
         let homeCoordinator = HomeCoordinator(router: homeRouter)
-        viewController.setViewModelNavigationDelegate(to: homeCoordinator)
+        viewController.delegate = homeCoordinator
         
         children.append(homeCoordinator)
         return navigationController

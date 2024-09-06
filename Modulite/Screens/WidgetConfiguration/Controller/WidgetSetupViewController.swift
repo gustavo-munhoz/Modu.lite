@@ -9,9 +9,13 @@ import UIKit
 
 class WidgetSetupViewController: UIViewController {
     
+    // MARK: - Properties
     private let setupView = WidgetSetupView()
     private var viewModel = WidgetSetupViewModel()
     
+    weak var delegate: HomeNavigationFlowDelegate?
+    
+    // MARK: - Lifecycle
     override func loadView() {
         view = setupView
     }
@@ -21,7 +25,18 @@ class WidgetSetupViewController: UIViewController {
         
         setupView.setCollectionViewDelegates(to: self)
         setupView.setCollectionViewDataSources(to: self)
-        setupView.onNextButtonPressed = viewModel.proceedToWidgetEditor
+        setupView.onNextButtonPressed = proceedToWidgetEditor
+    }
+    
+    override func viewWillLayoutSubviews() {
+        super.viewWillLayoutSubviews()
+        setupView.updateSelectedAppsCollectionViewHeight()
+    }
+    
+    // MARK: - Actions
+    func proceedToWidgetEditor() {
+        let builder = viewModel.createWidgetBuilder()
+        delegate?.navigateToWidgetEditor(withBuilder: builder)
     }
 }
 
@@ -36,7 +51,7 @@ extension WidgetSetupViewController: UICollectionViewDataSource {
         
         switch collectionView {
         case setupView.stylesCollectionView: return viewModel.widgetStyles.count
-        case setupView.selectedAppsCollectionView: return viewModel.apps.count
+        case setupView.selectedAppsCollectionView: return viewModel.selectedApps.count
         default: return 0
         }
     }
@@ -55,7 +70,13 @@ extension WidgetSetupViewController: UICollectionViewDataSource {
                 fatalError("Could not dequeue StyleCollectionViewCell")
             }
             
-            cell.setup(with: viewModel.widgetStyles[indexPath.row].coverImage)
+            let style = viewModel.widgetStyles[indexPath.row]
+            
+            cell.setup(
+                image: style.coverImage,
+                title: style.name
+            )
+            
             return cell
             
         case setupView.selectedAppsCollectionView:
@@ -66,7 +87,7 @@ extension WidgetSetupViewController: UICollectionViewDataSource {
                 fatalError("Could not dequeue StyleCollectionViewCell")
             }
             
-            cell.setup(with: viewModel.apps[indexPath.row].name)
+            cell.setup(with: viewModel.selectedApps[indexPath.row].name)
             
             return cell
         
@@ -97,13 +118,21 @@ extension WidgetSetupViewController: UICollectionViewDataSource {
             
         } else {
             header.setup(
-                title: .localized(for: .widgetSetupViewAppsHeaderTitle),
-                containsSearchBar: true,
-                searchBarDelegate: self
+                title: .localized(for: .widgetSetupViewAppsHeaderTitle)
             )
         }
         
         return header
+    }
+}
+
+extension WidgetSetupViewController {
+    class func instantiate(widgetId: UUID, delegate: HomeNavigationFlowDelegate) -> WidgetSetupViewController {
+        let vc = WidgetSetupViewController()
+        vc.delegate = delegate
+        vc.viewModel.setWidgetId(to: widgetId)
+        
+        return vc
     }
 }
 
@@ -122,29 +151,17 @@ extension WidgetSetupViewController: UICollectionViewDelegate {
     }
 }
 
-// MARK: - UISearchBarDelegate
-extension WidgetSetupViewController: UISearchBarDelegate {
+// MARK: - UICollectionViewDelegateFlowLayout
+extension WidgetSetupViewController: UICollectionViewDelegateFlowLayout {
+    func collectionView(
+        _ collectionView: UICollectionView,
+        layout collectionViewLayout: UICollectionViewLayout,
+        sizeForItemAt indexPath: IndexPath
+    ) -> CGSize {
+        let text = viewModel.selectedApps[indexPath.row].name
+        let font = UIFont(textStyle: .title3, weight: .semibold)
+        let size = (text as NSString).size(withAttributes: [NSAttributedString.Key.font: font])
         
-    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        viewModel.filterApps(for: searchText)
-        
-        UIView.performWithoutAnimation {
-            // Making textFieldDummy the first responder seems to be necessary to not 
-            // dismiss the keyboard when updating the collection view data.
-            // I thought updating the section would fix it, but apparently it didn't.
-            setupView.textFieldDummy.becomeFirstResponder()
-            setupView.selectedAppsCollectionView.reloadSections(IndexSet(integer: 1))
-            searchBar.becomeFirstResponder()
-        }
-    }
-}
-
-extension WidgetSetupViewController {
-    class func instantiate(widgetId: UUID, delegate: HomeNavigationFlowDelegate) -> WidgetSetupViewController {
-        let vc = WidgetSetupViewController()
-        vc.viewModel.setWidgetId(to: widgetId)
-        vc.viewModel.setDelegate(to: delegate)
-        
-        return vc
+        return CGSize(width: size.width + 45, height: size.height + 24)
     }
 }
