@@ -82,6 +82,9 @@
 		B34F3E3A2C74BFB00041D7BD /* WidgetEditorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B34F3E392C74BFB00041D7BD /* WidgetEditorViewModel.swift */; };
 		B34F3E3E2C74CE090041D7BD /* EditorSectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = B34F3E3D2C74CE090041D7BD /* EditorSectionHeader.swift */; };
 		B34F3E402C74E3270041D7BD /* WidgetModuleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B34F3E3F2C74E3270041D7BD /* WidgetModuleCell.swift */; };
+		B350C0472C8B8B340035682F /* UILabel+Padded.swift in Sources */ = {isa = PBXBuildFile; fileRef = B350C0462C8B8B340035682F /* UILabel+Padded.swift */; };
+		B350C0492C8B8B680035682F /* UIEdgeInsets+Directions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B350C0482C8B8B680035682F /* UIEdgeInsets+Directions.swift */; };
+		B350C04B2C8B8C070035682F /* AppCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B350C04A2C8B8C070035682F /* AppCollectionViewCell.swift */; };
 		B36927982C66B6E30089F769 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B36927972C66B6E30089F769 /* AppDelegate.swift */; };
 		B369279A2C66B6E30089F769 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B36927992C66B6E30089F769 /* SceneDelegate.swift */; };
 		B369279C2C66B6E30089F769 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B369279B2C66B6E30089F769 /* HomeViewController.swift */; };
@@ -220,6 +223,9 @@
 		B34F3E392C74BFB00041D7BD /* WidgetEditorViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetEditorViewModel.swift; sourceTree = "<group>"; };
 		B34F3E3D2C74CE090041D7BD /* EditorSectionHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditorSectionHeader.swift; sourceTree = "<group>"; };
 		B34F3E3F2C74E3270041D7BD /* WidgetModuleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetModuleCell.swift; sourceTree = "<group>"; };
+		B350C0462C8B8B340035682F /* UILabel+Padded.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Padded.swift"; sourceTree = "<group>"; };
+		B350C0482C8B8B680035682F /* UIEdgeInsets+Directions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIEdgeInsets+Directions.swift"; sourceTree = "<group>"; };
+		B350C04A2C8B8C070035682F /* AppCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCollectionViewCell.swift; sourceTree = "<group>"; };
 		B36927942C66B6E30089F769 /* Modulite.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Modulite.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B36927972C66B6E30089F769 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B36927992C66B6E30089F769 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -375,14 +381,6 @@
 			path = Home;
 			sourceTree = "<group>";
 		};
-		B32B61082C8A4462007DDCE3 /* SelectApps */ = {
-			isa = PBXGroup;
-			children = (
-				B32B61092C8A4485007DDCE3 /* SelectAppsView.swift */,
-			);
-			path = SelectApps;
-			sourceTree = "<group>";
-		};
 		B34F3DF12C6701070041D7BD /* Localization */ = {
 			isa = PBXGroup;
 			children = (
@@ -438,40 +436,11 @@
 		B34F3E1D2C6D35D50041D7BD /* WidgetConfiguration */ = {
 			isa = PBXGroup;
 			children = (
-				B34F3E1F2C6D36090041D7BD /* View */,
-				B34F3E202C6D36120041D7BD /* Controller */,
-				B34F3E1E2C6D36040041D7BD /* ViewModel */,
+				B350C0542C8B90C70035682F /* SelectApps */,
+				B350C0502C8B90A90035682F /* Setup */,
+				B350C04C2C8B90710035682F /* Editor */,
 			);
 			path = WidgetConfiguration;
-			sourceTree = "<group>";
-		};
-		B34F3E1E2C6D36040041D7BD /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-				B34F3E342C6E93570041D7BD /* WidgetSetupViewModel.swift */,
-				B34F3E392C74BFB00041D7BD /* WidgetEditorViewModel.swift */,
-				B32B610F2C8A474B007DDCE3 /* SelectAppsViewModel.swift */,
-			);
-			path = ViewModel;
-			sourceTree = "<group>";
-		};
-		B34F3E1F2C6D36090041D7BD /* View */ = {
-			isa = PBXGroup;
-			children = (
-				B34F3E3B2C74C2640041D7BD /* Editor */,
-				B34F3E2C2C6E86B90041D7BD /* Setup */,
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		B34F3E202C6D36120041D7BD /* Controller */ = {
-			isa = PBXGroup;
-			children = (
-				B34F3E272C6D36D40041D7BD /* WidgetSetupViewController.swift */,
-				B34F3E212C6D36390041D7BD /* WidgetEditorViewController.swift */,
-				B32B610B2C8A449C007DDCE3 /* SelectAppsViewController.swift */,
-			);
-			path = Controller;
 			sourceTree = "<group>";
 		};
 		B34F3E292C6E83670041D7BD /* Extensions */ = {
@@ -483,19 +452,10 @@
 				B3EB15BC2C7E7311003B1960 /* String+TextCase.swift */,
 				B32B60BB2C86492C007DDCE3 /* UIColorValueTransformer.swift */,
 				B32B60F12C878290007DDCE3 /* UIView+asImage.swift */,
+				B350C0462C8B8B340035682F /* UILabel+Padded.swift */,
+				B350C0482C8B8B680035682F /* UIEdgeInsets+Directions.swift */,
 			);
 			path = Extensions;
-			sourceTree = "<group>";
-		};
-		B34F3E2C2C6E86B90041D7BD /* Setup */ = {
-			isa = PBXGroup;
-			children = (
-				B32B61082C8A4462007DDCE3 /* SelectApps */,
-				B32B60FF2C88EC07007DDCE3 /* CollectionViewLayouts */,
-				B34F3E2F2C6E87870041D7BD /* CollectionViewCells */,
-				B34F3E252C6D36C20041D7BD /* WidgetSetupView.swift */,
-			);
-			path = Setup;
 			sourceTree = "<group>";
 		};
 		B34F3E2F2C6E87870041D7BD /* CollectionViewCells */ = {
@@ -508,16 +468,6 @@
 			path = CollectionViewCells;
 			sourceTree = "<group>";
 		};
-		B34F3E3B2C74C2640041D7BD /* Editor */ = {
-			isa = PBXGroup;
-			children = (
-				B34F3E3C2C74CD160041D7BD /* CollectionViewCells */,
-				B34F3E232C6D366A0041D7BD /* WidgetEditorView.swift */,
-				B34F3E3D2C74CE090041D7BD /* EditorSectionHeader.swift */,
-			);
-			path = Editor;
-			sourceTree = "<group>";
-		};
 		B34F3E3C2C74CD160041D7BD /* CollectionViewCells */ = {
 			isa = PBXGroup;
 			children = (
@@ -526,6 +476,113 @@
 				B3CDD7022C767FD300E558F8 /* ModuleColorCell.swift */,
 			);
 			path = CollectionViewCells;
+			sourceTree = "<group>";
+		};
+		B350C04C2C8B90710035682F /* Editor */ = {
+			isa = PBXGroup;
+			children = (
+				B350C04F2C8B90860035682F /* View */,
+				B350C04E2C8B907B0035682F /* ViewController */,
+				B350C04D2C8B90750035682F /* ViewModel */,
+			);
+			path = Editor;
+			sourceTree = "<group>";
+		};
+		B350C04D2C8B90750035682F /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				B34F3E392C74BFB00041D7BD /* WidgetEditorViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		B350C04E2C8B907B0035682F /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				B34F3E212C6D36390041D7BD /* WidgetEditorViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		B350C04F2C8B90860035682F /* View */ = {
+			isa = PBXGroup;
+			children = (
+				B34F3E3C2C74CD160041D7BD /* CollectionViewCells */,
+				B34F3E232C6D366A0041D7BD /* WidgetEditorView.swift */,
+				B34F3E3D2C74CE090041D7BD /* EditorSectionHeader.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		B350C0502C8B90A90035682F /* Setup */ = {
+			isa = PBXGroup;
+			children = (
+				B350C0532C8B90B20035682F /* View */,
+				B350C0522C8B90AE0035682F /* ViewController */,
+				B350C0512C8B90AB0035682F /* ViewModel */,
+			);
+			path = Setup;
+			sourceTree = "<group>";
+		};
+		B350C0512C8B90AB0035682F /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				B34F3E342C6E93570041D7BD /* WidgetSetupViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		B350C0522C8B90AE0035682F /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				B34F3E272C6D36D40041D7BD /* WidgetSetupViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		B350C0532C8B90B20035682F /* View */ = {
+			isa = PBXGroup;
+			children = (
+				B32B60FF2C88EC07007DDCE3 /* CollectionViewLayouts */,
+				B34F3E2F2C6E87870041D7BD /* CollectionViewCells */,
+				B34F3E252C6D36C20041D7BD /* WidgetSetupView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		B350C0542C8B90C70035682F /* SelectApps */ = {
+			isa = PBXGroup;
+			children = (
+				B350C0572C8B90D10035682F /* View */,
+				B350C0562C8B90CE0035682F /* ViewController */,
+				B350C0552C8B90CC0035682F /* ViewModel */,
+			);
+			path = SelectApps;
+			sourceTree = "<group>";
+		};
+		B350C0552C8B90CC0035682F /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				B32B610F2C8A474B007DDCE3 /* SelectAppsViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		B350C0562C8B90CE0035682F /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				B32B610B2C8A449C007DDCE3 /* SelectAppsViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		B350C0572C8B90D10035682F /* View */ = {
+			isa = PBXGroup;
+			children = (
+				B32B61092C8A4485007DDCE3 /* SelectAppsView.swift */,
+				B350C04A2C8B8C070035682F /* AppCollectionViewCell.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		B369278B2C66B6E30089F769 = {
@@ -962,6 +1019,7 @@
 			files = (
 				B34F3E0F2C6B0D340041D7BD /* BlockAppsCoordinator.swift in Sources */,
 				B32B60C62C865042007DDCE3 /* PersistableWidgetConfiguration+CoreDataClass.swift in Sources */,
+				B350C0472C8B8B340035682F /* UILabel+Padded.swift in Sources */,
 				B32B60C72C865042007DDCE3 /* PersistableWidgetConfiguration+CoreDataProperties.swift in Sources */,
 				B34F3E1A2C6B94080041D7BD /* HomeHeaderReusableCell.swift in Sources */,
 				B36927CF2C66B8A30089F769 /* Coordinator.swift in Sources */,
@@ -991,6 +1049,7 @@
 				B32B60FE2C88E43F007DDCE3 /* CustomizedTextFactory.swift in Sources */,
 				B34F3E3E2C74CE090041D7BD /* EditorSectionHeader.swift in Sources */,
 				B34F3DFD2C6A92890041D7BD /* RootTabBarController.swift in Sources */,
+				B350C0492C8B8B680035682F /* UIEdgeInsets+Directions.swift in Sources */,
 				B34F3E112C6B0DDD0041D7BD /* SettingsCoordinator.swift in Sources */,
 				B372846A2C81096A00D9A1E7 /* ModuleStyle.swift in Sources */,
 				B32B60B72C864301007DDCE3 /* AppInfo+CoreDataProperties.swift in Sources */,
@@ -1016,6 +1075,7 @@
 				B3EB15BB2C7E5DC5003B1960 /* UILabel+AppNameConfiguration.swift in Sources */,
 				B34F3E2B2C6E83800041D7BD /* UIFont+TraitedTextStyle.swift in Sources */,
 				B34F3E2E2C6E87350041D7BD /* SetupHeaderReusableCell.swift in Sources */,
+				B350C04B2C8B8C070035682F /* AppCollectionViewCell.swift in Sources */,
 				B34F3E162C6B93EA0041D7BD /* AuxiliaryWidgetCollectionViewCell.swift in Sources */,
 				B34F3E332C6E8AA60041D7BD /* UITextField+HorizontalPadding.swift in Sources */,
 				B32B610C2C8A449C007DDCE3 /* SelectAppsViewController.swift in Sources */,

@@ -85,7 +85,7 @@ class WidgetSetupView: UIScrollView {
     private(set) lazy var searchAppsHelperText: UILabel = {
         let label = UILabel()
         
-        label.text = .localized(for: .searchAppsHelperText)
+        label.text = .localized(for: .widgetSetupViewSearchAppsHelperText)
         label.font = UIFont(textStyle: .caption1, symbolicTraits: .traitItalic)
         label.textColor = .systemGray
         label.numberOfLines = -1

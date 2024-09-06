@@ -26,6 +26,10 @@ class WidgetSetupViewController: UIViewController {
         configureViewDependencies()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+    }
+    
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
         setupView.updateSelectedAppsCollectionViewHeight()
