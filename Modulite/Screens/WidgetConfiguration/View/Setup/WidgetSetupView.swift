@@ -12,6 +12,7 @@ class WidgetSetupView: UIScrollView {
     
     // MARK: - Properties
     
+    var onSearchButtonPressed: (() -> Void)?
     var onNextButtonPressed: (() -> Void)?
     
     private let contentView = UIView()
@@ -62,6 +63,7 @@ class WidgetSetupView: UIScrollView {
         config.imagePadding = 10
         
         let view = UIButton(configuration: config)
+        view.addTarget(self, action: #selector(handleSearchButtonPressed), for: .touchUpInside)
         
         return view
     }()
@@ -118,6 +120,10 @@ class WidgetSetupView: UIScrollView {
     }()
     
     // MARK: - Actions
+    @objc private func handleSearchButtonPressed() {
+        onSearchButtonPressed?()
+    }
+    
     @objc private func handleNextButtonPressed() {
         onNextButtonPressed?()
     }

@@ -10,8 +10,6 @@ import Combine
 
 class HomeViewModel: NSObject {
     
-    weak var delegate: HomeNavigationFlowDelegate?
-    
     @Published var mainWidgets: [ModuliteWidgetConfiguration]
     
     @Published var auxiliaryWidgets: [UIImage] = [
@@ -27,9 +25,5 @@ class HomeViewModel: NSObject {
             ModuliteWidgetConfiguration(persistedConfiguration: $0)
         }
         super.init()
-    }
-    
-    func startWidgetSetupFlow(for id: UUID? = nil) {
-        delegate?.navigateToWidgetSetup(forWidgetId: id ?? UUID())
     }
 }

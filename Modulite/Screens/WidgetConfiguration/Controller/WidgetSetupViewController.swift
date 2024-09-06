@@ -9,9 +9,13 @@ import UIKit
 
 class WidgetSetupViewController: UIViewController {
     
+    // MARK: - Properties
     private let setupView = WidgetSetupView()
     private var viewModel = WidgetSetupViewModel()
     
+    weak var delegate: HomeNavigationFlowDelegate?
+    
+    // MARK: - Lifecycle
     override func loadView() {
         view = setupView
     }
@@ -21,12 +25,18 @@ class WidgetSetupViewController: UIViewController {
         
         setupView.setCollectionViewDelegates(to: self)
         setupView.setCollectionViewDataSources(to: self)
-        setupView.onNextButtonPressed = viewModel.proceedToWidgetEditor
+        setupView.onNextButtonPressed = proceedToWidgetEditor
     }
     
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
         setupView.updateSelectedAppsCollectionViewHeight()
+    }
+    
+    // MARK: - Actions
+    func proceedToWidgetEditor() {
+        let builder = viewModel.createWidgetBuilder()
+        delegate?.navigateToWidgetEditor(withBuilder: builder)
     }
 }
 
@@ -119,8 +129,8 @@ extension WidgetSetupViewController: UICollectionViewDataSource {
 extension WidgetSetupViewController {
     class func instantiate(widgetId: UUID, delegate: HomeNavigationFlowDelegate) -> WidgetSetupViewController {
         let vc = WidgetSetupViewController()
+        vc.delegate = delegate
         vc.viewModel.setWidgetId(to: widgetId)
-        vc.viewModel.setDelegate(to: delegate)
         
         return vc
     }

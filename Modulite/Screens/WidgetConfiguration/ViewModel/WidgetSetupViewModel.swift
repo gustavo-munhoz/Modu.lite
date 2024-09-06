@@ -8,8 +8,6 @@
 import UIKit
 
 class WidgetSetupViewModel: NSObject {
-        
-    private(set) weak var delegate: HomeNavigationFlowDelegate?
     
     private(set) var widgetId: UUID!
     
@@ -30,13 +28,10 @@ class WidgetSetupViewModel: NSObject {
         super.init()
         allApps = CoreDataPersistenceController.shared.fetchApps()
         apps = allApps
+        selectedApps.append(apps[0])
     }
     
     // MARK: - Setters
-    
-    func setDelegate(to delegate: HomeNavigationFlowDelegate) {
-        self.delegate = delegate
-    }
     
     func setWidgetId(to id: UUID) {
         self.widgetId = id
@@ -84,7 +79,7 @@ class WidgetSetupViewModel: NSObject {
         apps = allApps.filter { $0.name.lowercased().contains(query.lowercased()) }
     }
     
-    func proceedToWidgetEditor() {
+    func createWidgetBuilder() -> WidgetConfigurationBuilder {
         guard let selectedStyle = selectedStyle else {
             fatalError("Tried to create a Builder without selecting a style.")
         }
@@ -103,6 +98,7 @@ class WidgetSetupViewModel: NSObject {
             style: selectedStyle,
             apps: finalAppList
         )
-        delegate?.navigateToWidgetEditor(withBuilder: builder)
+        
+        return builder
     }
 }
