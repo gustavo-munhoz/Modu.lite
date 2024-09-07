@@ -86,6 +86,7 @@ extension String {
         
         // MARK: - Reusable texts
         case next
+        case save
         
         // MARK: Tab Bar Titles
         case homeViewControllerTabBarItemTitle

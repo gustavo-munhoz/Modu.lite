@@ -67,6 +67,17 @@
         }
       }
     },
+    "save" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Save"
+          }
+        }
+      }
+    },
     "selectAppsViewAppsSelected" : {
       "extractionState" : "manual",
       "localizations" : {
