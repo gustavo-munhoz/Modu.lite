@@ -67,13 +67,57 @@
         }
       }
     },
-    "searchAppsHelperText" : {
+    "save" : {
       "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Tap Search Apps again if you want to change the selected apps"
+            "value" : "Save"
+          }
+        }
+      }
+    },
+    "selectAppsViewAppsSelected" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%d/6 apps selected"
+          }
+        }
+      }
+    },
+    "selectAppsViewSearchBarPlaceholder" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Search apps..."
+          }
+        }
+      }
+    },
+    "selectAppsViewSubtitle" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "These apps will compose the buttons on your widget"
+          }
+        }
+      }
+    },
+    "selectAppsViewTitle" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Select your favorite apps"
           }
         }
       }
@@ -85,17 +129,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Settings"
-          }
-        }
-      }
-    },
-    "setupHeaderSearchBarPlaceholder" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Search apps..."
           }
         }
       }
@@ -222,6 +255,17 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "SEARCH APPS"
+          }
+        }
+      }
+    },
+    "widgetSetupViewSearchAppsHelperText" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tap Search Apps again if you want to change the selected apps"
           }
         }
       }

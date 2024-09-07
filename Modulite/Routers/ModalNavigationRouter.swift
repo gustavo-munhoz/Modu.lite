@@ -16,6 +16,7 @@ class ModalNavigationRouter: NSObject {
         self.parentViewController = parentViewController
         super.init()
         self.navigationController.delegate = self
+        self.navigationController.sheetPresentationController?.prefersGrabberVisible = true
     }
 }
 
@@ -32,6 +33,7 @@ extension ModalNavigationRouter: Router {
     }
     
     private func presentModally(_ viewController: UIViewController, animated: Bool) {
+        addRightSaveButton(to: viewController)
         navigationController.setViewControllers([viewController], animated: false)
         parentViewController.present(navigationController, animated: animated)
     }
@@ -39,6 +41,31 @@ extension ModalNavigationRouter: Router {
     func dismiss(animated: Bool) {
         performOnDismiss(for: navigationController.viewControllers.first!)
         parentViewController.dismiss(animated: animated)
+    }
+    
+    private func addRightSaveButton(to viewController: UIViewController) {
+        viewController.navigationItem.rightBarButtonItem = UIBarButtonItem(
+            title: .localized(for: .save),
+            style: .plain,
+            target: self,
+            action: #selector(closePressed)
+        )
+        viewController.navigationItem.rightBarButtonItem?.setTitleTextAttributes(
+            [
+                NSAttributedString.Key.foregroundColor: UIColor.fiestaGreen,
+                NSAttributedString.Key.font: UIFont(
+                    textStyle: .body,
+                    weight: .semibold,
+                    italic: true
+                )
+            ],
+            for: .normal
+        )
+    }
+    
+    @objc private func closePressed() {
+        performOnDismiss(for: navigationController.viewControllers.first!)
+        parentViewController.dismiss(animated: true)
     }
     
     private func performOnDismiss(for viewController: UIViewController) {

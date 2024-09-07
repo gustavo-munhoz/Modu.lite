@@ -23,9 +23,11 @@ class WidgetSetupViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        setupView.setCollectionViewDelegates(to: self)
-        setupView.setCollectionViewDataSources(to: self)
-        setupView.onNextButtonPressed = proceedToWidgetEditor
+        configureViewDependencies()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
     }
     
     override func viewWillLayoutSubviews() {
@@ -33,10 +35,22 @@ class WidgetSetupViewController: UIViewController {
         setupView.updateSelectedAppsCollectionViewHeight()
     }
     
+    // MARK: - Setup methods
+    private func configureViewDependencies() {
+        setupView.setCollectionViewDelegates(to: self)
+        setupView.setCollectionViewDataSources(to: self)
+        setupView.onNextButtonPressed = proceedToWidgetEditor
+        setupView.onSearchButtonPressed = presentSearchModal
+    }
+    
     // MARK: - Actions
     func proceedToWidgetEditor() {
         let builder = viewModel.createWidgetBuilder()
         delegate?.navigateToWidgetEditor(withBuilder: builder)
+    }
+    
+    func presentSearchModal() {
+        delegate?.widgetSetupViewControllerDidPressSearchApps(self)
     }
 }
 

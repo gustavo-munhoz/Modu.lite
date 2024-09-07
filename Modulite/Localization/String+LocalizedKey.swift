@@ -86,6 +86,7 @@ extension String {
         
         // MARK: - Reusable texts
         case next
+        case save
         
         // MARK: Tab Bar Titles
         case homeViewControllerTabBarItemTitle
@@ -102,8 +103,13 @@ extension String {
         case widgetSetupViewStyleHeaderTitle
         case widgetSetupViewAppsHeaderTitle
         case widgetSetupViewSearchAppsButtonTitle
-        case setupHeaderSearchBarPlaceholder
-        case searchAppsHelperText
+        case widgetSetupViewSearchAppsHelperText
+        
+        // MARK: - SearchAppsView
+        case selectAppsViewTitle
+        case selectAppsViewSubtitle
+        case selectAppsViewAppsSelected(count: Int)
+        case selectAppsViewSearchBarPlaceholder
         
         // MARK: - WidgetEditorView & WidgetEditorViewController
         case widgetEditorViewWidgetLayoutTitle
