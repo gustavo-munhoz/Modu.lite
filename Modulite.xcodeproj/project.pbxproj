@@ -1549,7 +1549,7 @@
 			);
 			currentVersion = B32B60C12C864BB2007DDCE3 /* WidgetData.xcdatamodel */;
 			name = WidgetData.xcdatamodeld;
-			path = /Users/gustavomunhoz/Documents/Apps/Macro/App/Modulite/Modulite/Models/WidgetData.xcdatamodeld;
+			path = WidgetData.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};
