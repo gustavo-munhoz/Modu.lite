@@ -12,8 +12,6 @@ class AppCollectionViewCell: UICollectionViewCell {
     static let reuseId = "AppCollectionViewCell"
     // MARK: - Properties
     
-    var appInfo: AppInfo!
-    
     private(set) lazy var selectedImageView: UIImageView = {
         let view = UIImageView(
             image: UIImage(systemName: "circle")?.withTintColor(
@@ -36,7 +34,6 @@ class AppCollectionViewCell: UICollectionViewCell {
     func setup(with app: AppInfo) {
         subviews.forEach { $0.removeFromSuperview() }
         
-        self.appInfo = app
         appNameLabel.text = app.name
         
         addSubviews()
@@ -50,9 +47,8 @@ class AppCollectionViewCell: UICollectionViewCell {
     
     private func setupContraints() {
         selectedImageView.snp.makeConstraints { make in
-            make.left.equalToSuperview()
+            make.left.centerY.equalToSuperview().priority(.required)
             make.width.height.equalTo(20)
-            make.verticalEdges.equalToSuperview()
         }
         
         appNameLabel.snp.makeConstraints { make in

@@ -9,4 +9,11 @@ import Foundation
 
 class SelectAppsViewModel: NSObject {
     
+    @Published private(set) var apps: [AppInfo] = []
+    
+    override init() {
+        apps = CoreDataPersistenceController.shared.fetchApps()
+        
+        super.init()
+    }
 }
