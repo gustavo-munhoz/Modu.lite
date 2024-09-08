@@ -219,6 +219,7 @@ extension WidgetEditorViewController: UICollectionViewDelegate {
             didSelectEmptyCell: viewModel.isModuleEmpty(at: index)
         )
         
+        // FIXME: - use `cellForItemAt`
         editorView.widgetLayoutCollectionView.subviews.forEach { [weak self] cell in
             guard let cell = cell as? WidgetModuleCell else { return }
             

@@ -26,10 +26,6 @@ class WidgetSetupViewController: UIViewController {
         configureViewDependencies()
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-    }
-    
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
         setupView.updateSelectedAppsCollectionViewHeight()
@@ -158,7 +154,7 @@ extension WidgetSetupViewController: UICollectionViewDelegate {
             viewModel.selectStyle(at: indexPath.row)
             
         case setupView.selectedAppsCollectionView:
-            viewModel.selectApp(at: indexPath.row)
+            return
             
         default: return
         }

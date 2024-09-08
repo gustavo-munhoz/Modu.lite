@@ -33,14 +33,16 @@ extension SelectAppsViewController: UICollectionViewDelegate {
         _ collectionView: UICollectionView,
         didSelectItemAt indexPath: IndexPath
     ) {
-        guard let cell = collectionView.dequeueReusableCell(
-            withReuseIdentifier: AppCollectionViewCell.reuseId,
-            for: indexPath
-        ) as? AppCollectionViewCell else {
-            fatalError("Unable to dequeue AppCollectionViewCell")
+        let idx = indexPath.row
+        
+        if viewModel.isAppSelected(at: idx) {
+            viewModel.deselectApp(at: idx)
+            
+        } else {
+            viewModel.selectApp(at: idx)
         }
         
-        cell.backgroundColor = .charcoalGray.withAlphaComponent(0.3)
+        collectionView.reloadItems(at: [indexPath])
     }
 }
 
@@ -64,7 +66,10 @@ extension SelectAppsViewController: UICollectionViewDataSource {
             fatalError("Unable to dequeue AppCollectionViewCell")
         }
         
-        cell.setup(with: viewModel.apps[indexPath.row])
+        cell.setup(
+            with: viewModel.apps[indexPath.row],
+            isSelected: viewModel.isAppSelected(at: indexPath.row)
+        )
         
         return cell
     }
