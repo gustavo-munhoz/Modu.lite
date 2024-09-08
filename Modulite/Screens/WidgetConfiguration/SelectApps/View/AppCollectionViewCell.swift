@@ -14,7 +14,7 @@ class AppCollectionViewCell: UICollectionViewCell {
     
     private(set) lazy var selectedImageView: UIImageView = {
         let view = UIImageView(
-            image: UIImage(systemName: "circle")?.withTintColor(
+            image: UIImage(systemName: "circle")!.withTintColor(
                 .carrotOrange,
                 renderingMode: .alwaysOriginal
             )
@@ -30,14 +30,24 @@ class AppCollectionViewCell: UICollectionViewCell {
     }()
     
     // MARK: - Setup methods
-    
-    func setup(with app: AppInfo) {
-        subviews.forEach { $0.removeFromSuperview() }
-        
-        appNameLabel.text = app.name
+    override init(frame: CGRect) {
+        super.init(frame: frame)
         
         addSubviews()
         setupContraints()
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    func setup(with app: AppInfo, isSelected: Bool) {
+        appNameLabel.text = app.name
+
+        selectedImageView.setSymbolImage(
+            getImageForState(selected: isSelected),
+            contentTransition: .replace
+        )
     }
     
     private func addSubviews() {
@@ -55,5 +65,12 @@ class AppCollectionViewCell: UICollectionViewCell {
             make.left.equalTo(selectedImageView.snp.right).offset(15)
             make.right.top.bottom.equalToSuperview()
         }
+    }
+    
+    private func getImageForState(selected: Bool) -> UIImage {
+        (selected
+         ? UIImage(systemName: "checkmark.circle.fill")!
+         : UIImage(systemName: "circle")!
+        ).withTintColor(.carrotOrange, renderingMode: .alwaysOriginal)
     }
 }

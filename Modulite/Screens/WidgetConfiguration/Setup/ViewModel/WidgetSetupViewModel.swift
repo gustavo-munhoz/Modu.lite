@@ -57,20 +57,6 @@ class WidgetSetupViewModel: NSObject {
         selectedStyle = nil
     }
     
-    func selectApp(at index: Int) {
-        guard index >= 0, index < apps.count else {
-            print("Tried selecting app at an invalid index.")
-            return
-        }
-        
-        guard selectedApps.count < 6 else {
-            print("Tried to select more than 6 apps.")
-            return
-        }
-        
-        selectedApps.append(apps[index])
-    }
-    
     func filterApps(for query: String) {
         guard !query.isEmpty else {
             apps = allApps
