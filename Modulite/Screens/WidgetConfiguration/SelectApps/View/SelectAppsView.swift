@@ -89,6 +89,7 @@ class SelectAppsView: UIView {
         addSubviews()
         setupConstraints()
         setupCollectionView()
+        setupTapGestures()
     }
     
     required init?(coder: NSCoder) {
@@ -96,12 +97,22 @@ class SelectAppsView: UIView {
     }
     
     // MARK: - Setup methods
+    func setSearchBarDelegate(to delegate: UISearchBarDelegate) {
+        appsSearchBar.delegate = delegate
+    }
+    
     func setCollectionViewDelegate(to delegate: UICollectionViewDelegate) {
         appsCollectionView.delegate = delegate
     }
     
     func setCollectionViewDataSource(to dataSource: UICollectionViewDataSource) {
         appsCollectionView.dataSource = dataSource
+    }
+    
+    private func setupTapGestures() {
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleDismissiveTap))
+        addGestureRecognizer(tapGesture)
+        tapGesture.cancelsTouchesInView = false
     }
     
     private func setupCollectionView() {
@@ -149,6 +160,10 @@ class SelectAppsView: UIView {
     }
     
     // MARK: - Actions
+    
+    @objc private func handleDismissiveTap() {
+        endEditing(true)
+    }
     
     func updateAppCountText(to count: Int) {
         appsSelectedLabel.text = .localized(for: .selectAppsViewAppsSelected(count: count))
