@@ -78,6 +78,7 @@ class SelectAppsView: UIView {
         
         let view = UICollectionView(frame: .zero, collectionViewLayout: layout)
         view.backgroundColor = .clear
+        view.allowsMultipleSelection = true
         
         return view
     }()
