@@ -53,6 +53,8 @@ class AppCollectionViewCell: UICollectionViewCell {
     // MARK: - Setup methods
     override init(frame: CGRect) {
         super.init(frame: frame)
+        layer.cornerRadius = 8
+        clipsToBounds = true
         
         addSubviews()
         setupContraints()
@@ -100,11 +102,15 @@ class AppCollectionViewCell: UICollectionViewCell {
     // MARK: - Helper methods
     
     private func toggleIsHighlighted() {
-        UIView.animate(withDuration: 0.1, delay: 0, options: [.curveEaseOut], animations: {
+        UIView.animate(withDuration: 0.1, delay: 0, options: [.curveEaseOut], animations: { [weak self] in
+            guard let self = self else { return }
+            
+            self.backgroundColor = self.isHighlighted ? .systemGray.withAlphaComponent(0.1) : .clear
             self.alpha = self.isHighlighted ? 0.9 : 1.0
             self.transform = self.isHighlighted ?
             CGAffineTransform.identity.scaledBy(x: 0.97, y: 0.97) :
             CGAffineTransform.identity
+            
         })
     }
     
