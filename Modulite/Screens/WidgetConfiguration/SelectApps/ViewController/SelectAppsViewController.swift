@@ -24,6 +24,7 @@ class SelectAppsViewController: UIViewController {
             
         selectAppsView.setCollectionViewDelegate(to: self)
         selectAppsView.setCollectionViewDataSource(to: self)
+        selectAppsView.setSearchBarDelegate(to: self)
     }
 }
 
@@ -76,7 +77,7 @@ extension SelectAppsViewController: UICollectionViewDelegate {
         }
     }
     
-    func updateAndAnimateCollectionView(_ collectionView: UICollectionView, for indexPath: IndexPath) {
+    private func updateAndAnimateCollectionView(_ collectionView: UICollectionView, for indexPath: IndexPath) {
         let oldData = viewModel.apps
         viewModel.toggleAppSelection(at: indexPath.row)
         let newData = viewModel.apps
@@ -93,7 +94,11 @@ extension SelectAppsViewController: UICollectionViewDelegate {
         })
     }
 
-    func calculateMoves(from oldData: [SelectableAppInfo], to newData: [SelectableAppInfo]) -> [(from: Int, to: Int)] {
+    private func calculateMoves(
+        from oldData: [SelectableAppInfo],
+        to newData: [SelectableAppInfo]
+    ) -> [(from: Int, to: Int)] {
+        
         var moves = [(from: Int, to: Int)]()
         for (newIndex, newItem) in newData.enumerated() {
             if let oldIndex = oldData.firstIndex(where: { $0.data.name == newItem.data.name }) {
@@ -128,7 +133,10 @@ extension SelectAppsViewController: UICollectionViewDataSource {
         }
         let app = viewModel.apps[indexPath.row]
         cell.setup(with: app)
-        cell.isSelected = app.isSelected
+        
+        if app.isSelected {
+            collectionView.selectItem(at: indexPath, animated: true, scrollPosition: [])
+        }
         
         if viewModel.didReachMaxNumberOfApps() && !app.isSelected {
             cell.isUserInteractionEnabled = false
@@ -137,5 +145,12 @@ extension SelectAppsViewController: UICollectionViewDataSource {
         }
         
         return cell
+    }
+}
+
+extension SelectAppsViewController: UISearchBarDelegate {
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        viewModel.filterApps(with: searchText)
+        selectAppsView.appsCollectionView.reloadData()
     }
 }
