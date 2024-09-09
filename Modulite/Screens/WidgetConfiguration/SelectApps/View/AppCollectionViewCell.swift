@@ -11,6 +11,11 @@ import SnapKit
 class AppCollectionViewCell: UICollectionViewCell {
     static let reuseId = "AppCollectionViewCell"
     // MARK: - Properties
+    override var isHighlighted: Bool {
+        didSet {
+            toggleIsHighlighted()
+        }
+    }
     
     private(set) lazy var selectedImageView: UIImageView = {
         let view = UIImageView(
@@ -28,7 +33,7 @@ class AppCollectionViewCell: UICollectionViewCell {
         
         return label
     }()
-    
+        
     // MARK: - Setup methods
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -41,11 +46,20 @@ class AppCollectionViewCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func setup(with app: AppInfo, isSelected: Bool) {
-        appNameLabel.text = app.name
-
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        selectedImageView.image = nil
+    }
+    
+    func setup(with app: SelectableAppInfo) {
+        appNameLabel.text = app.data.name
+        
+        if selectedImageView.image == getImageForState(selected: app.isSelected) {
+            return
+        }
+        
         selectedImageView.setSymbolImage(
-            getImageForState(selected: isSelected),
+            getImageForState(selected: app.isSelected),
             contentTransition: .replace
         )
     }
@@ -65,6 +79,15 @@ class AppCollectionViewCell: UICollectionViewCell {
             make.left.equalTo(selectedImageView.snp.right).offset(15)
             make.right.top.bottom.equalToSuperview()
         }
+    }
+    
+    private func toggleIsHighlighted() {
+        UIView.animate(withDuration: 0.1, delay: 0, options: [.curveEaseOut], animations: {
+            self.alpha = self.isHighlighted ? 0.9 : 1.0
+            self.transform = self.isHighlighted ?
+            CGAffineTransform.identity.scaledBy(x: 0.97, y: 0.97) :
+            CGAffineTransform.identity
+        })
     }
     
     private func getImageForState(selected: Bool) -> UIImage {
