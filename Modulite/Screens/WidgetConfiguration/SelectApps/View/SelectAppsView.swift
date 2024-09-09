@@ -31,8 +31,7 @@ class SelectAppsView: UIView {
     
     private(set) lazy var appsSelectedLabel: PaddedLabel = {
         let label = PaddedLabel()
-        
-        // TODO: Pass count through controller
+                
         label.text = .localized(for: .selectAppsViewAppsSelected(count: 0))
         label.font = UIFont(textStyle: .callout, weight: .bold)
         label.textAlignment = .center
@@ -147,5 +146,11 @@ class SelectAppsView: UIView {
             make.horizontalEdges.equalTo(subtitleLabel)
             make.bottom.equalTo(safeAreaLayoutGuide)
         }
+    }
+    
+    // MARK: - Actions
+    
+    func updateAppCountText(to count: Int) {
+        appsSelectedLabel.text = .localized(for: .selectAppsViewAppsSelected(count: count))
     }
 }
