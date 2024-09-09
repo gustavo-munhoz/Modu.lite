@@ -31,34 +31,80 @@ class SelectAppsViewController: UIViewController {
 extension SelectAppsViewController: UICollectionViewDelegate {
     func collectionView(
         _ collectionView: UICollectionView,
+        shouldSelectItemAt indexPath: IndexPath
+    ) -> Bool {
+        viewModel.shouldSelectItem(at: indexPath.row)
+    }
+    
+    func collectionView(
+        _ collectionView: UICollectionView,
+        shouldDeselectItemAt indexPath: IndexPath
+    ) -> Bool {
+        viewModel.isAppSelected(at: indexPath.row)
+    }
+    
+    func collectionView(
+        _ collectionView: UICollectionView,
         didSelectItemAt indexPath: IndexPath
     ) {
-        let oldData = viewModel.apps
-        let idx = indexPath.row
+        updateAndAnimateCollectionView(collectionView, for: indexPath)
+        selectAppsView.updateAppCountText(to: viewModel.getSelectedAppsCount())
         
-        // Atualizar o estado no modelo primeiro
-        if viewModel.isAppSelected(at: idx) {
-            viewModel.deselectApp(at: idx)
-        } else {
-            viewModel.selectApp(at: idx)
+        if viewModel.didReachMaxNumberOfApps() {
+            setCellsInteractionEnabled(collectionView, to: false)
+        }
+    }
+    
+    func collectionView(
+        _ collectionView: UICollectionView,
+        didDeselectItemAt indexPath: IndexPath
+    ) {
+        if viewModel.didReachMaxNumberOfApps() {
+            setCellsInteractionEnabled(collectionView, to: true)
         }
         
-        // Garantir que os dados do modelo estão atualizados antes de calcular as diferenças
-        let newData = viewModel.apps
-        let changes = calculateDifferences(old: oldData, new: newData)
-        
-        collectionView.performBatchUpdates({
-            collectionView.deleteItems(at: changes.deletes)
-            collectionView.insertItems(at: changes.inserts)
-            changes.moves.forEach { move in
-                collectionView.moveItem(at: move.from, to: move.to)
-            }
-//            collectionView.reloadItems(at: changes.reloads)
-        }, completion: { _ in
-            collectionView.reloadData()
-        })
-
+        updateAndAnimateCollectionView(collectionView, for: indexPath)
+        selectAppsView.updateAppCountText(to: viewModel.getSelectedAppsCount())
     }
+    
+    func setCellsInteractionEnabled(_ collectionView: UICollectionView, to value: Bool) {
+        for indexPath in collectionView.indexPathsForVisibleItems {
+            guard let cell = collectionView.cellForItem(at: indexPath) as? AppCollectionViewCell,
+                  !cell.isSelected else { continue }
+            
+            cell.isUserInteractionEnabled = value
+        }
+    }
+    
+    func updateAndAnimateCollectionView(_ collectionView: UICollectionView, for indexPath: IndexPath) {
+        let oldData = viewModel.apps
+        viewModel.toggleAppSelection(at: indexPath.row)
+        let newData = viewModel.apps
+
+        let changes = calculateMoves(from: oldData, to: newData)
+
+        collectionView.performBatchUpdates({
+            for move in changes {
+                collectionView.moveItem(
+                    at: IndexPath(row: move.from, section: 0),
+                    to: IndexPath(row: move.to, section: 0)
+                )
+            }
+        })
+    }
+
+    func calculateMoves(from oldData: [SelectableAppInfo], to newData: [SelectableAppInfo]) -> [(from: Int, to: Int)] {
+        var moves = [(from: Int, to: Int)]()
+        for (newIndex, newItem) in newData.enumerated() {
+            if let oldIndex = oldData.firstIndex(where: { $0.data.name == newItem.data.name }) {
+                if oldIndex != newIndex {
+                    moves.append((from: oldIndex, to: newIndex))
+                }
+            }
+        }
+        return moves
+    }
+
 }
 
 // MARK: - UICollectionViewDataSource
@@ -81,52 +127,15 @@ extension SelectAppsViewController: UICollectionViewDataSource {
             fatalError("Unable to dequeue AppCollectionViewCell")
         }
         let app = viewModel.apps[indexPath.row]
-        cell.setup(with: viewModel.apps[indexPath.row])
+        cell.setup(with: app)
+        cell.isSelected = app.isSelected
         
-        print("\(app.data.name): \(app.isSelected)")
+        if viewModel.didReachMaxNumberOfApps() && !app.isSelected {
+            cell.isUserInteractionEnabled = false
+        } else {
+            cell.isUserInteractionEnabled = true
+        }
         
         return cell
     }
-}
-
-struct CollectionChanges {
-    var inserts: [IndexPath]
-    var deletes: [IndexPath]
-    var moves: [(from: IndexPath, to: IndexPath)]
-    var reloads: [IndexPath]
-}
-
-func calculateDifferences(old: [SelectableAppInfo], new: [SelectableAppInfo]) -> CollectionChanges {
-    var inserts: [IndexPath] = []
-    var deletes: [IndexPath] = []
-    var moves: [(from: IndexPath, to: IndexPath)] = []
-    var reloads: [IndexPath] = []  // Adicionar uma lista para recarregamentos
-    
-    for (oldIndex, oldItem) in old.enumerated() {
-        if let newIndex = new.firstIndex(where: { $0.data.name == oldItem.data.name }) {
-            if oldIndex != newIndex {
-                moves.append((from: IndexPath(row: oldIndex, section: 0), to: IndexPath(row: newIndex, section: 0)))
-            } else if oldItem.isSelected != new[newIndex].isSelected {
-                // Se a posição não mudou mas o estado de seleção mudou, marcar para recarregar
-                reloads.append(IndexPath(row: oldIndex, section: 0))
-            }
-        } else {
-            deletes.append(IndexPath(row: oldIndex, section: 0))
-        }
-    }
-
-    for (newIndex, newItem) in new.enumerated() {
-        if old.firstIndex(where: { $0.data.name == newItem.data.name }) == nil {
-            inserts.append(IndexPath(row: newIndex, section: 0))
-        }
-    }
-    
-    return CollectionChanges(inserts: inserts, deletes: deletes, moves: moves, reloads: reloads)
-}
-
-private func getImageForState(selected: Bool) -> UIImage {
-    (selected
-     ? UIImage(systemName: "checkmark.circle.fill")!
-     : UIImage(systemName: "circle")!
-    ).withTintColor(.carrotOrange, renderingMode: .alwaysOriginal)
 }

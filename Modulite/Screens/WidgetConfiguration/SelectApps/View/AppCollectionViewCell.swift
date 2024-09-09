@@ -17,6 +17,22 @@ class AppCollectionViewCell: UICollectionViewCell {
         }
     }
     
+    override var isSelected: Bool {
+        didSet {
+            selectedImageView.setSymbolImage(
+                getImageForState(selected: isSelected),
+                contentTransition: .replace
+            )
+        }
+    }
+    
+    override var isUserInteractionEnabled: Bool {
+        didSet {
+            self.appNameLabel.alpha = isUserInteractionEnabled ? 1 : 0.5
+            self.selectedImageView.alpha = isUserInteractionEnabled ? 1 : 0.5
+        }
+    }
+    
     private(set) lazy var selectedImageView: UIImageView = {
         let view = UIImageView(
             image: UIImage(systemName: "circle")!.withTintColor(
@@ -80,6 +96,8 @@ class AppCollectionViewCell: UICollectionViewCell {
             make.right.top.bottom.equalToSuperview()
         }
     }
+    
+    // MARK: - Helper methods
     
     private func toggleIsHighlighted() {
         UIView.animate(withDuration: 0.1, delay: 0, options: [.curveEaseOut], animations: {
