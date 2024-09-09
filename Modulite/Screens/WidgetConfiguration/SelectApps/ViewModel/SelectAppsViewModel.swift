@@ -7,17 +7,19 @@
 
 import Foundation
 
+typealias SelectableAppInfo = (data: AppInfo, isSelected: Bool)
+
 class SelectAppsViewModel: NSObject {
     
     // MARK: - Properties
-    @Published private(set) var apps: [AppInfo] = []
     
-    @Published private(set) var selectedApps: [AppInfo] = []
+    @Published private(set) var apps: [SelectableAppInfo] = []
     
     override init() {
-        apps = CoreDataPersistenceController.shared.fetchApps()
-        
         super.init()
+        CoreDataPersistenceController.shared.fetchApps().forEach { app in
+            apps.append((app, false))
+        }
     }
     
     // MARK: - Actions
@@ -28,16 +30,17 @@ class SelectAppsViewModel: NSObject {
             return
         }
         
-        guard selectedApps.count < 6 else {
+        guard apps.filter({ $0.isSelected }).count < 6 else {
             print("Tried to select more than 6 apps.")
             return
         }
         
-        selectedApps.append(apps[idx])
+        apps[idx].isSelected = true
+        sortApps()
     }
     
     func isAppSelected(at idx: Int) -> Bool {
-        selectedApps.contains(apps[idx])
+        apps[idx].isSelected
     }
     
     func deselectApp(at idx: Int) {
@@ -45,7 +48,17 @@ class SelectAppsViewModel: NSObject {
             print("Tried to deselect an item that is not selected.")
             return
         }
-                
-        selectedApps.removeAll { $0 == apps[idx] }
+        
+        apps[idx].isSelected = false
+        sortApps()
+    }
+    
+    private func sortApps() {
+        apps.sort {
+            if $0.isSelected == $1.isSelected {
+                return $0.data.name < $1.data.name
+            }
+            return $0.isSelected && !$1.isSelected
+        }
     }
 }
