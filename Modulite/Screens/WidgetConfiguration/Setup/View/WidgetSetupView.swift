@@ -110,15 +110,6 @@ class WidgetSetupView: UIScrollView {
         return view
     }()
     
-    /// I hate this, but this text field is necessary to not dismiss the `UISearchBar` keyboard
-    /// when reloading `selectedAppsCollectionView`'s data.
-    private(set) lazy var textFieldDummy: UITextField = {
-        let view = UITextField()
-        view.isHidden = true
-        view.frame = CGRect(origin: .zero, size: .zero)
-        return view
-    }()
-    
     // MARK: - Actions
     @objc private func handleSearchButtonPressed() {
         onSearchButtonPressed?()
@@ -137,9 +128,7 @@ class WidgetSetupView: UIScrollView {
         
         addSubviews()
         setupConstraints()
-        setupTapGestures()
         setupCollectionViews()
-        registerForKeyboardNotifications()
     }
     
     required init?(coder: NSCoder) {
@@ -162,30 +151,6 @@ class WidgetSetupView: UIScrollView {
     func setCollectionViewDelegates(to delegate: UICollectionViewDelegate) {
         self.stylesCollectionView.delegate = delegate
         self.selectedAppsCollectionView.delegate = delegate
-    }
-    
-    private func registerForKeyboardNotifications() {
-        NotificationCenter.default.addObserver(
-            self,
-            selector: #selector(keyboardWillShow),
-            name: UIResponder.keyboardWillShowNotification,
-            object: nil
-        )
-
-        NotificationCenter.default.addObserver(
-            self,
-            selector: #selector(keyboardWillHide),
-            name: UIResponder.keyboardWillHideNotification,
-            object: nil
-        )
-    }
-    
-    private func setupTapGestures() {
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleDismissiveTap))
-        
-        addGestureRecognizer(tapGesture)
-        
-        tapGesture.cancelsTouchesInView = false
     }
     
     private func setupCollectionViews() {
@@ -214,7 +179,6 @@ class WidgetSetupView: UIScrollView {
     }
     
     private func addSubviews() {
-        addSubview(textFieldDummy)
         addSubview(contentView)
         contentView.addSubview(widgetNameTextField)
         contentView.addSubview(stylesCollectionView)
@@ -280,32 +244,5 @@ class WidgetSetupView: UIScrollView {
     // MARK: - Actions
     @objc private func handleDismissiveTap() {
         endEditing(true)
-    }
-    
-    @objc func keyboardWillShow(notification: NSNotification) {
-        if let keyboardSize =
-            (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
-            if frame.origin.y == 0 && !widgetNameTextField.isFirstResponder {
-                UIView.animate(
-                    withDuration: 0.25,
-                    delay: 0,
-                    options: .curveEaseInOut
-                ) { [weak self] in
-                    self?.frame.origin.y -= keyboardSize.height
-                }
-            }
-        }
-    }
-
-    @objc func keyboardWillHide(notification: NSNotification) {
-        if frame.origin.y != 0 {
-            frame.origin.y = 0
-        }
-    }
-    
-    // MARK: - Deinit
-    
-    deinit {
-        NotificationCenter.default.removeObserver(self)
     }
 }
