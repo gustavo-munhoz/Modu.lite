@@ -39,11 +39,11 @@ class SelectAppsViewModel: NSObject {
     }
     
     func didReachMaxNumberOfApps() -> Bool {
-        apps.filter { $0.isSelected }.count == 6
+        unfilteredAppList.filter { $0.isSelected }.count == 6
     }
     
     func getSelectedAppsCount() -> Int {
-        apps.filter { $0.isSelected }.count
+        unfilteredAppList.filter { $0.isSelected }.count
     }
     
     // MARK: - Actions
@@ -59,54 +59,72 @@ class SelectAppsViewModel: NSObject {
         apps = unfilteredAppList.filter { $0.data.name.lowercased().contains(query.lowercased()) }
     }
     
-    func selectApp(at idx: Int) {
+    @discardableResult
+    func selectApp(at idx: Int) -> SelectableAppInfo? {
         guard idx >= 0, idx < apps.count else {
             print("Tried selecting app at an invalid index.")
-            return
+            return nil
         }
         
         guard apps.filter({ $0.isSelected }).count < 6 else {
             print("Tried to select more than 6 apps.")
-            return
+            return nil
         }
         
         guard let fullIndex = unfilteredAppList.firstIndex(where: {
             $0.data.name == apps[idx].data.name
         }) else {
             print("Could not find an equivalent index for filtered app in unfiltered list.")
-            return
+            return nil
         }
+        
+        defer { sortApps() }
         
         apps[idx].isSelected = true
         unfilteredAppList[fullIndex].isSelected = true
-        sortApps()
+        
+        return apps[idx]
     }
     
-    func deselectApp(at idx: Int) {
+    @discardableResult
+    func selectApp(_ app: AppInfo) -> SelectableAppInfo? {
+        guard let index = apps.firstIndex(where: { $0.data.name == app.name }) else {
+            print("Tried to select an app that is not in apps list.")
+            return nil
+        }
+        
+        return selectApp(at: index)
+    }
+    
+    @discardableResult
+    func deselectApp(at idx: Int) -> SelectableAppInfo? {
         guard isAppSelected(at: idx) else {
             print("Tried to deselect an item that is not selected.")
-            return
+            return nil
         }
         
         guard let fullIndex = unfilteredAppList.firstIndex(where: {
             $0.data.name == apps[idx].data.name
         }) else {
             print("Could not find an equivalent index for filtered app in unfiltered list.")
-            return
+            return nil
         }
+        
+        defer { sortApps() }
         
         apps[idx].isSelected = false
         unfilteredAppList[fullIndex].isSelected = false
-        sortApps()
+        
+        return apps[idx]
     }
     
-    func toggleAppSelection(at idx: Int) {
+    @discardableResult
+    func toggleAppSelection(at idx: Int) -> SelectableAppInfo? {
         if apps[idx].isSelected {
-            deselectApp(at: idx)
-            return
+            return deselectApp(at: idx)
         }
         
-        selectApp(at: idx)
+        return selectApp(at: idx)
     }
     
     private func sortApps() {
