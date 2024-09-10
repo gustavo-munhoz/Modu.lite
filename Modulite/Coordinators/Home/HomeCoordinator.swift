@@ -7,12 +7,6 @@
 
 import UIKit
 
-protocol HomeNavigationFlowDelegate: AnyObject {
-    func navigateToWidgetSetup(forWidgetId id: UUID?)
-    func navigateToWidgetEditor(withBuilder builder: WidgetConfigurationBuilder)
-    func widgetSetupViewControllerDidPressSearchApps(_ viewController: WidgetSetupViewController)
-}
-
 /// A `Coordinator` that manages the presentation of the home screen in the application.
 class HomeCoordinator: Coordinator {
     /// Child coordinators managed by this coordinator.
@@ -37,32 +31,9 @@ class HomeCoordinator: Coordinator {
     }
 }
 
-extension HomeCoordinator: HomeNavigationFlowDelegate {
-    func navigateToWidgetSetup(forWidgetId id: UUID? = nil) {
-        // FIXME: Identify widget and set/create data for it
-        let viewController = WidgetSetupViewController.instantiate(widgetId: id ?? UUID(), delegate: self)
-        viewController.hidesBottomBarWhenPushed = true
-        
-        router.present(viewController, animated: true) {
-            // TODO: Save widget if already exists?
-        }
-    }
-    
-    func navigateToWidgetEditor(withBuilder builder: WidgetConfigurationBuilder) {
-        
-        let viewController = WidgetEditorViewController.instantiate(
-            builder: builder,
-            delegate: self
-        )
-        
-        router.present(viewController, animated: true) {
-            
-        }
-    }
-    
-    func widgetSetupViewControllerDidPressSearchApps(_ viewController: WidgetSetupViewController) {
-        let router = ModalNavigationRouter(parentViewController: viewController)
-        let coordinator = SelectAppsCoordinator(router: router)
+extension HomeCoordinator: HomeViewControllerDelegate {
+    func startWidgetCreationNavigationFlow() {
+        let coordinator = WidgetBuilderCoordinator(router: router)
         presentChild(coordinator, animated: true)
     }
 }
