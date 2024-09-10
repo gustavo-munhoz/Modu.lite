@@ -11,35 +11,36 @@ class WidgetConfigurationBuilder {
     
     private var configuration: ModuliteWidgetConfiguration
     
-    init(style: WidgetStyle, apps: [AppInfo?]) {
-        var modules: [ModuleConfiguration] = []
-        
-        for (idx, app) in apps.enumerated() {
-            guard let app = app else {
-                modules.append(
-                    ModuleConfiguration.empty(style: style, at: idx)
-                )
-                continue
-            }
-            
-            modules.append(
-                ModuleConfiguration(
-                    index: idx,
-                    appName: app.name,
-                    associatedURLScheme: app.urlScheme,
-                    selectedStyle: style.getRandomStyle(),
-                    selectedColor: nil
-                )
-            )
-        }
-        
-        configuration = ModuliteWidgetConfiguration(
-            style: style,
-            modules: modules
-        )
+    private var style: WidgetStyle!
+    private var apps: [AppInfo] = []
+    
+    init() {
+        configuration = ModuliteWidgetConfiguration()
     }
     
     // MARK: - Setters
+        
+    func setWidgetStyle(_ style: WidgetStyle) {
+        self.style = style
+    }
+    
+    func addSelectedApp(for app: AppInfo) {
+        guard apps.count < 6 else {
+            print("Tried to select more than 6 apps.")
+            return
+        }
+        
+        apps.append(app)
+    }
+    
+    func removeSelectedApp(for app: AppInfo) {
+        guard let index = apps.firstIndex(of: app) else {
+            print("Tried to remove an app that is not selected.")
+            return
+        }
+        
+        apps.remove(at: index)
+    }
     
     func setModuleStyle(at index: Int, style: ModuleStyle) {
         assert(index >= 0 && index < configuration.modules.count, "Tried to insert module at an invalid index.")
@@ -83,6 +84,10 @@ class WidgetConfigurationBuilder {
     
     // MARK: - Getters
     
+    func getCurrentApps() -> [AppInfo] {
+        apps
+    }
+    
     func getModule(at index: Int) -> ModuleConfiguration? {
         guard index >= 0, index < configuration.modules.count else { return nil }
         return configuration.modules[index]
@@ -117,6 +122,40 @@ class WidgetConfigurationBuilder {
     
     // MARK: - Build
     func build() -> ModuliteWidgetConfiguration {
-        configuration
+        var finalApps: [AppInfo?] = []
+        var modules: [ModuleConfiguration] = []
+        
+        for i in 0..<6 {
+            if i >= apps.count {
+                finalApps.append(nil)
+                continue
+            }
+            
+            finalApps.append(apps[i])
+        }
+        
+        for (idx, app) in finalApps.enumerated() {
+            guard let app = app else {
+                modules.append(
+                    ModuleConfiguration.empty(style: style, at: idx)
+                )
+                continue
+            }
+            
+            modules.append(
+                ModuleConfiguration(
+                    index: idx,
+                    appName: app.name,
+                    associatedURLScheme: app.urlScheme,
+                    selectedStyle: style.getRandomStyle(),
+                    selectedColor: nil
+                )
+            )
+        }
+        
+        return ModuliteWidgetConfiguration(
+            style: style,
+            modules: modules
+        )
     }
 }

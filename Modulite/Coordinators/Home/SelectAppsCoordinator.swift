@@ -12,12 +12,21 @@ class SelectAppsCoordinator: Coordinator {
     
     var router: Router
     
-    init(router: Router) {
+    unowned let selectAppsViewControllerDelegate: SelectAppsViewControllerDelegate
+    let selectedApps: [AppInfo]
+    
+    init(delegate: SelectAppsViewControllerDelegate, selectedApps: [AppInfo], router: Router) {
+        selectAppsViewControllerDelegate = delegate
         self.router = router
+        self.selectedApps = selectedApps
     }
     
     func present(animated: Bool, onDismiss: (() -> Void)?) {
-        let viewController = SelectAppsViewController()
+        let viewController = SelectAppsViewController.instantiate(
+            with: selectAppsViewControllerDelegate,
+            selectedApps: selectedApps
+        )
+        
         router.present(viewController, animated: animated, onDismiss: onDismiss)
     }
 }

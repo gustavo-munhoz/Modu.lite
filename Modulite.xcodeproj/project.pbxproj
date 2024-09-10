@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AFABBD7C2C80F2E0007BEFD8 /* UsageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFABBD7B2C80F2E0007BEFD8 /* UsageView.swift */; };
+		AFABBD982C8A359E007BEFD8 /* BlockAppsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFABBD972C8A359E007BEFD8 /* BlockAppsView.swift */; };
+		AFABBD9B2C8A39F2007BEFD8 /* BlockAppsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFABBD9A2C8A39F2007BEFD8 /* BlockAppsCollectionViewCell.swift */; };
+		AFABBD9D2C8F7D5D007BEFD8 /* BlockAppsHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFABBD9C2C8F7D5D007BEFD8 /* BlockAppsHeaderView.swift */; };
 		AFBBC5032C7E459900A9B256 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AFBBC4EB2C7E457C00A9B256 /* WidgetKit.framework */; };
 		AFBBC5042C7E459900A9B256 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AFBBC4ED2C7E457C00A9B256 /* SwiftUI.framework */; };
 		AFBBC5072C7E459900A9B256 /* ModuliteWidgetBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFBBC5062C7E459900A9B256 /* ModuliteWidgetBundle.swift */; };
@@ -85,6 +89,7 @@
 		B350C0472C8B8B340035682F /* UILabel+Padded.swift in Sources */ = {isa = PBXBuildFile; fileRef = B350C0462C8B8B340035682F /* UILabel+Padded.swift */; };
 		B350C0492C8B8B680035682F /* UIEdgeInsets+Directions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B350C0482C8B8B680035682F /* UIEdgeInsets+Directions.swift */; };
 		B350C04B2C8B8C070035682F /* AppCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B350C04A2C8B8C070035682F /* AppCollectionViewCell.swift */; };
+		B350C05A2C8F92C90035682F /* WidgetBuilderCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B350C0592C8F92C90035682F /* WidgetBuilderCoordinator.swift */; };
 		B36927982C66B6E30089F769 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B36927972C66B6E30089F769 /* AppDelegate.swift */; };
 		B369279A2C66B6E30089F769 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B36927992C66B6E30089F769 /* SceneDelegate.swift */; };
 		B369279C2C66B6E30089F769 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B369279B2C66B6E30089F769 /* HomeViewController.swift */; };
@@ -163,6 +168,18 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		AFABBD7B2C80F2E0007BEFD8 /* UsageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsageView.swift; sourceTree = "<group>"; };
+		AFABBD7E2C863036007BEFD8 /* ModuliteWidgetExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ModuliteWidgetExtension.entitlements; sourceTree = "<group>"; };
+		AFABBD872C88E388007BEFD8 /* DeviceActivity.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DeviceActivity.framework; path = System/Library/Frameworks/DeviceActivity.framework; sourceTree = SDKROOT; };
+		AFABBD972C8A359E007BEFD8 /* BlockAppsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockAppsView.swift; sourceTree = "<group>"; };
+		AFABBD9A2C8A39F2007BEFD8 /* BlockAppsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockAppsCollectionViewCell.swift; sourceTree = "<group>"; };
+		AFABBD9C2C8F7D5D007BEFD8 /* BlockAppsHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockAppsHeaderView.swift; sourceTree = "<group>"; };
+		AFABBD7D2C863018007BEFD8 /* Modulite.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Modulite.entitlements; sourceTree = "<group>"; };
+		AFABBD7E2C863036007BEFD8 /* ModuliteWidgetExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ModuliteWidgetExtension.entitlements; sourceTree = "<group>"; };
+		AFABBD872C88E388007BEFD8 /* DeviceActivity.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DeviceActivity.framework; path = System/Library/Frameworks/DeviceActivity.framework; sourceTree = SDKROOT; };
+		AFABBD972C8A359E007BEFD8 /* BlockAppsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockAppsView.swift; sourceTree = "<group>"; };
+		AFABBD9A2C8A39F2007BEFD8 /* BlockAppsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockAppsCollectionViewCell.swift; sourceTree = "<group>"; };
+		AFABBD9C2C8F7D5D007BEFD8 /* BlockAppsHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockAppsHeaderView.swift; sourceTree = "<group>"; };
 		AFBBC4EB2C7E457C00A9B256 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
 		AFBBC4ED2C7E457C00A9B256 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
 		AFBBC5022C7E459900A9B256 /* ModuliteWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = ModuliteWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -226,6 +243,7 @@
 		B350C0462C8B8B340035682F /* UILabel+Padded.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Padded.swift"; sourceTree = "<group>"; };
 		B350C0482C8B8B680035682F /* UIEdgeInsets+Directions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIEdgeInsets+Directions.swift"; sourceTree = "<group>"; };
 		B350C04A2C8B8C070035682F /* AppCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCollectionViewCell.swift; sourceTree = "<group>"; };
+		B350C0592C8F92C90035682F /* WidgetBuilderCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetBuilderCoordinator.swift; sourceTree = "<group>"; };
 		B36927942C66B6E30089F769 /* Modulite.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Modulite.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B36927972C66B6E30089F769 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B36927992C66B6E30089F769 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -295,6 +313,62 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		AFABBD782C80F295007BEFD8 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		AFABBD792C80F2CC007BEFD8 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				B34F3E062C6A93B30041D7BD /* UsageViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		AFABBD7A2C80F2D4007BEFD8 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				AFABBD7B2C80F2E0007BEFD8 /* UsageView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		AFABBD942C8A357D007BEFD8 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		AFABBD952C8A3587007BEFD8 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				B34F3E022C6A93A30041D7BD /* BlockAppsViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		AFABBD962C8A358D007BEFD8 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				AFABBD972C8A359E007BEFD8 /* BlockAppsView.swift */,
+				AFABBD992C8A39D2007BEFD8 /* CollectionViewCells */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		AFABBD992C8A39D2007BEFD8 /* CollectionViewCells */ = {
+			isa = PBXGroup;
+			children = (
+				AFABBD9A2C8A39F2007BEFD8 /* BlockAppsCollectionViewCell.swift */,
+				AFABBD9C2C8F7D5D007BEFD8 /* BlockAppsHeaderView.swift */,
+			);
+			path = CollectionViewCells;
+			sourceTree = "<group>";
+		};
 		AFBBC5052C7E459900A9B256 /* ModuliteWidget */ = {
 			isa = PBXGroup;
 			children = (
@@ -401,7 +475,9 @@
 		B34F3DFF2C6A936C0041D7BD /* Usage */ = {
 			isa = PBXGroup;
 			children = (
-				B34F3E062C6A93B30041D7BD /* UsageViewController.swift */,
+				AFABBD7A2C80F2D4007BEFD8 /* View */,
+				AFABBD792C80F2CC007BEFD8 /* Controller */,
+				AFABBD782C80F295007BEFD8 /* ViewModel */,
 			);
 			path = Usage;
 			sourceTree = "<group>";
@@ -409,7 +485,9 @@
 		B34F3E002C6A93700041D7BD /* BlockApps */ = {
 			isa = PBXGroup;
 			children = (
-				B34F3E022C6A93A30041D7BD /* BlockAppsViewController.swift */,
+				AFABBD962C8A358D007BEFD8 /* View */,
+				AFABBD952C8A3587007BEFD8 /* Controller */,
+				AFABBD942C8A357D007BEFD8 /* ViewModel */,
 			);
 			path = BlockApps;
 			sourceTree = "<group>";
@@ -585,9 +663,18 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		B350C0582C8F92B70035682F /* WidgetBuilder */ = {
+			isa = PBXGroup;
+			children = (
+				B350C0592C8F92C90035682F /* WidgetBuilderCoordinator.swift */,
+			);
+			path = WidgetBuilder;
+			sourceTree = "<group>";
+		};
 		B369278B2C66B6E30089F769 = {
 			isa = PBXGroup;
 			children = (
+				AFABBD7E2C863036007BEFD8 /* ModuliteWidgetExtension.entitlements */,
 				B36927962C66B6E30089F769 /* Modulite */,
 				AFBBC5052C7E459900A9B256 /* ModuliteWidget */,
 				B36927AD2C66B6E40089F769 /* ModuliteTests */,
@@ -660,6 +747,7 @@
 		B36927C82C66B8330089F769 /* Coordinators */ = {
 			isa = PBXGroup;
 			children = (
+				B350C0582C8F92B70035682F /* WidgetBuilder */,
 				B32B61072C8A4406007DDCE3 /* Home */,
 				B36927CE2C66B8A30089F769 /* Coordinator.swift */,
 				B34F3E082C6A96A20041D7BD /* RootTabCoordinator.swift */,
@@ -783,6 +871,7 @@
 			children = (
 				AFBBC4EB2C7E457C00A9B256 /* WidgetKit.framework */,
 				AFBBC4ED2C7E457C00A9B256 /* SwiftUI.framework */,
+				AFABBD872C88E388007BEFD8 /* DeviceActivity.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -1042,6 +1131,7 @@
 				B32B60F02C876F4A007DDCE3 /* FileManagerImagePersistenceController.swift in Sources */,
 				B3EB15B92C7E4CD6003B1960 /* ModuleAppNameTextConfiguration.swift in Sources */,
 				B3EB15B62C7E4BF0003B1960 /* ModuleConfiguration.swift in Sources */,
+				AFABBD982C8A359E007BEFD8 /* BlockAppsView.swift in Sources */,
 				B36927D32C66BBC10089F769 /* SceneDelegateRouter.swift in Sources */,
 				B32B61062C8A4140007DDCE3 /* ModalNavigationRouter.swift in Sources */,
 				B3C187822C79009B00A891A8 /* WidgetConfigurationBuilder.swift in Sources */,
@@ -1064,6 +1154,7 @@
 				B32B60CA2C8657EC007DDCE3 /* AppInfoData.swift in Sources */,
 				B32B610E2C8A4517007DDCE3 /* SelectAppsCoordinator.swift in Sources */,
 				B32B610A2C8A4485007DDCE3 /* SelectAppsView.swift in Sources */,
+				AFABBD7C2C80F2E0007BEFD8 /* UsageView.swift in Sources */,
 				B34F3E032C6A93A30041D7BD /* BlockAppsViewController.swift in Sources */,
 				B34F3E402C74E3270041D7BD /* WidgetModuleCell.swift in Sources */,
 				B34F3E1C2C6BD3DA0041D7BD /* HomeViewModel.swift in Sources */,
@@ -1079,13 +1170,16 @@
 				B34F3E162C6B93EA0041D7BD /* AuxiliaryWidgetCollectionViewCell.swift in Sources */,
 				B34F3E332C6E8AA60041D7BD /* UITextField+HorizontalPadding.swift in Sources */,
 				B32B610C2C8A449C007DDCE3 /* SelectAppsViewController.swift in Sources */,
+				B350C05A2C8F92C90035682F /* WidgetBuilderCoordinator.swift in Sources */,
 				B34F3E372C6FDEAA0041D7BD /* SelectedAppCollectionViewCell.swift in Sources */,
 				B3CDD7012C766F2E00E558F8 /* ModuleStyleCell.swift in Sources */,
 				B34F3E072C6A93B30041D7BD /* UsageViewController.swift in Sources */,
 				B34F3E222C6D36390041D7BD /* WidgetEditorViewController.swift in Sources */,
 				B34F3E312C6E87A50041D7BD /* StyleCollectionViewCell.swift in Sources */,
 				B3F054362C7CF6CB0057F04D /* AppInfo+CoreDataClass.swift in Sources */,
+				AFABBD9B2C8A39F2007BEFD8 /* BlockAppsCollectionViewCell.swift in Sources */,
 				B34F3DF52C6701870041D7BD /* String+LocalizedKey.swift in Sources */,
+				AFABBD9D2C8F7D5D007BEFD8 /* BlockAppsHeaderView.swift in Sources */,
 				B34F3E282C6D36D40041D7BD /* WidgetSetupViewController.swift in Sources */,
 				B32B60BC2C86492C007DDCE3 /* UIColorValueTransformer.swift in Sources */,
 				B34F3E262C6D36C20041D7BD /* WidgetSetupView.swift in Sources */,
@@ -1149,10 +1243,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = ModuliteWidgetExtension.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 0.1;
-				DEVELOPMENT_TEAM = 7U55BCTM6U;
+				DEVELOPMENT_TEAM = L2AH2M48T4;
 				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = ModuliteWidget/Info.plist;
@@ -1179,10 +1274,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = ModuliteWidgetExtension.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 0.1;
-				DEVELOPMENT_TEAM = 7U55BCTM6U;
+				DEVELOPMENT_TEAM = L2AH2M48T4;
 				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = ModuliteWidget/Info.plist;
@@ -1333,7 +1429,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 0.1;
-				DEVELOPMENT_TEAM = 7U55BCTM6U;
+				DEVELOPMENT_TEAM = L2AH2M48T4;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Modulite/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Modu.lite;
@@ -1366,7 +1462,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 0.1;
-				DEVELOPMENT_TEAM = 7U55BCTM6U;
+				DEVELOPMENT_TEAM = L2AH2M48T4;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Modulite/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Modu.lite;
@@ -1396,7 +1492,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 7U55BCTM6U;
+				DEVELOPMENT_TEAM = L2AH2M48T4;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
 				MARKETING_VERSION = 1.0;
@@ -1416,7 +1512,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 7U55BCTM6U;
+				DEVELOPMENT_TEAM = L2AH2M48T4;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
 				MARKETING_VERSION = 1.0;
@@ -1435,7 +1531,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 7U55BCTM6U;
+				DEVELOPMENT_TEAM = L2AH2M48T4;
 				GENERATE_INFOPLIST_FILE = YES;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = dev.mnhz.ModuliteUITests;
@@ -1454,7 +1550,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 7U55BCTM6U;
+				DEVELOPMENT_TEAM = L2AH2M48T4;
 				GENERATE_INFOPLIST_FILE = YES;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = dev.mnhz.ModuliteUITests;
@@ -1548,7 +1644,6 @@
 				B32B60C12C864BB2007DDCE3 /* WidgetData.xcdatamodel */,
 			);
 			currentVersion = B32B60C12C864BB2007DDCE3 /* WidgetData.xcdatamodel */;
-			name = WidgetData.xcdatamodeld;
 			path = WidgetData.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;

@@ -11,18 +11,22 @@ import UIKit
 
 class ModuliteWidgetConfiguration {
     var name: String?
-    let widgetStyle: WidgetStyle
-    var modules: [ModuleConfiguration]
+    var widgetStyle: WidgetStyle?
+    var modules: [ModuleConfiguration] = []
     
     var resultingImage: UIImage?
     
     var availableStyles: [ModuleStyle] {
-        widgetStyle.styles
+        guard let widgetStyle = widgetStyle else { return [] }
+        return widgetStyle.styles
     }
     
     var availableColors: [UIColor] {
-        widgetStyle.colors
+        guard let widgetStyle = widgetStyle else { return [] }
+        return widgetStyle.colors
     }
+    
+    init() { }
     
     init(
         style: WidgetStyle,

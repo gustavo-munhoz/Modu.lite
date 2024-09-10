@@ -10,18 +10,18 @@ import Combine
 
 class WidgetEditorViewModel: NSObject {
         
-    private(set) weak var delegate: HomeNavigationFlowDelegate?
+//    private(set) weak var delegate: HomeNavigationFlowDelegate?
     
     @Published private(set) var selectedCellIndex: Int?
     
     let builder: WidgetConfigurationBuilder
     
     init(
-        widgetBuider: WidgetConfigurationBuilder,
-        delegate: HomeNavigationFlowDelegate
+        widgetBuider: WidgetConfigurationBuilder
+//        delegate: HomeNavigationFlowDelegate
     ) {
         builder = widgetBuider
-        self.delegate = delegate
+//        self.delegate = delegate
         super.init()
     }
     

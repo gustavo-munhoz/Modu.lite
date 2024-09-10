@@ -7,13 +7,17 @@
 
 import UIKit
 
+protocol HomeViewControllerDelegate: AnyObject {
+    func startWidgetCreationNavigationFlow()
+}
+
 class HomeViewController: UIViewController {
 
     // MARK: - Properties
     private let homeView = HomeView()
     private let viewModel = HomeViewModel()
     
-    weak var delegate: HomeNavigationFlowDelegate?
+    weak var delegate: HomeViewControllerDelegate?
     
     // MARK: - Lifecycle
     override func loadView() {
@@ -52,7 +56,7 @@ class HomeViewController: UIViewController {
 }
 
 extension HomeViewController {
-    class func instantiate(delegate: HomeNavigationFlowDelegate) -> HomeViewController {
+    class func instantiate(delegate: HomeViewControllerDelegate) -> HomeViewController {
         let homeVC = HomeViewController()
         homeVC.delegate = delegate
         return homeVC
@@ -140,7 +144,7 @@ extension HomeViewController: UICollectionViewDataSource {
                 buttonImage: UIImage(systemName: "plus.circle")!,
                 buttonAction: { [weak self] in
                     guard let self = self else { return }
-                    self.delegate?.navigateToWidgetSetup(forWidgetId: nil)
+                    self.delegate?.startWidgetCreationNavigationFlow()
                 }
             )
             
@@ -151,7 +155,7 @@ extension HomeViewController: UICollectionViewDataSource {
                 buttonAction: { [weak self] in
                     guard let self = self else { return }
                     let id = self.viewModel.mainWidgets[indexPath.row]
-                    self.delegate?.navigateToWidgetSetup(forWidgetId: nil)
+                    self.delegate?.startWidgetCreationNavigationFlow()
                 }
             )
             

@@ -7,13 +7,26 @@
 
 import UIKit
 
+protocol WidgetSetupViewControllerDelegate: AnyObject {
+//    func navigateToWidgetEditor()
+    
+    func widgetSetupViewControllerDidTapSearchApps(
+        _ parentController: WidgetSetupViewController
+    )
+    
+    func widgetSetupViewControllerDidSelectWidgetStyle(
+        _ controller: WidgetSetupViewController,
+        style: WidgetStyle
+    )
+}
+
 class WidgetSetupViewController: UIViewController {
     
     // MARK: - Properties
     private let setupView = WidgetSetupView()
     private var viewModel = WidgetSetupViewModel()
     
-    weak var delegate: HomeNavigationFlowDelegate?
+    weak var delegate: WidgetSetupViewControllerDelegate?
     
     // MARK: - Lifecycle
     override func loadView() {
@@ -40,13 +53,31 @@ class WidgetSetupViewController: UIViewController {
     }
     
     // MARK: - Actions
+    func didFinishSelectingApps(apps: [AppInfo]) {
+        apps.forEach { app in
+            if viewModel.selectedApps.contains(app) { return }
+            
+            viewModel.addSelectedApp(app)
+        }
+        setupView.selectedAppsCollectionView.reloadData()
+    }
+    
     func proceedToWidgetEditor() {
-        let builder = viewModel.createWidgetBuilder()
-        delegate?.navigateToWidgetEditor(withBuilder: builder)
+//        delegate?.navigateToWidgetEditor(withBuilder: builder)
     }
     
     func presentSearchModal() {
-        delegate?.widgetSetupViewControllerDidPressSearchApps(self)
+        delegate?.widgetSetupViewControllerDidTapSearchApps(self)
+    }
+}
+
+extension WidgetSetupViewController {
+    class func instantiate(widgetId: UUID, delegate: WidgetSetupViewControllerDelegate) -> WidgetSetupViewController {
+        let vc = WidgetSetupViewController()
+        vc.delegate = delegate
+        vc.viewModel.setWidgetId(to: widgetId)
+        
+        return vc
     }
 }
 
@@ -136,22 +167,16 @@ extension WidgetSetupViewController: UICollectionViewDataSource {
     }
 }
 
-extension WidgetSetupViewController {
-    class func instantiate(widgetId: UUID, delegate: HomeNavigationFlowDelegate) -> WidgetSetupViewController {
-        let vc = WidgetSetupViewController()
-        vc.delegate = delegate
-        vc.viewModel.setWidgetId(to: widgetId)
-        
-        return vc
-    }
-}
-
 // MARK: - UICollectionViewDelegate
 extension WidgetSetupViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         switch collectionView {
         case setupView.stylesCollectionView:
-            viewModel.selectStyle(at: indexPath.row)
+            guard let style = viewModel.selectStyle(at: indexPath.row) else {
+                print("Select style returned nil.")
+                return
+            }
+            delegate?.widgetSetupViewControllerDidSelectWidgetStyle(self, style: style)
             
         case setupView.selectedAppsCollectionView:
             return

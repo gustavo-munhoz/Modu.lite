@@ -116,6 +116,18 @@ extension String {
         case widgetEditorViewWidgetModuleStyleTitle
         case widgetEditorViewWidgetWallpaperTitle
         
+        // MARK: - UsageView & UsageViewController
+        case usageViewYouHaveSpent
+        case usageViewOnPhone
+        case usageViewControllerNavigationTitle
+        case usageViewComparisonOverview
+        case usageDailyAvarageYesterday
+        case usageDailyAvarageLastWeek 
+        case usageHowSpentYourTime
+        
+        // MARK: - BloackAppsView & BlockAppsViewController
+        case blockAppsViewBlockingSession(number: Int)
+        
         // MARK: - Widget Styles
         case widgetStyleNameAnalog
     }

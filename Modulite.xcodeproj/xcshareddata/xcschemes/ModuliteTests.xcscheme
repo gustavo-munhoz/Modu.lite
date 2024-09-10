@@ -6,22 +6,6 @@
       parallelizeBuildables = "YES"
       buildImplicitDependencies = "YES"
       buildArchitectures = "Automatic">
-      <BuildActionEntries>
-         <BuildActionEntry
-            buildForTesting = "YES"
-            buildForRunning = "YES"
-            buildForProfiling = "YES"
-            buildForArchiving = "YES"
-            buildForAnalyzing = "YES">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "B36927932C66B6E30089F769"
-               BuildableName = "Modulite.app"
-               BlueprintName = "Modulite"
-               ReferencedContainer = "container:Modulite.xcodeproj">
-            </BuildableReference>
-         </BuildActionEntry>
-      </BuildActionEntries>
    </BuildAction>
    <TestAction
       buildConfiguration = "Debug"
@@ -35,9 +19,9 @@
             parallelizable = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "B36927B32C66B6E40089F769"
-               BuildableName = "ModuliteUITests.xctest"
-               BlueprintName = "ModuliteUITests"
+               BlueprintIdentifier = "B36927A92C66B6E40089F769"
+               BuildableName = "ModuliteTests.xctest"
+               BlueprintName = "ModuliteTests"
                ReferencedContainer = "container:Modulite.xcodeproj">
             </BuildableReference>
          </TestableReference>
@@ -53,16 +37,6 @@
       debugDocumentVersioning = "YES"
       debugServiceExtension = "internal"
       allowLocationSimulation = "YES">
-      <BuildableProductRunnable
-         runnableDebuggingMode = "0">
-         <BuildableReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "B36927932C66B6E30089F769"
-            BuildableName = "Modulite.app"
-            BlueprintName = "Modulite"
-            ReferencedContainer = "container:Modulite.xcodeproj">
-         </BuildableReference>
-      </BuildableProductRunnable>
    </LaunchAction>
    <ProfileAction
       buildConfiguration = "Release"
@@ -70,16 +44,6 @@
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
       debugDocumentVersioning = "YES">
-      <BuildableProductRunnable
-         runnableDebuggingMode = "0">
-         <BuildableReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "B36927932C66B6E30089F769"
-            BuildableName = "Modulite.app"
-            BlueprintName = "Modulite"
-            ReferencedContainer = "container:Modulite.xcodeproj">
-         </BuildableReference>
-      </BuildableProductRunnable>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">
