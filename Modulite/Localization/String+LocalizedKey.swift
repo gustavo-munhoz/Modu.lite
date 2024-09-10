@@ -125,6 +125,9 @@ extension String {
         case usageDailyAvarageLastWeek 
         case usageHowSpentYourTime
         
+        // MARK: - BloackAppsView & BlockAppsViewController
+        case blockAppsViewBlockingSession(number: Int)
+        
         // MARK: - Widget Styles
         case widgetStyleNameAnalog
     }

@@ -52,6 +52,7 @@ class UsageView: UIView {
     }()
     
     private(set) lazy var dailyAvarageYesterdayLabel: DailyAverageStackView = {
+        // TODO: Make text recive data from model
         let view = DailyAverageStackView(
             titleText: .localized(for: .usageDailyAvarageYesterday),
             timeText: "3h 40min",
@@ -61,6 +62,7 @@ class UsageView: UIView {
     }()
     
     private(set) lazy var dailyAvarageLastWeek: DailyAverageStackView = {
+        // TODO: Make text recive data from model
         let view = DailyAverageStackView(
             titleText: .localized(for: .usageDailyAvarageLastWeek),
             timeText: "1h 20min",

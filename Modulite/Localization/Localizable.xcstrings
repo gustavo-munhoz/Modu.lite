@@ -1,6 +1,17 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
+    "blockAppsViewBlockingSession" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Blocking session #%d"
+          }
+        }
+      }
+    },
     "blockAppsViewControllerTabBarItemTitle" : {
       "extractionState" : "manual",
       "localizations" : {

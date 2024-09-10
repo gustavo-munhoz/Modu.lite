@@ -29,7 +29,7 @@ struct Provider: TimelineProvider {
     }
     
     private func fetchButtonsFromData() -> [WidgetButtonView] {
-        // TODO: Make this function recive Data from CoreDate
+        // TODO: Make this function recive Data from CoreData
         return [
             WidgetButtonView(image: .analogKnob, url: "spotify://"),
             WidgetButtonView(image: .analogRegular, url: "google://"),

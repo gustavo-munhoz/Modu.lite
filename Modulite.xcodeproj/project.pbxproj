@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		AFABBD7C2C80F2E0007BEFD8 /* UsageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFABBD7B2C80F2E0007BEFD8 /* UsageView.swift */; };
+		AFABBD982C8A359E007BEFD8 /* BlockAppsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFABBD972C8A359E007BEFD8 /* BlockAppsView.swift */; };
+		AFABBD9B2C8A39F2007BEFD8 /* BlockAppsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFABBD9A2C8A39F2007BEFD8 /* BlockAppsCollectionViewCell.swift */; };
+		AFABBD9D2C8F7D5D007BEFD8 /* BlockAppsHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFABBD9C2C8F7D5D007BEFD8 /* BlockAppsHeaderView.swift */; };
 		AFBBC5032C7E459900A9B256 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AFBBC4EB2C7E457C00A9B256 /* WidgetKit.framework */; };
 		AFBBC5042C7E459900A9B256 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AFBBC4ED2C7E457C00A9B256 /* SwiftUI.framework */; };
 		AFBBC5072C7E459900A9B256 /* ModuliteWidgetBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFBBC5062C7E459900A9B256 /* ModuliteWidgetBundle.swift */; };
@@ -174,6 +177,9 @@
 		AFABBD7D2C863018007BEFD8 /* Modulite.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Modulite.entitlements; sourceTree = "<group>"; };
 		AFABBD7E2C863036007BEFD8 /* ModuliteWidgetExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ModuliteWidgetExtension.entitlements; sourceTree = "<group>"; };
 		AFABBD872C88E388007BEFD8 /* DeviceActivity.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DeviceActivity.framework; path = System/Library/Frameworks/DeviceActivity.framework; sourceTree = SDKROOT; };
+		AFABBD972C8A359E007BEFD8 /* BlockAppsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockAppsView.swift; sourceTree = "<group>"; };
+		AFABBD9A2C8A39F2007BEFD8 /* BlockAppsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockAppsCollectionViewCell.swift; sourceTree = "<group>"; };
+		AFABBD9C2C8F7D5D007BEFD8 /* BlockAppsHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockAppsHeaderView.swift; sourceTree = "<group>"; };
 		AFBBC4EB2C7E457C00A9B256 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
 		AFBBC4ED2C7E457C00A9B256 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
 		AFBBC5022C7E459900A9B256 /* ModuliteWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = ModuliteWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -330,6 +336,39 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		AFABBD942C8A357D007BEFD8 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		AFABBD952C8A3587007BEFD8 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				B34F3E022C6A93A30041D7BD /* BlockAppsViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		AFABBD962C8A358D007BEFD8 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				AFABBD972C8A359E007BEFD8 /* BlockAppsView.swift */,
+				AFABBD992C8A39D2007BEFD8 /* CollectionViewCells */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		AFABBD992C8A39D2007BEFD8 /* CollectionViewCells */ = {
+			isa = PBXGroup;
+			children = (
+				AFABBD9A2C8A39F2007BEFD8 /* BlockAppsCollectionViewCell.swift */,
+				AFABBD9C2C8F7D5D007BEFD8 /* BlockAppsHeaderView.swift */,
+			);
+			path = CollectionViewCells;
+			sourceTree = "<group>";
+		};
 		AFBBC5052C7E459900A9B256 /* ModuliteWidget */ = {
 			isa = PBXGroup;
 			children = (
@@ -446,7 +485,9 @@
 		B34F3E002C6A93700041D7BD /* BlockApps */ = {
 			isa = PBXGroup;
 			children = (
-				B34F3E022C6A93A30041D7BD /* BlockAppsViewController.swift */,
+				AFABBD962C8A358D007BEFD8 /* View */,
+				AFABBD952C8A3587007BEFD8 /* Controller */,
+				AFABBD942C8A357D007BEFD8 /* ViewModel */,
 			);
 			path = BlockApps;
 			sourceTree = "<group>";
@@ -1090,6 +1131,7 @@
 				B32B60F02C876F4A007DDCE3 /* FileManagerImagePersistenceController.swift in Sources */,
 				B3EB15B92C7E4CD6003B1960 /* ModuleAppNameTextConfiguration.swift in Sources */,
 				B3EB15B62C7E4BF0003B1960 /* ModuleConfiguration.swift in Sources */,
+				AFABBD982C8A359E007BEFD8 /* BlockAppsView.swift in Sources */,
 				B36927D32C66BBC10089F769 /* SceneDelegateRouter.swift in Sources */,
 				B32B61062C8A4140007DDCE3 /* ModalNavigationRouter.swift in Sources */,
 				B3C187822C79009B00A891A8 /* WidgetConfigurationBuilder.swift in Sources */,
@@ -1135,7 +1177,9 @@
 				B34F3E222C6D36390041D7BD /* WidgetEditorViewController.swift in Sources */,
 				B34F3E312C6E87A50041D7BD /* StyleCollectionViewCell.swift in Sources */,
 				B3F054362C7CF6CB0057F04D /* AppInfo+CoreDataClass.swift in Sources */,
+				AFABBD9B2C8A39F2007BEFD8 /* BlockAppsCollectionViewCell.swift in Sources */,
 				B34F3DF52C6701870041D7BD /* String+LocalizedKey.swift in Sources */,
+				AFABBD9D2C8F7D5D007BEFD8 /* BlockAppsHeaderView.swift in Sources */,
 				B34F3E282C6D36D40041D7BD /* WidgetSetupViewController.swift in Sources */,
 				B32B60BC2C86492C007DDCE3 /* UIColorValueTransformer.swift in Sources */,
 				B34F3E262C6D36C20041D7BD /* WidgetSetupView.swift in Sources */,
