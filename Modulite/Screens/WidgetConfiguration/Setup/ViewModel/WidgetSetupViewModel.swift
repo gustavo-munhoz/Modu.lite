@@ -17,19 +17,8 @@ class WidgetSetupViewModel: NSObject {
         WidgetStyleFactory.styleForKey(.analog)
     ]
     
-    private var allApps: [AppInfo]!
-    
-    @Published private(set) var apps: [AppInfo] = []
-    
     @Published private(set) var selectedStyle: WidgetStyle?
     @Published private(set) var selectedApps: [AppInfo] = []
-            
-    override init() {
-        super.init()
-        allApps = CoreDataPersistenceController.shared.fetchApps()
-        apps = allApps
-        selectedApps.append(apps[0])
-    }
     
     // MARK: - Setters
     
@@ -39,32 +28,44 @@ class WidgetSetupViewModel: NSObject {
     
     // MARK: - Actions
     
-    func selectStyle(at index: Int) {
+    func addSelectedApp(_ app: AppInfo) {
+        guard selectedApps.count < 6 else {
+            print("Tried to add more than 6 apps.")
+            return
+        }
+        
+        selectedApps.append(app)
+    }
+    
+    func removeSelectedApp(_ app: AppInfo) {
+        guard let index = selectedApps.firstIndex(where: { $0.name == app.name }) else {
+            print("Tried to remove an app that is not selected")
+            return
+        }
+        
+        selectedApps.remove(at: index)
+    }
+    
+    @discardableResult
+    func selectStyle(at index: Int) -> WidgetStyle? {
         guard index >= 0, index < widgetStyles.count else {
             print("Tried selecting a style at an invalid index.")
-            return
+            return nil
         }
         
         guard selectedStyle != widgetStyles[index] else {
             print("Tried to select an already selected style.")
-            return
+            return nil
         }
         
         selectedStyle = widgetStyles[index]
+        return selectedStyle
     }
     
     func clearSelectedStyle() {
         selectedStyle = nil
     }
-    
-    func filterApps(for query: String) {
-        guard !query.isEmpty else {
-            apps = allApps
-            return
-        }
-        apps = allApps.filter { $0.name.lowercased().contains(query.lowercased()) }
-    }
-    
+        
     func createWidgetBuilder() -> WidgetConfigurationBuilder {
         guard let selectedStyle = selectedStyle else {
             fatalError("Tried to create a Builder without selecting a style.")
@@ -81,8 +82,8 @@ class WidgetSetupViewModel: NSObject {
         }
         
         let builder = WidgetConfigurationBuilder(
-            style: selectedStyle,
-            apps: finalAppList
+//            style: selectedStyle,
+//            apps: finalAppList
         )
         
         return builder
