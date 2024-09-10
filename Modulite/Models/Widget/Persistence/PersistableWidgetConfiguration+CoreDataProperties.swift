@@ -27,7 +27,12 @@ extension PersistableWidgetConfiguration {
         
         widget.id = UUID()
         widget.name = config.name
-        widget.widgetStyleKey = config.widgetStyle.key.rawValue
+        guard let widgetStyleKey = config.widgetStyle?.key else {
+            print("Unable to get widget style key. Aborting object creation.")
+            return
+        }
+        
+        widget.widgetStyleKey = widgetStyleKey.rawValue
         
         let widgetImageUrl = FileManagerImagePersistenceController.shared.saveWidget(
             image: widgetImage,
