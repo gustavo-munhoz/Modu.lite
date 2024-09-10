@@ -16,6 +16,7 @@ class ModalNavigationRouter: NSObject {
         self.parentViewController = parentViewController
         super.init()
         self.navigationController.delegate = self
+        self.navigationController.presentationController?.delegate = self
         self.navigationController.sheetPresentationController?.prefersGrabberVisible = true
     }
 }
@@ -48,7 +49,7 @@ extension ModalNavigationRouter: Router {
             title: .localized(for: .save),
             style: .plain,
             target: self,
-            action: #selector(closePressed)
+            action: #selector(savePressed)
         )
         viewController.navigationItem.rightBarButtonItem?.setTitleTextAttributes(
             [
@@ -63,7 +64,7 @@ extension ModalNavigationRouter: Router {
         )
     }
     
-    @objc private func closePressed() {
+    @objc private func savePressed() {
         performOnDismiss(for: navigationController.viewControllers.first!)
         parentViewController.dismiss(animated: true)
     }
@@ -86,5 +87,13 @@ extension ModalNavigationRouter: UINavigationControllerDelegate {
               !navigationController.viewControllers.contains(dismissedVC) else { return }
         
         performOnDismiss(for: dismissedVC)
+    }
+}
+
+extension ModalNavigationRouter: UIAdaptivePresentationControllerDelegate {
+    func presentationControllerWillDismiss(_ presentationController: UIPresentationController) {
+        if let topViewController = navigationController.topViewController {
+            performOnDismiss(for: topViewController)
+        }
     }
 }
