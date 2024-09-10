@@ -85,6 +85,7 @@
 		B350C0472C8B8B340035682F /* UILabel+Padded.swift in Sources */ = {isa = PBXBuildFile; fileRef = B350C0462C8B8B340035682F /* UILabel+Padded.swift */; };
 		B350C0492C8B8B680035682F /* UIEdgeInsets+Directions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B350C0482C8B8B680035682F /* UIEdgeInsets+Directions.swift */; };
 		B350C04B2C8B8C070035682F /* AppCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B350C04A2C8B8C070035682F /* AppCollectionViewCell.swift */; };
+		B350C05A2C8F92C90035682F /* WidgetBuilderCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B350C0592C8F92C90035682F /* WidgetBuilderCoordinator.swift */; };
 		B36927982C66B6E30089F769 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B36927972C66B6E30089F769 /* AppDelegate.swift */; };
 		B369279A2C66B6E30089F769 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B36927992C66B6E30089F769 /* SceneDelegate.swift */; };
 		B369279C2C66B6E30089F769 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B369279B2C66B6E30089F769 /* HomeViewController.swift */; };
@@ -226,6 +227,7 @@
 		B350C0462C8B8B340035682F /* UILabel+Padded.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Padded.swift"; sourceTree = "<group>"; };
 		B350C0482C8B8B680035682F /* UIEdgeInsets+Directions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIEdgeInsets+Directions.swift"; sourceTree = "<group>"; };
 		B350C04A2C8B8C070035682F /* AppCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCollectionViewCell.swift; sourceTree = "<group>"; };
+		B350C0592C8F92C90035682F /* WidgetBuilderCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetBuilderCoordinator.swift; sourceTree = "<group>"; };
 		B36927942C66B6E30089F769 /* Modulite.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Modulite.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B36927972C66B6E30089F769 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B36927992C66B6E30089F769 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -585,6 +587,14 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		B350C0582C8F92B70035682F /* WidgetBuilder */ = {
+			isa = PBXGroup;
+			children = (
+				B350C0592C8F92C90035682F /* WidgetBuilderCoordinator.swift */,
+			);
+			path = WidgetBuilder;
+			sourceTree = "<group>";
+		};
 		B369278B2C66B6E30089F769 = {
 			isa = PBXGroup;
 			children = (
@@ -660,6 +670,7 @@
 		B36927C82C66B8330089F769 /* Coordinators */ = {
 			isa = PBXGroup;
 			children = (
+				B350C0582C8F92B70035682F /* WidgetBuilder */,
 				B32B61072C8A4406007DDCE3 /* Home */,
 				B36927CE2C66B8A30089F769 /* Coordinator.swift */,
 				B34F3E082C6A96A20041D7BD /* RootTabCoordinator.swift */,
@@ -1079,6 +1090,7 @@
 				B34F3E162C6B93EA0041D7BD /* AuxiliaryWidgetCollectionViewCell.swift in Sources */,
 				B34F3E332C6E8AA60041D7BD /* UITextField+HorizontalPadding.swift in Sources */,
 				B32B610C2C8A449C007DDCE3 /* SelectAppsViewController.swift in Sources */,
+				B350C05A2C8F92C90035682F /* WidgetBuilderCoordinator.swift in Sources */,
 				B34F3E372C6FDEAA0041D7BD /* SelectedAppCollectionViewCell.swift in Sources */,
 				B3CDD7012C766F2E00E558F8 /* ModuleStyleCell.swift in Sources */,
 				B34F3E072C6A93B30041D7BD /* UsageViewController.swift in Sources */,
@@ -1548,7 +1560,6 @@
 				B32B60C12C864BB2007DDCE3 /* WidgetData.xcdatamodel */,
 			);
 			currentVersion = B32B60C12C864BB2007DDCE3 /* WidgetData.xcdatamodel */;
-			name = WidgetData.xcdatamodeld;
 			path = WidgetData.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
