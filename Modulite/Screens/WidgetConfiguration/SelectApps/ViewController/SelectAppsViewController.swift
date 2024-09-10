@@ -7,11 +7,25 @@
 
 import UIKit
 
+protocol SelectAppsViewControllerDelegate: AnyObject {
+    func selectAppsViewControllerDidSelectApp(
+        _ controller: SelectAppsViewController,
+        didSelect app: AppInfo
+    )
+    
+    func selectAppsViewControllerDidDeselectApp(
+        _ controller: SelectAppsViewController,
+        didDeselect app: AppInfo
+    )
+}
+
 class SelectAppsViewController: UIViewController {
     
     // MARK: - Properties
     private let selectAppsView = SelectAppsView()
     private let viewModel = SelectAppsViewModel()
+    
+    weak var delegate: SelectAppsViewControllerDelegate?
     
     // MARK: - Lifecycle
     
@@ -25,6 +39,22 @@ class SelectAppsViewController: UIViewController {
         selectAppsView.setCollectionViewDelegate(to: self)
         selectAppsView.setCollectionViewDataSource(to: self)
         selectAppsView.setSearchBarDelegate(to: self)
+    }
+}
+
+extension SelectAppsViewController {
+    class func instantiate(
+        with delegate: SelectAppsViewControllerDelegate,
+        selectedApps: [AppInfo] = []
+    ) -> SelectAppsViewController {
+        
+        let vc = SelectAppsViewController()
+        vc.delegate = delegate
+        selectedApps.forEach { vc.viewModel.selectApp($0) }
+        
+        vc.selectAppsView.updateAppCountText(to: selectedApps.count)
+        
+        return vc
     }
 }
 
@@ -48,7 +78,13 @@ extension SelectAppsViewController: UICollectionViewDelegate {
         _ collectionView: UICollectionView,
         didSelectItemAt indexPath: IndexPath
     ) {
-        updateAndAnimateCollectionView(collectionView, for: indexPath)
+        guard let app = updateAndAnimateCollectionView(collectionView, for: indexPath) else {
+            print("View model return nil from deselect app.")
+            return
+        }
+        
+        delegate?.selectAppsViewControllerDidSelectApp(self, didSelect: app)
+        
         selectAppsView.updateAppCountText(to: viewModel.getSelectedAppsCount())
         
         if viewModel.didReachMaxNumberOfApps() {
@@ -63,8 +99,14 @@ extension SelectAppsViewController: UICollectionViewDelegate {
         if viewModel.didReachMaxNumberOfApps() {
             setCellsInteractionEnabled(collectionView, to: true)
         }
+                
+        guard let app = updateAndAnimateCollectionView(collectionView, for: indexPath) else {
+            print("View model return nil from select app.")
+            return
+        }
         
-        updateAndAnimateCollectionView(collectionView, for: indexPath)
+        delegate?.selectAppsViewControllerDidDeselectApp(self, didDeselect: app)
+        
         selectAppsView.updateAppCountText(to: viewModel.getSelectedAppsCount())
     }
     
@@ -77,9 +119,14 @@ extension SelectAppsViewController: UICollectionViewDelegate {
         }
     }
     
-    private func updateAndAnimateCollectionView(_ collectionView: UICollectionView, for indexPath: IndexPath) {
+    @discardableResult
+    private func updateAndAnimateCollectionView(
+        _ collectionView: UICollectionView,
+        for indexPath: IndexPath
+    ) -> AppInfo? {
+        
         let oldData = viewModel.apps
-        viewModel.toggleAppSelection(at: indexPath.row)
+        let changedApp = viewModel.toggleAppSelection(at: indexPath.row)
         let newData = viewModel.apps
 
         let changes = calculateMoves(from: oldData, to: newData)
@@ -92,6 +139,8 @@ extension SelectAppsViewController: UICollectionViewDelegate {
                 )
             }
         })
+        
+        return changedApp?.data
     }
 
     private func calculateMoves(
@@ -109,7 +158,6 @@ extension SelectAppsViewController: UICollectionViewDelegate {
         }
         return moves
     }
-
 }
 
 // MARK: - UICollectionViewDataSource
