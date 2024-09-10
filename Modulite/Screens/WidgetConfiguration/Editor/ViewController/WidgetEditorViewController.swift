@@ -7,6 +7,10 @@
 
 import UIKit
 
+protocol WidgetEditorViewControllerDelegate: AnyObject {
+    
+}
+
 class WidgetEditorViewController: UIViewController {
     
     private let editorView = WidgetEditorView()
@@ -23,13 +27,13 @@ class WidgetEditorViewController: UIViewController {
 extension WidgetEditorViewController {
     class func instantiate(
         builder: WidgetConfigurationBuilder,
-        delegate: HomeNavigationFlowDelegate
+        delegate: WidgetEditorViewControllerDelegate
     ) -> WidgetEditorViewController {
         let vc = WidgetEditorViewController()
         
         vc.viewModel = WidgetEditorViewModel(
-            widgetBuider: builder,
-            delegate: delegate
+            widgetBuider: builder
+//            delegate: delegate
         )
         
         return vc
