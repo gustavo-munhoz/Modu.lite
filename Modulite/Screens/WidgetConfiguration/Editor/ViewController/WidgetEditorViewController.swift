@@ -31,10 +31,7 @@ extension WidgetEditorViewController {
     ) -> WidgetEditorViewController {
         let vc = WidgetEditorViewController()
         
-        vc.viewModel = WidgetEditorViewModel(
-            widgetBuider: builder
-//            delegate: delegate
-        )
+        vc.viewModel = WidgetEditorViewModel(widgetBuider: builder)
         
         return vc
     }

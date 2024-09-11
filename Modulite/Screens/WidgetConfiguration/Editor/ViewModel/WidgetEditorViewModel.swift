@@ -9,8 +9,6 @@ import UIKit
 import Combine
 
 class WidgetEditorViewModel: NSObject {
-        
-//    private(set) weak var delegate: HomeNavigationFlowDelegate?
     
     @Published private(set) var selectedCellIndex: Int?
     
@@ -18,10 +16,8 @@ class WidgetEditorViewModel: NSObject {
     
     init(
         widgetBuider: WidgetConfigurationBuilder
-//        delegate: HomeNavigationFlowDelegate
     ) {
         builder = widgetBuider
-//        self.delegate = delegate
         super.init()
     }
     

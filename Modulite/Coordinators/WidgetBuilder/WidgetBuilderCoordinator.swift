@@ -8,7 +8,13 @@
 import UIKit
 
 class WidgetBuilderCoordinator: Coordinator {
-    let builder = WidgetConfigurationBuilder()
+    
+    let contentBuilder = WidgetContentBuilder()
+    
+    var configurationBuilder: WidgetConfigurationBuilder {
+        let content = contentBuilder.build()
+        return WidgetConfigurationBuilder(content: content)
+    }
     
     var children: [Coordinator] = []
     
@@ -26,12 +32,22 @@ class WidgetBuilderCoordinator: Coordinator {
     }
 }
 
+// MARK: - WidgetSetupViewControllerDelegate
 extension WidgetBuilderCoordinator: WidgetSetupViewControllerDelegate {
+    func widgetSetupViewControllerDidPressNext() {
+        let viewController = WidgetEditorViewController.instantiate(
+            builder: configurationBuilder,
+            delegate: self
+        )
+        
+        router.present(viewController, animated: true)
+    }
+    
     func widgetSetupViewControllerDidSelectWidgetStyle(
         _ controller: WidgetSetupViewController,
         style: WidgetStyle
     ) {
-        builder.setWidgetStyle(style)
+        contentBuilder.setWidgetStyle(style)
     }
     
     func widgetSetupViewControllerDidTapSearchApps(
@@ -41,31 +57,37 @@ extension WidgetBuilderCoordinator: WidgetSetupViewControllerDelegate {
         
         let coordinator = SelectAppsCoordinator(
             delegate: self,
-            selectedApps: builder.getCurrentApps(),
+            selectedApps: contentBuilder.getCurrentApps(),
             router: router
         )
         
         presentChild(coordinator, animated: true) { [weak self] in
             guard let self = self else { return }
             parentController.didFinishSelectingApps(
-                apps: self.builder.getCurrentApps()
+                apps: self.contentBuilder.getCurrentApps()
             )
         }
     }
 }
 
+// MARK: - SelectAppsViewControllerDelegate
 extension WidgetBuilderCoordinator: SelectAppsViewControllerDelegate {
     func selectAppsViewControllerDidSelectApp(
         _ controller: SelectAppsViewController,
         didSelect app: AppInfo
     ) {
-        builder.addSelectedApp(for: app)
+        contentBuilder.appendApp(app)
     }
     
     func selectAppsViewControllerDidDeselectApp(
         _ controller: SelectAppsViewController,
         didDeselect app: AppInfo
     ) {
-        builder.removeSelectedApp(for: app)
+        contentBuilder.removeApp(app)
     }
+}
+
+// MARK: - WidgetEditorViewControllerDelegate
+extension WidgetBuilderCoordinator: WidgetEditorViewControllerDelegate {
+    
 }

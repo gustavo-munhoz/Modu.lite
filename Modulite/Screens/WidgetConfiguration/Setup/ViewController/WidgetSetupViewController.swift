@@ -8,7 +8,7 @@
 import UIKit
 
 protocol WidgetSetupViewControllerDelegate: AnyObject {
-//    func navigateToWidgetEditor()
+    func widgetSetupViewControllerDidPressNext()
     
     func widgetSetupViewControllerDidTapSearchApps(
         _ parentController: WidgetSetupViewController
@@ -63,7 +63,7 @@ class WidgetSetupViewController: UIViewController {
     }
     
     func proceedToWidgetEditor() {
-//        delegate?.navigateToWidgetEditor(withBuilder: builder)
+        delegate?.widgetSetupViewControllerDidPressNext()
     }
     
     func presentSearchModal() {
