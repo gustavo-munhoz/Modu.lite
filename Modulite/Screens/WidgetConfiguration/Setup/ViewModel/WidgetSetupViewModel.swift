@@ -28,6 +28,15 @@ class WidgetSetupViewModel: NSObject {
     
     // MARK: - Actions
     
+    func setSelectedApps(to apps: [AppInfo]) {
+        guard apps.count <= 6 else {
+            print("Tried to add more than 6 apps at once")
+            return
+        }
+        
+        selectedApps = apps
+    }
+    
     func addSelectedApp(_ app: AppInfo) {
         guard selectedApps.count < 6 else {
             print("Tried to add more than 6 apps.")
