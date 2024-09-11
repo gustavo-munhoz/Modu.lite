@@ -66,26 +66,4 @@ class WidgetSetupViewModel: NSObject {
         selectedStyle = nil
     }
         
-    func createWidgetBuilder() -> WidgetConfigurationBuilder {
-        guard let selectedStyle = selectedStyle else {
-            fatalError("Tried to create a Builder without selecting a style.")
-        }
-        
-        guard selectedApps.count > 0, selectedApps.count <= 6 else {
-            fatalError("Tried to create a Builder with an invalid number of apps.")
-        }
-        
-        var finalAppList: [AppInfo?] = selectedApps
-        
-        while finalAppList.count < 6 {
-            finalAppList.append(nil)
-        }
-        
-        let builder = WidgetConfigurationBuilder(
-//            style: selectedStyle,
-//            apps: finalAppList
-        )
-        
-        return builder
-    }
 }
