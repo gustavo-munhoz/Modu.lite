@@ -5,4 +5,8 @@
 //  Created by Gustavo Munhoz Correa on 11/09/24.
 //
 
-import Foundation
+struct WidgetContent {
+    let name: String?
+    let style: WidgetStyle
+    let apps: [AppInfo?]
+}
