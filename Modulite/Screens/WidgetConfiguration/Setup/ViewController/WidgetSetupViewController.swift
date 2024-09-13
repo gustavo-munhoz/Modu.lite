@@ -54,11 +54,9 @@ class WidgetSetupViewController: UIViewController {
     
     // MARK: - Actions
     func didFinishSelectingApps(apps: [AppInfo]) {
-        apps.forEach { app in
-            if viewModel.selectedApps.contains(app) { return }
-            
-            viewModel.addSelectedApp(app)
-        }
+        setSetupViewHasAppsSelected(to: !apps.isEmpty)
+        viewModel.setSelectedApps(to: apps)
+        
         setupView.selectedAppsCollectionView.reloadData()
     }
     
@@ -68,6 +66,16 @@ class WidgetSetupViewController: UIViewController {
     
     func presentSearchModal() {
         delegate?.widgetSetupViewControllerDidTapSearchApps(self)
+    }
+    
+    func setSetupViewStyleSelected(to value: Bool) {
+        setupView.isStyleSelected = value
+        setupView.updateButtonConfig()
+    }
+    
+    func setSetupViewHasAppsSelected(to value: Bool) {
+        setupView.hasAppsSelected = value
+        setupView.updateButtonConfig()
     }
 }
 
@@ -117,6 +125,12 @@ extension WidgetSetupViewController: UICollectionViewDataSource {
                 image: style.coverImage,
                 title: style.name
             )
+            
+            cell.hasSelectionBeenMade = viewModel.isStyleSelected()
+            
+            if style == viewModel.selectedStyle {
+                collectionView.selectItem(at: indexPath, animated: true, scrollPosition: [])
+            }
             
             return cell
             
@@ -173,12 +187,16 @@ extension WidgetSetupViewController: UICollectionViewDelegate {
         switch collectionView {
         case setupView.stylesCollectionView:
             guard let style = viewModel.selectStyle(at: indexPath.row) else {
-                print("Select style returned nil.")
                 return
             }
+            
+            setSetupViewStyleSelected(to: true)
             delegate?.widgetSetupViewControllerDidSelectWidgetStyle(self, style: style)
             
+            collectionView.reloadData()
+            
         case setupView.selectedAppsCollectionView:
+            // TODO: Remove apps when touching cell
             return
             
         default: return
