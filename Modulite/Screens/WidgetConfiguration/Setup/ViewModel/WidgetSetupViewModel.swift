@@ -13,12 +13,16 @@ class WidgetSetupViewModel: NSObject {
     
     @Published private(set) var widgetStyles: [WidgetStyle] = [
         WidgetStyleFactory.styleForKey(.analog),
-        WidgetStyleFactory.styleForKey(.analog),
-        WidgetStyleFactory.styleForKey(.analog)
+        WidgetStyleFactory.styleForKey(.tapedeck)
     ]
     
     @Published private(set) var selectedStyle: WidgetStyle?
     @Published private(set) var selectedApps: [AppInfo] = []
+    
+    // MARK: - Getters
+    func isStyleSelected() -> Bool {
+        selectedStyle != nil
+    }
     
     // MARK: - Setters
     
