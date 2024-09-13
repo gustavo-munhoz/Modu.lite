@@ -15,6 +15,9 @@ class WidgetSetupView: UIScrollView {
     var onSearchButtonPressed: (() -> Void)?
     var onNextButtonPressed: (() -> Void)?
     
+    var isStyleSelected = false
+    var hasAppsSelected = false
+    
     private let contentView = UIView()
     
     private(set) lazy var widgetNameTextField: UITextField = {
@@ -41,6 +44,7 @@ class WidgetSetupView: UIScrollView {
         collectionView.alwaysBounceVertical = false
         collectionView.showsHorizontalScrollIndicator = false
         collectionView.showsVerticalScrollIndicator = false
+        collectionView.allowsMultipleSelection = false
         
         return collectionView
     }()
@@ -102,15 +106,34 @@ class WidgetSetupView: UIScrollView {
         config.imagePadding = 10
         config.preferredSymbolConfigurationForImage = .init(pointSize: 20, weight: .bold)
         config.baseForegroundColor = .white
-        // TODO: Finish customizations
         
         let view = UIButton(configuration: config)
+        
         view.addTarget(self, action: #selector(handleNextButtonPressed), for: .touchUpInside)
+        view.configurationUpdateHandler = { [weak self] btn in
+            guard let self = self, var config = btn.configuration else { return }
+            
+            btn.isEnabled = self.isStyleSelected && self.hasAppsSelected
+            
+            switch btn.state {
+            case .disabled:
+                config.background.backgroundColor = .systemGray2
+                
+            default:
+                config.background.backgroundColor = .fiestaGreen
+            }
+            
+            btn.configuration = config
+        }
         
         return view
     }()
     
     // MARK: - Actions
+    func updateButtonConfig() {
+        nextViewButton.setNeedsUpdateConfiguration()
+    }
+    
     @objc private func handleSearchButtonPressed() {
         onSearchButtonPressed?()
     }
