@@ -130,6 +130,7 @@ extension String {
         
         // MARK: - Widget Styles
         case widgetStyleNameAnalog
+        case widgetStyleNameTapedeck
     }
             
     /// Returns a localized string using the key and associated values defined by the `LocalizedKey` enum.

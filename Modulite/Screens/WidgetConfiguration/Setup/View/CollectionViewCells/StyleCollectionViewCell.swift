@@ -11,11 +11,34 @@ import SnapKit
 class StyleCollectionViewCell: UICollectionViewCell {
     static let reuseId = "StyleCollectionViewCell"
     
+    // MARK: - Properties
+    var hasSelectionBeenMade: Bool = false {
+        didSet {
+            updateOverlayAlpha()
+        }
+    }
+    
+    override var isSelected: Bool {
+        didSet {
+            UIView.animate(withDuration: 0.25) {
+                self.updateOverlayAlpha()
+            }
+        }
+    }
+    
     private(set) lazy var styleImageView: UIImageView = {
         let view = UIImageView()
         view.contentMode = .scaleAspectFit
         view.clipsToBounds = true
+        view.layer.cornerRadius = 12
         
+        return view
+    }()
+    
+    private lazy var overlayView: UIView = {
+        let view = UIView()
+        view.backgroundColor = UIColor.black
+        view.alpha = 0
         return view
     }()
     
@@ -24,10 +47,10 @@ class StyleCollectionViewCell: UICollectionViewCell {
         label.font = UIFont(textStyle: .body, weight: .semibold)
         label.textColor = .systemGray
         label.textAlignment = .center
-        
         return label
     }()
     
+    // MARK: - Setup methods
     func setup(image: UIImage, title: String) {
         subviews.forEach { $0.removeFromSuperview() }
         
@@ -40,6 +63,7 @@ class StyleCollectionViewCell: UICollectionViewCell {
     
     private func addSubviews() {
         addSubview(styleImageView)
+        styleImageView.addSubview(overlayView)
         addSubview(styleTitle)
     }
     
@@ -49,9 +73,23 @@ class StyleCollectionViewCell: UICollectionViewCell {
             make.left.right.top.equalToSuperview()
         }
         
+        overlayView.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
+        }
+        
         styleTitle.snp.makeConstraints { make in
             make.top.equalTo(styleImageView.snp.bottom).offset(16)
             make.left.right.equalToSuperview()
+        }
+    }
+    
+    // MARK: - Actions
+    private func updateOverlayAlpha() {
+        // FIXME: Image 
+        if hasSelectionBeenMade {
+            overlayView.alpha = isSelected ? 0 : 0.3
+        } else {
+            overlayView.alpha = 0
         }
     }
 }

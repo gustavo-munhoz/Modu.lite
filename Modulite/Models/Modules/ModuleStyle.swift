@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import SwiftData
 
 /// Represents the style of a module, allowing the choice from multiple styles.
 class ModuleStyle {
@@ -23,12 +22,20 @@ class ModuleStyle {
 }
 
 enum ModuleStyleKey: String, Codable {
-    case analogEmpty = "analog-empty"
-    case analogKnob = "analog-knob"
-    case analogRegular = "analog-regular"
-    case analogScreen = "analog-screen"
-    case analogSound = "analog-sound"
-    case analogSwitch = "analog-switch"
+    // MARK: - Analog -
+    case analogEmpty
+    case analogKnob
+    case analogRegular
+    case analogScreen
+    case analogSound
+    case analogSwitch
+    
+    // MARK: - Tapedeck -
+    case tapedeck8seg
+    case tapedeckPower
+    case tapedeckSelector
+    case tapedeckSlider
+    case tapedeckSound
     
     func getModuleImage() -> UIImage {
         UIImage(named: self.rawValue)!
