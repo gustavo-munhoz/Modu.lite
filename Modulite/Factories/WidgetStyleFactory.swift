@@ -43,6 +43,34 @@ class WidgetStyleFactory {
             style.setEmptyStyle(to: ModuleStyle(from: style, key: .analogEmpty))
             
             return style
+            
+        case .tapedeck:
+            let textConfig = ModuleAppNameTextConfiguration()
+                .font(UIFont(textStyle: .caption2, weight: .semibold))
+                .textColor(.white)
+                .textCase(.upper)
+            
+            let style = WidgetStyle(
+                key: .tapedeck,
+                name: .localized(for: .widgetStyleNameTapedeck),
+                coverImage: UIImage(named: "tapedeck-style-cover")!,
+                backgroundImage: nil,
+                textConfiguration: textConfig
+            )
+            
+            let moduleStyles = [
+                ModuleStyle(from: style, key: .tapedeck8seg),
+                ModuleStyle(from: style, key: .tapedeckPower),
+                ModuleStyle(from: style, key: .tapedeckSelector),
+                ModuleStyle(from: style, key: .tapedeckSlider),
+                ModuleStyle(from: style, key: .tapedeckSound)
+            ]
+            
+            style.setModuleStyles(to: moduleStyles)
+            
+            // FIXME: Need to set empty style
+            
+            return style
         }
     }
 }
