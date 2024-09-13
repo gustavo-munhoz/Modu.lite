@@ -379,6 +379,17 @@
           }
         }
       }
+    },
+    "widgetStyleNameTapedeck" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tapedeck"
+          }
+        }
+      }
     }
   },
   "version" : "1.0"
