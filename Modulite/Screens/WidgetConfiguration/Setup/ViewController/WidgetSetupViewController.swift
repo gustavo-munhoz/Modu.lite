@@ -8,7 +8,7 @@
 import UIKit
 
 protocol WidgetSetupViewControllerDelegate: AnyObject {
-    func widgetSetupViewControllerDidPressNext()
+    func widgetSetupViewControllerDidPressNext(widgetName: String)
     
     func widgetSetupViewControllerDidTapSearchApps(
         _ parentController: WidgetSetupViewController
@@ -48,6 +48,8 @@ class WidgetSetupViewController: UIViewController {
     private func configureViewDependencies() {
         setupView.setCollectionViewDelegates(to: self)
         setupView.setCollectionViewDataSources(to: self)
+        setupView.setWidgetNameTextFieldDelegate(to: self)
+        
         setupView.onNextButtonPressed = proceedToWidgetEditor
         setupView.onSearchButtonPressed = presentSearchModal
     }
@@ -61,7 +63,9 @@ class WidgetSetupViewController: UIViewController {
     }
     
     func proceedToWidgetEditor() {
-        delegate?.widgetSetupViewControllerDidPressNext()
+        delegate?.widgetSetupViewControllerDidPressNext(
+            widgetName: setupView.getWidgetName()
+        )
     }
     
     func presentSearchModal() {
@@ -216,5 +220,32 @@ extension WidgetSetupViewController: UICollectionViewDelegateFlowLayout {
         let size = (text as NSString).size(withAttributes: [NSAttributedString.Key.font: font])
         
         return CGSize(width: size.width + 45, height: size.height + 24)
+    }
+}
+
+// MARK: - UITextFieldDelegate
+extension WidgetSetupViewController: UITextFieldDelegate {
+    func textField(
+        _ textField: UITextField,
+        shouldChangeCharactersIn range: NSRange,
+        replacementString string: String
+    ) -> Bool {
+        if string.rangeOfCharacter(from: CharacterSet.newlines) != nil {
+            return false
+        }
+        
+        let currentText = textField.text ?? ""
+                
+        guard let textRange = Range(range, in: currentText) else {
+            return false
+        }
+        
+        let updatedText = currentText.replacingCharacters(in: textRange, with: string)
+        
+        if updatedText.count > 24 {
+            return false
+        }
+                
+        return true
     }
 }
