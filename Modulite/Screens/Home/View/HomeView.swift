@@ -50,22 +50,19 @@ class HomeView: UIScrollView {
     }
     
     // MARK: - Setup methods
-    
-    /// Sets the delegate for all collection views.
+        
     func setCollectionViewDelegates(to delegate: UICollectionViewDelegate) {
         mainWidgetsCollectionView.delegate = delegate
         auxiliaryWidgetsCollectionView.delegate = delegate
         tipsCollectionView.delegate = delegate
     }
-    
-    /// Sets the data source for all collection views.
+        
     func setCollectionViewDataSources(to dataSource: UICollectionViewDataSource) {
         mainWidgetsCollectionView.dataSource = dataSource
         auxiliaryWidgetsCollectionView.dataSource = dataSource
         tipsCollectionView.dataSource = dataSource
     }
-    
-    /// Registers cell and header types for each collection view.
+        
     private func setupCollectionViews() {
         mainWidgetsCollectionView.register(
             MainWidgetCollectionViewCell.self,
@@ -105,11 +102,12 @@ class HomeView: UIScrollView {
         contentView.addSubview(auxiliaryWidgetsCollectionView)
         contentView.addSubview(tipsCollectionView)
     }
-    
-    /// Sets up constraints for contentView and all its subviews.
+        
     private func setupConstraints() {
         contentView.snp.makeConstraints { make in
-            make.edges.equalToSuperview().inset(UIEdgeInsets(top: 24, left: 24, bottom: 0, right: -24))
+            make.edges.equalToSuperview().inset(
+                UIEdgeInsets(top: 24, left: 24, bottom: 0, right: -24)
+            )
             make.width.equalToSuperview().offset(-48)
             make.height.equalTo(800)
         }
@@ -145,14 +143,22 @@ class HomeView: UIScrollView {
     
     /// Creates and returns a collection view configured with a compositional layout based on the section type.
     private func createCollectionView(for section: ViewSection) -> UICollectionView {
-        let layout = UICollectionViewCompositionalLayout { [weak self] _, _ -> NSCollectionLayoutSection? in
+        let layout = UICollectionViewCompositionalLayout {
+            [weak self] _, _ -> NSCollectionLayoutSection? in
             guard let self = self else { return nil }
             
             let itemSize = NSCollectionLayoutSize(
                 widthDimension: .fractionalWidth(1.0),
                 heightDimension: .fractionalHeight(1.0)
             )
+ 
             let item = NSCollectionLayoutItem(layoutSize: itemSize)
+            item.contentInsets = NSDirectionalEdgeInsets(
+                top: 0,
+                leading: 0,
+                bottom: 0,
+                trailing: 15
+            )
             
             let size = self.getGroupSizeForCollectionViewLayout(for: section)
             
@@ -162,6 +168,7 @@ class HomeView: UIScrollView {
             )
             
             let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
+            
             let section = NSCollectionLayoutSection(group: group)
             section.orthogonalScrollingBehavior = .continuous
             
@@ -186,7 +193,7 @@ class HomeView: UIScrollView {
         collectionView.alwaysBounceVertical = false
         collectionView.showsVerticalScrollIndicator = false
         collectionView.showsHorizontalScrollIndicator = false
-
+        
         return collectionView
     }
     
