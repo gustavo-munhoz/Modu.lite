@@ -26,6 +26,12 @@ class StyleCollectionViewCell: UICollectionViewCell {
         }
     }
     
+    override var isHighlighted: Bool {
+        didSet {
+            toggleIsHighlighted()
+        }
+    }
+    
     private(set) lazy var styleImageView: UIImageView = {
         let view = UIImageView()
         view.contentMode = .scaleAspectFit
@@ -39,6 +45,8 @@ class StyleCollectionViewCell: UICollectionViewCell {
         let view = UIView()
         view.backgroundColor = UIColor.black
         view.alpha = 0
+        view.layer.cornerRadius = 12
+        
         return view
     }()
     
@@ -85,9 +93,12 @@ class StyleCollectionViewCell: UICollectionViewCell {
     
     // MARK: - Actions
     private func updateOverlayAlpha() {
-        // FIXME: Image 
+        // FIXME: Image size needs to be equal for all
         if hasSelectionBeenMade {
             overlayView.alpha = isSelected ? 0 : 0.3
+            styleImageView.layer.borderColor = isSelected ? UIColor.lemonYellow.cgColor : .none
+            styleImageView.layer.borderWidth = isSelected ? 4 : 0
+            
         } else {
             overlayView.alpha = 0
         }

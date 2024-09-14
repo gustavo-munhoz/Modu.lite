@@ -29,9 +29,11 @@ class ModuliteWidgetConfiguration {
     init() { }
     
     init(
+        name: String? = nil,
         style: WidgetStyle,
         modules: [ModuleConfiguration]
     ) {
+        self.name = name
         self.widgetStyle = style
         self.modules = modules
     }
@@ -49,6 +51,7 @@ extension ModuliteWidgetConfiguration {
         
         let style = WidgetStyleFactory.styleForKey(key)
         self.init(
+            name: config.name,
             style: style,
             modules: moduleArray.map {
                 ModuleConfiguration(

@@ -34,7 +34,9 @@ class WidgetBuilderCoordinator: Coordinator {
 
 // MARK: - WidgetSetupViewControllerDelegate
 extension WidgetBuilderCoordinator: WidgetSetupViewControllerDelegate {
-    func widgetSetupViewControllerDidPressNext() {
+    func widgetSetupViewControllerDidPressNext(widgetName: String) {
+        contentBuilder.setWidgetName(widgetName)
+        
         let viewController = WidgetEditorViewController.instantiate(
             builder: configurationBuilder,
             delegate: self

@@ -130,8 +130,16 @@ class WidgetSetupView: UIScrollView {
     }()
     
     // MARK: - Actions
+    func getWidgetName() -> String {
+        widgetNameTextField.text ?? widgetNameTextField.placeholder!
+    }
+    
     func updateButtonConfig() {
         nextViewButton.setNeedsUpdateConfiguration()
+    }
+    
+    @objc private func handleBackgroundTap() {
+        endEditing(true)
     }
     
     @objc private func handleSearchButtonPressed() {
@@ -152,6 +160,7 @@ class WidgetSetupView: UIScrollView {
         addSubviews()
         setupConstraints()
         setupCollectionViews()
+        setupTapGestures()
     }
     
     required init?(coder: NSCoder) {
@@ -166,6 +175,10 @@ class WidgetSetupView: UIScrollView {
         }
     }
     
+    func setWidgetNameTextFieldDelegate(to delegate: UITextFieldDelegate) {
+        self.widgetNameTextField.delegate = delegate
+    }
+    
     func setCollectionViewDataSources(to dataSource: UICollectionViewDataSource) {
         self.stylesCollectionView.dataSource = dataSource
         self.selectedAppsCollectionView.dataSource = dataSource
@@ -174,6 +187,12 @@ class WidgetSetupView: UIScrollView {
     func setCollectionViewDelegates(to delegate: UICollectionViewDelegate) {
         self.stylesCollectionView.delegate = delegate
         self.selectedAppsCollectionView.delegate = delegate
+    }
+    
+    private func setupTapGestures() {
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleBackgroundTap))
+        tapGesture.cancelsTouchesInView = false
+        addGestureRecognizer(tapGesture)
     }
     
     private func setupCollectionViews() {
@@ -251,7 +270,7 @@ class WidgetSetupView: UIScrollView {
         
         searchAppsHelperText.snp.makeConstraints { make in
             make.left.equalToSuperview()
-            make.width.equalTo(200)
+            make.width.equalTo(220)
             make.height.equalTo(32)
             make.bottom.equalTo(nextViewButton.snp.top).offset(-21)
         }
@@ -262,10 +281,5 @@ class WidgetSetupView: UIScrollView {
             make.height.equalTo(45)
             make.bottom.equalToSuperview()
         }
-    }
-    
-    // MARK: - Actions
-    @objc private func handleDismissiveTap() {
-        endEditing(true)
     }
 }

@@ -89,7 +89,8 @@ extension HomeViewController: UICollectionViewDataSource {
                 fatalError("Could not dequeue MainWidgetCollectionViewCell.")
             }
             
-            cell.configure(with: viewModel.mainWidgets[indexPath.row].resultingImage)
+            let widget = viewModel.mainWidgets[indexPath.row] 
+            cell.configure(image: widget.resultingImage, name: widget.name)
             
             return cell
             
