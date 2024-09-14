@@ -17,7 +17,7 @@ class WidgetStyle {
     let key: WidgetStyleKey
     var name: String
     var coverImage: UIImage
-    var backgroundImage: UIImage?
+    var background: WidgetBackground?
     var styles: [ModuleStyle]
     var emptyModuleStyle: ModuleStyle?
     var colors: [UIColor]
@@ -28,7 +28,7 @@ class WidgetStyle {
         key: WidgetStyleKey,
         name: String,
         coverImage: UIImage,
-        backgroundImage: UIImage?,
+        background: WidgetBackground?,
         styles: [ModuleStyle] = [],
         emptyModuleStyle: ModuleStyle? = nil,
         colors: [UIColor] = [],
@@ -37,7 +37,7 @@ class WidgetStyle {
         self.key = key
         self.name = name
         self.coverImage = coverImage
-        self.backgroundImage = backgroundImage
+        self.background = background
         self.styles = styles
         self.emptyModuleStyle = emptyModuleStyle
         self.colors = colors
