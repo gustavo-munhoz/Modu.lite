@@ -25,8 +25,7 @@ class WidgetStyleFactory {
                 key: .analog,
                 name: .localized(for: .widgetStyleNameAnalog),
                 coverImage: UIImage(named: "analog-style-cover")!,
-                // FIXME: Implement this
-                backgroundImage: nil,
+                background: .color(.black),
                 colors: [.white, .eggYolk, .cupcake, .sweetTooth, .sugarMint, .burntEnds],
                 textConfiguration: textConfig
             )
@@ -54,7 +53,7 @@ class WidgetStyleFactory {
                 key: .tapedeck,
                 name: .localized(for: .widgetStyleNameTapedeck),
                 coverImage: UIImage(named: "tapedeck-style-cover")!,
-                backgroundImage: nil,
+                background: .color(.black),
                 textConfiguration: textConfig
             )
             

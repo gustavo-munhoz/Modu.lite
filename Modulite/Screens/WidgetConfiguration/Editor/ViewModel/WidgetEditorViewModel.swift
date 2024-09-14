@@ -23,6 +23,10 @@ class WidgetEditorViewModel: NSObject {
     
     // MARK: - Getters
     
+    func getWidgetBackground() -> WidgetBackground? {
+        builder.getStyleBackground()
+    }
+    
     func getColorFromSelectedModule() -> UIColor? {
         guard let index = selectedCellIndex else {
             print("Tried to get color without selecting any module.")
