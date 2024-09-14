@@ -41,6 +41,10 @@ class WidgetConfigurationBuilder {
     }
     
     // MARK: - Getters
+    func getStyleBackground() -> WidgetBackground? {
+        widgetContent.style.background
+    }
+    
     func getModule(at index: Int) -> ModuleConfiguration? {
         guard index >= 0, index < configuration.modules.count else { return nil }
         return configuration.modules[index]

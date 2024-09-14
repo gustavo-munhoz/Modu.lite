@@ -21,6 +21,10 @@ class WidgetEditorViewController: UIViewController {
         editorView.setCollectionViewDelegates(to: self)
         editorView.setCollectionViewDataSources(to: self)
         editorView.onSaveButtonTapped = viewModel.saveWidget(from:)
+        
+        if let background = viewModel.getWidgetBackground() {
+            editorView.setWidgetBackground(to: background)
+        }
     }
 }
 

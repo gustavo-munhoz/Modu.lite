@@ -30,7 +30,8 @@ class WidgetEditorView: UIScrollView {
         view.backgroundColor = .clear
         view.dragInteractionEnabled = true
         view.isScrollEnabled = false
-        view.clipsToBounds = false
+        view.clipsToBounds = true
+        view.layer.cornerRadius = 21
         
         return view
     }()
@@ -112,6 +113,15 @@ class WidgetEditorView: UIScrollView {
     }
     
     // MARK: - Setup methods
+    
+    func setWidgetBackground(to background: WidgetBackground) {
+        switch background {
+        case .image(let image):
+            widgetLayoutCollectionView.backgroundView = UIImageView(image: image)
+        case .color(let color):
+            widgetLayoutCollectionView.backgroundColor = color
+        }
+    }
     
     func setCollectionViewDelegates(
         to delegate: UICollectionViewDelegate & UICollectionViewDragDelegate & UICollectionViewDropDelegate
@@ -258,21 +268,23 @@ class WidgetEditorView: UIScrollView {
             )
             let item = NSCollectionLayoutItem(layoutSize: itemSize)
             item.contentInsets = NSDirectionalEdgeInsets(top: 5, leading: 5, bottom: 5, trailing: 5)
-
+            
             let groupSize = NSCollectionLayoutSize(
                 widthDimension: .fractionalWidth(1.0),
-                heightDimension: .fractionalHeight(0.5)
+                heightDimension: .fractionalHeight(0.49)
             )
+            
             let group = NSCollectionLayoutGroup.horizontal(
                 layoutSize: groupSize,
                 subitems: Array(repeating: item, count: 3)
             )
-
+            
             let section = NSCollectionLayoutSection(group: group)
             section.interGroupSpacing = 5
             
             return section
         }
+        
         return layout
     }
 }
