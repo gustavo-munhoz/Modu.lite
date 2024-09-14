@@ -119,6 +119,9 @@
 		B3850BB52C94D1F200F400C0 /* UICollectionViewCell+toggleIsHighlighted.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3850BB42C94D1F200F400C0 /* UICollectionViewCell+toggleIsHighlighted.swift */; };
 		B3850BB72C951DD700F400C0 /* WidgetBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3850BB62C951DD700F400C0 /* WidgetBackground.swift */; };
 		B3850BB82C9521E600F400C0 /* WidgetBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3850BB62C951DD700F400C0 /* WidgetBackground.swift */; };
+		B3850BBB2C963A0500F400C0 /* UIFontExtensionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3850BBA2C963A0500F400C0 /* UIFontExtensionTests.swift */; };
+		B3850BBD2C963BD500F400C0 /* UITextFieldExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3850BBC2C963BD500F400C0 /* UITextFieldExtensionsTests.swift */; };
+		B3850BBF2C963C5700F400C0 /* UILabelExtensionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3850BBE2C963C5700F400C0 /* UILabelExtensionTests.swift */; };
 		B3C1877F2C78D1E000A891A8 /* ModuliteWidgetConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3C1877E2C78D1E000A891A8 /* ModuliteWidgetConfiguration.swift */; };
 		B3C187822C79009B00A891A8 /* WidgetConfigurationBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3C187812C79009B00A891A8 /* WidgetConfigurationBuilder.swift */; };
 		B3C187842C791D1300A891A8 /* WidgetStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3C187832C791D1300A891A8 /* WidgetStyle.swift */; };
@@ -265,6 +268,9 @@
 		B37284692C81096A00D9A1E7 /* ModuleStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModuleStyle.swift; sourceTree = "<group>"; };
 		B3850BB42C94D1F200F400C0 /* UICollectionViewCell+toggleIsHighlighted.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionViewCell+toggleIsHighlighted.swift"; sourceTree = "<group>"; };
 		B3850BB62C951DD700F400C0 /* WidgetBackground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetBackground.swift; sourceTree = "<group>"; };
+		B3850BBA2C963A0500F400C0 /* UIFontExtensionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIFontExtensionTests.swift; sourceTree = "<group>"; };
+		B3850BBC2C963BD500F400C0 /* UITextFieldExtensionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextFieldExtensionsTests.swift; sourceTree = "<group>"; };
+		B3850BBE2C963C5700F400C0 /* UILabelExtensionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UILabelExtensionTests.swift; sourceTree = "<group>"; };
 		B3C1877E2C78D1E000A891A8 /* ModuliteWidgetConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModuliteWidgetConfiguration.swift; sourceTree = "<group>"; };
 		B3C187812C79009B00A891A8 /* WidgetConfigurationBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetConfigurationBuilder.swift; sourceTree = "<group>"; };
 		B3C187832C791D1300A891A8 /* WidgetStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetStyle.swift; sourceTree = "<group>"; };
@@ -724,6 +730,7 @@
 		B36927AD2C66B6E40089F769 /* ModuliteTests */ = {
 			isa = PBXGroup;
 			children = (
+				B3850BB92C9639FB00F400C0 /* Extensions */,
 				B34F3DF92C69AF190041D7BD /* Localization */,
 				B36927AE2C66B6E40089F769 /* ModuliteTests.swift */,
 			);
@@ -839,6 +846,16 @@
 				B34F3E122C6B93AB0041D7BD /* CollectionViewCells */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		B3850BB92C9639FB00F400C0 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				B3850BBA2C963A0500F400C0 /* UIFontExtensionTests.swift */,
+				B3850BBC2C963BD500F400C0 /* UITextFieldExtensionsTests.swift */,
+				B3850BBE2C963C5700F400C0 /* UILabelExtensionTests.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		B3C187802C79008800A891A8 /* Builders */ = {
@@ -1205,6 +1222,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				B34F3DFB2C69AF230041D7BD /* LocalizationTests.swift in Sources */,
+				B3850BBF2C963C5700F400C0 /* UILabelExtensionTests.swift in Sources */,
+				B3850BBB2C963A0500F400C0 /* UIFontExtensionTests.swift in Sources */,
+				B3850BBD2C963BD500F400C0 /* UITextFieldExtensionsTests.swift in Sources */,
 				B36927AF2C66B6E40089F769 /* ModuliteTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
