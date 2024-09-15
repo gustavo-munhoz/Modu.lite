@@ -539,7 +539,6 @@
 				B34F3E322C6E8AA60041D7BD /* UITextField+HorizontalPadding.swift */,
 				B3EB15BA2C7E5DC5003B1960 /* UILabel+AppNameConfiguration.swift */,
 				B3EB15BC2C7E7311003B1960 /* String+TextCase.swift */,
-				B32B60BB2C86492C007DDCE3 /* UIColorValueTransformer.swift */,
 				B32B60F12C878290007DDCE3 /* UIView+asImage.swift */,
 				B350C0462C8B8B340035682F /* UILabel+Padded.swift */,
 				B350C0482C8B8B680035682F /* UIEdgeInsets+Directions.swift */,
@@ -710,6 +709,7 @@
 		B36927962C66B6E30089F769 /* Modulite */ = {
 			isa = PBXGroup;
 			children = (
+				B3850BC42C979D1F00F400C0 /* Transformers */,
 				B32B61042C88F594007DDCE3 /* Modulite.entitlements */,
 				B32B60EE2C876E5F007DDCE3 /* Resources */,
 				B32B60C82C865130007DDCE3 /* Singleton */,
@@ -859,6 +859,14 @@
 				B3850BC22C979A3B00F400C0 /* StringExtensionTests.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		B3850BC42C979D1F00F400C0 /* Transformers */ = {
+			isa = PBXGroup;
+			children = (
+				B32B60BB2C86492C007DDCE3 /* UIColorValueTransformer.swift */,
+			);
+			path = Transformers;
 			sourceTree = "<group>";
 		};
 		B3C187802C79008800A891A8 /* Builders */ = {
