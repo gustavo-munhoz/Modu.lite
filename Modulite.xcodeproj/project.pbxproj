@@ -120,10 +120,11 @@
 		B3850BB72C951DD700F400C0 /* WidgetBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3850BB62C951DD700F400C0 /* WidgetBackground.swift */; };
 		B3850BB82C9521E600F400C0 /* WidgetBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3850BB62C951DD700F400C0 /* WidgetBackground.swift */; };
 		B3850BBB2C963A0500F400C0 /* UIFontExtensionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3850BBA2C963A0500F400C0 /* UIFontExtensionTests.swift */; };
-		B3850BBD2C963BD500F400C0 /* UITextFieldExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3850BBC2C963BD500F400C0 /* UITextFieldExtensionsTests.swift */; };
+		B3850BBD2C963BD500F400C0 /* UITextFieldExtensionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3850BBC2C963BD500F400C0 /* UITextFieldExtensionTests.swift */; };
 		B3850BBF2C963C5700F400C0 /* UILabelExtensionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3850BBE2C963C5700F400C0 /* UILabelExtensionTests.swift */; };
 		B3850BC32C979A3B00F400C0 /* StringExtensionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3850BC22C979A3B00F400C0 /* StringExtensionTests.swift */; };
 		B3850BC72C979D5C00F400C0 /* UIColorValueTransformerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3850BC62C979D5C00F400C0 /* UIColorValueTransformerTests.swift */; };
+		B3850BC92C979E8300F400C0 /* UIImageExtensionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3850BC82C979E8300F400C0 /* UIImageExtensionTests.swift */; };
 		B3C1877F2C78D1E000A891A8 /* ModuliteWidgetConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3C1877E2C78D1E000A891A8 /* ModuliteWidgetConfiguration.swift */; };
 		B3C187822C79009B00A891A8 /* WidgetConfigurationBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3C187812C79009B00A891A8 /* WidgetConfigurationBuilder.swift */; };
 		B3C187842C791D1300A891A8 /* WidgetStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3C187832C791D1300A891A8 /* WidgetStyle.swift */; };
@@ -271,10 +272,11 @@
 		B3850BB42C94D1F200F400C0 /* UICollectionViewCell+toggleIsHighlighted.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionViewCell+toggleIsHighlighted.swift"; sourceTree = "<group>"; };
 		B3850BB62C951DD700F400C0 /* WidgetBackground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetBackground.swift; sourceTree = "<group>"; };
 		B3850BBA2C963A0500F400C0 /* UIFontExtensionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIFontExtensionTests.swift; sourceTree = "<group>"; };
-		B3850BBC2C963BD500F400C0 /* UITextFieldExtensionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextFieldExtensionsTests.swift; sourceTree = "<group>"; };
+		B3850BBC2C963BD500F400C0 /* UITextFieldExtensionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextFieldExtensionTests.swift; sourceTree = "<group>"; };
 		B3850BBE2C963C5700F400C0 /* UILabelExtensionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UILabelExtensionTests.swift; sourceTree = "<group>"; };
 		B3850BC22C979A3B00F400C0 /* StringExtensionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtensionTests.swift; sourceTree = "<group>"; };
 		B3850BC62C979D5C00F400C0 /* UIColorValueTransformerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorValueTransformerTests.swift; sourceTree = "<group>"; };
+		B3850BC82C979E8300F400C0 /* UIImageExtensionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageExtensionTests.swift; sourceTree = "<group>"; };
 		B3C1877E2C78D1E000A891A8 /* ModuliteWidgetConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModuliteWidgetConfiguration.swift; sourceTree = "<group>"; };
 		B3C187812C79009B00A891A8 /* WidgetConfigurationBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetConfigurationBuilder.swift; sourceTree = "<group>"; };
 		B3C187832C791D1300A891A8 /* WidgetStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetStyle.swift; sourceTree = "<group>"; };
@@ -857,9 +859,10 @@
 			isa = PBXGroup;
 			children = (
 				B3850BBA2C963A0500F400C0 /* UIFontExtensionTests.swift */,
-				B3850BBC2C963BD500F400C0 /* UITextFieldExtensionsTests.swift */,
+				B3850BBC2C963BD500F400C0 /* UITextFieldExtensionTests.swift */,
 				B3850BBE2C963C5700F400C0 /* UILabelExtensionTests.swift */,
 				B3850BC22C979A3B00F400C0 /* StringExtensionTests.swift */,
+				B3850BC82C979E8300F400C0 /* UIImageExtensionTests.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -1248,8 +1251,9 @@
 				B3850BC72C979D5C00F400C0 /* UIColorValueTransformerTests.swift in Sources */,
 				B3850BC32C979A3B00F400C0 /* StringExtensionTests.swift in Sources */,
 				B3850BBB2C963A0500F400C0 /* UIFontExtensionTests.swift in Sources */,
-				B3850BBD2C963BD500F400C0 /* UITextFieldExtensionsTests.swift in Sources */,
+				B3850BBD2C963BD500F400C0 /* UITextFieldExtensionTests.swift in Sources */,
 				B36927AF2C66B6E40089F769 /* ModuliteTests.swift in Sources */,
+				B3850BC92C979E8300F400C0 /* UIImageExtensionTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
