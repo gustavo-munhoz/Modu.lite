@@ -1,5 +1,5 @@
 //
-//  UITextFieldExtensionsTests.swift
+//  UITextFieldExtensionTests.swift
 //  ModuliteTests
 //
 //  Created by Gustavo Munhoz Correa on 14/09/24.
@@ -8,7 +8,7 @@
 import XCTest
 @testable import Modulite
 
-class UITextFieldExtensionsTests: XCTestCase {
+class UITextFieldExtensionTests: XCTestCase {
 
     func testSetLeftPaddingPoints() {
         let textField = UITextField()
