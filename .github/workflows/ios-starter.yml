@@ -8,7 +8,7 @@ on:
 
 jobs:
   build:
-    name: Build and Test specific scheme using specified iPhone simulator
+    name: Build and Test for iOS 17.0
     runs-on: macos-latest
 
     steps:
@@ -21,13 +21,11 @@ jobs:
           platform: iOS Simulator
         run: |
           set -e
-          
           echo "Listing available simulators..."
           xcrun simctl list devices
-          
           echo "Building project..."
-          filetype_parameter="workspace"
-          file_to_build="Modulite.xcworkspace"
+          filetype_parameter="project"
+          file_to_build="Modulite.xcodeproj"
           xcodebuild build-for-testing -scheme "$scheme" -"$filetype_parameter" "$file_to_build" -destination "platform=$platform,name=iPhone 14,OS=17.0" -verbose
       
       - name: Test
@@ -36,8 +34,7 @@ jobs:
           platform: iOS Simulator
         run: |
           set -e
-          
           echo "Running tests..."
-          filetype_parameter="workspace"
-          file_to_build="Modulite.xcworkspace"
+          filetype_parameter="project"
+          file_to_build="Modulite.xcodeproj"
           xcodebuild test-without-building -scheme "$scheme" -"$filetype_parameter" "$file_to_build" -destination "platform=$platform,name=iPhone 14,OS=17.0" -enableCodeCoverage YES -verbose
