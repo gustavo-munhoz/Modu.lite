@@ -8,7 +8,7 @@ on:
 
 jobs:
   build:
-    name: Build and Test for iOS 17.0
+    name: Build and Test specific scheme using specified iPhone simulator
     runs-on: macos-latest
 
     steps:
@@ -26,7 +26,7 @@ jobs:
           echo "Building project..."
           filetype_parameter="project"
           file_to_build="Modulite.xcodeproj"
-          xcodebuild build-for-testing -scheme "$scheme" -"$filetype_parameter" "$file_to_build" -destination "platform=$platform,name=iPhone 14,OS=17.0" -verbose
+          xcodebuild build-for-testing -scheme "$scheme" -"$filetype_parameter" "$file_to_build" -destination "platform=$platform,name=iPhone 14,OS=17.0" -verbose -allowProvisioningUpdates
       
       - name: Test
         env:
@@ -37,4 +37,4 @@ jobs:
           echo "Running tests..."
           filetype_parameter="project"
           file_to_build="Modulite.xcodeproj"
-          xcodebuild test-without-building -scheme "$scheme" -"$filetype_parameter" "$file_to_build" -destination "platform=$platform,name=iPhone 14,OS=17.0" -enableCodeCoverage YES -verbose
+          xcodebuild test-without-building -scheme "$scheme" -"$filetype_parameter" "$file_to_build" -destination "platform=$platform,name=iPhone 14,OS=17.0" -enableCodeCoverage YES -verbose -allowProvisioningUpdates
