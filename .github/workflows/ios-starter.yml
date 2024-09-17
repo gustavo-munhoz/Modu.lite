@@ -26,7 +26,7 @@ jobs:
           echo "Building project..."
           filetype_parameter="project"
           file_to_build="Modulite.xcodeproj"
-          xcodebuild build-for-testing -scheme "$scheme" -"$filetype_parameter" "$file_to_build" -destination "platform=$platform,name=iPhone 14,OS=17.0" -verbose -allowProvisioningUpdates
+          xcodebuild build-for-testing -scheme "$scheme" -"$filetype_parameter" "$file_to_build" -destination "platform=$platform,name=iPhone 14,OS=17.0" -sdk iphonesimulator -verbose
       
       - name: Test
         env:
@@ -37,4 +37,4 @@ jobs:
           echo "Running tests..."
           filetype_parameter="project"
           file_to_build="Modulite.xcodeproj"
-          xcodebuild test-without-building -scheme "$scheme" -"$filetype_parameter" "$file_to_build" -destination "platform=$platform,name=iPhone 14,OS=17.0" -enableCodeCoverage YES -verbose -allowProvisioningUpdates
+          xcodebuild test-without-building -scheme "$scheme" -"$filetype_parameter" "$file_to_build" -destination "platform=$platform,name=iPhone 14,OS=17.0" -sdk iphonesimulator -enableCodeCoverage YES -verbose
