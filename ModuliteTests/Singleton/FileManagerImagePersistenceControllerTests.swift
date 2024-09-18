@@ -6,7 +6,7 @@
 //
 
 import Testing
-import XCTest
+import UIKit
 @testable import Modulite
 
 final class FileManagerImageTests {
@@ -22,7 +22,7 @@ final class FileManagerImageTests {
                 attributes: nil
             )
         } catch {
-            XCTFail("Failed to create temporary directory: \(error)")
+            Issue.record("Failed to create temporary directory: \(error)")
         }
         
         controller = FileManagerImagePersistenceController(baseDirectory: testDirectory)
@@ -31,12 +31,14 @@ final class FileManagerImageTests {
     deinit {
         do {
             try FileManager.default.removeItem(at: testDirectory)
+            
         } catch {
-            print("Failed to remove temporary directory: \(error)")
+            Issue.record("Failed to remove temporary directory: \(error)")
         }
     }
     
-    @Test func testSaveAndGetWidgetImage() {
+    @Test("Widget image is saved and recovered")
+    func saveAndGetWidgetImage() {
         let widgetId = UUID()
         let testImage = UIImage(systemName: "star")!
         
@@ -49,84 +51,39 @@ final class FileManagerImageTests {
         #expect(retrievedImage != nil, "Retrieved image should not be nil")
     }
     
-}
-
-// swiftlint:disable:next type_name
-class FileManagerImagePersistenceControllerTests: XCTestCase {
-    
-    var controller: FileManagerImagePersistenceController!
-    var testDirectory: URL!
-    
-    override func setUp() {
-        super.setUp()
-        
-        testDirectory = FileManager.default.temporaryDirectory.appendingPathComponent(UUID().uuidString)
-        do {
-            try FileManager.default.createDirectory(
-                at: testDirectory,
-                withIntermediateDirectories: true,
-                attributes: nil
-            )
-        } catch {
-            XCTFail("Failed to create temporary directory: \(error)")
-        }
-        
-        controller = FileManagerImagePersistenceController(baseDirectory: testDirectory)
-    }
-    
-    override func tearDown() {
-        do {
-            try FileManager.default.removeItem(at: testDirectory)
-        } catch {
-            print("Failed to remove temporary directory: \(error)")
-        }
-        
-        super.tearDown()
-    }
-    
-    
-    func testSaveAndGetWidgetImage() {
-        let widgetId = UUID()
-        let testImage = UIImage(systemName: "star")!
-        
-        let imageURL = controller.saveWidgetImage(image: testImage, for: widgetId)
-        
-        XCTAssertTrue(FileManager.default.fileExists(atPath: imageURL.path))
-        
-        let retrievedImage = controller.getWidgetImage(with: widgetId)
-        
-        XCTAssertNotNil(retrievedImage, "Retrieved image should not be nil")
-    }
-    
-    func testSaveModuleImage() {
+    @Test("Module images are saved")
+    func saveModuleImages() {
         let widgetId = UUID()
         let moduleIndex = 1
-        let testImage = UIImage(systemName: "circle")!
+        let testImage = UIImage(systemName: "square")!
         
         let imageURL = controller.saveModuleImage(image: testImage, for: widgetId, moduleIndex: moduleIndex)
         
-        XCTAssertTrue(FileManager.default.fileExists(atPath: imageURL.path))
+        #expect(FileManager.default.fileExists(atPath: imageURL.path))
     }
     
-    func testDeleteWidgetAndModules() {
+    @Test("Widget and module images are deleted")
+    func deleteWidgetAndModules() {
         let widgetId = UUID()
         let testImage = UIImage(systemName: "square")!
         
-        _ = controller.saveWidgetImage(image: testImage, for: widgetId)
+        controller.saveWidgetImage(image: testImage, for: widgetId)
+        controller.saveModuleImage(image: testImage, for: widgetId, moduleIndex: 1)
         
         let widgetDirectory = testDirectory.appendingPathComponent("\(widgetId)")
-        XCTAssertTrue(FileManager.default.fileExists(atPath: widgetDirectory.path))
+        #expect(FileManager.default.fileExists(atPath: widgetDirectory.path()))
         
         controller.deleteWidgetAndModules(with: widgetId)
         
-        XCTAssertFalse(FileManager.default.fileExists(atPath: widgetDirectory.path))
+        #expect(!FileManager.default.fileExists(atPath: widgetDirectory.path()))
     }
     
-    func testGetWidgetImageWithNonExistentDirectory() {
+    @Test("Widget does not exist")
+    func getWidgetWithNonExistentDirectory() {
         let widgetId = UUID()
         
         let retrievedImage = controller.getWidgetImage(with: widgetId)
         
-        XCTAssertNil(retrievedImage, "Retrieved image should be nil for a non-existent directory")
+        #expect(retrievedImage == nil)
     }
 }
