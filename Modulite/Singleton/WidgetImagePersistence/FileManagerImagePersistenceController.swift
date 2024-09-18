@@ -9,9 +9,9 @@ import UIKit
 
 protocol WidgetImagePersistenceController {
     func saveWidgetImage(image: UIImage, for widgetId: UUID) -> URL
+    func saveModuleImage(image: UIImage, for widgetId: UUID, moduleIndex: Int) -> URL
     func getWidgetImage(with id: UUID) -> UIImage?
     func deleteWidgetAndModules(with id: UUID)
-    func saveModuleImage(image: UIImage, for widgetId: UUID, moduleIndex: Int) -> URL
 }
 
 class FileManagerImagePersistenceController: WidgetImagePersistenceController {
@@ -37,11 +37,13 @@ class FileManagerImagePersistenceController: WidgetImagePersistenceController {
         }
     }
     
+    @discardableResult
     func saveWidgetImage(image: UIImage, for widgetId: UUID) -> URL {
         let (widgetDirectory, _) = setupDirectories(for: widgetId)
         return saveImage(image, in: widgetDirectory, withName: "widget")
     }
     
+    @discardableResult
     func saveModuleImage(image: UIImage, for widgetId: UUID, moduleIndex: Int) -> URL {
         let (_, modulesDirectory) = setupDirectories(for: widgetId)
         return saveImage(image, in: modulesDirectory, withName: "\(moduleIndex)")
