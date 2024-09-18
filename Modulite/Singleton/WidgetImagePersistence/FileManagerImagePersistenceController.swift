@@ -7,17 +7,25 @@
 
 import UIKit
 
-class FileManagerImagePersistenceController {
+protocol WidgetImagePersistenceController {
+    func saveWidgetImage(image: UIImage, for widgetId: UUID) -> URL
+    func getWidgetImage(with id: UUID) -> UIImage?
+    func deleteWidgetAndModules(with id: UUID)
+    func saveModuleImage(image: UIImage, for widgetId: UUID, moduleIndex: Int) -> URL
+}
+
+class FileManagerImagePersistenceController: WidgetImagePersistenceController {
     
     static let shared = FileManagerImagePersistenceController()
     
-    private init() { }
+    private let baseDirectory: URL
+    
+    init(baseDirectory: URL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!) {
+        self.baseDirectory = baseDirectory
+    }
     
     func getWidgetImage(with id: UUID) -> UIImage? {
-        guard let url = getDirectory(for: id) else {
-            print("Directory not found for widget with ID \(id)")
-            return nil
-        }
+        let url = getDirectory(for: id)
         
         let completeUrl = url.appending(component: "widget.png")
         
@@ -29,25 +37,21 @@ class FileManagerImagePersistenceController {
         }
     }
     
-    func saveWidget(image: UIImage, for widgetId: UUID) -> URL {
+    func saveWidgetImage(image: UIImage, for widgetId: UUID) -> URL {
         let (widgetDirectory, _) = setupDirectories(for: widgetId)
         return saveImage(image, in: widgetDirectory, withName: "widget")
     }
     
-    func saveModule(image: UIImage, for widgetId: UUID, moduleIndex: Int) -> URL {
+    func saveModuleImage(image: UIImage, for widgetId: UUID, moduleIndex: Int) -> URL {
         let (_, modulesDirectory) = setupDirectories(for: widgetId)
         return saveImage(image, in: modulesDirectory, withName: "\(moduleIndex)")
     }
     
-    func deleteWidget(with id: UUID) {
-        let fileManager = FileManager.default
-        guard let widgetDirectory = getDirectory(for: id) else {
-            print("Directory not found for widget with ID \(id)")
-            return
-        }
+    func deleteWidgetAndModules(with id: UUID) {
+        let widgetDirectory = getDirectory(for: id)
         
         do {
-            try fileManager.removeItem(at: widgetDirectory)
+            try FileManager.default.removeItem(at: widgetDirectory)
             print("Successfully deleted widget with ID \(id)")
         } catch {
             print("Failed to delete widget with ID \(id): \(error)")
@@ -58,7 +62,6 @@ class FileManagerImagePersistenceController {
 // MARK: - Directory handlers
 extension FileManagerImagePersistenceController {
     private func setupDirectories(for widgetId: UUID) -> (widgetDirectory: URL, modulesDirectory: URL) {
-        let baseDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
         let widgetDirectory = baseDirectory.appendingPathComponent("\(widgetId)")
         let modulesDirectory = widgetDirectory.appendingPathComponent("modules")
         
@@ -84,13 +87,8 @@ extension FileManagerImagePersistenceController {
         return (widgetDirectory, modulesDirectory)
     }
     
-    private func getDirectory(for id: UUID) -> URL? {
-        let documentsDirectory = FileManager.default.urls(
-            for: .documentDirectory,
-            in: .userDomainMask
-        ).first
-        
-        return documentsDirectory?.appendingPathComponent(id.uuidString)
+    private func getDirectory(for id: UUID) -> URL {
+        baseDirectory.appendingPathComponent(id.uuidString)
     }
 }
 
