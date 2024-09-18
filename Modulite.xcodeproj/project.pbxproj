@@ -134,6 +134,9 @@
 		B3CDD7012C766F2E00E558F8 /* ModuleStyleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3CDD7002C766F2E00E558F8 /* ModuleStyleCell.swift */; };
 		B3CDD7032C767FD300E558F8 /* ModuleColorCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3CDD7022C767FD300E558F8 /* ModuleColorCell.swift */; };
 		B3CDD7072C77C59B00E558F8 /* ImageProcessingFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3CDD7062C77C59B00E558F8 /* ImageProcessingFactory.swift */; };
+		B3D90AC12C9A570B00CA8054 /* MockImagePersistenceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3D90AC02C9A570B00CA8054 /* MockImagePersistenceController.swift */; };
+		B3D90AC22C9A570B00CA8054 /* MockImagePersistenceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3D90AC02C9A570B00CA8054 /* MockImagePersistenceController.swift */; };
+		B3D90AC62C9A592500CA8054 /* FileManagerImagePersistenceControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3D90AC52C9A592500CA8054 /* FileManagerImagePersistenceControllerTests.swift */; };
 		B3EB15B62C7E4BF0003B1960 /* ModuleConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3EB15B52C7E4BF0003B1960 /* ModuleConfiguration.swift */; };
 		B3EB15B92C7E4CD6003B1960 /* ModuleAppNameTextConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3EB15B82C7E4CD6003B1960 /* ModuleAppNameTextConfiguration.swift */; };
 		B3EB15BB2C7E5DC5003B1960 /* UILabel+AppNameConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3EB15BA2C7E5DC5003B1960 /* UILabel+AppNameConfiguration.swift */; };
@@ -288,6 +291,8 @@
 		B3CDD7002C766F2E00E558F8 /* ModuleStyleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModuleStyleCell.swift; sourceTree = "<group>"; };
 		B3CDD7022C767FD300E558F8 /* ModuleColorCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModuleColorCell.swift; sourceTree = "<group>"; };
 		B3CDD7062C77C59B00E558F8 /* ImageProcessingFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageProcessingFactory.swift; sourceTree = "<group>"; };
+		B3D90AC02C9A570B00CA8054 /* MockImagePersistenceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockImagePersistenceController.swift; sourceTree = "<group>"; };
+		B3D90AC52C9A592500CA8054 /* FileManagerImagePersistenceControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileManagerImagePersistenceControllerTests.swift; sourceTree = "<group>"; };
 		B3EB15B52C7E4BF0003B1960 /* ModuleConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModuleConfiguration.swift; sourceTree = "<group>"; };
 		B3EB15B82C7E4CD6003B1960 /* ModuleAppNameTextConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModuleAppNameTextConfiguration.swift; sourceTree = "<group>"; };
 		B3EB15BA2C7E5DC5003B1960 /* UILabel+AppNameConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+AppNameConfiguration.swift"; sourceTree = "<group>"; };
@@ -442,8 +447,8 @@
 		B32B60C82C865130007DDCE3 /* Singleton */ = {
 			isa = PBXGroup;
 			children = (
+				B3D90ABF2C9A529B00CA8054 /* WidgetImagePersistence */,
 				B32B60B32C864247007DDCE3 /* CoreDataPersistenceController.swift */,
-				B32B60EF2C876F4A007DDCE3 /* FileManagerImagePersistenceController.swift */,
 			);
 			path = Singleton;
 			sourceTree = "<group>";
@@ -740,6 +745,7 @@
 		B36927AD2C66B6E40089F769 /* ModuliteTests */ = {
 			isa = PBXGroup;
 			children = (
+				B3D90AC42C9A58EC00CA8054 /* Singleton */,
 				B3850BC52C979D4300F400C0 /* Transformers */,
 				B3850BB92C9639FB00F400C0 /* Extensions */,
 				B34F3DF92C69AF190041D7BD /* Localization */,
@@ -906,6 +912,23 @@
 				B32B60FD2C88E43F007DDCE3 /* CustomizedTextFactory.swift */,
 			);
 			path = Factories;
+			sourceTree = "<group>";
+		};
+		B3D90ABF2C9A529B00CA8054 /* WidgetImagePersistence */ = {
+			isa = PBXGroup;
+			children = (
+				B32B60EF2C876F4A007DDCE3 /* FileManagerImagePersistenceController.swift */,
+				B3D90AC02C9A570B00CA8054 /* MockImagePersistenceController.swift */,
+			);
+			path = WidgetImagePersistence;
+			sourceTree = "<group>";
+		};
+		B3D90AC42C9A58EC00CA8054 /* Singleton */ = {
+			isa = PBXGroup;
+			children = (
+				B3D90AC52C9A592500CA8054 /* FileManagerImagePersistenceControllerTests.swift */,
+			);
+			path = Singleton;
 			sourceTree = "<group>";
 		};
 		B3EB15B72C7E4C7D003B1960 /* Widget */ = {
@@ -1141,6 +1164,7 @@
 				AFBBC51C2C7E4AEB00A9B256 /* WidgetButtonView.swift in Sources */,
 				B32B60F72C87ABC1007DDCE3 /* PersistableModuleConfiguration+CoreDataProperties.swift in Sources */,
 				B37284772C829A8C00D9A1E7 /* WidgetStyleFactory.swift in Sources */,
+				B3D90AC22C9A570B00CA8054 /* MockImagePersistenceController.swift in Sources */,
 				B32B60FB2C87AC8D007DDCE3 /* AppInfoData.swift in Sources */,
 				B37284702C82990B00D9A1E7 /* WidgetStyle.swift in Sources */,
 				AFBBC5072C7E459900A9B256 /* ModuliteWidgetBundle.swift in Sources */,
@@ -1171,6 +1195,7 @@
 				B36927CF2C66B8A30089F769 /* Coordinator.swift in Sources */,
 				B32B60BA2C864807007DDCE3 /* PersistableModuleConfiguration+CoreDataClass.swift in Sources */,
 				B34F3E242C6D366A0041D7BD /* WidgetEditorView.swift in Sources */,
+				B3D90AC12C9A570B00CA8054 /* MockImagePersistenceController.swift in Sources */,
 				B369279C2C66B6E30089F769 /* HomeViewController.swift in Sources */,
 				B3C187842C791D1300A891A8 /* WidgetStyle.swift in Sources */,
 				B34F3E0D2C6B0C790041D7BD /* UsageCoordinator.swift in Sources */,
@@ -1260,6 +1285,7 @@
 				B3850BBD2C963BD500F400C0 /* UITextFieldExtensionTests.swift in Sources */,
 				B36927AF2C66B6E40089F769 /* ModuliteTests.swift in Sources */,
 				B3850BC92C979E8300F400C0 /* UIImageExtensionTests.swift in Sources */,
+				B3D90AC62C9A592500CA8054 /* FileManagerImagePersistenceControllerTests.swift in Sources */,
 				B3850BCD2C97A08B00F400C0 /* UICollectionViewExtensionTests.swift in Sources */,
 				B3850BCB2C979FB500F400C0 /* UIEdgeInsetExtensionTests.swift in Sources */,
 			);
@@ -1565,7 +1591,7 @@
 				CURRENT_PROJECT_VERSION = 0.2;
 				DEVELOPMENT_TEAM = 7U55BCTM6U;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				MARKETING_VERSION = 0.2;
 				PRODUCT_BUNDLE_IDENTIFIER = dev.mnhz.ModuliteTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1584,7 +1610,7 @@
 				CURRENT_PROJECT_VERSION = 0.2;
 				DEVELOPMENT_TEAM = 7U55BCTM6U;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				MARKETING_VERSION = 0.2;
 				PRODUCT_BUNDLE_IDENTIFIER = dev.mnhz.ModuliteTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
