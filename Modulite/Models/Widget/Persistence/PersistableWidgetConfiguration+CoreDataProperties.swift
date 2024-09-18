@@ -34,7 +34,7 @@ extension PersistableWidgetConfiguration {
         
         widget.widgetStyleKey = widgetStyleKey.rawValue
         
-        let widgetImageUrl = FileManagerImagePersistenceController.shared.saveWidget(
+        let widgetImageUrl = FileManagerImagePersistenceController.shared.saveWidgetImage(
             image: widgetImage,
             for: widget.id
         )
@@ -59,7 +59,7 @@ extension PersistableWidgetConfiguration {
             print("Widget \(widget.id) saved successfully.")
             
         } catch {
-            FileManagerImagePersistenceController.shared.deleteWidget(with: widget.id)
+            FileManagerImagePersistenceController.shared.deleteWidgetAndModules(with: widget.id)
             fatalError("Error creating widget persistent config: \(error.localizedDescription)")
         }
     }

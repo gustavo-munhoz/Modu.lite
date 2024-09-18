@@ -32,7 +32,7 @@ extension PersistableModuleConfiguration {
         module.selectedStyleKey = config.selectedStyle.key.rawValue
         module.selectedColor = config.selectedColor
         
-        let moduleImageUrl = FileManagerImagePersistenceController.shared.saveModule(
+        let moduleImageUrl = FileManagerImagePersistenceController.shared.saveModuleImage(
             image: moduleImage,
             for: widgetId,
             moduleIndex: config.index

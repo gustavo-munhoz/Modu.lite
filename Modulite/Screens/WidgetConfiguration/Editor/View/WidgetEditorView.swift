@@ -87,6 +87,16 @@ class WidgetEditorView: UIScrollView {
         return view
     }()
     
+    private(set) lazy var downloadWallpaperButton: UIButton = {
+        var config = UIButton.Configuration.filled()
+        
+        var view: UIButton {
+            return UIButton(configuration: config)
+        }        
+        
+        return view
+    }()
+    
     private(set) lazy var saveWidgetButton: UIButton = {
         var config = UIButton.Configuration.filled()
         config.title = "Save Widget"
