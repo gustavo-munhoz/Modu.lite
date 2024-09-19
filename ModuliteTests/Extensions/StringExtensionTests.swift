@@ -68,7 +68,7 @@ import UIKit
     }
     
     @Test("Camel case with mixed case input")
-    func testCamelCasedWithMixedCaseInput() {
+    func camelCasedWithMixedCaseInput() {
         let input = "tHis Is a MiXeD CaSe"
         let expectedOutput = "thisIsAMixedCase"
         #expect(input.camelCased() == expectedOutput)
