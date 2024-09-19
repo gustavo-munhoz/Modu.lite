@@ -5,66 +5,73 @@
 //  Created by Gustavo Munhoz Correa on 15/09/24.
 //
 
-import XCTest
+import Testing
+import UIKit
 @testable import Modulite
 
-class UIColorValueTransformerTests: XCTestCase {
+struct UIColorValueTransformerTests {
     
-    func testTransformedValueToData() {
+    @Test("Value is transformed to Data")
+    func transformValueToData() {
         let transformer = UIColorValueTransformer()
         let color = UIColor(red: 0.5, green: 0.6, blue: 0.7, alpha: 1.0)
-                
+        
         let transformedValue = transformer.transformedValue(color)
         
-        XCTAssertNotNil(transformedValue)
-        XCTAssertTrue(transformedValue is Data)
+        #expect(transformedValue != nil)
+        #expect(transformedValue is Data)
     }
     
-    func testReverseTransformedValueToUIColor() {
+    @Test("Transformed Data is reverted to UIColor")
+    func reverseTransformedValueToUIColor() {
         let transformer = UIColorValueTransformer()
-        let originalColor = UIColor(red: 0.5, green: 0.6, blue: 0.7, alpha: 1.0)
-                
-        let transformedValue = transformer.transformedValue(originalColor) as? Data
+        let color = UIColor(red: 0.5, green: 0.6, blue: 0.7, alpha: 1.0)
         
-        XCTAssertNotNil(transformedValue)
-                
-        let reversedValue = transformer.reverseTransformedValue(transformedValue) as? UIColor
+        let transformedValue = transformer.transformedValue(color)
         
-        XCTAssertNotNil(reversedValue)
-        XCTAssertEqual(originalColor, reversedValue)
+        #expect(transformedValue != nil)
+        
+        let revertedValue = transformer.reverseTransformedValue(transformedValue) as? UIColor
+        
+        #expect(revertedValue != nil)
+        #expect(color == revertedValue)
     }
     
-    func testReverseTransformInvalidData() {
+    @Test("Invalid Value is not transformed")
+    func trasnformInvalidValue() {
+        let transformer = UIColorValueTransformer()
+        let invalidInput = "Invalid Input"
+        
+        let transformedValue = transformer.transformedValue(invalidInput)
+        
+        #expect(transformedValue == nil)
+    }
+    
+    @Test("Nil Value is not transformed")
+    func transformNilValue() {
+        let transformer = UIColorValueTransformer()
+        
+        let transformedValue = transformer.transformedValue(nil)
+        
+        #expect(transformedValue == nil)
+    }
+    
+    @Test("Invalid Data is not reverted")
+    func reverseTransformInvalidData() {
         let transformer = UIColorValueTransformer()
         let invalidData = Data([0x00, 0x01, 0x02])
                 
         let reversedValue = transformer.reverseTransformedValue(invalidData)
         
-        XCTAssertNil(reversedValue)
+        #expect(reversedValue == nil)
     }
     
-    func testTransformedValueWithInvalidInput() {
+    @Test("Nil value is not reverted")
+    func reverseTransformNilValue() {
         let transformer = UIColorValueTransformer()
-        let invalidInput = "Invalid Input"
-                
-        let transformedValue = transformer.transformedValue(invalidInput)
         
-        XCTAssertNil(transformedValue)
-    }
-    
-    func testReverseTransformWithNilInput() {
-        let transformer = UIColorValueTransformer()
-                
-        let reversedValue = transformer.reverseTransformedValue(nil)
+        let revertedValue = transformer.reverseTransformedValue(nil)
         
-        XCTAssertNil(reversedValue)
-    }
-    
-    func testTransformedValueWithNilInput() {
-        let transformer = UIColorValueTransformer()
-                
-        let transformedValue = transformer.transformedValue(nil)
-        
-        XCTAssertNil(transformedValue)
+        #expect(revertedValue == nil)
     }
 }
