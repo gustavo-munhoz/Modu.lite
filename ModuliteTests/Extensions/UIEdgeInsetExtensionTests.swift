@@ -5,44 +5,48 @@
 //  Created by Gustavo Munhoz Correa on 15/09/24.
 //
 
-import XCTest
+import Testing
+import UIKit
 @testable import Modulite
 
-class UIEdgeInsetsExtensionsTests: XCTestCase {
+@Suite("UIEdgeInsets tests") struct UIEdgeInsetsExtensionsTests {
     
-    func testUIEdgeInsetsVerticalAndHorizontal() {
+    @Test("Edge insets are set with positive values")
+    func edgeInsetsVerticalAndHorizontal() {
         let vertical: CGFloat = 10.0
         let horizontal: CGFloat = 20.0
         
         let insets = UIEdgeInsets(vertical: vertical, horizontal: horizontal)
         
-        XCTAssertEqual(insets.top, vertical, "The top inset should be equal to the vertical value.")
-        XCTAssertEqual(insets.bottom, vertical, "The bottom inset should be equal to the vertical value.")
-        XCTAssertEqual(insets.left, horizontal, "The left inset should be equal to the horizontal value.")
-        XCTAssertEqual(insets.right, horizontal, "The right inset should be equal to the horizontal value.")
+        #expect(insets.top == vertical)
+        #expect(insets.bottom == vertical)
+        #expect(insets.left == horizontal)
+        #expect(insets.right == horizontal)
     }
     
-    func testUIEdgeInsetsWithZeroValues() {
+    @Test("Edge insets are set with zero values")
+    func edgeInsetsWithZeroValues() {
         let vertical: CGFloat = 0.0
         let horizontal: CGFloat = 0.0
         
         let insets = UIEdgeInsets(vertical: vertical, horizontal: horizontal)
         
-        XCTAssertEqual(insets.top, vertical, "The top inset should be equal to zero.")
-        XCTAssertEqual(insets.bottom, vertical, "The bottom inset should be equal to zero.")
-        XCTAssertEqual(insets.left, horizontal, "The left inset should be equal to zero.")
-        XCTAssertEqual(insets.right, horizontal, "The right inset should be equal to zero.")
+        #expect(insets.top == vertical)
+        #expect(insets.bottom == vertical)
+        #expect(insets.left == horizontal)
+        #expect(insets.right == horizontal)
     }
     
-    func testUIEdgeInsetsWithNegativeValues() {
+    @Test("Edge insets are set with negative values")
+    func edgeInsetsWithNegativeValues() {
         let vertical: CGFloat = -5.0
         let horizontal: CGFloat = -10.0
         
         let insets = UIEdgeInsets(vertical: vertical, horizontal: horizontal)
         
-        XCTAssertEqual(insets.top, vertical, "The top inset should be equal to the negative vertical value.")
-        XCTAssertEqual(insets.bottom, vertical, "The bottom inset should be equal to the negative vertical value.")
-        XCTAssertEqual(insets.left, horizontal, "The left inset should be equal to the negative horizontal value.")
-        XCTAssertEqual(insets.right, horizontal, "The right inset should be equal to the negative horizontal value.")
+        #expect(insets.top == vertical)
+        #expect(insets.bottom == vertical)
+        #expect(insets.left == horizontal)
+        #expect(insets.right == horizontal)
     }
 }
