@@ -5,50 +5,37 @@
 //  Created by Gustavo Munhoz Correa on 14/09/24.
 //
 
-import XCTest
+import Testing
+import UIKit
 @testable import Modulite
 
-class UITextFieldExtensionTests: XCTestCase {
+@Suite("UITextField tests") struct UITextFieldExtensionTests {
 
-    func testSetLeftPaddingPoints() {
+    @MainActor @Test("Left padding points are set")
+    func setLeftPaddingPoints() {
         let textField = UITextField()
         let paddingAmount: CGFloat = 20.0
         
         textField.setLeftPaddingPoints(paddingAmount)
+        
+        #expect(textField.leftView != nil)
+        #expect(textField.leftViewMode == .always)
                 
-        XCTAssertNotNil(textField.leftView, "Left view should not be nil.")
-        XCTAssertEqual(textField.leftViewMode, .always, "Left view mode should be set to .always.")
-                
-        XCTAssertEqual(
-            textField.leftView?.frame.width,
-            paddingAmount,
-            "Left view width should be equal to the padding amount."
-        )
-        XCTAssertEqual(
-            textField.leftView?.frame.height,
-            textField.frame.size.height,
-            "Left view height should match the text field height."
-        )
+        #expect(textField.leftView?.frame.width == paddingAmount)
+        #expect(textField.leftView?.frame.height == textField.frame.size.height)
     }
 
-    func testSetRightPaddingPoints() {
+    @MainActor @Test("Right padding points are set")
+    func setRightPaddingPoints() {
         let textField = UITextField()
         let paddingAmount: CGFloat = 15.0
         
         textField.setRightPaddingPoints(paddingAmount)
                 
-        XCTAssertNotNil(textField.rightView, "Right view should not be nil.")
-        XCTAssertEqual(textField.rightViewMode, .always, "Right view mode should be set to .always.")
+        #expect(textField.rightViewMode != nil)
+        #expect(textField.rightViewMode == .always)
                 
-        XCTAssertEqual(
-            textField.rightView?.frame.width,
-            paddingAmount,
-            "Right view width should be equal to the padding amount."
-        )
-        XCTAssertEqual(
-            textField.rightView?.frame.height,
-            textField.frame.size.height,
-            "Right view height should match the text field height."
-        )
+        #expect(textField.rightView?.frame.width == paddingAmount)
+        #expect(textField.rightView?.frame.height == textField.frame.size.height)
     }
 }

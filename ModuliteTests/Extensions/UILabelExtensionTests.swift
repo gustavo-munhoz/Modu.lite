@@ -5,11 +5,14 @@
 //  Created by Gustavo Munhoz Correa on 14/09/24.
 //
 
-import XCTest
+import Testing
+import UIKit
 @testable import Modulite
 
-class UILabelExtensionsTests: XCTestCase {
-    func testDrawTextWithInsets() {
+@Suite("UILabel tests") struct UILabelExtensionsTests {
+    
+    @MainActor @Test("Label text is drawn with insets")
+    func drawTextWithInsets() {
         let label = PaddedLabel()
         label.text = "Test"
         label.edgeInsets = UIEdgeInsets(top: 10, left: 15, bottom: 10, right: 15)
@@ -19,13 +22,12 @@ class UILabelExtensionsTests: XCTestCase {
                 
         let expectedRect = rect.inset(by: label.edgeInsets)
                 
-        XCTAssertEqual(expectedRect.origin.x, 15)
-        XCTAssertEqual(expectedRect.origin.y, 10)
-        XCTAssertEqual(expectedRect.size.width, 70)
-        XCTAssertEqual(expectedRect.size.height, 20)
+        #expect(expectedRect.origin == CGPoint(x: 15, y: 10))
+        #expect(expectedRect.size == CGSize(width: 70, height: 20))
     }
     
-    func testIntrinsicContentSizeWithInsets() {
+    @MainActor @Test("Label intrinsic content size is calculated with insets")
+    func intrinsicContentSizeWithInsets() {
         let label = PaddedLabel()
         label.text = "Test"
         label.edgeInsets = UIEdgeInsets(top: 10, left: 15, bottom: 10, right: 15)
@@ -36,23 +38,30 @@ class UILabelExtensionsTests: XCTestCase {
                 height: CGFloat.greatestFiniteMagnitude
             )
         )
+        
         let expectedSize = CGSize(
             width: baseSize.width + label.edgeInsets.left + label.edgeInsets.right,
             height: baseSize.height + label.edgeInsets.top + label.edgeInsets.bottom
         )
         
-        XCTAssertEqual(label.intrinsicContentSize.width, expectedSize.width)
-        XCTAssertEqual(label.intrinsicContentSize.height, expectedSize.height)
+        #expect(label.intrinsicContentSize.equalTo(expectedSize))
     }
     
+    @MainActor @Test("Label with default insets has zero insets")
     func testDefaultInsets() {
         let label = PaddedLabel()
         label.text = "Test"
                 
-        XCTAssertEqual(label.edgeInsets, .zero)
-        XCTAssertEqual(
-            label.intrinsicContentSize,
-            label.sizeThatFits(CGSize(width: CGFloat.greatestFiniteMagnitude, height: CGFloat.greatestFiniteMagnitude))
+        #expect(label.edgeInsets == .zero)
+        #expect(
+            label.intrinsicContentSize.equalTo(
+                label.sizeThatFits(
+                    CGSize(
+                        width: CGFloat.greatestFiniteMagnitude,
+                        height: CGFloat.greatestFiniteMagnitude
+                    )
+                )
+            )
         )
     }
 }
