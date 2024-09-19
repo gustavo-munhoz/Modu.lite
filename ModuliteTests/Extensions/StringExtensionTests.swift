@@ -5,62 +5,72 @@
 //  Created by Gustavo Munhoz Correa on 15/09/24.
 //
 
-import XCTest
+import Testing
+import UIKit
 @testable import Modulite
 
-class StringExtensionsTests: XCTestCase {
+@Suite("String tests") struct StringExtensionsTests {
     
-    func testCamelCasedMultipleWords() {
+    @Test("Camel case with multiple words")
+    func camelCasedMultipleWords() {
         let input = "this is a test"
         let expectedOutput = "thisIsATest"
-        XCTAssertEqual(input.camelCased(), expectedOutput)
+        #expect(input.camelCased() == expectedOutput)
     }
     
-    func testCamelCasedWithSpecialCharacters() {
+    @Test("Camel case with special characters")
+    func camelCasedWithSpecialCharacters() {
         let input = "this_is-a.test"
         let expectedOutput = "thisIsATest"
-        XCTAssertEqual(input.camelCased(), expectedOutput)
+        #expect(input.camelCased() == expectedOutput)
     }
     
-    func testCamelCasedAlreadyCamelCase() {
+    @Test("Camel case with already camel cased text")
+    func camelCasedAlreadyCamelCase() {
         let input = "alreadyCamelCase"
         let expectedOutput = "alreadyCamelCase"
-        XCTAssertEqual(input.camelCased(), expectedOutput)
+        #expect(input.camelCased() == expectedOutput)
     }
     
-    func testCamelCasedEmptyString() {
+    @Test("Camel case with empty string")
+    func camelCasedEmptyString() {
         let input = ""
         let expectedOutput = ""
-        XCTAssertEqual(input.camelCased(), expectedOutput)
+        #expect(input.camelCased() == expectedOutput)
     }
     
-    func testCamelCasedSingleWord() {
+    @Test("Caml case with single word")
+    func camelCasedSingleWord() {
         let input = "word"
         let expectedOutput = "word"
-        XCTAssertEqual(input.camelCased(), expectedOutput)
+        #expect(input.camelCased() == expectedOutput)
     }
     
-    func testCamelCasedWithNonAlphanumericCharacters() {
+    @Test("Camel case with non alphanumeric characters")
+    func camelCasedWithNonAlphanumericCharacters() {
         let input = "hello!@#world"
         let expectedOutput = "helloWorld"
-        XCTAssertEqual(input.camelCased(), expectedOutput)
+        #expect(input.camelCased() == expectedOutput)
     }
     
-    func testCamelCasedWithLeadingAndTrailingSpaces() {
+    @Test("Camel case with leading and trailing spaces")
+    func camelCasedWithLeadingAndTrailingSpaces() {
         let input = "  leading and trailing spaces  "
         let expectedOutput = "leadingAndTrailingSpaces"
-        XCTAssertEqual(input.camelCased(), expectedOutput)
+        #expect(input.camelCased() == expectedOutput)
     }
     
-    func testCamelCasedWithUppercaseInput() {
+    @Test("Camel case with uppercase input")
+    func camelCasedWithUppercaseInput() {
         let input = "THIS IS UPPERCASE"
         let expectedOutput = "thisIsUppercase"
-        XCTAssertEqual(input.camelCased(), expectedOutput)
+        #expect(input.camelCased() == expectedOutput)
     }
     
+    @Test("Camel case with mixed case input")
     func testCamelCasedWithMixedCaseInput() {
         let input = "tHis Is a MiXeD CaSe"
         let expectedOutput = "thisIsAMixedCase"
-        XCTAssertEqual(input.camelCased(), expectedOutput)
+        #expect(input.camelCased() == expectedOutput)
     }
 }
