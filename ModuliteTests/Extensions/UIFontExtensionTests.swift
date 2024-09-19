@@ -9,7 +9,7 @@ import Testing
 import UIKit
 @testable import Modulite
 
-struct UIFontExtensionsTests {
+@Suite("UIFont tests") struct UIFontExtensionsTests {
 
     @Test("Font has text style and weight")
     func fontWithTextStyleAndWeight() {

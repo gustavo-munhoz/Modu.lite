@@ -5,12 +5,11 @@
 //  Created by Gustavo Munhoz Correa on 14/09/24.
 //
 
-import XCTest
 import Testing
 import UIKit
 @testable import Modulite
 
-struct UILabelExtensionsTests {
+@Suite("UILabel tests") struct UILabelExtensionsTests {
     
     @MainActor @Test("Label text is drawn with insets")
     func drawTextWithInsets() {

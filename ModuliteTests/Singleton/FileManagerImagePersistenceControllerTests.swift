@@ -9,7 +9,7 @@ import Testing
 import UIKit
 @testable import Modulite
 
-final class FileManagerImageTests {
+@Suite("FileManager Image tests") final class FileManagerImageTests {
     var controller: FileManagerImagePersistenceController!
     var testDirectory: URL!
     

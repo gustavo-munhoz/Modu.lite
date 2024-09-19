@@ -9,7 +9,7 @@ import Testing
 import UIKit
 @testable import Modulite
 
-struct UIColorValueTransformerTests {
+@Suite("UIColorValueTransformer tests") struct UIColorValueTransformerTests {
     
     @Test("Value is transformed to Data")
     func transformValueToData() {

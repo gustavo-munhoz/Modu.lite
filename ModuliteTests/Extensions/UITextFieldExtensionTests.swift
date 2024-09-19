@@ -9,7 +9,7 @@ import Testing
 import UIKit
 @testable import Modulite
 
-struct UITextFieldExtensionTests {
+@Suite("UITextField tests") struct UITextFieldExtensionTests {
 
     @MainActor @Test("Left padding points are set")
     func setLeftPaddingPoints() {
