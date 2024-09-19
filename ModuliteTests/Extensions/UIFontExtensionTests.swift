@@ -5,51 +5,57 @@
 //  Created by Gustavo Munhoz Correa on 14/09/24.
 //
 
-import XCTest
+import Testing
+import UIKit
 @testable import Modulite
 
-class UIFontExtensionsTests: XCTestCase {
+struct UIFontExtensionsTests {
 
-    func testFontWithTextStyleAndWeight() {
+    @Test("Font has text style and weight")
+    func fontWithTextStyleAndWeight() {
         let textStyle: UIFont.TextStyle = .body
         let weight: UIFont.Weight = .bold
         
         let font = UIFont(textStyle: textStyle, weight: weight)
-                
-        XCTAssertNotNil(font)
-        XCTAssertEqual(font.fontDescriptor.object(forKey: .textStyle) as? UIFont.TextStyle, textStyle)
+                        
+        #expect(font != nil)
+        #expect(font.fontDescriptor.object(forKey: .textStyle) as? UIFont.TextStyle == textStyle)
         
         let traits = font.fontDescriptor.object(forKey: .traits) as? [UIFontDescriptor.TraitKey: Any]
         let weightValue = traits?[.weight] as? NSNumber
-        XCTAssertEqual(weightValue?.floatValue, Float(weight.rawValue))
+        
+        #expect(weightValue?.floatValue == Float(weight.rawValue))
     }
     
-    func testFontWithTextStyleAndSymbolicTraits() {
+    @Test("Font has text style and symbolic traits")
+    func fontWithTextStyleAndSymbolicTraits() {
         let textStyle: UIFont.TextStyle = .headline
         let traits: UIFontDescriptor.SymbolicTraits = .traitBold
 
         let font = UIFont(textStyle: textStyle, symbolicTraits: traits)
         
-        XCTAssertNotNil(font)
-        XCTAssertTrue(font!.fontDescriptor.symbolicTraits.contains(traits))
+        #expect(font != nil)
+        #expect(font!.fontDescriptor.symbolicTraits.contains(traits))
     }
 
-    func testFontWithTextStyleWeightAndItalic() {
+    @Test("Font has text style, weight and italic traits")
+    func fontWithTextStyleWeightAndItalic() {
         let textStyle: UIFont.TextStyle = .subheadline
         let weight: UIFont.Weight = .medium
         let italic = true
         
         let font = UIFont(textStyle: textStyle, weight: weight, italic: italic)
                 
-        XCTAssertNotNil(font)
+        #expect(font != nil)
                 
         let traits = font.fontDescriptor.object(forKey: .traits) as? [UIFontDescriptor.TraitKey: Any]
         let weightValue = traits?[.weight] as? NSNumber
         
-        XCTAssertEqual(weightValue?.floatValue, Float(weight.rawValue))
-        XCTAssertTrue(font.fontDescriptor.symbolicTraits.contains(.traitItalic))
+        #expect(weightValue?.floatValue == Float(weight.rawValue))
+        #expect(font.fontDescriptor.symbolicTraits.contains(.traitItalic))
     }
     
+    @Test("Font has text style, weight and non-italic traits")
     func testFontWithTextStyleWeightAndNonItalic() {
         let textStyle: UIFont.TextStyle = .footnote
         let weight: UIFont.Weight = .light
@@ -57,12 +63,12 @@ class UIFontExtensionsTests: XCTestCase {
         
         let font = UIFont(textStyle: textStyle, weight: weight, italic: italic)
                 
-        XCTAssertNotNil(font)
+        #expect(font != nil)
                 
         let traits = font.fontDescriptor.object(forKey: .traits) as? [UIFontDescriptor.TraitKey: Any]
         let weightValue = traits?[.weight] as? NSNumber
         
-        XCTAssertEqual(weightValue?.floatValue, Float(weight.rawValue))
-        XCTAssertNil(traits?[.symbolic])
+        #expect(weightValue?.floatValue == Float(weight.rawValue))
+        #expect(traits?[.symbolic] == nil)
     }
 }
