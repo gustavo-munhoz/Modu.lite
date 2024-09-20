@@ -9,44 +9,38 @@ import Testing
 import UIKit
 @testable import Modulite
 
-@Suite("UIEdgeInsets tests") struct UIEdgeInsetsExtensionsTests {
+@Suite("UIEdgeInsets tests")
+struct UIEdgeInsetsExtensionsTests {
     
-    @Test("Edge insets are set with positive values")
-    func edgeInsetsVerticalAndHorizontal() {
-        let vertical: CGFloat = 10.0
-        let horizontal: CGFloat = 20.0
+    enum TestCase: CaseIterable {
+        case positive
+        case zero
+        case negative
         
-        let insets = UIEdgeInsets(vertical: vertical, horizontal: horizontal)
+        var vertical: CGFloat {
+            switch self {
+            case .positive: return 10.0
+            case .zero: return 0.0
+            case .negative: return -5.0
+            }
+        }
         
-        #expect(insets.top == vertical)
-        #expect(insets.bottom == vertical)
-        #expect(insets.left == horizontal)
-        #expect(insets.right == horizontal)
+        var horizontal: CGFloat {
+            switch self {
+            case .positive: return 20.0
+            case .zero: return 0.0
+            case .negative: return -10.0
+            }
+        }
     }
     
-    @Test("Edge insets are set with zero values")
-    func edgeInsetsWithZeroValues() {
-        let vertical: CGFloat = 0.0
-        let horizontal: CGFloat = 0.0
+    @Test("Edge insets are set", arguments: TestCase.allCases)
+    func setEdgeInsets(_ testCase: TestCase) {
+        let insets = UIEdgeInsets(vertical: testCase.vertical, horizontal: testCase.horizontal)
         
-        let insets = UIEdgeInsets(vertical: vertical, horizontal: horizontal)
-        
-        #expect(insets.top == vertical)
-        #expect(insets.bottom == vertical)
-        #expect(insets.left == horizontal)
-        #expect(insets.right == horizontal)
-    }
-    
-    @Test("Edge insets are set with negative values")
-    func edgeInsetsWithNegativeValues() {
-        let vertical: CGFloat = -5.0
-        let horizontal: CGFloat = -10.0
-        
-        let insets = UIEdgeInsets(vertical: vertical, horizontal: horizontal)
-        
-        #expect(insets.top == vertical)
-        #expect(insets.bottom == vertical)
-        #expect(insets.left == horizontal)
-        #expect(insets.right == horizontal)
+        #expect(insets.top == testCase.vertical)
+        #expect(insets.bottom == testCase.vertical)
+        #expect(insets.left == testCase.horizontal)
+        #expect(insets.right == testCase.horizontal)
     }
 }
