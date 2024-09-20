@@ -15,8 +15,6 @@ Modu.lite is an app that embraces the trend of healthy phone use, reducing scree
 
 The main idea of this project is to provide a customizable widget for the iPhone home screen, making it cleaner and more stylish, and allowing it to reflect your personality with a wide range of customization options. It combines an old-school, nostalgic aesthetic with modern technologies to enhance your daily life.
 
-Modu.lite integrates with Apple's Screen Time API on the iPhone and also features a backend built in Rust to handle data and ensure persistence.
-
 ## Motivation
 There is a growing problem in our society related to excessive smartphone use, which is directly linked to increased anxiety, concentration issues, and a lack of time for the things that matter most. We want interfaces to be useful and enjoyable again.
 
@@ -29,10 +27,9 @@ There is a growing problem in our society related to excessive smartphone use, w
 
 ## Technologies and Tools
 - **Language:** Swift
-- **Frameworks:** UIKit, SwiftUI, Combine, SwiftData
+- **Frameworks:** UIKit, SwiftUI, Combine, CoreData, Swift Testing
 - **Tools:** Xcode, SPM, Git
-- **APIs Used:** External Backend API in Rust https://github.com/AndreWozniack/Modulite_backend.git
 
 ## Learnings and Challenges
 
-There were many challenges in this project, such as learning about the MVVM architecture with coordinators in UIKit, understanding how interactive widgets work, sharing information between the app and the widget, integrating with a custom Rust API for database management and handling other information, as well as implementing iPhone usage control features.
+There were many challenges in this project, such as learning about the MVVM-C architecture with coordinators in UIKit, understanding how interactive widgets work, sharing information between the app and the widget, as well as implementing iPhone usage control features.
