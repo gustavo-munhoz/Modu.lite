@@ -16,32 +16,38 @@ class WidgetStyle {
     // MARK: - Properties
     let key: WidgetStyleKey
     var name: String
-    var coverImage: UIImage
+    var previewImage: UIImage
     var background: WidgetBackground?
     var styles: [ModuleStyle]
     var emptyModuleStyle: ModuleStyle?
     var colors: [UIColor]
     var textConfiguration: ModuleAppNameTextConfiguration
-
+    var blockedScreenWallpaperImage: UIImage
+    var homeScreenWallpaperImage: UIImage
+    
     // MARK: - Initalizers
     init(
         key: WidgetStyleKey,
         name: String,
-        coverImage: UIImage,
+        previewImage: UIImage,
         background: WidgetBackground?,
         styles: [ModuleStyle] = [],
         emptyModuleStyle: ModuleStyle? = nil,
         colors: [UIColor] = [],
-        textConfiguration: ModuleAppNameTextConfiguration
+        textConfiguration: ModuleAppNameTextConfiguration,
+        blockedScreenWallpaperImage: UIImage,
+        homeScreenWallpaperImage: UIImage
     ) {
         self.key = key
         self.name = name
-        self.coverImage = coverImage
+        self.previewImage = previewImage
         self.background = background
         self.styles = styles
         self.emptyModuleStyle = emptyModuleStyle
         self.colors = colors
         self.textConfiguration = textConfiguration
+        self.blockedScreenWallpaperImage = blockedScreenWallpaperImage
+        self.homeScreenWallpaperImage = homeScreenWallpaperImage
     }
     
     // MARK: - Setters

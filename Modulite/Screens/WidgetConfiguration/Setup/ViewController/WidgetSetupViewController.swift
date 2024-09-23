@@ -126,7 +126,7 @@ extension WidgetSetupViewController: UICollectionViewDataSource {
             let style = viewModel.widgetStyles[indexPath.row]
             
             cell.setup(
-                image: style.coverImage,
+                image: style.previewImage,
                 title: style.name
             )
             
