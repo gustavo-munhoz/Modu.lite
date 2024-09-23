@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "analog-style-cover.png",
+      "filename" : "retromacgreen_preview.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "analog-style-cover@2x.png",
+      "filename" : "retromacgreen_preview@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "analog-style-cover@3x.png",
+      "filename" : "retromacgreen_preview@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }
