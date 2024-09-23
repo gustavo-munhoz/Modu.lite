@@ -12,6 +12,7 @@ class WidgetEditorView: UIScrollView {
     
     // MARK: - Properties
     
+    var onDownloadWallpaperButtonTapped: (() -> Void)?
     var onSaveButtonTapped: ((UICollectionView) -> Void)?
     
     private let contentView = UIView()
@@ -88,21 +89,86 @@ class WidgetEditorView: UIScrollView {
     }()
     
     private(set) lazy var downloadWallpaperButton: UIButton = {
-        var config = UIButton.Configuration.filled()
+        var config = UIButton.Configuration.bordered()
+                
+        config.attributedTitle = AttributedString(
+            .localized(for: .widgetEditorViewWallpaperButton),
+            attributes: AttributeContainer([
+                .font: UIFont(textStyle: .body, weight: .bold),
+                .foregroundColor: UIColor.black
+            ])
+        )
         
-        var view: UIButton {
-            return UIButton(configuration: config)
-        }        
+        config.titleAlignment = .center
+        config.titleLineBreakMode = .byClipping
+                
+        config.image = UIImage(systemName: "square.and.arrow.down")?
+            .withTintColor(.black, renderingMode: .alwaysOriginal)
+        
+        config.imagePlacement = .leading
+        config.imagePadding = 5
+        
+        config.baseBackgroundColor = .clear
+        
+        let view = UIButton(configuration: config)
+        view.layer.borderColor = UIColor.carrotOrange.cgColor
+        view.layer.borderWidth = 2
+        
+        view.configurationUpdateHandler = { button in
+            var config = button.configuration
+            
+            UIView.animate(withDuration: 0.1) {
+                switch button.state {
+                case .highlighted:
+                    button.alpha = 0.67
+                    button.transform = .init(scaleX: 0.97, y: 0.97)
+                    
+                case .disabled:
+                    button.alpha = 0.67
+                    button.layer.borderColor = UIColor.gray.cgColor
+                    config?.attributedTitle = AttributedString(
+                        .localized(for: .widgetEditorViewWallpaperButtonSaved),
+                        attributes: AttributeContainer([
+                            .font: UIFont(textStyle: .body, weight: .bold),
+                            .foregroundColor: UIColor.black
+                        ])
+                    )
+                    
+                    button.configuration = config
+                    
+                default:
+                    button.alpha = 1
+                    button.transform = .init(scaleX: 1, y: 1)
+                }
+            }
+        }
+        
+        view.addTarget(self, action: #selector(didPressDownloadWallpaperButton), for: .touchUpInside)
         
         return view
     }()
     
     private(set) lazy var saveWidgetButton: UIButton = {
         var config = UIButton.Configuration.filled()
-        config.title = "Save Widget"
+        config.baseBackgroundColor = .fiestaGreen
+        
+        config.attributedTitle = AttributedString(
+            .localized(for: .widgetEditorViewSaveWidgetButton),
+            attributes: AttributeContainer([
+                .font: UIFont(textStyle: .body, weight: .bold),
+                .foregroundColor: UIColor.white
+            ])
+        )
+        
+        config.image = UIImage(systemName: "envelope")?
+            .withTintColor(.black, renderingMode: .alwaysOriginal)
+        
+        config.imagePadding = 10
         
         let view = UIButton(configuration: config)
         view.addTarget(self, action: #selector(didPressSaveButton), for: .touchUpInside)
+        view.layer.cornerRadius = 0
+        
         return view
     }()
     
@@ -178,12 +244,13 @@ class WidgetEditorView: UIScrollView {
         contentView.addSubview(moduleStyleCollectionView)
         contentView.addSubview(moduleColorCollectionView)
         contentView.addSubview(wallpaperHeader)
+        contentView.addSubview(downloadWallpaperButton)
         contentView.addSubview(saveWidgetButton)
     }
     
     private func setupConstraints() {
         contentView.snp.makeConstraints { make in
-            make.edges.equalToSuperview().inset(UIEdgeInsets(top: 24, left: 24, bottom: 0, right: -24))
+            make.edges.equalToSuperview().inset(UIEdgeInsets(top: 24, left: 24, bottom: 24, right: -24))
             make.width.equalToSuperview().offset(-48)
             make.height.equalTo(900)
         }
@@ -224,8 +291,15 @@ class WidgetEditorView: UIScrollView {
             make.left.right.equalToSuperview()
         }
         
+        downloadWallpaperButton.snp.makeConstraints { make in
+            make.top.equalTo(wallpaperHeader.snp.bottom).offset(16)
+            make.width.equalTo(260)
+            make.height.equalTo(40)
+            make.left.equalTo(wallpaperHeader).inset(35)
+        }
+        
         saveWidgetButton.snp.makeConstraints { make in
-            make.top.equalTo(wallpaperHeader.snp.bottom).offset(24)
+            make.top.equalTo(downloadWallpaperButton.snp.bottom).offset(24)
             make.centerX.equalToSuperview()
             make.width.equalTo(182)
             make.height.equalTo(44)
@@ -233,6 +307,10 @@ class WidgetEditorView: UIScrollView {
     }
     
     // MARK: - Actions
+    @objc private func didPressDownloadWallpaperButton() {
+        onDownloadWallpaperButtonTapped?()
+    }
+    
     @objc private func didPressSaveButton() {
         onSaveButtonTapped?(self.widgetLayoutCollectionView)
     }
