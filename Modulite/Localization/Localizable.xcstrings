@@ -292,6 +292,39 @@
         }
       }
     },
+    "widgetEditorViewSaveWidgetButton" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "SAVE WIDGET"
+          }
+        }
+      }
+    },
+    "widgetEditorViewWallpaperButton" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "DOWNLOAD WALLPAPERS"
+          }
+        }
+      }
+    },
+    "widgetEditorViewWallpaperButtonSaved" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "DOWNLOADED"
+          }
+        }
+      }
+    },
     "widgetEditorViewWidgetLayoutTitle" : {
       "extractionState" : "manual",
       "localizations" : {

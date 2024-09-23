@@ -41,6 +41,10 @@ class WidgetConfigurationBuilder {
     }
     
     // MARK: - Getters
+    func getStyleWallpapers() -> (blocked: UIImage, home: UIImage) {
+        (widgetContent.style.blockedScreenWallpaperImage, widgetContent.style.homeScreenWallpaperImage)
+    }
+    
     func getStyleBackground() -> WidgetBackground? {
         widgetContent.style.background
     }

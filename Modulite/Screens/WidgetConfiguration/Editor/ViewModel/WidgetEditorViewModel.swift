@@ -10,16 +10,24 @@ import Combine
 
 class WidgetEditorViewModel: NSObject {
     
+    // MARK: - Properties
     @Published private(set) var selectedCellIndex: Int?
     
     let builder: WidgetConfigurationBuilder
     
+    enum WidgetCreationError: Swift.Error {
+        case unableToSaveWallpaper
+    }
+    
+    // MARK: - Initializers
     init(
         widgetBuider: WidgetConfigurationBuilder
     ) {
         builder = widgetBuider
         super.init()
     }
+    
+    
     
     // MARK: - Getters
     
@@ -84,6 +92,21 @@ class WidgetEditorViewModel: NSObject {
     }
     
     // MARK: - Actions
+    func saveWallpaperImageToPhotos() throws {
+        let (blocked, home) = builder.getStyleWallpapers()
+        
+        let screenSize = UIScreen.main.bounds.size
+        
+        guard let resizedBlocked = resizeImage(image: blocked, targetSize: screenSize),
+              let resizedHome = resizeImage(image: home, targetSize: screenSize)
+        else {
+            throw WidgetCreationError.unableToSaveWallpaper
+        }
+        
+        UIImageWriteToSavedPhotosAlbum(resizedBlocked, nil, nil, nil)
+        UIImageWriteToSavedPhotosAlbum(resizedHome, nil, nil, nil)
+    }
+    
     func saveWidget(from collectionView: UICollectionView) {
         let widgetConfiguration = builder.build()
         CoreDataPersistenceController.shared.registerWidget(
@@ -112,5 +135,13 @@ class WidgetEditorViewModel: NSObject {
         }
         
         builder.setModuleStyle(at: index, style: style)
+    }
+    
+    // MARK: - Helper methods
+    private func resizeImage(image: UIImage, targetSize: CGSize) -> UIImage? {
+        let renderer = UIGraphicsImageRenderer(size: targetSize)
+        return renderer.image { (context) in
+            image.draw(in: CGRect(origin: .zero, size: targetSize))
+        }
     }
 }

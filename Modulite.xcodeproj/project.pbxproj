@@ -127,6 +127,7 @@
 		B3850BC92C979E8300F400C0 /* UIViewExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3850BC82C979E8300F400C0 /* UIViewExtensionsTests.swift */; };
 		B3850BCB2C979FB500F400C0 /* UIEdgeInsetExtensionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3850BCA2C979FB500F400C0 /* UIEdgeInsetExtensionTests.swift */; };
 		B3850BCD2C97A08B00F400C0 /* UICollectionViewExtensionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3850BCC2C97A08B00F400C0 /* UICollectionViewExtensionTests.swift */; };
+		B3987DFF2CA202C100896414 /* InfoPlist.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = B3987DFE2CA202C100896414 /* InfoPlist.xcstrings */; };
 		B3C1877F2C78D1E000A891A8 /* ModuliteWidgetConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3C1877E2C78D1E000A891A8 /* ModuliteWidgetConfiguration.swift */; };
 		B3C187822C79009B00A891A8 /* WidgetConfigurationBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3C187812C79009B00A891A8 /* WidgetConfigurationBuilder.swift */; };
 		B3C187842C791D1300A891A8 /* WidgetStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3C187832C791D1300A891A8 /* WidgetStyle.swift */; };
@@ -284,6 +285,7 @@
 		B3850BC82C979E8300F400C0 /* UIViewExtensionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtensionsTests.swift; sourceTree = "<group>"; };
 		B3850BCA2C979FB500F400C0 /* UIEdgeInsetExtensionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIEdgeInsetExtensionTests.swift; sourceTree = "<group>"; };
 		B3850BCC2C97A08B00F400C0 /* UICollectionViewExtensionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UICollectionViewExtensionTests.swift; sourceTree = "<group>"; };
+		B3987DFE2CA202C100896414 /* InfoPlist.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = InfoPlist.xcstrings; sourceTree = "<group>"; };
 		B3C1877E2C78D1E000A891A8 /* ModuliteWidgetConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModuliteWidgetConfiguration.swift; sourceTree = "<group>"; };
 		B3C187812C79009B00A891A8 /* WidgetConfigurationBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetConfigurationBuilder.swift; sourceTree = "<group>"; };
 		B3C187832C791D1300A891A8 /* WidgetStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetStyle.swift; sourceTree = "<group>"; };
@@ -738,6 +740,7 @@
 				B36927CA2C66B83E0089F769 /* Models */,
 				B36927C92C66B8380089F769 /* Routers */,
 				B36927CB2C66B8430089F769 /* Screens */,
+				B3987DFE2CA202C100896414 /* InfoPlist.xcstrings */,
 			);
 			path = Modulite;
 			sourceTree = "<group>";
@@ -1100,6 +1103,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B36927A12C66B6E40089F769 /* Assets.xcassets in Resources */,
+				B3987DFF2CA202C100896414 /* InfoPlist.xcstrings in Resources */,
 				B3F0543C2C7D04D60057F04D /* apps.json in Resources */,
 				B36927A42C66B6E40089F769 /* Base in Resources */,
 				B34F3DF32C6701740041D7BD /* Localizable.xcstrings in Resources */,
@@ -1455,6 +1459,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				VERSIONING_SYSTEM = "";
 			};
@@ -1514,6 +1519,7 @@
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_EMIT_LOC_STRINGS = YES;
 				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "";
 			};

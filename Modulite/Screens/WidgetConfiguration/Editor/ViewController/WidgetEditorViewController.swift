@@ -20,11 +20,39 @@ class WidgetEditorViewController: UIViewController {
         view = editorView
         editorView.setCollectionViewDelegates(to: self)
         editorView.setCollectionViewDataSources(to: self)
+        editorView.onDownloadWallpaperButtonTapped = handleDownloadWallpaperTouch
         editorView.onSaveButtonTapped = viewModel.saveWidget(from:)
         
         if let background = viewModel.getWidgetBackground() {
             editorView.setWidgetBackground(to: background)
         }
+    }
+    
+    private func handleDownloadWallpaperTouch() {
+        do {
+            try viewModel.saveWallpaperImageToPhotos()
+            presentWallpaperSaveAlert(success: true)
+            disableWallpaperDownloadButton()
+            
+        } catch {
+            presentWallpaperSaveAlert(success: false)
+        }
+    }
+    
+    private func disableWallpaperDownloadButton() {
+        editorView.downloadWallpaperButton.isEnabled = false
+    }
+    
+    private func presentWallpaperSaveAlert(success: Bool) {
+        // TODO: Implement alert messages
+        let alert = UIAlertController(
+            title: success ? "Success" : "Error",
+            message: nil,
+            preferredStyle: .alert
+        )
+        
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        present(alert, animated: true, completion: nil)
     }
 }
 
