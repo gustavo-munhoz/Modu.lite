@@ -321,6 +321,7 @@ class WidgetEditorView: UIScrollView {
         collectionView.snp.updateConstraints { make in
             make.left.equalToSuperview().offset(-offset)
         }
+        
         UIView.animate(withDuration: 0.3) {
             self.layoutIfNeeded()
         }

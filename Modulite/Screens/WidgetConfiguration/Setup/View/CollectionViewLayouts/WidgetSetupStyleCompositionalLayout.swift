@@ -17,8 +17,8 @@ class WidgetSetupStyleCompositionalLayout: UICollectionViewCompositionalLayout {
             let item = NSCollectionLayoutItem(layoutSize: itemSize)
             
             let groupSize = NSCollectionLayoutSize(
-                widthDimension: .absolute(192),
-                heightDimension: .absolute(234)
+                widthDimension: .absolute(180),
+                heightDimension: .absolute(196)
             )
             
             let group = NSCollectionLayoutGroup.horizontal(
@@ -28,6 +28,8 @@ class WidgetSetupStyleCompositionalLayout: UICollectionViewCompositionalLayout {
             
             let section = NSCollectionLayoutSection(group: group)
             section.orthogonalScrollingBehavior = .continuous
+            
+            section.interGroupSpacing = 16
             
             if sectionIndex == 0 {
                 let headerSize = NSCollectionLayoutSize(
