@@ -109,14 +109,17 @@ extension CoreDataPersistenceController {
         }
     }
     
+    @discardableResult
     func registerWidget(
         _ config: ModuliteWidgetConfiguration,
         widgetImage: UIImage
-    ) {
-        PersistableWidgetConfiguration.createFromWidgetConfiguration(
+    ) -> PersistableWidgetConfiguration {
+        let widgetConfig = PersistableWidgetConfiguration.createFromWidgetConfiguration(
             config,
             widgetImage: widgetImage,
             using: container.viewContext
         )
+        
+        return widgetConfig
     }
 }
