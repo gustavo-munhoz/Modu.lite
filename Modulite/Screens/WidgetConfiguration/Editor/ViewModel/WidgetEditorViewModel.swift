@@ -27,8 +27,6 @@ class WidgetEditorViewModel: NSObject {
         super.init()
     }
     
-    
-    
     // MARK: - Getters
     
     func getWidgetBackground() -> WidgetBackground? {
@@ -107,12 +105,19 @@ class WidgetEditorViewModel: NSObject {
         UIImageWriteToSavedPhotosAlbum(resizedHome, nil, nil, nil)
     }
     
-    func saveWidget(from collectionView: UICollectionView) {
+    @discardableResult
+    func saveWidget(from collectionView: UICollectionView) -> ModuliteWidgetConfiguration {
         let widgetConfiguration = builder.build()
-        CoreDataPersistenceController.shared.registerWidget(
+        let persistedConfig = CoreDataPersistenceController.shared.registerWidget(
             widgetConfiguration,
             widgetImage: collectionView.asImage()
         )
+        
+        widgetConfiguration.previewImage = FileManagerImagePersistenceController.shared.getWidgetImage(
+            with: persistedConfig.id
+        )
+        
+        return widgetConfiguration
     }
     
     func moveItem(from sourceIndex: Int, to destinationIndex: Int) {

@@ -12,24 +12,25 @@ import UIKit
 extension PersistableWidgetConfiguration {
     @NSManaged var id: UUID
     @NSManaged var name: String?
-    @NSManaged var resultingImageURL: URL
+    @NSManaged var previewImageUrl: URL
     @NSManaged var widgetStyleKey: String
     @NSManaged var modules: NSSet
 }
 
 extension PersistableWidgetConfiguration {
+    
+    @discardableResult
     static func createFromWidgetConfiguration(
         _ config: ModuliteWidgetConfiguration,
         widgetImage: UIImage,
         using managedObjectContext: NSManagedObjectContext
-    ) {
+    ) -> PersistableWidgetConfiguration {
         let widget = PersistableWidgetConfiguration(context: managedObjectContext)
         
         widget.id = UUID()
         widget.name = config.name
         guard let widgetStyleKey = config.widgetStyle?.key else {
-            print("Unable to get widget style key. Aborting object creation.")
-            return
+            fatalError("Unable to get widget style key. Aborting object creation.")
         }
         
         widget.widgetStyleKey = widgetStyleKey.rawValue
@@ -39,7 +40,7 @@ extension PersistableWidgetConfiguration {
             for: widget.id
         )
         
-        widget.resultingImageURL = widgetImageUrl
+        widget.previewImageUrl = widgetImageUrl
         
         for module in config.modules {
             let moduleImage = module.generateWidgetButtonImage()
@@ -57,6 +58,7 @@ extension PersistableWidgetConfiguration {
             try managedObjectContext.save()
             
             print("Widget \(widget.id) saved successfully.")
+            return widget
             
         } catch {
             FileManagerImagePersistenceController.shared.deleteWidgetAndModules(with: widget.id)

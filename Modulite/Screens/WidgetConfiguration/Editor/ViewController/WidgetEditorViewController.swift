@@ -8,26 +8,34 @@
 import UIKit
 
 protocol WidgetEditorViewControllerDelegate: AnyObject {
-    
+    func widgetEditorViewController(
+        _ viewController: WidgetEditorViewController,
+        didSave widget: ModuliteWidgetConfiguration
+    )
 }
 
 class WidgetEditorViewController: UIViewController {
     
+    // MARK: - Properties
     private let editorView = WidgetEditorView()
     private var viewModel: WidgetEditorViewModel!
     
+    weak var delegate: WidgetEditorViewControllerDelegate?
+    
+    // MARK: - Lifecycle
     override func loadView() {
         view = editorView
         editorView.setCollectionViewDelegates(to: self)
         editorView.setCollectionViewDataSources(to: self)
         editorView.onDownloadWallpaperButtonTapped = handleDownloadWallpaperTouch
-        editorView.onSaveButtonTapped = viewModel.saveWidget(from:)
+        editorView.onSaveButtonTapped = handleSaveWidgetButtonTouch
         
         if let background = viewModel.getWidgetBackground() {
             editorView.setWidgetBackground(to: background)
         }
     }
     
+    // MARK: - Actions
     private func handleDownloadWallpaperTouch() {
         do {
             try viewModel.saveWallpaperImageToPhotos()
@@ -54,6 +62,13 @@ class WidgetEditorViewController: UIViewController {
         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
         present(alert, animated: true, completion: nil)
     }
+    
+    func handleSaveWidgetButtonTouch() {
+        clearSelectedModuleCell()
+        
+        let widget = viewModel.saveWidget(from: editorView.widgetLayoutCollectionView)
+        delegate?.widgetEditorViewController(self, didSave: widget)
+    }
 }
 
 extension WidgetEditorViewController {
@@ -64,6 +79,7 @@ extension WidgetEditorViewController {
         let vc = WidgetEditorViewController()
         
         vc.viewModel = WidgetEditorViewModel(widgetBuider: builder)
+        vc.delegate = delegate
         
         return vc
     }

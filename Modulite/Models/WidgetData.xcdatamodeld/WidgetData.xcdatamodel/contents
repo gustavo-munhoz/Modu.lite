@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="22758" systemVersion="23E214" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithSwiftData="YES" userDefinedModelVersionIdentifier="">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="23231" systemVersion="24A335" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithSwiftData="YES" userDefinedModelVersionIdentifier="">
     <entity name="AppInfo" representedClassName="AppInfo" syncable="YES">
         <attribute name="name" attributeType="String"/>
         <attribute name="urlScheme" attributeType="URI"/>
@@ -16,7 +16,7 @@
     <entity name="PersistableWidgetConfiguration" representedClassName="PersistableWidgetConfiguration" syncable="YES">
         <attribute name="id" attributeType="UUID" usesScalarValueType="NO"/>
         <attribute name="name" optional="YES" attributeType="String"/>
-        <attribute name="resultingImageURL" attributeType="URI"/>
+        <attribute name="previewImageUrl" attributeType="URI"/>
         <attribute name="widgetStyleKey" optional="YES" attributeType="String"/>
         <relationship name="modules" toMany="YES" minCount="1" maxCount="6" deletionRule="Nullify" destinationEntity="PersistableModuleConfiguration" inverseName="widget" inverseEntity="PersistableModuleConfiguration"/>
     </entity>

@@ -32,8 +32,15 @@ class HomeCoordinator: Coordinator {
 }
 
 extension HomeCoordinator: HomeViewControllerDelegate {
-    func startWidgetCreationNavigationFlow() {
+    func homeViewControllerDidStartWidgetCreationFlow(
+        _ viewController: HomeViewController
+    ) {
         let coordinator = WidgetBuilderCoordinator(router: router)
+        
+        coordinator.onWidgetSave = { widget in
+            viewController.registerNewWidget(widget)
+        }
+        
         presentChild(coordinator, animated: true)
     }
 }

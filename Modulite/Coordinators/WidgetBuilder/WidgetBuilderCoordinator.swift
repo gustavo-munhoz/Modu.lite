@@ -9,6 +9,7 @@ import UIKit
 
 class WidgetBuilderCoordinator: Coordinator {
     
+    // MARK: - Properties
     let contentBuilder = WidgetContentBuilder()
     
     var configurationBuilder: WidgetConfigurationBuilder {
@@ -17,15 +18,22 @@ class WidgetBuilderCoordinator: Coordinator {
     }
     
     var children: [Coordinator] = []
-    
     var router: Router
+    
+    var onWidgetSave: ((ModuliteWidgetConfiguration) -> Void)?
+    
+    // MARK: - Lifecycle
     
     init(router: Router) {
         self.router = router
     }
     
     func present(animated: Bool, onDismiss: (() -> Void)?) {
-        let viewController = WidgetSetupViewController.instantiate(widgetId: UUID(), delegate: self)
+        let viewController = WidgetSetupViewController.instantiate(
+            widgetId: UUID(),
+            delegate: self
+        )
+        
         viewController.hidesBottomBarWhenPushed = true
         
         router.present(viewController, animated: animated, onDismiss: onDismiss)
@@ -91,5 +99,11 @@ extension WidgetBuilderCoordinator: SelectAppsViewControllerDelegate {
 
 // MARK: - WidgetEditorViewControllerDelegate
 extension WidgetBuilderCoordinator: WidgetEditorViewControllerDelegate {
-    
+    func widgetEditorViewController(
+        _ viewController: WidgetEditorViewController,
+        didSave widget: ModuliteWidgetConfiguration
+    ) {
+        onWidgetSave?(widget)
+        dismiss(animated: true)
+    }
 }
