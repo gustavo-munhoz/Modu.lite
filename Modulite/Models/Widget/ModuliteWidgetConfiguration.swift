@@ -14,7 +14,7 @@ class ModuliteWidgetConfiguration {
     var widgetStyle: WidgetStyle?
     var modules: [ModuleConfiguration] = []
     
-    var resultingImage: UIImage?
+    var previewImage: UIImage?
     
     var availableStyles: [ModuleStyle] {
         guard let widgetStyle = widgetStyle else { return [] }
@@ -61,6 +61,6 @@ extension ModuliteWidgetConfiguration {
             }
         )
         
-        resultingImage = FileManagerImagePersistenceController.shared.getWidgetImage(with: config.id)
+        previewImage = FileManagerImagePersistenceController.shared.getWidgetImage(with: config.id)
     }
 }
