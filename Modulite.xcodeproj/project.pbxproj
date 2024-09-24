@@ -128,6 +128,8 @@
 		B3850BCB2C979FB500F400C0 /* UIEdgeInsetExtensionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3850BCA2C979FB500F400C0 /* UIEdgeInsetExtensionTests.swift */; };
 		B3850BCD2C97A08B00F400C0 /* UICollectionViewExtensionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3850BCC2C97A08B00F400C0 /* UICollectionViewExtensionTests.swift */; };
 		B3987DFF2CA202C100896414 /* InfoPlist.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = B3987DFE2CA202C100896414 /* InfoPlist.xcstrings */; };
+		B3987E042CA3602900896414 /* UIView+animateBorderColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3987E032CA3602900896414 /* UIView+animateBorderColor.swift */; };
+		B3987E052CA3602900896414 /* UIView+animateBorderColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3987E032CA3602900896414 /* UIView+animateBorderColor.swift */; };
 		B3C1877F2C78D1E000A891A8 /* ModuliteWidgetConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3C1877E2C78D1E000A891A8 /* ModuliteWidgetConfiguration.swift */; };
 		B3C187822C79009B00A891A8 /* WidgetConfigurationBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3C187812C79009B00A891A8 /* WidgetConfigurationBuilder.swift */; };
 		B3C187842C791D1300A891A8 /* WidgetStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3C187832C791D1300A891A8 /* WidgetStyle.swift */; };
@@ -286,6 +288,7 @@
 		B3850BCA2C979FB500F400C0 /* UIEdgeInsetExtensionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIEdgeInsetExtensionTests.swift; sourceTree = "<group>"; };
 		B3850BCC2C97A08B00F400C0 /* UICollectionViewExtensionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UICollectionViewExtensionTests.swift; sourceTree = "<group>"; };
 		B3987DFE2CA202C100896414 /* InfoPlist.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = InfoPlist.xcstrings; sourceTree = "<group>"; };
+		B3987E032CA3602900896414 /* UIView+animateBorderColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+animateBorderColor.swift"; sourceTree = "<group>"; };
 		B3C1877E2C78D1E000A891A8 /* ModuliteWidgetConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModuliteWidgetConfiguration.swift; sourceTree = "<group>"; };
 		B3C187812C79009B00A891A8 /* WidgetConfigurationBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetConfigurationBuilder.swift; sourceTree = "<group>"; };
 		B3C187832C791D1300A891A8 /* WidgetStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetStyle.swift; sourceTree = "<group>"; };
@@ -550,6 +553,7 @@
 		B34F3E292C6E83670041D7BD /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				B3987E032CA3602900896414 /* UIView+animateBorderColor.swift */,
 				B34F3E2A2C6E837F0041D7BD /* UIFont+TraitedTextStyle.swift */,
 				B34F3E322C6E8AA60041D7BD /* UITextField+HorizontalPadding.swift */,
 				B3EB15BA2C7E5DC5003B1960 /* UILabel+AppNameConfiguration.swift */,
@@ -1172,6 +1176,7 @@
 				B32B60FB2C87AC8D007DDCE3 /* AppInfoData.swift in Sources */,
 				B37284702C82990B00D9A1E7 /* WidgetStyle.swift in Sources */,
 				AFBBC5072C7E459900A9B256 /* ModuliteWidgetBundle.swift in Sources */,
+				B3987E052CA3602900896414 /* UIView+animateBorderColor.swift in Sources */,
 				B32B60A52C838EB0007DDCE3 /* WidgetModuleCell.swift in Sources */,
 				B32B60FC2C87AC90007DDCE3 /* AppInfo+CoreDataProperties.swift in Sources */,
 				B32B60F52C87AB85007DDCE3 /* WidgetData.xcdatamodeld in Sources */,
@@ -1198,6 +1203,7 @@
 				B34F3E1A2C6B94080041D7BD /* HomeHeaderReusableCell.swift in Sources */,
 				B36927CF2C66B8A30089F769 /* Coordinator.swift in Sources */,
 				B32B60BA2C864807007DDCE3 /* PersistableModuleConfiguration+CoreDataClass.swift in Sources */,
+				B3987E042CA3602900896414 /* UIView+animateBorderColor.swift in Sources */,
 				B34F3E242C6D366A0041D7BD /* WidgetEditorView.swift in Sources */,
 				B3D90AC12C9A570B00CA8054 /* MockImagePersistenceController.swift in Sources */,
 				B369279C2C66B6E30089F769 /* HomeViewController.swift in Sources */,

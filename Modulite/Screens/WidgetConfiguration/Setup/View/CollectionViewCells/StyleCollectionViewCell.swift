@@ -20,9 +20,7 @@ class StyleCollectionViewCell: UICollectionViewCell {
     
     override var isSelected: Bool {
         didSet {
-            UIView.animate(withDuration: 0.25) {
-                self.updateOverlayAlpha()
-            }
+         updateOverlayAlpha()
         }
     }
     
@@ -45,7 +43,7 @@ class StyleCollectionViewCell: UICollectionViewCell {
         let view = UIView()
         view.backgroundColor = UIColor.black
         view.alpha = 0
-        view.layer.cornerRadius = 12
+        view.layer.cornerRadius = 14
         
         return view
     }()
@@ -93,10 +91,19 @@ class StyleCollectionViewCell: UICollectionViewCell {
     
     // MARK: - Actions
     private func updateOverlayAlpha() {
-        // FIXME: Image size needs to be equal for all
         if hasSelectionBeenMade {
-            overlayView.alpha = isSelected ? 0 : 0.3
-            styleImageView.layer.borderColor = isSelected ? UIColor.lemonYellow.cgColor : .none
+            DispatchQueue.main.async {
+                UIView.animate(withDuration: 0.25) { [weak self] in
+                    guard let self = self else { return }
+                    self.overlayView.alpha = self.isSelected ? 0 : 0.5
+                }
+            }
+            
+            styleImageView.animateBorderColor(
+                toColor: isSelected ? UIColor.lemonYellow : .clear,
+                duration: 0.25
+            )
+            
             styleImageView.layer.borderWidth = isSelected ? 4 : 0
             
         } else {
