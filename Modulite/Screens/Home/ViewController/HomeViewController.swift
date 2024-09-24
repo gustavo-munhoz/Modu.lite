@@ -8,7 +8,9 @@
 import UIKit
 
 protocol HomeViewControllerDelegate: AnyObject {
-    func startWidgetCreationNavigationFlow()
+    func homeViewControllerDidStartWidgetCreationFlow(
+        _ viewController: HomeViewController
+    )
 }
 
 class HomeViewController: UIViewController {
@@ -53,6 +55,12 @@ class HomeViewController: UIViewController {
             print("Image not found")
         }
     }
+    
+    // MARK: - Actions
+    func registerNewWidget(_ widget: ModuliteWidgetConfiguration) {
+        viewModel.mainWidgets.append(widget)
+        homeView.mainWidgetsCollectionView.reloadData()
+    }
 }
 
 extension HomeViewController {
@@ -89,8 +97,8 @@ extension HomeViewController: UICollectionViewDataSource {
                 fatalError("Could not dequeue MainWidgetCollectionViewCell.")
             }
             
-            let widget = viewModel.mainWidgets[indexPath.row] 
-            cell.configure(image: widget.resultingImage, name: widget.name)
+            let widget = viewModel.mainWidgets[indexPath.row]
+            cell.configure(image: widget.previewImage, name: widget.name)
             
             return cell
             
@@ -145,7 +153,7 @@ extension HomeViewController: UICollectionViewDataSource {
                 buttonImage: UIImage(systemName: "plus.circle")!,
                 buttonAction: { [weak self] in
                     guard let self = self else { return }
-                    self.delegate?.startWidgetCreationNavigationFlow()
+                    self.delegate?.homeViewControllerDidStartWidgetCreationFlow(self)
                 }
             )
             
@@ -156,7 +164,7 @@ extension HomeViewController: UICollectionViewDataSource {
                 buttonAction: { [weak self] in
                     guard let self = self else { return }
                     let id = self.viewModel.mainWidgets[indexPath.row]
-                    self.delegate?.startWidgetCreationNavigationFlow()
+                    self.delegate?.homeViewControllerDidStartWidgetCreationFlow(self)
                 }
             )
             
