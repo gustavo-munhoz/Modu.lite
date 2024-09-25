@@ -140,6 +140,13 @@
 		B3987E162CA38C7900896414 /* MainWidgetEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3987E142CA38C7900896414 /* MainWidgetEntry.swift */; };
 		B3987E182CA3938200896414 /* AuxiliaryWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3987E172CA3938200896414 /* AuxiliaryWidget.swift */; };
 		B3987E192CA3938200896414 /* AuxiliaryWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3987E172CA3938200896414 /* AuxiliaryWidget.swift */; };
+		B3987E1F2CA3A3BC00896414 /* MainWidgetModuleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3987E1E2CA3A3BC00896414 /* MainWidgetModuleButton.swift */; };
+		B3987E202CA3A3BC00896414 /* MainWidgetModuleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3987E1E2CA3A3BC00896414 /* MainWidgetModuleButton.swift */; };
+		B3987E212CA4801600896414 /* UIColorValueTransformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B32B60BB2C86492C007DDCE3 /* UIColorValueTransformer.swift */; };
+		B3987E232CA4857400896414 /* MainWidgetConfigurationData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3987E222CA4857400896414 /* MainWidgetConfigurationData.swift */; };
+		B3987E242CA4857400896414 /* MainWidgetConfigurationData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3987E222CA4857400896414 /* MainWidgetConfigurationData.swift */; };
+		B3987E262CA4858E00896414 /* MainWidgetModuleData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3987E252CA4858E00896414 /* MainWidgetModuleData.swift */; };
+		B3987E272CA4858E00896414 /* MainWidgetModuleData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3987E252CA4858E00896414 /* MainWidgetModuleData.swift */; };
 		B3C1877F2C78D1E000A891A8 /* ModuliteWidgetConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3C1877E2C78D1E000A891A8 /* ModuliteWidgetConfiguration.swift */; };
 		B3C187822C79009B00A891A8 /* WidgetConfigurationBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3C187812C79009B00A891A8 /* WidgetConfigurationBuilder.swift */; };
 		B3C187842C791D1300A891A8 /* WidgetStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3C187832C791D1300A891A8 /* WidgetStyle.swift */; };
@@ -147,8 +154,6 @@
 		B3CDD7012C766F2E00E558F8 /* ModuleStyleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3CDD7002C766F2E00E558F8 /* ModuleStyleCell.swift */; };
 		B3CDD7032C767FD300E558F8 /* ModuleColorCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3CDD7022C767FD300E558F8 /* ModuleColorCell.swift */; };
 		B3CDD7072C77C59B00E558F8 /* ImageProcessingFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3CDD7062C77C59B00E558F8 /* ImageProcessingFactory.swift */; };
-		B3D90AC12C9A570B00CA8054 /* MockImagePersistenceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3D90AC02C9A570B00CA8054 /* MockImagePersistenceController.swift */; };
-		B3D90AC22C9A570B00CA8054 /* MockImagePersistenceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3D90AC02C9A570B00CA8054 /* MockImagePersistenceController.swift */; };
 		B3D90AC62C9A592500CA8054 /* FileManagerImagePersistenceControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3D90AC52C9A592500CA8054 /* FileManagerImagePersistenceControllerTests.swift */; };
 		B3EB15B62C7E4BF0003B1960 /* ModuleConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3EB15B52C7E4BF0003B1960 /* ModuleConfiguration.swift */; };
 		B3EB15B92C7E4CD6003B1960 /* ModuleAppNameTextConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3EB15B82C7E4CD6003B1960 /* ModuleAppNameTextConfiguration.swift */; };
@@ -304,6 +309,9 @@
 		B3987E112CA38AF400896414 /* MainWidgetProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainWidgetProvider.swift; sourceTree = "<group>"; };
 		B3987E142CA38C7900896414 /* MainWidgetEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainWidgetEntry.swift; sourceTree = "<group>"; };
 		B3987E172CA3938200896414 /* AuxiliaryWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuxiliaryWidget.swift; sourceTree = "<group>"; };
+		B3987E1E2CA3A3BC00896414 /* MainWidgetModuleButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainWidgetModuleButton.swift; sourceTree = "<group>"; };
+		B3987E222CA4857400896414 /* MainWidgetConfigurationData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainWidgetConfigurationData.swift; sourceTree = "<group>"; };
+		B3987E252CA4858E00896414 /* MainWidgetModuleData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainWidgetModuleData.swift; sourceTree = "<group>"; };
 		B3C1877E2C78D1E000A891A8 /* ModuliteWidgetConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModuliteWidgetConfiguration.swift; sourceTree = "<group>"; };
 		B3C187812C79009B00A891A8 /* WidgetConfigurationBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetConfigurationBuilder.swift; sourceTree = "<group>"; };
 		B3C187832C791D1300A891A8 /* WidgetStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetStyle.swift; sourceTree = "<group>"; };
@@ -311,7 +319,6 @@
 		B3CDD7002C766F2E00E558F8 /* ModuleStyleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModuleStyleCell.swift; sourceTree = "<group>"; };
 		B3CDD7022C767FD300E558F8 /* ModuleColorCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModuleColorCell.swift; sourceTree = "<group>"; };
 		B3CDD7062C77C59B00E558F8 /* ImageProcessingFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageProcessingFactory.swift; sourceTree = "<group>"; };
-		B3D90AC02C9A570B00CA8054 /* MockImagePersistenceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockImagePersistenceController.swift; sourceTree = "<group>"; };
 		B3D90AC52C9A592500CA8054 /* FileManagerImagePersistenceControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileManagerImagePersistenceControllerTests.swift; sourceTree = "<group>"; };
 		B3EB15B52C7E4BF0003B1960 /* ModuleConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModuleConfiguration.swift; sourceTree = "<group>"; };
 		B3EB15B82C7E4CD6003B1960 /* ModuleAppNameTextConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModuleAppNameTextConfiguration.swift; sourceTree = "<group>"; };
@@ -922,10 +929,11 @@
 		B3987E092CA388F900896414 /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				B3987E1B2CA3A34A00896414 /* Models */,
+				B3987E1D2CA3A37100896414 /* Views */,
 				B3987E0B2CA38A8A00896414 /* MainWidget.swift */,
 				B3987E142CA38C7900896414 /* MainWidgetEntry.swift */,
 				B3987E112CA38AF400896414 /* MainWidgetProvider.swift */,
-				B3987E0E2CA38A9C00896414 /* MainWidgetView.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -936,6 +944,24 @@
 				B3987E172CA3938200896414 /* AuxiliaryWidget.swift */,
 			);
 			path = Auxiliary;
+			sourceTree = "<group>";
+		};
+		B3987E1B2CA3A34A00896414 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				B3987E222CA4857400896414 /* MainWidgetConfigurationData.swift */,
+				B3987E252CA4858E00896414 /* MainWidgetModuleData.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		B3987E1D2CA3A37100896414 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				B3987E0E2CA38A9C00896414 /* MainWidgetView.swift */,
+				B3987E1E2CA3A3BC00896414 /* MainWidgetModuleButton.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		B3C187802C79008800A891A8 /* Builders */ = {
@@ -961,7 +987,6 @@
 			isa = PBXGroup;
 			children = (
 				B32B60EF2C876F4A007DDCE3 /* FileManagerImagePersistenceController.swift */,
-				B3D90AC02C9A570B00CA8054 /* MockImagePersistenceController.swift */,
 			);
 			path = WidgetImagePersistence;
 			sourceTree = "<group>";
@@ -1208,9 +1233,10 @@
 				B37284752C82996600D9A1E7 /* String+LocalizedKey.swift in Sources */,
 				B32B60FA2C87AC84007DDCE3 /* CoreDataPersistenceController.swift in Sources */,
 				AFBBC51C2C7E4AEB00A9B256 /* WidgetButtonView.swift in Sources */,
+				B3987E212CA4801600896414 /* UIColorValueTransformer.swift in Sources */,
+				B3987E202CA3A3BC00896414 /* MainWidgetModuleButton.swift in Sources */,
 				B32B60F72C87ABC1007DDCE3 /* PersistableModuleConfiguration+CoreDataProperties.swift in Sources */,
 				B37284772C829A8C00D9A1E7 /* WidgetStyleFactory.swift in Sources */,
-				B3D90AC22C9A570B00CA8054 /* MockImagePersistenceController.swift in Sources */,
 				B32B60FB2C87AC8D007DDCE3 /* AppInfoData.swift in Sources */,
 				B37284702C82990B00D9A1E7 /* WidgetStyle.swift in Sources */,
 				AFBBC5072C7E459900A9B256 /* ModuliteWidgetBundle.swift in Sources */,
@@ -1220,7 +1246,9 @@
 				B32B60FC2C87AC90007DDCE3 /* AppInfo+CoreDataProperties.swift in Sources */,
 				B3987E132CA38AF400896414 /* MainWidgetProvider.swift in Sources */,
 				B32B60F52C87AB85007DDCE3 /* WidgetData.xcdatamodeld in Sources */,
+				B3987E272CA4858E00896414 /* MainWidgetModuleData.swift in Sources */,
 				B37284762C82997700D9A1E7 /* ImageProcessingFactory.swift in Sources */,
+				B3987E242CA4857400896414 /* MainWidgetConfigurationData.swift in Sources */,
 				B3987E182CA3938200896414 /* AuxiliaryWidget.swift in Sources */,
 				B32B60F62C87AB8F007DDCE3 /* PersistableWidgetConfiguration+CoreDataProperties.swift in Sources */,
 				B37284712C82992200D9A1E7 /* ModuleAppNameTextConfiguration.swift in Sources */,
@@ -1246,7 +1274,6 @@
 				B32B60BA2C864807007DDCE3 /* PersistableModuleConfiguration+CoreDataClass.swift in Sources */,
 				B3987E042CA3602900896414 /* UIView+animateBorderColor.swift in Sources */,
 				B34F3E242C6D366A0041D7BD /* WidgetEditorView.swift in Sources */,
-				B3D90AC12C9A570B00CA8054 /* MockImagePersistenceController.swift in Sources */,
 				B369279C2C66B6E30089F769 /* HomeViewController.swift in Sources */,
 				B3C187842C791D1300A891A8 /* WidgetStyle.swift in Sources */,
 				B34F3E0D2C6B0C790041D7BD /* UsageCoordinator.swift in Sources */,
@@ -1288,6 +1315,7 @@
 				B32B61032C88EE1E007DDCE3 /* WidgetSetupAppsTagFlowLayout.swift in Sources */,
 				B34F3E052C6A93AC0041D7BD /* SettingsViewController.swift in Sources */,
 				B32B60CA2C8657EC007DDCE3 /* AppInfoData.swift in Sources */,
+				B3987E262CA4858E00896414 /* MainWidgetModuleData.swift in Sources */,
 				B32B610E2C8A4517007DDCE3 /* SelectAppsCoordinator.swift in Sources */,
 				B32B610A2C8A4485007DDCE3 /* SelectAppsView.swift in Sources */,
 				AFABBD7C2C80F2E0007BEFD8 /* UsageView.swift in Sources */,
@@ -1309,7 +1337,9 @@
 				B34F3E332C6E8AA60041D7BD /* UITextField+HorizontalPadding.swift in Sources */,
 				B32B610C2C8A449C007DDCE3 /* SelectAppsViewController.swift in Sources */,
 				B3987E192CA3938200896414 /* AuxiliaryWidget.swift in Sources */,
+				B3987E232CA4857400896414 /* MainWidgetConfigurationData.swift in Sources */,
 				B350C05A2C8F92C90035682F /* WidgetBuilderCoordinator.swift in Sources */,
+				B3987E1F2CA3A3BC00896414 /* MainWidgetModuleButton.swift in Sources */,
 				B34F3E372C6FDEAA0041D7BD /* SelectedAppCollectionViewCell.swift in Sources */,
 				B3CDD7012C766F2E00E558F8 /* ModuleStyleCell.swift in Sources */,
 				B3987E0F2CA38A9C00896414 /* MainWidgetView.swift in Sources */,
