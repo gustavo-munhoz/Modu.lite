@@ -143,8 +143,7 @@ class HomeView: UIScrollView {
     
     /// Creates and returns a collection view configured with a compositional layout based on the section type.
     private func createCollectionView(for section: ViewSection) -> UICollectionView {
-        let layout = UICollectionViewCompositionalLayout {
-            [weak self] _, _ -> NSCollectionLayoutSection? in
+        let layout = UICollectionViewCompositionalLayout { [weak self] _, _ -> NSCollectionLayoutSection? in
             guard let self = self else { return nil }
             
             let itemSize = NSCollectionLayoutSize(

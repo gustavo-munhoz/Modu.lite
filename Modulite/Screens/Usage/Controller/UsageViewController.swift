@@ -22,18 +22,16 @@ class UsageViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let ac = AuthorizationCenter.shared
+        let authCenter = AuthorizationCenter.shared
 
         Task {
             do {
-                try await ac.requestAuthorization(for: .individual)
-            }
-            catch {
+                try await authCenter.requestAuthorization(for: .individual)
+                
+            } catch {
                 print("Authorization Error")
             }
         }
-        
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
