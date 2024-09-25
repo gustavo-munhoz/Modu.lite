@@ -1,6 +1,5 @@
 import UIKit
 
-
 class BlockAppsViewController:
     UIViewController,
     UICollectionViewDelegate,

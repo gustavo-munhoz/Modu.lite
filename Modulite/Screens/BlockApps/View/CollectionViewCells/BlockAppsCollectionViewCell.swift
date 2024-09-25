@@ -21,7 +21,7 @@ class BlockAppsCollectionViewCell: UICollectionViewCell {
     var isActive: Bool = true {
         didSet {
             updateCellAppearance()
-            toggleSwitch.setOn(isActive, animated: true) // Atualiza o switch
+            toggleSwitch.setOn(isActive, animated: true)
         }
     }
     
@@ -141,11 +141,9 @@ class BlockAppsCollectionViewCell: UICollectionViewCell {
             timeLabel.textColor = .lightGray
         }
     }
-    
-    // Método chamado quando o toggle é alterado
+        
     @objc private func toggleSwitched() {
         guard let indexPath = indexPath else { return }
         delegate?.didToggleSwitch(at: indexPath, isActive: toggleSwitch.isOn)
     }
 }
-

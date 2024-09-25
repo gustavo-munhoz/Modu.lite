@@ -11,12 +11,11 @@ import SnapKit
 class BlockAppsView: UIView {
     
     // MARK: - Properties
-    private(set) lazy var layoutHeader: BlockAppsHeaderView = {        
+    private(set) lazy var layoutHeader: BlockAppsHeaderView = {
         let view = BlockAppsHeaderView()
     
         return view
     }()
-    
     
     private(set) lazy var activeCollectionView: UICollectionView = {
         let layout = createCompositionalLayout()
@@ -53,7 +52,7 @@ class BlockAppsView: UIView {
     
     // MARK: - Layout Composicional
     private func createCompositionalLayout() -> UICollectionViewCompositionalLayout {
-        return UICollectionViewCompositionalLayout { [weak self] sectionIndex, layoutEnvironment -> NSCollectionLayoutSection? in
+        UICollectionViewCompositionalLayout { [weak self] _, _ -> NSCollectionLayoutSection? in
             guard self != nil else { return nil }
 
             let itemSize = NSCollectionLayoutSize(
@@ -70,8 +69,7 @@ class BlockAppsView: UIView {
             let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
             
             let section = NSCollectionLayoutSection(group: group)
-            
-            // Configuração do Header (opcional)
+                        
             let headerSize = NSCollectionLayoutSize(
                 widthDimension: .fractionalWidth(1.0),
                 heightDimension: .absolute(60)

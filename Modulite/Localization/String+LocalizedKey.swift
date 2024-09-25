@@ -125,7 +125,7 @@ extension String {
         case usageViewControllerNavigationTitle
         case usageViewComparisonOverview
         case usageDailyAvarageYesterday
-        case usageDailyAvarageLastWeek 
+        case usageDailyAvarageLastWeek
         case usageHowSpentYourTime
         
         // MARK: - BloackAppsView & BlockAppsViewController
