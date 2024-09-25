@@ -6,3 +6,11 @@
 //
 
 import Foundation
+import SwiftUI
+
+struct MainWidgetModuleData: Identifiable {
+    let id: UUID
+    let index: Int
+    let image: Image
+    let associatedURLScheme: URL?
+}

@@ -6,3 +6,10 @@
 //
 
 import Foundation
+
+struct MainWidgetConfigurationData {
+    let id: UUID
+    let name: String
+    let background: WidgetBackground
+    let modules: [MainWidgetModuleData]
+}
