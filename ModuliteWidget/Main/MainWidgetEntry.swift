@@ -6,8 +6,9 @@
 //
 
 import WidgetKit
+import SwiftUI
 
 struct MainWidgetEntry: TimelineEntry {
     let date: Date
-// let configuration: PersistableWidgetConfiguration
+    let configuration: MainWidgetConfigurationData
 }

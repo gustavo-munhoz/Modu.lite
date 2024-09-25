@@ -16,15 +16,13 @@ struct MainWidget: Widget {
             kind: Self.kind,
             provider: MainWidgetProvider()) { entry in
                 MainWidgetView(entry: entry)
-                    .containerBackground(.white, for: .widget)
+                    .containerBackground(
+                        .black,
+                        for: .widget
+                    )
                 
             }
             .configurationDisplayName("Main Widget")
+            .supportedFamilies([.systemLarge])
     }
-}
-
-#Preview(as: .systemLarge) {
-    MainWidget()
-} timeline: {
-    MainWidgetEntry(date: .now)
 }
