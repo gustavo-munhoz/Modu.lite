@@ -364,13 +364,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		AFABBD782C80F295007BEFD8 /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = ViewModel;
-			sourceTree = "<group>";
-		};
 		AFABBD792C80F2CC007BEFD8 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
@@ -385,13 +378,6 @@
 				AFABBD7B2C80F2E0007BEFD8 /* UsageView.swift */,
 			);
 			path = View;
-			sourceTree = "<group>";
-		};
-		AFABBD942C8A357D007BEFD8 /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		AFABBD952C8A3587007BEFD8 /* Controller */ = {
@@ -530,7 +516,6 @@
 			children = (
 				AFABBD7A2C80F2D4007BEFD8 /* View */,
 				AFABBD792C80F2CC007BEFD8 /* Controller */,
-				AFABBD782C80F295007BEFD8 /* ViewModel */,
 			);
 			path = Usage;
 			sourceTree = "<group>";
@@ -540,7 +525,6 @@
 			children = (
 				AFABBD962C8A358D007BEFD8 /* View */,
 				AFABBD952C8A3587007BEFD8 /* Controller */,
-				AFABBD942C8A357D007BEFD8 /* ViewModel */,
 			);
 			path = BlockApps;
 			sourceTree = "<group>";
