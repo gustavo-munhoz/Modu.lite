@@ -27,30 +27,28 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     private func handleDeepLink(url: URL) -> Bool {
         guard let scheme = url.scheme, scheme == "moduliteapp" else {
+            print("Invalid URL scheme: \(url.scheme ?? "nil")")
             return false
         }
 
-        guard let host = url.host else {
+        guard let host = url.host(), host == "app" else {
+            print("Invalid URL host: \(url.host() ?? "nil")")
             return false
         }
-
-        switch host {
-        case "app":
-            if let queryItems = URLComponents(url: url, resolvingAgainstBaseURL: false)?.queryItems,
-               let parameter = queryItems.first(where: { $0.name == "app" })?.value {
-                performAction(with: parameter)
-                return true
-            }
-            return false
-
-        default:
+        
+        guard let queryItems = URLComponents(url: url, resolvingAgainstBaseURL: false)?.queryItems,
+              let parameter = queryItems.first(where: { $0.name == "app" })?.value else {
+            print("Invalid URLComponents query items.")
             return false
         }
+        
+        performOpenAppAction(with: parameter)
+        return true
     }
     
-    private func performAction(with parameter: String) {
-        print("Performing action for app: \(parameter)")
-        UIApplication.shared.open(URL(string: parameter)!)
+    private func performOpenAppAction(with urlScheme: String) {
+        print("Opening app with urlScheme: \(urlScheme)")
+        UIApplication.shared.open(URL(string: urlScheme)!)
 
     }
     
@@ -66,10 +64,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         window = UIWindow(windowScene: windowScene)
         coordinator.present(animated: true, onDismiss: nil)
-        
-        if let url = connectionOptions.urlContexts.first?.url {
-            _ = handleDeepLink(url: url)
-        }
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
