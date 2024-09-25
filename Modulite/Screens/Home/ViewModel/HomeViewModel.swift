@@ -6,9 +6,10 @@
 //
 
 import UIKit
-import Combine
 
 class HomeViewModel: NSObject {
+    
+    // MARK: - Properties
     
     @Published var mainWidgets: [ModuliteWidgetConfiguration]
     
@@ -19,11 +20,19 @@ class HomeViewModel: NSObject {
     
     @Published var tips: [UIImage] = []
     
+    // MARK: - Init
+    
     override init() {
         let persistedWidgets = CoreDataPersistenceController.shared.fetchWidgets()
         mainWidgets = persistedWidgets.map {
             ModuliteWidgetConfiguration(persistedConfiguration: $0)
         }
         super.init()
+    }
+    
+    // MARK: - Actions
+    
+    func addMainWidget(_ configuration: ModuliteWidgetConfiguration) {
+        mainWidgets.insert(configuration, at: 0)
     }
 }

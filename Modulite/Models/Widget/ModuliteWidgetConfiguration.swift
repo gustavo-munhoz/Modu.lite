@@ -26,16 +26,20 @@ class ModuliteWidgetConfiguration {
         return widgetStyle.colors
     }
     
+    var createdAt: Date!
+    
     init() { }
     
     init(
         name: String? = nil,
         style: WidgetStyle,
-        modules: [ModuleConfiguration]
+        modules: [ModuleConfiguration],
+        createdAt: Date
     ) {
         self.name = name
         self.widgetStyle = style
         self.modules = modules
+        self.createdAt = createdAt
     }
 }
 
@@ -58,7 +62,8 @@ extension ModuliteWidgetConfiguration {
                     widgetStyle: style,
                     persistedConfiguration: $0
                 )
-            }
+            },
+            createdAt: config.createdAt
         )
         
         previewImage = FileManagerImagePersistenceController.shared.getWidgetImage(with: config.id)

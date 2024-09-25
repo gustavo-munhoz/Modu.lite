@@ -14,6 +14,7 @@
         <relationship name="widget" maxCount="1" deletionRule="Nullify" destinationEntity="PersistableWidgetConfiguration" inverseName="modules" inverseEntity="PersistableWidgetConfiguration"/>
     </entity>
     <entity name="PersistableWidgetConfiguration" representedClassName="PersistableWidgetConfiguration" syncable="YES">
+        <attribute name="createdAt" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="id" attributeType="UUID" usesScalarValueType="NO"/>
         <attribute name="name" optional="YES" attributeType="String"/>
         <attribute name="previewImageUrl" attributeType="URI"/>

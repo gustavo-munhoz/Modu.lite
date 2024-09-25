@@ -15,6 +15,7 @@ extension PersistableWidgetConfiguration {
     @NSManaged var previewImageUrl: URL
     @NSManaged var widgetStyleKey: String
     @NSManaged var modules: NSSet
+    @NSManaged var createdAt: Date
 }
 
 extension PersistableWidgetConfiguration {
