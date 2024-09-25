@@ -11,6 +11,6 @@ import SwiftUI
 @main
 struct ModuliteWidgetBundle: WidgetBundle {
     var body: some Widget {
-        ModuliteWidget()
+        MainWidget()
     }
 }
