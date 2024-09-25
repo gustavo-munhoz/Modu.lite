@@ -58,7 +58,7 @@ class HomeViewController: UIViewController {
     
     // MARK: - Actions
     func registerNewWidget(_ widget: ModuliteWidgetConfiguration) {
-        viewModel.mainWidgets.append(widget)
+        viewModel.addMainWidget(widget)
         homeView.mainWidgetsCollectionView.reloadData()
     }
 }
