@@ -7,22 +7,28 @@
 
 import UIKit
 
-protocol WidgetImagePersistenceController {
-    func saveWidgetImage(image: UIImage, for widgetId: UUID) -> URL
-    func saveModuleImage(image: UIImage, for widgetId: UUID, moduleIndex: Int) -> URL
-    func getWidgetImage(with id: UUID) -> UIImage?
-    func deleteWidgetAndModules(with id: UUID)
-}
-
-class FileManagerImagePersistenceController: WidgetImagePersistenceController {
+class FileManagerImagePersistenceController {
     
     static let shared = FileManagerImagePersistenceController()
     
     private let baseDirectory: URL
     
-    init(baseDirectory: URL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!) {
-        self.baseDirectory = baseDirectory
+    init(baseDirectory: URL? = nil) {
+        if let baseDirectory = baseDirectory {
+            self.baseDirectory = baseDirectory
+            return
+        }
+        
+        guard let appGroupURL = FileManager.default.containerURL(
+            forSecurityApplicationGroupIdentifier: "group.dev.mnhz.modu.lite.shared"
+        ) else {
+            fatalError("Could not find App Group container")
+        }
+        
+        self.baseDirectory = appGroupURL
     }
+    
+    // MARK: - Getters
     
     func getWidgetImage(with id: UUID) -> UIImage? {
         let url = getDirectory(for: id)
@@ -37,6 +43,46 @@ class FileManagerImagePersistenceController: WidgetImagePersistenceController {
         }
     }
     
+    func getModuleImages(for widgetId: UUID) -> [UIImage] {
+        let widgetDirectory = getDirectory(for: widgetId)
+        let modulesDirectory = widgetDirectory.appendingPathComponent("modules")
+        
+        var images: [UIImage] = []
+        
+        do {
+            let fileNames = try FileManager.default.contentsOfDirectory(atPath: modulesDirectory.path)
+                        
+            let pngFiles = fileNames.filter { $0.hasSuffix(".png") }
+                        
+            let indexFileMap: [(Int, String)] = pngFiles.compactMap { fileName in
+                let indexString = fileName.replacingOccurrences(of: ".png", with: "")
+                if let index = Int(indexString) {
+                    return (index, fileName)
+                } else {
+                    return nil
+                }
+            }
+                        
+            let sortedIndexFileMap = indexFileMap.sorted { $0.0 < $1.0 }
+                        
+            for (_, fileName) in sortedIndexFileMap {
+                let fileURL = modulesDirectory.appendingPathComponent(fileName)
+                if let imageData = try? Data(contentsOf: fileURL),
+                   let image = UIImage(data: imageData) {
+                    images.append(image)
+                } else {
+                    print("Unable to load image at \(fileURL)")
+                }
+            }
+        } catch {
+            print("Error accessing modules directory: \(error)")
+        }
+        
+        return images
+    }
+    
+    // MARK: - Save images
+    
     @discardableResult
     func saveWidgetImage(image: UIImage, for widgetId: UUID) -> URL {
         let (widgetDirectory, _) = setupDirectories(for: widgetId)
@@ -48,6 +94,8 @@ class FileManagerImagePersistenceController: WidgetImagePersistenceController {
         let (_, modulesDirectory) = setupDirectories(for: widgetId)
         return saveImage(image, in: modulesDirectory, withName: "\(moduleIndex)")
     }
+    
+    // MARK: - Delete images
     
     func deleteWidgetAndModules(with id: UUID) {
         let widgetDirectory = getDirectory(for: id)
