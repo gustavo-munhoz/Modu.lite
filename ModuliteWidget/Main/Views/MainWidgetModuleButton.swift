@@ -14,7 +14,7 @@ struct MainWidgetModuleButton: View {
     var body: some View {
         Group {
             if let stringURL = stringURL {
-                Link(destination: URL(string: "moduliteap://app?app=\(stringURL)")!) {
+                Link(destination: URL(string: "moduliteapp://app?app=\(stringURL)")!) {
                     moduleImage
                         .resizable()
                         .aspectRatio(contentMode: .fit)
