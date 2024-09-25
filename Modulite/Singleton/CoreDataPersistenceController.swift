@@ -34,9 +34,21 @@ struct CoreDataPersistenceController {
     init(inMemory: Bool = false) {
         container = NSPersistentContainer(name: "WidgetData")
         
-        if inMemory {
-            container.persistentStoreDescriptions.first!.url = URL(filePath: "/dev/null")
+        guard let appGroupURL = FileManager.default.containerURL(
+            forSecurityApplicationGroupIdentifier: "group.dev.mnhz.modu.lite.shared"
+        ) else {
+            fatalError("Could not find App Group Container")
         }
+        
+        let storeURL = appGroupURL.appendingPathComponent("WidgetData.sqlite")
+        let description = NSPersistentStoreDescription(url: storeURL)
+        
+        if inMemory {
+            description.url = URL(filePath: "/dev/null")
+        }
+        
+        container.persistentStoreDescriptions = [description]
+        
         container.loadPersistentStores { _, error in
             if let error = error as? NSError {
                 fatalError("Unresolved error \(error), \(error.userInfo)")
