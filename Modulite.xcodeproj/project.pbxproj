@@ -130,6 +130,16 @@
 		B3987DFF2CA202C100896414 /* InfoPlist.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = B3987DFE2CA202C100896414 /* InfoPlist.xcstrings */; };
 		B3987E042CA3602900896414 /* UIView+animateBorderColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3987E032CA3602900896414 /* UIView+animateBorderColor.swift */; };
 		B3987E052CA3602900896414 /* UIView+animateBorderColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3987E032CA3602900896414 /* UIView+animateBorderColor.swift */; };
+		B3987E0C2CA38A8A00896414 /* MainWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3987E0B2CA38A8A00896414 /* MainWidget.swift */; };
+		B3987E0D2CA38A8A00896414 /* MainWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3987E0B2CA38A8A00896414 /* MainWidget.swift */; };
+		B3987E0F2CA38A9C00896414 /* MainWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3987E0E2CA38A9C00896414 /* MainWidgetView.swift */; };
+		B3987E102CA38A9C00896414 /* MainWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3987E0E2CA38A9C00896414 /* MainWidgetView.swift */; };
+		B3987E122CA38AF400896414 /* MainWidgetProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3987E112CA38AF400896414 /* MainWidgetProvider.swift */; };
+		B3987E132CA38AF400896414 /* MainWidgetProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3987E112CA38AF400896414 /* MainWidgetProvider.swift */; };
+		B3987E152CA38C7900896414 /* MainWidgetEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3987E142CA38C7900896414 /* MainWidgetEntry.swift */; };
+		B3987E162CA38C7900896414 /* MainWidgetEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3987E142CA38C7900896414 /* MainWidgetEntry.swift */; };
+		B3987E182CA3938200896414 /* AuxiliaryWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3987E172CA3938200896414 /* AuxiliaryWidget.swift */; };
+		B3987E192CA3938200896414 /* AuxiliaryWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3987E172CA3938200896414 /* AuxiliaryWidget.swift */; };
 		B3C1877F2C78D1E000A891A8 /* ModuliteWidgetConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3C1877E2C78D1E000A891A8 /* ModuliteWidgetConfiguration.swift */; };
 		B3C187822C79009B00A891A8 /* WidgetConfigurationBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3C187812C79009B00A891A8 /* WidgetConfigurationBuilder.swift */; };
 		B3C187842C791D1300A891A8 /* WidgetStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3C187832C791D1300A891A8 /* WidgetStyle.swift */; };
@@ -289,6 +299,11 @@
 		B3850BCC2C97A08B00F400C0 /* UICollectionViewExtensionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UICollectionViewExtensionTests.swift; sourceTree = "<group>"; };
 		B3987DFE2CA202C100896414 /* InfoPlist.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = InfoPlist.xcstrings; sourceTree = "<group>"; };
 		B3987E032CA3602900896414 /* UIView+animateBorderColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+animateBorderColor.swift"; sourceTree = "<group>"; };
+		B3987E0B2CA38A8A00896414 /* MainWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainWidget.swift; sourceTree = "<group>"; };
+		B3987E0E2CA38A9C00896414 /* MainWidgetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainWidgetView.swift; sourceTree = "<group>"; };
+		B3987E112CA38AF400896414 /* MainWidgetProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainWidgetProvider.swift; sourceTree = "<group>"; };
+		B3987E142CA38C7900896414 /* MainWidgetEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainWidgetEntry.swift; sourceTree = "<group>"; };
+		B3987E172CA3938200896414 /* AuxiliaryWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuxiliaryWidget.swift; sourceTree = "<group>"; };
 		B3C1877E2C78D1E000A891A8 /* ModuliteWidgetConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModuliteWidgetConfiguration.swift; sourceTree = "<group>"; };
 		B3C187812C79009B00A891A8 /* WidgetConfigurationBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetConfigurationBuilder.swift; sourceTree = "<group>"; };
 		B3C187832C791D1300A891A8 /* WidgetStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetStyle.swift; sourceTree = "<group>"; };
@@ -402,6 +417,8 @@
 			isa = PBXGroup;
 			children = (
 				AFBBC5062C7E459900A9B256 /* ModuliteWidgetBundle.swift */,
+				B3987E0A2CA388FB00896414 /* Auxiliary */,
+				B3987E092CA388F900896414 /* Main */,
 				AFBBC5082C7E459900A9B256 /* ModuliteWidget.swift */,
 				AFBBC51B2C7E4AEB00A9B256 /* WidgetButtonView.swift */,
 				AFBBC51F2C7E4D6900A9B256 /* WidgetButtonLabelView.swift */,
@@ -902,6 +919,25 @@
 			path = Transformers;
 			sourceTree = "<group>";
 		};
+		B3987E092CA388F900896414 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				B3987E0B2CA38A8A00896414 /* MainWidget.swift */,
+				B3987E142CA38C7900896414 /* MainWidgetEntry.swift */,
+				B3987E112CA38AF400896414 /* MainWidgetProvider.swift */,
+				B3987E0E2CA38A9C00896414 /* MainWidgetView.swift */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		B3987E0A2CA388FB00896414 /* Auxiliary */ = {
+			isa = PBXGroup;
+			children = (
+				B3987E172CA3938200896414 /* AuxiliaryWidget.swift */,
+			);
+			path = Auxiliary;
+			sourceTree = "<group>";
+		};
 		B3C187802C79008800A891A8 /* Builders */ = {
 			isa = PBXGroup;
 			children = (
@@ -1164,9 +1200,11 @@
 				AFBBC5092C7E459900A9B256 /* ModuliteWidget.swift in Sources */,
 				B32B60F82C87AC5F007DDCE3 /* PersistableWidgetConfiguration+CoreDataClass.swift in Sources */,
 				B32B60F42C87AB75007DDCE3 /* PersistableModuleConfiguration+CoreDataClass.swift in Sources */,
+				B3987E0C2CA38A8A00896414 /* MainWidget.swift in Sources */,
 				B372846D2C8298EB00D9A1E7 /* ModuleStyle.swift in Sources */,
 				B32B60F32C8782E2007DDCE3 /* UIView+asImage.swift in Sources */,
 				B32B60A62C838ED9007DDCE3 /* UILabel+AppNameConfiguration.swift in Sources */,
+				B3987E102CA38A9C00896414 /* MainWidgetView.swift in Sources */,
 				B37284752C82996600D9A1E7 /* String+LocalizedKey.swift in Sources */,
 				B32B60FA2C87AC84007DDCE3 /* CoreDataPersistenceController.swift in Sources */,
 				AFBBC51C2C7E4AEB00A9B256 /* WidgetButtonView.swift in Sources */,
@@ -1177,10 +1215,13 @@
 				B37284702C82990B00D9A1E7 /* WidgetStyle.swift in Sources */,
 				AFBBC5072C7E459900A9B256 /* ModuliteWidgetBundle.swift in Sources */,
 				B3987E052CA3602900896414 /* UIView+animateBorderColor.swift in Sources */,
+				B3987E152CA38C7900896414 /* MainWidgetEntry.swift in Sources */,
 				B32B60A52C838EB0007DDCE3 /* WidgetModuleCell.swift in Sources */,
 				B32B60FC2C87AC90007DDCE3 /* AppInfo+CoreDataProperties.swift in Sources */,
+				B3987E132CA38AF400896414 /* MainWidgetProvider.swift in Sources */,
 				B32B60F52C87AB85007DDCE3 /* WidgetData.xcdatamodeld in Sources */,
 				B37284762C82997700D9A1E7 /* ImageProcessingFactory.swift in Sources */,
+				B3987E182CA3938200896414 /* AuxiliaryWidget.swift in Sources */,
 				B32B60F62C87AB8F007DDCE3 /* PersistableWidgetConfiguration+CoreDataProperties.swift in Sources */,
 				B37284712C82992200D9A1E7 /* ModuleAppNameTextConfiguration.swift in Sources */,
 				AFBBC5202C7E4D6900A9B256 /* WidgetButtonLabelView.swift in Sources */,
@@ -1218,6 +1259,7 @@
 				B34F3E0B2C6A9E350041D7BD /* NavigationRouter.swift in Sources */,
 				B36927DA2C66C2770089F769 /* HomeView.swift in Sources */,
 				B36927D52C66BCE60089F769 /* HomeCoordinator.swift in Sources */,
+				B3987E122CA38AF400896414 /* MainWidgetProvider.swift in Sources */,
 				AFBBC5212C7E4E0700A9B256 /* WidgetButtonLabelView.swift in Sources */,
 				AFBBC51E2C7E4C8500A9B256 /* WidgetButtonView.swift in Sources */,
 				B3CDD7032C767FD300E558F8 /* ModuleColorCell.swift in Sources */,
@@ -1237,6 +1279,7 @@
 				B372846A2C81096A00D9A1E7 /* ModuleStyle.swift in Sources */,
 				B32B60B72C864301007DDCE3 /* AppInfo+CoreDataProperties.swift in Sources */,
 				B34F3E142C6B93C80041D7BD /* MainWidgetCollectionViewCell.swift in Sources */,
+				B3987E0D2CA38A8A00896414 /* MainWidget.swift in Sources */,
 				B3CDD7072C77C59B00E558F8 /* ImageProcessingFactory.swift in Sources */,
 				B34F3E092C6A96A20041D7BD /* RootTabCoordinator.swift in Sources */,
 				B34F3E352C6E93570041D7BD /* WidgetSetupViewModel.swift in Sources */,
@@ -1257,6 +1300,7 @@
 				B32B60C22C864BB2007DDCE3 /* WidgetData.xcdatamodeld in Sources */,
 				B3EB15BD2C7E7311003B1960 /* String+TextCase.swift in Sources */,
 				B34F3E182C6B93FA0041D7BD /* TipCollectionViewCell.swift in Sources */,
+				B3987E162CA38C7900896414 /* MainWidgetEntry.swift in Sources */,
 				B3EB15BB2C7E5DC5003B1960 /* UILabel+AppNameConfiguration.swift in Sources */,
 				B34F3E2B2C6E83800041D7BD /* UIFont+TraitedTextStyle.swift in Sources */,
 				B34F3E2E2C6E87350041D7BD /* SetupHeaderReusableCell.swift in Sources */,
@@ -1264,9 +1308,11 @@
 				B34F3E162C6B93EA0041D7BD /* AuxiliaryWidgetCollectionViewCell.swift in Sources */,
 				B34F3E332C6E8AA60041D7BD /* UITextField+HorizontalPadding.swift in Sources */,
 				B32B610C2C8A449C007DDCE3 /* SelectAppsViewController.swift in Sources */,
+				B3987E192CA3938200896414 /* AuxiliaryWidget.swift in Sources */,
 				B350C05A2C8F92C90035682F /* WidgetBuilderCoordinator.swift in Sources */,
 				B34F3E372C6FDEAA0041D7BD /* SelectedAppCollectionViewCell.swift in Sources */,
 				B3CDD7012C766F2E00E558F8 /* ModuleStyleCell.swift in Sources */,
+				B3987E0F2CA38A9C00896414 /* MainWidgetView.swift in Sources */,
 				B34F3E072C6A93B30041D7BD /* UsageViewController.swift in Sources */,
 				B34F3E222C6D36390041D7BD /* WidgetEditorViewController.swift in Sources */,
 				B34F3E312C6E87A50041D7BD /* StyleCollectionViewCell.swift in Sources */,
