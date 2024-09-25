@@ -1,6 +1,5 @@
 line_length:
-  warning: 120
-  error: 150
+  error: 120
   ignores_comments: true
 
 type_body_length:
@@ -36,10 +35,10 @@ type_name:
     error: 50
 
 trailing_newline:
-  severity: warning
+  severity: error
 
 trailing_whitespace:
-  severity: warning
+  severity: error
   ignores_empty_lines: true
   ignores_comments: true
 
