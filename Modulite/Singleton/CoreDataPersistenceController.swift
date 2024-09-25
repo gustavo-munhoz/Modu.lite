@@ -111,6 +111,8 @@ extension CoreDataPersistenceController {
     
     func fetchWidgets() -> [PersistableWidgetConfiguration] {
         let request = PersistableWidgetConfiguration.basicFetchRequest()
+        let sortDescriptor = NSSortDescriptor(key: "createdAt", ascending: false)
+        request.sortDescriptors = [sortDescriptor]
         
         do {
             return try container.viewContext.fetch(request)
@@ -131,6 +133,8 @@ extension CoreDataPersistenceController {
             widgetImage: widgetImage,
             using: container.viewContext
         )
+        
+        widgetConfig.createdAt = .now
         
         return widgetConfig
     }
