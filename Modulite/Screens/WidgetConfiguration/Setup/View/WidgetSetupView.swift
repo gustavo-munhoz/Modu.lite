@@ -131,7 +131,11 @@ class WidgetSetupView: UIScrollView {
     
     // MARK: - Actions
     func getWidgetName() -> String {
-        widgetNameTextField.text ?? widgetNameTextField.placeholder!
+        guard let name = widgetNameTextField.text, !name.isEmpty else {
+            return widgetNameTextField.placeholder!
+        }
+        
+        return widgetNameTextField.text!
     }
     
     func updateButtonConfig() {

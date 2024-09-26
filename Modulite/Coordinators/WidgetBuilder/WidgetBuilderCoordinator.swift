@@ -22,9 +22,17 @@ class WidgetBuilderCoordinator: Coordinator {
     
     var onWidgetSave: ((ModuliteWidgetConfiguration) -> Void)?
     
+    var currentWidgetCount: Int
+    
     // MARK: - Lifecycle
     
     init(router: Router) {
+        self.router = router
+        self.currentWidgetCount = 0
+    }
+    
+    init(router: Router, currentWidgetCount: Int) {
+        self.currentWidgetCount = currentWidgetCount
         self.router = router
     }
     
@@ -42,6 +50,12 @@ class WidgetBuilderCoordinator: Coordinator {
 
 // MARK: - WidgetSetupViewControllerDelegate
 extension WidgetBuilderCoordinator: WidgetSetupViewControllerDelegate {
+    func getPlaceholderName() -> String {
+        .localized(
+            for: .widgetSetupViewMainWidgetNamePlaceholder(number: currentWidgetCount + 1)
+        )
+    }
+    
     func widgetSetupViewControllerDidPressNext(widgetName: String) {
         contentBuilder.setWidgetName(widgetName)
         

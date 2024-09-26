@@ -35,7 +35,10 @@ extension HomeCoordinator: HomeViewControllerDelegate {
     func homeViewControllerDidStartWidgetCreationFlow(
         _ viewController: HomeViewController
     ) {
-        let coordinator = WidgetBuilderCoordinator(router: router)
+        let coordinator = WidgetBuilderCoordinator(
+            router: router,
+            currentWidgetCount: viewController.getCurrentMainWidgetCount()
+        )
         
         coordinator.onWidgetSave = { widget in
             viewController.registerNewWidget(widget)
