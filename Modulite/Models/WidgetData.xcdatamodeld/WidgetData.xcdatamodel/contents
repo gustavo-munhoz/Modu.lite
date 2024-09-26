@@ -19,6 +19,6 @@
         <attribute name="name" optional="YES" attributeType="String"/>
         <attribute name="previewImageUrl" attributeType="URI"/>
         <attribute name="widgetStyleKey" optional="YES" attributeType="String"/>
-        <relationship name="modules" toMany="YES" minCount="1" maxCount="6" deletionRule="Nullify" destinationEntity="PersistableModuleConfiguration" inverseName="widget" inverseEntity="PersistableModuleConfiguration"/>
+        <relationship name="modules" toMany="YES" minCount="6" maxCount="6" deletionRule="Cascade" destinationEntity="PersistableModuleConfiguration" inverseName="widget" inverseEntity="PersistableModuleConfiguration"/>
     </entity>
 </model>
