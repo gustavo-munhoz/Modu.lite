@@ -57,6 +57,10 @@ class HomeViewController: UIViewController {
     }
     
     // MARK: - Actions
+    func getCurrentMainWidgetCount() -> Int {
+        viewModel.mainWidgets.count
+    }
+    
     func registerNewWidget(_ widget: ModuliteWidgetConfiguration) {
         viewModel.addMainWidget(widget)
         homeView.mainWidgetsCollectionView.reloadData()
