@@ -87,6 +87,8 @@ extension String {
         // MARK: - Reusable texts
         case next
         case save
+        case cancel
+        case delete
         
         // MARK: Tab Bar Titles
         case homeViewControllerTabBarItemTitle
@@ -100,6 +102,8 @@ extension String {
         case homeViewTipsSectionHeaderTitle
         case homeViewWidgetContextMenuEditTitle
         case homeViewWidgetContextMenuDeleteTitle
+        case homeViewDeleteWidgetAlertTitle(widgetName: String)
+        case homeViewDeleteWidgetAlertMessage
         
         // MARK: - WidgetSetupView & WidgetSetupViewController
         case widgetSetupViewMainWidgetNamePlaceholder(number: Int)
