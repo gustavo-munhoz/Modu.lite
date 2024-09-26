@@ -51,7 +51,7 @@ class ModuleConfiguration {
         self.selectedColor = selectedColor
     }
     
-    func generateWidgetButtonImage() -> UIImage {
+    func generateWidgetButtonImage() -> UIImage? {
         let cell = WidgetModuleCell()
         cell.setup(with: self)
         cell.frame = CGRect(
@@ -62,7 +62,14 @@ class ModuleConfiguration {
         )
         cell.layoutIfNeeded()
         
-        return cell.asImage()
+        let image = cell.asImage()
+        
+        if image.size.width == .zero || image.size.height == .zero {
+            print("Generated image with invalid dimensions: \(image.size).")
+            return nil
+        }
+        
+        return image
     }
 }
 
