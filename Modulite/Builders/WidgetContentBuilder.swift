@@ -8,7 +8,7 @@
 class WidgetContentBuilder {
     
     // MARK: - Properties
-    private var name: String?
+    private var name: String!
     private var style: WidgetStyle!
     private var apps: [AppInfo] = []
     
@@ -21,6 +21,7 @@ class WidgetContentBuilder {
     func setWidgetName(_ name: String) {
         self.name = name
     }
+    
     func setWidgetStyle(_ style: WidgetStyle) {
         self.style = style
     }
