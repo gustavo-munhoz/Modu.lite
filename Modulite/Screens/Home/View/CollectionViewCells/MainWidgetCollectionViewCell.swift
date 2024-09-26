@@ -8,8 +8,15 @@
 import UIKit
 import SnapKit
 
+protocol MainWidgetCollectionViewCellDelegate: AnyObject {
+    func mainWidgetCellDidRequestEdit(_ cell: MainWidgetCollectionViewCell)
+    func mainWidgetCellDidRequestDelete(_ cell: MainWidgetCollectionViewCell)
+}
+
 class MainWidgetCollectionViewCell: UICollectionViewCell {
     static let reuseId = "MainWidgetCollectionViewCell"
+    
+    weak var delegate: MainWidgetCollectionViewCellDelegate?
     
     // MARK: - Properties
     override var isHighlighted: Bool {
@@ -22,6 +29,11 @@ class MainWidgetCollectionViewCell: UICollectionViewCell {
         let view = UIImageView()
         view.contentMode = .scaleAspectFit
         view.clipsToBounds = true
+        view.layer.cornerRadius = 12
+        
+        let interaction = UIContextMenuInteraction(delegate: self)
+        view.addInteraction(interaction)
+        view.isUserInteractionEnabled = true
         
         return view
     }()
@@ -68,5 +80,39 @@ class MainWidgetCollectionViewCell: UICollectionViewCell {
             make.left.right.equalToSuperview()
             make.top.equalTo(widgetImageView.snp.bottom).offset(16)
         }
+    }
+}
+
+extension MainWidgetCollectionViewCell: UIContextMenuInteractionDelegate {
+    func contextMenuInteraction(
+            _ interaction: UIContextMenuInteraction,
+            configurationForMenuAtLocation location: CGPoint
+        ) -> UIContextMenuConfiguration? {
+            return UIContextMenuConfiguration(
+                identifier: nil,
+                previewProvider: nil,
+                actionProvider: { _ in
+                    return self.makeContextMenu()
+                }
+            )
+        }
+    
+    func makeContextMenu() -> UIMenu {
+        let editAction = UIAction(
+            title: .localized(for: .homeViewWidgetContextMenuEditTitle),
+            image: UIImage(systemName: "pencil")
+        ) { [weak self] action in
+//            self?.editWidget(widget, at: indexPath)
+        }
+        
+        let deleteAction = UIAction(
+            title: .localized(for: .homeViewWidgetContextMenuDeleteTitle),
+            image: UIImage(systemName: "trash"),
+            attributes: .destructive
+        ) { [weak self] action in
+//            self?.deleteWidget(widget, at: indexPath)
+        }
+        
+        return UIMenu(title: "", children: [editAction, deleteAction])
     }
 }
