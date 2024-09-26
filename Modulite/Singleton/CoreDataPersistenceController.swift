@@ -124,6 +124,29 @@ extension CoreDataPersistenceController {
         }
     }
     
+    func deleteWidget(withId id: UUID) {
+        let context = container.viewContext
+        let request = PersistableWidgetConfiguration.basicFetchRequest()
+        request.predicate = NSPredicate(format: "id == %@", id as CVarArg)
+        
+        do {
+            guard let widget = try context.fetch(request).first else {
+                print("Widget with id \(id) not found.")
+                return
+            }
+            
+            context.delete(widget)
+            
+            try context.save()
+            
+            FileManagerImagePersistenceController.shared.deleteWidgetAndModules(widgetId: id)
+            print("Widget with id \(id) deleted successfully from CoreData.")
+            
+        } catch {
+            print("Error deleting widget from CoreData: \(error.localizedDescription)")
+        }
+    }
+    
     @discardableResult
     func registerWidget(
         _ config: ModuliteWidgetConfiguration,

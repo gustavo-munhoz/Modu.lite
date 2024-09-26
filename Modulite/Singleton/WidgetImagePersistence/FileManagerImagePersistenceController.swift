@@ -97,14 +97,15 @@ class FileManagerImagePersistenceController {
     
     // MARK: - Delete images
     
-    func deleteWidgetAndModules(with id: UUID) {
+    func deleteWidgetAndModules(widgetId id: UUID) {
         let widgetDirectory = getDirectory(for: id)
         
         do {
             try FileManager.default.removeItem(at: widgetDirectory)
-            print("Successfully deleted widget with ID \(id)")
+            print("Successfully deleted widget images.")
+            
         } catch {
-            print("Failed to delete widget with ID \(id): \(error)")
+            print("Failed to delete widget images for ID \(id): \(error)")
         }
     }
 }
