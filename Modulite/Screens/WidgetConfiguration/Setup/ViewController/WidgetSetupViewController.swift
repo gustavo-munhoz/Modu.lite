@@ -8,6 +8,8 @@
 import UIKit
 
 protocol WidgetSetupViewControllerDelegate: AnyObject {
+    func getPlaceholderName() -> String
+    
     func widgetSetupViewControllerDidPressNext(widgetName: String)
     
     func widgetSetupViewControllerDidTapSearchApps(
@@ -54,6 +56,10 @@ class WidgetSetupViewController: UIViewController {
         setupView.onSearchButtonPressed = presentSearchModal
     }
     
+    private func setPlaceholderName(to name: String) {
+        setupView.widgetNameTextField.placeholder = name
+    }
+    
     // MARK: - Actions
     func didFinishSelectingApps(apps: [AppInfo]) {
         setSetupViewHasAppsSelected(to: !apps.isEmpty)
@@ -88,6 +94,8 @@ extension WidgetSetupViewController {
         let vc = WidgetSetupViewController()
         vc.delegate = delegate
         vc.viewModel.setWidgetId(to: widgetId)
+        
+        vc.setPlaceholderName(to: delegate.getPlaceholderName())
         
         return vc
     }
