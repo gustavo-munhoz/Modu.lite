@@ -99,6 +99,7 @@ extension HomeViewController: UICollectionViewDataSource {
             
             let widget = viewModel.mainWidgets[indexPath.row]
             cell.configure(image: widget.previewImage, name: widget.name)
+            cell.delegate = self
             
             return cell
             
@@ -187,5 +188,74 @@ extension HomeViewController: UICollectionViewDataSource {
 
 // MARK: - UICollectionViewDelegate
 extension HomeViewController: UICollectionViewDelegate {
-    // TODO: Implement this
+    // TODO: Implement cell selection
+    
+//    func collectionView(
+//        _ collectionView: UICollectionView,
+//        contextMenuConfigurationForItemsAt indexPaths: [IndexPath],
+//        point: CGPoint
+//    ) -> UIContextMenuConfiguration? {
+//        switch collectionView {
+//        case homeView.mainWidgetsCollectionView:
+//            let widgets = indexPaths.map { viewModel.mainWidgets[$0.row] }
+//                        
+//            return UIContextMenuConfiguration(
+//                identifier: nil,
+//                previewProvider: nil,
+//                actionProvider: { suggestedActions in
+//                    return self.makeContextMenu(for: widgets, at: indexPaths)
+//                }
+//            )
+//            
+//        default: return nil
+//        }
+//    }
+}
+
+//  extension HomeViewController {
+//      func makeContextMenu(for widgets: [ModuliteWidgetConfiguration], at indexPaths: [IndexPath]) ->     UIMenu {
+//          if widgets.count == 1 {
+//              return makeContextMenu(for: widgets.first!, at: indexPaths.first!)
+//
+//          } else {
+//              let deleteAction = UIAction(
+//                  title: "Excluir \(widgets.count) Widgets",
+//                  image: UIImage(systemName: "trash"),
+//                  attributes: .destructive
+//              ) { [weak self] action in
+//                  self?.deleteWidgets(widgets, at: indexPaths)
+//              }
+//
+//              return UIMenu(title: "", children: [deleteAction])
+//          }
+//      }
+//
+//      func makeContextMenu(for widget: ModuliteWidgetConfiguration, at indexPath: IndexPath) -> UIMenu {
+//          let editAction = UIAction(
+//              title: .localized(for: .homeViewWidgetContextMenuEditTitle),
+//              image: UIImage(systemName: "pencil")
+//          ) { [weak self] action in
+//              self?.editWidget(widget, at: indexPath)
+//          }
+//
+//          let deleteAction = UIAction(
+//              title: .localized(for: .homeViewWidgetContextMenuDeleteTitle),
+//              image: UIImage(systemName: "trash"),
+//              attributes: .destructive
+//          ) { [weak self] action in
+//              self?.deleteWidget(widget, at: indexPath)
+//          }
+//
+//          return UIMenu(title: "", children: [editAction, deleteAction])
+//      }
+//  }
+
+extension HomeViewController: MainWidgetCollectionViewCellDelegate {
+    func mainWidgetCellDidRequestEdit(_ cell: MainWidgetCollectionViewCell) {
+        
+    }
+    
+    func mainWidgetCellDidRequestDelete(_ cell: MainWidgetCollectionViewCell) {
+        
+    }
 }

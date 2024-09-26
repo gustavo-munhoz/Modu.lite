@@ -135,8 +135,8 @@ class HomeView: UIScrollView {
     /// Calculates and returns the appropriate size for a given collection view layout section.
     private func getGroupSizeForCollectionViewLayout(for section: ViewSection) -> CGSize {
         switch section {
-        case .mainWidgets: return CGSize(width: 192, height: 240)
-        case .auxiliaryWidgets: return CGSize(width: 192, height: 130)
+        case .mainWidgets: return CGSize(width: 187, height: 234)
+        case .auxiliaryWidgets: return CGSize(width: 187, height: 130)
         case .tips: return CGSize(width: 200, height: 150)
         }
     }
@@ -152,13 +152,6 @@ class HomeView: UIScrollView {
             )
  
             let item = NSCollectionLayoutItem(layoutSize: itemSize)
-            item.contentInsets = NSDirectionalEdgeInsets(
-                top: 0,
-                leading: 0,
-                bottom: 0,
-                trailing: 15
-            )
-            
             let size = self.getGroupSizeForCollectionViewLayout(for: section)
             
             let groupSize = NSCollectionLayoutSize(
@@ -170,6 +163,8 @@ class HomeView: UIScrollView {
             
             let section = NSCollectionLayoutSection(group: group)
             section.orthogonalScrollingBehavior = .continuous
+            
+            section.interGroupSpacing = 16
             
             let headerSize = NSCollectionLayoutSize(
                 widthDimension: .fractionalWidth(1.0),
