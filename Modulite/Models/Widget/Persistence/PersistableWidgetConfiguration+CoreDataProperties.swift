@@ -55,6 +55,8 @@ extension PersistableWidgetConfiguration {
             widget.modules = widget.modules.adding(persistentModule) as NSSet
         }
         
+        widget.createdAt = .now
+        
         do {
             try managedObjectContext.save()
             

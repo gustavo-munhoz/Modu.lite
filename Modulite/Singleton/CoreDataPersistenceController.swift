@@ -134,8 +134,6 @@ extension CoreDataPersistenceController {
             using: container.viewContext
         )
         
-        widgetConfig.createdAt = .now
-        
         return widgetConfig
     }
 }
