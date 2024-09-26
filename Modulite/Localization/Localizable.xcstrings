@@ -416,6 +416,17 @@
         }
       }
     },
+    "widgetSetupViewMainWidgetNamePlaceholder" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Main Widget %d"
+          }
+        }
+      }
+    },
     "widgetSetupViewSearchAppsButtonTitle" : {
       "extractionState" : "manual",
       "localizations" : {

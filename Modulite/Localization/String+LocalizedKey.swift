@@ -102,6 +102,7 @@ extension String {
         case homeViewWidgetContextMenuDeleteTitle
         
         // MARK: - WidgetSetupView & WidgetSetupViewController
+        case widgetSetupViewMainWidgetNamePlaceholder(number: Int)
         case widgetSetupViewStyleHeaderTitle
         case widgetSetupViewAppsHeaderTitle
         case widgetSetupViewSearchAppsButtonTitle
