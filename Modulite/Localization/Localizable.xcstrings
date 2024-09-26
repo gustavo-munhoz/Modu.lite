@@ -67,6 +67,28 @@
         }
       }
     },
+    "homeViewWidgetContextMenuDeleteTitle" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Delete Widget"
+          }
+        }
+      }
+    },
+    "homeViewWidgetContextMenuEditTitle" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Edit Widget"
+          }
+        }
+      }
+    },
     "Main Widget" : {
       "localizations" : {
         "en" : {
