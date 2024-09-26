@@ -91,7 +91,9 @@ extension MainWidgetCollectionViewCell: UIContextMenuInteractionDelegate {
             return UIContextMenuConfiguration(
                 identifier: nil,
                 previewProvider: nil,
-                actionProvider: { _ in
+                actionProvider: { [weak self] _ in
+                    guard let self = self else { return nil }
+                    
                     return self.makeContextMenu()
                 }
             )
@@ -101,18 +103,22 @@ extension MainWidgetCollectionViewCell: UIContextMenuInteractionDelegate {
         let editAction = UIAction(
             title: .localized(for: .homeViewWidgetContextMenuEditTitle),
             image: UIImage(systemName: "pencil")
-        ) { [weak self] action in
-//            self?.editWidget(widget, at: indexPath)
+        ) { [weak self] _ in
+            guard let self = self else { return }
+            
+            self.delegate?.mainWidgetCellDidRequestEdit(self)
         }
         
         let deleteAction = UIAction(
             title: .localized(for: .homeViewWidgetContextMenuDeleteTitle),
             image: UIImage(systemName: "trash"),
             attributes: .destructive
-        ) { [weak self] action in
-//            self?.deleteWidget(widget, at: indexPath)
+        ) { [weak self] _ in
+            guard let self = self else { return }
+            
+            self.delegate?.mainWidgetCellDidRequestDelete(self)
         }
         
-        return UIMenu(title: "", children: [editAction, deleteAction])
+        return UIMenu(title: widgetNameLabel.text!, children: [editAction, deleteAction])
     }
 }
