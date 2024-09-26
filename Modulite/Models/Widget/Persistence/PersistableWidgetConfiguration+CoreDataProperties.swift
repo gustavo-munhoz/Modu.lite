@@ -43,8 +43,15 @@ extension PersistableWidgetConfiguration {
         
         widget.previewImageUrl = widgetImageUrl
         
+        print("Saving \(config.modules.count) module images")
+        
+        // FIXME: Module count is sometimes 5 after fetching
         for module in config.modules {
-            let moduleImage = module.generateWidgetButtonImage()
+            print("Saving module with index \(module.index)")
+            guard let moduleImage = module.generateWidgetButtonImage() else {
+                fatalError("Could not generate module image")
+            }
+            
             let persistentModule = PersistableModuleConfiguration.instantiateFromConfiguration(
                 module,
                 widgetId: widget.id,

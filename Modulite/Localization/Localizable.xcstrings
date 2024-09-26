@@ -1,6 +1,9 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
+    "%@" : {
+
+    },
     "blockAppsViewBlockingSession" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -99,6 +102,9 @@
         }
       }
     },
+    "Main Widget Configuration" : {
+
+    },
     "next" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -120,6 +126,9 @@
           }
         }
       }
+    },
+    "Select Widget Configuration" : {
+
     },
     "selectAppsViewAppsSelected" : {
       "extractionState" : "manual",
@@ -164,6 +173,9 @@
           }
         }
       }
+    },
+    "Selects the widget configuration to display." : {
+
     },
     "settingsViewControllerTabBarItemTitle" : {
       "extractionState" : "manual",
@@ -323,6 +335,9 @@
           }
         }
       }
+    },
+    "Widget Configuration" : {
+
     },
     "widgetEditorViewSaveWidgetButton" : {
       "extractionState" : "manual",

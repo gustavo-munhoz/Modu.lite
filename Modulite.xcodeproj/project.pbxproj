@@ -147,6 +147,12 @@
 		B3987E242CA4857400896414 /* MainWidgetConfigurationData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3987E222CA4857400896414 /* MainWidgetConfigurationData.swift */; };
 		B3987E262CA4858E00896414 /* MainWidgetModuleData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3987E252CA4858E00896414 /* MainWidgetModuleData.swift */; };
 		B3987E272CA4858E00896414 /* MainWidgetModuleData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3987E252CA4858E00896414 /* MainWidgetModuleData.swift */; };
+		B3987E2B2CA4F43100896414 /* SelectMainWidgetConfigurationIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3987E2A2CA4F43100896414 /* SelectMainWidgetConfigurationIntent.swift */; };
+		B3987E2C2CA4F43100896414 /* SelectMainWidgetConfigurationIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3987E2A2CA4F43100896414 /* SelectMainWidgetConfigurationIntent.swift */; };
+		B3987E2E2CA4F46A00896414 /* MainWidgetConfigurationQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3987E2D2CA4F46A00896414 /* MainWidgetConfigurationQuery.swift */; };
+		B3987E2F2CA4F46A00896414 /* MainWidgetConfigurationQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3987E2D2CA4F46A00896414 /* MainWidgetConfigurationQuery.swift */; };
+		B3987E312CA4F48C00896414 /* MainWidgetConfigurationEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3987E302CA4F48C00896414 /* MainWidgetConfigurationEntity.swift */; };
+		B3987E322CA4F48C00896414 /* MainWidgetConfigurationEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3987E302CA4F48C00896414 /* MainWidgetConfigurationEntity.swift */; };
 		B3C1877F2C78D1E000A891A8 /* ModuliteWidgetConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3C1877E2C78D1E000A891A8 /* ModuliteWidgetConfiguration.swift */; };
 		B3C187822C79009B00A891A8 /* WidgetConfigurationBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3C187812C79009B00A891A8 /* WidgetConfigurationBuilder.swift */; };
 		B3C187842C791D1300A891A8 /* WidgetStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3C187832C791D1300A891A8 /* WidgetStyle.swift */; };
@@ -312,6 +318,9 @@
 		B3987E1E2CA3A3BC00896414 /* MainWidgetModuleButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainWidgetModuleButton.swift; sourceTree = "<group>"; };
 		B3987E222CA4857400896414 /* MainWidgetConfigurationData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainWidgetConfigurationData.swift; sourceTree = "<group>"; };
 		B3987E252CA4858E00896414 /* MainWidgetModuleData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainWidgetModuleData.swift; sourceTree = "<group>"; };
+		B3987E2A2CA4F43100896414 /* SelectMainWidgetConfigurationIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectMainWidgetConfigurationIntent.swift; sourceTree = "<group>"; };
+		B3987E2D2CA4F46A00896414 /* MainWidgetConfigurationQuery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainWidgetConfigurationQuery.swift; sourceTree = "<group>"; };
+		B3987E302CA4F48C00896414 /* MainWidgetConfigurationEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainWidgetConfigurationEntity.swift; sourceTree = "<group>"; };
 		B3C1877E2C78D1E000A891A8 /* ModuliteWidgetConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModuliteWidgetConfiguration.swift; sourceTree = "<group>"; };
 		B3C187812C79009B00A891A8 /* WidgetConfigurationBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetConfigurationBuilder.swift; sourceTree = "<group>"; };
 		B3C187832C791D1300A891A8 /* WidgetStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetStyle.swift; sourceTree = "<group>"; };
@@ -913,6 +922,7 @@
 		B3987E092CA388F900896414 /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				B3987E292CA4F29500896414 /* Intents */,
 				B3987E1B2CA3A34A00896414 /* Models */,
 				B3987E1D2CA3A37100896414 /* Views */,
 				B3987E0B2CA38A8A00896414 /* MainWidget.swift */,
@@ -935,6 +945,8 @@
 			children = (
 				B3987E222CA4857400896414 /* MainWidgetConfigurationData.swift */,
 				B3987E252CA4858E00896414 /* MainWidgetModuleData.swift */,
+				B3987E2D2CA4F46A00896414 /* MainWidgetConfigurationQuery.swift */,
+				B3987E302CA4F48C00896414 /* MainWidgetConfigurationEntity.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -946,6 +958,14 @@
 				B3987E1E2CA3A3BC00896414 /* MainWidgetModuleButton.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		B3987E292CA4F29500896414 /* Intents */ = {
+			isa = PBXGroup;
+			children = (
+				B3987E2A2CA4F43100896414 /* SelectMainWidgetConfigurationIntent.swift */,
+			);
+			path = Intents;
 			sourceTree = "<group>";
 		};
 		B3C187802C79008800A891A8 /* Builders */ = {
@@ -1225,11 +1245,13 @@
 				B37284702C82990B00D9A1E7 /* WidgetStyle.swift in Sources */,
 				AFBBC5072C7E459900A9B256 /* ModuliteWidgetBundle.swift in Sources */,
 				B3987E052CA3602900896414 /* UIView+animateBorderColor.swift in Sources */,
+				B3987E2C2CA4F43100896414 /* SelectMainWidgetConfigurationIntent.swift in Sources */,
 				B3987E152CA38C7900896414 /* MainWidgetEntry.swift in Sources */,
 				B32B60A52C838EB0007DDCE3 /* WidgetModuleCell.swift in Sources */,
 				B32B60FC2C87AC90007DDCE3 /* AppInfo+CoreDataProperties.swift in Sources */,
 				B3987E132CA38AF400896414 /* MainWidgetProvider.swift in Sources */,
 				B32B60F52C87AB85007DDCE3 /* WidgetData.xcdatamodeld in Sources */,
+				B3987E2F2CA4F46A00896414 /* MainWidgetConfigurationQuery.swift in Sources */,
 				B3987E272CA4858E00896414 /* MainWidgetModuleData.swift in Sources */,
 				B37284762C82997700D9A1E7 /* ImageProcessingFactory.swift in Sources */,
 				B3987E242CA4857400896414 /* MainWidgetConfigurationData.swift in Sources */,
@@ -1241,6 +1263,7 @@
 				B32B60F92C87AC81007DDCE3 /* FileManagerImagePersistenceController.swift in Sources */,
 				B372846E2C8298F100D9A1E7 /* ModuleConfiguration.swift in Sources */,
 				B372846B2C8298BB00D9A1E7 /* ModuliteWidgetConfiguration.swift in Sources */,
+				B3987E322CA4F48C00896414 /* MainWidgetConfigurationEntity.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1280,6 +1303,7 @@
 				AFABBD982C8A359E007BEFD8 /* BlockAppsView.swift in Sources */,
 				B36927D32C66BBC10089F769 /* SceneDelegateRouter.swift in Sources */,
 				B32B61062C8A4140007DDCE3 /* ModalNavigationRouter.swift in Sources */,
+				B3987E2E2CA4F46A00896414 /* MainWidgetConfigurationQuery.swift in Sources */,
 				B3C187822C79009B00A891A8 /* WidgetConfigurationBuilder.swift in Sources */,
 				B3C1877F2C78D1E000A891A8 /* ModuliteWidgetConfiguration.swift in Sources */,
 				B32B60FE2C88E43F007DDCE3 /* CustomizedTextFactory.swift in Sources */,
@@ -1297,6 +1321,7 @@
 				B34F3DF82C69A3810041D7BD /* DebugOptions.swift in Sources */,
 				B32B60BF2C864AD9007DDCE3 /* PersistableModuleConfiguration+CoreDataProperties.swift in Sources */,
 				B32B61032C88EE1E007DDCE3 /* WidgetSetupAppsTagFlowLayout.swift in Sources */,
+				B3987E2B2CA4F43100896414 /* SelectMainWidgetConfigurationIntent.swift in Sources */,
 				B34F3E052C6A93AC0041D7BD /* SettingsViewController.swift in Sources */,
 				B32B60CA2C8657EC007DDCE3 /* AppInfoData.swift in Sources */,
 				B3987E262CA4858E00896414 /* MainWidgetModuleData.swift in Sources */,
@@ -1324,6 +1349,7 @@
 				B3987E232CA4857400896414 /* MainWidgetConfigurationData.swift in Sources */,
 				B350C05A2C8F92C90035682F /* WidgetBuilderCoordinator.swift in Sources */,
 				B3987E1F2CA3A3BC00896414 /* MainWidgetModuleButton.swift in Sources */,
+				B3987E312CA4F48C00896414 /* MainWidgetConfigurationEntity.swift in Sources */,
 				B34F3E372C6FDEAA0041D7BD /* SelectedAppCollectionViewCell.swift in Sources */,
 				B3CDD7012C766F2E00E558F8 /* ModuleStyleCell.swift in Sources */,
 				B3987E0F2CA38A9C00896414 /* MainWidgetView.swift in Sources */,
@@ -1604,6 +1630,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Modulite/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Modu.lite;
+				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "We need access to your photo library to be able to save your wallpapers in it.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -1636,6 +1663,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Modulite/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Modu.lite;
+				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "We need access to your photo library to be able to save your wallpapers in it.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
