@@ -47,6 +47,10 @@ class MainWidgetCollectionViewCell: UICollectionViewCell {
         return view
     }()
     
+    var widgetName: String {
+        widgetNameLabel.text!
+    }
+    
     // MARK: - Initializers
     override init(frame: CGRect) {
         super.init(frame: frame)
