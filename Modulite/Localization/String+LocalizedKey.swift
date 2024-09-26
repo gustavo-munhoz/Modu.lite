@@ -98,6 +98,8 @@ extension String {
         case homeViewMainSectionHeaderTitle
         case homeViewAuxiliarySectionHeaderTitle
         case homeViewTipsSectionHeaderTitle
+        case homeViewWidgetContextMenuEditTitle
+        case homeViewWidgetContextMenuDeleteTitle
         
         // MARK: - WidgetSetupView & WidgetSetupViewController
         case widgetSetupViewStyleHeaderTitle
