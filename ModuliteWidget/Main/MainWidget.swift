@@ -12,17 +12,20 @@ struct MainWidget: Widget {
     static private let kind = "MainWidget"
     
     var body: some WidgetConfiguration {
-        StaticConfiguration(
+        AppIntentConfiguration(
             kind: Self.kind,
-            provider: MainWidgetProvider()) { entry in
+            intent: SelectMainWidgetConfigurationIntent.self,
+            provider: MainWidgetIntentProvider(),
+            content: { entry in
                 MainWidgetView(entry: entry)
                     .containerBackground(
                         .black,
                         for: .widget
                     )
-                
             }
-            .configurationDisplayName("Main Widget")
-            .supportedFamilies([.systemLarge])
+        )
+        // TODO: Use default localizable key pattern
+        .configurationDisplayName("Main Widget")
+        .supportedFamilies([.systemLarge])
     }
 }
