@@ -108,9 +108,10 @@ extension CoreDataPersistenceController {
 
 // MARK: - Widget persistence
 extension CoreDataPersistenceController {
-    
-    func fetchWidgets() -> [PersistableWidgetConfiguration] {
+    func fetchWidgets(predicate: NSPredicate? = nil) -> [PersistableWidgetConfiguration] {
         let request = PersistableWidgetConfiguration.basicFetchRequest()
+        request.predicate = predicate
+        
         let sortDescriptor = NSSortDescriptor(key: "createdAt", ascending: false)
         request.sortDescriptors = [sortDescriptor]
         
