@@ -83,6 +83,10 @@ extension WidgetEditorViewController {
         
         return vc
     }
+    
+    func loadDataFromBuilder(_ builder: WidgetConfigurationBuilder) {
+        viewModel = WidgetEditorViewModel(widgetBuider: builder)
+    }
 }
 
 // MARK: - UICollectionViewDataSource
