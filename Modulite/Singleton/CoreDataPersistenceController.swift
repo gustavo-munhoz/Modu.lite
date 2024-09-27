@@ -74,16 +74,22 @@ struct CoreDataPersistenceController {
 // MARK: - AppInfo
 extension CoreDataPersistenceController {
     
-    func fetchApps() -> [AppInfo] {
+    func fetchApps(predicate: NSPredicate? = nil) -> [AppInfo] {
         let request = AppInfo.nameSortedFetchRequest()
+        request.predicate = predicate
         do {
             let apps = try container.viewContext.fetch(request)
             return apps
-            
         } catch {
             print("Error fetching apps: \(error.localizedDescription)")
             return []
         }
+    }
+    
+    func fetchAppInfo(named name: String, urlScheme: String) -> AppInfo? {
+        let predicate = NSPredicate(format: "name == %@ AND urlScheme == %@", name, urlScheme)
+        let apps = CoreDataPersistenceController.shared.fetchApps(predicate: predicate)
+        return apps.first
     }
     
     private func populateAppsAtFirstExecution() {
