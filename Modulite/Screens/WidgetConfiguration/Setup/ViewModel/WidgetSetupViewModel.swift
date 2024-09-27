@@ -16,6 +16,7 @@ class WidgetSetupViewModel: NSObject {
         WidgetStyleFactory.styleForKey(.tapedeck)
     ]
     
+    @Published private(set) var widgetName: String?
     @Published private(set) var selectedStyle: WidgetStyle?
     @Published private(set) var selectedApps: [AppInfo] = []
     
@@ -30,7 +31,13 @@ class WidgetSetupViewModel: NSObject {
         self.widgetId = id
     }
     
-    // MARK: - Actions
+    func setWidgetName(to name: String) {
+        self.widgetName = name
+    }
+    
+    func setWidgetStyle(to style: WidgetStyle) {
+        self.selectedStyle = style
+    }
     
     func setSelectedApps(to apps: [AppInfo]) {
         guard apps.count <= 6 else {
@@ -41,6 +48,8 @@ class WidgetSetupViewModel: NSObject {
         selectedApps = apps
     }
     
+    // MARK: - Actions
+        
     func addSelectedApp(_ app: AppInfo) {
         guard selectedApps.count < 6 else {
             print("Tried to add more than 6 apps.")

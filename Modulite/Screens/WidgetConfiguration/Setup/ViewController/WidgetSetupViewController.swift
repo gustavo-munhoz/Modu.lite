@@ -90,14 +90,23 @@ class WidgetSetupViewController: UIViewController {
 }
 
 extension WidgetSetupViewController {
-    class func instantiate(widgetId: UUID, delegate: WidgetSetupViewControllerDelegate) -> WidgetSetupViewController {
+    class func instantiate(delegate: WidgetSetupViewControllerDelegate) -> WidgetSetupViewController {
         let vc = WidgetSetupViewController()
         vc.delegate = delegate
-        vc.viewModel.setWidgetId(to: widgetId)
-        
         vc.setPlaceholderName(to: delegate.getPlaceholderName())
         
         return vc
+    }
+    
+    func loadDataFromContent(_ content: WidgetContent) {
+        setupView.widgetNameTextField.text = content.name
+        viewModel.setWidgetStyle(to: content.style)
+        guard let apps = content.apps.filter({ $0 != nil }) as? [AppInfo] else { return }
+        
+        viewModel.setSelectedApps(to: apps)
+        
+        setSetupViewStyleSelected(to: true)
+        setSetupViewHasAppsSelected(to: true)
     }
 }
 
