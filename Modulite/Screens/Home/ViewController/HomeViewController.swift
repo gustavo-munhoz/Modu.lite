@@ -11,6 +11,11 @@ protocol HomeViewControllerDelegate: AnyObject {
     func homeViewControllerDidStartWidgetCreationFlow(
         _ viewController: HomeViewController
     )
+    
+    func homeViewControllerDidStartWidgetEditingFlow(
+        _ viewController: HomeViewController,
+        widget: ModuliteWidgetConfiguration
+    )
 }
 
 class HomeViewController: UIViewController {
@@ -63,7 +68,17 @@ class HomeViewController: UIViewController {
     
     func registerNewWidget(_ widget: ModuliteWidgetConfiguration) {
         viewModel.addMainWidget(widget)
-        homeView.mainWidgetsCollectionView.reloadData()
+        
+        guard let index = viewModel.getIndexFor(widget) else {
+            print("Widget not found in data source.")
+            return
+        }
+        
+        let indexPath = IndexPath(item: index, section: 0)
+        
+        homeView.mainWidgetsCollectionView.performBatchUpdates { [weak self] in
+            self?.homeView.mainWidgetsCollectionView.insertItems(at: [indexPath])
+        }
     }
     
     func deleteWidget(_ widget: ModuliteWidgetConfiguration) {
@@ -74,13 +89,9 @@ class HomeViewController: UIViewController {
         
         let indexPath = IndexPath(item: index, section: 0)
         
-        if let cell = homeView.mainWidgetsCollectionView.cellForItem(
-            at: indexPath
-        ) as? MainWidgetCollectionViewCell {
-            viewModel.deleteMainWidget(widget)
-            homeView.mainWidgetsCollectionView.performBatchUpdates { [weak self] in
-                self?.homeView.mainWidgetsCollectionView.deleteItems(at: [indexPath])
-            }
+        viewModel.deleteMainWidget(widget)
+        homeView.mainWidgetsCollectionView.performBatchUpdates { [weak self] in
+            self?.homeView.mainWidgetsCollectionView.deleteItems(at: [indexPath])
         }
         
     }
@@ -187,7 +198,6 @@ extension HomeViewController: UICollectionViewDataSource {
                 buttonImage: UIImage(systemName: "plus.circle")!,
                 buttonAction: { [weak self] in
                     guard let self = self else { return }
-                    let id = self.viewModel.mainWidgets[indexPath.row]
                     self.delegate?.homeViewControllerDidStartWidgetCreationFlow(self)
                 }
             )
@@ -218,7 +228,13 @@ extension HomeViewController: UICollectionViewDelegate {
 // MARK: - MainWidgetCollectionViewCellDelegate
 extension HomeViewController: MainWidgetCollectionViewCellDelegate {
     func mainWidgetCellDidRequestEdit(_ cell: MainWidgetCollectionViewCell) {
+        guard let indexPath = homeView.mainWidgetsCollectionView.indexPath(for: cell) else {
+            print("Could not find index path for cell.")
+            return
+        }
         
+        let widget = viewModel.mainWidgets[indexPath.row]
+        delegate?.homeViewControllerDidStartWidgetEditingFlow(self, widget: widget)
     }
     
     func mainWidgetCellDidRequestDelete(_ cell: MainWidgetCollectionViewCell) {
