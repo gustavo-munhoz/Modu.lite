@@ -10,25 +10,35 @@ import UIKit
 class WidgetBuilderCoordinator: Coordinator {
     
     // MARK: - Properties
-    let contentBuilder = WidgetContentBuilder()
-    
-    var configurationBuilder: WidgetConfigurationBuilder {
-        let content = contentBuilder.build()
-        return WidgetConfigurationBuilder(content: content)
-    }
-    
+
     var children: [Coordinator] = []
     var router: Router
     
-    var onWidgetSave: ((ModuliteWidgetConfiguration) -> Void)?
+    let contentBuilder = WidgetContentBuilder()
+    var configurationBuilder: WidgetConfigurationBuilder {
+        let content = contentBuilder.build()
+        
+        if let config = injectedConfiguration {
+            return WidgetConfigurationBuilder(
+                content: content,
+                configuration: config
+            )
+        }
+        
+        return WidgetConfigurationBuilder(content: content)
+    }
     
     var currentWidgetCount: Int
     
-    // MARK: - Lifecycle
+    var onWidgetSave: ((ModuliteWidgetConfiguration) -> Void)?
+    
+    var injectedConfiguration: ModuliteWidgetConfiguration?
+    
+    // MARK: - Initializers
     
     init(router: Router) {
-        self.router = router
         self.currentWidgetCount = 0
+        self.router = router
     }
     
     init(router: Router, currentWidgetCount: Int) {
@@ -36,14 +46,40 @@ class WidgetBuilderCoordinator: Coordinator {
         self.router = router
     }
     
+    init(router: Router, configuration: ModuliteWidgetConfiguration) {
+        self.currentWidgetCount = 0
+        self.router = router
+        
+        injectedConfiguration = configuration
+        injectedConfiguration?.modules.sort(by: { $0.index < $1.index })
+        
+        contentBuilder.setWidgetName(configuration.name!)
+        contentBuilder.setWidgetStyle(configuration.widgetStyle!)
+        
+        for module in injectedConfiguration!.modules {
+            guard let appName = module.appName,
+                  let url = module.associatedURLScheme else { continue }
+            
+            guard let appInfo = CoreDataPersistenceController.shared.fetchAppInfo(
+                named: appName,
+                urlScheme: url.absoluteString
+            ) else { continue }
+            
+            contentBuilder.appendApp(appInfo)
+        }
+    }
+    
+    // MARK: - Presenting
+    
     func present(animated: Bool, onDismiss: (() -> Void)?) {
-        let viewController = WidgetSetupViewController.instantiate(
-            widgetId: UUID(),
-            delegate: self
-        )
+        let viewController = WidgetSetupViewController.instantiate(delegate: self)
+        
+        if injectedConfiguration != nil {
+            viewController.loadDataFromContent(contentBuilder.build())
+        }
         
         viewController.hidesBottomBarWhenPushed = true
-        
+         
         router.present(viewController, animated: animated, onDismiss: onDismiss)
     }
 }
@@ -63,6 +99,10 @@ extension WidgetBuilderCoordinator: WidgetSetupViewControllerDelegate {
             builder: configurationBuilder,
             delegate: self
         )
+        
+        if injectedConfiguration != nil {
+            viewController.loadDataFromBuilder(configurationBuilder)
+        }
         
         router.present(viewController, animated: true)
     }
