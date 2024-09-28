@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import WidgetKit
 
 /// A `Coordinator` that manages the presentation of the home screen in the application.
 class HomeCoordinator: Coordinator {
@@ -56,7 +57,11 @@ extension HomeCoordinator: HomeViewControllerDelegate {
             configuration: widget
         )
         
-        // TODO: Add onWidgetSave
+        coordinator.onWidgetSave = { widget in
+            CoreDataPersistenceController.shared.updateWidget(widget)
+            viewController.updateMainWidget(widget)
+            WidgetCenter.shared.reloadAllTimelines()
+        }
         
         presentChild(coordinator, animated: true)
     }
