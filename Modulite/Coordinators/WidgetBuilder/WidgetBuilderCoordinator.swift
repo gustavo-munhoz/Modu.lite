@@ -76,6 +76,7 @@ class WidgetBuilderCoordinator: Coordinator {
         
         if injectedConfiguration != nil {
             viewController.loadDataFromContent(contentBuilder.build())
+            viewController.navigationItem.title = .localized(for: .widgetEditingNavigationTitle)
         }
         
         viewController.hidesBottomBarWhenPushed = true
@@ -102,6 +103,7 @@ extension WidgetBuilderCoordinator: WidgetSetupViewControllerDelegate {
         
         if injectedConfiguration != nil {
             viewController.loadDataFromBuilder(configurationBuilder)
+            viewController.navigationItem.title = .localized(for: .widgetEditingNavigationTitle)
         }
         
         router.present(viewController, animated: true)

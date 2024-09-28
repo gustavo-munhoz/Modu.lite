@@ -95,7 +95,7 @@ class WidgetEditorView: UIScrollView {
             .localized(for: .widgetEditorViewWallpaperButton),
             attributes: AttributeContainer([
                 .font: UIFont(textStyle: .body, weight: .bold),
-                .foregroundColor: UIColor.black
+                .foregroundColor: UIColor.textPrimary
             ])
         )
         
@@ -130,7 +130,7 @@ class WidgetEditorView: UIScrollView {
                         .localized(for: .widgetEditorViewWallpaperButtonSaved),
                         attributes: AttributeContainer([
                             .font: UIFont(textStyle: .body, weight: .bold),
-                            .foregroundColor: UIColor.black
+                            .foregroundColor: UIColor.textPrimary
                         ])
                     )
                     

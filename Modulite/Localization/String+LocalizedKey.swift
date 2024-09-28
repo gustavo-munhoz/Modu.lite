@@ -112,6 +112,8 @@ extension String {
         case widgetSetupViewSearchAppsButtonTitle
         case widgetSetupViewSearchAppsHelperText
         
+        case widgetEditingNavigationTitle
+        
         // MARK: - SearchAppsView
         case selectAppsViewTitle
         case selectAppsViewSubtitle
