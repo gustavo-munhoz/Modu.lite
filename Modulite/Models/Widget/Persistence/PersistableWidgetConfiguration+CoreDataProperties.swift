@@ -47,7 +47,6 @@ extension PersistableWidgetConfiguration {
         
         // FIXME: Module count is sometimes 5 after fetching
         for module in config.modules {
-            print("Saving module with index \(module.index)")
             guard let moduleImage = module.generateWidgetButtonImage() else {
                 fatalError("Could not generate module image")
             }

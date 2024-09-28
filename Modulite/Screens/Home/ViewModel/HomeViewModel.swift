@@ -47,6 +47,15 @@ class HomeViewModel: NSObject {
         mainWidgets.insert(configuration, at: 0)
     }
     
+    func updateMainWidget(_ configuration: ModuliteWidgetConfiguration) {
+        guard let idx = getIndexFor(configuration) else {
+            print("Tried to update a widget at an invalid index.")
+            return
+        }
+        
+        mainWidgets[idx] = configuration
+    }
+    
     func deleteMainWidget(at idx: Int) {
         guard idx >= 0, idx < mainWidgets.count else {
             print("Tried to delete a widget at an invalid index.")
