@@ -66,6 +66,21 @@ class HomeViewController: UIViewController {
         viewModel.mainWidgets.count
     }
     
+    func updateMainWidget(_ widget: ModuliteWidgetConfiguration) {
+        viewModel.updateMainWidget(widget)
+        
+        guard let index = viewModel.getIndexFor(widget) else {
+            print("Widget not found in data source.")
+            return
+        }
+        
+        let indexPath = IndexPath(item: index, section: 0)
+        
+        homeView.mainWidgetsCollectionView.performBatchUpdates { [weak self] in
+            self?.homeView.mainWidgetsCollectionView.reloadItems(at: [indexPath])
+        }
+    }
+    
     func registerNewWidget(_ widget: ModuliteWidgetConfiguration) {
         viewModel.addMainWidget(widget)
         

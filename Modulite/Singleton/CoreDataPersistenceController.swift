@@ -130,6 +130,56 @@ extension CoreDataPersistenceController {
         }
     }
     
+    func updateWidget(_ configuration: ModuliteWidgetConfiguration) {
+        let id = configuration.id
+        let context = container.viewContext
+        let fetchRequest = PersistableWidgetConfiguration.basicFetchRequest()
+        fetchRequest.predicate = NSPredicate(format: "id == %@", id as CVarArg)
+        
+        do {
+            guard let widget = try context.fetch(fetchRequest).first else {
+                print("Widget with ID \(id) not found.")
+                return
+            }
+        
+            widget.name = configuration.name
+            
+            guard let styleKey = configuration.widgetStyle?.key else {
+                fatalError("Unable to get widget style key. Aborting object update.")
+            }
+            
+            widget.widgetStyleKey = styleKey.rawValue
+            
+            if let modules = widget.modules as? Set<PersistableModuleConfiguration> {
+                for module in modules {
+                    context.delete(module)
+                }
+            }
+            
+            var newModules: Set<PersistableModuleConfiguration> = []
+            for moduleConfig in configuration.modules {
+                guard let moduleImage = moduleConfig.generateWidgetButtonImage() else {
+                    fatalError("Could not generate module image")
+                }
+                
+                let persistentModule = PersistableModuleConfiguration.instantiateFromConfiguration(
+                    moduleConfig,
+                    widgetId: widget.id,
+                    moduleImage: moduleImage,
+                    using: context
+                )
+                newModules.insert(persistentModule)
+            }
+            
+            widget.modules = newModules as NSSet
+            
+            try context.save()
+        
+        } catch {
+            print("Error updating widget: \(error.localizedDescription)")
+        }
+    }
+    
     func deleteWidget(withId id: UUID) {
         let context = container.viewContext
         let request = PersistableWidgetConfiguration.basicFetchRequest()
