@@ -10,6 +10,7 @@ import UIKit
 /// Manages the overall configuration of a widget, including its background and modules.
 
 class ModuliteWidgetConfiguration {
+    var id: UUID = UUID()
     var name: String?
     var widgetStyle: WidgetStyle?
     var modules: [ModuleConfiguration] = []
@@ -31,11 +32,13 @@ class ModuliteWidgetConfiguration {
     init() { }
     
     init(
+        id: UUID,
         name: String? = nil,
         style: WidgetStyle,
         modules: [ModuleConfiguration],
         createdAt: Date
     ) {
+        self.id = id
         self.name = name
         self.widgetStyle = style
         self.modules = modules
@@ -55,6 +58,7 @@ extension ModuliteWidgetConfiguration {
         
         let style = WidgetStyleFactory.styleForKey(key)
         self.init(
+            id: config.id,
             name: config.name,
             style: style,
             modules: moduleArray.map {

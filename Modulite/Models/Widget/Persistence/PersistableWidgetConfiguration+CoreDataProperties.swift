@@ -28,7 +28,7 @@ extension PersistableWidgetConfiguration {
     ) -> PersistableWidgetConfiguration {
         let widget = PersistableWidgetConfiguration(context: managedObjectContext)
         
-        widget.id = UUID()
+        widget.id = config.id
         widget.name = config.name
         guard let widgetStyleKey = config.widgetStyle?.key else {
             fatalError("Unable to get widget style key. Aborting object creation.")
@@ -71,7 +71,7 @@ extension PersistableWidgetConfiguration {
             return widget
             
         } catch {
-            FileManagerImagePersistenceController.shared.deleteWidgetAndModules(with: widget.id)
+            FileManagerImagePersistenceController.shared.deleteWidgetAndModules(widgetId: widget.id)
             fatalError("Error creating widget persistent config: \(error.localizedDescription)")
         }
     }

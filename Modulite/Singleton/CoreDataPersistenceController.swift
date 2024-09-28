@@ -74,16 +74,22 @@ struct CoreDataPersistenceController {
 // MARK: - AppInfo
 extension CoreDataPersistenceController {
     
-    func fetchApps() -> [AppInfo] {
+    func fetchApps(predicate: NSPredicate? = nil) -> [AppInfo] {
         let request = AppInfo.nameSortedFetchRequest()
+        request.predicate = predicate
         do {
             let apps = try container.viewContext.fetch(request)
             return apps
-            
         } catch {
             print("Error fetching apps: \(error.localizedDescription)")
             return []
         }
+    }
+    
+    func fetchAppInfo(named name: String, urlScheme: String) -> AppInfo? {
+        let predicate = NSPredicate(format: "name == %@ AND urlScheme == %@", name, urlScheme)
+        let apps = CoreDataPersistenceController.shared.fetchApps(predicate: predicate)
+        return apps.first
     }
     
     private func populateAppsAtFirstExecution() {
@@ -121,6 +127,29 @@ extension CoreDataPersistenceController {
         } catch {
             print("Error fetching widgets: \(error.localizedDescription)")
             return []
+        }
+    }
+    
+    func deleteWidget(withId id: UUID) {
+        let context = container.viewContext
+        let request = PersistableWidgetConfiguration.basicFetchRequest()
+        request.predicate = NSPredicate(format: "id == %@", id as CVarArg)
+        
+        do {
+            guard let widget = try context.fetch(request).first else {
+                print("Widget with id \(id) not found.")
+                return
+            }
+            
+            context.delete(widget)
+            
+            try context.save()
+            
+            FileManagerImagePersistenceController.shared.deleteWidgetAndModules(widgetId: id)
+            print("Widget with id \(id) deleted successfully from CoreData.")
+            
+        } catch {
+            print("Error deleting widget from CoreData: \(error.localizedDescription)")
         }
     }
     

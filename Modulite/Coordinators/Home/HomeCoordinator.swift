@@ -46,4 +46,18 @@ extension HomeCoordinator: HomeViewControllerDelegate {
         
         presentChild(coordinator, animated: true)
     }
+    
+    func homeViewControllerDidStartWidgetEditingFlow(
+        _ viewController: HomeViewController,
+        widget: ModuliteWidgetConfiguration
+    ) {
+        let coordinator = WidgetBuilderCoordinator(
+            router: router,
+            configuration: widget
+        )
+        
+        // TODO: Add onWidgetSave
+        
+        presentChild(coordinator, animated: true)
+    }
 }

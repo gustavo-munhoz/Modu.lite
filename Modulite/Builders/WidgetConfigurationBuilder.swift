@@ -40,6 +40,11 @@ class WidgetConfigurationBuilder {
         }
     }
     
+    init(content: WidgetContent, configuration: ModuliteWidgetConfiguration) {
+        widgetContent = content
+        self.configuration = configuration
+    }
+    
     // MARK: - Getters
     func getStyleWallpapers() -> (blocked: UIImage, home: UIImage) {
         (widgetContent.style.blockedScreenWallpaperImage, widgetContent.style.homeScreenWallpaperImage)
