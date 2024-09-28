@@ -236,8 +236,14 @@ extension HomeViewController: UICollectionViewDataSource {
 
 // MARK: - UICollectionViewDelegate
 extension HomeViewController: UICollectionViewDelegate {
-    // TODO: Implement cell selection
-    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        switch collectionView {
+        case homeView.mainWidgetsCollectionView:
+            delegate?.homeViewControllerDidStartWidgetEditingFlow(self, widget: viewModel.mainWidgets[indexPath.row])
+        default:
+            return
+        }
+    }
 }
 
 // MARK: - MainWidgetCollectionViewCellDelegate
