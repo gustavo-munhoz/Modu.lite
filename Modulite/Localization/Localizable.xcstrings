@@ -383,6 +383,17 @@
     "Widget Configuration" : {
 
     },
+    "widgetEditingNavigationTitle" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Editing"
+          }
+        }
+      }
+    },
     "widgetEditorViewSaveWidgetButton" : {
       "extractionState" : "manual",
       "localizations" : {
