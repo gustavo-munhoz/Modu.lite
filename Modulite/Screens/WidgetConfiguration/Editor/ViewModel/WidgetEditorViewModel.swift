@@ -107,7 +107,7 @@ class WidgetEditorViewModel: NSObject {
     @discardableResult
     func saveWidget(from collectionView: UICollectionView) -> ModuliteWidgetConfiguration {
         let widgetConfiguration = builder.build()
-        let persistedConfig = CoreDataPersistenceController.shared.registerWidget(
+        let persistedConfig = CoreDataPersistenceController.shared.registerOrUpdateWidget(
             widgetConfiguration,
             widgetImage: collectionView.asImage()
         )

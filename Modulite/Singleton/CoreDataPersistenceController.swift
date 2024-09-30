@@ -130,56 +130,6 @@ extension CoreDataPersistenceController {
         }
     }
     
-    func updateWidget(_ configuration: ModuliteWidgetConfiguration) {
-        let id = configuration.id
-        let context = container.viewContext
-        let fetchRequest = PersistableWidgetConfiguration.basicFetchRequest()
-        fetchRequest.predicate = NSPredicate(format: "id == %@", id as CVarArg)
-        
-        do {
-            guard let widget = try context.fetch(fetchRequest).first else {
-                print("Widget with ID \(id) not found.")
-                return
-            }
-        
-            widget.name = configuration.name
-            
-            guard let styleKey = configuration.widgetStyle?.key else {
-                fatalError("Unable to get widget style key. Aborting object update.")
-            }
-            
-            widget.widgetStyleKey = styleKey.rawValue
-            
-            if let modules = widget.modules as? Set<PersistableModuleConfiguration> {
-                for module in modules {
-                    context.delete(module)
-                }
-            }
-            
-            var newModules: Set<PersistableModuleConfiguration> = []
-            for moduleConfig in configuration.modules {
-                guard let moduleImage = moduleConfig.generateWidgetButtonImage() else {
-                    fatalError("Could not generate module image")
-                }
-                
-                let persistentModule = PersistableModuleConfiguration.instantiateFromConfiguration(
-                    moduleConfig,
-                    widgetId: widget.id,
-                    moduleImage: moduleImage,
-                    using: context
-                )
-                newModules.insert(persistentModule)
-            }
-            
-            widget.modules = newModules as NSSet
-            
-            try context.save()
-        
-        } catch {
-            print("Error updating widget: \(error.localizedDescription)")
-        }
-    }
-    
     func deleteWidget(withId id: UUID) {
         let context = container.viewContext
         let request = PersistableWidgetConfiguration.basicFetchRequest()
@@ -202,18 +152,77 @@ extension CoreDataPersistenceController {
             print("Error deleting widget from CoreData: \(error.localizedDescription)")
         }
     }
-    
+}
+
+extension CoreDataPersistenceController {
     @discardableResult
-    func registerWidget(
+    func registerOrUpdateWidget(
         _ config: ModuliteWidgetConfiguration,
         widgetImage: UIImage
     ) -> PersistableWidgetConfiguration {
-        let widgetConfig = PersistableWidgetConfiguration.createFromWidgetConfiguration(
-            config,
-            widgetImage: widgetImage,
-            using: container.viewContext
-        )
+        let context = container.viewContext
+        let fetchRequest = PersistableWidgetConfiguration.basicFetchRequest()
+        fetchRequest.predicate = NSPredicate(format: "id == %@", config.id as CVarArg)
         
-        return widgetConfig
+        do {
+            guard let existingWidget = try context.fetch(fetchRequest).first else {
+                let newWidget = PersistableWidgetConfiguration.createFromWidgetConfiguration(
+                    config,
+                    widgetImage: widgetImage,
+                    using: context
+                )
+                
+                print("Widget created successfully.")
+                
+                return newWidget
+            }
+            
+            existingWidget.name = config.name
+            
+            guard let styleKey = config.widgetStyle?.key else {
+                fatalError("Unable to get widget style key. Aborting object update.")
+            }
+            
+            existingWidget.widgetStyleKey = styleKey.rawValue
+            
+            let widgetImageUrl = FileManagerImagePersistenceController.shared.saveWidgetImage(
+                image: widgetImage,
+                for: existingWidget.id
+            )
+            existingWidget.previewImageUrl = widgetImageUrl
+            
+            if let modules = existingWidget.modules as? Set<PersistableModuleConfiguration> {
+                for module in modules {
+                    context.delete(module)
+                }
+            }
+            
+            var newModules: Set<PersistableModuleConfiguration> = []
+            for moduleConfig in config.modules {
+                guard let moduleImage = moduleConfig.generateWidgetButtonImage() else {
+                    fatalError("Could not generate module image")
+                }
+                
+                let persistentModule = PersistableModuleConfiguration.instantiateFromConfiguration(
+                    moduleConfig,
+                    widgetId: existingWidget.id,
+                    moduleImage: moduleImage,
+                    using: context
+                )
+                newModules.insert(persistentModule)
+            }
+            
+            existingWidget.modules = newModules as NSSet
+            existingWidget.createdAt = .now
+            
+            try context.save()
+            
+            print("Widget \(existingWidget.id) updated successfully.")
+            return existingWidget
+            
+        } catch {
+            print("Error registering or updating widget: \(error.localizedDescription)")
+            fatalError("Failed to register or update widget.")
+        }
     }
 }
