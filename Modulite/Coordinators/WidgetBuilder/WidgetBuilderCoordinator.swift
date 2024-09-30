@@ -134,6 +134,13 @@ extension WidgetBuilderCoordinator: WidgetSetupViewControllerDelegate {
             )
         }
     }
+    
+    func widgetSetupViewControllerDidDeselectApp(
+        _ controller: WidgetSetupViewController,
+        app: AppInfo
+    ) {
+        contentBuilder.removeApp(app)
+    }
 }
 
 // MARK: - SelectAppsViewControllerDelegate
