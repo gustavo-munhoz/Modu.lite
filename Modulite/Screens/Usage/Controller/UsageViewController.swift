@@ -45,30 +45,7 @@ class UsageViewController: UIViewController {
     }
     
     private func setupBindings() {
-        // Observa mudanças no totalScreenTime do ViewModel e atualiza a timeSpentLabel
-        usageViewModel.$totalScreenTime
-            .receive(on: DispatchQueue.main)
-            .sink { [weak self] totalScreenTime in
-                let formattedTime = self?.formatTime(totalScreenTime)
-                self?.usageView.timeSpentLabel.text = formattedTime
-            }
-            .store(in: &cancellables)
-        
-        // Observa mudanças na média diária de ontem e atualiza a dailyAvarageYesterdayLabel
-        usageViewModel.$dailyAverageYesterday
-            .receive(on: DispatchQueue.main)
-            .sink { [weak self] dailyAverageYesterday in
-                self?.usageView.dailyAvarageYesterdayLabel.timeLabel.text = self?.formatTime(dailyAverageYesterday)
-            }
-            .store(in: &cancellables)
-        
-        // Observa mudanças na média diária da semana passada e atualiza a dailyAvarageLastWeek
-        usageViewModel.$dailyAverageLastWeek
-            .receive(on: DispatchQueue.main)
-            .sink { [weak self] dailyAverageLastWeek in
-                self?.usageView.dailyAvarageLastWeek.timeLabel.text = self?.formatTime(dailyAverageLastWeek)
-            }
-            .store(in: &cancellables)
+       
     }
     
     // Função utilitária para formatar o tempo
