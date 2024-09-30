@@ -7,6 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AF362BFF2CA5AD8000506443 /* UsageViewSelectAppsContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF362BFE2CA5AD8000506443 /* UsageViewSelectAppsContentView.swift */; };
+		AF362C052CA5B1A300506443 /* DeviceActivity.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AFABBD872C88E388007BEFD8 /* DeviceActivity.framework */; };
+		AF362C0D2CA5B1A300506443 /* ModuliteDeviceActivityMonitor.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = AF362C042CA5B1A300506443 /* ModuliteDeviceActivityMonitor.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		AF362C162CA5B1B000506443 /* DeviceActivityMonitorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF362C122CA5B1B000506443 /* DeviceActivityMonitorExtension.swift */; };
+		AF362C422CA5ED3700506443 /* AppUsageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF362C412CA5ED3700506443 /* AppUsageCell.swift */; };
+		AF362C5D2CA73EDC00506443 /* ModuliteDeviceActivityReport.appex in Embed ExtensionKit Extensions */ = {isa = PBXBuildFile; fileRef = AF362C512CA73EDC00506443 /* ModuliteDeviceActivityReport.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		AF362C6B2CA7478B00506443 /* AppDeviceActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF362C642CA7478B00506443 /* AppDeviceActivity.swift */; };
+		AF362C6C2CA7478B00506443 /* ModuliteDeviceActivityReport.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF362C672CA7478B00506443 /* ModuliteDeviceActivityReport.swift */; };
+		AF362C6D2CA7478B00506443 /* TotalActivityReport.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF362C682CA7478B00506443 /* TotalActivityReport.swift */; };
+		AF362C6E2CA7478B00506443 /* TotalActivityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF362C692CA7478B00506443 /* TotalActivityView.swift */; };
+		AF362C732CAB174C00506443 /* BlockAppsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF362C722CAB174C00506443 /* BlockAppsViewModel.swift */; };
+		AF9D41DA2CA49BE50077F565 /* UsageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF9D41D82CA49BE50077F565 /* UsageViewModel.swift */; };
 		AFABBD7C2C80F2E0007BEFD8 /* UsageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFABBD7B2C80F2E0007BEFD8 /* UsageView.swift */; };
 		AFABBD982C8A359E007BEFD8 /* BlockAppsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFABBD972C8A359E007BEFD8 /* BlockAppsView.swift */; };
 		AFABBD9B2C8A39F2007BEFD8 /* BlockAppsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFABBD9A2C8A39F2007BEFD8 /* BlockAppsCollectionViewCell.swift */; };
@@ -182,6 +194,20 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		AF362C0B2CA5B1A300506443 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B369278C2C66B6E30089F769 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = AF362C032CA5B1A300506443;
+			remoteInfo = ModuliteDeviceActivityMonitor;
+		};
+		AF362C5B2CA73EDC00506443 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B369278C2C66B6E30089F769 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = AF362C502CA73EDC00506443;
+			remoteInfo = ModuliteDeviceActivityReport;
+		};
 		AFBBC50D2C7E459A00A9B256 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = B369278C2C66B6E30089F769 /* Project object */;
@@ -206,6 +232,17 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
+		AF362C2D2CA5DEE100506443 /* Embed ExtensionKit Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(EXTENSIONS_FOLDER_PATH)";
+			dstSubfolderSpec = 16;
+			files = (
+				AF362C5D2CA73EDC00506443 /* ModuliteDeviceActivityReport.appex in Embed ExtensionKit Extensions */,
+			);
+			name = "Embed ExtensionKit Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		AFBBC4FD2C7E457E00A9B256 /* Embed Foundation Extensions */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -213,6 +250,7 @@
 			dstSubfolderSpec = 13;
 			files = (
 				AFBBC50F2C7E459A00A9B256 /* ModuliteWidgetExtension.appex in Embed Foundation Extensions */,
+				AF362C0D2CA5B1A300506443 /* ModuliteDeviceActivityMonitor.appex in Embed Foundation Extensions */,
 			);
 			name = "Embed Foundation Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -220,6 +258,21 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		AF362BFE2CA5AD8000506443 /* UsageViewSelectAppsContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsageViewSelectAppsContentView.swift; sourceTree = "<group>"; };
+		AF362C042CA5B1A300506443 /* ModuliteDeviceActivityMonitor.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = ModuliteDeviceActivityMonitor.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		AF362C122CA5B1B000506443 /* DeviceActivityMonitorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceActivityMonitorExtension.swift; sourceTree = "<group>"; };
+		AF362C132CA5B1B000506443 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AF362C142CA5B1B000506443 /* ModuliteDeviceActivityMonitor.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ModuliteDeviceActivityMonitor.entitlements; sourceTree = "<group>"; };
+		AF362C412CA5ED3700506443 /* AppUsageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppUsageCell.swift; sourceTree = "<group>"; };
+		AF362C512CA73EDC00506443 /* ModuliteDeviceActivityReport.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.extensionkit-extension"; includeInIndex = 0; path = ModuliteDeviceActivityReport.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		AF362C642CA7478B00506443 /* AppDeviceActivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDeviceActivity.swift; sourceTree = "<group>"; };
+		AF362C652CA7478B00506443 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AF362C662CA7478B00506443 /* ModuliteDeviceActivityReport.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ModuliteDeviceActivityReport.entitlements; sourceTree = "<group>"; };
+		AF362C672CA7478B00506443 /* ModuliteDeviceActivityReport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModuliteDeviceActivityReport.swift; sourceTree = "<group>"; };
+		AF362C682CA7478B00506443 /* TotalActivityReport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TotalActivityReport.swift; sourceTree = "<group>"; };
+		AF362C692CA7478B00506443 /* TotalActivityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TotalActivityView.swift; sourceTree = "<group>"; };
+		AF362C722CAB174C00506443 /* BlockAppsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockAppsViewModel.swift; sourceTree = "<group>"; };
+		AF9D41D82CA49BE50077F565 /* UsageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsageViewModel.swift; sourceTree = "<group>"; };
 		AFABBD7B2C80F2E0007BEFD8 /* UsageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsageView.swift; sourceTree = "<group>"; };
 		AFABBD7E2C863036007BEFD8 /* ModuliteWidgetExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ModuliteWidgetExtension.entitlements; sourceTree = "<group>"; };
 		AFABBD872C88E388007BEFD8 /* DeviceActivity.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DeviceActivity.framework; path = System/Library/Frameworks/DeviceActivity.framework; sourceTree = SDKROOT; };
@@ -359,6 +412,21 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		AF362C012CA5B1A300506443 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AF362C052CA5B1A300506443 /* DeviceActivity.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AF362C4E2CA73EDC00506443 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		AFBBC4FF2C7E459900A9B256 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -394,6 +462,45 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		AF362C152CA5B1B000506443 /* ModuliteDeviceActivityMonitor */ = {
+			isa = PBXGroup;
+			children = (
+				AF362C122CA5B1B000506443 /* DeviceActivityMonitorExtension.swift */,
+				AF362C132CA5B1B000506443 /* Info.plist */,
+				AF362C142CA5B1B000506443 /* ModuliteDeviceActivityMonitor.entitlements */,
+			);
+			path = ModuliteDeviceActivityMonitor;
+			sourceTree = "<group>";
+		};
+		AF362C6A2CA7478B00506443 /* ModuliteDeviceActivityReport */ = {
+			isa = PBXGroup;
+			children = (
+				AF362C642CA7478B00506443 /* AppDeviceActivity.swift */,
+				AF362C652CA7478B00506443 /* Info.plist */,
+				AF362C662CA7478B00506443 /* ModuliteDeviceActivityReport.entitlements */,
+				AF362C672CA7478B00506443 /* ModuliteDeviceActivityReport.swift */,
+				AF362C682CA7478B00506443 /* TotalActivityReport.swift */,
+				AF362C692CA7478B00506443 /* TotalActivityView.swift */,
+			);
+			path = ModuliteDeviceActivityReport;
+			sourceTree = "<group>";
+		};
+		AF362C712CAB172900506443 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				AF362C722CAB174C00506443 /* BlockAppsViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		AF9D41D92CA49BE50077F565 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				AF9D41D82CA49BE50077F565 /* UsageViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		AFABBD792C80F2CC007BEFD8 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
@@ -406,6 +513,8 @@
 			isa = PBXGroup;
 			children = (
 				AFABBD7B2C80F2E0007BEFD8 /* UsageView.swift */,
+				AF362C412CA5ED3700506443 /* AppUsageCell.swift */,
+				AF362BFE2CA5AD8000506443 /* UsageViewSelectAppsContentView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -544,6 +653,7 @@
 		B34F3DFF2C6A936C0041D7BD /* Usage */ = {
 			isa = PBXGroup;
 			children = (
+				AF9D41D92CA49BE50077F565 /* ViewModel */,
 				AFABBD7A2C80F2D4007BEFD8 /* View */,
 				AFABBD792C80F2CC007BEFD8 /* Controller */,
 			);
@@ -555,6 +665,7 @@
 			children = (
 				AFABBD962C8A358D007BEFD8 /* View */,
 				AFABBD952C8A3587007BEFD8 /* Controller */,
+				AF362C712CAB172900506443 /* ViewModel */,
 			);
 			path = BlockApps;
 			sourceTree = "<group>";
@@ -750,6 +861,8 @@
 				AFBBC5052C7E459900A9B256 /* ModuliteWidget */,
 				B36927AD2C66B6E40089F769 /* ModuliteTests */,
 				B36927B72C66B6E40089F769 /* ModuliteUITests */,
+				AF362C152CA5B1B000506443 /* ModuliteDeviceActivityMonitor */,
+				AF362C6A2CA7478B00506443 /* ModuliteDeviceActivityReport */,
 				B36927952C66B6E30089F769 /* Products */,
 				B3F054342C7CC4890057F04D /* Frameworks */,
 			);
@@ -762,6 +875,8 @@
 				B36927AA2C66B6E40089F769 /* ModuliteTests.xctest */,
 				B36927B42C66B6E40089F769 /* ModuliteUITests.xctest */,
 				AFBBC5022C7E459900A9B256 /* ModuliteWidgetExtension.appex */,
+				AF362C042CA5B1A300506443 /* ModuliteDeviceActivityMonitor.appex */,
+				AF362C512CA73EDC00506443 /* ModuliteDeviceActivityReport.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -1091,6 +1206,44 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		AF362C032CA5B1A300506443 /* ModuliteDeviceActivityMonitor */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AF362C0F2CA5B1A300506443 /* Build configuration list for PBXNativeTarget "ModuliteDeviceActivityMonitor" */;
+			buildPhases = (
+				AF362C002CA5B1A300506443 /* Sources */,
+				AF362C012CA5B1A300506443 /* Frameworks */,
+				AF362C022CA5B1A300506443 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ModuliteDeviceActivityMonitor;
+			packageProductDependencies = (
+			);
+			productName = ModuliteDeviceActivityMonitor;
+			productReference = AF362C042CA5B1A300506443 /* ModuliteDeviceActivityMonitor.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+		AF362C502CA73EDC00506443 /* ModuliteDeviceActivityReport */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AF362C5F2CA73EDC00506443 /* Build configuration list for PBXNativeTarget "ModuliteDeviceActivityReport" */;
+			buildPhases = (
+				AF362C4D2CA73EDC00506443 /* Sources */,
+				AF362C4E2CA73EDC00506443 /* Frameworks */,
+				AF362C4F2CA73EDC00506443 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ModuliteDeviceActivityReport;
+			packageProductDependencies = (
+			);
+			productName = ModuliteDeviceActivityReport;
+			productReference = AF362C512CA73EDC00506443 /* ModuliteDeviceActivityReport.appex */;
+			productType = "com.apple.product-type.extensionkit-extension";
+		};
 		AFBBC5012C7E459900A9B256 /* ModuliteWidgetExtension */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = AFBBC5102C7E459A00A9B256 /* Build configuration list for PBXNativeTarget "ModuliteWidgetExtension" */;
@@ -1121,11 +1274,14 @@
 				B36927912C66B6E30089F769 /* Frameworks */,
 				B36927922C66B6E30089F769 /* Resources */,
 				AFBBC4FD2C7E457E00A9B256 /* Embed Foundation Extensions */,
+				AF362C2D2CA5DEE100506443 /* Embed ExtensionKit Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 				AFBBC50E2C7E459A00A9B256 /* PBXTargetDependency */,
+				AF362C0C2CA5B1A300506443 /* PBXTargetDependency */,
+				AF362C5C2CA73EDC00506443 /* PBXTargetDependency */,
 			);
 			name = Modulite;
 			packageProductDependencies = (
@@ -1178,9 +1334,15 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 1540;
+				LastSwiftUpdateCheck = 1600;
 				LastUpgradeCheck = 1600;
 				TargetAttributes = {
+					AF362C032CA5B1A300506443 = {
+						CreatedOnToolsVersion = 16.0;
+					};
+					AF362C502CA73EDC00506443 = {
+						CreatedOnToolsVersion = 16.0;
+					};
 					AFBBC5012C7E459900A9B256 = {
 						CreatedOnToolsVersion = 15.4;
 					};
@@ -1217,11 +1379,27 @@
 				B36927A92C66B6E40089F769 /* ModuliteTests */,
 				B36927B32C66B6E40089F769 /* ModuliteUITests */,
 				AFBBC5012C7E459900A9B256 /* ModuliteWidgetExtension */,
+				AF362C032CA5B1A300506443 /* ModuliteDeviceActivityMonitor */,
+				AF362C502CA73EDC00506443 /* ModuliteDeviceActivityReport */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		AF362C022CA5B1A300506443 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AF362C4F2CA73EDC00506443 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		AFBBC5002C7E459900A9B256 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -1303,6 +1481,25 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		AF362C002CA5B1A300506443 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AF362C162CA5B1B000506443 /* DeviceActivityMonitorExtension.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AF362C4D2CA73EDC00506443 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AF362C6B2CA7478B00506443 /* AppDeviceActivity.swift in Sources */,
+				AF362C6C2CA7478B00506443 /* ModuliteDeviceActivityReport.swift in Sources */,
+				AF362C6D2CA7478B00506443 /* TotalActivityReport.swift in Sources */,
+				AF362C6E2CA7478B00506443 /* TotalActivityView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		AFBBC4FE2C7E459900A9B256 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -1386,10 +1583,12 @@
 				AFBBC51E2C7E4C8500A9B256 /* WidgetButtonView.swift in Sources */,
 				B3CDD7032C767FD300E558F8 /* ModuleColorCell.swift in Sources */,
 				B39A25A42CAB5CE3001C76A5 /* WidgetEditorSaveButton.swift in Sources */,
+				AF362C422CA5ED3700506443 /* AppUsageCell.swift in Sources */,
 				B32B60F02C876F4A007DDCE3 /* FileManagerImagePersistenceController.swift in Sources */,
 				B3EB15B92C7E4CD6003B1960 /* ModuleAppNameTextConfiguration.swift in Sources */,
 				B39A25AC2CAC7D2A001C76A5 /* WidgetEditorViewController+UICollectionViewDelegate.swift in Sources */,
 				B3EB15B62C7E4BF0003B1960 /* ModuleConfiguration.swift in Sources */,
+				AF362C732CAB174C00506443 /* BlockAppsViewModel.swift in Sources */,
 				AFABBD982C8A359E007BEFD8 /* BlockAppsView.swift in Sources */,
 				B36927D32C66BBC10089F769 /* SceneDelegateRouter.swift in Sources */,
 				B32B61062C8A4140007DDCE3 /* ModalNavigationRouter.swift in Sources */,
@@ -1420,6 +1619,7 @@
 				B32B610E2C8A4517007DDCE3 /* SelectAppsCoordinator.swift in Sources */,
 				B32B610A2C8A4485007DDCE3 /* SelectAppsView.swift in Sources */,
 				AFABBD7C2C80F2E0007BEFD8 /* UsageView.swift in Sources */,
+				AF9D41DA2CA49BE50077F565 /* UsageViewModel.swift in Sources */,
 				B34F3E032C6A93A30041D7BD /* BlockAppsViewController.swift in Sources */,
 				B34F3E402C74E3270041D7BD /* WidgetModuleCell.swift in Sources */,
 				B34F3E1C2C6BD3DA0041D7BD /* HomeViewModel.swift in Sources */,
@@ -1456,6 +1656,7 @@
 				B32B60BC2C86492C007DDCE3 /* UIColorValueTransformer.swift in Sources */,
 				B34F3E262C6D36C20041D7BD /* WidgetSetupView.swift in Sources */,
 				B30AAD632C9227BA002806A7 /* WidgetContent.swift in Sources */,
+				AF362BFF2CA5AD8000506443 /* UsageViewSelectAppsContentView.swift in Sources */,
 				B34F3E3A2C74BFB00041D7BD /* WidgetEditorViewModel.swift in Sources */,
 				B32B60B42C864247007DDCE3 /* CoreDataPersistenceController.swift in Sources */,
 			);
@@ -1491,6 +1692,16 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		AF362C0C2CA5B1A300506443 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = AF362C032CA5B1A300506443 /* ModuliteDeviceActivityMonitor */;
+			targetProxy = AF362C0B2CA5B1A300506443 /* PBXContainerItemProxy */;
+		};
+		AF362C5C2CA73EDC00506443 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = AF362C502CA73EDC00506443 /* ModuliteDeviceActivityReport */;
+			targetProxy = AF362C5B2CA73EDC00506443 /* PBXContainerItemProxy */;
+		};
 		AFBBC50E2C7E459A00A9B256 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = AFBBC5012C7E459900A9B256 /* ModuliteWidgetExtension */;
@@ -1520,6 +1731,122 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		AF362C102CA5B1A300506443 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = ModuliteDeviceActivityMonitor/ModuliteDeviceActivityMonitor.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = L2AH2M48T4;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = ModuliteDeviceActivityMonitor/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = ModuliteDeviceActivityMonitor;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = dev.mnhz.modu.lite.ModuliteDeviceActivityMonitor;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		AF362C112CA5B1A300506443 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = ModuliteDeviceActivityMonitor/ModuliteDeviceActivityMonitor.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = L2AH2M48T4;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = ModuliteDeviceActivityMonitor/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = ModuliteDeviceActivityMonitor;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = dev.mnhz.modu.lite.ModuliteDeviceActivityMonitor;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		AF362C602CA73EDC00506443 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = ModuliteDeviceActivityReport/ModuliteDeviceActivityReport.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = L2AH2M48T4;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = ModuliteDeviceActivityReport/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = ModuliteDeviceActivityReport;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = dev.mnhz.modu.lite.ModuliteDeviceActivityReport;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		AF362C612CA73EDC00506443 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = ModuliteDeviceActivityReport/ModuliteDeviceActivityReport.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = L2AH2M48T4;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = ModuliteDeviceActivityReport/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = ModuliteDeviceActivityReport;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = dev.mnhz.modu.lite.ModuliteDeviceActivityReport;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 		AFBBC5112C7E459A00A9B256 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = B39A25BC2CAE2193001C76A5 /* BundleConfig.xcconfig */;
@@ -1530,7 +1857,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 0.3.2;
-				DEVELOPMENT_TEAM = 7U55BCTM6U;
+				DEVELOPMENT_TEAM = L2AH2M48T4;
 				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = ModuliteWidget/Info.plist;
@@ -1562,7 +1889,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 0.3.2;
-				DEVELOPMENT_TEAM = 7U55BCTM6U;
+				DEVELOPMENT_TEAM = L2AH2M48T4;
 				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = ModuliteWidget/Info.plist;
@@ -1723,7 +2050,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 0.3.2;
-				DEVELOPMENT_TEAM = 7U55BCTM6U;
+				DEVELOPMENT_TEAM = L2AH2M48T4;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Modulite/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Modu.lite;
@@ -1757,7 +2084,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 0.3.2;
-				DEVELOPMENT_TEAM = 7U55BCTM6U;
+				DEVELOPMENT_TEAM = L2AH2M48T4;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Modulite/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Modu.lite;
@@ -1787,7 +2114,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 0.2;
-				DEVELOPMENT_TEAM = 7U55BCTM6U;
+				DEVELOPMENT_TEAM = L2AH2M48T4;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				MARKETING_VERSION = 0.2;
@@ -1806,7 +2133,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 0.2;
-				DEVELOPMENT_TEAM = 7U55BCTM6U;
+				DEVELOPMENT_TEAM = L2AH2M48T4;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				MARKETING_VERSION = 0.2;
@@ -1824,7 +2151,7 @@
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 0.2;
-				DEVELOPMENT_TEAM = 7U55BCTM6U;
+				DEVELOPMENT_TEAM = L2AH2M48T4;
 				GENERATE_INFOPLIST_FILE = YES;
 				MARKETING_VERSION = 0.2;
 				PRODUCT_BUNDLE_IDENTIFIER = dev.mnhz.ModuliteUITests;
@@ -1842,7 +2169,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 0.2;
-				DEVELOPMENT_TEAM = 7U55BCTM6U;
+				DEVELOPMENT_TEAM = L2AH2M48T4;
 				GENERATE_INFOPLIST_FILE = YES;
 				MARKETING_VERSION = 0.2;
 				PRODUCT_BUNDLE_IDENTIFIER = dev.mnhz.ModuliteUITests;
@@ -1858,6 +2185,24 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		AF362C0F2CA5B1A300506443 /* Build configuration list for PBXNativeTarget "ModuliteDeviceActivityMonitor" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AF362C102CA5B1A300506443 /* Debug */,
+				AF362C112CA5B1A300506443 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AF362C5F2CA73EDC00506443 /* Build configuration list for PBXNativeTarget "ModuliteDeviceActivityReport" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AF362C602CA73EDC00506443 /* Debug */,
+				AF362C612CA73EDC00506443 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		AFBBC5102C7E459A00A9B256 /* Build configuration list for PBXNativeTarget "ModuliteWidgetExtension" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

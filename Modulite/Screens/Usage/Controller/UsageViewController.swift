@@ -1,47 +1,28 @@
-//
-//  UsageViewController.swift
-//  Modulite
-//
-//  Created by Gustavo Munhoz Correa on 12/08/24.
-//
-
 import UIKit
 import DeviceActivity
-import FamilyControls
+import Combine
 
 class UsageViewController: UIViewController {
-    
     private var usageView = UsageView()
-    
-    // MARK: - Lifecycle
-    
+    private var usageViewModel = UsageViewModel()
+    private var cancellables: Set<AnyCancellable> = []
+
+
     override func loadView() {
         view = usageView
     }
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        let authCenter = AuthorizationCenter.shared
+//        usageView.appUsageTableView.dataSource = self
+//        usageView.appUsageTableView.delegate = self
+    }
 
-        Task {
-            do {
-                try await authCenter.requestAuthorization(for: .individual)
-                
-            } catch {
-                print("Authorization Error")
-            }
-        }
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        setupNavigationBar()
-    }
-    
-    // MARK: - Setup methods
-    private func setupNavigationBar() {
-        navigationItem.title = .localized(for: .usageViewControllerNavigationTitle)
-        navigationController?.navigationBar.prefersLargeTitles = true
+    private func formatDuration(_ duration: TimeInterval) -> String {
+        let formatter = DateComponentsFormatter()
+        formatter.allowedUnits = [.hour, .minute]
+        formatter.unitsStyle = .abbreviated
+        formatter.zeroFormattingBehavior = .pad
+        return formatter.string(from: duration) ?? "0h 0m"
     }
 }
