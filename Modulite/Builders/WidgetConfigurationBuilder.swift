@@ -43,6 +43,8 @@ class WidgetConfigurationBuilder {
     init(content: WidgetContent, configuration: ModuliteWidgetConfiguration) {
         widgetContent = content
         self.configuration = configuration
+        self.configuration.name = content.name
+        self.configuration.widgetStyle = content.style
     }
     
     // MARK: - Getters
