@@ -129,6 +129,11 @@ extension WidgetBuilderCoordinator: WidgetSetupViewControllerDelegate {
         
         presentChild(coordinator, animated: true) { [weak self] in
             guard let self = self else { return }
+            
+            parentController.setSetupViewHasAppsSelected(
+                to: !self.contentBuilder.getCurrentApps().isEmpty
+            )
+            
             parentController.didFinishSelectingApps(
                 apps: self.contentBuilder.getCurrentApps()
             )
@@ -140,6 +145,24 @@ extension WidgetBuilderCoordinator: WidgetSetupViewControllerDelegate {
         app: AppInfo
     ) {
         contentBuilder.removeApp(app)
+        
+        if contentBuilder.getCurrentApps().isEmpty {
+            controller.setSetupViewHasAppsSelected(to: false)
+        }
+        
+        guard let config = injectedConfiguration else { return }
+        guard let idx = config.modules.firstIndex(where: { $0.appName == app.name }) else {
+            print("Tried to deselect an app that is not in injected configuration.")
+            return
+        }
+        
+        config.modules.replace(
+            at: idx,
+            with: ModuleConfiguration.empty(
+                style: config.widgetStyle!,
+                at: idx
+            )
+        )
     }
 }
 
@@ -150,6 +173,23 @@ extension WidgetBuilderCoordinator: SelectAppsViewControllerDelegate {
         didSelect app: AppInfo
     ) {
         contentBuilder.appendApp(app)
+        
+        guard let config = injectedConfiguration else { return }
+        guard let idx = config.modules.firstIndex(where: { $0.appName == nil }) else {
+            print("Tried selecting an app with maximum count selected.")
+            return
+        }
+        
+        config.modules.replace(
+            at: idx,
+            with: ModuleConfiguration(
+                index: idx,
+                appName: app.name,
+                associatedURLScheme: app.urlScheme,
+                selectedStyle: contentBuilder.getRandomModuleStyle(),
+                selectedColor: nil
+            )
+        )
     }
     
     func selectAppsViewControllerDidDeselectApp(
@@ -157,6 +197,20 @@ extension WidgetBuilderCoordinator: SelectAppsViewControllerDelegate {
         didDeselect app: AppInfo
     ) {
         contentBuilder.removeApp(app)
+        
+        guard let config = injectedConfiguration else {return }
+        guard let idx = config.modules.firstIndex(where: { $0.appName == app.name }) else {
+            print("Tried to deselect an app that is not in injected configuration.")
+            return
+        }
+        
+        config.modules.replace(
+            at: idx,
+            with: ModuleConfiguration.empty(
+                style: config.widgetStyle!,
+                at: idx
+            )
+        )
     }
 }
 
