@@ -16,6 +16,11 @@ protocol WidgetSetupViewControllerDelegate: AnyObject {
         _ parentController: WidgetSetupViewController
     )
     
+    func widgetSetupViewControllerDidDeselectApp(
+        _ controller: WidgetSetupViewController,
+        app: AppInfo
+    )
+    
     func widgetSetupViewControllerDidSelectWidgetStyle(
         _ controller: WidgetSetupViewController,
         style: WidgetStyle
@@ -110,6 +115,28 @@ extension WidgetSetupViewController {
     }
 }
 
+extension WidgetSetupViewController: SelectedAppCollectionViewCellDelegate {
+    func selectedAppCollectionViewCellDidPressDelete(_ cell: SelectedAppCollectionViewCell) {
+        guard let indexPath = setupView.selectedAppsCollectionView.indexPath(for: cell) else {
+            print("Could not get IndexPath for app cell")
+            return
+        }
+        
+        let app = viewModel.selectedApps[indexPath.row]
+        viewModel.removeSelectedApp(app)
+        delegate?.widgetSetupViewControllerDidDeselectApp(self, app: app)
+        setupView.selectedAppsCollectionView.performBatchUpdates({ [weak self] in
+            self?.setupView.selectedAppsCollectionView.deleteItems(at: [indexPath])
+            
+        }, completion: { _ in
+            UIView.animate(withDuration: 0.3) { [weak self] in
+                self?.setupView.setNeedsLayout()
+                self?.setupView.layoutIfNeeded()
+            }
+        })
+    }
+}
+
 // MARK: - UICollectionViewDataSource
 extension WidgetSetupViewController: UICollectionViewDataSource {
     func numberOfSections(in collectionView: UICollectionView) -> Int {
@@ -165,6 +192,8 @@ extension WidgetSetupViewController: UICollectionViewDataSource {
             
             cell.setup(with: viewModel.selectedApps[indexPath.row].name)
             
+            cell.delegate = self
+            
             return cell
         
         default: fatalError("Unsupported View Controller.")
@@ -215,10 +244,6 @@ extension WidgetSetupViewController: UICollectionViewDelegate {
             delegate?.widgetSetupViewControllerDidSelectWidgetStyle(self, style: style)
             
             collectionView.reloadData()
-            
-        case setupView.selectedAppsCollectionView:
-            // TODO: Remove apps when touching cell
-            return
             
         default: return
         }
