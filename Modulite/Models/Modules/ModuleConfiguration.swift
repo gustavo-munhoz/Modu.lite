@@ -107,3 +107,12 @@ extension ModuleConfiguration {
         )
     }
 }
+
+extension Array where Element: ModuleConfiguration {
+    mutating func replace(at idx: Int, with module: Element) {
+        replaceSubrange(
+            idx...idx,
+            with: [module]
+        )
+    }
+}

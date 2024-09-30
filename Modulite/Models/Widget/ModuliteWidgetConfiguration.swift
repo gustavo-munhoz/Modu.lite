@@ -7,9 +7,7 @@
 
 import UIKit
 
-/// Manages the overall configuration of a widget, including its background and modules.
-
-class ModuliteWidgetConfiguration {
+class ModuliteWidgetConfiguration: Copying {
     var id: UUID = UUID()
     var name: String?
     var widgetStyle: WidgetStyle?
@@ -43,6 +41,20 @@ class ModuliteWidgetConfiguration {
         self.widgetStyle = style
         self.modules = modules
         self.createdAt = createdAt
+    }
+    
+    required convenience init(_ prototype: ModuliteWidgetConfiguration) {
+        guard let style = prototype.widgetStyle else {
+            fatalError("Unable to create WidgetStyle from prototype.")
+        }
+        
+        self.init(
+            id: prototype.id,
+            name: prototype.name,
+            style: style,
+            modules: prototype.modules,
+            createdAt: prototype.createdAt ?? .now
+        )
     }
 }
 

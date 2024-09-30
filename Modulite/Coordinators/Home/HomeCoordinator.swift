@@ -52,13 +52,15 @@ extension HomeCoordinator: HomeViewControllerDelegate {
         _ viewController: HomeViewController,
         widget: ModuliteWidgetConfiguration
     ) {
+        let widgetCopy = widget.copy()
+        
         let coordinator = WidgetBuilderCoordinator(
             router: router,
-            configuration: widget
+            configuration: widgetCopy
         )
         
-        coordinator.onWidgetSave = { widget in
-            viewController.updateMainWidget(widget)
+        coordinator.onWidgetSave = { updatedWidget in
+            viewController.updateMainWidget(updatedWidget)
             WidgetCenter.shared.reloadAllTimelines()
         }
         

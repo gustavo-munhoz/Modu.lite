@@ -153,6 +153,8 @@
 		B3987E2F2CA4F46A00896414 /* MainWidgetConfigurationQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3987E2D2CA4F46A00896414 /* MainWidgetConfigurationQuery.swift */; };
 		B3987E312CA4F48C00896414 /* MainWidgetConfigurationEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3987E302CA4F48C00896414 /* MainWidgetConfigurationEntity.swift */; };
 		B3987E322CA4F48C00896414 /* MainWidgetConfigurationEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3987E302CA4F48C00896414 /* MainWidgetConfigurationEntity.swift */; };
+		B39A259D2CAB2945001C76A5 /* Copying.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39A259C2CAB2945001C76A5 /* Copying.swift */; };
+		B39A259E2CAB2969001C76A5 /* Copying.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39A259C2CAB2945001C76A5 /* Copying.swift */; };
 		B3C1877F2C78D1E000A891A8 /* ModuliteWidgetConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3C1877E2C78D1E000A891A8 /* ModuliteWidgetConfiguration.swift */; };
 		B3C187822C79009B00A891A8 /* WidgetConfigurationBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3C187812C79009B00A891A8 /* WidgetConfigurationBuilder.swift */; };
 		B3C187842C791D1300A891A8 /* WidgetStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3C187832C791D1300A891A8 /* WidgetStyle.swift */; };
@@ -321,6 +323,7 @@
 		B3987E2A2CA4F43100896414 /* SelectMainWidgetConfigurationIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectMainWidgetConfigurationIntent.swift; sourceTree = "<group>"; };
 		B3987E2D2CA4F46A00896414 /* MainWidgetConfigurationQuery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainWidgetConfigurationQuery.swift; sourceTree = "<group>"; };
 		B3987E302CA4F48C00896414 /* MainWidgetConfigurationEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainWidgetConfigurationEntity.swift; sourceTree = "<group>"; };
+		B39A259C2CAB2945001C76A5 /* Copying.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Copying.swift; sourceTree = "<group>"; };
 		B3C1877E2C78D1E000A891A8 /* ModuliteWidgetConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModuliteWidgetConfiguration.swift; sourceTree = "<group>"; };
 		B3C187812C79009B00A891A8 /* WidgetConfigurationBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetConfigurationBuilder.swift; sourceTree = "<group>"; };
 		B3C187832C791D1300A891A8 /* WidgetStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetStyle.swift; sourceTree = "<group>"; };
@@ -745,6 +748,7 @@
 		B36927962C66B6E30089F769 /* Modulite */ = {
 			isa = PBXGroup;
 			children = (
+				B39A259B2CAB2933001C76A5 /* Prototype */,
 				B3850BC42C979D1F00F400C0 /* Transformers */,
 				B32B61042C88F594007DDCE3 /* Modulite.entitlements */,
 				B32B60EE2C876E5F007DDCE3 /* Resources */,
@@ -966,6 +970,14 @@
 				B3987E2A2CA4F43100896414 /* SelectMainWidgetConfigurationIntent.swift */,
 			);
 			path = Intents;
+			sourceTree = "<group>";
+		};
+		B39A259B2CAB2933001C76A5 /* Prototype */ = {
+			isa = PBXGroup;
+			children = (
+				B39A259C2CAB2945001C76A5 /* Copying.swift */,
+			);
+			path = Prototype;
 			sourceTree = "<group>";
 		};
 		B3C187802C79008800A891A8 /* Builders */ = {
@@ -1248,6 +1260,7 @@
 				B3987E2C2CA4F43100896414 /* SelectMainWidgetConfigurationIntent.swift in Sources */,
 				B3987E152CA38C7900896414 /* MainWidgetEntry.swift in Sources */,
 				B32B60A52C838EB0007DDCE3 /* WidgetModuleCell.swift in Sources */,
+				B39A259E2CAB2969001C76A5 /* Copying.swift in Sources */,
 				B32B60FC2C87AC90007DDCE3 /* AppInfo+CoreDataProperties.swift in Sources */,
 				B3987E132CA38AF400896414 /* MainWidgetProvider.swift in Sources */,
 				B32B60F52C87AB85007DDCE3 /* WidgetData.xcdatamodeld in Sources */,
@@ -1272,6 +1285,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B34F3E0F2C6B0D340041D7BD /* BlockAppsCoordinator.swift in Sources */,
+				B39A259D2CAB2945001C76A5 /* Copying.swift in Sources */,
 				B32B60C62C865042007DDCE3 /* PersistableWidgetConfiguration+CoreDataClass.swift in Sources */,
 				B350C0472C8B8B340035682F /* UILabel+Padded.swift in Sources */,
 				B3850BB72C951DD700F400C0 /* WidgetBackground.swift in Sources */,

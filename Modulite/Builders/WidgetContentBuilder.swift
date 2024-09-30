@@ -17,6 +17,10 @@ class WidgetContentBuilder {
         apps
     }
     
+    func getRandomModuleStyle() -> ModuleStyle {
+        style.getRandomStyle()
+    }
+    
     // MARK: - Setters
     func setWidgetName(_ name: String) {
         self.name = name
