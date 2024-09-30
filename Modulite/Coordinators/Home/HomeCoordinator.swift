@@ -58,7 +58,6 @@ extension HomeCoordinator: HomeViewControllerDelegate {
         )
         
         coordinator.onWidgetSave = { widget in
-            CoreDataPersistenceController.shared.updateWidget(widget)
             viewController.updateMainWidget(widget)
             WidgetCenter.shared.reloadAllTimelines()
         }
