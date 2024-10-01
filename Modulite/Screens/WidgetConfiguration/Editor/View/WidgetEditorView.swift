@@ -9,11 +9,20 @@ import UIKit
 import SnapKit
 
 class WidgetEditorView: UIScrollView {
-    
+         
     // MARK: - Properties
-    
     var onDownloadWallpaperButtonTapped: (() -> Void)?
     var onSaveButtonTapped: (() -> Void)?
+    var onDeleteButtonTapped: (() -> Void)?
+    
+    private var isEditing: Bool = false {
+        didSet {
+            guard isEditing else { return }
+            
+            remakeConstraintsToInsertDeleteButton()
+            saveWidgetButton.setToEditingState()
+        }
+    }
     
     private let contentView = UIView()
     
@@ -88,88 +97,25 @@ class WidgetEditorView: UIScrollView {
         return view
     }()
     
-    private(set) lazy var downloadWallpaperButton: UIButton = {
-        var config = UIButton.Configuration.bordered()
-                
-        config.attributedTitle = AttributedString(
-            .localized(for: .widgetEditorViewWallpaperButton),
-            attributes: AttributeContainer([
-                .font: UIFont(textStyle: .body, weight: .bold),
-                .foregroundColor: UIColor.textPrimary
-            ])
-        )
+    private(set) lazy var downloadWallpaperButton: WidgetEditorDownloadButton = {
+        let button = WidgetEditorDownloadButton()
+        button.addTarget(self, action: #selector(didPressDownloadWallpaperButton), for: .touchUpInside)
         
-        config.titleAlignment = .center
-        config.titleLineBreakMode = .byClipping
-                
-        config.image = UIImage(systemName: "square.and.arrow.down")?
-            .withTintColor(.black, renderingMode: .alwaysOriginal)
-        
-        config.imagePlacement = .leading
-        config.imagePadding = 5
-        
-        config.baseBackgroundColor = .clear
-        
-        let view = UIButton(configuration: config)
-        view.layer.borderColor = UIColor.carrotOrange.cgColor
-        view.layer.borderWidth = 2
-        
-        view.configurationUpdateHandler = { button in
-            var config = button.configuration
-            
-            UIView.animate(withDuration: 0.1) {
-                switch button.state {
-                case .highlighted:
-                    button.alpha = 0.67
-                    button.transform = .init(scaleX: 0.97, y: 0.97)
-                    
-                case .disabled:
-                    button.alpha = 0.67
-                    button.layer.borderColor = UIColor.gray.cgColor
-                    config?.attributedTitle = AttributedString(
-                        .localized(for: .widgetEditorViewWallpaperButtonSaved),
-                        attributes: AttributeContainer([
-                            .font: UIFont(textStyle: .body, weight: .bold),
-                            .foregroundColor: UIColor.textPrimary
-                        ])
-                    )
-                    
-                    button.configuration = config
-                    
-                default:
-                    button.alpha = 1
-                    button.transform = .init(scaleX: 1, y: 1)
-                }
-            }
-        }
-        
-        view.addTarget(self, action: #selector(didPressDownloadWallpaperButton), for: .touchUpInside)
-        
-        return view
+        return button
     }()
     
-    private(set) lazy var saveWidgetButton: UIButton = {
-        var config = UIButton.Configuration.filled()
-        config.baseBackgroundColor = .fiestaGreen
+    private(set) lazy var saveWidgetButton: WidgetEditorSaveButton = {
+        let button = WidgetEditorSaveButton()
+        button.addTarget(self, action: #selector(didPressSaveButton), for: .touchUpInside)
         
-        config.attributedTitle = AttributedString(
-            .localized(for: .widgetEditorViewSaveWidgetButton),
-            attributes: AttributeContainer([
-                .font: UIFont(textStyle: .body, weight: .bold),
-                .foregroundColor: UIColor.white
-            ])
-        )
+        return button
+    }()
+    
+    private(set) lazy var deleteWidgetButton: UIButton = {
+        let button = WidgetEditorDeleteButton()
+        button.addTarget(self, action: #selector(didPressDeleteButton), for: .touchUpInside)
         
-        config.image = UIImage(systemName: "envelope")?
-            .withTintColor(.black, renderingMode: .alwaysOriginal)
-        
-        config.imagePadding = 10
-        
-        let view = UIButton(configuration: config)
-        view.addTarget(self, action: #selector(didPressSaveButton), for: .touchUpInside)
-        view.layer.cornerRadius = 0
-        
-        return view
+        return button
     }()
     
     // MARK: - Initializers
@@ -189,6 +135,29 @@ class WidgetEditorView: UIScrollView {
     }
     
     // MARK: - Setup methods
+    
+    func setEditingMode(to value: Bool) {
+        isEditing = value
+    }
+    
+    private func remakeConstraintsToInsertDeleteButton() {
+        contentView.addSubview(deleteWidgetButton)
+        
+        saveWidgetButton.snp.removeConstraints()
+        
+        saveWidgetButton.snp.makeConstraints { make in
+            make.top.equalTo(downloadWallpaperButton.snp.bottom).offset(24)
+            make.height.equalTo(44)
+            make.width.equalTo(130)
+            make.right.equalToSuperview().inset(24)
+        }
+            
+        deleteWidgetButton.snp.makeConstraints { make in
+            make.top.width.height.equalTo(saveWidgetButton)
+            make.left.equalToSuperview().inset(24)
+            make.right.lessThanOrEqualTo(saveWidgetButton.snp.left).inset(-30)
+        }
+    }
     
     func setWidgetBackground(to background: WidgetBackground) {
         switch background {
@@ -315,6 +284,10 @@ class WidgetEditorView: UIScrollView {
         onSaveButtonTapped?()
     }
     
+    @objc private func didPressDeleteButton() {
+        onDeleteButtonTapped?()
+    }
+    
     func updateCollectionViewConstraints(_ collectionView: UICollectionView, percentage: CGFloat) {
         let offset = 48 * percentage
         
@@ -347,8 +320,9 @@ class WidgetEditorView: UIScrollView {
             self?.moduleColorCollectionView.isUserInteractionEnabled = false
         }
     }
-    
-    // MARK: - Helper methods
+}
+
+extension WidgetEditorView {
     private func createCompositionalLayout() -> UICollectionViewLayout {
         let layout = UICollectionViewCompositionalLayout { _, _ -> NSCollectionLayoutSection? in
             let itemSize = NSCollectionLayoutSize(
