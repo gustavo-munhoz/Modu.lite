@@ -24,6 +24,7 @@ class WidgetStyle {
     var textConfiguration: ModuleAppNameTextConfiguration
     var blockedScreenWallpaperImage: UIImage
     var homeScreenWallpaperImage: UIImage
+    var imageBlendMode: CGBlendMode?
     
     // MARK: - Initalizers
     init(
@@ -36,7 +37,8 @@ class WidgetStyle {
         colors: [UIColor] = [],
         textConfiguration: ModuleAppNameTextConfiguration,
         blockedScreenWallpaperImage: UIImage,
-        homeScreenWallpaperImage: UIImage
+        homeScreenWallpaperImage: UIImage,
+        imageBlendMode: CGBlendMode? = nil
     ) {
         self.key = key
         self.name = name
@@ -48,6 +50,7 @@ class WidgetStyle {
         self.textConfiguration = textConfiguration
         self.blockedScreenWallpaperImage = blockedScreenWallpaperImage
         self.homeScreenWallpaperImage = homeScreenWallpaperImage
+        self.imageBlendMode = imageBlendMode
     }
     
     // MARK: - Setters

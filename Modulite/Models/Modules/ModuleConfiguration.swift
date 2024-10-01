@@ -25,15 +25,16 @@ class ModuleConfiguration {
     }
     
     var resultingImage: UIImage? {
-        if let color = selectedColor {
+        if let color = selectedColor,
+           let blendMode = selectedStyle.widgetStyle.imageBlendMode {
             return ImageProcessingFactory.createColorBlendedImage(
                 selectedStyle.image,
-                mode: .plusDarker,
+                mode: blendMode,
                 color: color
             )
-        } else {
-            return selectedStyle.image
         }
+        
+        return selectedStyle.image
     }
     
     /// Initializes a new module configuration with detailed customization options.

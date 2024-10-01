@@ -32,12 +32,13 @@ class WidgetStyleFactory {
         let style = WidgetStyle(
             key: .analog,
             name: .localized(for: .widgetStyleNameAnalog),
-            previewImage: UIImage(named: "analogPreview")!,
+            previewImage: .analogPreview,
             background: .color(.black),
             colors: [.white, .eggYolk, .cupcake, .sweetTooth, .sugarMint, .burntEnds],
             textConfiguration: textConfig,
-            blockedScreenWallpaperImage: UIImage(named: "analogWallpaper")!,
-            homeScreenWallpaperImage: UIImage(named: "analogWallpaper")!
+            blockedScreenWallpaperImage: .analogWallpaper,
+            homeScreenWallpaperImage: .analogWallpaper,
+            imageBlendMode: .plusDarker
         )
         
         let moduleStyles = [
@@ -63,24 +64,25 @@ class WidgetStyleFactory {
         let style = WidgetStyle(
             key: .tapedeck,
             name: .localized(for: .widgetStyleNameTapedeck),
-            previewImage: UIImage(named: "tapedeckPreview")!,
-            background: .color(.black),
+            previewImage: .tapedeckMainPreview,
+            background: .color(.burntCoconut),
+            colors: [.monsterGreen, .orangeJuice, .cupcake, .sweetTooth, .sugarMint, .ketchupRed],
             textConfiguration: textConfig,
-            blockedScreenWallpaperImage: UIImage(named: "tapedeckWallpaper")!,
-            homeScreenWallpaperImage: UIImage(named: "tapedeckWallpaper")!
+            blockedScreenWallpaperImage: .tapedeckWallpaper,
+            homeScreenWallpaperImage: .tapedeckWallpaper,
+            imageBlendMode: .hue
         )
         
         let moduleStyles = [
-            ModuleStyle(from: style, key: .tapedeck8seg),
-            ModuleStyle(from: style, key: .tapedeckPower),
-            ModuleStyle(from: style, key: .tapedeckSelector),
-            ModuleStyle(from: style, key: .tapedeckSlider),
-            ModuleStyle(from: style, key: .tapedeckSound)
+            ModuleStyle(from: style, key: .tapedeckMain8seg),
+            ModuleStyle(from: style, key: .tapedeckMainPower),
+            ModuleStyle(from: style, key: .tapedeckMainSound),
+            ModuleStyle(from: style, key: .tapedeckMainSlider),
+            ModuleStyle(from: style, key: .tapedeckMainSelector)
         ]
         
         style.setModuleStyles(to: moduleStyles)
-        
-        // FIXME: Need to set empty style
+        style.setEmptyStyle(to: ModuleStyle(from: style, key: .tapedeckMainEmpty))
         
         return style
     }
