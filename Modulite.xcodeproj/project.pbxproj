@@ -155,6 +155,9 @@
 		B3987E322CA4F48C00896414 /* MainWidgetConfigurationEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3987E302CA4F48C00896414 /* MainWidgetConfigurationEntity.swift */; };
 		B39A259D2CAB2945001C76A5 /* Copying.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39A259C2CAB2945001C76A5 /* Copying.swift */; };
 		B39A259E2CAB2969001C76A5 /* Copying.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39A259C2CAB2945001C76A5 /* Copying.swift */; };
+		B39A25A22CAB5B65001C76A5 /* WidgetEditorDownloadButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39A25A12CAB5B65001C76A5 /* WidgetEditorDownloadButton.swift */; };
+		B39A25A42CAB5CE3001C76A5 /* WidgetEditorSaveButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39A25A32CAB5CE3001C76A5 /* WidgetEditorSaveButton.swift */; };
+		B39A25A62CAB5F11001C76A5 /* WidgetEditorDeleteButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39A25A52CAB5F11001C76A5 /* WidgetEditorDeleteButton.swift */; };
 		B3C1877F2C78D1E000A891A8 /* ModuliteWidgetConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3C1877E2C78D1E000A891A8 /* ModuliteWidgetConfiguration.swift */; };
 		B3C187822C79009B00A891A8 /* WidgetConfigurationBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3C187812C79009B00A891A8 /* WidgetConfigurationBuilder.swift */; };
 		B3C187842C791D1300A891A8 /* WidgetStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3C187832C791D1300A891A8 /* WidgetStyle.swift */; };
@@ -324,6 +327,9 @@
 		B3987E2D2CA4F46A00896414 /* MainWidgetConfigurationQuery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainWidgetConfigurationQuery.swift; sourceTree = "<group>"; };
 		B3987E302CA4F48C00896414 /* MainWidgetConfigurationEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainWidgetConfigurationEntity.swift; sourceTree = "<group>"; };
 		B39A259C2CAB2945001C76A5 /* Copying.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Copying.swift; sourceTree = "<group>"; };
+		B39A25A12CAB5B65001C76A5 /* WidgetEditorDownloadButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetEditorDownloadButton.swift; sourceTree = "<group>"; };
+		B39A25A32CAB5CE3001C76A5 /* WidgetEditorSaveButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetEditorSaveButton.swift; sourceTree = "<group>"; };
+		B39A25A52CAB5F11001C76A5 /* WidgetEditorDeleteButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetEditorDeleteButton.swift; sourceTree = "<group>"; };
 		B3C1877E2C78D1E000A891A8 /* ModuliteWidgetConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModuliteWidgetConfiguration.swift; sourceTree = "<group>"; };
 		B3C187812C79009B00A891A8 /* WidgetConfigurationBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetConfigurationBuilder.swift; sourceTree = "<group>"; };
 		B3C187832C791D1300A891A8 /* WidgetStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetStyle.swift; sourceTree = "<group>"; };
@@ -635,9 +641,10 @@
 		B350C04F2C8B90860035682F /* View */ = {
 			isa = PBXGroup;
 			children = (
-				B34F3E3C2C74CD160041D7BD /* CollectionViewCells */,
-				B34F3E232C6D366A0041D7BD /* WidgetEditorView.swift */,
 				B34F3E3D2C74CE090041D7BD /* EditorSectionHeader.swift */,
+				B34F3E232C6D366A0041D7BD /* WidgetEditorView.swift */,
+				B34F3E3C2C74CD160041D7BD /* CollectionViewCells */,
+				B39A25A02CAB5B3F001C76A5 /* Subviews */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -980,6 +987,16 @@
 			path = Prototype;
 			sourceTree = "<group>";
 		};
+		B39A25A02CAB5B3F001C76A5 /* Subviews */ = {
+			isa = PBXGroup;
+			children = (
+				B39A25A12CAB5B65001C76A5 /* WidgetEditorDownloadButton.swift */,
+				B39A25A32CAB5CE3001C76A5 /* WidgetEditorSaveButton.swift */,
+				B39A25A52CAB5F11001C76A5 /* WidgetEditorDeleteButton.swift */,
+			);
+			path = Subviews;
+			sourceTree = "<group>";
+		};
 		B3C187802C79008800A891A8 /* Builders */ = {
 			isa = PBXGroup;
 			children = (
@@ -1290,6 +1307,7 @@
 				B350C0472C8B8B340035682F /* UILabel+Padded.swift in Sources */,
 				B3850BB72C951DD700F400C0 /* WidgetBackground.swift in Sources */,
 				B32B60C72C865042007DDCE3 /* PersistableWidgetConfiguration+CoreDataProperties.swift in Sources */,
+				B39A25A62CAB5F11001C76A5 /* WidgetEditorDeleteButton.swift in Sources */,
 				B34F3E1A2C6B94080041D7BD /* HomeHeaderReusableCell.swift in Sources */,
 				B36927CF2C66B8A30089F769 /* Coordinator.swift in Sources */,
 				B32B60BA2C864807007DDCE3 /* PersistableModuleConfiguration+CoreDataClass.swift in Sources */,
@@ -1311,6 +1329,7 @@
 				AFBBC5212C7E4E0700A9B256 /* WidgetButtonLabelView.swift in Sources */,
 				AFBBC51E2C7E4C8500A9B256 /* WidgetButtonView.swift in Sources */,
 				B3CDD7032C767FD300E558F8 /* ModuleColorCell.swift in Sources */,
+				B39A25A42CAB5CE3001C76A5 /* WidgetEditorSaveButton.swift in Sources */,
 				B32B60F02C876F4A007DDCE3 /* FileManagerImagePersistenceController.swift in Sources */,
 				B3EB15B92C7E4CD6003B1960 /* ModuleAppNameTextConfiguration.swift in Sources */,
 				B3EB15B62C7E4BF0003B1960 /* ModuleConfiguration.swift in Sources */,
@@ -1334,6 +1353,7 @@
 				B34F3E352C6E93570041D7BD /* WidgetSetupViewModel.swift in Sources */,
 				B34F3DF82C69A3810041D7BD /* DebugOptions.swift in Sources */,
 				B32B60BF2C864AD9007DDCE3 /* PersistableModuleConfiguration+CoreDataProperties.swift in Sources */,
+				B39A25A22CAB5B65001C76A5 /* WidgetEditorDownloadButton.swift in Sources */,
 				B32B61032C88EE1E007DDCE3 /* WidgetSetupAppsTagFlowLayout.swift in Sources */,
 				B3987E2B2CA4F43100896414 /* SelectMainWidgetConfigurationIntent.swift in Sources */,
 				B34F3E052C6A93AC0041D7BD /* SettingsViewController.swift in Sources */,

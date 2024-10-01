@@ -31,6 +31,7 @@ class WidgetBuilderCoordinator: Coordinator {
     var currentWidgetCount: Int
     
     var onWidgetSave: ((ModuliteWidgetConfiguration) -> Void)?
+    var onWidgetDelete: ((UUID) -> Void)?
     
     var injectedConfiguration: ModuliteWidgetConfiguration?
     
@@ -75,8 +76,10 @@ class WidgetBuilderCoordinator: Coordinator {
         let viewController = WidgetSetupViewController.instantiate(delegate: self)
         
         if injectedConfiguration != nil {
-            viewController.loadDataFromContent(contentBuilder.build())
             viewController.navigationItem.title = .localized(for: .widgetEditingNavigationTitle)
+            viewController.loadDataFromContent(contentBuilder.build())
+            // this will make save button appear, whose behavior is not working
+            // viewController.setIsEditingViewToTrue()
         }
         
         viewController.hidesBottomBarWhenPushed = true
@@ -104,6 +107,7 @@ extension WidgetBuilderCoordinator: WidgetSetupViewControllerDelegate {
         if injectedConfiguration != nil {
             viewController.loadDataFromBuilder(configurationBuilder)
             viewController.navigationItem.title = .localized(for: .widgetEditingNavigationTitle)
+            viewController.setIsEditingViewToTrue()
         }
         
         router.present(viewController, animated: true)
@@ -164,6 +168,12 @@ extension WidgetBuilderCoordinator: WidgetSetupViewControllerDelegate {
             )
         )
     }
+    
+    func widgetSetupViewControllerDidSaveWidget(
+        _ viewController: WidgetSetupViewController
+    ) {
+        // won't fix this for now
+    }
 }
 
 // MARK: - SelectAppsViewControllerDelegate
@@ -221,6 +231,14 @@ extension WidgetBuilderCoordinator: WidgetEditorViewControllerDelegate {
         didSave widget: ModuliteWidgetConfiguration
     ) {
         onWidgetSave?(widget)
+        dismiss(animated: true)
+    }
+    
+    func widgetEditorViewController(
+        _ viewController: WidgetEditorViewController,
+        didDeleteWithId id: UUID
+    ) {
+        onWidgetDelete?(id)
         dismiss(animated: true)
     }
 }

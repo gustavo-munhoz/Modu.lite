@@ -12,6 +12,11 @@ protocol WidgetEditorViewControllerDelegate: AnyObject {
         _ viewController: WidgetEditorViewController,
         didSave widget: ModuliteWidgetConfiguration
     )
+    
+    func widgetEditorViewController(
+        _ viewController: WidgetEditorViewController,
+        didDeleteWithId id: UUID
+    )
 }
 
 class WidgetEditorViewController: UIViewController {
@@ -29,6 +34,7 @@ class WidgetEditorViewController: UIViewController {
         editorView.setCollectionViewDataSources(to: self)
         editorView.onDownloadWallpaperButtonTapped = handleDownloadWallpaperTouch
         editorView.onSaveButtonTapped = handleSaveWidgetButtonTouch
+        editorView.onDeleteButtonTapped = handleDeleteWidgetButtonTouch
         
         if let background = viewModel.getWidgetBackground() {
             editorView.setWidgetBackground(to: background)
@@ -36,6 +42,10 @@ class WidgetEditorViewController: UIViewController {
     }
     
     // MARK: - Actions
+    func setIsEditingViewToTrue() {
+        editorView.setEditingMode(to: true)
+    }
+    
     private func handleDownloadWallpaperTouch() {
         do {
             try viewModel.saveWallpaperImageToPhotos()
@@ -68,6 +78,40 @@ class WidgetEditorViewController: UIViewController {
         
         let widget = viewModel.saveWidget(from: editorView.widgetLayoutCollectionView)
         delegate?.widgetEditorViewController(self, didSave: widget)
+    }
+    
+    func handleDeleteWidgetButtonTouch() {
+        presentWidgetDeletionWarning()
+    }
+    
+    private func presentWidgetDeletionWarning() {
+        let alert = UIAlertController(
+            title: .localized(
+                for: .widgetEditorViewDeleteAlertTitle
+            ),
+            message: .localized(for: .widgetEditorViewDeleteAlertMessage),
+            preferredStyle: .alert
+        )
+        
+        let deleteAction = UIAlertAction(
+            title: .localized(for: .delete),
+            style: .destructive
+        ) { [weak self] _ in
+            guard let self = self else { return }
+            
+            let id = self.viewModel.getWidgetId()
+            delegate?.widgetEditorViewController(self, didDeleteWithId: id)
+        }
+        
+        let cancelAction = UIAlertAction(
+            title: .localized(for: .cancel),
+            style: .cancel
+        )
+        
+        alert.addAction(cancelAction)
+        alert.addAction(deleteAction)
+        
+        present(alert, animated: true, completion: nil)
     }
 }
 

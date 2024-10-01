@@ -96,6 +96,15 @@ class HomeViewController: UIViewController {
         }
     }
     
+    func deleteMainWidget(with id: UUID) {
+        guard let widget = viewModel.mainWidgets.first(where: { $0.id == id }) else {
+            print("Widget with id \(id) not found in view model.")
+            return
+        }
+        
+        deleteWidget(widget)
+    }
+    
     func deleteWidget(_ widget: ModuliteWidgetConfiguration) {
         guard let index = viewModel.getIndexFor(widget) else {
             print("Widget not found in data source.")
