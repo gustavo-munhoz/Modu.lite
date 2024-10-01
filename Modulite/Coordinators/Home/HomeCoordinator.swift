@@ -64,6 +64,11 @@ extension HomeCoordinator: HomeViewControllerDelegate {
             WidgetCenter.shared.reloadAllTimelines()
         }
         
+        coordinator.onWidgetDelete = { widgetId in
+            viewController.deleteMainWidget(with: widgetId)
+            WidgetCenter.shared.reloadAllTimelines()
+        }
+        
         presentChild(coordinator, animated: true)
     }
 }
