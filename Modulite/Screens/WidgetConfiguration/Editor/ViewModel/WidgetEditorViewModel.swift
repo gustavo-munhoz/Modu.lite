@@ -28,6 +28,10 @@ class WidgetEditorViewModel: NSObject {
     
     // MARK: - Getters
     
+    func getWidgetId() -> UUID {
+        builder.getWidgetId()
+    }
+    
     func getWidgetBackground() -> WidgetBackground? {
         builder.getStyleBackground()
     }
