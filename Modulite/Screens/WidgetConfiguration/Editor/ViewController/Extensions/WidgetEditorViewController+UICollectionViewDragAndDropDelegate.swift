@@ -21,7 +21,7 @@ extension WidgetEditorViewController: UICollectionViewDragDelegate {
         let itemProvider = NSItemProvider(object: image as UIImage)
         let dragItem = UIDragItem(itemProvider: itemProvider)
         dragItem.localObject = item
-        
+        clearSelectedModuleCell()
         return [dragItem]
     }
 }
@@ -64,6 +64,7 @@ extension WidgetEditorViewController: UICollectionViewDropDelegate {
                 }
                 
                 coordinator.drop(items.first!.dragItem, toItemAt: destinationIndexPath)
+                clearSelectedModuleCell()
             }
         default:
             return
