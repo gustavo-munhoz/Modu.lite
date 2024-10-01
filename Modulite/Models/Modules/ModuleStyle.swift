@@ -31,13 +31,17 @@ enum ModuleStyleKey: String, Codable {
     case analogSwitch
     
     // MARK: - Tapedeck -
-    case tapedeck8seg
-    case tapedeckPower
-    case tapedeckSelector
-    case tapedeckSlider
-    case tapedeckSound
+    case tapedeckMainSound
+    case tapedeckMainSlider
+    case tapedeckMainSelector
+    case tapedeckMainPower
+    case tapedeckMainEmpty
+    case tapedeckMain8seg
+    case tapedeckAuxInput
+    case tapedeckAuxButton
+    case tapedeckAuxBlueButton
     
     func getModuleImage() -> UIImage {
-        UIImage(named: self.rawValue)!
+        UIImage(named: rawValue)!
     }
 }
