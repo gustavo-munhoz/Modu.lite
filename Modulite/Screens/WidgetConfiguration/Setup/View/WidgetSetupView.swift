@@ -12,8 +12,15 @@ class WidgetSetupView: UIScrollView {
     
     // MARK: - Properties
     
+    private var isEditing: Bool = false {
+        didSet {
+            saveWidgetButton.isHidden = !isEditing
+        }
+    }
+    
     var onSearchButtonPressed: (() -> Void)?
     var onNextButtonPressed: (() -> Void)?
+    var onSaveButtonPressed: (() -> Void)?
     
     var isStyleSelected = false
     var hasAppsSelected = false
@@ -99,7 +106,7 @@ class WidgetSetupView: UIScrollView {
     
     private(set) lazy var nextViewButton: UIButton = {
         var config = UIButton.Configuration.filled()
-        config.baseBackgroundColor = .fiestaGreen
+        config.baseBackgroundColor = .blueberry
         config.title = .localized(for: .next)
         config.imagePlacement = .trailing
         config.image = UIImage(systemName: "arrow.right")
@@ -110,6 +117,40 @@ class WidgetSetupView: UIScrollView {
         let view = UIButton(configuration: config)
         
         view.addTarget(self, action: #selector(handleNextButtonPressed), for: .touchUpInside)
+        view.configurationUpdateHandler = { [weak self] btn in
+            guard let self = self, var config = btn.configuration else { return }
+            
+            btn.isEnabled = self.isStyleSelected && self.hasAppsSelected
+            
+            switch btn.state {
+            case .disabled:
+                config.background.backgroundColor = .systemGray2
+                
+            default:
+                config.background.backgroundColor = .blueberry
+            }
+            
+            btn.configuration = config
+        }
+        
+        return view
+    }()
+    
+    private(set) lazy var saveWidgetButton: UIButton = {
+        var config = UIButton.Configuration.filled()
+        config.baseBackgroundColor = .fiestaGreen
+        config.title = .localized(for: .save).uppercased()
+        config.imagePlacement = .leading
+        config.image = UIImage(systemName: "envelope")
+        config.imagePadding = 10
+        config.preferredSymbolConfigurationForImage = .init(pointSize: 20, weight: .bold)
+        config.baseForegroundColor = .white
+        
+        let view = UIButton(configuration: config)
+        
+        view.isHidden = true
+        
+        view.addTarget(self, action: #selector(handleSaveButtonPressed), for: .touchUpInside)
         view.configurationUpdateHandler = { [weak self] btn in
             guard let self = self, var config = btn.configuration else { return }
             
@@ -154,6 +195,10 @@ class WidgetSetupView: UIScrollView {
         onNextButtonPressed?()
     }
     
+    @objc private func handleSaveButtonPressed() {
+        onSaveButtonPressed?()
+    }
+    
     // MARK: - Initializers
     
     override init(frame: CGRect) {
@@ -172,6 +217,10 @@ class WidgetSetupView: UIScrollView {
     }
     
     // MARK: - Setup methods
+    
+    func setEditingMode(to value: Bool) {
+        isEditing = value
+    }
     
     func updateSelectedAppsCollectionViewHeight() {
         selectedAppsCollectionView.snp.updateConstraints { make in
@@ -224,6 +273,10 @@ class WidgetSetupView: UIScrollView {
         )
     }
     
+    private func updateSaveButtonVisibility() {
+        
+    }
+    
     private func addSubviews() {
         addSubview(contentView)
         contentView.addSubview(widgetNameTextField)
@@ -233,6 +286,8 @@ class WidgetSetupView: UIScrollView {
         contentView.addSubview(selectedAppsCollectionView)
         contentView.addSubview(searchAppsHelperText)
         contentView.addSubview(nextViewButton)
+                
+        contentView.addSubview(saveWidgetButton)
     }
     
     private func setupConstraints() {
@@ -281,9 +336,14 @@ class WidgetSetupView: UIScrollView {
         
         nextViewButton.snp.makeConstraints { make in
             make.right.equalToSuperview()
-            make.width.equalTo(130)
+            make.width.equalTo(160)
             make.height.equalTo(45)
             make.bottom.equalToSuperview()
+        }
+                
+        saveWidgetButton.snp.makeConstraints { make in
+            make.height.bottom.width.equalTo(nextViewButton)
+            make.right.equalTo(nextViewButton.snp.left).offset(-32)
         }
     }
 }

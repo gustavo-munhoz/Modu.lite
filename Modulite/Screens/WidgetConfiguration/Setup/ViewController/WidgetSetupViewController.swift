@@ -25,6 +25,10 @@ protocol WidgetSetupViewControllerDelegate: AnyObject {
         _ controller: WidgetSetupViewController,
         style: WidgetStyle
     )
+    
+    func widgetSetupViewControllerDidSaveWidget(
+        _ viewController: WidgetSetupViewController
+    )
 }
 
 class WidgetSetupViewController: UIViewController {
@@ -52,6 +56,10 @@ class WidgetSetupViewController: UIViewController {
     }
     
     // MARK: - Setup methods
+    func setIsEditingViewToTrue() {
+        setupView.setEditingMode(to: true)
+    }
+    
     private func configureViewDependencies() {
         setupView.setCollectionViewDelegates(to: self)
         setupView.setCollectionViewDataSources(to: self)
@@ -59,6 +67,7 @@ class WidgetSetupViewController: UIViewController {
         
         setupView.onNextButtonPressed = proceedToWidgetEditor
         setupView.onSearchButtonPressed = presentSearchModal
+        setupView.onSaveButtonPressed = handleSaveButtonPress
     }
     
     private func setPlaceholderName(to name: String) {
@@ -66,6 +75,10 @@ class WidgetSetupViewController: UIViewController {
     }
     
     // MARK: - Actions
+    func handleSaveButtonPress() {
+        delegate?.widgetSetupViewControllerDidSaveWidget(self)
+    }
+    
     func didFinishSelectingApps(apps: [AppInfo]) {
         setSetupViewHasAppsSelected(to: !apps.isEmpty)
         viewModel.setSelectedApps(to: apps)
