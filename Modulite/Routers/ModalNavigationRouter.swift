@@ -44,6 +44,8 @@ extension ModalNavigationRouter: Router {
         parentViewController.dismiss(animated: animated)
     }
     
+    func dismissTopViewController(animated: Bool) { }
+    
     private func addRightSaveButton(to viewController: UIViewController) {
         viewController.navigationItem.rightBarButtonItem = UIBarButtonItem(
             title: .localized(for: .save),

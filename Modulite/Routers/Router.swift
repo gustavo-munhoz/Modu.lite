@@ -25,6 +25,8 @@ protocol Router: AnyObject {
     /// Dismisses the currently presented view controller with an optional animation.
     /// - Parameter animated: Determines if the dismissal should be animated.
     func dismiss(animated: Bool)
+    
+    func dismissTopViewController(animated: Bool)
 }
 
 /// Extension to provide default implementation for simpler presentation calls.
