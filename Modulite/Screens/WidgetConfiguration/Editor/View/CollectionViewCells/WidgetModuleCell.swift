@@ -77,7 +77,7 @@ class WidgetModuleCell: UICollectionViewCell {
     func setEditable(_ value: Bool) {
         if !value && self.moduleImageView.alpha == 0.5 { return }
         
-        UIView.animate(withDuration: 0.25) { [weak self] in
+        UIView.animate(withDuration: 0.1) { [weak self] in
             self?.moduleImageView.alpha = value ?  1 : 0.5
             self?.appNameLabel.alpha = value ?  1 : 0.5
         }
