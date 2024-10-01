@@ -127,6 +127,8 @@ extension String {
         case widgetEditorViewWallpaperButton
         case widgetEditorViewWallpaperButtonSaved
         case widgetEditorViewSaveWidgetButton
+        case widgetEditorViewDeleteAlertTitle
+        case widgetEditorViewDeleteAlertMessage
         
         // MARK: - UsageView & UsageViewController
         case usageViewYouHaveSpent
