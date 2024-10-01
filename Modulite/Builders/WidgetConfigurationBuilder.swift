@@ -48,6 +48,10 @@ class WidgetConfigurationBuilder {
     }
     
     // MARK: - Getters
+    func getWidgetId() -> UUID {
+        configuration.id
+    }
+    
     func getStyleWallpapers() -> (blocked: UIImage, home: UIImage) {
         (widgetContent.style.blockedScreenWallpaperImage, widgetContent.style.homeScreenWallpaperImage)
     }
