@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "tapedeckAuxButton.png",
+      "filename" : "Idle.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "tapedeckAuxButton@2x.png",
+      "filename" : "Idle@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "tapedeckAuxButton@3x.png",
+      "filename" : "Idle@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }
