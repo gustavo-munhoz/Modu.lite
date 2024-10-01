@@ -7,6 +7,9 @@
 
 import Foundation
 
+// swiftlint:disable:next blanket_disable_command
+// swiftlint:disable identifier_name
+
 extension String {
     
     /// Represents keys for localized strings in the app, allowing for dynamic localization with associated values.
@@ -89,6 +92,7 @@ extension String {
         case save
         case cancel
         case delete
+        case back
         
         // MARK: Tab Bar Titles
         case homeViewControllerTabBarItemTitle
@@ -130,6 +134,12 @@ extension String {
         case widgetEditorViewDeleteAlertTitle
         case widgetEditorViewDeleteAlertMessage
         
+        case widgetEditingUnsavedChangesAlertTitle
+        case widgetEditingUnsavedChangesAlertMessage
+        case widgetCreatingUnsavedChangesAlertMessage
+        case widgetEditingUnsavedChangesAlertActionDiscard
+        case widgetEditingUnsavedChangesAlertActionKeepEditing
+        
         // MARK: - UsageView & UsageViewController
         case usageViewYouHaveSpent
         case usageViewOnPhone
@@ -139,7 +149,7 @@ extension String {
         case usageDailyAvarageLastWeek
         case usageHowSpentYourTime
         
-        // MARK: - BloackAppsView & BlockAppsViewController
+        // MARK: - BlockAppsView & BlockAppsViewController
         case blockAppsViewBlockingSession(number: Int)
         
         // MARK: - Widget Styles

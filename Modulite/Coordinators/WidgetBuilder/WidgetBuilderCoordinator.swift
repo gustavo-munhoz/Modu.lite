@@ -78,13 +78,41 @@ class WidgetBuilderCoordinator: Coordinator {
         if injectedConfiguration != nil {
             viewController.navigationItem.title = .localized(for: .widgetEditingNavigationTitle)
             viewController.loadDataFromContent(contentBuilder.build())
-            // this will make save button appear, whose behavior is not working
-            // viewController.setIsEditingViewToTrue()
+            viewController.setToWidgetEditingMode()
         }
         
         viewController.hidesBottomBarWhenPushed = true
          
         router.present(viewController, animated: animated, onDismiss: onDismiss)
+    }
+    
+    private func presentBackAlertForViewController(
+        _ parentViewController: UIViewController,
+        message: String,
+        discardAction: @escaping (() -> Void)
+    ) {
+        let alert = UIAlertController(
+            title: .localized(for: .widgetEditingUnsavedChangesAlertTitle),
+            message: message,
+            preferredStyle: .alert
+        )
+        
+        let keepEditingAction = UIAlertAction(
+            title: .localized(for: .widgetEditingUnsavedChangesAlertActionKeepEditing),
+            style: .cancel
+        )
+        
+        let discardChangesAction = UIAlertAction(
+            title: .localized(for: .widgetEditingUnsavedChangesAlertActionDiscard),
+            style: .destructive
+        ) { _ in
+            discardAction()
+        }
+        
+        alert.addAction(keepEditingAction)
+        alert.addAction(discardChangesAction)
+        
+        parentViewController.present(alert, animated: true)
     }
 }
 
@@ -169,10 +197,22 @@ extension WidgetBuilderCoordinator: WidgetSetupViewControllerDelegate {
         )
     }
     
-    func widgetSetupViewControllerDidSaveWidget(
-        _ viewController: WidgetSetupViewController
+    func widgetSetupViewControllerDidPressBack(
+        _ viewController: WidgetSetupViewController,
+        didMakeChanges: Bool
     ) {
-        // won't fix this for now
+        if didMakeChanges {
+            presentBackAlertForViewController(
+                viewController,
+                message: .localized(for: .widgetEditingUnsavedChangesAlertMessage)
+            ) { [weak self] in
+                self?.dismiss(animated: true)
+            }
+            
+            return
+        }
+        
+        dismiss(animated: true)
     }
 }
 
@@ -240,5 +280,16 @@ extension WidgetBuilderCoordinator: WidgetEditorViewControllerDelegate {
     ) {
         onWidgetDelete?(id)
         dismiss(animated: true)
+    }
+    
+    func widgetEditorViewControllerDidPressBack(
+        _ viewController: WidgetEditorViewController
+    ) {
+        presentBackAlertForViewController(
+            viewController,
+            message: .localized(for: .widgetCreatingUnsavedChangesAlertMessage)
+        ) { [weak self] in
+            self?.router.dismissTopViewController(animated: true)
+        }
     }
 }

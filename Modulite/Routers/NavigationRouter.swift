@@ -65,6 +65,12 @@ extension NavigationRouter: Router {
     }
 }
 
+extension NavigationRouter {
+    func dismissTopViewController(animated: Bool) {
+        navigationController.popViewController(animated: animated)
+    }
+}
+
 extension NavigationRouter: UINavigationControllerDelegate {
     /// Monitors navigation transitions and performs any necessary cleanup for view controllers that are removed from the stack.
     /// - Parameters:

@@ -31,4 +31,6 @@ class SceneDelegateRouter: Router {
     /// No-op implementation of dismiss, as dismissing the root view controller is not applicable.
     /// - Parameter animated: Ignored as there is no dismissal action.
     func dismiss(animated: Bool) { }
+    
+    func dismissTopViewController(animated: Bool) { }
 }

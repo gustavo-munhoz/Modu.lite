@@ -4,6 +4,17 @@
     "%@" : {
 
     },
+    "back" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Back"
+          }
+        }
+      }
+    },
     "blockAppsViewBlockingSession" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -383,6 +394,17 @@
     "Widget Configuration" : {
 
     },
+    "widgetCreatingUnsavedChangesAlertMessage" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "You have unsaved alterations.  If you want to save them press ”Keep editing” > Save Widget"
+          }
+        }
+      }
+    },
     "widgetEditingNavigationTitle" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -390,6 +412,50 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Editing"
+          }
+        }
+      }
+    },
+    "widgetEditingUnsavedChangesAlertActionDiscard" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Discard Changes"
+          }
+        }
+      }
+    },
+    "widgetEditingUnsavedChangesAlertActionKeepEditing" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Keep Editing"
+          }
+        }
+      }
+    },
+    "widgetEditingUnsavedChangesAlertMessage" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "You have unsaved alterations.  If you want to save them press ”Keep editing” > Next > Save"
+          }
+        }
+      }
+    },
+    "widgetEditingUnsavedChangesAlertTitle" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "You have unsaved changes"
           }
         }
       }
