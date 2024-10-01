@@ -26,8 +26,9 @@ protocol WidgetSetupViewControllerDelegate: AnyObject {
         style: WidgetStyle
     )
     
-    func widgetSetupViewControllerDidSaveWidget(
-        _ viewController: WidgetSetupViewController
+    func widgetSetupViewControllerDidPressBack(
+        _ viewController: WidgetSetupViewController,
+        didMakeChanges: Bool
     )
 }
 
@@ -38,6 +39,10 @@ class WidgetSetupViewController: UIViewController {
     private var viewModel = WidgetSetupViewModel()
     
     weak var delegate: WidgetSetupViewControllerDelegate?
+    
+    private var isEditingWidget: Bool = false
+    
+    private var didMakeChanges: Bool = false
     
     // MARK: - Lifecycle
     override func loadView() {
@@ -55,9 +60,27 @@ class WidgetSetupViewController: UIViewController {
         setupView.updateSelectedAppsCollectionViewHeight()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        setupNavigationBar()
+    }
+    
     // MARK: - Setup methods
-    func setIsEditingViewToTrue() {
-        setupView.setEditingMode(to: true)
+    func setupNavigationBar() {
+        guard isEditingWidget else { return }
+        
+        navigationItem.hidesBackButton = true
+        let backButton = UIBarButtonItem(
+            title: .localized(for: .back),
+            style: .plain,
+            target: self,
+            action: #selector(handleBackButtonPress)
+        )
+        navigationItem.leftBarButtonItem = backButton
+    }
+    
+    func setToWidgetEditingMode() {
+        isEditingWidget = true
     }
     
     private func configureViewDependencies() {
@@ -67,7 +90,6 @@ class WidgetSetupViewController: UIViewController {
         
         setupView.onNextButtonPressed = proceedToWidgetEditor
         setupView.onSearchButtonPressed = presentSearchModal
-        setupView.onSaveButtonPressed = handleSaveButtonPress
     }
     
     private func setPlaceholderName(to name: String) {
@@ -75,8 +97,11 @@ class WidgetSetupViewController: UIViewController {
     }
     
     // MARK: - Actions
-    func handleSaveButtonPress() {
-        delegate?.widgetSetupViewControllerDidSaveWidget(self)
+    @objc func handleBackButtonPress() {
+        delegate?.widgetSetupViewControllerDidPressBack(
+            self,
+            didMakeChanges: didMakeChanges
+        )
     }
     
     func didFinishSelectingApps(apps: [AppInfo]) {
@@ -134,6 +159,8 @@ extension WidgetSetupViewController: SelectedAppCollectionViewCellDelegate {
             print("Could not get IndexPath for app cell")
             return
         }
+        
+        didMakeChanges = true
         
         let app = viewModel.selectedApps[indexPath.row]
         viewModel.removeSelectedApp(app)
@@ -253,6 +280,7 @@ extension WidgetSetupViewController: UICollectionViewDelegate {
                 return
             }
             
+            didMakeChanges = true
             setSetupViewStyleSelected(to: true)
             delegate?.widgetSetupViewControllerDidSelectWidgetStyle(self, style: style)
             
@@ -300,7 +328,9 @@ extension WidgetSetupViewController: UITextFieldDelegate {
         if updatedText.count > 24 {
             return false
         }
-                
+        
+        didMakeChanges = true
+        
         return true
     }
 }
