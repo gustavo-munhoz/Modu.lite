@@ -158,6 +158,9 @@
 		B39A25A22CAB5B65001C76A5 /* WidgetEditorDownloadButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39A25A12CAB5B65001C76A5 /* WidgetEditorDownloadButton.swift */; };
 		B39A25A42CAB5CE3001C76A5 /* WidgetEditorSaveButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39A25A32CAB5CE3001C76A5 /* WidgetEditorSaveButton.swift */; };
 		B39A25A62CAB5F11001C76A5 /* WidgetEditorDeleteButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39A25A52CAB5F11001C76A5 /* WidgetEditorDeleteButton.swift */; };
+		B39A25AA2CAC7C89001C76A5 /* WidgetEditorViewController+UICollectionViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39A25A92CAC7C89001C76A5 /* WidgetEditorViewController+UICollectionViewDataSource.swift */; };
+		B39A25AC2CAC7D2A001C76A5 /* WidgetEditorViewController+UICollectionViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39A25AB2CAC7D2A001C76A5 /* WidgetEditorViewController+UICollectionViewDelegate.swift */; };
+		B39A25AE2CAC7DC2001C76A5 /* WidgetEditorViewController+UICollectionViewDragAndDropDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39A25AD2CAC7DC2001C76A5 /* WidgetEditorViewController+UICollectionViewDragAndDropDelegate.swift */; };
 		B3C1877F2C78D1E000A891A8 /* ModuliteWidgetConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3C1877E2C78D1E000A891A8 /* ModuliteWidgetConfiguration.swift */; };
 		B3C187822C79009B00A891A8 /* WidgetConfigurationBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3C187812C79009B00A891A8 /* WidgetConfigurationBuilder.swift */; };
 		B3C187842C791D1300A891A8 /* WidgetStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3C187832C791D1300A891A8 /* WidgetStyle.swift */; };
@@ -330,6 +333,9 @@
 		B39A25A12CAB5B65001C76A5 /* WidgetEditorDownloadButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetEditorDownloadButton.swift; sourceTree = "<group>"; };
 		B39A25A32CAB5CE3001C76A5 /* WidgetEditorSaveButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetEditorSaveButton.swift; sourceTree = "<group>"; };
 		B39A25A52CAB5F11001C76A5 /* WidgetEditorDeleteButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetEditorDeleteButton.swift; sourceTree = "<group>"; };
+		B39A25A92CAC7C89001C76A5 /* WidgetEditorViewController+UICollectionViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WidgetEditorViewController+UICollectionViewDataSource.swift"; sourceTree = "<group>"; };
+		B39A25AB2CAC7D2A001C76A5 /* WidgetEditorViewController+UICollectionViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WidgetEditorViewController+UICollectionViewDelegate.swift"; sourceTree = "<group>"; };
+		B39A25AD2CAC7DC2001C76A5 /* WidgetEditorViewController+UICollectionViewDragAndDropDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WidgetEditorViewController+UICollectionViewDragAndDropDelegate.swift"; sourceTree = "<group>"; };
 		B3C1877E2C78D1E000A891A8 /* ModuliteWidgetConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModuliteWidgetConfiguration.swift; sourceTree = "<group>"; };
 		B3C187812C79009B00A891A8 /* WidgetConfigurationBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetConfigurationBuilder.swift; sourceTree = "<group>"; };
 		B3C187832C791D1300A891A8 /* WidgetStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetStyle.swift; sourceTree = "<group>"; };
@@ -633,6 +639,7 @@
 		B350C04E2C8B907B0035682F /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				B39A25A82CAC7C5B001C76A5 /* Extensions */,
 				B34F3E212C6D36390041D7BD /* WidgetEditorViewController.swift */,
 			);
 			path = ViewController;
@@ -997,6 +1004,16 @@
 			path = Subviews;
 			sourceTree = "<group>";
 		};
+		B39A25A82CAC7C5B001C76A5 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				B39A25A92CAC7C89001C76A5 /* WidgetEditorViewController+UICollectionViewDataSource.swift */,
+				B39A25AB2CAC7D2A001C76A5 /* WidgetEditorViewController+UICollectionViewDelegate.swift */,
+				B39A25AD2CAC7DC2001C76A5 /* WidgetEditorViewController+UICollectionViewDragAndDropDelegate.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		B3C187802C79008800A891A8 /* Builders */ = {
 			isa = PBXGroup;
 			children = (
@@ -1301,6 +1318,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B39A25AE2CAC7DC2001C76A5 /* WidgetEditorViewController+UICollectionViewDragAndDropDelegate.swift in Sources */,
 				B34F3E0F2C6B0D340041D7BD /* BlockAppsCoordinator.swift in Sources */,
 				B39A259D2CAB2945001C76A5 /* Copying.swift in Sources */,
 				B32B60C62C865042007DDCE3 /* PersistableWidgetConfiguration+CoreDataClass.swift in Sources */,
@@ -1332,6 +1350,7 @@
 				B39A25A42CAB5CE3001C76A5 /* WidgetEditorSaveButton.swift in Sources */,
 				B32B60F02C876F4A007DDCE3 /* FileManagerImagePersistenceController.swift in Sources */,
 				B3EB15B92C7E4CD6003B1960 /* ModuleAppNameTextConfiguration.swift in Sources */,
+				B39A25AC2CAC7D2A001C76A5 /* WidgetEditorViewController+UICollectionViewDelegate.swift in Sources */,
 				B3EB15B62C7E4BF0003B1960 /* ModuleConfiguration.swift in Sources */,
 				AFABBD982C8A359E007BEFD8 /* BlockAppsView.swift in Sources */,
 				B36927D32C66BBC10089F769 /* SceneDelegateRouter.swift in Sources */,
@@ -1340,6 +1359,7 @@
 				B3C187822C79009B00A891A8 /* WidgetConfigurationBuilder.swift in Sources */,
 				B3C1877F2C78D1E000A891A8 /* ModuliteWidgetConfiguration.swift in Sources */,
 				B32B60FE2C88E43F007DDCE3 /* CustomizedTextFactory.swift in Sources */,
+				B39A25AA2CAC7C89001C76A5 /* WidgetEditorViewController+UICollectionViewDataSource.swift in Sources */,
 				B34F3E3E2C74CE090041D7BD /* EditorSectionHeader.swift in Sources */,
 				B34F3DFD2C6A92890041D7BD /* RootTabBarController.swift in Sources */,
 				B350C0492C8B8B680035682F /* UIEdgeInsets+Directions.swift in Sources */,
