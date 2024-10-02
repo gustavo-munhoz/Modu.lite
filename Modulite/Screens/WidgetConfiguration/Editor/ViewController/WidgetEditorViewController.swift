@@ -47,25 +47,20 @@ class WidgetEditorViewController: UIViewController {
         }
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
+    override func viewDidLoad() {
+        super.viewDidLoad()
         
         setupNavigationBar()
     }
     
     // MARK: - Setup
     
-    private func setupNavigationBar() {
+    func setupNavigationBar() {
         guard isCreatingNewWidget else { return }
         
-        navigationItem.hidesBackButton = true
-        let backButton = UIBarButtonItem(
-            title: .localized(for: .back),
-            style: .plain,
-            target: self,
-            action: #selector(handleBackButtonPress)
-        )
-        navigationItem.leftBarButtonItem = backButton
+        navigationItem.backAction = UIAction { [weak self] _ in
+            self?.handleBackButtonPress()
+        }
     }
     
     // MARK: - Actions

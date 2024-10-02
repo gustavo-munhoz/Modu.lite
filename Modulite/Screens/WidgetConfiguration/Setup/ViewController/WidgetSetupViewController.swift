@@ -53,6 +53,7 @@ class WidgetSetupViewController: UIViewController {
         super.viewDidLoad()
         
         configureViewDependencies()
+        setupNavigationBar()
     }
     
     override func viewWillLayoutSubviews() {
@@ -60,23 +61,13 @@ class WidgetSetupViewController: UIViewController {
         setupView.updateSelectedAppsCollectionViewHeight()
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        setupNavigationBar()
-    }
-    
     // MARK: - Setup methods
     func setupNavigationBar() {
         guard isEditingWidget else { return }
         
-        navigationItem.hidesBackButton = true
-        let backButton = UIBarButtonItem(
-            title: .localized(for: .back),
-            style: .plain,
-            target: self,
-            action: #selector(handleBackButtonPress)
-        )
-        navigationItem.leftBarButtonItem = backButton
+        navigationItem.backAction = UIAction { [weak self] _ in
+            self?.handleBackButtonPress()
+        }
     }
     
     func setToWidgetEditingMode() {
