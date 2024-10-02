@@ -71,28 +71,28 @@ extension WidgetEditorViewController: UICollectionViewDelegate {
     }
     
     private func clearSelectedStyleCell() {
-        editorView.moduleStyleCollectionView.visibleCells.forEach { cell in
+        editorView.moduleStyleCollectionView.subviews.forEach { cell in
             guard let cell = cell as? ModuleStyleCell else { return }
             cell.setSelected(to: false)
         }
     }
     
     private func selectStyleCell(style: ModuleStyle) {
-        editorView.moduleStyleCollectionView.visibleCells.forEach { cell in
+        editorView.moduleStyleCollectionView.subviews.forEach { cell in
             guard let cell = cell as? ModuleStyleCell else { return }
-            cell.setSelected(to: cell.style?.id == style.id)
+            cell.setSelected(to: cell.style?.key == style.key)
         }
     }
     
     private func clearSelectedColorCell() {
-        editorView.moduleColorCollectionView.visibleCells.forEach { cell in
+        editorView.moduleColorCollectionView.subviews.forEach { cell in
             guard let cell = cell as? ModuleColorCell else { return }
             cell.setSelected(to: false)
         }
     }
     
     private func selectColorCell(color: UIColor) {
-        editorView.moduleColorCollectionView.visibleCells.forEach { cell in
+        editorView.moduleColorCollectionView.subviews.forEach { cell in
             guard let cell = cell as? ModuleColorCell else { return }
             cell.setSelected(to: cell.color == color)
         }
@@ -115,7 +115,6 @@ extension WidgetEditorViewController: UICollectionViewDelegate {
             didSelectEmptyCell: viewModel.isModuleEmpty(at: index)
         )
         
-        // FIXME: - use `cellForItemAt`
         editorView.widgetLayoutCollectionView.subviews.forEach { [weak self] cell in
             guard let cell = cell as? WidgetModuleCell else { return }
             
