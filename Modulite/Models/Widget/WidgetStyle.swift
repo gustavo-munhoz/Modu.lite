@@ -21,6 +21,7 @@ class WidgetStyle {
     var styles: [ModuleStyle]
     var emptyModuleStyle: ModuleStyle?
     var colors: [UIColor]
+    var defaultColor: UIColor
     var textConfiguration: ModuleAppNameTextConfiguration
     var blockedScreenWallpaperImage: UIImage
     var homeScreenWallpaperImage: UIImage
@@ -34,7 +35,8 @@ class WidgetStyle {
         background: WidgetBackground?,
         styles: [ModuleStyle] = [],
         emptyModuleStyle: ModuleStyle? = nil,
-        colors: [UIColor] = [],
+        colors: [UIColor],
+        defaultColor: UIColor,
         textConfiguration: ModuleAppNameTextConfiguration,
         blockedScreenWallpaperImage: UIImage,
         homeScreenWallpaperImage: UIImage,
@@ -47,6 +49,7 @@ class WidgetStyle {
         self.styles = styles
         self.emptyModuleStyle = emptyModuleStyle
         self.colors = colors
+        self.defaultColor = defaultColor
         self.textConfiguration = textConfiguration
         self.blockedScreenWallpaperImage = blockedScreenWallpaperImage
         self.homeScreenWallpaperImage = homeScreenWallpaperImage

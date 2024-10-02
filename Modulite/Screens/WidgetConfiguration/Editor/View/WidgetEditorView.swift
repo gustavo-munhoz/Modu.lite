@@ -300,12 +300,10 @@ class WidgetEditorView: UIScrollView {
         }
     }
     
-    func enableStylingCollectionViews(didSelectEmptyCell value: Bool = false) {
+    func enableStylingCollectionViews(didSelectEmptyCell isEmpty: Bool = false) {
         UIView.animate(withDuration: 0.25) { [weak self] in
-            if !value {
-                self?.moduleStyleCollectionView.alpha = 1
-                self?.moduleStyleCollectionView.isUserInteractionEnabled = true
-            }
+            self?.moduleStyleCollectionView.alpha = isEmpty ? 0.55 :  1
+            self?.moduleStyleCollectionView.isUserInteractionEnabled = isEmpty ? false : true
             
             self?.moduleColorCollectionView.alpha = 1
             self?.moduleColorCollectionView.isUserInteractionEnabled = true

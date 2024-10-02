@@ -52,10 +52,27 @@ class ModuleColorCell: UICollectionViewCell {
     
     func setSelected(to isSelected: Bool) {
         isColorSelected = isSelected
-        updateBorder()
+        updateBorderAndShadow()
     }
     
-    private func updateBorder() {
-        circleLayer.strokeColor = isColorSelected ? UIColor.systemGray.cgColor : UIColor.clear.cgColor
+    private func updateBorderAndShadow() {
+        UIView.animate(withDuration: 0.25) { [weak self] in
+            guard let self = self else { return }
+            
+            if self.isColorSelected {
+                self.circleLayer.strokeColor = UIColor.systemGray.cgColor
+                self.circleLayer.shadowColor = UIColor.black.cgColor
+                self.circleLayer.shadowOffset = CGSize(width: 4, height: 5)
+                self.circleLayer.shadowOpacity = 0.4
+                self.circleLayer.shadowRadius = 3
+                self.circleLayer.masksToBounds = false
+                
+                return
+            }
+            
+            self.circleLayer.shadowOpacity = 0
+            self.circleLayer.strokeColor = UIColor.clear.cgColor
+        }
+        
     }
 }

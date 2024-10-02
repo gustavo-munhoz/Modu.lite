@@ -37,19 +37,13 @@ class WidgetEditorViewModel: NSObject {
     }
     
     func getColorFromSelectedModule() -> UIColor? {
-        guard let index = selectedCellIndex else {
-            print("Tried to get color without selecting any module.")
-            return nil
-        }
+        guard let index = selectedCellIndex else { return nil }
         
         return builder.getModule(at: index)?.selectedColor
     }
     
     func getStyleFromSelectedModule() -> ModuleStyle? {
-        guard let index = selectedCellIndex else {
-            print("Tried to get style without selecting any module.")
-            return nil
-        }
+        guard let index = selectedCellIndex else { return nil }
         
         return builder.getModule(at: index)?.selectedStyle
     }

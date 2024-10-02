@@ -38,6 +38,11 @@ extension WidgetEditorViewController: UICollectionViewDataSource {
             }
             
             cell.setup(with: style)
+            
+            if let selectedStyle = viewModel.getStyleFromSelectedModule() {
+                cell.setSelected(to: selectedStyle.key == style.key)
+            }
+            
             return cell
             
         case editorView.moduleColorCollectionView:
@@ -51,6 +56,11 @@ extension WidgetEditorViewController: UICollectionViewDataSource {
             }
             
             cell.setup(with: color)
+            
+            if let selectedColor = viewModel.getColorFromSelectedModule() {
+                cell.setSelected(to: selectedColor == color)
+            }
+            
             return cell
             
         default:
@@ -72,6 +82,7 @@ extension WidgetEditorViewController: UICollectionViewDataSource {
         
         if let index = viewModel.selectedCellIndex {
             cell.setEditable(index == indexPath.row)
+            
         } else {
             cell.startWiggling()
         }

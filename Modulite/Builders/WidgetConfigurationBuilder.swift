@@ -34,7 +34,7 @@ class WidgetConfigurationBuilder {
                     appName: app.name,
                     associatedURLScheme: app.urlScheme,
                     selectedStyle: content.style.getRandomStyle(),
-                    selectedColor: nil
+                    selectedColor: content.style.defaultColor
                 )
             )
         }
