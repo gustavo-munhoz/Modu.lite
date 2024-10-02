@@ -52,15 +52,27 @@ class ModuleStyleCell: UICollectionViewCell {
     // MARK: - Actions
     func setSelected(to isSelected: Bool) {
         isModuleSelected = isSelected
-        updateBorder()
+        updateBorderAndShadow()
     }
     
-    private func updateBorder() {
-        if isModuleSelected {
-            styleImageView.layer.borderColor = UIColor.systemGray.cgColor
+    private func updateBorderAndShadow() {
+        UIView.animate(withDuration: 0.25) { [weak self] in
+            guard let self = self else { return }
+
+            if self.isModuleSelected {
+                self.styleImageView.layer.borderColor = UIColor.systemGray.cgColor
+                
+                self.styleImageView.layer.masksToBounds = false
+                self.styleImageView.layer.shadowRadius = 5
+                self.styleImageView.layer.shadowColor = UIColor.black.cgColor
+                self.styleImageView.layer.shadowOffset = CGSize(width: 4, height: 7)
+                self.styleImageView.layer.shadowOpacity = 0.5
+                
+                return
+            }
             
-        } else {
-            styleImageView.layer.borderColor = UIColor.clear.cgColor
+            self.styleImageView.layer.shadowOpacity = 0
+            self.styleImageView.layer.borderColor = UIColor.clear.cgColor
         }
     }
 }
