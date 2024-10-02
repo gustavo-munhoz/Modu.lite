@@ -35,12 +35,12 @@ class FileManagerImagePersistenceController {
         
         let completeUrl = url.appending(component: "widget.png")
         
-        if let imageData = try? Data(contentsOf: completeUrl) {
-            return UIImage(data: imageData)
-        } else {
+        guard let imageData = try? Data(contentsOf: completeUrl) else {
             print("Unable to load image data from \(completeUrl)")
             return nil
         }
+        
+        return UIImage(data: imageData)
     }
     
     func getModuleImages(for widgetId: UUID) -> [UIImage] {
@@ -56,23 +56,19 @@ class FileManagerImagePersistenceController {
                         
             let indexFileMap: [(Int, String)] = pngFiles.compactMap { fileName in
                 let indexString = fileName.replacingOccurrences(of: ".png", with: "")
-                if let index = Int(indexString) {
-                    return (index, fileName)
-                } else {
-                    return nil
-                }
+                guard let index = Int(indexString) else { return nil }
+                
+                return (index, fileName)
             }
                         
             let sortedIndexFileMap = indexFileMap.sorted { $0.0 < $1.0 }
                         
             for (_, fileName) in sortedIndexFileMap {
                 let fileURL = modulesDirectory.appendingPathComponent(fileName)
-                if let imageData = try? Data(contentsOf: fileURL),
-                   let image = UIImage(data: imageData) {
-                    images.append(image)
-                } else {
-                    print("Unable to load image at \(fileURL)")
-                }
+                guard let imageData = try? Data(contentsOf: fileURL),
+                      let image = UIImage(data: imageData) else { continue }
+                
+                images.append(image)
             }
         } catch {
             print("Error accessing modules directory: \(error)")
@@ -124,6 +120,7 @@ extension FileManagerImagePersistenceController {
                     attributes: nil
                 )
             }
+            
             if !FileManager.default.fileExists(atPath: modulesDirectory.path) {
                 try FileManager.default.createDirectory(
                     at: modulesDirectory,
@@ -131,6 +128,7 @@ extension FileManagerImagePersistenceController {
                     attributes: nil
                 )
             }
+            
         } catch {
             fatalError("Failed to create directories: \(error.localizedDescription)")
         }
@@ -151,7 +149,9 @@ extension FileManagerImagePersistenceController {
         
         do {
             try imageData?.write(to: imageURL)
+            
             return imageURL
+            
         } catch {
             fatalError("Failed to save image: \(error.localizedDescription)")
         }

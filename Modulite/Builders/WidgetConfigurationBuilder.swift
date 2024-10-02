@@ -117,18 +117,17 @@ class WidgetConfigurationBuilder {
         guard sourceIndex != destinationIndex,
               sourceIndex >= 0, sourceIndex < configuration.modules.count,
               destinationIndex >= 0, destinationIndex < configuration.modules.count else {
-            print("Invalid indices")
+            print("Invalid indexes when moving items.")
             return
         }
         
         let movingItem = configuration.modules[sourceIndex]
-        let replacedItem = configuration.modules[destinationIndex]
-                
-        replacedItem.index = sourceIndex
-        movingItem.index = destinationIndex
-        
         configuration.modules.remove(at: sourceIndex)
         configuration.modules.insert(movingItem, at: destinationIndex)
+        
+        for (index, module) in configuration.modules.enumerated() {
+            module.index = index
+        }
     }
     
     // MARK: - Build
