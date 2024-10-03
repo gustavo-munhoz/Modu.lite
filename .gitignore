@@ -1,3 +1,5 @@
+Config/BundleConfig.xcconfig
+.env
 build/
 .DS_Store
 xcuserdata/

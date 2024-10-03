@@ -78,6 +78,12 @@ class UsageView: UIView {
         view.textColor = .darkGray
         return view
     }()
+    
+    private(set) lazy var appUsageTableView: UITableView = {
+        let tableView = UITableView()
+        tableView.register(AppUsageCell.self, forCellReuseIdentifier: AppUsageCell.identifier)
+        return tableView
+    }()
 
     // MARK: - Initializers
 
@@ -102,6 +108,7 @@ class UsageView: UIView {
         addSubview(dailyAvarageYesterdayLabel)
         addSubview(dailyAvarageLastWeek)
         addSubview(howSpentYourTime)
+        addSubview(appUsageTableView)
     }
     
     private func setupConstraints() {
@@ -141,6 +148,11 @@ class UsageView: UIView {
         howSpentYourTime.snp.makeConstraints { make in
             make.top.equalTo(dailyAvarageLastWeek.snp.bottom).offset(40)
             make.left.equalTo(comparisonOverviewLabel)
+        }
+
+        appUsageTableView.snp.makeConstraints { make in
+            make.top.equalTo(howSpentYourTime.snp.bottom).offset(10)
+            make.left.right.bottom.equalToSuperview()
         }
     }
 }

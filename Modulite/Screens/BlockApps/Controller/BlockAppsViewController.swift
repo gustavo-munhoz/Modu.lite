@@ -1,15 +1,25 @@
 import UIKit
+import SwiftUI
 
 class BlockAppsViewController:
     UIViewController,
     UICollectionViewDelegate,
     UICollectionViewDataSource,
     BlockAppsCellDelegate {
-
+    
     private let blockAppsView = BlockAppsView()
-
-    // Lista única de sessões
-    private var sessions: [BlockingSession] = []
+    private var sessions: [AppBlockingSession] = []
+    private var viewModel: BlockAppsViewModel = BlockAppsViewModel()
+    
+    private(set) lazy var selectAppsButton: UIBarButtonItem = {
+        let button = UIBarButtonItem()
+        button.title = "+"
+        button.style = .plain
+        button.target = self
+        button.action = #selector(createBlockingSession)
+        
+        return button
+    }()
     
     override func loadView() {
         view = blockAppsView
@@ -17,25 +27,30 @@ class BlockAppsViewController:
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        FamilyControlsManager.shared.requestAuthorization()
+        
         blockAppsView.activeCollectionView.delegate = self
         blockAppsView.activeCollectionView.dataSource = self
         blockAppsView.activeCollectionView.register(
             BlockAppsCollectionViewCell.self,
             forCellWithReuseIdentifier: BlockAppsCollectionViewCell.reusId
         )
-        
-        setupInitialData()
-    }
+        navigationItem.rightBarButtonItem = selectAppsButton
 
-    // Configuração inicial dos dados
+    }
+    
+    @objc private func createBlockingSession() {
+        let createBlockingSessionVC = CreateBlockingSessionViewController.instantiate(with: self)
+
+        
+        let navController = UINavigationController(rootViewController: createBlockingSessionVC)
+        navController.modalPresentationStyle = .formSheet
+        present(navController, animated: true, completion: nil)
+    }
+    
     private func setupInitialData() {
-        sessions = [
-            BlockingSession(name: "Session 1", time: "09:00 - 12:00", appsBlocked: 5, isActive: true),
-            BlockingSession(name: "Session 2", time: "14:00 - 16:00", appsBlocked: 3, isActive: true),
-            BlockingSession(name: "Session 3", time: "18:00 - 20:00", appsBlocked: 2, isActive: false),
-            BlockingSession(name: "Session 4", time: "18:00 - 20:00", appsBlocked: 2, isActive: false),
-            BlockingSession(name: "Session 5", time: "18:00 - 20:00", appsBlocked: 2, isActive: false)
-        ]
+        sessions = viewModel.blockingSessions
     }
 
     func numberOfSections(in collectionView: UICollectionView) -> Int {
@@ -64,7 +79,7 @@ class BlockAppsViewController:
         }
         
         let sectionType = SectionType(rawValue: indexPath.section)!
-        let session: BlockingSession
+        let session: AppBlockingSession
 
         if sectionType == .active {
             session = sessions.filter { $0.isActive }[indexPath.item]
@@ -91,7 +106,7 @@ class BlockAppsViewController:
     func didToggleSwitch(at index: IndexPath, isActive: Bool) {
         let sectionType = SectionType(rawValue: index.section)!
 
-        let session: BlockingSession
+        let session: AppBlockingSession
         if sectionType == .active {
             session = sessions.filter { $0.isActive }[index.item]
         } else {
@@ -131,9 +146,18 @@ class BlockAppsViewController:
     }
 }
 
-struct BlockingSession {
-    let name: String
-    let time: String
-    let appsBlocked: Int
-    var isActive: Bool
+// MARK: - CreateBlockingSessionViewControllerDelegate
+extension BlockAppsViewController: BlockingSessionViewControllerDelegate {
+    func createBlockingSessionViewController(
+        _ viewController: CreateBlockingSessionViewController,
+        didCreate session: AppBlockingSession
+    ) {
+        let row = viewModel.createBlockingSession(session)
+        let indexPath = IndexPath(item: row, section: SectionType.active.rawValue)
+        
+        blockAppsView.activeCollectionView.performBatchUpdates { [weak self] in
+            self?.blockAppsView.activeCollectionView.insertItems(at: [indexPath])
+        }
+    }
+    
 }

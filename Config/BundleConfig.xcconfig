@@ -1,0 +1,7 @@
+BUNDLE_ID = dev.woz.modu.lite
+WIDGET_BUNDLE_ID = dev.woz.modu.lite.widget
+APP_GROUP_ID = group.dev.woz.modu.lite.shared
+ACTIVITY_MONITOR_BUNDLE_ID = dev.woz.modu.lite.deviceActivityMonitor
+ACTIVITY_REPORT_BUNDLE_ID = dev.woz.modu.lite.deviceActivityReport
+SHIELD_CONFIGURATION_BUNDLE_ID = dev.woz.modu.lite.shieldConfiguration
+SHIELD_ACTION_BUNDLE_ID = dev.woz.modu.lite.shieldAction

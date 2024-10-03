@@ -34,8 +34,12 @@ struct CoreDataPersistenceController {
     init(inMemory: Bool = false) {
         container = NSPersistentContainer(name: "WidgetData")
         
+        guard let appGroupID = Bundle.main.object(forInfoDictionaryKey: "AppGroupID") as? String else {
+            fatalError("Could not find App Group ID in Info.plist")
+        }
+        
         guard let appGroupURL = FileManager.default.containerURL(
-            forSecurityApplicationGroupIdentifier: "group.dev.mnhz.modu.lite.shared"
+            forSecurityApplicationGroupIdentifier: appGroupID
         ) else {
             fatalError("Could not find App Group Container")
         }

@@ -19,8 +19,12 @@ class FileManagerImagePersistenceController {
             return
         }
         
+        guard let appGroupID = Bundle.main.object(forInfoDictionaryKey: "AppGroupID") as? String else {
+            fatalError("Could not find App Group ID in Info.plist")
+        }
+        
         guard let appGroupURL = FileManager.default.containerURL(
-            forSecurityApplicationGroupIdentifier: "group.dev.mnhz.modu.lite.shared"
+            forSecurityApplicationGroupIdentifier: appGroupID
         ) else {
             fatalError("Could not find App Group container")
         }

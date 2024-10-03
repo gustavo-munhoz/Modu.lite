@@ -152,6 +152,12 @@ extension String {
         // MARK: - BlockAppsView & BlockAppsViewController
         case blockAppsViewBlockingSession(number: Int)
         
+        // MARK: - CreatingNewBlockingSessionView & CreatingNewBlockingSessionViewController
+        case blockingSessionChooseAppsToBlock
+        case blockingSessionButtonSearchApps
+        case blcokingSessionCreateBlockingSession
+        
+        
         // MARK: - Widget Styles
         case widgetStyleNameAnalog
         case widgetStyleNameTapedeck
