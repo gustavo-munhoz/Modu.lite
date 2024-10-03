@@ -24,7 +24,6 @@ class UsageViewController: UIViewController {
 
         Task {
             do {
-                // Solicita autorização para uso do Screen Time
                 try await authCenter.requestAuthorization(for: .individual)
                 
             } catch {

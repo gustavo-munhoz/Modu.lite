@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		AF362BFF2CA5AD8000506443 /* UsageViewSelectAppsContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF362BFE2CA5AD8000506443 /* UsageViewSelectAppsContentView.swift */; };
+		AF362BFF2CA5AD8000506443 /* ScreenTimeelectAppsContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF362BFE2CA5AD8000506443 /* ScreenTimeelectAppsContentView.swift */; };
 		AF362C052CA5B1A300506443 /* DeviceActivity.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AFABBD872C88E388007BEFD8 /* DeviceActivity.framework */; };
 		AF362C0D2CA5B1A300506443 /* ModuliteDeviceActivityMonitor.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = AF362C042CA5B1A300506443 /* ModuliteDeviceActivityMonitor.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		AF362C162CA5B1B000506443 /* DeviceActivityMonitorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF362C122CA5B1B000506443 /* DeviceActivityMonitorExtension.swift */; };
@@ -18,6 +18,8 @@
 		AF362C6D2CA7478B00506443 /* TotalActivityReport.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF362C682CA7478B00506443 /* TotalActivityReport.swift */; };
 		AF362C6E2CA7478B00506443 /* TotalActivityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF362C692CA7478B00506443 /* TotalActivityView.swift */; };
 		AF362C732CAB174C00506443 /* BlockAppsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF362C722CAB174C00506443 /* BlockAppsViewModel.swift */; };
+		AF362C7F2CAB374900506443 /* CreateNewBlockingSessionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF362C7E2CAB374900506443 /* CreateNewBlockingSessionView.swift */; };
+		AF362C812CAC6C1A00506443 /* CreateBlockingSessionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF362C802CAC6C1A00506443 /* CreateBlockingSessionViewController.swift */; };
 		AF9D41DA2CA49BE50077F565 /* UsageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF9D41D82CA49BE50077F565 /* UsageViewModel.swift */; };
 		AFABBD7C2C80F2E0007BEFD8 /* UsageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFABBD7B2C80F2E0007BEFD8 /* UsageView.swift */; };
 		AFABBD982C8A359E007BEFD8 /* BlockAppsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFABBD972C8A359E007BEFD8 /* BlockAppsView.swift */; };
@@ -34,6 +36,24 @@
 		AFBBC5202C7E4D6900A9B256 /* WidgetButtonLabelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFBBC51F2C7E4D6900A9B256 /* WidgetButtonLabelView.swift */; };
 		AFBBC5212C7E4E0700A9B256 /* WidgetButtonLabelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFBBC51F2C7E4D6900A9B256 /* WidgetButtonLabelView.swift */; };
 		AFBBC5222C7E5D8D00A9B256 /* AppInfo+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3F054352C7CF6CB0057F04D /* AppInfo+CoreDataClass.swift */; };
+		AFE5D5022CADD4C700503572 /* FamilyControlsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFE5D5012CADD4C700503572 /* FamilyControlsManager.swift */; };
+		AFE5D5032CADD4C700503572 /* FamilyControlsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFE5D5012CADD4C700503572 /* FamilyControlsManager.swift */; };
+		AFE5D5042CADD4C700503572 /* FamilyControlsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFE5D5012CADD4C700503572 /* FamilyControlsManager.swift */; };
+		AFE5D50B2CADD51600503572 /* ManagedSettings.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AFE5D50A2CADD51600503572 /* ManagedSettings.framework */; };
+		AFE5D50D2CADD51600503572 /* ManagedSettingsUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AFE5D50C2CADD51600503572 /* ManagedSettingsUI.framework */; };
+		AFE5D5152CADD51600503572 /* ModuliteShieldConfiguration.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = AFE5D5092CADD51600503572 /* ModuliteShieldConfiguration.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		AFE5D51F2CADD52400503572 /* ManagedSettings.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AFE5D50A2CADD51600503572 /* ManagedSettings.framework */; };
+		AFE5D5272CADD52400503572 /* ModuliteShieldAction.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = AFE5D51E2CADD52400503572 /* ModuliteShieldAction.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		AFE5D5312CADD52E00503572 /* ShieldConfigurationExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFE5D52E2CADD52E00503572 /* ShieldConfigurationExtension.swift */; };
+		AFE5D5362CADD53000503572 /* ShieldActionExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFE5D5342CADD53000503572 /* ShieldActionExtension.swift */; };
+		AFE5D5392CADD7CA00503572 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AFE5D5382CADD7CA00503572 /* Assets.xcassets */; };
+		AFE5D5462CAF1B1300503572 /* CreateSessionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFE5D5452CAF1B1300503572 /* CreateSessionViewModel.swift */; };
+		AFE5D54D2CAF24DE00503572 /* AppBlockingSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFE5D54B2CAF24DE00503572 /* AppBlockingSession.swift */; };
+		AFE5D54E2CAF24DE00503572 /* AppBlockingSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFE5D54B2CAF24DE00503572 /* AppBlockingSession.swift */; };
+		AFE5D5502CAF24E500503572 /* WeekDay.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFE5D54F2CAF24E500503572 /* WeekDay.swift */; };
+		AFE5D5512CAF24E500503572 /* WeekDay.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFE5D54F2CAF24E500503572 /* WeekDay.swift */; };
+		AFE5D5532CAF24F100503572 /* BlockType.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFE5D5522CAF24F100503572 /* BlockType.swift */; };
+		AFE5D5542CAF24F100503572 /* BlockType.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFE5D5522CAF24F100503572 /* BlockType.swift */; };
 		B30AAD632C9227BA002806A7 /* WidgetContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = B30AAD622C9227BA002806A7 /* WidgetContent.swift */; };
 		B30AAD652C9227DE002806A7 /* WidgetContentBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = B30AAD642C9227DE002806A7 /* WidgetContentBuilder.swift */; };
 		B32B60A52C838EB0007DDCE3 /* WidgetModuleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B34F3E3F2C74E3270041D7BD /* WidgetModuleCell.swift */; };
@@ -215,6 +235,20 @@
 			remoteGlobalIDString = AFBBC5012C7E459900A9B256;
 			remoteInfo = ModuliteWidgetExtension;
 		};
+		AFE5D5132CADD51600503572 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B369278C2C66B6E30089F769 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = AFE5D5082CADD51600503572;
+			remoteInfo = ModuliteShieldConfiguration;
+		};
+		AFE5D5252CADD52400503572 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B369278C2C66B6E30089F769 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = AFE5D51D2CADD52400503572;
+			remoteInfo = ModuliteShieldAction;
+		};
 		B36927AB2C66B6E40089F769 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = B369278C2C66B6E30089F769 /* Project object */;
@@ -249,6 +283,8 @@
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
+				AFE5D5272CADD52400503572 /* ModuliteShieldAction.appex in Embed Foundation Extensions */,
+				AFE5D5152CADD51600503572 /* ModuliteShieldConfiguration.appex in Embed Foundation Extensions */,
 				AFBBC50F2C7E459A00A9B256 /* ModuliteWidgetExtension.appex in Embed Foundation Extensions */,
 				AF362C0D2CA5B1A300506443 /* ModuliteDeviceActivityMonitor.appex in Embed Foundation Extensions */,
 			);
@@ -258,7 +294,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		AF362BFE2CA5AD8000506443 /* UsageViewSelectAppsContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsageViewSelectAppsContentView.swift; sourceTree = "<group>"; };
+		AF362BFE2CA5AD8000506443 /* ScreenTimeelectAppsContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenTimeelectAppsContentView.swift; sourceTree = "<group>"; };
 		AF362C042CA5B1A300506443 /* ModuliteDeviceActivityMonitor.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = ModuliteDeviceActivityMonitor.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		AF362C122CA5B1B000506443 /* DeviceActivityMonitorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceActivityMonitorExtension.swift; sourceTree = "<group>"; };
 		AF362C132CA5B1B000506443 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -272,6 +308,8 @@
 		AF362C682CA7478B00506443 /* TotalActivityReport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TotalActivityReport.swift; sourceTree = "<group>"; };
 		AF362C692CA7478B00506443 /* TotalActivityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TotalActivityView.swift; sourceTree = "<group>"; };
 		AF362C722CAB174C00506443 /* BlockAppsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockAppsViewModel.swift; sourceTree = "<group>"; };
+		AF362C7E2CAB374900506443 /* CreateNewBlockingSessionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateNewBlockingSessionView.swift; sourceTree = "<group>"; };
+		AF362C802CAC6C1A00506443 /* CreateBlockingSessionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateBlockingSessionViewController.swift; sourceTree = "<group>"; };
 		AF9D41D82CA49BE50077F565 /* UsageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsageViewModel.swift; sourceTree = "<group>"; };
 		AFABBD7B2C80F2E0007BEFD8 /* UsageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsageView.swift; sourceTree = "<group>"; };
 		AFABBD7E2C863036007BEFD8 /* ModuliteWidgetExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ModuliteWidgetExtension.entitlements; sourceTree = "<group>"; };
@@ -288,6 +326,22 @@
 		AFBBC50C2C7E459A00A9B256 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AFBBC51B2C7E4AEB00A9B256 /* WidgetButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetButtonView.swift; sourceTree = "<group>"; };
 		AFBBC51F2C7E4D6900A9B256 /* WidgetButtonLabelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetButtonLabelView.swift; sourceTree = "<group>"; };
+		AFE5D5012CADD4C700503572 /* FamilyControlsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FamilyControlsManager.swift; sourceTree = "<group>"; };
+		AFE5D5092CADD51600503572 /* ModuliteShieldConfiguration.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = ModuliteShieldConfiguration.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		AFE5D50A2CADD51600503572 /* ManagedSettings.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ManagedSettings.framework; path = System/Library/Frameworks/ManagedSettings.framework; sourceTree = SDKROOT; };
+		AFE5D50C2CADD51600503572 /* ManagedSettingsUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ManagedSettingsUI.framework; path = System/Library/Frameworks/ManagedSettingsUI.framework; sourceTree = SDKROOT; };
+		AFE5D51E2CADD52400503572 /* ModuliteShieldAction.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = ModuliteShieldAction.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		AFE5D52C2CADD52E00503572 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AFE5D52D2CADD52E00503572 /* ModuliteShieldConfiguration.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ModuliteShieldConfiguration.entitlements; sourceTree = "<group>"; };
+		AFE5D52E2CADD52E00503572 /* ShieldConfigurationExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShieldConfigurationExtension.swift; sourceTree = "<group>"; };
+		AFE5D5322CADD53000503572 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AFE5D5332CADD53000503572 /* ModuliteShieldAction.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ModuliteShieldAction.entitlements; sourceTree = "<group>"; };
+		AFE5D5342CADD53000503572 /* ShieldActionExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShieldActionExtension.swift; sourceTree = "<group>"; };
+		AFE5D5382CADD7CA00503572 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		AFE5D5452CAF1B1300503572 /* CreateSessionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateSessionViewModel.swift; sourceTree = "<group>"; };
+		AFE5D54B2CAF24DE00503572 /* AppBlockingSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppBlockingSession.swift; sourceTree = "<group>"; };
+		AFE5D54F2CAF24E500503572 /* WeekDay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekDay.swift; sourceTree = "<group>"; };
+		AFE5D5522CAF24F100503572 /* BlockType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockType.swift; sourceTree = "<group>"; };
 		B30AAD622C9227BA002806A7 /* WidgetContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetContent.swift; sourceTree = "<group>"; };
 		B30AAD642C9227DE002806A7 /* WidgetContentBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetContentBuilder.swift; sourceTree = "<group>"; };
 		B32B60B32C864247007DDCE3 /* CoreDataPersistenceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataPersistenceController.swift; sourceTree = "<group>"; };
@@ -437,6 +491,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		AFE5D5062CADD51600503572 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AFE5D50B2CADD51600503572 /* ManagedSettings.framework in Frameworks */,
+				AFE5D50D2CADD51600503572 /* ManagedSettingsUI.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AFE5D51B2CADD52400503572 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AFE5D51F2CADD52400503572 /* ManagedSettings.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		B36927912C66B6E30089F769 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -489,8 +560,17 @@
 			isa = PBXGroup;
 			children = (
 				AF362C722CAB174C00506443 /* BlockAppsViewModel.swift */,
+				AFE5D5452CAF1B1300503572 /* CreateSessionViewModel.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		AF362C7B2CAB320200506443 /* FamilyControls */ = {
+			isa = PBXGroup;
+			children = (
+				AFE5D5012CADD4C700503572 /* FamilyControlsManager.swift */,
+			);
+			path = FamilyControls;
 			sourceTree = "<group>";
 		};
 		AF9D41D92CA49BE50077F565 /* ViewModel */ = {
@@ -514,7 +594,6 @@
 			children = (
 				AFABBD7B2C80F2E0007BEFD8 /* UsageView.swift */,
 				AF362C412CA5ED3700506443 /* AppUsageCell.swift */,
-				AF362BFE2CA5AD8000506443 /* UsageViewSelectAppsContentView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -523,6 +602,7 @@
 			isa = PBXGroup;
 			children = (
 				B34F3E022C6A93A30041D7BD /* BlockAppsViewController.swift */,
+				AF362C802CAC6C1A00506443 /* CreateBlockingSessionViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -531,6 +611,8 @@
 			isa = PBXGroup;
 			children = (
 				AFABBD972C8A359E007BEFD8 /* BlockAppsView.swift */,
+				AF362C7E2CAB374900506443 /* CreateNewBlockingSessionView.swift */,
+				AF362BFE2CA5AD8000506443 /* ScreenTimeelectAppsContentView.swift */,
 				AFABBD992C8A39D2007BEFD8 /* CollectionViewCells */,
 			);
 			path = View;
@@ -558,6 +640,37 @@
 				AFBBC50C2C7E459A00A9B256 /* Info.plist */,
 			);
 			path = ModuliteWidget;
+			sourceTree = "<group>";
+		};
+		AFE5D52F2CADD52E00503572 /* ModuliteShieldConfiguration */ = {
+			isa = PBXGroup;
+			children = (
+				AFE5D52C2CADD52E00503572 /* Info.plist */,
+				AFE5D52D2CADD52E00503572 /* ModuliteShieldConfiguration.entitlements */,
+				AFE5D52E2CADD52E00503572 /* ShieldConfigurationExtension.swift */,
+				AFE5D5382CADD7CA00503572 /* Assets.xcassets */,
+			);
+			path = ModuliteShieldConfiguration;
+			sourceTree = "<group>";
+		};
+		AFE5D5352CADD53000503572 /* ModuliteShieldAction */ = {
+			isa = PBXGroup;
+			children = (
+				AFE5D5322CADD53000503572 /* Info.plist */,
+				AFE5D5332CADD53000503572 /* ModuliteShieldAction.entitlements */,
+				AFE5D5342CADD53000503572 /* ShieldActionExtension.swift */,
+			);
+			path = ModuliteShieldAction;
+			sourceTree = "<group>";
+		};
+		AFE5D54C2CAF24DE00503572 /* BlockApps */ = {
+			isa = PBXGroup;
+			children = (
+				AFE5D54B2CAF24DE00503572 /* AppBlockingSession.swift */,
+				AFE5D54F2CAF24E500503572 /* WeekDay.swift */,
+				AFE5D5522CAF24F100503572 /* BlockType.swift */,
+			);
+			path = BlockApps;
 			sourceTree = "<group>";
 		};
 		B32B60B52C8642F3007DDCE3 /* AppInfo */ = {
@@ -601,6 +714,7 @@
 		B32B60C82C865130007DDCE3 /* Singleton */ = {
 			isa = PBXGroup;
 			children = (
+				AF362C7B2CAB320200506443 /* FamilyControls */,
 				B3D90ABF2C9A529B00CA8054 /* WidgetImagePersistence */,
 				B32B60B32C864247007DDCE3 /* CoreDataPersistenceController.swift */,
 			);
@@ -863,6 +977,8 @@
 				B36927B72C66B6E40089F769 /* ModuliteUITests */,
 				AF362C152CA5B1B000506443 /* ModuliteDeviceActivityMonitor */,
 				AF362C6A2CA7478B00506443 /* ModuliteDeviceActivityReport */,
+				AFE5D52F2CADD52E00503572 /* ModuliteShieldConfiguration */,
+				AFE5D5352CADD53000503572 /* ModuliteShieldAction */,
 				B36927952C66B6E30089F769 /* Products */,
 				B3F054342C7CC4890057F04D /* Frameworks */,
 			);
@@ -877,6 +993,8 @@
 				AFBBC5022C7E459900A9B256 /* ModuliteWidgetExtension.appex */,
 				AF362C042CA5B1A300506443 /* ModuliteDeviceActivityMonitor.appex */,
 				AF362C512CA73EDC00506443 /* ModuliteDeviceActivityReport.appex */,
+				AFE5D5092CADD51600503572 /* ModuliteShieldConfiguration.appex */,
+				AFE5D51E2CADD52400503572 /* ModuliteShieldAction.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -964,6 +1082,7 @@
 		B36927CA2C66B83E0089F769 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				AFE5D54C2CAF24DE00503572 /* BlockApps */,
 				B32B60B52C8642F3007DDCE3 /* AppInfo */,
 				B32B60B82C8647A9007DDCE3 /* Modules */,
 				B3EB15B72C7E4C7D003B1960 /* Widget */,
@@ -1199,6 +1318,8 @@
 				AFBBC4EB2C7E457C00A9B256 /* WidgetKit.framework */,
 				AFBBC4ED2C7E457C00A9B256 /* SwiftUI.framework */,
 				AFABBD872C88E388007BEFD8 /* DeviceActivity.framework */,
+				AFE5D50A2CADD51600503572 /* ManagedSettings.framework */,
+				AFE5D50C2CADD51600503572 /* ManagedSettingsUI.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -1264,6 +1385,44 @@
 			productReference = AFBBC5022C7E459900A9B256 /* ModuliteWidgetExtension.appex */;
 			productType = "com.apple.product-type.app-extension";
 		};
+		AFE5D5082CADD51600503572 /* ModuliteShieldConfiguration */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AFE5D5172CADD51600503572 /* Build configuration list for PBXNativeTarget "ModuliteShieldConfiguration" */;
+			buildPhases = (
+				AFE5D5052CADD51600503572 /* Sources */,
+				AFE5D5062CADD51600503572 /* Frameworks */,
+				AFE5D5072CADD51600503572 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ModuliteShieldConfiguration;
+			packageProductDependencies = (
+			);
+			productName = ModuliteShieldConfiguration;
+			productReference = AFE5D5092CADD51600503572 /* ModuliteShieldConfiguration.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+		AFE5D51D2CADD52400503572 /* ModuliteShieldAction */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AFE5D5292CADD52400503572 /* Build configuration list for PBXNativeTarget "ModuliteShieldAction" */;
+			buildPhases = (
+				AFE5D51A2CADD52400503572 /* Sources */,
+				AFE5D51B2CADD52400503572 /* Frameworks */,
+				AFE5D51C2CADD52400503572 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ModuliteShieldAction;
+			packageProductDependencies = (
+			);
+			productName = ModuliteShieldAction;
+			productReference = AFE5D51E2CADD52400503572 /* ModuliteShieldAction.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 		B36927932C66B6E30089F769 /* Modulite */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = B36927BE2C66B6E40089F769 /* Build configuration list for PBXNativeTarget "Modulite" */;
@@ -1282,6 +1441,8 @@
 				AFBBC50E2C7E459A00A9B256 /* PBXTargetDependency */,
 				AF362C0C2CA5B1A300506443 /* PBXTargetDependency */,
 				AF362C5C2CA73EDC00506443 /* PBXTargetDependency */,
+				AFE5D5142CADD51600503572 /* PBXTargetDependency */,
+				AFE5D5262CADD52400503572 /* PBXTargetDependency */,
 			);
 			name = Modulite;
 			packageProductDependencies = (
@@ -1346,6 +1507,12 @@
 					AFBBC5012C7E459900A9B256 = {
 						CreatedOnToolsVersion = 15.4;
 					};
+					AFE5D5082CADD51600503572 = {
+						CreatedOnToolsVersion = 16.0;
+					};
+					AFE5D51D2CADD52400503572 = {
+						CreatedOnToolsVersion = 16.0;
+					};
 					B36927932C66B6E30089F769 = {
 						CreatedOnToolsVersion = 15.4;
 					};
@@ -1381,6 +1548,8 @@
 				AFBBC5012C7E459900A9B256 /* ModuliteWidgetExtension */,
 				AF362C032CA5B1A300506443 /* ModuliteDeviceActivityMonitor */,
 				AF362C502CA73EDC00506443 /* ModuliteDeviceActivityReport */,
+				AFE5D5082CADD51600503572 /* ModuliteShieldConfiguration */,
+				AFE5D51D2CADD52400503572 /* ModuliteShieldAction */,
 			);
 		};
 /* End PBXProject section */
@@ -1406,6 +1575,21 @@
 			files = (
 				B39A25BE2CAE2193001C76A5 /* BundleConfig.xcconfig in Resources */,
 				AFBBC50B2C7E459A00A9B256 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AFE5D5072CADD51600503572 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AFE5D5392CADD7CA00503572 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AFE5D51C2CADD52400503572 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1485,6 +1669,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AFE5D5022CADD4C700503572 /* FamilyControlsManager.swift in Sources */,
 				AF362C162CA5B1B000506443 /* DeviceActivityMonitorExtension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1493,6 +1678,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AFE5D5042CADD4C700503572 /* FamilyControlsManager.swift in Sources */,
 				AF362C6B2CA7478B00506443 /* AppDeviceActivity.swift in Sources */,
 				AF362C6C2CA7478B00506443 /* ModuliteDeviceActivityReport.swift in Sources */,
 				AF362C6D2CA7478B00506443 /* TotalActivityReport.swift in Sources */,
@@ -1531,10 +1717,12 @@
 				B32B60A52C838EB0007DDCE3 /* WidgetModuleCell.swift in Sources */,
 				B39A259E2CAB2969001C76A5 /* Copying.swift in Sources */,
 				B32B60FC2C87AC90007DDCE3 /* AppInfo+CoreDataProperties.swift in Sources */,
+				AFE5D5512CAF24E500503572 /* WeekDay.swift in Sources */,
 				B3987E132CA38AF400896414 /* MainWidgetProvider.swift in Sources */,
 				B32B60F52C87AB85007DDCE3 /* WidgetData.xcdatamodeld in Sources */,
 				B3987E2F2CA4F46A00896414 /* MainWidgetConfigurationQuery.swift in Sources */,
 				B3987E272CA4858E00896414 /* MainWidgetModuleData.swift in Sources */,
+				AFE5D5542CAF24F100503572 /* BlockType.swift in Sources */,
 				B37284762C82997700D9A1E7 /* ImageProcessingFactory.swift in Sources */,
 				B3987E242CA4857400896414 /* MainWidgetConfigurationData.swift in Sources */,
 				B3987E182CA3938200896414 /* AuxiliaryWidget.swift in Sources */,
@@ -1544,8 +1732,25 @@
 				AFBBC5222C7E5D8D00A9B256 /* AppInfo+CoreDataClass.swift in Sources */,
 				B32B60F92C87AC81007DDCE3 /* FileManagerImagePersistenceController.swift in Sources */,
 				B372846E2C8298F100D9A1E7 /* ModuleConfiguration.swift in Sources */,
+				AFE5D54E2CAF24DE00503572 /* AppBlockingSession.swift in Sources */,
 				B372846B2C8298BB00D9A1E7 /* ModuliteWidgetConfiguration.swift in Sources */,
 				B3987E322CA4F48C00896414 /* MainWidgetConfigurationEntity.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AFE5D5052CADD51600503572 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AFE5D5312CADD52E00503572 /* ShieldConfigurationExtension.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AFE5D51A2CADD52400503572 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AFE5D5362CADD53000503572 /* ShieldActionExtension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1572,7 +1777,10 @@
 				B32B61102C8A474B007DDCE3 /* SelectAppsViewModel.swift in Sources */,
 				B30AAD652C9227DE002806A7 /* WidgetContentBuilder.swift in Sources */,
 				B36927D12C66B8CA0089F769 /* Router.swift in Sources */,
+				AF362C7F2CAB374900506443 /* CreateNewBlockingSessionView.swift in Sources */,
+				AFE5D5532CAF24F100503572 /* BlockType.swift in Sources */,
 				B36927982C66B6E30089F769 /* AppDelegate.swift in Sources */,
+				AFE5D5462CAF1B1300503572 /* CreateSessionViewModel.swift in Sources */,
 				B369279A2C66B6E30089F769 /* SceneDelegate.swift in Sources */,
 				B32B60F22C878290007DDCE3 /* UIView+asImage.swift in Sources */,
 				B34F3E0B2C6A9E350041D7BD /* NavigationRouter.swift in Sources */,
@@ -1599,6 +1807,7 @@
 				B39A25AA2CAC7C89001C76A5 /* WidgetEditorViewController+UICollectionViewDataSource.swift in Sources */,
 				B34F3E3E2C74CE090041D7BD /* EditorSectionHeader.swift in Sources */,
 				B34F3DFD2C6A92890041D7BD /* RootTabBarController.swift in Sources */,
+				AFE5D5502CAF24E500503572 /* WeekDay.swift in Sources */,
 				B350C0492C8B8B680035682F /* UIEdgeInsets+Directions.swift in Sources */,
 				B34F3E112C6B0DDD0041D7BD /* SettingsCoordinator.swift in Sources */,
 				B372846A2C81096A00D9A1E7 /* ModuleStyle.swift in Sources */,
@@ -1615,6 +1824,7 @@
 				B3987E2B2CA4F43100896414 /* SelectMainWidgetConfigurationIntent.swift in Sources */,
 				B34F3E052C6A93AC0041D7BD /* SettingsViewController.swift in Sources */,
 				B32B60CA2C8657EC007DDCE3 /* AppInfoData.swift in Sources */,
+				AF362C812CAC6C1A00506443 /* CreateBlockingSessionViewController.swift in Sources */,
 				B3987E262CA4858E00896414 /* MainWidgetModuleData.swift in Sources */,
 				B32B610E2C8A4517007DDCE3 /* SelectAppsCoordinator.swift in Sources */,
 				B32B610A2C8A4485007DDCE3 /* SelectAppsView.swift in Sources */,
@@ -1654,9 +1864,11 @@
 				AFABBD9D2C8F7D5D007BEFD8 /* BlockAppsHeaderView.swift in Sources */,
 				B34F3E282C6D36D40041D7BD /* WidgetSetupViewController.swift in Sources */,
 				B32B60BC2C86492C007DDCE3 /* UIColorValueTransformer.swift in Sources */,
+				AFE5D54D2CAF24DE00503572 /* AppBlockingSession.swift in Sources */,
 				B34F3E262C6D36C20041D7BD /* WidgetSetupView.swift in Sources */,
 				B30AAD632C9227BA002806A7 /* WidgetContent.swift in Sources */,
-				AF362BFF2CA5AD8000506443 /* UsageViewSelectAppsContentView.swift in Sources */,
+				AF362BFF2CA5AD8000506443 /* ScreenTimeelectAppsContentView.swift in Sources */,
+				AFE5D5032CADD4C700503572 /* FamilyControlsManager.swift in Sources */,
 				B34F3E3A2C74BFB00041D7BD /* WidgetEditorViewModel.swift in Sources */,
 				B32B60B42C864247007DDCE3 /* CoreDataPersistenceController.swift in Sources */,
 			);
@@ -1707,6 +1919,16 @@
 			target = AFBBC5012C7E459900A9B256 /* ModuliteWidgetExtension */;
 			targetProxy = AFBBC50D2C7E459A00A9B256 /* PBXContainerItemProxy */;
 		};
+		AFE5D5142CADD51600503572 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = AFE5D5082CADD51600503572 /* ModuliteShieldConfiguration */;
+			targetProxy = AFE5D5132CADD51600503572 /* PBXContainerItemProxy */;
+		};
+		AFE5D5262CADD52400503572 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = AFE5D51D2CADD52400503572 /* ModuliteShieldAction */;
+			targetProxy = AFE5D5252CADD52400503572 /* PBXContainerItemProxy */;
+		};
 		B36927AC2C66B6E40089F769 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = B36927932C66B6E30089F769 /* Modulite */;
@@ -1751,7 +1973,7 @@
 					"@executable_path/../../Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = dev.mnhz.modu.lite.ModuliteDeviceActivityMonitor;
+				PRODUCT_BUNDLE_IDENTIFIER = dev.woz.modu.lite.ModuliteDeviceActivityMonitor;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -1780,7 +2002,7 @@
 					"@executable_path/../../Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = dev.mnhz.modu.lite.ModuliteDeviceActivityMonitor;
+				PRODUCT_BUNDLE_IDENTIFIER = dev.woz.modu.lite.ModuliteDeviceActivityMonitor;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -1809,7 +2031,7 @@
 					"@executable_path/../../Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = dev.mnhz.modu.lite.ModuliteDeviceActivityReport;
+				PRODUCT_BUNDLE_IDENTIFIER = dev.woz.modu.lite.ModuliteDeviceActivityReport;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -1838,7 +2060,7 @@
 					"@executable_path/../../Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = dev.mnhz.modu.lite.ModuliteDeviceActivityReport;
+				PRODUCT_BUNDLE_IDENTIFIER = dev.woz.modu.lite.ModuliteDeviceActivityReport;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -1903,6 +2125,122 @@
 				);
 				MARKETING_VERSION = 0.3;
 				PRODUCT_BUNDLE_IDENTIFIER = "$(WIDGET_BUNDLE_ID)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		AFE5D5182CADD51600503572 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = ModuliteShieldConfiguration/ModuliteShieldConfiguration.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = L2AH2M48T4;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = ModuliteShieldConfiguration/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = ModuliteShieldConfiguration;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = dev.woz.modu.lite.ModuliteShieldConfiguration;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		AFE5D5192CADD51600503572 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = ModuliteShieldConfiguration/ModuliteShieldConfiguration.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = L2AH2M48T4;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = ModuliteShieldConfiguration/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = ModuliteShieldConfiguration;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = dev.woz.modu.lite.ModuliteShieldConfiguration;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		AFE5D52A2CADD52400503572 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = ModuliteShieldAction/ModuliteShieldAction.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = L2AH2M48T4;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = ModuliteShieldAction/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = ModuliteShieldAction;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = dev.woz.modu.lite.ModuliteShieldAction;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		AFE5D52B2CADD52400503572 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = ModuliteShieldAction/ModuliteShieldAction.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = L2AH2M48T4;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = ModuliteShieldAction/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = ModuliteShieldAction;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = dev.woz.modu.lite.ModuliteShieldAction;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -2118,7 +2456,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				MARKETING_VERSION = 0.2;
-				PRODUCT_BUNDLE_IDENTIFIER = dev.mnhz.ModuliteTests;
+				PRODUCT_BUNDLE_IDENTIFIER = dev.woz.ModuliteTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
@@ -2137,7 +2475,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				MARKETING_VERSION = 0.2;
-				PRODUCT_BUNDLE_IDENTIFIER = dev.mnhz.ModuliteTests;
+				PRODUCT_BUNDLE_IDENTIFIER = dev.woz.ModuliteTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
@@ -2154,7 +2492,7 @@
 				DEVELOPMENT_TEAM = L2AH2M48T4;
 				GENERATE_INFOPLIST_FILE = YES;
 				MARKETING_VERSION = 0.2;
-				PRODUCT_BUNDLE_IDENTIFIER = dev.mnhz.ModuliteUITests;
+				PRODUCT_BUNDLE_IDENTIFIER = dev.woz.ModuliteUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
@@ -2172,7 +2510,7 @@
 				DEVELOPMENT_TEAM = L2AH2M48T4;
 				GENERATE_INFOPLIST_FILE = YES;
 				MARKETING_VERSION = 0.2;
-				PRODUCT_BUNDLE_IDENTIFIER = dev.mnhz.ModuliteUITests;
+				PRODUCT_BUNDLE_IDENTIFIER = dev.woz.ModuliteUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = NO;
@@ -2208,6 +2546,24 @@
 			buildConfigurations = (
 				AFBBC5112C7E459A00A9B256 /* Debug */,
 				AFBBC5122C7E459A00A9B256 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AFE5D5172CADD51600503572 /* Build configuration list for PBXNativeTarget "ModuliteShieldConfiguration" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AFE5D5182CADD51600503572 /* Debug */,
+				AFE5D5192CADD51600503572 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AFE5D5292CADD52400503572 /* Build configuration list for PBXNativeTarget "ModuliteShieldAction" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AFE5D52A2CADD52400503572 /* Debug */,
+				AFE5D52B2CADD52400503572 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

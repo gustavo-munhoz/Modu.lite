@@ -14,6 +14,8 @@
           }
         }
       }
+    "blcokingSessionCreateBlockingSession" : {
+      "extractionState" : "manual"
     },
     "blockAppsViewBlockingSession" : {
       "extractionState" : "manual",
@@ -37,6 +39,28 @@
         }
       }
     },
+    "blockingSessionButtonSearchApps" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "SEARCH APPS"
+          }
+        }
+      }
+    },
+    "blockingSessionChooseAppsToBlock" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Choose apps to block"
+          }
+        }
+      }
+    },
     "cancel" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -47,6 +71,9 @@
           }
         }
       }
+    },
+    "Cancel" : {
+
     },
     "delete" : {
       "extractionState" : "manual",
@@ -182,10 +209,13 @@
         }
       }
     },
-    "Select Widget Configuration" : {
+    "Save" : {
 
     },
     "Select Apps" : {
+
+    },
+    "Select Widget Configuration" : {
 
     },
     "selectAppsViewAppsSelected" : {
