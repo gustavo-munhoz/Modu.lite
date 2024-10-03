@@ -8,6 +8,8 @@
 import UIKit
 
 class ModuliteWidgetConfiguration: Copying {
+    // MARK: - Properties
+    
     var id: UUID = UUID()
     var name: String?
     var widgetStyle: WidgetStyle?
@@ -26,6 +28,8 @@ class ModuliteWidgetConfiguration: Copying {
     }
     
     var createdAt: Date!
+    
+    // MARK: - Initializers
     
     init() { }
     
@@ -56,8 +60,29 @@ class ModuliteWidgetConfiguration: Copying {
             createdAt: prototype.createdAt ?? .now
         )
     }
+    
+    // MARK: - Actions
+    
+    func randomizeWithNewStyle(_ style: WidgetStyle) {
+        for i in 0..<modules.count {
+            let module = modules[i]
+            if module.isEmpty {
+                modules[i] = .empty(style: style, at: module.index)
+                continue
+            }
+            
+            modules[i] = .init(
+                index: module.index,
+                appName: module.appName,
+                associatedURLScheme: module.associatedURLScheme,
+                selectedStyle: style.getRandomStyle(),
+                selectedColor: style.defaultColor
+            )
+        }
+    }
 }
 
+// MARK: - Persistence
 extension ModuliteWidgetConfiguration {
     convenience init(persistedConfiguration config: PersistableWidgetConfiguration) {
         guard let key = WidgetStyleKey(rawValue: config.widgetStyleKey) else {
