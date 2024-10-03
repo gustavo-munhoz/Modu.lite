@@ -146,6 +146,10 @@ extension WidgetBuilderCoordinator: WidgetSetupViewControllerDelegate {
         style: WidgetStyle
     ) {
         contentBuilder.setWidgetStyle(style)
+        
+        if let config = injectedConfiguration {
+            config.randomizeWithNewStyle(style)
+        }
     }
     
     func widgetSetupViewControllerDidTapSearchApps(
