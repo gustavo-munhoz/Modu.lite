@@ -1,0 +1,3 @@
+BUNDLE_ID = dev.mnhz.modu.lite
+WIDGET_BUNDLE_ID = dev.mnhz.modu.lite.widget
+APP_GROUP_ID = group.dev.mnhz.modu.lite.shared

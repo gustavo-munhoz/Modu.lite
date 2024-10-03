@@ -161,6 +161,10 @@
 		B39A25AA2CAC7C89001C76A5 /* WidgetEditorViewController+UICollectionViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39A25A92CAC7C89001C76A5 /* WidgetEditorViewController+UICollectionViewDataSource.swift */; };
 		B39A25AC2CAC7D2A001C76A5 /* WidgetEditorViewController+UICollectionViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39A25AB2CAC7D2A001C76A5 /* WidgetEditorViewController+UICollectionViewDelegate.swift */; };
 		B39A25AE2CAC7DC2001C76A5 /* WidgetEditorViewController+UICollectionViewDragAndDropDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39A25AD2CAC7DC2001C76A5 /* WidgetEditorViewController+UICollectionViewDragAndDropDelegate.swift */; };
+		B39A25BD2CAE2193001C76A5 /* BundleConfig.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = B39A25BC2CAE2193001C76A5 /* BundleConfig.xcconfig */; };
+		B39A25BE2CAE2193001C76A5 /* BundleConfig.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = B39A25BC2CAE2193001C76A5 /* BundleConfig.xcconfig */; };
+		B39A25BF2CAE2193001C76A5 /* BundleConfig.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = B39A25BC2CAE2193001C76A5 /* BundleConfig.xcconfig */; };
+		B39A25C02CAE2193001C76A5 /* BundleConfig.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = B39A25BC2CAE2193001C76A5 /* BundleConfig.xcconfig */; };
 		B3C1877F2C78D1E000A891A8 /* ModuliteWidgetConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3C1877E2C78D1E000A891A8 /* ModuliteWidgetConfiguration.swift */; };
 		B3C187822C79009B00A891A8 /* WidgetConfigurationBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3C187812C79009B00A891A8 /* WidgetConfigurationBuilder.swift */; };
 		B3C187842C791D1300A891A8 /* WidgetStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3C187832C791D1300A891A8 /* WidgetStyle.swift */; };
@@ -336,6 +340,8 @@
 		B39A25A92CAC7C89001C76A5 /* WidgetEditorViewController+UICollectionViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WidgetEditorViewController+UICollectionViewDataSource.swift"; sourceTree = "<group>"; };
 		B39A25AB2CAC7D2A001C76A5 /* WidgetEditorViewController+UICollectionViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WidgetEditorViewController+UICollectionViewDelegate.swift"; sourceTree = "<group>"; };
 		B39A25AD2CAC7DC2001C76A5 /* WidgetEditorViewController+UICollectionViewDragAndDropDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WidgetEditorViewController+UICollectionViewDragAndDropDelegate.swift"; sourceTree = "<group>"; };
+		B39A25B82CAE1A81001C76A5 /* generate_xcconfig.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = generate_xcconfig.sh; sourceTree = "<group>"; };
+		B39A25BC2CAE2193001C76A5 /* BundleConfig.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = BundleConfig.xcconfig; sourceTree = "<group>"; };
 		B3C1877E2C78D1E000A891A8 /* ModuliteWidgetConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModuliteWidgetConfiguration.swift; sourceTree = "<group>"; };
 		B3C187812C79009B00A891A8 /* WidgetConfigurationBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetConfigurationBuilder.swift; sourceTree = "<group>"; };
 		B3C187832C791D1300A891A8 /* WidgetStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetStyle.swift; sourceTree = "<group>"; };
@@ -738,6 +744,7 @@
 		B369278B2C66B6E30089F769 = {
 			isa = PBXGroup;
 			children = (
+				B39A25B72CAE1A72001C76A5 /* Config */,
 				AFABBD7E2C863036007BEFD8 /* ModuliteWidgetExtension.entitlements */,
 				B36927962C66B6E30089F769 /* Modulite */,
 				AFBBC5052C7E459900A9B256 /* ModuliteWidget */,
@@ -1014,6 +1021,15 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		B39A25B72CAE1A72001C76A5 /* Config */ = {
+			isa = PBXGroup;
+			children = (
+				B39A25BC2CAE2193001C76A5 /* BundleConfig.xcconfig */,
+				B39A25B82CAE1A81001C76A5 /* generate_xcconfig.sh */,
+			);
+			path = Config;
+			sourceTree = "<group>";
+		};
 		B3C187802C79008800A891A8 /* Builders */ = {
 			isa = PBXGroup;
 			children = (
@@ -1100,6 +1116,7 @@
 			buildConfigurationList = B36927BE2C66B6E40089F769 /* Build configuration list for PBXNativeTarget "Modulite" */;
 			buildPhases = (
 				B34F3E382C7056820041D7BD /* ShellScript */,
+				B39A25B92CAE1B19001C76A5 /* ShellScript */,
 				B36927902C66B6E30089F769 /* Sources */,
 				B36927912C66B6E30089F769 /* Frameworks */,
 				B36927922C66B6E30089F769 /* Resources */,
@@ -1209,6 +1226,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B39A25BE2CAE2193001C76A5 /* BundleConfig.xcconfig in Resources */,
 				AFBBC50B2C7E459A00A9B256 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1219,6 +1237,7 @@
 			files = (
 				B36927A12C66B6E40089F769 /* Assets.xcassets in Resources */,
 				B3987DFF2CA202C100896414 /* InfoPlist.xcstrings in Resources */,
+				B39A25BD2CAE2193001C76A5 /* BundleConfig.xcconfig in Resources */,
 				B3F0543C2C7D04D60057F04D /* apps.json in Resources */,
 				B36927A42C66B6E40089F769 /* Base in Resources */,
 				B34F3DF32C6701740041D7BD /* Localizable.xcstrings in Resources */,
@@ -1229,6 +1248,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B39A25BF2CAE2193001C76A5 /* BundleConfig.xcconfig in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1236,6 +1256,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B39A25C02CAE2193001C76A5 /* BundleConfig.xcconfig in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1261,6 +1282,23 @@
 			shellPath = /bin/sh;
 			shellScript = "if [[ \"$(uname -m)\" == arm64 ]]\nthen\n    export PATH=\"/opt/homebrew/bin:$PATH\"\nfi\n\nif command -v swiftlint >/dev/null 2>&1\nthen\n    swiftlint\nelse\n    echo \"warning: `swiftlint` command not found - Run `brew install swiftlint` or see https://github.com/realm/SwiftLint#installation for installation instructions.\"\nfi\n";
 			showEnvVarsInLog = 0;
+		};
+		B39A25B92CAE1B19001C76A5 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"$PROJECT_DIR/Config/generate_xcconfig.sh\"\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -1484,6 +1522,7 @@
 /* Begin XCBuildConfiguration section */
 		AFBBC5112C7E459A00A9B256 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B39A25BC2CAE2193001C76A5 /* BundleConfig.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
@@ -1504,7 +1543,7 @@
 					"@executable_path/../../Frameworks",
 				);
 				MARKETING_VERSION = 0.3;
-				PRODUCT_BUNDLE_IDENTIFIER = dev.mnhz.modu.lite.widget;
+				PRODUCT_BUNDLE_IDENTIFIER = "$(WIDGET_BUNDLE_ID)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -1515,6 +1554,7 @@
 		};
 		AFBBC5122C7E459A00A9B256 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B39A25BC2CAE2193001C76A5 /* BundleConfig.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
@@ -1535,7 +1575,7 @@
 					"@executable_path/../../Frameworks",
 				);
 				MARKETING_VERSION = 0.3;
-				PRODUCT_BUNDLE_IDENTIFIER = dev.mnhz.modu.lite.widget;
+				PRODUCT_BUNDLE_IDENTIFIER = "$(WIDGET_BUNDLE_ID)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -1546,6 +1586,7 @@
 		};
 		B36927BC2C66B6E40089F769 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B39A25BC2CAE2193001C76A5 /* BundleConfig.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
@@ -1613,6 +1654,7 @@
 		};
 		B36927BD2C66B6E40089F769 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B39A25BC2CAE2193001C76A5 /* BundleConfig.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
@@ -1673,6 +1715,7 @@
 		};
 		B36927BF2C66B6E40089F769 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B39A25BC2CAE2193001C76A5 /* BundleConfig.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -1695,7 +1738,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 0.3;
-				PRODUCT_BUNDLE_IDENTIFIER = dev.mnhz.modu.lite;
+				PRODUCT_BUNDLE_IDENTIFIER = "$(BUNDLE_ID)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -1706,6 +1749,7 @@
 		};
 		B36927C02C66B6E40089F769 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B39A25BC2CAE2193001C76A5 /* BundleConfig.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -1728,7 +1772,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 0.3;
-				PRODUCT_BUNDLE_IDENTIFIER = dev.mnhz.modu.lite;
+				PRODUCT_BUNDLE_IDENTIFIER = "$(BUNDLE_ID)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
