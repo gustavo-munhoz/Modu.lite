@@ -88,4 +88,3 @@ class CreateSessionViewModel: ObservableObject {
         activitySelection = selection
     }
 }
-

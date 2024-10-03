@@ -1428,7 +1428,7 @@
 			buildConfigurationList = B36927BE2C66B6E40089F769 /* Build configuration list for PBXNativeTarget "Modulite" */;
 			buildPhases = (
 				B34F3E382C7056820041D7BD /* ShellScript */,
-				B39A25B92CAE1B19001C76A5 /* ShellScript */,
+				AFE5D5552CAF359A00503572 /* ShellScript */,
 				B36927902C66B6E30089F769 /* Sources */,
 				B36927912C66B6E30089F769 /* Frameworks */,
 				B36927922C66B6E30089F769 /* Resources */,
@@ -1625,6 +1625,25 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		AFE5D5552CAF359A00503572 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"$PROJECT_DIR/Config/generate_xcconfig.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		B34F3E382C7056820041D7BD /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			alwaysOutOfDate = 1;
@@ -1644,23 +1663,6 @@
 			shellPath = /bin/sh;
 			shellScript = "if [[ \"$(uname -m)\" == arm64 ]]\nthen\n    export PATH=\"/opt/homebrew/bin:$PATH\"\nfi\n\nif command -v swiftlint >/dev/null 2>&1\nthen\n    swiftlint\nelse\n    echo \"warning: `swiftlint` command not found - Run `brew install swiftlint` or see https://github.com/realm/SwiftLint#installation for installation instructions.\"\nfi\n";
 			showEnvVarsInLog = 0;
-		};
-		B39A25B92CAE1B19001C76A5 /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-			);
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"$PROJECT_DIR/Config/generate_xcconfig.sh\"\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -1973,7 +1975,7 @@
 					"@executable_path/../../Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = dev.woz.modu.lite.ModuliteDeviceActivityMonitor;
+				PRODUCT_BUNDLE_IDENTIFIER = "$(ACTIVITY_MONITOR_BUNDLE_ID)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -2002,7 +2004,7 @@
 					"@executable_path/../../Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = dev.woz.modu.lite.ModuliteDeviceActivityMonitor;
+				PRODUCT_BUNDLE_IDENTIFIER = "$(ACTIVITY_MONITOR_BUNDLE_ID)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -2031,7 +2033,7 @@
 					"@executable_path/../../Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = dev.woz.modu.lite.ModuliteDeviceActivityReport;
+				PRODUCT_BUNDLE_IDENTIFIER = "$(ACTIVITY_REPORT_BUNDLE_ID)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -2060,7 +2062,7 @@
 					"@executable_path/../../Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = dev.woz.modu.lite.ModuliteDeviceActivityReport;
+				PRODUCT_BUNDLE_IDENTIFIER = "$(ACTIVITY_REPORT_BUNDLE_ID)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -2153,7 +2155,7 @@
 					"@executable_path/../../Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = dev.woz.modu.lite.ModuliteShieldConfiguration;
+				PRODUCT_BUNDLE_IDENTIFIER = "$(SHIELD_CONFIGURATION_BUNDLE_ID)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -2182,7 +2184,7 @@
 					"@executable_path/../../Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = dev.woz.modu.lite.ModuliteShieldConfiguration;
+				PRODUCT_BUNDLE_IDENTIFIER = "$(SHIELD_CONFIGURATION_BUNDLE_ID)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -2211,7 +2213,7 @@
 					"@executable_path/../../Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = dev.woz.modu.lite.ModuliteShieldAction;
+				PRODUCT_BUNDLE_IDENTIFIER = "$(SHIELD_ACTION_BUNDLE_ID)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -2240,7 +2242,7 @@
 					"@executable_path/../../Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = dev.woz.modu.lite.ModuliteShieldAction;
+				PRODUCT_BUNDLE_IDENTIFIER = "$(SHIELD_ACTION_BUNDLE_ID)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;

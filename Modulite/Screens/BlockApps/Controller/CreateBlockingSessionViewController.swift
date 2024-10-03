@@ -76,21 +76,21 @@ class CreateBlockingSessionViewController: UIViewController {
             return
         }
 
-        let newBlockingSession = AppBlockingSession(
-            name: blockingSessionViewModel.name,
-            selection: blockingSessionViewModel.activitySelection,
-            blockingType: blockingSessionViewModel.blockingType,
-            isAllDay: blockingSessionViewModel.isAllDay,
-            startsAt: blockingSessionViewModel.startsAt,
-            endsAt: blockingSessionViewModel.endsAt,
-            daysOfWeek: blockingSessionViewModel.daysOfWeek,
-            isActive: blockingSessionViewModel.isActive
-        )
-        
-        delegate?.createBlockingSessionViewController(
-            self,
-            didCreate: newBlockingSession
-        )
+//        let newBlockingSession = AppBlockingSession(
+//            name: blockingSessionViewModel.name,
+//            selection: blockingSessionViewModel.activitySelection,
+//            blockingType: blockingSessionViewModel.blockingType,
+//            isAllDay: blockingSessionViewModel.isAllDay,
+//            startsAt: blockingSessionViewModel.startsAt,
+//            endsAt: blockingSessionViewModel.endsAt,
+//            daysOfWeek: blockingSessionViewModel.daysOfWeek,
+//            isActive: blockingSessionViewModel.isActive
+//        )
+//        
+//        delegate?.createBlockingSessionViewController(
+//            self,
+//            didCreate: newBlockingSession
+//        )
 
         dismiss(animated: true, completion: nil)
     }
