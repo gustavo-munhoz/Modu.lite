@@ -15,29 +15,29 @@ class FamilyControlsManager: ObservableObject {
     private let store = ManagedSettingsStore()
     private let center = DeviceActivityCenter()
     
-    @Published var activitySelection = FamilyActivitySelection() {
-        willSet {
-            print("got here \(newValue)")
-            
-            let applications = newValue.applicationTokens
-            let categories = newValue.categoryTokens
-            
-            print("applications \(applications)")
-            print("categories \(categories)")
-            
-            store.shield.applications = applications.isEmpty ? nil : applications
-            store.shield.applicationCategories = ShieldSettings
-                .ActivityCategoryPolicy
-                .specific(
-                    categories
-                )
-            store.shield.webDomainCategories = ShieldSettings
-                .ActivityCategoryPolicy
-                .specific(
-                    categories
-                )
-        }
-    }
+//    @Published var activitySelection = FamilyActivitySelection() {
+//        willSet {
+//            print("got here \(newValue)")
+//            
+//            let applications = newValue.applicationTokens
+//            let categories = newValue.categoryTokens
+//            
+//            print("applications \(applications)")
+//            print("categories \(categories)")
+//            
+//            store.shield.applications = applications.isEmpty ? nil : applications
+//            store.shield.applicationCategories = ShieldSettings
+//                .ActivityCategoryPolicy
+//                .specific(
+//                    categories
+//                )
+//            store.shield.webDomainCategories = ShieldSettings
+//                .ActivityCategoryPolicy
+//                .specific(
+//                    categories
+//                )
+//        }
+//    }
     
     func requestAuthorization() {
         let authCenter = AuthorizationCenter.shared

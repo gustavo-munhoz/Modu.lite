@@ -26,6 +26,7 @@ class CreateBlockingSessionViewController: UIViewController {
     
     override func loadView() {
         self.view = createBlockingSessionView
+        createBlockingSessionView.viewModel = blockingSessionViewModel
     }
     
     override func viewDidLoad() {
@@ -76,30 +77,41 @@ class CreateBlockingSessionViewController: UIViewController {
             return
         }
 
-//        let newBlockingSession = AppBlockingSession(
-//            name: blockingSessionViewModel.name,
-//            selection: blockingSessionViewModel.activitySelection,
-//            blockingType: blockingSessionViewModel.blockingType,
-//            isAllDay: blockingSessionViewModel.isAllDay,
-//            startsAt: blockingSessionViewModel.startsAt,
-//            endsAt: blockingSessionViewModel.endsAt,
-//            daysOfWeek: blockingSessionViewModel.daysOfWeek,
-//            isActive: blockingSessionViewModel.isActive
-//        )
-//        
-//        delegate?.createBlockingSessionViewController(
-//            self,
-//            didCreate: newBlockingSession
-//        )
+        let newBlockingSession = AppBlockingSession(
+            name: blockingSessionViewModel.getName(),
+            selection: blockingSessionViewModel.getActivitySelection(),
+            blockingType: blockingSessionViewModel.getBlockingType(),
+            isAllDay: blockingSessionViewModel.getIsAllDay(),
+            startsAt: blockingSessionViewModel.getStartsAt(),
+            endsAt: blockingSessionViewModel.getEndsAt(),
+            daysOfWeek: blockingSessionViewModel.getDaysOfWeek(),
+            isActive: blockingSessionViewModel.getIsActive()
+        )
+        
+        delegate?.createBlockingSessionViewController(
+            self,
+            didCreate: newBlockingSession
+        )
 
         dismiss(animated: true, completion: nil)
     }
 
     @objc private func presentSelectApps() {
+        // Inicializa o AppBlockManager com uma seleção vazia ou existente
+        let appBlockManager = AppBlockManager(
+            selection: blockingSessionViewModel.activitySelection,
+            activityName: DeviceActivityName(""),
+            schedule: DeviceActivitySchedule(
+                intervalStart: DateComponents(hour: 0, minute: 0),
+                intervalEnd: DateComponents(hour: 23, minute: 59),
+                repeats: true
+            )
+        )
+        
         let selectAppsView = ScreenTimeSelectAppsContentView(
-            model: FamilyControlsManager(),
+            model: appBlockManager,
             onComplete: {
-                self.blockingSessionViewModel.activitySelection = FamilyControlsManager.shared.activitySelection
+                self.blockingSessionViewModel.activitySelection = appBlockManager.activitySelection
                 self.dismiss(animated: true, completion: nil)
             },
             onCancel: {
@@ -110,6 +122,7 @@ class CreateBlockingSessionViewController: UIViewController {
         let hostingController = UIHostingController(rootView: selectAppsView)
         present(hostingController, animated: true, completion: nil)
     }
+
 }
 
 extension CreateBlockingSessionViewController {

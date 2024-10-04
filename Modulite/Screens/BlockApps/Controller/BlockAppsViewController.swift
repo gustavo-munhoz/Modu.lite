@@ -3,14 +3,14 @@ import SwiftUI
 
 class BlockAppsViewController:
     UIViewController,
-    UICollectionViewDelegate,
-    UICollectionViewDataSource,
-    BlockAppsCellDelegate {
-    
+        UICollectionViewDelegate,
+        UICollectionViewDataSource,
+        BlockAppsCellDelegate {
+
     private let blockAppsView = BlockAppsView()
     private var sessions: [AppBlockingSession] = []
     private var viewModel: BlockAppsViewModel = BlockAppsViewModel()
-    
+
     private(set) lazy var selectAppsButton: UIBarButtonItem = {
         let button = UIBarButtonItem()
         button.title = "+"
@@ -38,26 +38,29 @@ class BlockAppsViewController:
         )
         navigationItem.rightBarButtonItem = selectAppsButton
 
+        setupInitialData()
+    }
+    
+    private func setupInitialData() {
+        sessions = viewModel.blockingSessions
     }
     
     @objc private func createBlockingSession() {
         let createBlockingSessionVC = CreateBlockingSessionViewController.instantiate(with: self)
 
-        
         let navController = UINavigationController(rootViewController: createBlockingSessionVC)
         navController.modalPresentationStyle = .formSheet
         present(navController, animated: true, completion: nil)
-    }
-    
-    private func setupInitialData() {
-        sessions = viewModel.blockingSessions
     }
 
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return SectionType.allCases.count
     }
 
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    func collectionView(
+        _ collectionView: UICollectionView,
+        numberOfItemsInSection section: Int
+    ) -> Int {
         let sectionType = SectionType(rawValue: section)!
         switch sectionType {
         case .active:
@@ -94,7 +97,7 @@ class BlockAppsViewController:
         cell.appsBlockedLabel.text = "\(session.appsBlocked) apps blocked"
         cell.delegate = self
 
-        if sectionType == .inactive && sessions.filter({ $0.isActive }).count >= 4 {
+        if sectionType == .inactive && sessions.filter({ $0.isActive }).count >= 1 {
             cell.toggleSwitch.isEnabled = false
         } else {
             cell.toggleSwitch.isEnabled = true
@@ -105,43 +108,46 @@ class BlockAppsViewController:
 
     func didToggleSwitch(at index: IndexPath, isActive: Bool) {
         let sectionType = SectionType(rawValue: index.section)!
+        var session: AppBlockingSession
 
-        let session: AppBlockingSession
         if sectionType == .active {
             session = sessions.filter { $0.isActive }[index.item]
         } else {
             session = sessions.filter { !$0.isActive }[index.item]
         }
         
-        guard let originalIndex = sessions.firstIndex(where: { $0.name == session.name }) else { return }
-        
-        if sectionType == .inactive && sessions.filter({ $0.isActive }).count >= 4 {
-            print("A seção ativa está cheia, não é possível mover mais itens para a seção ativa.")
-            return
+        guard let originalIndex = sessions.firstIndex(where: { $0.id == session.id }) else { return }
+
+        if isActive {
+            for i in 0..<sessions.count {
+                if sessions[i].isActive && i != originalIndex {
+                    sessions[i].isActive = false
+                    sessions[i].deactivateBlock()
+                }
+            }
+            sessions[originalIndex].isActive = true
+            sessions[originalIndex].activateBlock()
+        } else {
+            sessions[originalIndex].isActive = false
+            sessions[originalIndex].deactivateBlock()
         }
         
-        sessions[originalIndex].isActive = isActive
+        // Atualiza o data source
+        sessions = viewModel.blockingSessions
+
+        let activeSessions = sessions.filter { $0.isActive }
+        let inactiveSessions = sessions.filter { !$0.isActive }
         
         blockAppsView.activeCollectionView.performBatchUpdates({
             if sectionType == .active {
-                let newIndexPath = IndexPath(
-                    item: sessions.filter { !$0.isActive }.count - 1,
-                    section: SectionType.inactive.rawValue
-                )
-                
+                let newIndexPath = IndexPath(item: inactiveSessions.count - 1, section: SectionType.inactive.rawValue)
                 blockAppsView.activeCollectionView.moveItem(at: index, to: newIndexPath)
             } else {
-                let activeCount = sessions.filter { $0.isActive }.count
-                let newIndexPath = IndexPath(
-                    item: activeCount - 1,
-                    section: SectionType.active.rawValue
-                )
-
+                let newIndexPath = IndexPath(item: activeSessions.count - 1, section: SectionType.active.rawValue)
                 blockAppsView.activeCollectionView.moveItem(at: index, to: newIndexPath)
             }
         }, completion: { _ in
-            self.blockAppsView.activeCollectionView.reloadSections(IndexSet(integer: SectionType.active.rawValue))
-            self.blockAppsView.activeCollectionView.reloadSections(IndexSet(integer: SectionType.inactive.rawValue))
+            self.blockAppsView.activeCollectionView.reloadData()
         })
     }
 }
@@ -152,12 +158,16 @@ extension BlockAppsViewController: BlockingSessionViewControllerDelegate {
         _ viewController: CreateBlockingSessionViewController,
         didCreate session: AppBlockingSession
     ) {
-        let row = viewModel.createBlockingSession(session)
-        let indexPath = IndexPath(item: row, section: SectionType.active.rawValue)
-        
-        blockAppsView.activeCollectionView.performBatchUpdates { [weak self] in
-            self?.blockAppsView.activeCollectionView.insertItems(at: [indexPath])
-        }
+        viewModel.createBlockingSession(session)
+        sessions = viewModel.blockingSessions
+
+        let activeSessions = sessions.filter { $0.isActive }
+        let indexPath = IndexPath(item: activeSessions.count - 1, section: SectionType.active.rawValue)
+
+        blockAppsView.activeCollectionView.performBatchUpdates({
+            self.blockAppsView.activeCollectionView.insertItems(at: [indexPath])
+        }, completion: { _ in
+            self.blockAppsView.activeCollectionView.reloadData()
+        })
     }
-    
 }
