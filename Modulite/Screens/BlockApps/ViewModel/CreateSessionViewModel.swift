@@ -55,7 +55,6 @@ class CreateSessionViewModel: ObservableObject {
     
     // MARK: - Setters
     
-    
     func setName(_ newName: String) {
         name = newName
     }
@@ -78,6 +77,14 @@ class CreateSessionViewModel: ObservableObject {
     
     func setDaysOfWeek(_ newDaysOfWeek: [WeekDay]) {
         daysOfWeek = newDaysOfWeek
+    }
+    
+    func appendDayOfWeek(_ newDay: WeekDay) {
+        daysOfWeek.append(newDay)
+    }
+    
+    func removeDayOfWeek(_ day: WeekDay) {
+        daysOfWeek.removeAll(where: { $0 == day })
     }
     
     func setIsActive(_ newIsActive: Bool) {

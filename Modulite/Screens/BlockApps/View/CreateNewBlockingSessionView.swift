@@ -17,39 +17,24 @@ class CreateNewBlockingSessionView: UIView {
     var onAppsSelected: ((FamilyActivitySelection) -> Void)?
     var onSelectApps: (() -> Void)?
     
+    // Propriedade para armazenar a view model
+    var viewModel: CreateSessionViewModel?
+    
     // MARK: - Subviews
     
-    private lazy var sessionTitleLabel: UITextField = {
+    private lazy var sessionTitleTextField: UITextField = {
         let textField = UITextField()
         textField.text = "Blocking session #1"
         textField.font = UIFont.boldSystemFont(ofSize: 20)
         textField.borderStyle = .roundedRect
         textField.backgroundColor = .potatoYellow
+        textField.addTarget(self, action: #selector(sessionTitleChanged), for: .editingChanged)
         return textField
     }()
     
-    private lazy var editButton: UIButton = {
-        let button = UIButton()
-        button.setImage(UIImage(systemName: "pencil"), for: .normal)
-        button.tintColor = .gray
-        return button
-    }()
-    
-    // Botão para escolher apps
-    private lazy var chooseAppsLabel: UILabel = {
-        let label = UILabel()
-        label.text = .localized(for: .blockingSessionChooseAppsToBlock)
-        label.font = UIFont.systemFont(ofSize: 16)
-        return label
-    }()
-    
     private lazy var searchAppsButton: UIButton = {
-        
         let button = UIButton(type: .system)
-        button.setTitle(
-            .localized(for: .blockingSessionButtonSearchApps),
-            for: .normal
-        )
+        button.setTitle("Search Apps", for: .normal)
         button.setTitleColor(.white, for: .normal)
         button.backgroundColor = UIColor.systemOrange
         button.layer.cornerRadius = 10
@@ -57,80 +42,47 @@ class CreateNewBlockingSessionView: UIView {
         return button
     }()
     
-    // Seção de duração e condições
-    private lazy var durationLabel: UILabel = {
-        let label = UILabel()
-        label.text = "Select duration and conditions"
-        label.font = UIFont.systemFont(ofSize: 16)
-        return label
-    }()
-    
-    private lazy var scheduledButton: UIButton = {
-        let button = UIButton(type: .system)
-        button.setTitle("Scheduled", for: .normal)
-        button.backgroundColor = .systemOrange
-        button.setTitleColor(.white, for: .normal)
-        button.layer.cornerRadius = 10
-        return button
-    }()
-    
-    private lazy var alwaysOnButton: UIButton = {
-        let button = UIButton(type: .system)
-        button.setTitle("Always on", for: .normal)
-        button.backgroundColor = .clear
-        button.setTitleColor(.black, for: .normal)
-        button.layer.cornerRadius = 10
-        button.layer.borderWidth = 1
-        button.layer.borderColor = UIColor.systemOrange.cgColor
-        return button
-    }()
-    
     // Switch para All Day
     private lazy var allDaySwitch: UISwitch = {
         let switchControl = UISwitch()
+        switchControl.addTarget(self, action: #selector(allDaySwitchToggled), for: .valueChanged)
         return switchControl
     }()
     
     private lazy var allDayLabel: UILabel = {
         let label = UILabel()
-        label.text = "All day"
+        label.text = "All Day"
         return label
     }()
     
     // Seletor de horário de início e fim
-    private lazy var startTimeLabel: UILabel = {
-        let label = UILabel()
-        label.text = "Start at"
-        return label
-    }()
-    
     private lazy var startTimePicker: UIDatePicker = {
         let picker = UIDatePicker()
         picker.datePickerMode = .time
+        picker.addTarget(self, action: #selector(startTimeChanged), for: .valueChanged)
         return picker
-    }()
-    
-    private lazy var endTimeLabel: UILabel = {
-        let label = UILabel()
-        label.text = "Finishes at"
-        return label
     }()
     
     private lazy var endTimePicker: UIDatePicker = {
         let picker = UIDatePicker()
         picker.datePickerMode = .time
+        picker.addTarget(self, action: #selector(endTimeChanged), for: .valueChanged)
         return picker
     }()
     
-    // Dias da semana
-    private lazy var daysOfWeekStackView: UIStackView = {
-        let stackView = UIStackView()
-        stackView.axis = .horizontal
-        stackView.distribution = .fillEqually
-        stackView.spacing = 8
-        return stackView
+    private lazy var startTimeLabel: UILabel = {
+        let label = UILabel()
+        label.text = "Start Time"
+        return label
     }()
     
+    private lazy var endTimeLabel: UILabel = {
+        let label = UILabel()
+        label.text = "End Time"
+        return label
+    }()
+    
+    // Dias da semana
     private lazy var dayButtons: [UIButton] = {
         let days = ["M", "T", "W", "T", "F", "S", "S"]
         return days.map { day in
@@ -140,23 +92,32 @@ class CreateNewBlockingSessionView: UIView {
             button.layer.cornerRadius = 8
             button.layer.borderWidth = 2
             button.layer.borderColor = UIColor.carrotOrange.cgColor
+            button.addTarget(self, action: #selector(dayButtonTapped), for: .touchUpInside)
             return button
         }
     }()
     
-    // Botão para salvar sessão
+    private lazy var dayOfWeekStackView: UIStackView = {
+        let stackView = UIStackView(arrangedSubviews: dayButtons)
+        stackView.axis = .horizontal
+        stackView.distribution = .fillEqually
+        stackView.spacing = 8
+        return stackView
+    }()
+    
     private lazy var saveSessionButton: UIButton = {
         let button = UIButton(type: .system)
         button.setTitle("SAVE SESSION", for: .normal)
         button.setTitleColor(.white, for: .normal)
         button.backgroundColor = .fiestaGreen
+        button.addTarget(self, action: #selector(saveSessionTapped), for: .touchUpInside)
         return button
     }()
     
     // MARK: - Initializers
     override init(frame: CGRect) {
         super.init(frame: frame)
-        addSubviews()
+        setupSubviews()
         setupConstraints()
         backgroundColor = .whiteTurnip
     }
@@ -166,94 +127,36 @@ class CreateNewBlockingSessionView: UIView {
     }
     
     // MARK: - Setup Views
-    private func addSubviews() {
-        addSubview(sessionTitleLabel)
-        addSubview(editButton)
-        addSubview(chooseAppsLabel)
+    private func setupSubviews() {
+        addSubview(sessionTitleTextField)
         addSubview(searchAppsButton)
-        addSubview(durationLabel)
-        addSubview(scheduledButton)
-        addSubview(alwaysOnButton)
-        addSubview(allDaySwitch)
         addSubview(allDayLabel)
+        addSubview(allDaySwitch)
         addSubview(startTimeLabel)
         addSubview(startTimePicker)
         addSubview(endTimeLabel)
         addSubview(endTimePicker)
-        addSubview(daysOfWeekStackView)
+        addSubview(dayOfWeekStackView)
         addSubview(saveSessionButton)
-        
-        // Adicionar botões de dias da semana no stackView
-        dayButtons.forEach { daysOfWeekStackView.addArrangedSubview($0) }
     }
     
     // MARK: - Setup Constraints using SnapKit
     private func setupConstraints() {
-        // Título da sessão e botão de editar
-        setupConstraintsTittleEditButton()
-        
-        // Escolher apps
-        setupContraintsChosseApps()
-        
-        // Duração e condições
-        setupConstatinstsDurationConditions()
-        setupConstraintsAllDay()
-        setupConstraintsTime()
-        
-        // Dias da semana
-        setupConstraintsDaysOfWeek()
-        
-        // Botão de salvar sessão
-        setupConstraintsSaveButton()
-    }
-    private func setupConstraintsTittleEditButton() {
-        sessionTitleLabel.snp.makeConstraints { make in
+        sessionTitleTextField.snp.makeConstraints { make in
             make.top.equalTo(safeAreaLayoutGuide).offset(20)
             make.leading.equalToSuperview().offset(20)
-        }
-        
-        editButton.snp.makeConstraints { make in
-            make.centerY.equalTo(sessionTitleLabel)
             make.trailing.equalToSuperview().offset(-20)
-        }
-    }
-    private func setupContraintsChosseApps() {
-        chooseAppsLabel.snp.makeConstraints { make in
-            make.top.equalTo(sessionTitleLabel.snp.bottom).offset(30)
-            make.leading.equalToSuperview().offset(20)
         }
         
         searchAppsButton.snp.makeConstraints { make in
-            make.top.equalTo(chooseAppsLabel.snp.bottom).offset(10)
+            make.top.equalTo(sessionTitleTextField.snp.bottom).offset(20)
             make.leading.equalToSuperview().offset(20)
             make.trailing.equalToSuperview().offset(-20)
             make.height.equalTo(50)
         }
-    }
-    private func setupConstatinstsDurationConditions() {
-        durationLabel.snp.makeConstraints { make in
-            make.top.equalTo(searchAppsButton.snp.bottom).offset(30)
-            make.leading.equalToSuperview().offset(20)
-        }
         
-        scheduledButton.snp.makeConstraints { make in
-            make.top.equalTo(durationLabel.snp.bottom).offset(10)
-            make.leading.equalToSuperview().offset(20)
-            make.width.equalTo(120)
-            make.height.equalTo(40)
-        }
-        
-        alwaysOnButton.snp.makeConstraints { make in
-            make.centerY.equalTo(scheduledButton)
-            make.leading.equalTo(scheduledButton.snp.trailing).offset(10)
-            make.width.equalTo(120)
-            make.height.equalTo(40)
-        }
-    }
-    private func setupConstraintsAllDay() {
-        // All Day Switch
         allDayLabel.snp.makeConstraints { make in
-            make.top.equalTo(scheduledButton.snp.bottom).offset(20)
+            make.top.equalTo(searchAppsButton.snp.bottom).offset(20)
             make.leading.equalToSuperview().offset(20)
         }
         
@@ -261,9 +164,7 @@ class CreateNewBlockingSessionView: UIView {
             make.centerY.equalTo(allDayLabel)
             make.leading.equalTo(allDayLabel.snp.trailing).offset(10)
         }
-    }
-    private func setupConstraintsTime() {
-        // Horários de início e fim
+        
         startTimeLabel.snp.makeConstraints { make in
             make.top.equalTo(allDayLabel.snp.bottom).offset(20)
             make.leading.equalToSuperview().offset(20)
@@ -283,17 +184,15 @@ class CreateNewBlockingSessionView: UIView {
             make.top.equalTo(endTimeLabel.snp.bottom).offset(10)
             make.leading.equalToSuperview().offset(20)
         }
-    }
-    private func setupConstraintsDaysOfWeek() {
-        daysOfWeekStackView.snp.makeConstraints { make in
+        
+        dayOfWeekStackView.snp.makeConstraints { make in
             make.top.equalTo(endTimePicker.snp.bottom).offset(30)
             make.leading.equalToSuperview().offset(20)
             make.trailing.equalToSuperview().offset(-20)
         }
-    }
-    private func setupConstraintsSaveButton() {
+        
         saveSessionButton.snp.makeConstraints { make in
-            make.top.equalTo(daysOfWeekStackView.snp.bottom).offset(30)
+            make.top.equalTo(dayOfWeekStackView.snp.bottom).offset(30)
             make.leading.equalToSuperview().offset(20)
             make.trailing.equalToSuperview().offset(-20)
             make.height.equalTo(50)
@@ -301,12 +200,41 @@ class CreateNewBlockingSessionView: UIView {
     }
     
     // MARK: - Actions
+    @objc private func sessionTitleChanged() {
+        viewModel?.setName(sessionTitleTextField.text ?? "")
+    }
+    
     @objc private func presentSelectApps() {
         onSelectApps?()
     }
     
-    @objc private func handleEditButtonTap() {
-        sessionTitleLabel.becomeFirstResponder()
+    @objc private func allDaySwitchToggled() {
+        viewModel?.setIsAllDay(allDaySwitch.isOn)
     }
     
+    @objc private func startTimeChanged() {
+        let components = Calendar.current.dateComponents([.hour, .minute], from: startTimePicker.date)
+        viewModel?.setStartsAt(components)
+    }
+    
+    @objc private func endTimeChanged() {
+        let components = Calendar.current.dateComponents([.hour, .minute], from: endTimePicker.date)
+        viewModel?.setEndsAt(components)
+    }
+    
+    @objc private func dayButtonTapped(sender: UIButton) {
+        guard let title = sender.title(for: .normal) else { return }
+        guard let dayIndex = ["M", "T", "W", "T", "F", "S", "S"].firstIndex(of: title) else { return }
+        if sender.backgroundColor == .clear {
+            sender.backgroundColor = .carrotOrange
+            viewModel?.appendDayOfWeek(WeekDay(rawValue: dayIndex)!)
+        } else {
+            sender.backgroundColor = .clear
+            viewModel?.removeDayOfWeek(WeekDay(rawValue: dayIndex)!)
+        }
+    }
+    
+    @objc private func saveSessionTapped() {
+        viewModel?.setIsActive(true)
+    }
 }

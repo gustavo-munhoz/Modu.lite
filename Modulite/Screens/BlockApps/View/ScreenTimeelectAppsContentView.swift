@@ -18,7 +18,7 @@ protocol ScreenTimeSelectAppsContentViewDelegate: AnyObject {
 
 struct ScreenTimeSelectAppsContentView: View {
     @State private var pickerIsPresented = false
-    @StateObject var model: FamilyControlsManager
+    @StateObject var model: AppBlockManager
     var onComplete: (() -> Void)?
     var onCancel: (() -> Void)?
     
