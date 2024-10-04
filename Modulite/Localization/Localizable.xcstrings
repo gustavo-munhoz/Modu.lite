@@ -98,6 +98,17 @@
         }
       }
     },
+    "homeViewAuxiliaryWidgetsPlaceholderTitle" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Unlock Auxiliary widgets with"
+          }
+        }
+      }
+    },
     "homeViewControllerTabBarItemTitle" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -138,6 +149,39 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "My widgets (Main)"
+          }
+        }
+      }
+    },
+    "homeViewMainWidgetsPlaceholderSubtitle1" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Press"
+          }
+        }
+      }
+    },
+    "homeViewMainWidgetsPlaceholderSubtitle2" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "to add a new widget"
+          }
+        }
+      }
+    },
+    "homeViewMainWidgetsPlaceholderTitle" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No widgets here yet :("
           }
         }
       }
@@ -195,6 +239,17 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "NEXT"
+          }
+        }
+      }
+    },
+    "plus" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "PLUS"
           }
         }
       }

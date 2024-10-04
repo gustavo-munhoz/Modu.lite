@@ -93,6 +93,7 @@ extension String {
         case cancel
         case delete
         case back
+        case plus
         
         // MARK: Tab Bar Titles
         case homeViewControllerTabBarItemTitle
@@ -108,6 +109,10 @@ extension String {
         case homeViewWidgetContextMenuDeleteTitle
         case homeViewDeleteWidgetAlertTitle(widgetName: String)
         case homeViewDeleteWidgetAlertMessage
+        case homeViewMainWidgetsPlaceholderTitle
+        case homeViewMainWidgetsPlaceholderSubtitle1
+        case homeViewMainWidgetsPlaceholderSubtitle2
+        case homeViewAuxiliaryWidgetsPlaceholderTitle
         
         // MARK: - WidgetSetupView & WidgetSetupViewController
         case widgetSetupViewMainWidgetNamePlaceholder(number: Int)

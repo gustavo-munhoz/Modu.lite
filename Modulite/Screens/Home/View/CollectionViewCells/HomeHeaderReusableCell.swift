@@ -48,36 +48,51 @@ class HomeHeaderReusableCell: UICollectionViewCell {
         return view
     }()
     
+    private(set) lazy var plusBadge = ModulitePlusSmallBadge()
+    
     // MARK: - Setup methods
     
     func setup(
         title: String,
         buttonImage: UIImage,
         buttonColor: UIColor = .fiestaGreen,
-        buttonAction: @escaping () -> Void
+        buttonAction: @escaping () -> Void,
+        isPlusExclusive: Bool = false
     ) {
         actionButton.configuration?.image = buttonImage
         actionButton.configuration?.baseForegroundColor = buttonColor
         onButtonTap = buttonAction
         
-        addSubviews()
-        setupContraints()
+        addSubviews(isPlusExclusive)
+        setupContraints(isPlusExclusive)
         
         titleLabel.text = title
     }
     
-    private func addSubviews() {
+    private func addSubviews(_ shouldAddBadge: Bool) {
         addSubview(titleLabel)
+        
+        if shouldAddBadge { addSubview(plusBadge) }
+        
         addSubview(actionButton)
     }
     
-    private func setupContraints() {
+    private func setupContraints(_ shouldAddBadge: Bool) {
         titleLabel.snp.makeConstraints { make in
             make.top.left.bottom.equalToSuperview()
         }
         
         actionButton.snp.makeConstraints { make in
             make.top.right.bottom.equalToSuperview()
+        }
+        
+        guard shouldAddBadge else { return }
+        
+        plusBadge.snp.makeConstraints { make in
+            make.width.equalTo(70)
+            make.height.equalTo(31)
+            make.centerY.equalTo(titleLabel)
+            make.right.equalTo(actionButton.snp.left)
         }
     }
     

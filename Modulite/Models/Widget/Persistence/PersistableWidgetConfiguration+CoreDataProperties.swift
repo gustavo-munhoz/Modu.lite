@@ -45,7 +45,6 @@ extension PersistableWidgetConfiguration {
         
         print("Saving \(config.modules.count) module images")
         
-        // FIXME: Module count is sometimes 5 after fetching
         for module in config.modules {
             guard let moduleImage = module.generateWidgetButtonImage() else {
                 fatalError("Could not generate module image")

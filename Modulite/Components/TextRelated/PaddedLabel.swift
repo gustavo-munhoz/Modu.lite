@@ -1,8 +1,8 @@
 //
-//  UILabel+Padded.swift
+//  PaddedLabel.swift
 //  Modulite
 //
-//  Created by Gustavo Munhoz Correa on 06/09/24.
+//  Created by Gustavo Munhoz Correa on 03/10/24.
 //
 
 import UIKit
