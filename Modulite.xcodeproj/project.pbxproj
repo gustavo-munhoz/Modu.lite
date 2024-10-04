@@ -192,10 +192,6 @@
 		B39A25AA2CAC7C89001C76A5 /* WidgetEditorViewController+UICollectionViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39A25A92CAC7C89001C76A5 /* WidgetEditorViewController+UICollectionViewDataSource.swift */; };
 		B39A25AC2CAC7D2A001C76A5 /* WidgetEditorViewController+UICollectionViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39A25AB2CAC7D2A001C76A5 /* WidgetEditorViewController+UICollectionViewDelegate.swift */; };
 		B39A25AE2CAC7DC2001C76A5 /* WidgetEditorViewController+UICollectionViewDragAndDropDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39A25AD2CAC7DC2001C76A5 /* WidgetEditorViewController+UICollectionViewDragAndDropDelegate.swift */; };
-		B39A25BD2CAE2193001C76A5 /* BundleConfig.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = B39A25BC2CAE2193001C76A5 /* BundleConfig.xcconfig */; };
-		B39A25BE2CAE2193001C76A5 /* BundleConfig.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = B39A25BC2CAE2193001C76A5 /* BundleConfig.xcconfig */; };
-		B39A25BF2CAE2193001C76A5 /* BundleConfig.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = B39A25BC2CAE2193001C76A5 /* BundleConfig.xcconfig */; };
-		B39A25C02CAE2193001C76A5 /* BundleConfig.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = B39A25BC2CAE2193001C76A5 /* BundleConfig.xcconfig */; };
 		B39A25C42CAEC44E001C76A5 /* MainWidgetsPlaceholderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39A25C32CAEC44E001C76A5 /* MainWidgetsPlaceholderView.swift */; };
 		B39A25D12CAF1B0D001C76A5 /* GradientLabelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39A25CF2CAF1B0D001C76A5 /* GradientLabelView.swift */; };
 		B39A25D32CAF2102001C76A5 /* Gradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39A25D22CAF2102001C76A5 /* Gradient.swift */; };
@@ -204,6 +200,12 @@
 		B39A25DC2CAF4255001C76A5 /* AuxiliaryWidgetsPlaceholderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39A25DB2CAF4255001C76A5 /* AuxiliaryWidgetsPlaceholderView.swift */; };
 		B39A25DE2CAF751B001C76A5 /* ModulitePlusLargeBadge.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39A25DD2CAF751B001C76A5 /* ModulitePlusLargeBadge.swift */; };
 		B39A25E22CAF7871001C76A5 /* PaddedLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39A25E12CAF7871001C76A5 /* PaddedLabel.swift */; };
+		B39A25E42CAFADF6001C76A5 /* BundleConfig.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = B39A25E32CAFADA2001C76A5 /* BundleConfig.xcconfig */; };
+		B39A25E52CAFADF6001C76A5 /* BundleConfig.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = B39A25E32CAFADA2001C76A5 /* BundleConfig.xcconfig */; };
+		B39A25E62CAFADF6001C76A5 /* BundleConfig.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = B39A25E32CAFADA2001C76A5 /* BundleConfig.xcconfig */; };
+		B39A25E72CAFADF6001C76A5 /* BundleConfig.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = B39A25E32CAFADA2001C76A5 /* BundleConfig.xcconfig */; };
+		B39A25E82CAFADF6001C76A5 /* BundleConfig.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = B39A25E32CAFADA2001C76A5 /* BundleConfig.xcconfig */; };
+		B39A25E92CAFADF6001C76A5 /* BundleConfig.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = B39A25E32CAFADA2001C76A5 /* BundleConfig.xcconfig */; };
 		B3C1877F2C78D1E000A891A8 /* ModuliteWidgetConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3C1877E2C78D1E000A891A8 /* ModuliteWidgetConfiguration.swift */; };
 		B3C187822C79009B00A891A8 /* WidgetConfigurationBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3C187812C79009B00A891A8 /* WidgetConfigurationBuilder.swift */; };
 		B3C187842C791D1300A891A8 /* WidgetStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3C187832C791D1300A891A8 /* WidgetStyle.swift */; };
@@ -454,7 +456,6 @@
 		B39A25AB2CAC7D2A001C76A5 /* WidgetEditorViewController+UICollectionViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WidgetEditorViewController+UICollectionViewDelegate.swift"; sourceTree = "<group>"; };
 		B39A25AD2CAC7DC2001C76A5 /* WidgetEditorViewController+UICollectionViewDragAndDropDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WidgetEditorViewController+UICollectionViewDragAndDropDelegate.swift"; sourceTree = "<group>"; };
 		B39A25B82CAE1A81001C76A5 /* generate_xcconfig.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = generate_xcconfig.sh; sourceTree = "<group>"; };
-		B39A25BC2CAE2193001C76A5 /* BundleConfig.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = BundleConfig.xcconfig; sourceTree = "<group>"; };
 		B39A25C32CAEC44E001C76A5 /* MainWidgetsPlaceholderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainWidgetsPlaceholderView.swift; sourceTree = "<group>"; };
 		B39A25CF2CAF1B0D001C76A5 /* GradientLabelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientLabelView.swift; sourceTree = "<group>"; };
 		B39A25D22CAF2102001C76A5 /* Gradient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gradient.swift; sourceTree = "<group>"; };
@@ -463,6 +464,7 @@
 		B39A25DB2CAF4255001C76A5 /* AuxiliaryWidgetsPlaceholderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuxiliaryWidgetsPlaceholderView.swift; sourceTree = "<group>"; };
 		B39A25DD2CAF751B001C76A5 /* ModulitePlusLargeBadge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModulitePlusLargeBadge.swift; sourceTree = "<group>"; };
 		B39A25E12CAF7871001C76A5 /* PaddedLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaddedLabel.swift; sourceTree = "<group>"; };
+		B39A25E32CAFADA2001C76A5 /* BundleConfig.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = BundleConfig.xcconfig; sourceTree = "<group>"; };
 		B3C1877E2C78D1E000A891A8 /* ModuliteWidgetConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModuliteWidgetConfiguration.swift; sourceTree = "<group>"; };
 		B3C187812C79009B00A891A8 /* WidgetConfigurationBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetConfigurationBuilder.swift; sourceTree = "<group>"; };
 		B3C187832C791D1300A891A8 /* WidgetStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetStyle.swift; sourceTree = "<group>"; };
@@ -1270,7 +1272,7 @@
 		B39A25B72CAE1A72001C76A5 /* Config */ = {
 			isa = PBXGroup;
 			children = (
-				B39A25BC2CAE2193001C76A5 /* BundleConfig.xcconfig */,
+				B39A25E32CAFADA2001C76A5 /* BundleConfig.xcconfig */,
 				B39A25B82CAE1A81001C76A5 /* generate_xcconfig.sh */,
 			);
 			path = Config;
@@ -1628,6 +1630,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B39A25E62CAFADF6001C76A5 /* BundleConfig.xcconfig in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1635,6 +1638,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B39A25E72CAFADF6001C76A5 /* BundleConfig.xcconfig in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1642,7 +1646,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B39A25BE2CAE2193001C76A5 /* BundleConfig.xcconfig in Resources */,
+				B39A25E52CAFADF6001C76A5 /* BundleConfig.xcconfig in Resources */,
 				AFBBC50B2C7E459A00A9B256 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1651,6 +1655,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B39A25E82CAFADF6001C76A5 /* BundleConfig.xcconfig in Resources */,
 				AFE5D5392CADD7CA00503572 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1659,6 +1664,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B39A25E92CAFADF6001C76A5 /* BundleConfig.xcconfig in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1668,7 +1674,7 @@
 			files = (
 				B36927A12C66B6E40089F769 /* Assets.xcassets in Resources */,
 				B3987DFF2CA202C100896414 /* InfoPlist.xcstrings in Resources */,
-				B39A25BD2CAE2193001C76A5 /* BundleConfig.xcconfig in Resources */,
+				B39A25E42CAFADF6001C76A5 /* BundleConfig.xcconfig in Resources */,
 				B3F0543C2C7D04D60057F04D /* apps.json in Resources */,
 				B36927A42C66B6E40089F769 /* Base in Resources */,
 				B34F3DF32C6701740041D7BD /* Localizable.xcstrings in Resources */,
@@ -1679,7 +1685,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B39A25BF2CAE2193001C76A5 /* BundleConfig.xcconfig in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1687,7 +1692,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B39A25C02CAE2193001C76A5 /* BundleConfig.xcconfig in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2033,6 +2037,7 @@
 /* Begin XCBuildConfiguration section */
 		AF362C102CA5B1A300506443 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B39A25E32CAFADA2001C76A5 /* BundleConfig.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = ModuliteDeviceActivityMonitor/ModuliteDeviceActivityMonitor.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
@@ -2062,6 +2067,7 @@
 		};
 		AF362C112CA5B1A300506443 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B39A25E32CAFADA2001C76A5 /* BundleConfig.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = ModuliteDeviceActivityMonitor/ModuliteDeviceActivityMonitor.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
@@ -2091,6 +2097,7 @@
 		};
 		AF362C602CA73EDC00506443 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B39A25E32CAFADA2001C76A5 /* BundleConfig.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = ModuliteDeviceActivityReport/ModuliteDeviceActivityReport.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
@@ -2120,6 +2127,7 @@
 		};
 		AF362C612CA73EDC00506443 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B39A25E32CAFADA2001C76A5 /* BundleConfig.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = ModuliteDeviceActivityReport/ModuliteDeviceActivityReport.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
@@ -2149,7 +2157,7 @@
 		};
 		AFBBC5112C7E459A00A9B256 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B39A25BC2CAE2193001C76A5 /* BundleConfig.xcconfig */;
+			baseConfigurationReference = B39A25E32CAFADA2001C76A5 /* BundleConfig.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
@@ -2181,7 +2189,7 @@
 		};
 		AFBBC5122C7E459A00A9B256 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B39A25BC2CAE2193001C76A5 /* BundleConfig.xcconfig */;
+			baseConfigurationReference = B39A25E32CAFADA2001C76A5 /* BundleConfig.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
@@ -2213,6 +2221,7 @@
 		};
 		AFE5D5182CADD51600503572 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B39A25E32CAFADA2001C76A5 /* BundleConfig.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = ModuliteShieldConfiguration/ModuliteShieldConfiguration.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
@@ -2242,6 +2251,7 @@
 		};
 		AFE5D5192CADD51600503572 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B39A25E32CAFADA2001C76A5 /* BundleConfig.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = ModuliteShieldConfiguration/ModuliteShieldConfiguration.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
@@ -2271,6 +2281,7 @@
 		};
 		AFE5D52A2CADD52400503572 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B39A25E32CAFADA2001C76A5 /* BundleConfig.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = ModuliteShieldAction/ModuliteShieldAction.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
@@ -2300,6 +2311,7 @@
 		};
 		AFE5D52B2CADD52400503572 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B39A25E32CAFADA2001C76A5 /* BundleConfig.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = ModuliteShieldAction/ModuliteShieldAction.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
@@ -2329,7 +2341,7 @@
 		};
 		B36927BC2C66B6E40089F769 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B39A25BC2CAE2193001C76A5 /* BundleConfig.xcconfig */;
+			baseConfigurationReference = B39A25E32CAFADA2001C76A5 /* BundleConfig.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
@@ -2397,7 +2409,7 @@
 		};
 		B36927BD2C66B6E40089F769 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B39A25BC2CAE2193001C76A5 /* BundleConfig.xcconfig */;
+			baseConfigurationReference = B39A25E32CAFADA2001C76A5 /* BundleConfig.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
@@ -2458,7 +2470,7 @@
 		};
 		B36927BF2C66B6E40089F769 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B39A25BC2CAE2193001C76A5 /* BundleConfig.xcconfig */;
+			baseConfigurationReference = B39A25E32CAFADA2001C76A5 /* BundleConfig.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -2466,7 +2478,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 0.3.2;
-				DEVELOPMENT_TEAM = L2AH2M48T4;
+				DEVELOPMENT_TEAM = 7U55BCTM6U;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Modulite/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Modu.lite;
@@ -2492,7 +2504,7 @@
 		};
 		B36927C02C66B6E40089F769 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B39A25BC2CAE2193001C76A5 /* BundleConfig.xcconfig */;
+			baseConfigurationReference = B39A25E32CAFADA2001C76A5 /* BundleConfig.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -2500,7 +2512,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 0.3.2;
-				DEVELOPMENT_TEAM = L2AH2M48T4;
+				DEVELOPMENT_TEAM = 7U55BCTM6U;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Modulite/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Modu.lite;
