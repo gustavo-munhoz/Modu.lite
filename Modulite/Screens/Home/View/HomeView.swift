@@ -21,8 +21,12 @@ class HomeView: UIScrollView {
     /// Collection view for displaying main widgets.
     private(set) lazy var mainWidgetsCollectionView = createCollectionView(for: .mainWidgets)
     
+    private let mainWidgetsPlaceholderView = MainWidgetsPlaceholderView()
+    
     /// Collection view for displaying auxiliary widgets.
     private(set) lazy var auxiliaryWidgetsCollectionView = createCollectionView(for: .auxiliaryWidgets)
+    
+    private let auxWidgetsPlaceholderView = AuxiliaryWidgetsPlaceholderView()
     
     /// Collection view for displaying tips.
     private(set) lazy var tipsCollectionView: UICollectionView = createCollectionView(for: .tips)
@@ -68,6 +72,7 @@ class HomeView: UIScrollView {
             MainWidgetCollectionViewCell.self,
             forCellWithReuseIdentifier: MainWidgetCollectionViewCell.reuseId
         )
+        
         mainWidgetsCollectionView.register(
             HomeHeaderReusableCell.self,
             forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader,
@@ -98,7 +103,9 @@ class HomeView: UIScrollView {
     /// Adds all subviews to the contentView, which is then added to the UIScrollView.
     private func addSubviews() {
         addSubview(contentView)
+        contentView.addSubview(mainWidgetsPlaceholderView)
         contentView.addSubview(mainWidgetsCollectionView)
+        contentView.addSubview(auxWidgetsPlaceholderView)
         contentView.addSubview(auxiliaryWidgetsCollectionView)
         contentView.addSubview(tipsCollectionView)
     }
@@ -106,9 +113,9 @@ class HomeView: UIScrollView {
     private func setupConstraints() {
         contentView.snp.makeConstraints { make in
             make.edges.equalToSuperview().inset(
-                UIEdgeInsets(top: 24, left: 24, bottom: 0, right: -24)
+                UIEdgeInsets(top: 24, left: 20, bottom: 0, right: -20)
             )
-            make.width.equalToSuperview().offset(-48)
+            make.width.equalToSuperview().offset(-40)
             make.height.equalTo(800)
         }
         
@@ -117,10 +124,18 @@ class HomeView: UIScrollView {
             make.height.equalTo(300)
         }
         
+        mainWidgetsPlaceholderView.snp.makeConstraints { make in
+            make.edges.equalTo(mainWidgetsCollectionView)
+        }
+        
         auxiliaryWidgetsCollectionView.snp.makeConstraints { make in
             make.top.equalTo(mainWidgetsCollectionView.snp.bottom)
             make.left.right.equalToSuperview()
             make.height.equalTo(190)
+        }
+        
+        auxWidgetsPlaceholderView.snp.makeConstraints { make in
+            make.edges.equalTo(auxiliaryWidgetsCollectionView)
         }
         
         tipsCollectionView.snp.makeConstraints { make in
@@ -128,6 +143,14 @@ class HomeView: UIScrollView {
             make.left.right.equalToSuperview()
             make.height.equalTo(210)
         }
+    }
+    
+    func setMainWidgetPlaceholderVisibility(to shouldShow: Bool) {
+        mainWidgetsPlaceholderView.isHidden = !shouldShow
+    }
+    
+    func setAuxWidgetPlaceholderVisibility(to shouldShow: Bool) {
+        auxWidgetsPlaceholderView.isHidden = !shouldShow
     }
     
     // MARK: - Helper methods

@@ -13,10 +13,7 @@ class HomeViewModel: NSObject {
     
     @Published var mainWidgets: [ModuliteWidgetConfiguration]
     
-    @Published var auxiliaryWidgets: [UIImage] = [
-        UIImage(systemName: "trash.fill")!,
-        UIImage(systemName: "trash.fill")!
-    ]
+    @Published var auxiliaryWidgets: [UIImage] = []
     
     @Published var tips: [UIImage] = []
     

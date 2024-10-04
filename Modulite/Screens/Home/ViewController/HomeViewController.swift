@@ -37,6 +37,7 @@ class HomeViewController: UIViewController {
         super.viewDidLoad()
 
         setupNavigationBar()
+        updatePlaceholderViews()
     }
     
     // MARK: - Setup methods
@@ -50,7 +51,7 @@ class HomeViewController: UIViewController {
         navigationController?.navigationBar.standardAppearance = appearance
         navigationController?.navigationBar.scrollEdgeAppearance = appearance
         
-        guard let image = UIImage(named: "navbar-app-name") else {
+        guard let image = UIImage(named: "moduliteAppName") else {
             print("Image not found")
             return
         }
@@ -62,6 +63,11 @@ class HomeViewController: UIViewController {
     }
     
     // MARK: - Actions
+    func updatePlaceholderViews() {
+        homeView.setMainWidgetPlaceholderVisibility(to: viewModel.mainWidgets.isEmpty)
+        homeView.setAuxWidgetPlaceholderVisibility(to: viewModel.auxiliaryWidgets.isEmpty)
+    }
+    
     func getCurrentMainWidgetCount() -> Int {
         viewModel.mainWidgets.count
     }
@@ -94,6 +100,8 @@ class HomeViewController: UIViewController {
         homeView.mainWidgetsCollectionView.performBatchUpdates { [weak self] in
             self?.homeView.mainWidgetsCollectionView.insertItems(at: [indexPath])
         }
+        
+        updatePlaceholderViews()
     }
     
     func deleteMainWidget(with id: UUID) {
@@ -118,6 +126,7 @@ class HomeViewController: UIViewController {
             self?.homeView.mainWidgetsCollectionView.deleteItems(at: [indexPath])
         }
         
+        updatePlaceholderViews()
     }
 }
 
@@ -223,7 +232,8 @@ extension HomeViewController: UICollectionViewDataSource {
                 buttonAction: { [weak self] in
                     guard let self = self else { return }
                     self.delegate?.homeViewControllerDidStartWidgetCreationFlow(self)
-                }
+                },
+                isPlusExclusive: true
             )
             
         case homeView.tipsCollectionView:
