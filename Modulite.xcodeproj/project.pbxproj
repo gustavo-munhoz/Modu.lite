@@ -120,7 +120,6 @@
 		B34F3E3A2C74BFB00041D7BD /* WidgetEditorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B34F3E392C74BFB00041D7BD /* WidgetEditorViewModel.swift */; };
 		B34F3E3E2C74CE090041D7BD /* EditorSectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = B34F3E3D2C74CE090041D7BD /* EditorSectionHeader.swift */; };
 		B34F3E402C74E3270041D7BD /* WidgetModuleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B34F3E3F2C74E3270041D7BD /* WidgetModuleCell.swift */; };
-		B350C0472C8B8B340035682F /* UILabel+Padded.swift in Sources */ = {isa = PBXBuildFile; fileRef = B350C0462C8B8B340035682F /* UILabel+Padded.swift */; };
 		B350C0492C8B8B680035682F /* UIEdgeInsets+Directions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B350C0482C8B8B680035682F /* UIEdgeInsets+Directions.swift */; };
 		B350C04B2C8B8C070035682F /* AppCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B350C04A2C8B8C070035682F /* AppCollectionViewCell.swift */; };
 		B350C05A2C8F92C90035682F /* WidgetBuilderCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B350C0592C8F92C90035682F /* WidgetBuilderCoordinator.swift */; };
@@ -197,6 +196,14 @@
 		B39A25BE2CAE2193001C76A5 /* BundleConfig.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = B39A25BC2CAE2193001C76A5 /* BundleConfig.xcconfig */; };
 		B39A25BF2CAE2193001C76A5 /* BundleConfig.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = B39A25BC2CAE2193001C76A5 /* BundleConfig.xcconfig */; };
 		B39A25C02CAE2193001C76A5 /* BundleConfig.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = B39A25BC2CAE2193001C76A5 /* BundleConfig.xcconfig */; };
+		B39A25C42CAEC44E001C76A5 /* MainWidgetsPlaceholderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39A25C32CAEC44E001C76A5 /* MainWidgetsPlaceholderView.swift */; };
+		B39A25D12CAF1B0D001C76A5 /* GradientLabelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39A25CF2CAF1B0D001C76A5 /* GradientLabelView.swift */; };
+		B39A25D32CAF2102001C76A5 /* Gradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39A25D22CAF2102001C76A5 /* Gradient.swift */; };
+		B39A25D62CAF260C001C76A5 /* CAGradientLayer+Gradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39A25D42CAF260C001C76A5 /* CAGradientLayer+Gradient.swift */; };
+		B39A25D82CAF275F001C76A5 /* ModulitePlusSmallBadge.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39A25D72CAF275F001C76A5 /* ModulitePlusSmallBadge.swift */; };
+		B39A25DC2CAF4255001C76A5 /* AuxiliaryWidgetsPlaceholderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39A25DB2CAF4255001C76A5 /* AuxiliaryWidgetsPlaceholderView.swift */; };
+		B39A25DE2CAF751B001C76A5 /* ModulitePlusLargeBadge.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39A25DD2CAF751B001C76A5 /* ModulitePlusLargeBadge.swift */; };
+		B39A25E22CAF7871001C76A5 /* PaddedLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39A25E12CAF7871001C76A5 /* PaddedLabel.swift */; };
 		B3C1877F2C78D1E000A891A8 /* ModuliteWidgetConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3C1877E2C78D1E000A891A8 /* ModuliteWidgetConfiguration.swift */; };
 		B3C187822C79009B00A891A8 /* WidgetConfigurationBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3C187812C79009B00A891A8 /* WidgetConfigurationBuilder.swift */; };
 		B3C187842C791D1300A891A8 /* WidgetStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3C187832C791D1300A891A8 /* WidgetStyle.swift */; };
@@ -395,7 +402,6 @@
 		B34F3E392C74BFB00041D7BD /* WidgetEditorViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetEditorViewModel.swift; sourceTree = "<group>"; };
 		B34F3E3D2C74CE090041D7BD /* EditorSectionHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditorSectionHeader.swift; sourceTree = "<group>"; };
 		B34F3E3F2C74E3270041D7BD /* WidgetModuleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetModuleCell.swift; sourceTree = "<group>"; };
-		B350C0462C8B8B340035682F /* UILabel+Padded.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Padded.swift"; sourceTree = "<group>"; };
 		B350C0482C8B8B680035682F /* UIEdgeInsets+Directions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIEdgeInsets+Directions.swift"; sourceTree = "<group>"; };
 		B350C04A2C8B8C070035682F /* AppCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCollectionViewCell.swift; sourceTree = "<group>"; };
 		B350C0592C8F92C90035682F /* WidgetBuilderCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetBuilderCoordinator.swift; sourceTree = "<group>"; };
@@ -449,6 +455,14 @@
 		B39A25AD2CAC7DC2001C76A5 /* WidgetEditorViewController+UICollectionViewDragAndDropDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WidgetEditorViewController+UICollectionViewDragAndDropDelegate.swift"; sourceTree = "<group>"; };
 		B39A25B82CAE1A81001C76A5 /* generate_xcconfig.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = generate_xcconfig.sh; sourceTree = "<group>"; };
 		B39A25BC2CAE2193001C76A5 /* BundleConfig.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = BundleConfig.xcconfig; sourceTree = "<group>"; };
+		B39A25C32CAEC44E001C76A5 /* MainWidgetsPlaceholderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainWidgetsPlaceholderView.swift; sourceTree = "<group>"; };
+		B39A25CF2CAF1B0D001C76A5 /* GradientLabelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientLabelView.swift; sourceTree = "<group>"; };
+		B39A25D22CAF2102001C76A5 /* Gradient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gradient.swift; sourceTree = "<group>"; };
+		B39A25D42CAF260C001C76A5 /* CAGradientLayer+Gradient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CAGradientLayer+Gradient.swift"; sourceTree = "<group>"; };
+		B39A25D72CAF275F001C76A5 /* ModulitePlusSmallBadge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModulitePlusSmallBadge.swift; sourceTree = "<group>"; };
+		B39A25DB2CAF4255001C76A5 /* AuxiliaryWidgetsPlaceholderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuxiliaryWidgetsPlaceholderView.swift; sourceTree = "<group>"; };
+		B39A25DD2CAF751B001C76A5 /* ModulitePlusLargeBadge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModulitePlusLargeBadge.swift; sourceTree = "<group>"; };
+		B39A25E12CAF7871001C76A5 /* PaddedLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaddedLabel.swift; sourceTree = "<group>"; };
 		B3C1877E2C78D1E000A891A8 /* ModuliteWidgetConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModuliteWidgetConfiguration.swift; sourceTree = "<group>"; };
 		B3C187812C79009B00A891A8 /* WidgetConfigurationBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetConfigurationBuilder.swift; sourceTree = "<group>"; };
 		B3C187832C791D1300A891A8 /* WidgetStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetStyle.swift; sourceTree = "<group>"; };
@@ -816,15 +830,11 @@
 		B34F3E292C6E83670041D7BD /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				B3987E032CA3602900896414 /* UIView+animateBorderColor.swift */,
+				B39A25C62CAF0806001C76A5 /* UIView */,
 				B34F3E2A2C6E837F0041D7BD /* UIFont+TraitedTextStyle.swift */,
-				B34F3E322C6E8AA60041D7BD /* UITextField+HorizontalPadding.swift */,
-				B3EB15BA2C7E5DC5003B1960 /* UILabel+AppNameConfiguration.swift */,
 				B3EB15BC2C7E7311003B1960 /* String+TextCase.swift */,
-				B32B60F12C878290007DDCE3 /* UIView+asImage.swift */,
-				B350C0462C8B8B340035682F /* UILabel+Padded.swift */,
 				B350C0482C8B8B680035682F /* UIEdgeInsets+Directions.swift */,
-				B3850BB42C94D1F200F400C0 /* UICollectionViewCell+toggleIsHighlighted.swift */,
+				B39A25D42CAF260C001C76A5 /* CAGradientLayer+Gradient.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -1018,6 +1028,7 @@
 				B34F3DF12C6701070041D7BD /* Localization */,
 				B36927CA2C66B83E0089F769 /* Models */,
 				B36927C92C66B8380089F769 /* Routers */,
+				B39A25CB2CAF0EB9001C76A5 /* Components */,
 				B36927CB2C66B8430089F769 /* Screens */,
 				B3987DFE2CA202C100896414 /* InfoPlist.xcstrings */,
 			);
@@ -1143,6 +1154,7 @@
 			isa = PBXGroup;
 			children = (
 				B36927D92C66C2770089F769 /* HomeView.swift */,
+				B39A25C22CAEC437001C76A5 /* PlaceholderViews */,
 				B34F3E122C6B93AB0041D7BD /* CollectionViewCells */,
 			);
 			path = View;
@@ -1262,6 +1274,63 @@
 				B39A25B82CAE1A81001C76A5 /* generate_xcconfig.sh */,
 			);
 			path = Config;
+			sourceTree = "<group>";
+		};
+		B39A25C22CAEC437001C76A5 /* PlaceholderViews */ = {
+			isa = PBXGroup;
+			children = (
+				B39A25C32CAEC44E001C76A5 /* MainWidgetsPlaceholderView.swift */,
+				B39A25DB2CAF4255001C76A5 /* AuxiliaryWidgetsPlaceholderView.swift */,
+			);
+			path = PlaceholderViews;
+			sourceTree = "<group>";
+		};
+		B39A25C62CAF0806001C76A5 /* UIView */ = {
+			isa = PBXGroup;
+			children = (
+				B3850BB42C94D1F200F400C0 /* UICollectionViewCell+toggleIsHighlighted.swift */,
+				B3EB15BA2C7E5DC5003B1960 /* UILabel+AppNameConfiguration.swift */,
+				B32B60F12C878290007DDCE3 /* UIView+asImage.swift */,
+				B34F3E322C6E8AA60041D7BD /* UITextField+HorizontalPadding.swift */,
+				B3987E032CA3602900896414 /* UIView+animateBorderColor.swift */,
+			);
+			path = UIView;
+			sourceTree = "<group>";
+		};
+		B39A25CB2CAF0EB9001C76A5 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				B39A25E02CAF7863001C76A5 /* TextRelated */,
+				B39A25DA2CAF276C001C76A5 /* ModulitePlus */,
+				B39A25D02CAF1B0D001C76A5 /* Gradients */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		B39A25D02CAF1B0D001C76A5 /* Gradients */ = {
+			isa = PBXGroup;
+			children = (
+				B39A25CF2CAF1B0D001C76A5 /* GradientLabelView.swift */,
+				B39A25D22CAF2102001C76A5 /* Gradient.swift */,
+			);
+			path = Gradients;
+			sourceTree = "<group>";
+		};
+		B39A25DA2CAF276C001C76A5 /* ModulitePlus */ = {
+			isa = PBXGroup;
+			children = (
+				B39A25D72CAF275F001C76A5 /* ModulitePlusSmallBadge.swift */,
+				B39A25DD2CAF751B001C76A5 /* ModulitePlusLargeBadge.swift */,
+			);
+			path = ModulitePlus;
+			sourceTree = "<group>";
+		};
+		B39A25E02CAF7863001C76A5 /* TextRelated */ = {
+			isa = PBXGroup;
+			children = (
+				B39A25E12CAF7871001C76A5 /* PaddedLabel.swift */,
+			);
+			path = TextRelated;
 			sourceTree = "<group>";
 		};
 		B3C187802C79008800A891A8 /* Builders */ = {
@@ -1761,10 +1830,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				B39A25AE2CAC7DC2001C76A5 /* WidgetEditorViewController+UICollectionViewDragAndDropDelegate.swift in Sources */,
+				B39A25DC2CAF4255001C76A5 /* AuxiliaryWidgetsPlaceholderView.swift in Sources */,
 				B34F3E0F2C6B0D340041D7BD /* BlockAppsCoordinator.swift in Sources */,
 				B39A259D2CAB2945001C76A5 /* Copying.swift in Sources */,
 				B32B60C62C865042007DDCE3 /* PersistableWidgetConfiguration+CoreDataClass.swift in Sources */,
-				B350C0472C8B8B340035682F /* UILabel+Padded.swift in Sources */,
 				B3850BB72C951DD700F400C0 /* WidgetBackground.swift in Sources */,
 				B32B60C72C865042007DDCE3 /* PersistableWidgetConfiguration+CoreDataProperties.swift in Sources */,
 				B39A25A62CAB5F11001C76A5 /* WidgetEditorDeleteButton.swift in Sources */,
@@ -1785,6 +1854,7 @@
 				AFE5D5462CAF1B1300503572 /* CreateSessionViewModel.swift in Sources */,
 				B369279A2C66B6E30089F769 /* SceneDelegate.swift in Sources */,
 				B32B60F22C878290007DDCE3 /* UIView+asImage.swift in Sources */,
+				B39A25D82CAF275F001C76A5 /* ModulitePlusSmallBadge.swift in Sources */,
 				B34F3E0B2C6A9E350041D7BD /* NavigationRouter.swift in Sources */,
 				B36927DA2C66C2770089F769 /* HomeView.swift in Sources */,
 				B36927D52C66BCE60089F769 /* HomeCoordinator.swift in Sources */,
@@ -1804,6 +1874,7 @@
 				B32B61062C8A4140007DDCE3 /* ModalNavigationRouter.swift in Sources */,
 				B3987E2E2CA4F46A00896414 /* MainWidgetConfigurationQuery.swift in Sources */,
 				B3C187822C79009B00A891A8 /* WidgetConfigurationBuilder.swift in Sources */,
+				B39A25D62CAF260C001C76A5 /* CAGradientLayer+Gradient.swift in Sources */,
 				B3C1877F2C78D1E000A891A8 /* ModuliteWidgetConfiguration.swift in Sources */,
 				B32B60FE2C88E43F007DDCE3 /* CustomizedTextFactory.swift in Sources */,
 				B39A25AA2CAC7C89001C76A5 /* WidgetEditorViewController+UICollectionViewDataSource.swift in Sources */,
@@ -1814,6 +1885,7 @@
 				B34F3E112C6B0DDD0041D7BD /* SettingsCoordinator.swift in Sources */,
 				B372846A2C81096A00D9A1E7 /* ModuleStyle.swift in Sources */,
 				B32B60B72C864301007DDCE3 /* AppInfo+CoreDataProperties.swift in Sources */,
+				B39A25C42CAEC44E001C76A5 /* MainWidgetsPlaceholderView.swift in Sources */,
 				B34F3E142C6B93C80041D7BD /* MainWidgetCollectionViewCell.swift in Sources */,
 				B3987E0D2CA38A8A00896414 /* MainWidget.swift in Sources */,
 				B3CDD7072C77C59B00E558F8 /* ImageProcessingFactory.swift in Sources */,
@@ -1847,10 +1919,12 @@
 				B34F3E2E2C6E87350041D7BD /* SetupHeaderReusableCell.swift in Sources */,
 				B350C04B2C8B8C070035682F /* AppCollectionViewCell.swift in Sources */,
 				B34F3E162C6B93EA0041D7BD /* AuxiliaryWidgetCollectionViewCell.swift in Sources */,
+				B39A25D32CAF2102001C76A5 /* Gradient.swift in Sources */,
 				B34F3E332C6E8AA60041D7BD /* UITextField+HorizontalPadding.swift in Sources */,
 				B32B610C2C8A449C007DDCE3 /* SelectAppsViewController.swift in Sources */,
 				B3987E192CA3938200896414 /* AuxiliaryWidget.swift in Sources */,
 				B3987E232CA4857400896414 /* MainWidgetConfigurationData.swift in Sources */,
+				B39A25DE2CAF751B001C76A5 /* ModulitePlusLargeBadge.swift in Sources */,
 				B350C05A2C8F92C90035682F /* WidgetBuilderCoordinator.swift in Sources */,
 				B3987E1F2CA3A3BC00896414 /* MainWidgetModuleButton.swift in Sources */,
 				B3987E312CA4F48C00896414 /* MainWidgetConfigurationEntity.swift in Sources */,
@@ -1867,11 +1941,13 @@
 				B34F3E282C6D36D40041D7BD /* WidgetSetupViewController.swift in Sources */,
 				B32B60BC2C86492C007DDCE3 /* UIColorValueTransformer.swift in Sources */,
 				AFE5D54D2CAF24DE00503572 /* AppBlockingSession.swift in Sources */,
+				B39A25D12CAF1B0D001C76A5 /* GradientLabelView.swift in Sources */,
 				B34F3E262C6D36C20041D7BD /* WidgetSetupView.swift in Sources */,
 				B30AAD632C9227BA002806A7 /* WidgetContent.swift in Sources */,
 				AF362BFF2CA5AD8000506443 /* ScreenTimeelectAppsContentView.swift in Sources */,
 				AFE5D5032CADD4C700503572 /* FamilyControlsManager.swift in Sources */,
 				B34F3E3A2C74BFB00041D7BD /* WidgetEditorViewModel.swift in Sources */,
+				B39A25E22CAF7871001C76A5 /* PaddedLabel.swift in Sources */,
 				B32B60B42C864247007DDCE3 /* CoreDataPersistenceController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
