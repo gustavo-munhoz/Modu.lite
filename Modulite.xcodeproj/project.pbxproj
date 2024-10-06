@@ -1006,6 +1006,16 @@
 			path = WidgetBuilder;
 			sourceTree = "<group>";
 		};
+		B35BFB832CB32AFE00092B42 /* Tutorial */ = {
+			isa = PBXGroup;
+			children = (
+				B39A25FD2CB06568001C76A5 /* TutorialTitleLabel.swift */,
+				B39A26092CB0761A001C76A5 /* TutorialTextParagraphLabel.swift */,
+				B39A260B2CB09096001C76A5 /* TutorialMultiParagraphLabel.swift */,
+			);
+			path = Tutorial;
+			sourceTree = "<group>";
+		};
 		B369278B2C66B6E30089F769 = {
 			isa = PBXGroup;
 			children = (
@@ -1359,10 +1369,8 @@
 		B39A25E02CAF7863001C76A5 /* TextRelated */ = {
 			isa = PBXGroup;
 			children = (
+				B35BFB832CB32AFE00092B42 /* Tutorial */,
 				B39A25E12CAF7871001C76A5 /* PaddedLabel.swift */,
-				B39A25FD2CB06568001C76A5 /* TutorialTitleLabel.swift */,
-				B39A26092CB0761A001C76A5 /* TutorialTextParagraphLabel.swift */,
-				B39A260B2CB09096001C76A5 /* TutorialMultiParagraphLabel.swift */,
 			);
 			path = TextRelated;
 			sourceTree = "<group>";
@@ -2126,7 +2134,7 @@
 				CODE_SIGN_ENTITLEMENTS = ModuliteDeviceActivityMonitor/ModuliteDeviceActivityMonitor.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 0.3.2;
 				DEVELOPMENT_TEAM = L2AH2M48T4;
 				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -2139,7 +2147,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 0.3;
 				PRODUCT_BUNDLE_IDENTIFIER = "$(ACTIVITY_MONITOR_BUNDLE_ID)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -2156,7 +2164,7 @@
 				CODE_SIGN_ENTITLEMENTS = ModuliteDeviceActivityMonitor/ModuliteDeviceActivityMonitor.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 0.3.2;
 				DEVELOPMENT_TEAM = L2AH2M48T4;
 				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -2169,7 +2177,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 0.3;
 				PRODUCT_BUNDLE_IDENTIFIER = "$(ACTIVITY_MONITOR_BUNDLE_ID)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -2186,7 +2194,7 @@
 				CODE_SIGN_ENTITLEMENTS = ModuliteDeviceActivityReport/ModuliteDeviceActivityReport.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 0.3.2;
 				DEVELOPMENT_TEAM = L2AH2M48T4;
 				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -2199,7 +2207,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 0.3;
 				PRODUCT_BUNDLE_IDENTIFIER = "$(ACTIVITY_REPORT_BUNDLE_ID)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -2216,7 +2224,7 @@
 				CODE_SIGN_ENTITLEMENTS = ModuliteDeviceActivityReport/ModuliteDeviceActivityReport.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 0.3.2;
 				DEVELOPMENT_TEAM = L2AH2M48T4;
 				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -2229,7 +2237,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 0.3;
 				PRODUCT_BUNDLE_IDENTIFIER = "$(ACTIVITY_REPORT_BUNDLE_ID)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -2310,7 +2318,7 @@
 				CODE_SIGN_ENTITLEMENTS = ModuliteShieldConfiguration/ModuliteShieldConfiguration.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 0.3.2;
 				DEVELOPMENT_TEAM = L2AH2M48T4;
 				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -2323,7 +2331,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 0.3;
 				PRODUCT_BUNDLE_IDENTIFIER = "$(SHIELD_CONFIGURATION_BUNDLE_ID)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -2340,7 +2348,7 @@
 				CODE_SIGN_ENTITLEMENTS = ModuliteShieldConfiguration/ModuliteShieldConfiguration.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 0.3.2;
 				DEVELOPMENT_TEAM = L2AH2M48T4;
 				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -2353,7 +2361,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 0.3;
 				PRODUCT_BUNDLE_IDENTIFIER = "$(SHIELD_CONFIGURATION_BUNDLE_ID)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -2370,7 +2378,7 @@
 				CODE_SIGN_ENTITLEMENTS = ModuliteShieldAction/ModuliteShieldAction.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 0.3.2;
 				DEVELOPMENT_TEAM = L2AH2M48T4;
 				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -2383,7 +2391,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 0.3;
 				PRODUCT_BUNDLE_IDENTIFIER = "$(SHIELD_ACTION_BUNDLE_ID)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -2400,7 +2408,7 @@
 				CODE_SIGN_ENTITLEMENTS = ModuliteShieldAction/ModuliteShieldAction.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 0.3.2;
 				DEVELOPMENT_TEAM = L2AH2M48T4;
 				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -2413,7 +2421,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 0.3;
 				PRODUCT_BUNDLE_IDENTIFIER = "$(SHIELD_ACTION_BUNDLE_ID)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;

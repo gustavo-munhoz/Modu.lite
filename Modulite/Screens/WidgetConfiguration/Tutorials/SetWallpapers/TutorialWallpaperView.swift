@@ -83,7 +83,6 @@ class TutorialWallpaperView: UIScrollView {
         return stack
     }()
     
-    
     private(set) lazy var setWallpaperLastThreeStepsImage: UIImageView = {
         let view = UIImageView(image: .tutorialWallpaperSteps7To9)
         view.contentMode = .scaleAspectFit
