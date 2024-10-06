@@ -136,6 +136,14 @@ class WidgetEditorView: UIScrollView {
     
     // MARK: - Setup methods
     
+    func setLayoutInfoButtonAction(_ action: @escaping () -> Void) {
+        layoutHeader.onInfoButtonPressed = action
+    }
+    
+    func setWallpaperInfoButtonAction(_ action: @escaping () -> Void) {
+        layoutHeader.onInfoButtonPressed = action
+    }
+    
     func setEditingMode(to value: Bool) {
         isEditing = value
     }
@@ -182,10 +190,6 @@ class WidgetEditorView: UIScrollView {
         widgetLayoutCollectionView.dataSource = dataSource
         moduleStyleCollectionView.dataSource = dataSource
         moduleColorCollectionView.dataSource = dataSource
-    }
-    
-    func setLayoutHeaderInfoAction(_ action: @escaping () -> Void) {
-        layoutHeader.onInfoButtonPressed = action
     }
     
     private func setupCollectionViews() {
