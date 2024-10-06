@@ -125,6 +125,9 @@
 		B350C0492C8B8B680035682F /* UIEdgeInsets+Directions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B350C0482C8B8B680035682F /* UIEdgeInsets+Directions.swift */; };
 		B350C04B2C8B8C070035682F /* AppCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B350C04A2C8B8C070035682F /* AppCollectionViewCell.swift */; };
 		B350C05A2C8F92C90035682F /* WidgetBuilderCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B350C0592C8F92C90035682F /* WidgetBuilderCoordinator.swift */; };
+		B35BFB7D2CB2413900092B42 /* TutorialWallpaperCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B35BFB7C2CB2413900092B42 /* TutorialWallpaperCoordinator.swift */; };
+		B35BFB7F2CB2428A00092B42 /* TutorialWallpaperView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B35BFB7E2CB2428A00092B42 /* TutorialWallpaperView.swift */; };
+		B35BFB812CB2429200092B42 /* TutorialWallpaperViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B35BFB802CB2429200092B42 /* TutorialWallpaperViewController.swift */; };
 		B36927982C66B6E30089F769 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B36927972C66B6E30089F769 /* AppDelegate.swift */; };
 		B369279A2C66B6E30089F769 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B36927992C66B6E30089F769 /* SceneDelegate.swift */; };
 		B369279C2C66B6E30089F769 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B369279B2C66B6E30089F769 /* HomeViewController.swift */; };
@@ -211,7 +214,7 @@
 		B39A25FA2CB06437001C76A5 /* TutorialEditWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39A25F92CB06437001C76A5 /* TutorialEditWidgetView.swift */; };
 		B39A25FC2CB06446001C76A5 /* TutorialEditWidgetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39A25FB2CB06446001C76A5 /* TutorialEditWidgetViewController.swift */; };
 		B39A25FE2CB06568001C76A5 /* TutorialTitleLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39A25FD2CB06568001C76A5 /* TutorialTitleLabel.swift */; };
-		B39A26002CB06628001C76A5 /* TutorialEditWidgetLocalizedTexts.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39A25FF2CB06628001C76A5 /* TutorialEditWidgetLocalizedTexts.swift */; };
+		B39A26002CB06628001C76A5 /* TutorialWidgetConfigurationTexts.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39A25FF2CB06628001C76A5 /* TutorialWidgetConfigurationTexts.swift */; };
 		B39A26022CB06E01001C76A5 /* WidgetBuilderCoordinator+WidgetSetupViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39A26012CB06E01001C76A5 /* WidgetBuilderCoordinator+WidgetSetupViewControllerDelegate.swift */; };
 		B39A26062CB06E60001C76A5 /* SelectAppsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39A26042CB06E60001C76A5 /* SelectAppsCoordinator.swift */; };
 		B39A26082CB06E7A001C76A5 /* TutorialEditWidgetCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39A26072CB06E7A001C76A5 /* TutorialEditWidgetCoordinator.swift */; };
@@ -418,6 +421,9 @@
 		B350C0482C8B8B680035682F /* UIEdgeInsets+Directions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIEdgeInsets+Directions.swift"; sourceTree = "<group>"; };
 		B350C04A2C8B8C070035682F /* AppCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCollectionViewCell.swift; sourceTree = "<group>"; };
 		B350C0592C8F92C90035682F /* WidgetBuilderCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetBuilderCoordinator.swift; sourceTree = "<group>"; };
+		B35BFB7C2CB2413900092B42 /* TutorialWallpaperCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialWallpaperCoordinator.swift; sourceTree = "<group>"; };
+		B35BFB7E2CB2428A00092B42 /* TutorialWallpaperView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialWallpaperView.swift; sourceTree = "<group>"; };
+		B35BFB802CB2429200092B42 /* TutorialWallpaperViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialWallpaperViewController.swift; sourceTree = "<group>"; };
 		B36927942C66B6E30089F769 /* Modulite.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Modulite.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B36927972C66B6E30089F769 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B36927992C66B6E30089F769 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -479,7 +485,7 @@
 		B39A25F92CB06437001C76A5 /* TutorialEditWidgetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialEditWidgetView.swift; sourceTree = "<group>"; };
 		B39A25FB2CB06446001C76A5 /* TutorialEditWidgetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialEditWidgetViewController.swift; sourceTree = "<group>"; };
 		B39A25FD2CB06568001C76A5 /* TutorialTitleLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialTitleLabel.swift; sourceTree = "<group>"; };
-		B39A25FF2CB06628001C76A5 /* TutorialEditWidgetLocalizedTexts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialEditWidgetLocalizedTexts.swift; sourceTree = "<group>"; };
+		B39A25FF2CB06628001C76A5 /* TutorialWidgetConfigurationTexts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialWidgetConfigurationTexts.swift; sourceTree = "<group>"; };
 		B39A26012CB06E01001C76A5 /* WidgetBuilderCoordinator+WidgetSetupViewControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WidgetBuilderCoordinator+WidgetSetupViewControllerDelegate.swift"; sourceTree = "<group>"; };
 		B39A26042CB06E60001C76A5 /* SelectAppsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectAppsCoordinator.swift; sourceTree = "<group>"; };
 		B39A26072CB06E7A001C76A5 /* TutorialEditWidgetCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialEditWidgetCoordinator.swift; sourceTree = "<group>"; };
@@ -1364,6 +1370,7 @@
 		B39A25F42CB06410001C76A5 /* Tutorials */ = {
 			isa = PBXGroup;
 			children = (
+				B39A25FF2CB06628001C76A5 /* TutorialWidgetConfigurationTexts.swift */,
 				B39A25F72CB06423001C76A5 /* SetWallpapers */,
 				B39A25F82CB06427001C76A5 /* EditWidget */,
 			);
@@ -1373,6 +1380,8 @@
 		B39A25F72CB06423001C76A5 /* SetWallpapers */ = {
 			isa = PBXGroup;
 			children = (
+				B35BFB7E2CB2428A00092B42 /* TutorialWallpaperView.swift */,
+				B35BFB802CB2429200092B42 /* TutorialWallpaperViewController.swift */,
 			);
 			path = SetWallpapers;
 			sourceTree = "<group>";
@@ -1382,7 +1391,6 @@
 			children = (
 				B39A25F92CB06437001C76A5 /* TutorialEditWidgetView.swift */,
 				B39A25FB2CB06446001C76A5 /* TutorialEditWidgetViewController.swift */,
-				B39A25FF2CB06628001C76A5 /* TutorialEditWidgetLocalizedTexts.swift */,
 			);
 			path = EditWidget;
 			sourceTree = "<group>";
@@ -1392,6 +1400,7 @@
 			children = (
 				B39A26042CB06E60001C76A5 /* SelectAppsCoordinator.swift */,
 				B39A26072CB06E7A001C76A5 /* TutorialEditWidgetCoordinator.swift */,
+				B35BFB7C2CB2413900092B42 /* TutorialWallpaperCoordinator.swift */,
 			);
 			path = WidgetConfiguration;
 			sourceTree = "<group>";
@@ -1899,7 +1908,7 @@
 				B39A25AE2CAC7DC2001C76A5 /* WidgetEditorViewController+UICollectionViewDragAndDropDelegate.swift in Sources */,
 				B39A25DC2CAF4255001C76A5 /* AuxiliaryWidgetsPlaceholderView.swift in Sources */,
 				B34F3E0F2C6B0D340041D7BD /* BlockAppsCoordinator.swift in Sources */,
-				B39A26002CB06628001C76A5 /* TutorialEditWidgetLocalizedTexts.swift in Sources */,
+				B39A26002CB06628001C76A5 /* TutorialWidgetConfigurationTexts.swift in Sources */,
 				B39A259D2CAB2945001C76A5 /* Copying.swift in Sources */,
 				B32B60C62C865042007DDCE3 /* PersistableWidgetConfiguration+CoreDataClass.swift in Sources */,
 				B3850BB72C951DD700F400C0 /* WidgetBackground.swift in Sources */,
@@ -1913,10 +1922,12 @@
 				B369279C2C66B6E30089F769 /* HomeViewController.swift in Sources */,
 				B3C187842C791D1300A891A8 /* WidgetStyle.swift in Sources */,
 				B34F3E0D2C6B0C790041D7BD /* UsageCoordinator.swift in Sources */,
+				B35BFB7F2CB2428A00092B42 /* TutorialWallpaperView.swift in Sources */,
 				B32B61102C8A474B007DDCE3 /* SelectAppsViewModel.swift in Sources */,
 				B30AAD652C9227DE002806A7 /* WidgetContentBuilder.swift in Sources */,
 				B36927D12C66B8CA0089F769 /* Router.swift in Sources */,
 				AF362C7F2CAB374900506443 /* CreateNewBlockingSessionView.swift in Sources */,
+				B35BFB7D2CB2413900092B42 /* TutorialWallpaperCoordinator.swift in Sources */,
 				AFE5D5532CAF24F100503572 /* BlockType.swift in Sources */,
 				B36927982C66B6E30089F769 /* AppDelegate.swift in Sources */,
 				AFE5D5462CAF1B1300503572 /* CreateSessionViewModel.swift in Sources */,
@@ -1961,6 +1972,7 @@
 				B3CDD7072C77C59B00E558F8 /* ImageProcessingFactory.swift in Sources */,
 				B34F3E092C6A96A20041D7BD /* RootTabCoordinator.swift in Sources */,
 				B34F3E352C6E93570041D7BD /* WidgetSetupViewModel.swift in Sources */,
+				B35BFB812CB2429200092B42 /* TutorialWallpaperViewController.swift in Sources */,
 				B34F3DF82C69A3810041D7BD /* DebugOptions.swift in Sources */,
 				B32B60BF2C864AD9007DDCE3 /* PersistableModuleConfiguration+CoreDataProperties.swift in Sources */,
 				B39A25A22CAB5B65001C76A5 /* WidgetEditorDownloadButton.swift in Sources */,

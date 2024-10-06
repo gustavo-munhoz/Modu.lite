@@ -141,7 +141,7 @@ class WidgetEditorView: UIScrollView {
     }
     
     func setWallpaperInfoButtonAction(_ action: @escaping () -> Void) {
-        layoutHeader.onInfoButtonPressed = action
+        wallpaperHeader.onInfoButtonPressed = action
     }
     
     func setEditingMode(to value: Bool) {

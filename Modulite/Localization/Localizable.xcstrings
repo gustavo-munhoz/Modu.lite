@@ -93,7 +93,7 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "My widgets (Auxiliary)"
+            "value" : "Auxiliary Widgets"
           }
         }
       }
@@ -148,7 +148,7 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "My widgets (Main)"
+            "value" : "Main Widgets"
           }
         }
       }
@@ -597,6 +597,160 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Why my widgets sometimes have a “blank” button?"
+          }
+        }
+      }
+    },
+    "tutorialWallpaperHowToSetDescription" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "When you tap \"Download wallpapers,\" two wallpapers will be saved to your photos. The first is for your lock screen, and the second is for your home screen. "
+          }
+        }
+      }
+    },
+    "tutorialWallpaperHowToSetStep1" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "1. Open the Settings app and tap ”Wallpaper”;"
+          }
+        }
+      }
+    },
+    "tutorialWallpaperHowToSetStep2" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "2. Press “Add New Wallpaper”;"
+          }
+        }
+      }
+    },
+    "tutorialWallpaperHowToSetStep3" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "3. Tap “Photos” at the top of the screen;"
+          }
+        }
+      }
+    },
+    "tutorialWallpaperHowToSetStep4" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "4. Select the Lock Screen wallpaper you just downloaded. If you can't find it, tap the “All” button above the image gallery;"
+          }
+        }
+      }
+    },
+    "tutorialWallpaperHowToSetStep5" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "5. Tap the “Add” button in the top right corner;"
+          }
+        }
+      }
+    },
+    "tutorialWallpaperHowToSetStep6" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "6. Under the preview, tap “Customize Home Screen”;"
+          }
+        }
+      }
+    },
+    "tutorialWallpaperHowToSetStep7" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "7. Tap on ”Photo” in the bottom right corner;"
+          }
+        }
+      }
+    },
+    "tutorialWallpaperHowToSetStep8" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "8. Select the matching Home Screen wallpaper;"
+          }
+        }
+      }
+    },
+    "tutorialWallpaperHowToSetStep9" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "9. Press “Done”."
+          }
+        }
+      }
+    },
+    "tutorialWallpaperHowToSetTitle" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "How do I set wallpapers?"
+          }
+        }
+      }
+    },
+    "tutorialWallpaperNeedHelpButtonText" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "How to Set Up a Wallpaper on an iPhone"
+          }
+        }
+      }
+    },
+    "tutorialWallpaperNeedHelpDescription" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "If you need a video tutorial, check out this video:"
+          }
+        }
+      }
+    },
+    "tutorialWallpaperNeedHelpTitle" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Need a little more help?"
           }
         }
       }

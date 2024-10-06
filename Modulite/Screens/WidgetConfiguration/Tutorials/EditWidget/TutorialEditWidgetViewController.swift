@@ -14,10 +14,4 @@ class TutorialEditWidgetViewController: UIViewController {
     override func loadView() {
         view = tutorialView
     }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        
-    }
 }

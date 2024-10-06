@@ -66,9 +66,15 @@ class WidgetEditorViewController: UIViewController {
         editorView.onDownloadWallpaperButtonTapped = handleDownloadWallpaperTouch
         editorView.onSaveButtonTapped = handleSaveWidgetButtonTouch
         editorView.onDeleteButtonTapped = handleDeleteWidgetButtonTouch
+        
         editorView.setLayoutInfoButtonAction { [weak self] in
             guard let self = self else { return }
             self.delegate?.widgetEditorViewControllerDidPressLayoutInfo(self)
+        }
+        
+        editorView.setWallpaperInfoButtonAction { [weak self] in
+            guard let self = self else { return }
+            self.delegate?.widgetEditorViewControllerDidPressWallpaperInfo(self)
         }
     }
     
