@@ -20,6 +20,9 @@
 		AF362C732CAB174C00506443 /* BlockAppsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF362C722CAB174C00506443 /* BlockAppsViewModel.swift */; };
 		AF362C7F2CAB374900506443 /* CreateNewBlockingSessionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF362C7E2CAB374900506443 /* CreateNewBlockingSessionView.swift */; };
 		AF362C812CAC6C1A00506443 /* CreateBlockingSessionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF362C802CAC6C1A00506443 /* CreateBlockingSessionViewController.swift */; };
+		AF763F262CAF4492002FBE26 /* FamilyControlsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFE5D5012CADD4C700503572 /* FamilyControlsManager.swift */; };
+		AF763F282CAF4710002FBE26 /* AppBlockerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF763F272CAF4710002FBE26 /* AppBlockerManager.swift */; };
+		AF763F292CAF4793002FBE26 /* AppBlockerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF763F272CAF4710002FBE26 /* AppBlockerManager.swift */; };
 		AF9D41DA2CA49BE50077F565 /* UsageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF9D41D82CA49BE50077F565 /* UsageViewModel.swift */; };
 		AFABBD7C2C80F2E0007BEFD8 /* UsageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFABBD7B2C80F2E0007BEFD8 /* UsageView.swift */; };
 		AFABBD982C8A359E007BEFD8 /* BlockAppsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFABBD972C8A359E007BEFD8 /* BlockAppsView.swift */; };
@@ -327,6 +330,7 @@
 		AF362C722CAB174C00506443 /* BlockAppsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockAppsViewModel.swift; sourceTree = "<group>"; };
 		AF362C7E2CAB374900506443 /* CreateNewBlockingSessionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateNewBlockingSessionView.swift; sourceTree = "<group>"; };
 		AF362C802CAC6C1A00506443 /* CreateBlockingSessionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateBlockingSessionViewController.swift; sourceTree = "<group>"; };
+		AF763F272CAF4710002FBE26 /* AppBlockerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppBlockerManager.swift; sourceTree = "<group>"; };
 		AF9D41D82CA49BE50077F565 /* UsageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsageViewModel.swift; sourceTree = "<group>"; };
 		AFABBD7B2C80F2E0007BEFD8 /* UsageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsageView.swift; sourceTree = "<group>"; };
 		AFABBD7E2C863036007BEFD8 /* ModuliteWidgetExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ModuliteWidgetExtension.entitlements; sourceTree = "<group>"; };
@@ -593,6 +597,7 @@
 			children = (
 				AF362C722CAB174C00506443 /* BlockAppsViewModel.swift */,
 				AFE5D5452CAF1B1300503572 /* CreateSessionViewModel.swift */,
+				AF763F272CAF4710002FBE26 /* AppBlockerManager.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -1837,6 +1842,7 @@
 				AFBBC51C2C7E4AEB00A9B256 /* WidgetButtonView.swift in Sources */,
 				B3987E212CA4801600896414 /* UIColorValueTransformer.swift in Sources */,
 				B3987E202CA3A3BC00896414 /* MainWidgetModuleButton.swift in Sources */,
+				AF763F292CAF4793002FBE26 /* AppBlockerManager.swift in Sources */,
 				B32B60F72C87ABC1007DDCE3 /* PersistableModuleConfiguration+CoreDataProperties.swift in Sources */,
 				B37284772C829A8C00D9A1E7 /* WidgetStyleFactory.swift in Sources */,
 				B32B60FB2C87AC8D007DDCE3 /* AppInfoData.swift in Sources */,
@@ -1858,6 +1864,7 @@
 				B3987E242CA4857400896414 /* MainWidgetConfigurationData.swift in Sources */,
 				B3987E182CA3938200896414 /* AuxiliaryWidget.swift in Sources */,
 				B32B60F62C87AB8F007DDCE3 /* PersistableWidgetConfiguration+CoreDataProperties.swift in Sources */,
+				AF763F262CAF4492002FBE26 /* FamilyControlsManager.swift in Sources */,
 				B37284712C82992200D9A1E7 /* ModuleAppNameTextConfiguration.swift in Sources */,
 				AFBBC5202C7E4D6900A9B256 /* WidgetButtonLabelView.swift in Sources */,
 				AFBBC5222C7E5D8D00A9B256 /* AppInfo+CoreDataClass.swift in Sources */,
@@ -1975,6 +1982,7 @@
 				B3C187862C79208600A891A8 /* WidgetStyleFactory.swift in Sources */,
 				B32B60C22C864BB2007DDCE3 /* WidgetData.xcdatamodeld in Sources */,
 				B3EB15BD2C7E7311003B1960 /* String+TextCase.swift in Sources */,
+				AF763F282CAF4710002FBE26 /* AppBlockerManager.swift in Sources */,
 				B34F3E182C6B93FA0041D7BD /* TipCollectionViewCell.swift in Sources */,
 				B3987E162CA38C7900896414 /* MainWidgetEntry.swift in Sources */,
 				B39A25FA2CB06437001C76A5 /* TutorialEditWidgetView.swift in Sources */,
