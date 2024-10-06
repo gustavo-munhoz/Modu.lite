@@ -102,17 +102,20 @@ class TutorialEditWidgetView: UIScrollView {
     
     private(set) lazy var needHelpButton: UIButton = {
         var config = UIButton.Configuration.plain()
-        config.attributedTitle = AttributedString(
-            .localized(
-                for: TutorialEditWidgetLocalizedTexts.tutorialEditWidgetNeedHelpButtonText
-            ),
-            attributes: AttributeContainer([
+        
+        let attributedString = NSMutableAttributedString(
+            string: .localized(for: TutorialWidgetConfigurationTexts.tutorialEditWidgetNeedHelpButtonText),
+            attributes: [
                 .font: UIFont(textStyle: .body, weight: .semibold),
                 .foregroundColor: UIColor.blueberry,
-                .underlineColor: UIColor.blueberry,
-                .underlineStyle: NSUnderlineStyle.single
-            ])
+                .underlineStyle: NSUnderlineStyle.single.rawValue,
+                .underlineColor: UIColor.blueberry
+            ]
         )
+        
+        config.titleAlignment = .leading
+        config.attributedTitle = AttributedString(attributedString)
+        
         let view = UIButton(configuration: config)
         return view
     }()
@@ -172,9 +175,9 @@ class TutorialEditWidgetView: UIScrollView {
     private func setupContentViewConstraints() {
         contentView.snp.makeConstraints { make in
             make.edges.equalToSuperview().inset(
-                UIEdgeInsets(top: 0, left: 34, bottom: 0, right: -34)
+                UIEdgeInsets(top: 0, left: 24, bottom: 0, right: -24)
             )
-            make.width.equalToSuperview().offset(-68)
+            make.width.equalToSuperview().offset(-48)
         }
     }
     
