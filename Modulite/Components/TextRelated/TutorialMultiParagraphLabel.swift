@@ -8,7 +8,7 @@
 import UIKit
 
 class TutorialMultiParagraphLabel: UIStackView {
-    convenience init(localizedKeys: [TutorialEditWidgetLocalizedTexts]) {
+    convenience init(localizedKeys: [TutorialWidgetConfigurationTexts]) {
         var paragraphs: [TutorialTextParagraphLabel] = []
         
         for key in localizedKeys {

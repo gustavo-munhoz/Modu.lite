@@ -8,7 +8,7 @@
 import UIKit
 
 class TutorialTextParagraphLabel: UILabel {
-    convenience init(textLocalizedKey: TutorialEditWidgetLocalizedTexts) {
+    convenience init(textLocalizedKey: TutorialWidgetConfigurationTexts) {
         self.init(frame: .zero)
         
         text = .localized(for: textLocalizedKey)
