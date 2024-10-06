@@ -89,7 +89,6 @@
 		B32B61062C8A4140007DDCE3 /* ModalNavigationRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B32B61052C8A4140007DDCE3 /* ModalNavigationRouter.swift */; };
 		B32B610A2C8A4485007DDCE3 /* SelectAppsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B32B61092C8A4485007DDCE3 /* SelectAppsView.swift */; };
 		B32B610C2C8A449C007DDCE3 /* SelectAppsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B32B610B2C8A449C007DDCE3 /* SelectAppsViewController.swift */; };
-		B32B610E2C8A4517007DDCE3 /* SelectAppsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B32B610D2C8A4517007DDCE3 /* SelectAppsCoordinator.swift */; };
 		B32B61102C8A474B007DDCE3 /* SelectAppsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B32B610F2C8A474B007DDCE3 /* SelectAppsViewModel.swift */; };
 		B34F3DF02C66EACE0041D7BD /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = B34F3DEF2C66EACE0041D7BD /* SnapKit */; };
 		B34F3DF32C6701740041D7BD /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = B34F3DF22C6701740041D7BD /* Localizable.xcstrings */; };
@@ -209,6 +208,15 @@
 		B39A25E72CAFADF6001C76A5 /* BundleConfig.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = B39A25E32CAFADA2001C76A5 /* BundleConfig.xcconfig */; };
 		B39A25E82CAFADF6001C76A5 /* BundleConfig.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = B39A25E32CAFADA2001C76A5 /* BundleConfig.xcconfig */; };
 		B39A25E92CAFADF6001C76A5 /* BundleConfig.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = B39A25E32CAFADA2001C76A5 /* BundleConfig.xcconfig */; };
+		B39A25FA2CB06437001C76A5 /* TutorialEditWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39A25F92CB06437001C76A5 /* TutorialEditWidgetView.swift */; };
+		B39A25FC2CB06446001C76A5 /* TutorialEditWidgetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39A25FB2CB06446001C76A5 /* TutorialEditWidgetViewController.swift */; };
+		B39A25FE2CB06568001C76A5 /* TutorialTitleLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39A25FD2CB06568001C76A5 /* TutorialTitleLabel.swift */; };
+		B39A26002CB06628001C76A5 /* TutorialEditWidgetLocalizedTexts.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39A25FF2CB06628001C76A5 /* TutorialEditWidgetLocalizedTexts.swift */; };
+		B39A26022CB06E01001C76A5 /* WidgetBuilderCoordinator+WidgetSetupViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39A26012CB06E01001C76A5 /* WidgetBuilderCoordinator+WidgetSetupViewControllerDelegate.swift */; };
+		B39A26062CB06E60001C76A5 /* SelectAppsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39A26042CB06E60001C76A5 /* SelectAppsCoordinator.swift */; };
+		B39A26082CB06E7A001C76A5 /* TutorialEditWidgetCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39A26072CB06E7A001C76A5 /* TutorialEditWidgetCoordinator.swift */; };
+		B39A260A2CB0761A001C76A5 /* TutorialTextParagraphLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39A26092CB0761A001C76A5 /* TutorialTextParagraphLabel.swift */; };
+		B39A260C2CB09096001C76A5 /* TutorialMultiParagraphLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39A260B2CB09096001C76A5 /* TutorialMultiParagraphLabel.swift */; };
 		B3C1877F2C78D1E000A891A8 /* ModuliteWidgetConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3C1877E2C78D1E000A891A8 /* ModuliteWidgetConfiguration.swift */; };
 		B3C187822C79009B00A891A8 /* WidgetConfigurationBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3C187812C79009B00A891A8 /* WidgetConfigurationBuilder.swift */; };
 		B3C187842C791D1300A891A8 /* WidgetStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3C187832C791D1300A891A8 /* WidgetStyle.swift */; };
@@ -375,7 +383,6 @@
 		B32B61052C8A4140007DDCE3 /* ModalNavigationRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalNavigationRouter.swift; sourceTree = "<group>"; };
 		B32B61092C8A4485007DDCE3 /* SelectAppsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectAppsView.swift; sourceTree = "<group>"; };
 		B32B610B2C8A449C007DDCE3 /* SelectAppsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectAppsViewController.swift; sourceTree = "<group>"; };
-		B32B610D2C8A4517007DDCE3 /* SelectAppsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectAppsCoordinator.swift; sourceTree = "<group>"; };
 		B32B610F2C8A474B007DDCE3 /* SelectAppsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectAppsViewModel.swift; sourceTree = "<group>"; };
 		B34F3DF22C6701740041D7BD /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
 		B34F3DF42C6701870041D7BD /* String+LocalizedKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+LocalizedKey.swift"; sourceTree = "<group>"; };
@@ -469,6 +476,15 @@
 		B39A25DD2CAF751B001C76A5 /* ModulitePlusLargeBadge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModulitePlusLargeBadge.swift; sourceTree = "<group>"; };
 		B39A25E12CAF7871001C76A5 /* PaddedLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaddedLabel.swift; sourceTree = "<group>"; };
 		B39A25E32CAFADA2001C76A5 /* BundleConfig.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = BundleConfig.xcconfig; sourceTree = "<group>"; };
+		B39A25F92CB06437001C76A5 /* TutorialEditWidgetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialEditWidgetView.swift; sourceTree = "<group>"; };
+		B39A25FB2CB06446001C76A5 /* TutorialEditWidgetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialEditWidgetViewController.swift; sourceTree = "<group>"; };
+		B39A25FD2CB06568001C76A5 /* TutorialTitleLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialTitleLabel.swift; sourceTree = "<group>"; };
+		B39A25FF2CB06628001C76A5 /* TutorialEditWidgetLocalizedTexts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialEditWidgetLocalizedTexts.swift; sourceTree = "<group>"; };
+		B39A26012CB06E01001C76A5 /* WidgetBuilderCoordinator+WidgetSetupViewControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WidgetBuilderCoordinator+WidgetSetupViewControllerDelegate.swift"; sourceTree = "<group>"; };
+		B39A26042CB06E60001C76A5 /* SelectAppsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectAppsCoordinator.swift; sourceTree = "<group>"; };
+		B39A26072CB06E7A001C76A5 /* TutorialEditWidgetCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialEditWidgetCoordinator.swift; sourceTree = "<group>"; };
+		B39A26092CB0761A001C76A5 /* TutorialTextParagraphLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialTextParagraphLabel.swift; sourceTree = "<group>"; };
+		B39A260B2CB09096001C76A5 /* TutorialMultiParagraphLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialMultiParagraphLabel.swift; sourceTree = "<group>"; };
 		B3C1877E2C78D1E000A891A8 /* ModuliteWidgetConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModuliteWidgetConfiguration.swift; sourceTree = "<group>"; };
 		B3C187812C79009B00A891A8 /* WidgetConfigurationBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetConfigurationBuilder.swift; sourceTree = "<group>"; };
 		B3C187832C791D1300A891A8 /* WidgetStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetStyle.swift; sourceTree = "<group>"; };
@@ -763,7 +779,6 @@
 			isa = PBXGroup;
 			children = (
 				B36927D42C66BCE60089F769 /* HomeCoordinator.swift */,
-				B32B610D2C8A4517007DDCE3 /* SelectAppsCoordinator.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -827,6 +842,7 @@
 		B34F3E1D2C6D35D50041D7BD /* WidgetConfiguration */ = {
 			isa = PBXGroup;
 			children = (
+				B39A25F42CB06410001C76A5 /* Tutorials */,
 				B350C0502C8B90A90035682F /* Setup */,
 				B350C0542C8B90C70035682F /* SelectApps */,
 				B350C04C2C8B90710035682F /* Editor */,
@@ -979,6 +995,7 @@
 			isa = PBXGroup;
 			children = (
 				B350C0592C8F92C90035682F /* WidgetBuilderCoordinator.swift */,
+				B39A26012CB06E01001C76A5 /* WidgetBuilderCoordinator+WidgetSetupViewControllerDelegate.swift */,
 			);
 			path = WidgetBuilder;
 			sourceTree = "<group>";
@@ -1077,6 +1094,7 @@
 			children = (
 				B350C0582C8F92B70035682F /* WidgetBuilder */,
 				B32B61072C8A4406007DDCE3 /* Home */,
+				B39A26052CB06E60001C76A5 /* WidgetConfiguration */,
 				B36927CE2C66B8A30089F769 /* Coordinator.swift */,
 				B34F3E082C6A96A20041D7BD /* RootTabCoordinator.swift */,
 				B34F3E0C2C6B0C790041D7BD /* UsageCoordinator.swift */,
@@ -1336,8 +1354,46 @@
 			isa = PBXGroup;
 			children = (
 				B39A25E12CAF7871001C76A5 /* PaddedLabel.swift */,
+				B39A25FD2CB06568001C76A5 /* TutorialTitleLabel.swift */,
+				B39A26092CB0761A001C76A5 /* TutorialTextParagraphLabel.swift */,
+				B39A260B2CB09096001C76A5 /* TutorialMultiParagraphLabel.swift */,
 			);
 			path = TextRelated;
+			sourceTree = "<group>";
+		};
+		B39A25F42CB06410001C76A5 /* Tutorials */ = {
+			isa = PBXGroup;
+			children = (
+				B39A25F72CB06423001C76A5 /* SetWallpapers */,
+				B39A25F82CB06427001C76A5 /* EditWidget */,
+			);
+			path = Tutorials;
+			sourceTree = "<group>";
+		};
+		B39A25F72CB06423001C76A5 /* SetWallpapers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = SetWallpapers;
+			sourceTree = "<group>";
+		};
+		B39A25F82CB06427001C76A5 /* EditWidget */ = {
+			isa = PBXGroup;
+			children = (
+				B39A25F92CB06437001C76A5 /* TutorialEditWidgetView.swift */,
+				B39A25FB2CB06446001C76A5 /* TutorialEditWidgetViewController.swift */,
+				B39A25FF2CB06628001C76A5 /* TutorialEditWidgetLocalizedTexts.swift */,
+			);
+			path = EditWidget;
+			sourceTree = "<group>";
+		};
+		B39A26052CB06E60001C76A5 /* WidgetConfiguration */ = {
+			isa = PBXGroup;
+			children = (
+				B39A26042CB06E60001C76A5 /* SelectAppsCoordinator.swift */,
+				B39A26072CB06E7A001C76A5 /* TutorialEditWidgetCoordinator.swift */,
+			);
+			path = WidgetConfiguration;
 			sourceTree = "<group>";
 		};
 		B3C187802C79008800A891A8 /* Builders */ = {
@@ -1843,6 +1899,7 @@
 				B39A25AE2CAC7DC2001C76A5 /* WidgetEditorViewController+UICollectionViewDragAndDropDelegate.swift in Sources */,
 				B39A25DC2CAF4255001C76A5 /* AuxiliaryWidgetsPlaceholderView.swift in Sources */,
 				B34F3E0F2C6B0D340041D7BD /* BlockAppsCoordinator.swift in Sources */,
+				B39A26002CB06628001C76A5 /* TutorialEditWidgetLocalizedTexts.swift in Sources */,
 				B39A259D2CAB2945001C76A5 /* Copying.swift in Sources */,
 				B32B60C62C865042007DDCE3 /* PersistableWidgetConfiguration+CoreDataClass.swift in Sources */,
 				B3850BB72C951DD700F400C0 /* WidgetBackground.swift in Sources */,
@@ -1873,6 +1930,7 @@
 				AFBBC5212C7E4E0700A9B256 /* WidgetButtonLabelView.swift in Sources */,
 				AFBBC51E2C7E4C8500A9B256 /* WidgetButtonView.swift in Sources */,
 				B3CDD7032C767FD300E558F8 /* ModuleColorCell.swift in Sources */,
+				B39A25FE2CB06568001C76A5 /* TutorialTitleLabel.swift in Sources */,
 				B39A25A42CAB5CE3001C76A5 /* WidgetEditorSaveButton.swift in Sources */,
 				AF362C422CA5ED3700506443 /* AppUsageCell.swift in Sources */,
 				B32B60F02C876F4A007DDCE3 /* FileManagerImagePersistenceController.swift in Sources */,
@@ -1893,6 +1951,7 @@
 				B34F3DFD2C6A92890041D7BD /* RootTabBarController.swift in Sources */,
 				AFE5D5502CAF24E500503572 /* WeekDay.swift in Sources */,
 				B350C0492C8B8B680035682F /* UIEdgeInsets+Directions.swift in Sources */,
+				B39A26022CB06E01001C76A5 /* WidgetBuilderCoordinator+WidgetSetupViewControllerDelegate.swift in Sources */,
 				B34F3E112C6B0DDD0041D7BD /* SettingsCoordinator.swift in Sources */,
 				B372846A2C81096A00D9A1E7 /* ModuleStyle.swift in Sources */,
 				B32B60B72C864301007DDCE3 /* AppInfo+CoreDataProperties.swift in Sources */,
@@ -1907,11 +1966,11 @@
 				B39A25A22CAB5B65001C76A5 /* WidgetEditorDownloadButton.swift in Sources */,
 				B32B61032C88EE1E007DDCE3 /* WidgetSetupAppsTagFlowLayout.swift in Sources */,
 				B3987E2B2CA4F43100896414 /* SelectMainWidgetConfigurationIntent.swift in Sources */,
+				B39A26082CB06E7A001C76A5 /* TutorialEditWidgetCoordinator.swift in Sources */,
 				B34F3E052C6A93AC0041D7BD /* SettingsViewController.swift in Sources */,
 				B32B60CA2C8657EC007DDCE3 /* AppInfoData.swift in Sources */,
 				AF362C812CAC6C1A00506443 /* CreateBlockingSessionViewController.swift in Sources */,
 				B3987E262CA4858E00896414 /* MainWidgetModuleData.swift in Sources */,
-				B32B610E2C8A4517007DDCE3 /* SelectAppsCoordinator.swift in Sources */,
 				B32B610A2C8A4485007DDCE3 /* SelectAppsView.swift in Sources */,
 				AFABBD7C2C80F2E0007BEFD8 /* UsageView.swift in Sources */,
 				AF9D41DA2CA49BE50077F565 /* UsageViewModel.swift in Sources */,
@@ -1926,6 +1985,7 @@
 				AF763F282CAF4710002FBE26 /* AppBlockerManager.swift in Sources */,
 				B34F3E182C6B93FA0041D7BD /* TipCollectionViewCell.swift in Sources */,
 				B3987E162CA38C7900896414 /* MainWidgetEntry.swift in Sources */,
+				B39A25FA2CB06437001C76A5 /* TutorialEditWidgetView.swift in Sources */,
 				B3EB15BB2C7E5DC5003B1960 /* UILabel+AppNameConfiguration.swift in Sources */,
 				B34F3E2B2C6E83800041D7BD /* UIFont+TraitedTextStyle.swift in Sources */,
 				B34F3E2E2C6E87350041D7BD /* SetupHeaderReusableCell.swift in Sources */,
@@ -1934,11 +1994,14 @@
 				B39A25D32CAF2102001C76A5 /* Gradient.swift in Sources */,
 				B34F3E332C6E8AA60041D7BD /* UITextField+HorizontalPadding.swift in Sources */,
 				B32B610C2C8A449C007DDCE3 /* SelectAppsViewController.swift in Sources */,
+				B39A25FC2CB06446001C76A5 /* TutorialEditWidgetViewController.swift in Sources */,
 				B3987E192CA3938200896414 /* AuxiliaryWidget.swift in Sources */,
 				B3987E232CA4857400896414 /* MainWidgetConfigurationData.swift in Sources */,
 				B39A25DE2CAF751B001C76A5 /* ModulitePlusLargeBadge.swift in Sources */,
 				B350C05A2C8F92C90035682F /* WidgetBuilderCoordinator.swift in Sources */,
 				B3987E1F2CA3A3BC00896414 /* MainWidgetModuleButton.swift in Sources */,
+				B39A260A2CB0761A001C76A5 /* TutorialTextParagraphLabel.swift in Sources */,
+				B39A26062CB06E60001C76A5 /* SelectAppsCoordinator.swift in Sources */,
 				B3987E312CA4F48C00896414 /* MainWidgetConfigurationEntity.swift in Sources */,
 				B34F3E372C6FDEAA0041D7BD /* SelectedAppCollectionViewCell.swift in Sources */,
 				B3CDD7012C766F2E00E558F8 /* ModuleStyleCell.swift in Sources */,
@@ -1949,6 +2012,7 @@
 				B3F054362C7CF6CB0057F04D /* AppInfo+CoreDataClass.swift in Sources */,
 				AFABBD9B2C8A39F2007BEFD8 /* BlockAppsCollectionViewCell.swift in Sources */,
 				B34F3DF52C6701870041D7BD /* String+LocalizedKey.swift in Sources */,
+				B39A260C2CB09096001C76A5 /* TutorialMultiParagraphLabel.swift in Sources */,
 				AFABBD9D2C8F7D5D007BEFD8 /* BlockAppsHeaderView.swift in Sources */,
 				B34F3E282C6D36D40041D7BD /* WidgetSetupViewController.swift in Sources */,
 				B32B60BC2C86492C007DDCE3 /* UIColorValueTransformer.swift in Sources */,

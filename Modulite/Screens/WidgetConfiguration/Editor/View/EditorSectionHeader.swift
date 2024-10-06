@@ -27,6 +27,8 @@ class EditorSectionHeader: UIView {
         let view = UIButton()
         // TODO: Fix image sizing
         view.setImage(UIImage(systemName: "info.circle")!, for: .normal)
+            
+        view.addTarget(self, action: #selector(infoButtonTapped), for: .touchUpInside)
         
         return view
     }()
@@ -64,5 +66,10 @@ class EditorSectionHeader: UIView {
             make.centerY.right.equalToSuperview()
             make.width.height.equalTo(20)
         }
+    }
+    
+    // MARK: - Actions
+    @objc func infoButtonTapped() {
+        onInfoButtonPressed?()
     }
 }

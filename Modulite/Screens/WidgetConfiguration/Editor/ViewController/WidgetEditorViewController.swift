@@ -21,6 +21,14 @@ protocol WidgetEditorViewControllerDelegate: AnyObject {
     func widgetEditorViewControllerDidPressBack(
         _ viewController: WidgetEditorViewController
     )
+    
+    func widgetEditorViewControllerDidPressLayoutInfo(
+        _ viewController: WidgetEditorViewController
+    )
+    
+    func widgetEditorViewControllerDidPressWallpaperInfo(
+        _ viewController: WidgetEditorViewController
+    )
 }
 
 class WidgetEditorViewController: UIViewController {
@@ -38,9 +46,8 @@ class WidgetEditorViewController: UIViewController {
         view = editorView
         editorView.setCollectionViewDelegates(to: self)
         editorView.setCollectionViewDataSources(to: self)
-        editorView.onDownloadWallpaperButtonTapped = handleDownloadWallpaperTouch
-        editorView.onSaveButtonTapped = handleSaveWidgetButtonTouch
-        editorView.onDeleteButtonTapped = handleDeleteWidgetButtonTouch
+        
+        setViewActions()
         
         if let background = viewModel.getWidgetBackground() {
             editorView.setWidgetBackground(to: background)
@@ -54,6 +61,16 @@ class WidgetEditorViewController: UIViewController {
     }
     
     // MARK: - Setup
+    
+    func setViewActions() {
+        editorView.onDownloadWallpaperButtonTapped = handleDownloadWallpaperTouch
+        editorView.onSaveButtonTapped = handleSaveWidgetButtonTouch
+        editorView.onDeleteButtonTapped = handleDeleteWidgetButtonTouch
+        editorView.setLayoutInfoButtonAction { [weak self] in
+            guard let self = self else { return }
+            self.delegate?.widgetEditorViewControllerDidPressLayoutInfo(self)
+        }
+    }
     
     func setupNavigationBar() {
         guard isCreatingNewWidget else { return }
