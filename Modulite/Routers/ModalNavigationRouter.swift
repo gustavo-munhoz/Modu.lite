@@ -12,12 +12,18 @@ class ModalNavigationRouter: NSObject {
     private let navigationController = UINavigationController()
     private var onDismissForViewController: [UIViewController: (() -> Void)] = [:]
     
+    private var hasSaveButton = true
+    
     init(parentViewController: UIViewController) {
         self.parentViewController = parentViewController
         super.init()
         self.navigationController.delegate = self
         self.navigationController.presentationController?.delegate = self
         self.navigationController.sheetPresentationController?.prefersGrabberVisible = true
+    }
+    
+    func setHasSaveButton(_ value: Bool) {
+        hasSaveButton = value
     }
 }
 
@@ -33,8 +39,11 @@ extension ModalNavigationRouter: Router {
         }
     }
     
-    private func presentModally(_ viewController: UIViewController, animated: Bool) {
-        addRightSaveButton(to: viewController)
+    private func presentModally(
+        _ viewController: UIViewController,
+        animated: Bool
+    ) {
+        if hasSaveButton { addRightSaveButton(to: viewController) }
         navigationController.setViewControllers([viewController], animated: false)
         parentViewController.present(navigationController, animated: animated)
     }
