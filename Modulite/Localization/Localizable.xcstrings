@@ -392,6 +392,215 @@
         }
       }
     },
+    "tutorialEditWidgetHowToChangeAppDescription1" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "To change the app selected for a module, you’ll need to return to the previous page where you initially chose the apps for your widget."
+          }
+        }
+      }
+    },
+    "tutorialEditWidgetHowToChangeAppDescription2" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Warning: If you are creating a new widget and go back to the first creation page, you may lose the customizations you've made to each module."
+          }
+        }
+      }
+    },
+    "tutorialEditWidgetHowToChangeAppDescription3" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "If you're editing an existing widget and you change one of the apps, a randomly styled module will be placed in its spot. If you simply unmark an app without selecting a replacement, a placeholder will fill the empty module."
+          }
+        }
+      }
+    },
+    "tutorialEditWidgetHowToChangeAppTitle" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "How do I change the app I chose for a module?"
+          }
+        }
+      }
+    },
+    "tutorialEditWidgetHowToChangeModulesDescription" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "You can drag around each modules to place them where you want. You can also drag around place holders (modules that don't contain any app)."
+          }
+        }
+      }
+    },
+    "tutorialEditWidgetHowToChangeModulesTitle" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "How do I change the modules positions?"
+          }
+        }
+      }
+    },
+    "tutorialEditWidgetHowToEditStyleAndColorDescription1" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "1.  Press the module you want to edit;"
+          }
+        }
+      }
+    },
+    "tutorialEditWidgetHowToEditStyleAndColorDescription2" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "2.  Choose between the styles;"
+          }
+        }
+      }
+    },
+    "tutorialEditWidgetHowToEditStyleAndColorDescription3" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "3.  Choose one of the colors available."
+          }
+        }
+      }
+    },
+    "tutorialEditWidgetHowToEditStyleAndColorTitle" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "How do I edit each module's style and color?"
+          }
+        }
+      }
+    },
+    "tutorialEditWidgetHowToSwitchModuleDescription1" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "When you're done editing a module, simply tap on the module to deselect it, then select another module to begin editing."
+          }
+        }
+      }
+    },
+    "tutorialEditWidgetHowToSwitchModuleDescription2" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Once you've finished editing all the modules, proceed to the next steps: Download your matching wallpapers and Save the widget."
+          }
+        }
+      }
+    },
+    "tutorialEditWidgetHowToSwitchModuleTitle" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "How do I save my changes to a module and begin editing another one?"
+          }
+        }
+      }
+    },
+    "tutorialEditWidgetNeedHelpButtonText" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "How to Create a Widget on Modu.lite"
+          }
+        }
+      }
+    },
+    "tutorialEditWidgetNeedHelpDescription" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "If you need a video tutorial, check out this video:"
+          }
+        }
+      }
+    },
+    "tutorialEditWidgetNeedHelpTitle" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Need a little more help?"
+          }
+        }
+      }
+    },
+    "tutorialEditWidgetWhyBlankButtonDescription1" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "The \"blank\" buttons or empty spaces in your module are called placeholders, and they appear when you haven't selected all 6 apps for your widget. If you tap on one while using your widget on the home page, it will redirect you to the Modu.lite app."
+          }
+        }
+      }
+    },
+    "tutorialEditWidgetWhyBlankButtonDescription2" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "These placeholders maintain the widget's cohesive and visually design, even if all 6 slots aren't filled. You can move them like regular modules, and they can change color, but they cannot be removed."
+          }
+        }
+      }
+    },
+    "tutorialEditWidgetWhyBlankButtonTitle" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Why my widgets sometimes have a “blank” button?"
+          }
+        }
+      }
+    },
     "usageDailyAvarageLastWeek" : {
       "extractionState" : "manual",
       "localizations" : {
