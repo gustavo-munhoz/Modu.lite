@@ -133,12 +133,15 @@ extension String {
         // MARK: - Localized Keys -
         
         // MARK: - Reusable texts
+        case okay
         case next
         case save
         case cancel
         case delete
         case back
         case plus
+        case comingSoonTitle
+        case comingSoonMessage(feature: String)
         
         // MARK: - Tab Bar Titles
         case homeViewControllerTabBarItemTitle
