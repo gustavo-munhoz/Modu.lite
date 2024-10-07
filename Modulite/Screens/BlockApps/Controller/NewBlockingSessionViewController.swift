@@ -13,22 +13,21 @@ import DeviceActivity
 
 protocol BlockingSessionViewControllerDelegate: AnyObject {
     func createBlockingSessionViewController(
-        _ viewController: CreateBlockingSessionViewController,
+        _ viewController: NewBlockingSessionViewController,
         didCreate session: AppBlockingSession
     )
 }
 
-class CreateBlockingSessionViewController: UIViewController {
+class NewBlockingSessionViewController: UIViewController {
     
-    private let createBlockingSessionView = CreateNewBlockingSessionView()
+    private let createBlockingSessionView = NewBlockingSessionView()
     var viewModel = CreateSessionViewModel()
     weak var delegate: BlockingSessionViewControllerDelegate?
     
     override func loadView() {
         self.view = createBlockingSessionView
         
-        //FIXME: - Remove viewmodel
-        createBlockingSessionView.viewModel = viewModel
+        
     }
     
     override func viewDidLoad() {
@@ -56,9 +55,7 @@ class CreateBlockingSessionViewController: UIViewController {
     }
     
     private func setupCallbacks() {
-        createBlockingSessionView.onAppsSelected = { [weak self] apps in
-            self?.viewModel.activitySelection = apps
-        }
+
         createBlockingSessionView.onSelectApps = { [weak self] in
             self?.presentSelectApps()
         }
@@ -99,7 +96,6 @@ class CreateBlockingSessionViewController: UIViewController {
     }
 
     @objc private func presentSelectApps() {
-        // Inicializa o AppBlockManager com uma seleção vazia ou existente
         let appBlockManager = AppBlockManager(
             selection: viewModel.activitySelection,
             activityName: DeviceActivityName(""),
@@ -127,24 +123,51 @@ class CreateBlockingSessionViewController: UIViewController {
 
 }
 
-extension CreateBlockingSessionViewController {
+extension NewBlockingSessionViewController {
     static func instantiate(
         with delegate: BlockingSessionViewControllerDelegate
-    ) -> CreateBlockingSessionViewController {
-        let vc = CreateBlockingSessionViewController()
+    ) -> NewBlockingSessionViewController {
+        let vc = NewBlockingSessionViewController()
         vc.delegate = delegate
-        
         return vc
     }
 }
 
-extension CreateBlockingSessionViewController: ScreenTimeSelectAppsContentViewDelegate {
+extension NewBlockingSessionViewController: ScreenTimeSelectAppsContentViewDelegate {
     func screenTimeSelectAppsContentView(
         _ view: ScreenTimeSelectAppsContentView,
         didSelect activitySelection: FamilyActivitySelection
     ) {
-        // viewModel.setActivitySelection(activitySelection)
+         viewModel.setActivitySelection(activitySelection)
+    }
+}
+
+extension NewBlockingSessionViewController: NewBlockingSessionViewDelegate {
+    func didUpdateSessionTitle(_ title: String) {
+        viewModel.setName(title)
     }
     
+    func didToggleAllDaySwitch(_ isAllDay: Bool) {
+        viewModel.setIsAllDay(isAllDay)
+    }
     
+    func didUpdateStartTime(_ startTime: DateComponents) {
+        viewModel.setStartsAt(startTime)
+    }
+    
+    func didUpdateEndTime(_ endTime: DateComponents) {
+        viewModel.setEndsAt(endTime)
+    }
+    
+    func didUpdateSelectedDay(_ day: WeekDay, isSelected: Bool) {
+        if isSelected {
+            viewModel.appendDayOfWeek(day)
+        } else {
+            viewModel.removeDayOfWeek(day)
+        }
+    }
+    
+    func didTapSaveSession() {
+        saveBlockingSession()
+    }
 }

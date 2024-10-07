@@ -46,7 +46,7 @@ class BlockAppsViewController:
     }
     
     @objc private func createBlockingSession() {
-        let createBlockingSessionVC = CreateBlockingSessionViewController.instantiate(with: self)
+        let createBlockingSessionVC = NewBlockingSessionViewController.instantiate(with: self)
 
         let navController = UINavigationController(rootViewController: createBlockingSessionVC)
         navController.modalPresentationStyle = .formSheet
@@ -155,7 +155,7 @@ class BlockAppsViewController:
 // MARK: - CreateBlockingSessionViewControllerDelegate
 extension BlockAppsViewController: BlockingSessionViewControllerDelegate {
     func createBlockingSessionViewController(
-        _ viewController: CreateBlockingSessionViewController,
+        _ viewController: NewBlockingSessionViewController,
         didCreate session: AppBlockingSession
     ) {
         viewModel.createBlockingSession(session)
