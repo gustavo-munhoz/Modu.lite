@@ -11,16 +11,26 @@ import SwiftUI
 import FamilyControls
 import ManagedSettings
 
-class CreateNewBlockingSessionView: UIView {
+
+protocol NewBlockingSessionViewDelegate: AnyObject {
+    func didUpdateSessionTitle(_ title: String)
+    func didToggleAllDaySwitch(_ isAllDay: Bool)
+    func didUpdateStartTime(_ startTime: DateComponents)
+    func didUpdateEndTime(_ endTime: DateComponents)
+    func didUpdateSelectedDay(_ day: WeekDay, isSelected: Bool)
+    func didTapSaveSession()
+}
+
+class NewBlockingSessionView: UIView {
     
     // MARK: - Callback
-    var onAppsSelected: ((FamilyActivitySelection) -> Void)?
     var onSelectApps: (() -> Void)?
     
-    var viewModel: CreateSessionViewModel?
+    weak var delegate: NewBlockingSessionViewDelegate?
     
     // MARK: - Subviews
     
+    // MARK: - Subviews
     private lazy var sessionTitleTextField: UITextField = {
         let textField = UITextField()
         textField.text = "Blocking session #1"
@@ -200,7 +210,7 @@ class CreateNewBlockingSessionView: UIView {
     
     // MARK: - Actions
     @objc private func sessionTitleChanged() {
-        viewModel?.setName(sessionTitleTextField.text ?? "")
+        delegate?.didUpdateSessionTitle(sessionTitleTextField.text ?? "")
     }
     
     @objc private func presentSelectApps() {
@@ -208,32 +218,34 @@ class CreateNewBlockingSessionView: UIView {
     }
     
     @objc private func allDaySwitchToggled() {
-        viewModel?.setIsAllDay(allDaySwitch.isOn)
+        delegate?.didToggleAllDaySwitch(allDaySwitch.isOn)
     }
     
     @objc private func startTimeChanged() {
         let components = Calendar.current.dateComponents([.hour, .minute], from: startTimePicker.date)
-        viewModel?.setStartsAt(components)
+        delegate?.didUpdateStartTime(components)
     }
     
     @objc private func endTimeChanged() {
         let components = Calendar.current.dateComponents([.hour, .minute], from: endTimePicker.date)
-        viewModel?.setEndsAt(components)
+        delegate?.didUpdateEndTime(components)
     }
     
     @objc private func dayButtonTapped(sender: UIButton) {
         guard let title = sender.title(for: .normal) else { return }
         guard let dayIndex = ["M", "T", "W", "T", "F", "S", "S"].firstIndex(of: title) else { return }
+        let weekDay = WeekDay(rawValue: dayIndex)!
+        
         if sender.backgroundColor == .clear {
             sender.backgroundColor = .carrotOrange
-            viewModel?.appendDayOfWeek(WeekDay(rawValue: dayIndex)!)
+            delegate?.didUpdateSelectedDay(weekDay, isSelected: true)
         } else {
             sender.backgroundColor = .clear
-            viewModel?.removeDayOfWeek(WeekDay(rawValue: dayIndex)!)
+            delegate?.didUpdateSelectedDay(weekDay, isSelected: false)
         }
     }
     
     @objc private func saveSessionTapped() {
-        viewModel?.setIsActive(true)
+        delegate?.didTapSaveSession()
     }
 }
