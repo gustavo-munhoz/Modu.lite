@@ -128,6 +128,9 @@
 		B35BFB7D2CB2413900092B42 /* TutorialWallpaperCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B35BFB7C2CB2413900092B42 /* TutorialWallpaperCoordinator.swift */; };
 		B35BFB7F2CB2428A00092B42 /* TutorialWallpaperView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B35BFB7E2CB2428A00092B42 /* TutorialWallpaperView.swift */; };
 		B35BFB812CB2429200092B42 /* TutorialWallpaperViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B35BFB802CB2429200092B42 /* TutorialWallpaperViewController.swift */; };
+		B35BFB892CB4605C00092B42 /* TutorialMultiParagraphLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B35BFB852CB4605C00092B42 /* TutorialMultiParagraphLabel.swift */; };
+		B35BFB8A2CB4605C00092B42 /* TutorialTextParagraphLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B35BFB862CB4605C00092B42 /* TutorialTextParagraphLabel.swift */; };
+		B35BFB8B2CB4605C00092B42 /* TutorialTitleLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B35BFB872CB4605C00092B42 /* TutorialTitleLabel.swift */; };
 		B36927982C66B6E30089F769 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B36927972C66B6E30089F769 /* AppDelegate.swift */; };
 		B369279A2C66B6E30089F769 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B36927992C66B6E30089F769 /* SceneDelegate.swift */; };
 		B369279C2C66B6E30089F769 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B369279B2C66B6E30089F769 /* HomeViewController.swift */; };
@@ -213,13 +216,10 @@
 		B39A25E92CAFADF6001C76A5 /* BundleConfig.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = B39A25E32CAFADA2001C76A5 /* BundleConfig.xcconfig */; };
 		B39A25FA2CB06437001C76A5 /* TutorialEditWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39A25F92CB06437001C76A5 /* TutorialEditWidgetView.swift */; };
 		B39A25FC2CB06446001C76A5 /* TutorialEditWidgetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39A25FB2CB06446001C76A5 /* TutorialEditWidgetViewController.swift */; };
-		B39A25FE2CB06568001C76A5 /* TutorialTitleLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39A25FD2CB06568001C76A5 /* TutorialTitleLabel.swift */; };
 		B39A26002CB06628001C76A5 /* TutorialWidgetConfigurationTexts.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39A25FF2CB06628001C76A5 /* TutorialWidgetConfigurationTexts.swift */; };
 		B39A26022CB06E01001C76A5 /* WidgetBuilderCoordinator+WidgetSetupViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39A26012CB06E01001C76A5 /* WidgetBuilderCoordinator+WidgetSetupViewControllerDelegate.swift */; };
 		B39A26062CB06E60001C76A5 /* SelectAppsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39A26042CB06E60001C76A5 /* SelectAppsCoordinator.swift */; };
 		B39A26082CB06E7A001C76A5 /* TutorialEditWidgetCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39A26072CB06E7A001C76A5 /* TutorialEditWidgetCoordinator.swift */; };
-		B39A260A2CB0761A001C76A5 /* TutorialTextParagraphLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39A26092CB0761A001C76A5 /* TutorialTextParagraphLabel.swift */; };
-		B39A260C2CB09096001C76A5 /* TutorialMultiParagraphLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39A260B2CB09096001C76A5 /* TutorialMultiParagraphLabel.swift */; };
 		B3C1877F2C78D1E000A891A8 /* ModuliteWidgetConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3C1877E2C78D1E000A891A8 /* ModuliteWidgetConfiguration.swift */; };
 		B3C187822C79009B00A891A8 /* WidgetConfigurationBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3C187812C79009B00A891A8 /* WidgetConfigurationBuilder.swift */; };
 		B3C187842C791D1300A891A8 /* WidgetStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3C187832C791D1300A891A8 /* WidgetStyle.swift */; };
@@ -424,6 +424,9 @@
 		B35BFB7C2CB2413900092B42 /* TutorialWallpaperCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialWallpaperCoordinator.swift; sourceTree = "<group>"; };
 		B35BFB7E2CB2428A00092B42 /* TutorialWallpaperView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialWallpaperView.swift; sourceTree = "<group>"; };
 		B35BFB802CB2429200092B42 /* TutorialWallpaperViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialWallpaperViewController.swift; sourceTree = "<group>"; };
+		B35BFB852CB4605C00092B42 /* TutorialMultiParagraphLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialMultiParagraphLabel.swift; sourceTree = "<group>"; };
+		B35BFB862CB4605C00092B42 /* TutorialTextParagraphLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialTextParagraphLabel.swift; sourceTree = "<group>"; };
+		B35BFB872CB4605C00092B42 /* TutorialTitleLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialTitleLabel.swift; sourceTree = "<group>"; };
 		B36927942C66B6E30089F769 /* Modulite.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Modulite.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B36927972C66B6E30089F769 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B36927992C66B6E30089F769 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -484,13 +487,10 @@
 		B39A25E32CAFADA2001C76A5 /* BundleConfig.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = BundleConfig.xcconfig; sourceTree = "<group>"; };
 		B39A25F92CB06437001C76A5 /* TutorialEditWidgetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialEditWidgetView.swift; sourceTree = "<group>"; };
 		B39A25FB2CB06446001C76A5 /* TutorialEditWidgetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialEditWidgetViewController.swift; sourceTree = "<group>"; };
-		B39A25FD2CB06568001C76A5 /* TutorialTitleLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialTitleLabel.swift; sourceTree = "<group>"; };
 		B39A25FF2CB06628001C76A5 /* TutorialWidgetConfigurationTexts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialWidgetConfigurationTexts.swift; sourceTree = "<group>"; };
 		B39A26012CB06E01001C76A5 /* WidgetBuilderCoordinator+WidgetSetupViewControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WidgetBuilderCoordinator+WidgetSetupViewControllerDelegate.swift"; sourceTree = "<group>"; };
 		B39A26042CB06E60001C76A5 /* SelectAppsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectAppsCoordinator.swift; sourceTree = "<group>"; };
 		B39A26072CB06E7A001C76A5 /* TutorialEditWidgetCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialEditWidgetCoordinator.swift; sourceTree = "<group>"; };
-		B39A26092CB0761A001C76A5 /* TutorialTextParagraphLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialTextParagraphLabel.swift; sourceTree = "<group>"; };
-		B39A260B2CB09096001C76A5 /* TutorialMultiParagraphLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialMultiParagraphLabel.swift; sourceTree = "<group>"; };
 		B3C1877E2C78D1E000A891A8 /* ModuliteWidgetConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModuliteWidgetConfiguration.swift; sourceTree = "<group>"; };
 		B3C187812C79009B00A891A8 /* WidgetConfigurationBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetConfigurationBuilder.swift; sourceTree = "<group>"; };
 		B3C187832C791D1300A891A8 /* WidgetStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetStyle.swift; sourceTree = "<group>"; };
@@ -1006,14 +1006,14 @@
 			path = WidgetBuilder;
 			sourceTree = "<group>";
 		};
-		B35BFB832CB32AFE00092B42 /* Tutorial */ = {
+		B35BFB882CB4605C00092B42 /* Components */ = {
 			isa = PBXGroup;
 			children = (
-				B39A25FD2CB06568001C76A5 /* TutorialTitleLabel.swift */,
-				B39A26092CB0761A001C76A5 /* TutorialTextParagraphLabel.swift */,
-				B39A260B2CB09096001C76A5 /* TutorialMultiParagraphLabel.swift */,
+				B35BFB852CB4605C00092B42 /* TutorialMultiParagraphLabel.swift */,
+				B35BFB862CB4605C00092B42 /* TutorialTextParagraphLabel.swift */,
+				B35BFB872CB4605C00092B42 /* TutorialTitleLabel.swift */,
 			);
-			path = Tutorial;
+			path = Components;
 			sourceTree = "<group>";
 		};
 		B369278B2C66B6E30089F769 = {
@@ -1369,7 +1369,6 @@
 		B39A25E02CAF7863001C76A5 /* TextRelated */ = {
 			isa = PBXGroup;
 			children = (
-				B35BFB832CB32AFE00092B42 /* Tutorial */,
 				B39A25E12CAF7871001C76A5 /* PaddedLabel.swift */,
 			);
 			path = TextRelated;
@@ -1378,6 +1377,7 @@
 		B39A25F42CB06410001C76A5 /* Tutorials */ = {
 			isa = PBXGroup;
 			children = (
+				B35BFB882CB4605C00092B42 /* Components */,
 				B39A25FF2CB06628001C76A5 /* TutorialWidgetConfigurationTexts.swift */,
 				B39A25F72CB06423001C76A5 /* SetWallpapers */,
 				B39A25F82CB06427001C76A5 /* EditWidget */,
@@ -1949,7 +1949,6 @@
 				AFBBC5212C7E4E0700A9B256 /* WidgetButtonLabelView.swift in Sources */,
 				AFBBC51E2C7E4C8500A9B256 /* WidgetButtonView.swift in Sources */,
 				B3CDD7032C767FD300E558F8 /* ModuleColorCell.swift in Sources */,
-				B39A25FE2CB06568001C76A5 /* TutorialTitleLabel.swift in Sources */,
 				B39A25A42CAB5CE3001C76A5 /* WidgetEditorSaveButton.swift in Sources */,
 				AF362C422CA5ED3700506443 /* AppUsageCell.swift in Sources */,
 				B32B60F02C876F4A007DDCE3 /* FileManagerImagePersistenceController.swift in Sources */,
@@ -1996,6 +1995,9 @@
 				AF9D41DA2CA49BE50077F565 /* UsageViewModel.swift in Sources */,
 				B34F3E032C6A93A30041D7BD /* BlockAppsViewController.swift in Sources */,
 				B34F3E402C74E3270041D7BD /* WidgetModuleCell.swift in Sources */,
+				B35BFB892CB4605C00092B42 /* TutorialMultiParagraphLabel.swift in Sources */,
+				B35BFB8A2CB4605C00092B42 /* TutorialTextParagraphLabel.swift in Sources */,
+				B35BFB8B2CB4605C00092B42 /* TutorialTitleLabel.swift in Sources */,
 				B34F3E1C2C6BD3DA0041D7BD /* HomeViewModel.swift in Sources */,
 				B32B61012C88EC1A007DDCE3 /* WidgetSetupStyleCompositionalLayout.swift in Sources */,
 				B3850BB52C94D1F200F400C0 /* UICollectionViewCell+toggleIsHighlighted.swift in Sources */,
@@ -2020,7 +2022,6 @@
 				B39A25DE2CAF751B001C76A5 /* ModulitePlusLargeBadge.swift in Sources */,
 				B350C05A2C8F92C90035682F /* WidgetBuilderCoordinator.swift in Sources */,
 				B3987E1F2CA3A3BC00896414 /* MainWidgetModuleButton.swift in Sources */,
-				B39A260A2CB0761A001C76A5 /* TutorialTextParagraphLabel.swift in Sources */,
 				B39A26062CB06E60001C76A5 /* SelectAppsCoordinator.swift in Sources */,
 				B3987E312CA4F48C00896414 /* MainWidgetConfigurationEntity.swift in Sources */,
 				B34F3E372C6FDEAA0041D7BD /* SelectedAppCollectionViewCell.swift in Sources */,
@@ -2032,7 +2033,6 @@
 				B3F054362C7CF6CB0057F04D /* AppInfo+CoreDataClass.swift in Sources */,
 				AFABBD9B2C8A39F2007BEFD8 /* BlockAppsCollectionViewCell.swift in Sources */,
 				B34F3DF52C6701870041D7BD /* String+LocalizedKey.swift in Sources */,
-				B39A260C2CB09096001C76A5 /* TutorialMultiParagraphLabel.swift in Sources */,
 				AFABBD9D2C8F7D5D007BEFD8 /* BlockAppsHeaderView.swift in Sources */,
 				B34F3E282C6D36D40041D7BD /* WidgetSetupViewController.swift in Sources */,
 				B32B60BC2C86492C007DDCE3 /* UIColorValueTransformer.swift in Sources */,
