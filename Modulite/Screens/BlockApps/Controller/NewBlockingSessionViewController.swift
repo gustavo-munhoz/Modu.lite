@@ -21,12 +21,14 @@ protocol BlockingSessionViewControllerDelegate: AnyObject {
 class CreateBlockingSessionViewController: UIViewController {
     
     private let createBlockingSessionView = CreateNewBlockingSessionView()
-    var blockingSessionViewModel = CreateSessionViewModel()
+    var viewModel = CreateSessionViewModel()
     weak var delegate: BlockingSessionViewControllerDelegate?
     
     override func loadView() {
         self.view = createBlockingSessionView
-        createBlockingSessionView.viewModel = blockingSessionViewModel
+        
+        //FIXME: - Remove viewmodel
+        createBlockingSessionView.viewModel = viewModel
     }
     
     override func viewDidLoad() {
@@ -55,7 +57,7 @@ class CreateBlockingSessionViewController: UIViewController {
     
     private func setupCallbacks() {
         createBlockingSessionView.onAppsSelected = { [weak self] apps in
-            self?.blockingSessionViewModel.activitySelection = apps
+            self?.viewModel.activitySelection = apps
         }
         createBlockingSessionView.onSelectApps = { [weak self] in
             self?.presentSelectApps()
@@ -67,10 +69,10 @@ class CreateBlockingSessionViewController: UIViewController {
     }
     
     @objc private func saveBlockingSession() {
-        guard blockingSessionViewModel.activitySelection
+        guard viewModel.activitySelection
             .applications
             .isEmpty == false ||
-                blockingSessionViewModel.activitySelection
+                viewModel.activitySelection
             .categories
             .isEmpty == false else {
             print("Any app selected")
@@ -78,14 +80,14 @@ class CreateBlockingSessionViewController: UIViewController {
         }
 
         let newBlockingSession = AppBlockingSession(
-            name: blockingSessionViewModel.getName(),
-            selection: blockingSessionViewModel.getActivitySelection(),
-            blockingType: blockingSessionViewModel.getBlockingType(),
-            isAllDay: blockingSessionViewModel.getIsAllDay(),
-            startsAt: blockingSessionViewModel.getStartsAt(),
-            endsAt: blockingSessionViewModel.getEndsAt(),
-            daysOfWeek: blockingSessionViewModel.getDaysOfWeek(),
-            isActive: blockingSessionViewModel.getIsActive()
+            name: viewModel.getName(),
+            selection: viewModel.getActivitySelection(),
+            blockingType: viewModel.getBlockingType(),
+            isAllDay: viewModel.getIsAllDay(),
+            startsAt: viewModel.getStartsAt(),
+            endsAt: viewModel.getEndsAt(),
+            daysOfWeek: viewModel.getDaysOfWeek(),
+            isActive: viewModel.getIsActive()
         )
         
         delegate?.createBlockingSessionViewController(
@@ -99,7 +101,7 @@ class CreateBlockingSessionViewController: UIViewController {
     @objc private func presentSelectApps() {
         // Inicializa o AppBlockManager com uma seleção vazia ou existente
         let appBlockManager = AppBlockManager(
-            selection: blockingSessionViewModel.activitySelection,
+            selection: viewModel.activitySelection,
             activityName: DeviceActivityName(""),
             schedule: DeviceActivitySchedule(
                 intervalStart: DateComponents(hour: 0, minute: 0),
@@ -111,7 +113,7 @@ class CreateBlockingSessionViewController: UIViewController {
         let selectAppsView = ScreenTimeSelectAppsContentView(
             model: appBlockManager,
             onComplete: {
-                self.blockingSessionViewModel.activitySelection = appBlockManager.activitySelection
+                self.viewModel.activitySelection = appBlockManager.activitySelection
                 self.dismiss(animated: true, completion: nil)
             },
             onCancel: {

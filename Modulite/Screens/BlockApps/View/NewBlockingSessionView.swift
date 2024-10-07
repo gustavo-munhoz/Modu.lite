@@ -17,7 +17,6 @@ class CreateNewBlockingSessionView: UIView {
     var onAppsSelected: ((FamilyActivitySelection) -> Void)?
     var onSelectApps: (() -> Void)?
     
-    // Propriedade para armazenar a view model
     var viewModel: CreateSessionViewModel?
     
     // MARK: - Subviews
@@ -140,7 +139,7 @@ class CreateNewBlockingSessionView: UIView {
         addSubview(saveSessionButton)
     }
     
-    // MARK: - Setup Constraints using SnapKit
+    // MARK: - Setup Constraints
     private func setupConstraints() {
         sessionTitleTextField.snp.makeConstraints { make in
             make.top.equalTo(safeAreaLayoutGuide).offset(20)
