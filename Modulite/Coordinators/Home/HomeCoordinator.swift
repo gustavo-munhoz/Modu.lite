@@ -33,9 +33,36 @@ class HomeCoordinator: Coordinator {
 }
 
 extension HomeCoordinator: HomeViewControllerDelegate {
+    private func presentFeatureComingAlert(_ parentViewController: UIViewController) {
+        let alert = UIAlertController(
+            title: .localized(for: .comingSoonTitle),
+            message: .localized(
+                for: .comingSoonMessage(
+                    feature: .localized(for: .homeViewAuxiliarySectionHeaderTitle)
+                )
+            ),
+            preferredStyle: .alert
+        )
+        
+        let okAction = UIAlertAction(
+            title: .localized(for: .okay).uppercased(),
+            style: .cancel
+        )
+        
+        alert.addAction(okAction)
+        
+        parentViewController.present(alert, animated: true)
+    }
+    
     func homeViewControllerDidStartWidgetCreationFlow(
-        _ viewController: HomeViewController
+        _ viewController: HomeViewController,
+        type: WidgetType
     ) {
+        guard type == .main else {
+            presentFeatureComingAlert(viewController)
+            return
+        }
+        
         let coordinator = WidgetBuilderCoordinator(
             router: router,
             currentWidgetCount: viewController.getCurrentMainWidgetCount()

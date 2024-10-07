@@ -7,6 +7,11 @@
 
 import UIKit
 
+enum WidgetType {
+    case main
+    case auxiliary
+}
+
 class ModuliteWidgetConfiguration: Copying {
     // MARK: - Properties
     

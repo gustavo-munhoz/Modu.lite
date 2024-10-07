@@ -76,6 +76,28 @@
     "Cancel" : {
 
     },
+    "comingSoonMessage" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ are coming to Modu.lite soon!"
+          }
+        }
+      }
+    },
+    "comingSoonTitle" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Coming soon…"
+          }
+        }
+      }
+    },
     "delete" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -239,6 +261,17 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "NEXT"
+          }
+        }
+      }
+    },
+    "okay" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ok"
           }
         }
       }
