@@ -140,6 +140,8 @@ extension String {
         case delete
         case back
         case plus
+        case free
+        case guest
         case comingSoonTitle
         case comingSoonMessage(feature: String)
         

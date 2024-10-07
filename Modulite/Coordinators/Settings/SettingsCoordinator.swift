@@ -30,3 +30,21 @@ class SettingsCoordinator: Coordinator {
         router.present(vc, animated: animated, onDismiss: onDismiss)
     }
 }
+
+extension SettingsCoordinator: SettingsViewControllerDelegate {
+    func settingsViewControllerDidPressSubscription(_ viewController: SettingsViewController) {
+        // TODO: Present Subscription view
+    }
+    
+    func settingsViewControllerDidPressTutorials(_ viewController: SettingsViewController) {
+        // TODO: Present Tutorials view
+    }
+    
+    func settingsViewControllerDidPressFAQ(_ viewController: SettingsViewController) {
+        // TODO: Present FAQ view
+    }
+    
+    func settingsViewControllerDidPressHelp(_ viewController: SettingsViewController) {
+        // TODO: Present Help view
+    }
+}

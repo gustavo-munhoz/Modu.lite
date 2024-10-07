@@ -103,7 +103,6 @@
 		B34F3E0B2C6A9E350041D7BD /* NavigationRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B34F3E0A2C6A9E350041D7BD /* NavigationRouter.swift */; };
 		B34F3E0D2C6B0C790041D7BD /* UsageCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B34F3E0C2C6B0C790041D7BD /* UsageCoordinator.swift */; };
 		B34F3E0F2C6B0D340041D7BD /* BlockAppsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B34F3E0E2C6B0D340041D7BD /* BlockAppsCoordinator.swift */; };
-		B34F3E112C6B0DDD0041D7BD /* SettingsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B34F3E102C6B0DDD0041D7BD /* SettingsCoordinator.swift */; };
 		B34F3E142C6B93C80041D7BD /* MainWidgetCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B34F3E132C6B93C80041D7BD /* MainWidgetCollectionViewCell.swift */; };
 		B34F3E162C6B93EA0041D7BD /* AuxiliaryWidgetCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B34F3E152C6B93EA0041D7BD /* AuxiliaryWidgetCollectionViewCell.swift */; };
 		B34F3E182C6B93FA0041D7BD /* TipCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B34F3E172C6B93FA0041D7BD /* TipCollectionViewCell.swift */; };
@@ -128,6 +127,15 @@
 		B35BFB7D2CB2413900092B42 /* TutorialWallpaperCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B35BFB7C2CB2413900092B42 /* TutorialWallpaperCoordinator.swift */; };
 		B35BFB7F2CB2428A00092B42 /* TutorialWallpaperView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B35BFB7E2CB2428A00092B42 /* TutorialWallpaperView.swift */; };
 		B35BFB812CB2429200092B42 /* TutorialWallpaperViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B35BFB802CB2429200092B42 /* TutorialWallpaperViewController.swift */; };
+		B35BFB892CB4605C00092B42 /* TutorialMultiParagraphLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B35BFB852CB4605C00092B42 /* TutorialMultiParagraphLabel.swift */; };
+		B35BFB8A2CB4605C00092B42 /* TutorialTextParagraphLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B35BFB862CB4605C00092B42 /* TutorialTextParagraphLabel.swift */; };
+		B35BFB8B2CB4605C00092B42 /* TutorialTitleLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B35BFB872CB4605C00092B42 /* TutorialTitleLabel.swift */; };
+		B35BFB932CB461C500092B42 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B35BFB922CB461C500092B42 /* SettingsView.swift */; };
+		B35BFB952CB4632900092B42 /* ModuliteFreeSmallBadge.swift in Sources */ = {isa = PBXBuildFile; fileRef = B35BFB942CB4632900092B42 /* ModuliteFreeSmallBadge.swift */; };
+		B35BFB972CB467FA00092B42 /* PreferenceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B35BFB962CB467FA00092B42 /* PreferenceTableViewCell.swift */; };
+		B35BFB992CB46AEC00092B42 /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B35BFB982CB46AEC00092B42 /* SettingsViewModel.swift */; };
+		B35BFB9B2CB46C8700092B42 /* SettingsLocalizedTexts.swift in Sources */ = {isa = PBXBuildFile; fileRef = B35BFB9A2CB46C8700092B42 /* SettingsLocalizedTexts.swift */; };
+		B35BFB9F2CB47D9B00092B42 /* SettingsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B35BFB9D2CB47D9B00092B42 /* SettingsCoordinator.swift */; };
 		B36927982C66B6E30089F769 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B36927972C66B6E30089F769 /* AppDelegate.swift */; };
 		B369279A2C66B6E30089F769 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B36927992C66B6E30089F769 /* SceneDelegate.swift */; };
 		B369279C2C66B6E30089F769 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B369279B2C66B6E30089F769 /* HomeViewController.swift */; };
@@ -213,13 +221,10 @@
 		B39A25E92CAFADF6001C76A5 /* BundleConfig.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = B39A25E32CAFADA2001C76A5 /* BundleConfig.xcconfig */; };
 		B39A25FA2CB06437001C76A5 /* TutorialEditWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39A25F92CB06437001C76A5 /* TutorialEditWidgetView.swift */; };
 		B39A25FC2CB06446001C76A5 /* TutorialEditWidgetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39A25FB2CB06446001C76A5 /* TutorialEditWidgetViewController.swift */; };
-		B39A25FE2CB06568001C76A5 /* TutorialTitleLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39A25FD2CB06568001C76A5 /* TutorialTitleLabel.swift */; };
 		B39A26002CB06628001C76A5 /* TutorialWidgetConfigurationTexts.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39A25FF2CB06628001C76A5 /* TutorialWidgetConfigurationTexts.swift */; };
 		B39A26022CB06E01001C76A5 /* WidgetBuilderCoordinator+WidgetSetupViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39A26012CB06E01001C76A5 /* WidgetBuilderCoordinator+WidgetSetupViewControllerDelegate.swift */; };
 		B39A26062CB06E60001C76A5 /* SelectAppsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39A26042CB06E60001C76A5 /* SelectAppsCoordinator.swift */; };
 		B39A26082CB06E7A001C76A5 /* TutorialEditWidgetCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39A26072CB06E7A001C76A5 /* TutorialEditWidgetCoordinator.swift */; };
-		B39A260A2CB0761A001C76A5 /* TutorialTextParagraphLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39A26092CB0761A001C76A5 /* TutorialTextParagraphLabel.swift */; };
-		B39A260C2CB09096001C76A5 /* TutorialMultiParagraphLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39A260B2CB09096001C76A5 /* TutorialMultiParagraphLabel.swift */; };
 		B3C1877F2C78D1E000A891A8 /* ModuliteWidgetConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3C1877E2C78D1E000A891A8 /* ModuliteWidgetConfiguration.swift */; };
 		B3C187822C79009B00A891A8 /* WidgetConfigurationBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3C187812C79009B00A891A8 /* WidgetConfigurationBuilder.swift */; };
 		B3C187842C791D1300A891A8 /* WidgetStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3C187832C791D1300A891A8 /* WidgetStyle.swift */; };
@@ -399,7 +404,6 @@
 		B34F3E0A2C6A9E350041D7BD /* NavigationRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationRouter.swift; sourceTree = "<group>"; };
 		B34F3E0C2C6B0C790041D7BD /* UsageCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsageCoordinator.swift; sourceTree = "<group>"; };
 		B34F3E0E2C6B0D340041D7BD /* BlockAppsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockAppsCoordinator.swift; sourceTree = "<group>"; };
-		B34F3E102C6B0DDD0041D7BD /* SettingsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsCoordinator.swift; sourceTree = "<group>"; };
 		B34F3E132C6B93C80041D7BD /* MainWidgetCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainWidgetCollectionViewCell.swift; sourceTree = "<group>"; };
 		B34F3E152C6B93EA0041D7BD /* AuxiliaryWidgetCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuxiliaryWidgetCollectionViewCell.swift; sourceTree = "<group>"; };
 		B34F3E172C6B93FA0041D7BD /* TipCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -424,6 +428,15 @@
 		B35BFB7C2CB2413900092B42 /* TutorialWallpaperCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialWallpaperCoordinator.swift; sourceTree = "<group>"; };
 		B35BFB7E2CB2428A00092B42 /* TutorialWallpaperView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialWallpaperView.swift; sourceTree = "<group>"; };
 		B35BFB802CB2429200092B42 /* TutorialWallpaperViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialWallpaperViewController.swift; sourceTree = "<group>"; };
+		B35BFB852CB4605C00092B42 /* TutorialMultiParagraphLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialMultiParagraphLabel.swift; sourceTree = "<group>"; };
+		B35BFB862CB4605C00092B42 /* TutorialTextParagraphLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialTextParagraphLabel.swift; sourceTree = "<group>"; };
+		B35BFB872CB4605C00092B42 /* TutorialTitleLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialTitleLabel.swift; sourceTree = "<group>"; };
+		B35BFB922CB461C500092B42 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		B35BFB942CB4632900092B42 /* ModuliteFreeSmallBadge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModuliteFreeSmallBadge.swift; sourceTree = "<group>"; };
+		B35BFB962CB467FA00092B42 /* PreferenceTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferenceTableViewCell.swift; sourceTree = "<group>"; };
+		B35BFB982CB46AEC00092B42 /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
+		B35BFB9A2CB46C8700092B42 /* SettingsLocalizedTexts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsLocalizedTexts.swift; sourceTree = "<group>"; };
+		B35BFB9D2CB47D9B00092B42 /* SettingsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsCoordinator.swift; sourceTree = "<group>"; };
 		B36927942C66B6E30089F769 /* Modulite.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Modulite.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B36927972C66B6E30089F769 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B36927992C66B6E30089F769 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -484,13 +497,10 @@
 		B39A25E32CAFADA2001C76A5 /* BundleConfig.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = BundleConfig.xcconfig; sourceTree = "<group>"; };
 		B39A25F92CB06437001C76A5 /* TutorialEditWidgetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialEditWidgetView.swift; sourceTree = "<group>"; };
 		B39A25FB2CB06446001C76A5 /* TutorialEditWidgetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialEditWidgetViewController.swift; sourceTree = "<group>"; };
-		B39A25FD2CB06568001C76A5 /* TutorialTitleLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialTitleLabel.swift; sourceTree = "<group>"; };
 		B39A25FF2CB06628001C76A5 /* TutorialWidgetConfigurationTexts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialWidgetConfigurationTexts.swift; sourceTree = "<group>"; };
 		B39A26012CB06E01001C76A5 /* WidgetBuilderCoordinator+WidgetSetupViewControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WidgetBuilderCoordinator+WidgetSetupViewControllerDelegate.swift"; sourceTree = "<group>"; };
 		B39A26042CB06E60001C76A5 /* SelectAppsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectAppsCoordinator.swift; sourceTree = "<group>"; };
 		B39A26072CB06E7A001C76A5 /* TutorialEditWidgetCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialEditWidgetCoordinator.swift; sourceTree = "<group>"; };
-		B39A26092CB0761A001C76A5 /* TutorialTextParagraphLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialTextParagraphLabel.swift; sourceTree = "<group>"; };
-		B39A260B2CB09096001C76A5 /* TutorialMultiParagraphLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialMultiParagraphLabel.swift; sourceTree = "<group>"; };
 		B3C1877E2C78D1E000A891A8 /* ModuliteWidgetConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModuliteWidgetConfiguration.swift; sourceTree = "<group>"; };
 		B3C187812C79009B00A891A8 /* WidgetConfigurationBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetConfigurationBuilder.swift; sourceTree = "<group>"; };
 		B3C187832C791D1300A891A8 /* WidgetStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetStyle.swift; sourceTree = "<group>"; };
@@ -829,7 +839,10 @@
 		B34F3E012C6A93800041D7BD /* Settings */ = {
 			isa = PBXGroup;
 			children = (
-				B34F3E042C6A93AC0041D7BD /* SettingsViewController.swift */,
+				B35BFB8F2CB461BA00092B42 /* View */,
+				B35BFB912CB461BA00092B42 /* ViewController */,
+				B35BFB902CB461BA00092B42 /* ViewModel */,
+				B35BFB9A2CB46C8700092B42 /* SettingsLocalizedTexts.swift */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -1006,14 +1019,47 @@
 			path = WidgetBuilder;
 			sourceTree = "<group>";
 		};
-		B35BFB832CB32AFE00092B42 /* Tutorial */ = {
+		B35BFB882CB4605C00092B42 /* Components */ = {
 			isa = PBXGroup;
 			children = (
-				B39A25FD2CB06568001C76A5 /* TutorialTitleLabel.swift */,
-				B39A26092CB0761A001C76A5 /* TutorialTextParagraphLabel.swift */,
-				B39A260B2CB09096001C76A5 /* TutorialMultiParagraphLabel.swift */,
+				B35BFB852CB4605C00092B42 /* TutorialMultiParagraphLabel.swift */,
+				B35BFB862CB4605C00092B42 /* TutorialTextParagraphLabel.swift */,
+				B35BFB872CB4605C00092B42 /* TutorialTitleLabel.swift */,
 			);
-			path = Tutorial;
+			path = Components;
+			sourceTree = "<group>";
+		};
+		B35BFB8F2CB461BA00092B42 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				B35BFB922CB461C500092B42 /* SettingsView.swift */,
+				B35BFB962CB467FA00092B42 /* PreferenceTableViewCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		B35BFB902CB461BA00092B42 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				B35BFB982CB46AEC00092B42 /* SettingsViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		B35BFB912CB461BA00092B42 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				B34F3E042C6A93AC0041D7BD /* SettingsViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		B35BFB9E2CB47D9B00092B42 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				B35BFB9D2CB47D9B00092B42 /* SettingsCoordinator.swift */,
+			);
+			path = Settings;
 			sourceTree = "<group>";
 		};
 		B369278B2C66B6E30089F769 = {
@@ -1108,14 +1154,14 @@
 		B36927C82C66B8330089F769 /* Coordinators */ = {
 			isa = PBXGroup;
 			children = (
-				B350C0582C8F92B70035682F /* WidgetBuilder */,
-				B32B61072C8A4406007DDCE3 /* Home */,
-				B39A26052CB06E60001C76A5 /* WidgetConfiguration */,
+				B34F3E0E2C6B0D340041D7BD /* BlockAppsCoordinator.swift */,
 				B36927CE2C66B8A30089F769 /* Coordinator.swift */,
 				B34F3E082C6A96A20041D7BD /* RootTabCoordinator.swift */,
 				B34F3E0C2C6B0C790041D7BD /* UsageCoordinator.swift */,
-				B34F3E0E2C6B0D340041D7BD /* BlockAppsCoordinator.swift */,
-				B34F3E102C6B0DDD0041D7BD /* SettingsCoordinator.swift */,
+				B32B61072C8A4406007DDCE3 /* Home */,
+				B35BFB9E2CB47D9B00092B42 /* Settings */,
+				B350C0582C8F92B70035682F /* WidgetBuilder */,
+				B39A26052CB06E60001C76A5 /* WidgetConfiguration */,
 			);
 			path = Coordinators;
 			sourceTree = "<group>";
@@ -1362,6 +1408,7 @@
 			children = (
 				B39A25D72CAF275F001C76A5 /* ModulitePlusSmallBadge.swift */,
 				B39A25DD2CAF751B001C76A5 /* ModulitePlusLargeBadge.swift */,
+				B35BFB942CB4632900092B42 /* ModuliteFreeSmallBadge.swift */,
 			);
 			path = ModulitePlus;
 			sourceTree = "<group>";
@@ -1369,7 +1416,6 @@
 		B39A25E02CAF7863001C76A5 /* TextRelated */ = {
 			isa = PBXGroup;
 			children = (
-				B35BFB832CB32AFE00092B42 /* Tutorial */,
 				B39A25E12CAF7871001C76A5 /* PaddedLabel.swift */,
 			);
 			path = TextRelated;
@@ -1378,6 +1424,7 @@
 		B39A25F42CB06410001C76A5 /* Tutorials */ = {
 			isa = PBXGroup;
 			children = (
+				B35BFB882CB4605C00092B42 /* Components */,
 				B39A25FF2CB06628001C76A5 /* TutorialWidgetConfigurationTexts.swift */,
 				B39A25F72CB06423001C76A5 /* SetWallpapers */,
 				B39A25F82CB06427001C76A5 /* EditWidget */,
@@ -1927,6 +1974,7 @@
 				B32B60BA2C864807007DDCE3 /* PersistableModuleConfiguration+CoreDataClass.swift in Sources */,
 				B3987E042CA3602900896414 /* UIView+animateBorderColor.swift in Sources */,
 				B34F3E242C6D366A0041D7BD /* WidgetEditorView.swift in Sources */,
+				B35BFB952CB4632900092B42 /* ModuliteFreeSmallBadge.swift in Sources */,
 				B369279C2C66B6E30089F769 /* HomeViewController.swift in Sources */,
 				B3C187842C791D1300A891A8 /* WidgetStyle.swift in Sources */,
 				B34F3E0D2C6B0C790041D7BD /* UsageCoordinator.swift in Sources */,
@@ -1943,13 +1991,13 @@
 				B32B60F22C878290007DDCE3 /* UIView+asImage.swift in Sources */,
 				B39A25D82CAF275F001C76A5 /* ModulitePlusSmallBadge.swift in Sources */,
 				B34F3E0B2C6A9E350041D7BD /* NavigationRouter.swift in Sources */,
+				B35BFB972CB467FA00092B42 /* PreferenceTableViewCell.swift in Sources */,
 				B36927DA2C66C2770089F769 /* HomeView.swift in Sources */,
 				B36927D52C66BCE60089F769 /* HomeCoordinator.swift in Sources */,
 				B3987E122CA38AF400896414 /* MainWidgetProvider.swift in Sources */,
 				AFBBC5212C7E4E0700A9B256 /* WidgetButtonLabelView.swift in Sources */,
 				AFBBC51E2C7E4C8500A9B256 /* WidgetButtonView.swift in Sources */,
 				B3CDD7032C767FD300E558F8 /* ModuleColorCell.swift in Sources */,
-				B39A25FE2CB06568001C76A5 /* TutorialTitleLabel.swift in Sources */,
 				B39A25A42CAB5CE3001C76A5 /* WidgetEditorSaveButton.swift in Sources */,
 				AF362C422CA5ED3700506443 /* AppUsageCell.swift in Sources */,
 				B32B60F02C876F4A007DDCE3 /* FileManagerImagePersistenceController.swift in Sources */,
@@ -1960,6 +2008,7 @@
 				AFABBD982C8A359E007BEFD8 /* BlockAppsView.swift in Sources */,
 				B36927D32C66BBC10089F769 /* SceneDelegateRouter.swift in Sources */,
 				B32B61062C8A4140007DDCE3 /* ModalNavigationRouter.swift in Sources */,
+				B35BFB9F2CB47D9B00092B42 /* SettingsCoordinator.swift in Sources */,
 				B3987E2E2CA4F46A00896414 /* MainWidgetConfigurationQuery.swift in Sources */,
 				B3C187822C79009B00A891A8 /* WidgetConfigurationBuilder.swift in Sources */,
 				B39A25D62CAF260C001C76A5 /* CAGradientLayer+Gradient.swift in Sources */,
@@ -1970,8 +2019,8 @@
 				B34F3DFD2C6A92890041D7BD /* RootTabBarController.swift in Sources */,
 				AFE5D5502CAF24E500503572 /* WeekDay.swift in Sources */,
 				B350C0492C8B8B680035682F /* UIEdgeInsets+Directions.swift in Sources */,
+				B35BFB932CB461C500092B42 /* SettingsView.swift in Sources */,
 				B39A26022CB06E01001C76A5 /* WidgetBuilderCoordinator+WidgetSetupViewControllerDelegate.swift in Sources */,
-				B34F3E112C6B0DDD0041D7BD /* SettingsCoordinator.swift in Sources */,
 				B372846A2C81096A00D9A1E7 /* ModuleStyle.swift in Sources */,
 				B32B60B72C864301007DDCE3 /* AppInfo+CoreDataProperties.swift in Sources */,
 				B39A25C42CAEC44E001C76A5 /* MainWidgetsPlaceholderView.swift in Sources */,
@@ -1996,6 +2045,9 @@
 				AF9D41DA2CA49BE50077F565 /* UsageViewModel.swift in Sources */,
 				B34F3E032C6A93A30041D7BD /* BlockAppsViewController.swift in Sources */,
 				B34F3E402C74E3270041D7BD /* WidgetModuleCell.swift in Sources */,
+				B35BFB892CB4605C00092B42 /* TutorialMultiParagraphLabel.swift in Sources */,
+				B35BFB8A2CB4605C00092B42 /* TutorialTextParagraphLabel.swift in Sources */,
+				B35BFB8B2CB4605C00092B42 /* TutorialTitleLabel.swift in Sources */,
 				B34F3E1C2C6BD3DA0041D7BD /* HomeViewModel.swift in Sources */,
 				B32B61012C88EC1A007DDCE3 /* WidgetSetupStyleCompositionalLayout.swift in Sources */,
 				B3850BB52C94D1F200F400C0 /* UICollectionViewCell+toggleIsHighlighted.swift in Sources */,
@@ -2003,6 +2055,7 @@
 				B32B60C22C864BB2007DDCE3 /* WidgetData.xcdatamodeld in Sources */,
 				B3EB15BD2C7E7311003B1960 /* String+TextCase.swift in Sources */,
 				AF763F282CAF4710002FBE26 /* AppBlockerManager.swift in Sources */,
+				B35BFB9B2CB46C8700092B42 /* SettingsLocalizedTexts.swift in Sources */,
 				B34F3E182C6B93FA0041D7BD /* TipCollectionViewCell.swift in Sources */,
 				B3987E162CA38C7900896414 /* MainWidgetEntry.swift in Sources */,
 				B39A25FA2CB06437001C76A5 /* TutorialEditWidgetView.swift in Sources */,
@@ -2020,7 +2073,6 @@
 				B39A25DE2CAF751B001C76A5 /* ModulitePlusLargeBadge.swift in Sources */,
 				B350C05A2C8F92C90035682F /* WidgetBuilderCoordinator.swift in Sources */,
 				B3987E1F2CA3A3BC00896414 /* MainWidgetModuleButton.swift in Sources */,
-				B39A260A2CB0761A001C76A5 /* TutorialTextParagraphLabel.swift in Sources */,
 				B39A26062CB06E60001C76A5 /* SelectAppsCoordinator.swift in Sources */,
 				B3987E312CA4F48C00896414 /* MainWidgetConfigurationEntity.swift in Sources */,
 				B34F3E372C6FDEAA0041D7BD /* SelectedAppCollectionViewCell.swift in Sources */,
@@ -2032,11 +2084,11 @@
 				B3F054362C7CF6CB0057F04D /* AppInfo+CoreDataClass.swift in Sources */,
 				AFABBD9B2C8A39F2007BEFD8 /* BlockAppsCollectionViewCell.swift in Sources */,
 				B34F3DF52C6701870041D7BD /* String+LocalizedKey.swift in Sources */,
-				B39A260C2CB09096001C76A5 /* TutorialMultiParagraphLabel.swift in Sources */,
 				AFABBD9D2C8F7D5D007BEFD8 /* BlockAppsHeaderView.swift in Sources */,
 				B34F3E282C6D36D40041D7BD /* WidgetSetupViewController.swift in Sources */,
 				B32B60BC2C86492C007DDCE3 /* UIColorValueTransformer.swift in Sources */,
 				AFE5D54D2CAF24DE00503572 /* AppBlockingSession.swift in Sources */,
+				B35BFB992CB46AEC00092B42 /* SettingsViewModel.swift in Sources */,
 				B39A25D12CAF1B0D001C76A5 /* GradientLabelView.swift in Sources */,
 				B34F3E262C6D36C20041D7BD /* WidgetSetupView.swift in Sources */,
 				B30AAD632C9227BA002806A7 /* WidgetContent.swift in Sources */,
