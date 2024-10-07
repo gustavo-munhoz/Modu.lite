@@ -9,7 +9,8 @@ import UIKit
 
 protocol HomeViewControllerDelegate: AnyObject {
     func homeViewControllerDidStartWidgetCreationFlow(
-        _ viewController: HomeViewController
+        _ viewController: HomeViewController,
+        type: WidgetType
     )
     
     func homeViewControllerDidStartWidgetEditingFlow(
@@ -221,7 +222,10 @@ extension HomeViewController: UICollectionViewDataSource {
                 buttonImage: UIImage(systemName: "plus.circle")!,
                 buttonAction: { [weak self] in
                     guard let self = self else { return }
-                    self.delegate?.homeViewControllerDidStartWidgetCreationFlow(self)
+                    self.delegate?.homeViewControllerDidStartWidgetCreationFlow(
+                        self,
+                        type: .main
+                    )
                 }
             )
             
@@ -231,19 +235,17 @@ extension HomeViewController: UICollectionViewDataSource {
                 buttonImage: UIImage(systemName: "plus.circle")!,
                 buttonAction: { [weak self] in
                     guard let self = self else { return }
-                    self.delegate?.homeViewControllerDidStartWidgetCreationFlow(self)
+                    self.delegate?.homeViewControllerDidStartWidgetCreationFlow(
+                        self,
+                        type: .auxiliary
+                    )
                 },
                 isPlusExclusive: true
             )
             
         case homeView.tipsCollectionView:
             header.setup(
-                title: .localized(for: .homeViewTipsSectionHeaderTitle),
-                buttonImage: UIImage(systemName: "ellipsis")!,
-                buttonColor: .systemGray,
-                buttonAction: {
-                    // TODO: Implement this
-                }
+                title: .localized(for: .homeViewTipsSectionHeaderTitle)
             )
             
         default: fatalError("Unsupported collection view.")
