@@ -6,3 +6,10 @@
 //
 
 import Foundation
+
+enum SettingsLocalizedTexts: LocalizedKeyProtocol {
+    case settingsViewSubscriptionDetailsTitle
+    case settingsViewTutorialsTitle
+    case settingsViewFAQTitle
+    case settingsViewHelpTitle
+}
