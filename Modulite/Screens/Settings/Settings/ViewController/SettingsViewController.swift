@@ -59,13 +59,28 @@ class SettingsViewController: UIViewController {
 
 // MARK: - UITableViewDelegate
 extension SettingsViewController: UITableViewDelegate {
-    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let cellData = viewModel.getSettingData(at: indexPath.row) else {
+            return
+        }
+        
+        switch cellData.setting {
+        case .subscription:
+            delegate?.settingsViewControllerDidPressSubscription(self)
+        case .tutorials:
+            delegate?.settingsViewControllerDidPressTutorials(self)
+        case .faq:
+            delegate?.settingsViewControllerDidPressFAQ(self)
+        case .help:
+            delegate?.settingsViewControllerDidPressHelp(self)
+        }
+    }
 }
 
 // MARK: - UITableViewDataSource
 extension SettingsViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        viewModel.preferenceCells.count
+        viewModel.getSettingsCount()
     }
     
     func tableView(
@@ -79,15 +94,26 @@ extension SettingsViewController: UITableViewDataSource {
             fatalError("Unable to dequeue table view cell.")
         }
         
-        let cellData = viewModel.preferenceCells[indexPath.row]
+        guard let cellData = viewModel.getSettingData(at: indexPath.row) else {
+            fatalError("Unable to get setting data for row \(indexPath.row).")
+        }
         
         cell.setup(
             sfSymbolName: cellData.symbolName,
             iconColor: cellData.symbolColor,
             title: .localized(for: cellData.titleKey),
-            hasBottomSeparator: indexPath.row == viewModel.preferenceCells.count - 1
+            hasBottomSeparator: indexPath.row == viewModel.getSettingsCount() - 1
         )
         
         return cell
+    }
+}
+
+extension SettingsViewController {
+    static func instantiate(delegate: SettingsViewControllerDelegate) -> SettingsViewController {
+        let vc = SettingsViewController()
+        vc.delegate = delegate
+        
+        return vc
     }
 }
