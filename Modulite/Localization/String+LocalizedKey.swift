@@ -143,7 +143,8 @@ extension String {
         case free
         case guest
         case comingSoonTitle
-        case comingSoonMessage(feature: String)
+        case comingSoonMessageSingular(feature: String)
+        case comingSoonMessagePlural(feature: String)
         
         // MARK: - Tab Bar Titles
         case homeViewControllerTabBarItemTitle

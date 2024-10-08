@@ -37,7 +37,7 @@ extension HomeCoordinator: HomeViewControllerDelegate {
         let alert = UIAlertController(
             title: .localized(for: .comingSoonTitle),
             message: .localized(
-                for: .comingSoonMessage(
+                for: .comingSoonMessagePlural(
                     feature: .localized(for: .homeViewAuxiliarySectionHeaderTitle)
                 )
             ),
