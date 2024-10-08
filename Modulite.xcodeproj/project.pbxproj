@@ -850,14 +850,14 @@
 			path = BlockApps;
 			sourceTree = "<group>";
 		};
-		B34F3E012C6A93800041D7BD /* Settings */ = {
+		B34F3E012C6A93800041D7BD /* SettingsTab */ = {
 			isa = PBXGroup;
 			children = (
 				B35BFBB52CB4B5F600092B42 /* Settings */,
 				B35BFBA12CB4B5D100092B42 /* SubscriptionDetails */,
 				B35BFB9A2CB46C8700092B42 /* SettingsLocalizedTexts.swift */,
 			);
-			path = Settings;
+			path = SettingsTab;
 			sourceTree = "<group>";
 		};
 		B34F3E122C6B93AB0041D7BD /* CollectionViewCells */ = {
@@ -1264,7 +1264,7 @@
 				B34F3E002C6A93700041D7BD /* BlockApps */,
 				B36927CC2C66B86D0089F769 /* Home */,
 				B36927CD2C66B88F0089F769 /* LaunchScreen */,
-				B34F3E012C6A93800041D7BD /* Settings */,
+				B34F3E012C6A93800041D7BD /* SettingsTab */,
 				B34F3DFF2C6A936C0041D7BD /* Usage */,
 				B34F3E1D2C6D35D50041D7BD /* WidgetConfiguration */,
 			);
