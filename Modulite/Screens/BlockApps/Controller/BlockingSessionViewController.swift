@@ -20,10 +20,12 @@ protocol BlockingSessionViewControllerDelegate: AnyObject {
 
 class BlockingSessionViewController: UIViewController {
     
+    // MARK: - Properties
     private let createBlockingSessionView = BlockingSessionView()
-    var viewModel = CreateSessionViewModel()
+    var viewModel = BlockingSessionViewModel()
     weak var delegate: BlockingSessionViewControllerDelegate?
     
+    // MARK: - Init Methods
     override func loadView() {
         self.view = createBlockingSessionView
         createBlockingSessionView.delegate = self
@@ -33,6 +35,15 @@ class BlockingSessionViewController: UIViewController {
         super.viewDidLoad()
         setupNavigationBar()
         setupCallbacks()
+        updateViewWithSessionData()
+    }
+    
+    private func updateViewWithSessionData() {
+        createBlockingSessionView.updateSessionTitle(viewModel.getName())
+        createBlockingSessionView.setIsAllDay(viewModel.getIsAllDay())
+        createBlockingSessionView.setStartTime(viewModel.getStartsAt())
+        createBlockingSessionView.setEndTime(viewModel.getEndsAt())
+        createBlockingSessionView.setSelectedDays(viewModel.getDaysOfWeek())
     }
     
     private func setupNavigationBar() {
@@ -49,7 +60,6 @@ class BlockingSessionViewController: UIViewController {
             target: self,
             action: #selector(saveBlockingSession)
         )
-        
         title = "Create Blocking Session"
     }
     
@@ -65,6 +75,7 @@ class BlockingSessionViewController: UIViewController {
     }
     
     @objc private func saveBlockingSession() {
+        
         guard viewModel.activitySelection
             .applications
             .isEmpty == false ||
@@ -142,6 +153,19 @@ extension BlockingSessionViewController: ScreenTimeSelectAppsContentViewDelegate
 }
 
 extension BlockingSessionViewController: NewBlockingSessionViewDelegate {
+    func saveData(
+        title: String,
+        isAllDay: Bool,
+        startTime: DateComponents,
+        endTime: DateComponents,
+        selectedDays: [WeekDay: Bool]
+    ) {
+        viewModel.setName(title)
+        viewModel.setIsAllDay(isAllDay)
+        viewModel.setStartsAt(startTime)
+        viewModel.setEndsAt(endTime)
+    }
+    
     func didUpdateSessionTitle(_ title: String) {
         print(title)
         viewModel.setName(title)

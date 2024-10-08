@@ -18,6 +18,13 @@ protocol NewBlockingSessionViewDelegate: AnyObject {
     func didUpdateEndTime(_ endTime: DateComponents)
     func didUpdateSelectedDay(_ day: WeekDay, isSelected: Bool)
     func didTapSaveSession()
+    func saveData(
+        title: String,
+        isAllDay: Bool,
+        startTime: DateComponents,
+        endTime: DateComponents,
+        selectedDays: [WeekDay: Bool]
+    )
 }
 
 class BlockingSessionView: UIView {
@@ -258,6 +265,33 @@ class BlockingSessionView: UIView {
     
     @objc private func dismissKeyboard() {
         endEditing(true)
+    }
+    
+    // MARK: - Update Methods
+    func updateSessionTitle(_ title: String) {
+        sessionTitleTextField.text = title
+    }
+    func setIsAllDay(_ isAllDay: Bool) {
+        allDaySwitch.isOn = isAllDay
+    }
+    func setStartTime(_ startTime: DateComponents) {
+        if let date = Calendar.current.date(from: startTime) {
+            startTimePicker.date = date
+        }
+    }
+    func setEndTime(_ endTime: DateComponents) {
+        if let date = Calendar.current.date(from: endTime) {
+            endTimePicker.date = date
+        }
+    }
+    func setSelectedDays(_ days: [WeekDay]) {
+        for (index, button) in dayButtons.enumerated() {
+            if days.contains(WeekDay(rawValue: index)!) {
+                button.backgroundColor = .carrotOrange
+            } else {
+                button.backgroundColor = .clear
+            }
+        }
     }
 }
 

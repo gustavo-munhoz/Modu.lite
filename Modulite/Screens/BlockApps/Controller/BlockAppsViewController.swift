@@ -46,13 +46,15 @@ class BlockAppsViewController:
     }
     
     @objc private func createBlockingSession() {
-        let createBlockingSessionVC = NewBlockingSessionViewController.instantiate(with: self)
+        let createBlockingSessionVC = BlockingSessionViewController.instantiate(with: self)
 
         let navController = UINavigationController(rootViewController: createBlockingSessionVC)
         navController.modalPresentationStyle = .formSheet
         present(navController, animated: true, completion: nil)
     }
-
+    
+    
+    // MARK: - Collection View Methods
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return SectionType.allCases.count
     }
@@ -94,7 +96,21 @@ class BlockAppsViewController:
         cell.isActive = session.isActive
         cell.blockingSession.text = session.name
         cell.timeLabel.text = session.time
-        cell.appsBlockedLabel.text = "\(session.appsBlocked) apps blocked"
+        
+        if session.appsBlocked == 0 {
+            if session.categoriesBlocked == 1 {
+                cell.appsBlockedLabel.text = "\(session.categoriesBlocked) categorie blocked"
+            } else {
+                cell.appsBlockedLabel.text = "\(session.categoriesBlocked) categories blocked"
+            }
+            
+        } else {
+            if session.appsBlocked == 1 {
+                cell.appsBlockedLabel.text = "\(session.appsBlocked) app blocked"
+            }
+            cell.appsBlockedLabel.text = "\(session.appsBlocked) apps blocked"
+        }
+        
         cell.delegate = self
 
         if sectionType == .inactive && sessions.filter({ $0.isActive }).count >= 1 {
@@ -105,7 +121,30 @@ class BlockAppsViewController:
 
         return cell
     }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let sectionType = SectionType(rawValue: indexPath.section)!
+        let session: AppBlockingSession
 
+        if sectionType == .active {
+            session = sessions.filter { $0.isActive }[indexPath.item]
+        } else {
+            session = sessions.filter { !$0.isActive }[indexPath.item]
+        }
+
+        openEditSessionView(for: session)
+    }
+    
+    private func openEditSessionView(for session: AppBlockingSession) {
+        let editBlockingSessionVC = BlockingSessionViewController.instantiate(with: self)
+        editBlockingSessionVC.viewModel.loadSession(session)
+
+        let navController = UINavigationController(rootViewController: editBlockingSessionVC)
+        navController.modalPresentationStyle = .formSheet
+        present(navController, animated: true, completion: nil)
+    }
+    
+    // MARK: - Switch Logic
     func didToggleSwitch(at index: IndexPath, isActive: Bool) {
         let sectionType = SectionType(rawValue: index.section)!
         var session: AppBlockingSession
@@ -131,8 +170,7 @@ class BlockAppsViewController:
             sessions[originalIndex].isActive = false
             sessions[originalIndex].deactivateBlock()
         }
-        
-        // Atualiza o data source
+
         sessions = viewModel.blockingSessions
 
         let activeSessions = sessions.filter { $0.isActive }
@@ -150,22 +188,38 @@ class BlockAppsViewController:
             self.blockAppsView.activeCollectionView.reloadData()
         })
     }
+
 }
 
 // MARK: - CreateBlockingSessionViewControllerDelegate
 extension BlockAppsViewController: BlockingSessionViewControllerDelegate {
     func createBlockingSessionViewController(
-        _ viewController: NewBlockingSessionViewController,
+        _ viewController: BlockingSessionViewController,
         didCreate session: AppBlockingSession
     ) {
-        viewModel.createBlockingSession(session)
-        sessions = viewModel.blockingSessions
+        if let index = sessions.firstIndex(where: { $0.id == session.id }) {
+            print(sessions[index].name ?? "Sem nome")
+            sessions[index] = session
+        } else {
+            viewModel.createBlockingSession(session)
+            sessions = viewModel.blockingSessions
+        }
 
         let activeSessions = sessions.filter { $0.isActive }
+        let inactiveSessions = sessions.filter { !$0.isActive }
+        
         let indexPath = IndexPath(item: activeSessions.count - 1, section: SectionType.active.rawValue)
-
+        let inictiveIndexPath = IndexPath(item: inactiveSessions.count - 1, section: SectionType.inactive.rawValue)
+        
         blockAppsView.activeCollectionView.performBatchUpdates({
-            self.blockAppsView.activeCollectionView.insertItems(at: [indexPath])
+            if activeSessions.isEmpty {
+                self.blockAppsView.activeCollectionView.insertItems(at: [indexPath])
+            } else {
+                session.isActive.toggle()
+                self.blockAppsView.activeCollectionView.insertItems(at: [inictiveIndexPath])
+            }
+            
+
         }, completion: { _ in
             self.blockAppsView.activeCollectionView.reloadData()
         })
