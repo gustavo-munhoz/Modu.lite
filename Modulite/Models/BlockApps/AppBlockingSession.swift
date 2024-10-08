@@ -34,6 +34,14 @@ class AppBlockingSession {
         return selection.applications.count
     }
 
+    var categoriesBlocked: Int {
+        return selection.categories.count
+    }
+    
+    var webDomainsBlocked: Int {
+        return selection.webDomains.count
+    }
+    
     init(
         name: String,
         selection: FamilyActivitySelection,
