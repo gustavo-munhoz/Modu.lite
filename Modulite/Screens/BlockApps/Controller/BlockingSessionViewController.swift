@@ -13,21 +13,20 @@ import DeviceActivity
 
 protocol BlockingSessionViewControllerDelegate: AnyObject {
     func createBlockingSessionViewController(
-        _ viewController: NewBlockingSessionViewController,
+        _ viewController: BlockingSessionViewController,
         didCreate session: AppBlockingSession
     )
 }
 
-class NewBlockingSessionViewController: UIViewController {
+class BlockingSessionViewController: UIViewController {
     
-    private let createBlockingSessionView = NewBlockingSessionView()
+    private let createBlockingSessionView = BlockingSessionView()
     var viewModel = CreateSessionViewModel()
     weak var delegate: BlockingSessionViewControllerDelegate?
     
     override func loadView() {
         self.view = createBlockingSessionView
-        
-        
+        createBlockingSessionView.delegate = self
     }
     
     override func viewDidLoad() {
@@ -98,10 +97,10 @@ class NewBlockingSessionViewController: UIViewController {
     @objc private func presentSelectApps() {
         let appBlockManager = AppBlockManager(
             selection: viewModel.activitySelection,
-            activityName: DeviceActivityName(""),
+            activityName: DeviceActivityName(viewModel.getName()),
             schedule: DeviceActivitySchedule(
-                intervalStart: DateComponents(hour: 0, minute: 0),
-                intervalEnd: DateComponents(hour: 23, minute: 59),
+                intervalStart: viewModel.getStartsAt(),
+                intervalEnd: viewModel.getEndsAt(),
                 repeats: true
             )
         )
@@ -123,17 +122,17 @@ class NewBlockingSessionViewController: UIViewController {
 
 }
 
-extension NewBlockingSessionViewController {
+extension BlockingSessionViewController {
     static func instantiate(
         with delegate: BlockingSessionViewControllerDelegate
-    ) -> NewBlockingSessionViewController {
-        let vc = NewBlockingSessionViewController()
+    ) -> BlockingSessionViewController {
+        let vc = BlockingSessionViewController()
         vc.delegate = delegate
         return vc
     }
 }
 
-extension NewBlockingSessionViewController: ScreenTimeSelectAppsContentViewDelegate {
+extension BlockingSessionViewController: ScreenTimeSelectAppsContentViewDelegate {
     func screenTimeSelectAppsContentView(
         _ view: ScreenTimeSelectAppsContentView,
         didSelect activitySelection: FamilyActivitySelection
@@ -142,25 +141,32 @@ extension NewBlockingSessionViewController: ScreenTimeSelectAppsContentViewDeleg
     }
 }
 
-extension NewBlockingSessionViewController: NewBlockingSessionViewDelegate {
+extension BlockingSessionViewController: NewBlockingSessionViewDelegate {
     func didUpdateSessionTitle(_ title: String) {
+        print(title)
         viewModel.setName(title)
     }
     
     func didToggleAllDaySwitch(_ isAllDay: Bool) {
+        print(isAllDay)
         viewModel.setIsAllDay(isAllDay)
     }
     
     func didUpdateStartTime(_ startTime: DateComponents) {
+        print(startTime.hour ?? "")
+        print(startTime.minute ?? "")
         viewModel.setStartsAt(startTime)
     }
     
     func didUpdateEndTime(_ endTime: DateComponents) {
+        print(endTime.hour ?? "")
+        print(endTime.minute ?? "")
         viewModel.setEndsAt(endTime)
     }
     
     func didUpdateSelectedDay(_ day: WeekDay, isSelected: Bool) {
         if isSelected {
+            print(day)
             viewModel.appendDayOfWeek(day)
         } else {
             viewModel.removeDayOfWeek(day)

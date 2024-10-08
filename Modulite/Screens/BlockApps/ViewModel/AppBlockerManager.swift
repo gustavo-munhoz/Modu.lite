@@ -29,9 +29,11 @@ class AppBlockManager: ObservableObject {
         let categories = activitySelection.categoryTokens
         
         store.shield.applications = applications.isEmpty ? nil : applications
+        
         store.shield.applicationCategories = ShieldSettings
             .ActivityCategoryPolicy
             .specific(categories)
+        
         store.shield.webDomainCategories = ShieldSettings
             .ActivityCategoryPolicy
             .specific(categories)
@@ -44,21 +46,13 @@ class AppBlockManager: ObservableObject {
         }
     }
     
-     func stopBlock() {
-         let applicationsToRemove = activitySelection.applicationTokens
-         
-         var currentApplications = store.shield.applications ?? Set<ApplicationToken>()
-         currentApplications.subtract(applicationsToRemove)
+    func stopBlock() {
+        store.shield.applications = nil
+        store.shield.webDomains = nil
+        store.shield.applicationCategories = nil
+        store.shield.webDomainCategories = nil
 
-         store.shield.applications = currentApplications.isEmpty ? nil : currentApplications
-
-         let categoriesToRemove = activitySelection.categoryTokens
-         var currentCategories = ShieldSettings.ActivityCategoryPolicy<Application>.specific(categoriesToRemove)
-
-         store.shield.applicationCategories = categoriesToRemove.isEmpty ? nil : .specific(categoriesToRemove)
-
-         store.shield.webDomainCategories = nil
-         center.stopMonitoring([activityName])
-         print("Monitoramento parado para \(activityName.rawValue)")
-     }
+        center.stopMonitoring([activityName])
+        print("Monitoramento parado para \(activityName.rawValue)")
+    }
 }

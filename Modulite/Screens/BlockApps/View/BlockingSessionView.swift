@@ -11,7 +11,6 @@ import SwiftUI
 import FamilyControls
 import ManagedSettings
 
-
 protocol NewBlockingSessionViewDelegate: AnyObject {
     func didUpdateSessionTitle(_ title: String)
     func didToggleAllDaySwitch(_ isAllDay: Bool)
@@ -21,14 +20,13 @@ protocol NewBlockingSessionViewDelegate: AnyObject {
     func didTapSaveSession()
 }
 
-class NewBlockingSessionView: UIView {
+class BlockingSessionView: UIView {
     
     // MARK: - Callback
     var onSelectApps: (() -> Void)?
     
+    // MARK: - Delegate
     weak var delegate: NewBlockingSessionViewDelegate?
-    
-    // MARK: - Subviews
     
     // MARK: - Subviews
     private lazy var sessionTitleTextField: UITextField = {
@@ -37,10 +35,12 @@ class NewBlockingSessionView: UIView {
         textField.font = UIFont.boldSystemFont(ofSize: 20)
         textField.borderStyle = .roundedRect
         textField.backgroundColor = .potatoYellow
+        textField.returnKeyType = .done
+        textField.delegate = self
         textField.addTarget(self, action: #selector(sessionTitleChanged), for: .editingChanged)
         return textField
     }()
-    
+
     private lazy var searchAppsButton: UIButton = {
         let button = UIButton(type: .system)
         button.setTitle("Search Apps", for: .normal)
@@ -128,6 +128,7 @@ class NewBlockingSessionView: UIView {
         super.init(frame: frame)
         setupSubviews()
         setupConstraints()
+        setupGestureToDismissKeyboard()
         backgroundColor = .whiteTurnip
     }
     
@@ -247,5 +248,22 @@ class NewBlockingSessionView: UIView {
     
     @objc private func saveSessionTapped() {
         delegate?.didTapSaveSession()
+    }
+    
+    private func setupGestureToDismissKeyboard() {
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+        tapGesture.cancelsTouchesInView = false
+        addGestureRecognizer(tapGesture)
+    }
+    
+    @objc private func dismissKeyboard() {
+        endEditing(true)
+    }
+}
+
+extension BlockingSessionView: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
     }
 }

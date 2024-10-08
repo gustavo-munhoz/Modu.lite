@@ -14,6 +14,7 @@ class BlockAppsViewModel: ObservableObject {
     
     @discardableResult
     func createBlockingSession(_ session: AppBlockingSession) -> Int {
+        session.activateBlock()
         blockingSessions.append(session)
         return 0
     }
