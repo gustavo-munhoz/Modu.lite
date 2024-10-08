@@ -26,14 +26,17 @@ class SettingsCoordinator: Coordinator {
     ///   - animated: Determines if the presentation should be animated.
     ///   - onDismiss: Optional closure to execute when the settings view controller is dismissed.
     func present(animated: Bool, onDismiss: (() -> Void)?) {
-        let vc = SettingsViewController()
+        let vc = SettingsViewController.instantiate(delegate: self)
+        
         router.present(vc, animated: animated, onDismiss: onDismiss)
     }
 }
 
 extension SettingsCoordinator: SettingsViewControllerDelegate {
     func settingsViewControllerDidPressSubscription(_ viewController: SettingsViewController) {
-        // TODO: Present Subscription view
+        let coordinator = SubscriptionDetailsCoordinator(router: router)
+        
+        presentChild(coordinator, animated: true)
     }
     
     func settingsViewControllerDidPressTutorials(_ viewController: SettingsViewController) {

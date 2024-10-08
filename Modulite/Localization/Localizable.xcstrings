@@ -76,13 +76,24 @@
     "Cancel" : {
 
     },
-    "comingSoonMessage" : {
+    "comingSoonMessagePlural" : {
       "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "%@ are coming to Modu.lite soon!"
+          }
+        }
+      }
+    },
+    "comingSoonMessageSingular" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ is coming to Modu.lite soon!"
           }
         }
       }
@@ -427,6 +438,61 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Tutorials"
+          }
+        }
+      }
+    },
+    "subsctiptionDetailsViewCurrentPlan" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Current Plan"
+          }
+        }
+      }
+    },
+    "subsctiptionDetailsViewPlanTitle" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Plan"
+          }
+        }
+      }
+    },
+    "subsctiptionDetailsViewPurchasedSkins" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Purchased Skins"
+          }
+        }
+      }
+    },
+    "subsctiptionDetailsViewSkinsTitle" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Skins"
+          }
+        }
+      }
+    },
+    "subsctiptionDetailsViewUpgradeToPlus" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Upgrade to Modu.lite Plus"
           }
         }
       }

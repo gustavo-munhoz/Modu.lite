@@ -12,6 +12,14 @@ class PreferenceTableViewCell: UITableViewCell {
     static let reuseId = "PreferenceTableViewCell"
     
     // MARK: - Properties
+    override func setHighlighted(_ highlighted: Bool, animated: Bool) {
+        UIView.animate(withDuration: 0.15) { [weak self] in
+            guard let self = self else { return }
+            
+            backgroundColor = highlighted ? .systemGray3.withAlphaComponent(0.35) : .clear
+        }
+    }
+    
     private let topSeparator = UIView()
     private let bottomSeparator = UIView()
     
@@ -68,6 +76,8 @@ class PreferenceTableViewCell: UITableViewCell {
         addSubviews()
         setupConstraints()
         setupSeparators(hasBottomSeparator: hasBottomSeparator)
+        
+        selectionStyle = .none
     }
     
     private func setupSeparators(hasBottomSeparator: Bool) {
