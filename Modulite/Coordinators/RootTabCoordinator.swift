@@ -100,7 +100,8 @@ class RootTabCoordinator: Coordinator {
     /// This tab provides users with options to customize application settings and preferences.
     /// - Returns: A configured navigation controller for the Settings tab.
     private func configureSettings() -> UINavigationController {
-        let navigationController = UINavigationController(rootViewController: SettingsViewController())
+        let settingsController = SettingsViewController()
+        let navigationController = UINavigationController(rootViewController: settingsController)
         navigationController.tabBarItem = createTabBarItem(
             titleKey: .settingsViewControllerTabBarItemTitle,
             imageName: "gearshape",
@@ -108,6 +109,8 @@ class RootTabCoordinator: Coordinator {
         )
         let settingsRouter = NavigationRouter(navigationController: navigationController)
         let settingsCoordinator = SettingsCoordinator(router: settingsRouter)
+        
+        settingsController.delegate = settingsCoordinator
         children.append(settingsCoordinator)
         return navigationController
     }
