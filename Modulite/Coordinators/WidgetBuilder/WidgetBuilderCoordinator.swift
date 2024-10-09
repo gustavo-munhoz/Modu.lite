@@ -199,7 +199,7 @@ extension WidgetBuilderCoordinator: WidgetEditorViewControllerDelegate {
         let router = ModalNavigationRouter(parentViewController: viewController)
         router.setHasSaveButton(false)
         
-        let coordinator = TutorialEditWidgetCoordinator(router: router)
+        let coordinator = TutorialCoordinator<TutorialCreateWidgetViewController>(router: router)
         
         presentChild(coordinator, animated: true)
     }
@@ -210,7 +210,7 @@ extension WidgetBuilderCoordinator: WidgetEditorViewControllerDelegate {
         let router = ModalNavigationRouter(parentViewController: viewController)
         router.setHasSaveButton(false)
         
-        let coordinator = TutorialWallpaperCoordinator(router: router)
+        let coordinator = TutorialCoordinator<TutorialWallpaperViewController>(router: router)
         
         presentChild(coordinator, animated: true)
     }

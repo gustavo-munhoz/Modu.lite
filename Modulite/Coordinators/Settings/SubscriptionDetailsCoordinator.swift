@@ -18,6 +18,7 @@ class SubscriptionDetailsCoordinator: Coordinator {
     
     func present(animated: Bool, onDismiss: (() -> Void)?) {
         let vc = SubscriptionDetailsViewController.instantiate(delegate: self)
+        vc.hidesBottomBarWhenPushed = true
         
         router.present(vc, animated: animated, onDismiss: onDismiss)
     }

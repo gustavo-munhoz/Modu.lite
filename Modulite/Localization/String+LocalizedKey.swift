@@ -146,6 +146,8 @@ extension String {
         case comingSoonMessageSingular(feature: String)
         case comingSoonMessagePlural(feature: String)
         
+        case tutorialVideos
+        
         // MARK: - Tab Bar Titles
         case homeViewControllerTabBarItemTitle
         case usageViewControllerTabBarItemTitle

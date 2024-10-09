@@ -71,8 +71,7 @@ class SubscriptionDetailsView: UIView {
         button.addSubview(separator)
             
         separator.snp.makeConstraints { make in
-            make.top.equalTo(button.snp.bottom).offset(12)
-            make.left.right.equalToSuperview()
+            make.left.right.bottom.equalToSuperview()
         }
         
         return button
