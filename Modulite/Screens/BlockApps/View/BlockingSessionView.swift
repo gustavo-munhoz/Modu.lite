@@ -47,7 +47,6 @@ class BlockingSessionView: UIView {
         textField.addTarget(self, action: #selector(sessionTitleChanged), for: .editingChanged)
         return textField
     }()
-
     private lazy var searchAppsButton: UIButton = {
         let button = UIButton(type: .system)
         button.setTitle("Search Apps", for: .normal)
@@ -58,57 +57,61 @@ class BlockingSessionView: UIView {
         return button
     }()
     
-    // Switch para All Day
+    // MARK: - All Day
     private lazy var allDaySwitch: UISwitch = {
         let switchControl = UISwitch()
         switchControl.addTarget(self, action: #selector(allDaySwitchToggled), for: .valueChanged)
         return switchControl
     }()
-    
     private lazy var allDayLabel: UILabel = {
         let label = UILabel()
         label.text = "All Day"
         return label
     }()
     
-    // Seletor de horário de início e fim
+    // MARK: - Star and End Time
     private lazy var startTimePicker: UIDatePicker = {
         let picker = UIDatePicker()
         picker.datePickerMode = .time
         picker.addTarget(self, action: #selector(startTimeChanged), for: .valueChanged)
         return picker
     }()
-    
     private lazy var endTimePicker: UIDatePicker = {
         let picker = UIDatePicker()
         picker.datePickerMode = .time
         picker.addTarget(self, action: #selector(endTimeChanged), for: .valueChanged)
         return picker
     }()
-    
     private lazy var startTimeLabel: UILabel = {
         let label = UILabel()
         label.text = "Start Time"
         return label
     }()
-    
     private lazy var endTimeLabel: UILabel = {
         let label = UILabel()
         label.text = "End Time"
         return label
     }()
     
-    // Dias da semana
+    // MARK: - Day
     private lazy var dayButtons: [UIButton] = {
-        let days = ["M", "T", "W", "T", "F", "S", "S"]
-        return days.map { day in
+        return [
+            WeekDay.monday,
+            WeekDay.tuesday,
+            WeekDay.wednesday,
+            WeekDay.thursday,
+            WeekDay.friday,
+            WeekDay.saturday,
+            WeekDay.sunday
+        ].enumerated().map { (index, day) in
             let button = UIButton(type: .system)
-            button.setTitle(day, for: .normal)
+            button.setTitle(day.listName, for: .normal)
             button.backgroundColor = .clear
             button.layer.cornerRadius = 8
             button.layer.borderWidth = 2
             button.layer.borderColor = UIColor.carrotOrange.cgColor
             button.addTarget(self, action: #selector(dayButtonTapped), for: .touchUpInside)
+            button.tag = index
             return button
         }
     }()
@@ -157,8 +160,9 @@ class BlockingSessionView: UIView {
         addSubview(saveSessionButton)
     }
     
-    // MARK: - Setup Constraints
+    // MARK: - Setup Methods
     private func setupConstraints() {
+        
         sessionTitleTextField.snp.makeConstraints { make in
             make.top.equalTo(safeAreaLayoutGuide).offset(20)
             make.leading.equalToSuperview().offset(20)
@@ -216,6 +220,12 @@ class BlockingSessionView: UIView {
         }
     }
     
+    private func setupGestureToDismissKeyboard() {
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+        tapGesture.cancelsTouchesInView = false
+        addGestureRecognizer(tapGesture)
+    }
+    
     // MARK: - Actions
     @objc private func sessionTitleChanged() {
         delegate?.didUpdateSessionTitle(sessionTitleTextField.text ?? "")
@@ -240,9 +250,8 @@ class BlockingSessionView: UIView {
     }
     
     @objc private func dayButtonTapped(sender: UIButton) {
-        guard let title = sender.title(for: .normal) else { return }
-        guard let dayIndex = ["M", "T", "W", "T", "F", "S", "S"].firstIndex(of: title) else { return }
-        let weekDay = WeekDay(rawValue: dayIndex)!
+        let dayIndex = sender.tag
+        guard let weekDay = WeekDay(rawValue: dayIndex) else { return }
         
         if sender.backgroundColor == .clear {
             sender.backgroundColor = .carrotOrange
@@ -255,12 +264,6 @@ class BlockingSessionView: UIView {
     
     @objc private func saveSessionTapped() {
         delegate?.didTapSaveSession()
-    }
-    
-    private func setupGestureToDismissKeyboard() {
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
-        tapGesture.cancelsTouchesInView = false
-        addGestureRecognizer(tapGesture)
     }
     
     @objc private func dismissKeyboard() {
