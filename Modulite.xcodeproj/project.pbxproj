@@ -160,6 +160,9 @@
 		B35BFC4E2CB609CD00092B42 /* TutorialAddWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B35BFC4D2CB609CD00092B42 /* TutorialAddWidgetView.swift */; };
 		B35BFC502CB609DC00092B42 /* TutorialAddWidgetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B35BFC4F2CB609DC00092B42 /* TutorialAddWidgetViewController.swift */; };
 		B35BFC522CB60B7300092B42 /* TutorialStepsStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B35BFC512CB60B7300092B42 /* TutorialStepsStackView.swift */; };
+		B35BFC5C2CB6F22100092B42 /* FAQView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B35BFC5B2CB6F22100092B42 /* FAQView.swift */; };
+		B35BFC5E2CB6F23300092B42 /* FAQViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B35BFC5D2CB6F23300092B42 /* FAQViewController.swift */; };
+		B35BFC602CB6F4A500092B42 /* FAQCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B35BFC5F2CB6F4A500092B42 /* FAQCoordinator.swift */; };
 		B36927982C66B6E30089F769 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B36927972C66B6E30089F769 /* AppDelegate.swift */; };
 		B369279A2C66B6E30089F769 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B36927992C66B6E30089F769 /* SceneDelegate.swift */; };
 		B369279C2C66B6E30089F769 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B369279B2C66B6E30089F769 /* HomeViewController.swift */; };
@@ -255,6 +258,11 @@
 		B3CDD7012C766F2E00E558F8 /* ModuleStyleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3CDD7002C766F2E00E558F8 /* ModuleStyleCell.swift */; };
 		B3CDD7032C767FD300E558F8 /* ModuleColorCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3CDD7022C767FD300E558F8 /* ModuleColorCell.swift */; };
 		B3CDD7072C77C59B00E558F8 /* ImageProcessingFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3CDD7062C77C59B00E558F8 /* ImageProcessingFactory.swift */; };
+		B3D1B7C72CB6F61E00DFC4F5 /* FAQLocalizedTexts.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3D1B7C62CB6F61E00DFC4F5 /* FAQLocalizedTexts.swift */; };
+		B3D1B7CB2CB6FB0600DFC4F5 /* FAQQuestionAndAnswerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3D1B7CA2CB6FB0600DFC4F5 /* FAQQuestionAndAnswerView.swift */; };
+		B3D1B7CD2CB6FC5400DFC4F5 /* FAQViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3D1B7CC2CB6FC5400DFC4F5 /* FAQViewModel.swift */; };
+		B3D1B7CF2CB6FDF800DFC4F5 /* FAQStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3D1B7CE2CB6FDF800DFC4F5 /* FAQStackView.swift */; };
+		B3D1B7D12CB7024700DFC4F5 /* FAQSummaryStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3D1B7D02CB7024700DFC4F5 /* FAQSummaryStackView.swift */; };
 		B3D90AC62C9A592500CA8054 /* FileManagerImagePersistenceControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3D90AC52C9A592500CA8054 /* FileManagerImagePersistenceControllerTests.swift */; };
 		B3EB15B62C7E4BF0003B1960 /* ModuleConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3EB15B52C7E4BF0003B1960 /* ModuleConfiguration.swift */; };
 		B3EB15B92C7E4CD6003B1960 /* ModuleAppNameTextConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3EB15B82C7E4CD6003B1960 /* ModuleAppNameTextConfiguration.swift */; };
@@ -483,6 +491,9 @@
 		B35BFC4D2CB609CD00092B42 /* TutorialAddWidgetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialAddWidgetView.swift; sourceTree = "<group>"; };
 		B35BFC4F2CB609DC00092B42 /* TutorialAddWidgetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialAddWidgetViewController.swift; sourceTree = "<group>"; };
 		B35BFC512CB60B7300092B42 /* TutorialStepsStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialStepsStackView.swift; sourceTree = "<group>"; };
+		B35BFC5B2CB6F22100092B42 /* FAQView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FAQView.swift; sourceTree = "<group>"; };
+		B35BFC5D2CB6F23300092B42 /* FAQViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FAQViewController.swift; sourceTree = "<group>"; };
+		B35BFC5F2CB6F4A500092B42 /* FAQCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FAQCoordinator.swift; sourceTree = "<group>"; };
 		B36927942C66B6E30089F769 /* Modulite.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Modulite.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B36927972C66B6E30089F769 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B36927992C66B6E30089F769 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -553,6 +564,11 @@
 		B3CDD7002C766F2E00E558F8 /* ModuleStyleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModuleStyleCell.swift; sourceTree = "<group>"; };
 		B3CDD7022C767FD300E558F8 /* ModuleColorCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModuleColorCell.swift; sourceTree = "<group>"; };
 		B3CDD7062C77C59B00E558F8 /* ImageProcessingFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageProcessingFactory.swift; sourceTree = "<group>"; };
+		B3D1B7C62CB6F61E00DFC4F5 /* FAQLocalizedTexts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FAQLocalizedTexts.swift; sourceTree = "<group>"; };
+		B3D1B7CA2CB6FB0600DFC4F5 /* FAQQuestionAndAnswerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FAQQuestionAndAnswerView.swift; sourceTree = "<group>"; };
+		B3D1B7CC2CB6FC5400DFC4F5 /* FAQViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FAQViewModel.swift; sourceTree = "<group>"; };
+		B3D1B7CE2CB6FDF800DFC4F5 /* FAQStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FAQStackView.swift; sourceTree = "<group>"; };
+		B3D1B7D02CB7024700DFC4F5 /* FAQSummaryStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FAQSummaryStackView.swift; sourceTree = "<group>"; };
 		B3D90AC52C9A592500CA8054 /* FileManagerImagePersistenceControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileManagerImagePersistenceControllerTests.swift; sourceTree = "<group>"; };
 		B3EB15B52C7E4BF0003B1960 /* ModuleConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModuleConfiguration.swift; sourceTree = "<group>"; };
 		B3EB15B82C7E4CD6003B1960 /* ModuleAppNameTextConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModuleAppNameTextConfiguration.swift; sourceTree = "<group>"; };
@@ -884,6 +900,7 @@
 		B34F3E012C6A93800041D7BD /* SettingsTab */ = {
 			isa = PBXGroup;
 			children = (
+				B35BFC542CB6F20300092B42 /* FAQ */,
 				B35BFBD12CB5A81500092B42 /* TutorialCenter */,
 				B35BFBB52CB4B5F600092B42 /* Settings */,
 				B35BFBA12CB4B5D100092B42 /* SubscriptionDetails */,
@@ -1081,6 +1098,7 @@
 				B35BFB9D2CB47D9B00092B42 /* SettingsCoordinator.swift */,
 				B35BFBC42CB4B6CE00092B42 /* SubscriptionDetailsCoordinator.swift */,
 				B35BFBE82CB5AF9B00092B42 /* TutorialCenterCoordinator.swift */,
+				B35BFC5F2CB6F4A500092B42 /* FAQCoordinator.swift */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -1248,6 +1266,42 @@
 				B35BFC4F2CB609DC00092B42 /* TutorialAddWidgetViewController.swift */,
 			);
 			path = AddWidget;
+			sourceTree = "<group>";
+		};
+		B35BFC542CB6F20300092B42 /* FAQ */ = {
+			isa = PBXGroup;
+			children = (
+				B3D1B7C62CB6F61E00DFC4F5 /* FAQLocalizedTexts.swift */,
+				B35BFC5A2CB6F21800092B42 /* View */,
+				B35BFC582CB6F21800092B42 /* ViewController */,
+				B35BFC592CB6F21800092B42 /* ViewModel */,
+			);
+			path = FAQ;
+			sourceTree = "<group>";
+		};
+		B35BFC582CB6F21800092B42 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				B35BFC5D2CB6F23300092B42 /* FAQViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		B35BFC592CB6F21800092B42 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				B3D1B7CC2CB6FC5400DFC4F5 /* FAQViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		B35BFC5A2CB6F21800092B42 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				B3D1B7C92CB6FA6100DFC4F5 /* Components */,
+				B35BFC5B2CB6F22100092B42 /* FAQView.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		B369278B2C66B6E30089F769 = {
@@ -1656,6 +1710,16 @@
 				B32B60FD2C88E43F007DDCE3 /* CustomizedTextFactory.swift */,
 			);
 			path = Factories;
+			sourceTree = "<group>";
+		};
+		B3D1B7C92CB6FA6100DFC4F5 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				B3D1B7CA2CB6FB0600DFC4F5 /* FAQQuestionAndAnswerView.swift */,
+				B3D1B7CE2CB6FDF800DFC4F5 /* FAQStackView.swift */,
+				B3D1B7D02CB7024700DFC4F5 /* FAQSummaryStackView.swift */,
+			);
+			path = Components;
 			sourceTree = "<group>";
 		};
 		B3D90ABF2C9A529B00CA8054 /* WidgetImagePersistence */ = {
@@ -2159,6 +2223,7 @@
 				B35BFBCB2CB4BC7600092B42 /* SubscriptionDetailsSmallTitle.swift in Sources */,
 				B35BFBED2CB5BA8000092B42 /* TutorialCenterSmallTitle.swift in Sources */,
 				B369279C2C66B6E30089F769 /* HomeViewController.swift in Sources */,
+				B35BFC5C2CB6F22100092B42 /* FAQView.swift in Sources */,
 				B35BFBC72CB4BC0900092B42 /* SubscriptionLocalizedTexts.swift in Sources */,
 				B3C187842C791D1300A891A8 /* WidgetStyle.swift in Sources */,
 				B34F3E0D2C6B0C790041D7BD /* UsageCoordinator.swift in Sources */,
@@ -2203,6 +2268,7 @@
 				B3987E2E2CA4F46A00896414 /* MainWidgetConfigurationQuery.swift in Sources */,
 				B35BFBC52CB4B6CE00092B42 /* SubscriptionDetailsCoordinator.swift in Sources */,
 				B3C187822C79009B00A891A8 /* WidgetConfigurationBuilder.swift in Sources */,
+				B3D1B7C72CB6F61E00DFC4F5 /* FAQLocalizedTexts.swift in Sources */,
 				B39A25D62CAF260C001C76A5 /* CAGradientLayer+Gradient.swift in Sources */,
 				B3C1877F2C78D1E000A891A8 /* ModuliteWidgetConfiguration.swift in Sources */,
 				B32B60FE2C88E43F007DDCE3 /* CustomizedTextFactory.swift in Sources */,
@@ -2213,10 +2279,12 @@
 				B35BFC522CB60B7300092B42 /* TutorialStepsStackView.swift in Sources */,
 				B34F3DFD2C6A92890041D7BD /* RootTabBarController.swift in Sources */,
 				AFE5D5502CAF24E500503572 /* WeekDay.swift in Sources */,
+				B35BFC5E2CB6F23300092B42 /* FAQViewController.swift in Sources */,
 				B350C0492C8B8B680035682F /* UIEdgeInsets+Directions.swift in Sources */,
 				B39A26022CB06E01001C76A5 /* WidgetBuilderCoordinator+WidgetSetupViewControllerDelegate.swift in Sources */,
 				B372846A2C81096A00D9A1E7 /* ModuleStyle.swift in Sources */,
 				B32B60B72C864301007DDCE3 /* AppInfo+CoreDataProperties.swift in Sources */,
+				B3D1B7CB2CB6FB0600DFC4F5 /* FAQQuestionAndAnswerView.swift in Sources */,
 				B39A25C42CAEC44E001C76A5 /* MainWidgetsPlaceholderView.swift in Sources */,
 				B34F3E142C6B93C80041D7BD /* MainWidgetCollectionViewCell.swift in Sources */,
 				B3987E0D2CA38A8A00896414 /* MainWidget.swift in Sources */,
@@ -2246,6 +2314,7 @@
 				B35BFB8B2CB4605C00092B42 /* TutorialTitleLabel.swift in Sources */,
 				B34F3E1C2C6BD3DA0041D7BD /* HomeViewModel.swift in Sources */,
 				B32B61012C88EC1A007DDCE3 /* WidgetSetupStyleCompositionalLayout.swift in Sources */,
+				B3D1B7CD2CB6FC5400DFC4F5 /* FAQViewModel.swift in Sources */,
 				B3850BB52C94D1F200F400C0 /* UICollectionViewCell+toggleIsHighlighted.swift in Sources */,
 				B3C187862C79208600A891A8 /* WidgetStyleFactory.swift in Sources */,
 				B32B60C22C864BB2007DDCE3 /* WidgetData.xcdatamodeld in Sources */,
@@ -2257,6 +2326,7 @@
 				B3987E162CA38C7900896414 /* MainWidgetEntry.swift in Sources */,
 				B39A25FA2CB06437001C76A5 /* TutorialCreateWidgetView.swift in Sources */,
 				B35BFC502CB609DC00092B42 /* TutorialAddWidgetViewController.swift in Sources */,
+				B3D1B7D12CB7024700DFC4F5 /* FAQSummaryStackView.swift in Sources */,
 				B3EB15BB2C7E5DC5003B1960 /* UILabel+AppNameConfiguration.swift in Sources */,
 				B34F3E2B2C6E83800041D7BD /* UIFont+TraitedTextStyle.swift in Sources */,
 				B34F3E2E2C6E87350041D7BD /* SetupHeaderReusableCell.swift in Sources */,
@@ -2287,6 +2357,7 @@
 				B34F3DF52C6701870041D7BD /* String+LocalizedKey.swift in Sources */,
 				B35BFC4E2CB609CD00092B42 /* TutorialAddWidgetView.swift in Sources */,
 				AFABBD9D2C8F7D5D007BEFD8 /* BlockAppsHeaderView.swift in Sources */,
+				B3D1B7CF2CB6FDF800DFC4F5 /* FAQStackView.swift in Sources */,
 				B34F3E282C6D36D40041D7BD /* WidgetSetupViewController.swift in Sources */,
 				B32B60BC2C86492C007DDCE3 /* UIColorValueTransformer.swift in Sources */,
 				AFE5D54D2CAF24DE00503572 /* AppBlockingSession.swift in Sources */,
@@ -2296,6 +2367,7 @@
 				AFDC1A512CB46005008A816D /* ShieldConfigurationBuilder.swift in Sources */,
 				AF362BFF2CA5AD8000506443 /* ScreenTimeelectAppsContentView.swift in Sources */,
 				AFE5D5032CADD4C700503572 /* FamilyControlsManager.swift in Sources */,
+				B35BFC602CB6F4A500092B42 /* FAQCoordinator.swift in Sources */,
 				B35BFC482CB5F9B600092B42 /* TutorialEditWidgetViewController.swift in Sources */,
 				B34F3E3A2C74BFB00041D7BD /* WidgetEditorViewModel.swift in Sources */,
 				B39A25E22CAF7871001C76A5 /* PaddedLabel.swift in Sources */,
