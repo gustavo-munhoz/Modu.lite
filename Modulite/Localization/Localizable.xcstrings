@@ -340,6 +340,160 @@
         }
       }
     },
+    "helpViewCancelSubscriptionText" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "You can cancel your membership by tapping Settings > Subscription Details > Cancel subscription"
+          }
+        }
+      }
+    },
+    "helpViewCancelSubscriptionTitle" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "I want to cancel my subscription"
+          }
+        }
+      }
+    },
+    "helpViewEncounteredBugButton" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "REPORT ISSUES"
+          }
+        }
+      }
+    },
+    "helpViewEncounteredBugText1" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "If you encounter any problems please report it to us by email at deftmango@gmail.com or simply tapping the button bellow."
+          }
+        }
+      }
+    },
+    "helpViewEncounteredBugText2" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "The Modu.lite team is committed to responding to your questions as quickly as possible."
+          }
+        }
+      }
+    },
+    "helpViewEncounteredBugTitle" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "I have encountered a bug or some unusual problem"
+          }
+        }
+      }
+    },
+    "helpViewProblemSettingUpWidgetText" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "You can watch detailed tutorials about how to set up your widgets on Settings > Tutorials"
+          }
+        }
+      }
+    },
+    "helpViewProblemSettingUpWidgetTitle" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Problems with setting up my widget"
+          }
+        }
+      }
+    },
+    "helpViewProblemWithPurchasesText" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "First ensure that your payment method is up-to-date and correctly linked to your App Store account. Check your purchase history to confirm if the transaction was processed successfully. For further assistance, you can contact Apple Support."
+          }
+        }
+      }
+    },
+    "helpViewProblemWithPurchasesTitle" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Problems with purchases"
+          }
+        }
+      }
+    },
+    "helpViewSendEmailBody" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "<html>\n<body>\n<p>Hello Modu.lite Team,</p>\n<p>I'm having an issue with the Modu.lite app and would like to report it.</p>\n<p><strong>What happened:</strong> [Please describe what went wrong]</p>\n<p><strong>What I was trying to do:</strong> [What were you doing when the issue happened?]</p>\n<p><strong>What I expected:</strong> [What did you expect to happen?]</p>\n<p>I'm using:</p>\n<ul>\n  <li><strong>Device:</strong> [e.g., iPhone 13]</li>\n  <li><strong>iOS version:</strong> [e.g., iOS 17.0]</li>\n</ul>\n<p>Thank you for your help!</p>\n<p>Best,</p>\n<p>[Your Name]</p>\n</body>\n</html>"
+          }
+        }
+      }
+    },
+    "helpViewSendEmailErrorAlertMessage" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Please, configure an email account in your device to send your report!"
+          }
+        }
+      }
+    },
+    "helpViewSendEmailErrorAlertTitle" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Could Not Send Email"
+          }
+        }
+      }
+    },
+    "helpViewSendEmailSubject" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Modu.lite Issue Report"
+          }
+        }
+      }
+    },
     "homeViewAuxiliarySectionHeaderTitle" : {
       "extractionState" : "manual",
       "localizations" : {

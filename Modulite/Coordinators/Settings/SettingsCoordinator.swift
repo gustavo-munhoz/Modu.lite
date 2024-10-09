@@ -52,6 +52,8 @@ extension SettingsCoordinator: SettingsViewControllerDelegate {
     }
     
     func settingsViewControllerDidPressHelp(_ viewController: SettingsViewController) {
-        // TODO: Present Help view
+        let coordinator = HelpCoordinator(router: router)
+        
+        presentChild(coordinator, animated: true)
     }
 }
