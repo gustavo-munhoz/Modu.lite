@@ -34,6 +34,14 @@ class AppBlockingSession {
         return selection.applications.count
     }
 
+    var categoriesBlocked: Int {
+        return selection.categories.count
+    }
+    
+    var webDomainsBlocked: Int {
+        return selection.webDomains.count
+    }
+    
     init(
         name: String,
         selection: FamilyActivitySelection,
@@ -41,8 +49,7 @@ class AppBlockingSession {
         isAllDay: Bool,
         startsAt: DateComponents,
         endsAt: DateComponents,
-        daysOfWeek: [WeekDay] = [],
-        isActive: Bool
+        daysOfWeek: [WeekDay] = []
     ) {
         self.name = name
         self.selection = selection
@@ -51,7 +58,7 @@ class AppBlockingSession {
         self.startsAt = startsAt
         self.endsAt = endsAt
         self.daysOfWeek = daysOfWeek
-        self.isActive = isActive
+        self.isActive = false
         
         self.activityName = DeviceActivityName("block_\(UUID().uuidString)")
         
@@ -75,11 +82,22 @@ class AppBlockingSession {
         return String(format: "%02d:%02d", hour, minute)
     }
     
+    // MARK: - Block Functions: BlockManager
     func activateBlock() {
         blockManager.startBlock()
     }
 
     func deactivateBlock() {
         blockManager.stopBlock()
+    }
+    
+    func updateBlock() {
+        blockManager.stopBlock()
+        blockManager.startBlock()
+    }
+    
+    // MARK: - Edit properties
+    func updateSelection(_ selection: FamilyActivitySelection ) {
+        blockManager.activitySelection = selection
     }
 }

@@ -8,7 +8,4 @@
 import DeviceActivity
 import ManagedSettings
 
-class DeviceActivityMonitorExtension: DeviceActivityMonitor {
-
-    
-}
+class DeviceActivityMonitorExtension: DeviceActivityMonitor { }

@@ -8,7 +8,7 @@
 import Foundation
 import FamilyControls
 
-class CreateSessionViewModel: ObservableObject {
+class BlockingSessionViewModel: ObservableObject {
     // MARK: - Properties
     @Published var activitySelection: FamilyActivitySelection = .init()
     private var name: String = ""
@@ -17,7 +17,7 @@ class CreateSessionViewModel: ObservableObject {
     private var startsAt: DateComponents = .init(hour: 0, minute: 0)
     private var endsAt: DateComponents = .init(hour: 23, minute: 59)
     private var daysOfWeek: [WeekDay] = []
-    private var isActive = true // Já é criada iniciada
+    private var isActive = true
     
     // MARK: - Getters
     
@@ -94,4 +94,16 @@ class CreateSessionViewModel: ObservableObject {
     func setActivitySelection(_ selection: FamilyActivitySelection) {
         activitySelection = selection
     }
+    
+    func loadSession(_ session: AppBlockingSession) {
+        self.name = session.name ?? ""
+        self.activitySelection = session.selection
+        self.blockingType = session.blockingType ?? .scheduled
+        self.isAllDay = session.isAllDay ?? false
+        self.startsAt = session.startsAt ?? DateComponents(hour: 0, minute: 0)
+        self.endsAt = session.endsAt ?? DateComponents(hour: 23, minute: 59)
+        self.daysOfWeek = session.daysOfWeek
+        self.isActive = session.isActive
+    }
+
 }

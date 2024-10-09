@@ -215,7 +215,6 @@ extension String {
         case blockingSessionButtonSearchApps
         case blcokingSessionCreateBlockingSession
         
-        
         // MARK: - Widget Styles
         case widgetStyleNameAnalog
         case widgetStyleNameTapedeck

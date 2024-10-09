@@ -34,7 +34,6 @@ class BlockAppsCollectionViewCell: UICollectionViewCell {
     
     private(set) lazy var blockingSession: UILabel = {
         let label = UILabel()
-        label.text = "Session"
         label.font = UIFont(textStyle: .title3, weight: .semibold)
         label.textColor = .black
         return label
@@ -42,7 +41,6 @@ class BlockAppsCollectionViewCell: UICollectionViewCell {
     
     private(set) lazy var timeLabel: UILabel = {
         let label = UILabel()
-        label.text = "00:00 - 23:59 | 6 days a week"
         label.font = UIFont.systemFont(ofSize: 14, weight: .regular)
         label.textColor = .darkGray
         return label
@@ -50,7 +48,6 @@ class BlockAppsCollectionViewCell: UICollectionViewCell {
     
     private(set) lazy var appsBlockedLabel: UILabel = {
         let label = UILabel()
-        label.text = "13 apps blocked"
         label.font = UIFont(textStyle: .footnote, weight: .semibold)
         label.textColor = .black
         label.textAlignment = .center
@@ -68,7 +65,6 @@ class BlockAppsCollectionViewCell: UICollectionViewCell {
         view.layer.masksToBounds = true
         return view
     }()
-    
     private(set) lazy var editButton: UIButton = {
         let button = UIButton(type: .system)
         button.setImage(UIImage(systemName: "square.and.pencil"), for: .normal)
@@ -95,7 +91,7 @@ class BlockAppsCollectionViewCell: UICollectionViewCell {
         contentView.addSubview(appsBlockedLabel)
         contentView.addSubview(editButton)
     }
-    
+
     private func setupConstraints() {
         backgroundCard.snp.makeConstraints { make in
             make.edges.equalToSuperview()

@@ -11,27 +11,42 @@ import SwiftUI
 import FamilyControls
 import ManagedSettings
 
-class CreateNewBlockingSessionView: UIView {
+protocol NewBlockingSessionViewDelegate: AnyObject {
+    func didUpdateSessionTitle(_ title: String)
+    func didToggleAllDaySwitch(_ isAllDay: Bool)
+    func didUpdateStartTime(_ startTime: DateComponents)
+    func didUpdateEndTime(_ endTime: DateComponents)
+    func didUpdateSelectedDay(_ day: WeekDay, isSelected: Bool)
+    func didTapSaveSession()
+    func saveData(
+        title: String,
+        isAllDay: Bool,
+        startTime: DateComponents,
+        endTime: DateComponents,
+        selectedDays: [WeekDay: Bool]
+    )
+}
+
+class BlockingSessionView: UIView {
     
     // MARK: - Callback
-    var onAppsSelected: ((FamilyActivitySelection) -> Void)?
     var onSelectApps: (() -> Void)?
     
-    // Propriedade para armazenar a view model
-    var viewModel: CreateSessionViewModel?
+    // MARK: - Delegate
+    weak var delegate: NewBlockingSessionViewDelegate?
     
     // MARK: - Subviews
-    
     private lazy var sessionTitleTextField: UITextField = {
         let textField = UITextField()
         textField.text = "Blocking session #1"
         textField.font = UIFont.boldSystemFont(ofSize: 20)
         textField.borderStyle = .roundedRect
         textField.backgroundColor = .potatoYellow
+        textField.returnKeyType = .done
+        textField.delegate = self
         textField.addTarget(self, action: #selector(sessionTitleChanged), for: .editingChanged)
         return textField
     }()
-    
     private lazy var searchAppsButton: UIButton = {
         let button = UIButton(type: .system)
         button.setTitle("Search Apps", for: .normal)
@@ -42,57 +57,61 @@ class CreateNewBlockingSessionView: UIView {
         return button
     }()
     
-    // Switch para All Day
+    // MARK: - All Day
     private lazy var allDaySwitch: UISwitch = {
         let switchControl = UISwitch()
         switchControl.addTarget(self, action: #selector(allDaySwitchToggled), for: .valueChanged)
         return switchControl
     }()
-    
     private lazy var allDayLabel: UILabel = {
         let label = UILabel()
         label.text = "All Day"
         return label
     }()
     
-    // Seletor de horário de início e fim
+    // MARK: - Star and End Time
     private lazy var startTimePicker: UIDatePicker = {
         let picker = UIDatePicker()
         picker.datePickerMode = .time
         picker.addTarget(self, action: #selector(startTimeChanged), for: .valueChanged)
         return picker
     }()
-    
     private lazy var endTimePicker: UIDatePicker = {
         let picker = UIDatePicker()
         picker.datePickerMode = .time
         picker.addTarget(self, action: #selector(endTimeChanged), for: .valueChanged)
         return picker
     }()
-    
     private lazy var startTimeLabel: UILabel = {
         let label = UILabel()
         label.text = "Start Time"
         return label
     }()
-    
     private lazy var endTimeLabel: UILabel = {
         let label = UILabel()
         label.text = "End Time"
         return label
     }()
     
-    // Dias da semana
+    // MARK: - Day
     private lazy var dayButtons: [UIButton] = {
-        let days = ["M", "T", "W", "T", "F", "S", "S"]
-        return days.map { day in
+        return [
+            WeekDay.monday,
+            WeekDay.tuesday,
+            WeekDay.wednesday,
+            WeekDay.thursday,
+            WeekDay.friday,
+            WeekDay.saturday,
+            WeekDay.sunday
+        ].enumerated().map { (index, day) in
             let button = UIButton(type: .system)
-            button.setTitle(day, for: .normal)
+            button.setTitle(day.listName, for: .normal)
             button.backgroundColor = .clear
             button.layer.cornerRadius = 8
             button.layer.borderWidth = 2
             button.layer.borderColor = UIColor.carrotOrange.cgColor
             button.addTarget(self, action: #selector(dayButtonTapped), for: .touchUpInside)
+            button.tag = index
             return button
         }
     }()
@@ -119,6 +138,7 @@ class CreateNewBlockingSessionView: UIView {
         super.init(frame: frame)
         setupSubviews()
         setupConstraints()
+        setupGestureToDismissKeyboard()
         backgroundColor = .whiteTurnip
     }
     
@@ -140,8 +160,9 @@ class CreateNewBlockingSessionView: UIView {
         addSubview(saveSessionButton)
     }
     
-    // MARK: - Setup Constraints using SnapKit
+    // MARK: - Setup Methods
     private func setupConstraints() {
+        
         sessionTitleTextField.snp.makeConstraints { make in
             make.top.equalTo(safeAreaLayoutGuide).offset(20)
             make.leading.equalToSuperview().offset(20)
@@ -199,9 +220,15 @@ class CreateNewBlockingSessionView: UIView {
         }
     }
     
+    private func setupGestureToDismissKeyboard() {
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+        tapGesture.cancelsTouchesInView = false
+        addGestureRecognizer(tapGesture)
+    }
+    
     // MARK: - Actions
     @objc private func sessionTitleChanged() {
-        viewModel?.setName(sessionTitleTextField.text ?? "")
+        delegate?.didUpdateSessionTitle(sessionTitleTextField.text ?? "")
     }
     
     @objc private func presentSelectApps() {
@@ -209,32 +236,71 @@ class CreateNewBlockingSessionView: UIView {
     }
     
     @objc private func allDaySwitchToggled() {
-        viewModel?.setIsAllDay(allDaySwitch.isOn)
+        delegate?.didToggleAllDaySwitch(allDaySwitch.isOn)
     }
     
     @objc private func startTimeChanged() {
         let components = Calendar.current.dateComponents([.hour, .minute], from: startTimePicker.date)
-        viewModel?.setStartsAt(components)
+        delegate?.didUpdateStartTime(components)
     }
     
     @objc private func endTimeChanged() {
         let components = Calendar.current.dateComponents([.hour, .minute], from: endTimePicker.date)
-        viewModel?.setEndsAt(components)
+        delegate?.didUpdateEndTime(components)
     }
     
     @objc private func dayButtonTapped(sender: UIButton) {
-        guard let title = sender.title(for: .normal) else { return }
-        guard let dayIndex = ["M", "T", "W", "T", "F", "S", "S"].firstIndex(of: title) else { return }
+        let dayIndex = sender.tag
+        guard let weekDay = WeekDay(rawValue: dayIndex) else { return }
+        
         if sender.backgroundColor == .clear {
             sender.backgroundColor = .carrotOrange
-            viewModel?.appendDayOfWeek(WeekDay(rawValue: dayIndex)!)
+            delegate?.didUpdateSelectedDay(weekDay, isSelected: true)
         } else {
             sender.backgroundColor = .clear
-            viewModel?.removeDayOfWeek(WeekDay(rawValue: dayIndex)!)
+            delegate?.didUpdateSelectedDay(weekDay, isSelected: false)
         }
     }
     
     @objc private func saveSessionTapped() {
-        viewModel?.setIsActive(true)
+        delegate?.didTapSaveSession()
+    }
+    
+    @objc private func dismissKeyboard() {
+        endEditing(true)
+    }
+    
+    // MARK: - Update Methods
+    func updateSessionTitle(_ title: String) {
+        sessionTitleTextField.text = title
+    }
+    func setIsAllDay(_ isAllDay: Bool) {
+        allDaySwitch.isOn = isAllDay
+    }
+    func setStartTime(_ startTime: DateComponents) {
+        if let date = Calendar.current.date(from: startTime) {
+            startTimePicker.date = date
+        }
+    }
+    func setEndTime(_ endTime: DateComponents) {
+        if let date = Calendar.current.date(from: endTime) {
+            endTimePicker.date = date
+        }
+    }
+    func setSelectedDays(_ days: [WeekDay]) {
+        for (index, button) in dayButtons.enumerated() {
+            if days.contains(WeekDay(rawValue: index)!) {
+                button.backgroundColor = .carrotOrange
+            } else {
+                button.backgroundColor = .clear
+            }
+        }
+    }
+}
+
+extension BlockingSessionView: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
     }
 }
