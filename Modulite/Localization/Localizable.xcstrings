@@ -120,6 +120,204 @@
         }
       }
     },
+    "faqViewNavigationTitle" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "FAQ"
+          }
+        }
+      }
+    },
+    "faqViewSectionAccessOverAppsText" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "The Modu.lite app cannot track or access any of the apps you choose to include in your widgets. It simply acts as a redirector, meaning it won’t be able to monitor, modify, or collect any information about the apps you access through the widget."
+          }
+        }
+      }
+    },
+    "faqViewSectionAccessOverAppsTitle" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "6. Does Modu.lite have access or control over the apps I chose for my widget?"
+          }
+        }
+      }
+    },
+    "faqViewSectionChangePermanentlyText" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No. Modu.lite only uses tools that are already frequently used in the iOS system and does not compromise any of your smartphone's structure in the process. All the changes proposed by Modu.lite can be reversed at any time. "
+          }
+        }
+      }
+    },
+    "faqViewSectionChangePermanentlyTitle" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "7. Does Modu.lite permanently change anything on my phone?"
+          }
+        }
+      }
+    },
+    "faqViewSectionCreateAccountText" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No, you don’t need an account to use the app! All purchases are securely handled through the App Store, and your records will be saved in your iCloud account. Modu.lite won’t have access to any of your payment information, ensuring your privacy and security."
+          }
+        }
+      }
+    },
+    "faqViewSectionCreateAccountTitle" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "2. Do I need to create an account?"
+          }
+        }
+      }
+    },
+    "faqViewSectionHavingProblemsText" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "If you have a question, want to report a bug or find a problem with no imminent solution in our app, please contact us at deftmango@gmail.com. "
+          }
+        }
+      }
+    },
+    "faqViewSectionHavingProblemsTitle" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "8. I’m having problems with Modu.lite and can't find a solution. How should I proceed?"
+          }
+        }
+      }
+    },
+    "faqViewSectionHowModuliteWorkText" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Modu.lite is a smartphone interface control and transformation application focused on reducing stimuli during screen use. It uses a combination of interactive widgets and custom wallpapers to provide an alternative to the conventional interface of your cell phone, which is heavily based on analog devices from past decades. We also provide tools for controlling and analyzing screen time, all to  make your life with your smartphone healthier."
+          }
+        }
+      }
+    },
+    "faqViewSectionHowModuliteWorkTitle" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "1. How does Modu.lite work?"
+          }
+        }
+      }
+    },
+    "faqViewSectionPersonalDataText" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Modu.lite doesn’t require any data collection to operate. All payment-related information is securely processed by Apple through the App Store, ensuring your privacy is fully protected. Additionally, any widgets you create will be stored locally on your phone, and the Modu.lite team will not have access to them."
+          }
+        }
+      }
+    },
+    "faqViewSectionPersonalDataTitle" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "5. Which personal data is collected by Modu.lite?"
+          }
+        }
+      }
+    },
+    "faqViewSectionSkinsPurchasesText" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "You can purchase individual skins regardless of whether you subscribe to the Plus plan or the Free plan. Each skin you purchase gives you unlimited use of that skin within the terms of your plan. If you have a Plus plan and buy a skin for the main widget, the skin for the auxiliary widget will come as a gift. If you are on the Free plan, the skin you purchase will be that of the main widget. If you purchased a skin while on the free plan and later subscribe to Plus, the auxiliary skin of the same theme will be added to your style options."
+          }
+        }
+      }
+    },
+    "faqViewSectionSkinsPurchasesTitle" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "3. How do individual skin purchases work?"
+          }
+        }
+      }
+    },
+    "faqViewSectionWhyOpensFirstText" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "When you press a button on the widget, Modu.lite may briefly open before redirecting you to the selected app. This happens because iOS only allows Modu.lite to handle redirection through its main app (in this case Modu.lite), meaning it cannot directly take you to the chosen app via the widget buttons. The Modu.lite's redirecting screen you see represents the process of navigating you to your destination app."
+          }
+        }
+      }
+    },
+    "faqViewSectionWhyOpensFirstTitle" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "4. Why does Modu.lite open first when I tap a button on my widget?"
+          }
+        }
+      }
+    },
+    "faqViewSummaryTitle" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Summary"
+          }
+        }
+      }
+    },
     "free" : {
       "extractionState" : "manual",
       "localizations" : {
