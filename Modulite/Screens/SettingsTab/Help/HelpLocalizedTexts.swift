@@ -6,3 +6,24 @@
 //
 
 import Foundation
+
+enum HelpLocalizedTexts: LocalizedKeyProtocol {
+    case helpViewProblemSettingUpWidgetTitle
+    case helpViewProblemSettingUpWidgetText
+    
+    case helpViewProblemWithPurchasesTitle
+    case helpViewProblemWithPurchasesText
+    
+    case helpViewCancelSubscriptionTitle
+    case helpViewCancelSubscriptionText
+    
+    case helpViewEncounteredBugTitle
+    case helpViewEncounteredBugText1
+    case helpViewEncounteredBugButton
+    case helpViewEncounteredBugText2
+    
+    case helpViewSendEmailErrorAlertTitle
+    case helpViewSendEmailErrorAlertMessage
+    case helpViewSendEmailSubject
+    case helpViewSendEmailBody
+}
