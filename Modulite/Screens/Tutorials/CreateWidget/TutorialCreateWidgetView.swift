@@ -14,6 +14,19 @@ class TutorialEditWidgetView: UIScrollView {
     
     // MARK: - Subviews
     
+    private(set) lazy var titleLabel: UILabel = {
+        let titleLabel = UILabel()
+        titleLabel.text = .localized(
+            for: TutorialCenterLocalizedTexts.tutorialCenterHowToCreateWidget
+        )
+        titleLabel.font = UIFont(textStyle: .title1, weight: .bold)
+        titleLabel.numberOfLines = 0
+        titleLabel.lineBreakMode = .byWordWrapping
+        titleLabel.textAlignment = .left
+        
+        return titleLabel
+    }()
+    
     private(set) var changeModulesTitle = TutorialTitleLabel(
         textLocalizedKey: .tutorialEditWidgetHowToChangeModulesTitle
     )
@@ -126,7 +139,8 @@ class TutorialEditWidgetView: UIScrollView {
         super.init(frame: frame)
         addSubviews()
         setupConstraints()
-        backgroundColor = .systemGray6
+        backgroundColor = .whiteTurnip
+        
     }
     
     required init?(coder: NSCoder) {
@@ -137,6 +151,8 @@ class TutorialEditWidgetView: UIScrollView {
     
     private func addSubviews() {
         addSubview(contentView)
+        
+        contentView.addSubview(titleLabel)
         
         contentView.addSubview(changeModulesTitle)
         contentView.addSubview(changeModulesDescription)
@@ -182,8 +198,14 @@ class TutorialEditWidgetView: UIScrollView {
     }
     
     private func setupChangeModulesConstraints() {
+        titleLabel.snp.makeConstraints { make in
+            make.top.equalToSuperview()
+            make.left.right.equalToSuperview()
+        }
+        
         changeModulesTitle.snp.makeConstraints { make in
-            make.top.left.right.equalToSuperview()
+            make.top.equalTo(titleLabel.snp.bottom).offset(16)
+            make.left.right.equalToSuperview()
         }
         
         changeModulesDescription.snp.makeConstraints { make in

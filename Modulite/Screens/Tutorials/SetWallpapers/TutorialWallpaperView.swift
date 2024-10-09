@@ -14,8 +14,8 @@ class TutorialWallpaperView: UIScrollView {
     
     // MARK: - Subviews
     
-    private(set) var setWallpaperTitle = TutorialTitleLabel(
-        textLocalizedKey: .tutorialWallpaperHowToSetTitle
+    private(set) lazy var titleLabel = TutorialLargeTitleLabel(
+        textLocalizedKey: .tutorialCenterSetWallpapers
     )
     
     private(set) var setWallpaperDescription = TutorialTextParagraphLabel(
@@ -125,7 +125,7 @@ class TutorialWallpaperView: UIScrollView {
         super.init(frame: frame)
         addSubviews()
         setupConstraints()
-        backgroundColor = .systemGray6
+        backgroundColor = .whiteTurnip
     }
     
     required init?(coder: NSCoder) {
@@ -135,7 +135,8 @@ class TutorialWallpaperView: UIScrollView {
     private func addSubviews() {
         addSubview(contentView)
         
-        contentView.addSubview(setWallpaperTitle)
+        contentView.addSubview(titleLabel)
+                
         contentView.addSubview(setWallpaperDescription)
         contentView.addSubview(setWallpaperFirstSixSteps)
         contentView.addSubview(setWallpaperFirstSixStepsImage)
@@ -154,12 +155,13 @@ class TutorialWallpaperView: UIScrollView {
             make.width.equalToSuperview().offset(-48)
         }
         
-        setWallpaperTitle.snp.makeConstraints { make in
-            make.top.left.right.equalToSuperview()
+        titleLabel.snp.makeConstraints { make in
+            make.top.equalToSuperview()
+            make.left.right.equalToSuperview()
         }
         
         setWallpaperDescription.snp.makeConstraints { make in
-            make.top.equalTo(setWallpaperTitle.snp.bottom).offset(12)
+            make.top.equalTo(titleLabel.snp.bottom).offset(16)
             make.left.right.equalToSuperview()
         }
         
