@@ -11,17 +11,17 @@ class HelpTopicView: UIView {
     
     // MARK: - Subviews
     
-    private let questionLabel: UILabel = {
+    private let titleLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont(textStyle: .title3, weight: .bold)
-        label.textColor = .carrotOrange
+        label.font = UIFont(textStyle: .title3, weight: .semibold)
+        label.textColor = .blueberry
         label.numberOfLines = 0
         label.textAlignment = .left
         
         return label
     }()
     
-    private let answerLabel: UILabel = {
+    private let textLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont(textStyle: .body, weight: .regular)
         label.numberOfLines = 0
@@ -46,18 +46,18 @@ class HelpTopicView: UIView {
     // MARK: - Setup Methods
     
     private func addSubviews() {
-        addSubview(questionLabel)
-        addSubview(answerLabel)
+        addSubview(titleLabel)
+        addSubview(textLabel)
     }
     
     private func setupConstraints() {
-        questionLabel.snp.makeConstraints { make in
+        titleLabel.snp.makeConstraints { make in
             make.top.equalToSuperview()
             make.left.right.equalToSuperview()
         }
         
-        answerLabel.snp.makeConstraints { make in
-            make.top.equalTo(questionLabel.snp.bottom).offset(8)
+        textLabel.snp.makeConstraints { make in
+            make.top.equalTo(titleLabel.snp.bottom).offset(8)
             make.left.right.equalToSuperview()
             make.bottom.equalToSuperview()
         }
@@ -66,14 +66,14 @@ class HelpTopicView: UIView {
     // MARK: - Configuration Method
     
     func configure(question: String, answer: String) {
-        questionLabel.text = question
-        answerLabel.text = answer
+        titleLabel.text = question
+        textLabel.text = answer
     }
 }
 
-extension FAQQuestionAndAnswerView {
-    func setupQuestionAndAnswer(question: FAQQuestionModel) {
-        questionLabel.text = question.question
-        answerLabel.text = question.answer
+extension HelpTopicView {
+    func setupTitleAndText(with topic: HelpTopicModel) {
+        titleLabel.text = topic.title
+        textLabel.text = topic.text
     }
 }
