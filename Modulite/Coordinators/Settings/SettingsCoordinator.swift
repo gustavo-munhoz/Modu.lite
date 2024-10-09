@@ -46,7 +46,9 @@ extension SettingsCoordinator: SettingsViewControllerDelegate {
     }
     
     func settingsViewControllerDidPressFAQ(_ viewController: SettingsViewController) {
-        // TODO: Present FAQ view
+        let coordinator = FAQCoordinator(router: router)
+        
+        presentChild(coordinator, animated: true)
     }
     
     func settingsViewControllerDidPressHelp(_ viewController: SettingsViewController) {
