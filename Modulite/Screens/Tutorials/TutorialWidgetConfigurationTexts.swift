@@ -9,6 +9,30 @@
 // swiftlint:disable identifier_name
 
 enum TutorialWidgetConfigurationTexts: LocalizedKeyProtocol {
+    
+    case tutorialAddWidgetStep1
+    case tutorialAddWidgetStep2
+    case tutorialAddWidgetStep3
+    case tutorialAddWidgetStep4
+    case tutorialAddWidgetStep5
+    case tutorialAddWidgetNeedHelpTitle
+    case tutorialAddWidgetNeedHelpDescription
+    case tutorialAddWidgetNeedHelpButton
+    
+    case tutorialEditingWidgetTitle
+    case tutorialEditingWidgetDescription1
+    case tutorialEditingWidgetDescription2
+    case tutorialEditingWidgetDescription2Step1
+    case tutorialEditingWidgetDescription2Step2
+    
+    case tutorialDeletingWidgetTitle
+    
+    case tutorialDeletingWidgetDescription1Step1
+    case tutorialDeletingWidgetDescription1Step2
+    case tutorialDeletingWidgetDescription2
+    case tutorialDeletingWidgetDescription2Step1
+    case tutorialDeletingWidgetDescription2Step2
+    
     case tutorialEditWidgetHowToChangeModulesTitle
     case tutorialEditWidgetHowToChangeModulesDescription
     

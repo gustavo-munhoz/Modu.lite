@@ -1,14 +1,14 @@
 //
-//  TutorialTitleLabel.swift
+//  TutorialLargeTitleLabel.swift
 //  Modulite
 //
-//  Created by Gustavo Munhoz Correa on 04/10/24.
+//  Created by Gustavo Munhoz Correa on 08/10/24.
 //
 
 import UIKit
 
-class TutorialTitleLabel: UILabel {
-    convenience init(textLocalizedKey: TutorialWidgetConfigurationTexts) {
+class TutorialLargeTitleLabel: UILabel {
+    convenience init(textLocalizedKey: TutorialCenterLocalizedTexts) {
         self.init(frame: .zero)
         
         text = .localized(for: textLocalizedKey)
@@ -17,11 +17,10 @@ class TutorialTitleLabel: UILabel {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        font = UIFont(textStyle: .title2, weight: .bold)
-        textAlignment = .left
+        font = UIFont(textStyle: .title1, weight: .bold)
+        numberOfLines = 0
         lineBreakMode = .byWordWrapping
-        numberOfLines = -1
-        textColor = .textPrimary
+        textAlignment = .left
     }
     
     required init?(coder: NSCoder) {

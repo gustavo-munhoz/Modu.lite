@@ -557,6 +557,347 @@
         }
       }
     },
+    "tutorialAddWidgetNeedHelpButton" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Video: How to set up widgets"
+          }
+        }
+      }
+    },
+    "tutorialAddWidgetNeedHelpDescription" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "If you need a video tutorial, check out this video:"
+          }
+        }
+      }
+    },
+    "tutorialAddWidgetNeedHelpTitle" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Need a little more help?"
+          }
+        }
+      }
+    },
+    "tutorialAddWidgetStep1" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "1. From the Home Screen, touch and hold a widget or an empty area until the apps jiggle;"
+          }
+        }
+      }
+    },
+    "tutorialAddWidgetStep2" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "2. Tap the ”+” button in the upper-left corner;"
+          }
+        }
+      }
+    },
+    "tutorialAddWidgetStep3" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "3. Select the Modu.lite widget; If you can't find the app right away you can type ”modu.lite” in the search bar."
+          }
+        }
+      }
+    },
+    "tutorialAddWidgetStep4" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "4. Find the Large widget and tap ”Add Widget”;"
+          }
+        }
+      }
+    },
+    "tutorialAddWidgetStep5" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "5. Tap \"Done”;"
+          }
+        }
+      }
+    },
+    "tutorialCenterAddWidgetsToHomeScreen" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "How to add widgets to your home screen"
+          }
+        }
+      }
+    },
+    "tutorialCenterAddWidgetsToHomeScreenVideo" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Video: How to set up widgets to your home screen"
+          }
+        }
+      }
+    },
+    "tutorialCenterBlockingSessionsTitle" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Blocking Sessions"
+          }
+        }
+      }
+    },
+    "tutorialCenterChangeWallpaperVideo" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Video: How to set wallpapers on the iPhone"
+          }
+        }
+      }
+    },
+    "tutorialCenterHowToCreateBlockingSession" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "How to create a blocking session"
+          }
+        }
+      }
+    },
+    "tutorialCenterHowToCreateWidget" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "How to create a widget on Modu.lite"
+          }
+        }
+      }
+    },
+    "tutorialCenterHowToCreateWidgetVideo" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Video: How to create a widget on Modu.lite"
+          }
+        }
+      }
+    },
+    "tutorialCenterHowToEditOrDeleteWidget" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "How to edit or delete a widget on Modu.lite"
+          }
+        }
+      }
+    },
+    "tutorialCenterModuliteTitle" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Modu.lite"
+          }
+        }
+      }
+    },
+    "tutorialCenterSetWallpapers" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "How to set wallpapers on the iPhone"
+          }
+        }
+      }
+    },
+    "tutorialCenterWallpapersTitle" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Setting Up Wallpapers on the iPhone"
+          }
+        }
+      }
+    },
+    "tutorialCenterWidgetsTitle" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Setting Up Widgets on the iPhone"
+          }
+        }
+      }
+    },
+    "tutorialDeletingWidgetDescription1Step1" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "1. You can delete widgets you’ve created by pressing and holding a widget on Modu.lite's homepage"
+          }
+        }
+      }
+    },
+    "tutorialDeletingWidgetDescription1Step2" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "2. Then select \"Delete.\""
+          }
+        }
+      }
+    },
+    "tutorialDeletingWidgetDescription2" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Another way to delete a widget is from the widget's editing page:"
+          }
+        }
+      }
+    },
+    "tutorialDeletingWidgetDescription2Step1" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "1. Tap on the widget on Modu.lite's homepage;"
+          }
+        }
+      }
+    },
+    "tutorialDeletingWidgetDescription2Step2" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "2. Scrolling to the bottom of the page and press \"Delete\"."
+          }
+        }
+      }
+    },
+    "tutorialDeletingWidgetTitle" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "2. Deleting a widget on Modu.lite"
+          }
+        }
+      }
+    },
+    "tutorialEditingWidgetDescription1" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "To edit an existing widget, simply tap on the widget on Modu.lite's homepage, and you'll be redirected to the editing page. "
+          }
+        }
+      }
+    },
+    "tutorialEditingWidgetDescription2" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Alternatively, you can:"
+          }
+        }
+      }
+    },
+    "tutorialEditingWidgetDescription2Step1" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "1. Press and hold the widget;"
+          }
+        }
+      }
+    },
+    "tutorialEditingWidgetDescription2Step2" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "2. Tap on \"Edit Widget.\""
+          }
+        }
+      }
+    },
+    "tutorialEditingWidgetTitle" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "1. Editing a widget on Modu.lite"
+          }
+        }
+      }
+    },
     "tutorialEditWidgetHowToChangeAppDescription1" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -596,7 +937,7 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "How do I change the app I chose for a module?"
+            "value" : "4. How do I change the app I chose for a module?"
           }
         }
       }
@@ -618,7 +959,7 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "How do I change the modules positions?"
+            "value" : "1. How do I change the modules positions?"
           }
         }
       }
@@ -662,7 +1003,7 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "How do I edit each module's style and color?"
+            "value" : "2. How do I edit each module's style and color?"
           }
         }
       }
@@ -695,7 +1036,7 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "How do I save my changes to a module and begin editing another one?"
+            "value" : "3. How do I save my changes to a module and begin editing another one?"
           }
         }
       }
@@ -706,7 +1047,7 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "How to Create a Widget on Modu.lite"
+            "value" : "Video: How to Create a Widget on Modu.lite"
           }
         }
       }
@@ -761,7 +1102,18 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Why my widgets sometimes have a “blank” button?"
+            "value" : "5. Why my widgets sometimes have a “blank” button?"
+          }
+        }
+      }
+    },
+    "tutorialVideos" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tutorial Videos"
           }
         }
       }
@@ -893,7 +1245,7 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "How to Set Up a Wallpaper on an iPhone"
+            "value" : "Video: How to Set Up a Wallpaper on an iPhone"
           }
         }
       }

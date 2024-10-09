@@ -125,7 +125,6 @@
 		B350C0492C8B8B680035682F /* UIEdgeInsets+Directions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B350C0482C8B8B680035682F /* UIEdgeInsets+Directions.swift */; };
 		B350C04B2C8B8C070035682F /* AppCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B350C04A2C8B8C070035682F /* AppCollectionViewCell.swift */; };
 		B350C05A2C8F92C90035682F /* WidgetBuilderCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B350C0592C8F92C90035682F /* WidgetBuilderCoordinator.swift */; };
-		B35BFB7D2CB2413900092B42 /* TutorialWallpaperCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B35BFB7C2CB2413900092B42 /* TutorialWallpaperCoordinator.swift */; };
 		B35BFB7F2CB2428A00092B42 /* TutorialWallpaperView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B35BFB7E2CB2428A00092B42 /* TutorialWallpaperView.swift */; };
 		B35BFB812CB2429200092B42 /* TutorialWallpaperViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B35BFB802CB2429200092B42 /* TutorialWallpaperViewController.swift */; };
 		B35BFB892CB4605C00092B42 /* TutorialMultiParagraphLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B35BFB852CB4605C00092B42 /* TutorialMultiParagraphLabel.swift */; };
@@ -145,6 +144,22 @@
 		B35BFBCB2CB4BC7600092B42 /* SubscriptionDetailsSmallTitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = B35BFBCA2CB4BC7600092B42 /* SubscriptionDetailsSmallTitle.swift */; };
 		B35BFBCD2CB4BE3D00092B42 /* SubscriptionDetailsDefaultLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B35BFBCC2CB4BE3D00092B42 /* SubscriptionDetailsDefaultLabel.swift */; };
 		B35BFBCF2CB55F3F00092B42 /* SeparatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B35BFBCE2CB55F3F00092B42 /* SeparatorView.swift */; };
+		B35BFBDB2CB5A99200092B42 /* TutorialCenterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B35BFBDA2CB5A99200092B42 /* TutorialCenterView.swift */; };
+		B35BFBDD2CB5A9A800092B42 /* TutorialCenterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B35BFBDC2CB5A9A800092B42 /* TutorialCenterViewController.swift */; };
+		B35BFBDF2CB5A9FE00092B42 /* TutorialCenterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B35BFBDE2CB5A9FE00092B42 /* TutorialCenterViewModel.swift */; };
+		B35BFBE52CB5AA9F00092B42 /* TutorialCenterOptionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B35BFBE32CB5AA9F00092B42 /* TutorialCenterOptionButton.swift */; };
+		B35BFBE72CB5AAA600092B42 /* TutorialCenterLocalizedTexts.swift in Sources */ = {isa = PBXBuildFile; fileRef = B35BFBE62CB5AAA600092B42 /* TutorialCenterLocalizedTexts.swift */; };
+		B35BFBE92CB5AF9B00092B42 /* TutorialCenterCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B35BFBE82CB5AF9B00092B42 /* TutorialCenterCoordinator.swift */; };
+		B35BFBEB2CB5B9D600092B42 /* TutorialCenterButtonLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B35BFBEA2CB5B9D600092B42 /* TutorialCenterButtonLabel.swift */; };
+		B35BFBED2CB5BA8000092B42 /* TutorialCenterSmallTitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = B35BFBEC2CB5BA8000092B42 /* TutorialCenterSmallTitle.swift */; };
+		B35BFBEF2CB5C7CC00092B42 /* TutorialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B35BFBEE2CB5C7CC00092B42 /* TutorialViewController.swift */; };
+		B35BFBF32CB5CCD200092B42 /* TutorialCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B35BFBF22CB5CCD200092B42 /* TutorialCoordinator.swift */; };
+		B35BFC462CB5F9A500092B42 /* TutorialEditWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B35BFC452CB5F9A500092B42 /* TutorialEditWidgetView.swift */; };
+		B35BFC482CB5F9B600092B42 /* TutorialEditWidgetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B35BFC472CB5F9B600092B42 /* TutorialEditWidgetViewController.swift */; };
+		B35BFC4A2CB5FB4600092B42 /* TutorialLargeTitleLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B35BFC492CB5FB4600092B42 /* TutorialLargeTitleLabel.swift */; };
+		B35BFC4E2CB609CD00092B42 /* TutorialAddWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B35BFC4D2CB609CD00092B42 /* TutorialAddWidgetView.swift */; };
+		B35BFC502CB609DC00092B42 /* TutorialAddWidgetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B35BFC4F2CB609DC00092B42 /* TutorialAddWidgetViewController.swift */; };
+		B35BFC522CB60B7300092B42 /* TutorialStepsStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B35BFC512CB60B7300092B42 /* TutorialStepsStackView.swift */; };
 		B36927982C66B6E30089F769 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B36927972C66B6E30089F769 /* AppDelegate.swift */; };
 		B369279A2C66B6E30089F769 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B36927992C66B6E30089F769 /* SceneDelegate.swift */; };
 		B369279C2C66B6E30089F769 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B369279B2C66B6E30089F769 /* HomeViewController.swift */; };
@@ -228,12 +243,11 @@
 		B39A25E72CAFADF6001C76A5 /* BundleConfig.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = B39A25E32CAFADA2001C76A5 /* BundleConfig.xcconfig */; };
 		B39A25E82CAFADF6001C76A5 /* BundleConfig.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = B39A25E32CAFADA2001C76A5 /* BundleConfig.xcconfig */; };
 		B39A25E92CAFADF6001C76A5 /* BundleConfig.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = B39A25E32CAFADA2001C76A5 /* BundleConfig.xcconfig */; };
-		B39A25FA2CB06437001C76A5 /* TutorialEditWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39A25F92CB06437001C76A5 /* TutorialEditWidgetView.swift */; };
-		B39A25FC2CB06446001C76A5 /* TutorialEditWidgetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39A25FB2CB06446001C76A5 /* TutorialEditWidgetViewController.swift */; };
+		B39A25FA2CB06437001C76A5 /* TutorialCreateWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39A25F92CB06437001C76A5 /* TutorialCreateWidgetView.swift */; };
+		B39A25FC2CB06446001C76A5 /* TutorialCreateWidgetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39A25FB2CB06446001C76A5 /* TutorialCreateWidgetViewController.swift */; };
 		B39A26002CB06628001C76A5 /* TutorialWidgetConfigurationTexts.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39A25FF2CB06628001C76A5 /* TutorialWidgetConfigurationTexts.swift */; };
 		B39A26022CB06E01001C76A5 /* WidgetBuilderCoordinator+WidgetSetupViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39A26012CB06E01001C76A5 /* WidgetBuilderCoordinator+WidgetSetupViewControllerDelegate.swift */; };
 		B39A26062CB06E60001C76A5 /* SelectAppsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39A26042CB06E60001C76A5 /* SelectAppsCoordinator.swift */; };
-		B39A26082CB06E7A001C76A5 /* TutorialEditWidgetCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39A26072CB06E7A001C76A5 /* TutorialEditWidgetCoordinator.swift */; };
 		B3C1877F2C78D1E000A891A8 /* ModuliteWidgetConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3C1877E2C78D1E000A891A8 /* ModuliteWidgetConfiguration.swift */; };
 		B3C187822C79009B00A891A8 /* WidgetConfigurationBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3C187812C79009B00A891A8 /* WidgetConfigurationBuilder.swift */; };
 		B3C187842C791D1300A891A8 /* WidgetStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3C187832C791D1300A891A8 /* WidgetStyle.swift */; };
@@ -434,7 +448,6 @@
 		B350C0482C8B8B680035682F /* UIEdgeInsets+Directions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIEdgeInsets+Directions.swift"; sourceTree = "<group>"; };
 		B350C04A2C8B8C070035682F /* AppCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCollectionViewCell.swift; sourceTree = "<group>"; };
 		B350C0592C8F92C90035682F /* WidgetBuilderCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetBuilderCoordinator.swift; sourceTree = "<group>"; };
-		B35BFB7C2CB2413900092B42 /* TutorialWallpaperCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialWallpaperCoordinator.swift; sourceTree = "<group>"; };
 		B35BFB7E2CB2428A00092B42 /* TutorialWallpaperView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialWallpaperView.swift; sourceTree = "<group>"; };
 		B35BFB802CB2429200092B42 /* TutorialWallpaperViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialWallpaperViewController.swift; sourceTree = "<group>"; };
 		B35BFB852CB4605C00092B42 /* TutorialMultiParagraphLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialMultiParagraphLabel.swift; sourceTree = "<group>"; };
@@ -454,6 +467,22 @@
 		B35BFBCA2CB4BC7600092B42 /* SubscriptionDetailsSmallTitle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionDetailsSmallTitle.swift; sourceTree = "<group>"; };
 		B35BFBCC2CB4BE3D00092B42 /* SubscriptionDetailsDefaultLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionDetailsDefaultLabel.swift; sourceTree = "<group>"; };
 		B35BFBCE2CB55F3F00092B42 /* SeparatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeparatorView.swift; sourceTree = "<group>"; };
+		B35BFBDA2CB5A99200092B42 /* TutorialCenterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialCenterView.swift; sourceTree = "<group>"; };
+		B35BFBDC2CB5A9A800092B42 /* TutorialCenterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialCenterViewController.swift; sourceTree = "<group>"; };
+		B35BFBDE2CB5A9FE00092B42 /* TutorialCenterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialCenterViewModel.swift; sourceTree = "<group>"; };
+		B35BFBE32CB5AA9F00092B42 /* TutorialCenterOptionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialCenterOptionButton.swift; sourceTree = "<group>"; };
+		B35BFBE62CB5AAA600092B42 /* TutorialCenterLocalizedTexts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialCenterLocalizedTexts.swift; sourceTree = "<group>"; };
+		B35BFBE82CB5AF9B00092B42 /* TutorialCenterCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialCenterCoordinator.swift; sourceTree = "<group>"; };
+		B35BFBEA2CB5B9D600092B42 /* TutorialCenterButtonLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialCenterButtonLabel.swift; sourceTree = "<group>"; };
+		B35BFBEC2CB5BA8000092B42 /* TutorialCenterSmallTitle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialCenterSmallTitle.swift; sourceTree = "<group>"; };
+		B35BFBEE2CB5C7CC00092B42 /* TutorialViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialViewController.swift; sourceTree = "<group>"; };
+		B35BFBF22CB5CCD200092B42 /* TutorialCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialCoordinator.swift; sourceTree = "<group>"; };
+		B35BFC452CB5F9A500092B42 /* TutorialEditWidgetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialEditWidgetView.swift; sourceTree = "<group>"; };
+		B35BFC472CB5F9B600092B42 /* TutorialEditWidgetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialEditWidgetViewController.swift; sourceTree = "<group>"; };
+		B35BFC492CB5FB4600092B42 /* TutorialLargeTitleLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialLargeTitleLabel.swift; sourceTree = "<group>"; };
+		B35BFC4D2CB609CD00092B42 /* TutorialAddWidgetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialAddWidgetView.swift; sourceTree = "<group>"; };
+		B35BFC4F2CB609DC00092B42 /* TutorialAddWidgetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialAddWidgetViewController.swift; sourceTree = "<group>"; };
+		B35BFC512CB60B7300092B42 /* TutorialStepsStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialStepsStackView.swift; sourceTree = "<group>"; };
 		B36927942C66B6E30089F769 /* Modulite.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Modulite.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B36927972C66B6E30089F769 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B36927992C66B6E30089F769 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -512,12 +541,11 @@
 		B39A25DD2CAF751B001C76A5 /* ModulitePlusLargeBadge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModulitePlusLargeBadge.swift; sourceTree = "<group>"; };
 		B39A25E12CAF7871001C76A5 /* PaddedLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaddedLabel.swift; sourceTree = "<group>"; };
 		B39A25E32CAFADA2001C76A5 /* BundleConfig.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = BundleConfig.xcconfig; sourceTree = "<group>"; };
-		B39A25F92CB06437001C76A5 /* TutorialEditWidgetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialEditWidgetView.swift; sourceTree = "<group>"; };
-		B39A25FB2CB06446001C76A5 /* TutorialEditWidgetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialEditWidgetViewController.swift; sourceTree = "<group>"; };
+		B39A25F92CB06437001C76A5 /* TutorialCreateWidgetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialCreateWidgetView.swift; sourceTree = "<group>"; };
+		B39A25FB2CB06446001C76A5 /* TutorialCreateWidgetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialCreateWidgetViewController.swift; sourceTree = "<group>"; };
 		B39A25FF2CB06628001C76A5 /* TutorialWidgetConfigurationTexts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialWidgetConfigurationTexts.swift; sourceTree = "<group>"; };
 		B39A26012CB06E01001C76A5 /* WidgetBuilderCoordinator+WidgetSetupViewControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WidgetBuilderCoordinator+WidgetSetupViewControllerDelegate.swift"; sourceTree = "<group>"; };
 		B39A26042CB06E60001C76A5 /* SelectAppsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectAppsCoordinator.swift; sourceTree = "<group>"; };
-		B39A26072CB06E7A001C76A5 /* TutorialEditWidgetCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialEditWidgetCoordinator.swift; sourceTree = "<group>"; };
 		B3C1877E2C78D1E000A891A8 /* ModuliteWidgetConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModuliteWidgetConfiguration.swift; sourceTree = "<group>"; };
 		B3C187812C79009B00A891A8 /* WidgetConfigurationBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetConfigurationBuilder.swift; sourceTree = "<group>"; };
 		B3C187832C791D1300A891A8 /* WidgetStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetStyle.swift; sourceTree = "<group>"; };
@@ -856,6 +884,7 @@
 		B34F3E012C6A93800041D7BD /* SettingsTab */ = {
 			isa = PBXGroup;
 			children = (
+				B35BFBD12CB5A81500092B42 /* TutorialCenter */,
 				B35BFBB52CB4B5F600092B42 /* Settings */,
 				B35BFBA12CB4B5D100092B42 /* SubscriptionDetails */,
 				B35BFB9A2CB46C8700092B42 /* SettingsLocalizedTexts.swift */,
@@ -877,7 +906,6 @@
 		B34F3E1D2C6D35D50041D7BD /* WidgetConfiguration */ = {
 			isa = PBXGroup;
 			children = (
-				B39A25F42CB06410001C76A5 /* Tutorials */,
 				B350C0502C8B90A90035682F /* Setup */,
 				B350C0542C8B90C70035682F /* SelectApps */,
 				B350C04C2C8B90710035682F /* Editor */,
@@ -1041,6 +1069,8 @@
 				B35BFB852CB4605C00092B42 /* TutorialMultiParagraphLabel.swift */,
 				B35BFB862CB4605C00092B42 /* TutorialTextParagraphLabel.swift */,
 				B35BFB872CB4605C00092B42 /* TutorialTitleLabel.swift */,
+				B35BFC492CB5FB4600092B42 /* TutorialLargeTitleLabel.swift */,
+				B35BFC512CB60B7300092B42 /* TutorialStepsStackView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -1050,6 +1080,7 @@
 			children = (
 				B35BFB9D2CB47D9B00092B42 /* SettingsCoordinator.swift */,
 				B35BFBC42CB4B6CE00092B42 /* SubscriptionDetailsCoordinator.swift */,
+				B35BFBE82CB5AF9B00092B42 /* TutorialCenterCoordinator.swift */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -1131,6 +1162,92 @@
 				B35BFBCC2CB4BE3D00092B42 /* SubscriptionDetailsDefaultLabel.swift */,
 			);
 			path = Components;
+			sourceTree = "<group>";
+		};
+		B35BFBD12CB5A81500092B42 /* TutorialCenter */ = {
+			isa = PBXGroup;
+			children = (
+				B35BFBE62CB5AAA600092B42 /* TutorialCenterLocalizedTexts.swift */,
+				B35BFBD72CB5A98C00092B42 /* View */,
+				B35BFBD82CB5A98C00092B42 /* ViewController */,
+				B35BFBD92CB5A98C00092B42 /* ViewModel */,
+			);
+			path = TutorialCenter;
+			sourceTree = "<group>";
+		};
+		B35BFBD32CB5A8C400092B42 /* Tutorials */ = {
+			isa = PBXGroup;
+			children = (
+				B35BFBEE2CB5C7CC00092B42 /* TutorialViewController.swift */,
+				B39A25FF2CB06628001C76A5 /* TutorialWidgetConfigurationTexts.swift */,
+				B35BFB882CB4605C00092B42 /* Components */,
+				B35BFC4C2CB609C200092B42 /* AddWidget */,
+				B35BFC442CB5F99900092B42 /* EditWidget */,
+				B39A25F82CB06427001C76A5 /* CreateWidget */,
+				B39A25F72CB06423001C76A5 /* SetWallpapers */,
+			);
+			path = Tutorials;
+			sourceTree = "<group>";
+		};
+		B35BFBD72CB5A98C00092B42 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				B35BFBE42CB5AA9F00092B42 /* Components */,
+				B35BFBDA2CB5A99200092B42 /* TutorialCenterView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		B35BFBD82CB5A98C00092B42 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				B35BFBDC2CB5A9A800092B42 /* TutorialCenterViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		B35BFBD92CB5A98C00092B42 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				B35BFBDE2CB5A9FE00092B42 /* TutorialCenterViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		B35BFBE42CB5AA9F00092B42 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				B35BFBE32CB5AA9F00092B42 /* TutorialCenterOptionButton.swift */,
+				B35BFBEA2CB5B9D600092B42 /* TutorialCenterButtonLabel.swift */,
+				B35BFBEC2CB5BA8000092B42 /* TutorialCenterSmallTitle.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		B35BFBF12CB5CCCD00092B42 /* Tutorial */ = {
+			isa = PBXGroup;
+			children = (
+				B35BFBF22CB5CCD200092B42 /* TutorialCoordinator.swift */,
+			);
+			path = Tutorial;
+			sourceTree = "<group>";
+		};
+		B35BFC442CB5F99900092B42 /* EditWidget */ = {
+			isa = PBXGroup;
+			children = (
+				B35BFC452CB5F9A500092B42 /* TutorialEditWidgetView.swift */,
+				B35BFC472CB5F9B600092B42 /* TutorialEditWidgetViewController.swift */,
+			);
+			path = EditWidget;
+			sourceTree = "<group>";
+		};
+		B35BFC4C2CB609C200092B42 /* AddWidget */ = {
+			isa = PBXGroup;
+			children = (
+				B35BFC4D2CB609CD00092B42 /* TutorialAddWidgetView.swift */,
+				B35BFC4F2CB609DC00092B42 /* TutorialAddWidgetViewController.swift */,
+			);
+			path = AddWidget;
 			sourceTree = "<group>";
 		};
 		B369278B2C66B6E30089F769 = {
@@ -1231,6 +1348,7 @@
 				B34F3E0C2C6B0C790041D7BD /* UsageCoordinator.swift */,
 				B32B61072C8A4406007DDCE3 /* Home */,
 				B35BFB9E2CB47D9B00092B42 /* Settings */,
+				B35BFBF12CB5CCCD00092B42 /* Tutorial */,
 				B350C0582C8F92B70035682F /* WidgetBuilder */,
 				B39A26052CB06E60001C76A5 /* WidgetConfiguration */,
 			);
@@ -1268,6 +1386,7 @@
 				B36927CC2C66B86D0089F769 /* Home */,
 				B36927CD2C66B88F0089F769 /* LaunchScreen */,
 				B34F3E012C6A93800041D7BD /* SettingsTab */,
+				B35BFBD32CB5A8C400092B42 /* Tutorials */,
 				B34F3DFF2C6A936C0041D7BD /* Usage */,
 				B34F3E1D2C6D35D50041D7BD /* WidgetConfiguration */,
 			);
@@ -1493,17 +1612,6 @@
 			path = TextRelated;
 			sourceTree = "<group>";
 		};
-		B39A25F42CB06410001C76A5 /* Tutorials */ = {
-			isa = PBXGroup;
-			children = (
-				B35BFB882CB4605C00092B42 /* Components */,
-				B39A25FF2CB06628001C76A5 /* TutorialWidgetConfigurationTexts.swift */,
-				B39A25F72CB06423001C76A5 /* SetWallpapers */,
-				B39A25F82CB06427001C76A5 /* EditWidget */,
-			);
-			path = Tutorials;
-			sourceTree = "<group>";
-		};
 		B39A25F72CB06423001C76A5 /* SetWallpapers */ = {
 			isa = PBXGroup;
 			children = (
@@ -1513,21 +1621,19 @@
 			path = SetWallpapers;
 			sourceTree = "<group>";
 		};
-		B39A25F82CB06427001C76A5 /* EditWidget */ = {
+		B39A25F82CB06427001C76A5 /* CreateWidget */ = {
 			isa = PBXGroup;
 			children = (
-				B39A25F92CB06437001C76A5 /* TutorialEditWidgetView.swift */,
-				B39A25FB2CB06446001C76A5 /* TutorialEditWidgetViewController.swift */,
+				B39A25F92CB06437001C76A5 /* TutorialCreateWidgetView.swift */,
+				B39A25FB2CB06446001C76A5 /* TutorialCreateWidgetViewController.swift */,
 			);
-			path = EditWidget;
+			path = CreateWidget;
 			sourceTree = "<group>";
 		};
 		B39A26052CB06E60001C76A5 /* WidgetConfiguration */ = {
 			isa = PBXGroup;
 			children = (
 				B39A26042CB06E60001C76A5 /* SelectAppsCoordinator.swift */,
-				B39A26072CB06E7A001C76A5 /* TutorialEditWidgetCoordinator.swift */,
-				B35BFB7C2CB2413900092B42 /* TutorialWallpaperCoordinator.swift */,
 			);
 			path = WidgetConfiguration;
 			sourceTree = "<group>";
@@ -2051,21 +2157,25 @@
 				B34F3E242C6D366A0041D7BD /* WidgetEditorView.swift in Sources */,
 				B35BFB952CB4632900092B42 /* ModuliteFreeSmallBadge.swift in Sources */,
 				B35BFBCB2CB4BC7600092B42 /* SubscriptionDetailsSmallTitle.swift in Sources */,
+				B35BFBED2CB5BA8000092B42 /* TutorialCenterSmallTitle.swift in Sources */,
 				B369279C2C66B6E30089F769 /* HomeViewController.swift in Sources */,
 				B35BFBC72CB4BC0900092B42 /* SubscriptionLocalizedTexts.swift in Sources */,
 				B3C187842C791D1300A891A8 /* WidgetStyle.swift in Sources */,
 				B34F3E0D2C6B0C790041D7BD /* UsageCoordinator.swift in Sources */,
 				B35BFB7F2CB2428A00092B42 /* TutorialWallpaperView.swift in Sources */,
+				B35BFC4A2CB5FB4600092B42 /* TutorialLargeTitleLabel.swift in Sources */,
 				B32B61102C8A474B007DDCE3 /* SelectAppsViewModel.swift in Sources */,
 				B30AAD652C9227DE002806A7 /* WidgetContentBuilder.swift in Sources */,
 				B36927D12C66B8CA0089F769 /* Router.swift in Sources */,
 				AF362C7F2CAB374900506443 /* BlockingSessionView.swift in Sources */,
 				B35BFB7D2CB2413900092B42 /* TutorialWallpaperCoordinator.swift in Sources */,
 				AFE5D5532CAF24F100503572 /* BlockType.swift in Sources */,
-				B36927982C66B6E30089F769 /* AppDelegate.swift in Sources */,
 				AFE5D5462CAF1B1300503572 /* BlockingSessionViewModel.swift in Sources */,
+				B36927982C66B6E30089F769 /* AppDelegate.swift in Sources */,
+				B35BFBDF2CB5A9FE00092B42 /* TutorialCenterViewModel.swift in Sources */,
 				B369279A2C66B6E30089F769 /* SceneDelegate.swift in Sources */,
 				B32B60F22C878290007DDCE3 /* UIView+asImage.swift in Sources */,
+				B35BFBF32CB5CCD200092B42 /* TutorialCoordinator.swift in Sources */,
 				B39A25D82CAF275F001C76A5 /* ModulitePlusSmallBadge.swift in Sources */,
 				B34F3E0B2C6A9E350041D7BD /* NavigationRouter.swift in Sources */,
 				B36927DA2C66C2770089F769 /* HomeView.swift in Sources */,
@@ -2084,6 +2194,7 @@
 				B3EB15B92C7E4CD6003B1960 /* ModuleAppNameTextConfiguration.swift in Sources */,
 				B39A25AC2CAC7D2A001C76A5 /* WidgetEditorViewController+UICollectionViewDelegate.swift in Sources */,
 				B3EB15B62C7E4BF0003B1960 /* ModuleConfiguration.swift in Sources */,
+				B35BFBE92CB5AF9B00092B42 /* TutorialCenterCoordinator.swift in Sources */,
 				AF362C732CAB174C00506443 /* BlockAppsViewModel.swift in Sources */,
 				AFABBD982C8A359E007BEFD8 /* BlockAppsView.swift in Sources */,
 				B36927D32C66BBC10089F769 /* SceneDelegateRouter.swift in Sources */,
@@ -2095,8 +2206,11 @@
 				B39A25D62CAF260C001C76A5 /* CAGradientLayer+Gradient.swift in Sources */,
 				B3C1877F2C78D1E000A891A8 /* ModuliteWidgetConfiguration.swift in Sources */,
 				B32B60FE2C88E43F007DDCE3 /* CustomizedTextFactory.swift in Sources */,
+				B35BFBEF2CB5C7CC00092B42 /* TutorialViewController.swift in Sources */,
+				B35BFBDB2CB5A99200092B42 /* TutorialCenterView.swift in Sources */,
 				B39A25AA2CAC7C89001C76A5 /* WidgetEditorViewController+UICollectionViewDataSource.swift in Sources */,
 				B34F3E3E2C74CE090041D7BD /* EditorSectionHeader.swift in Sources */,
+				B35BFC522CB60B7300092B42 /* TutorialStepsStackView.swift in Sources */,
 				B34F3DFD2C6A92890041D7BD /* RootTabBarController.swift in Sources */,
 				AFE5D5502CAF24E500503572 /* WeekDay.swift in Sources */,
 				B350C0492C8B8B680035682F /* UIEdgeInsets+Directions.swift in Sources */,
@@ -2116,7 +2230,6 @@
 				B39A25A22CAB5B65001C76A5 /* WidgetEditorDownloadButton.swift in Sources */,
 				B32B61032C88EE1E007DDCE3 /* WidgetSetupAppsTagFlowLayout.swift in Sources */,
 				B3987E2B2CA4F43100896414 /* SelectMainWidgetConfigurationIntent.swift in Sources */,
-				B39A26082CB06E7A001C76A5 /* TutorialEditWidgetCoordinator.swift in Sources */,
 				B32B60CA2C8657EC007DDCE3 /* AppInfoData.swift in Sources */,
 				AF362C812CAC6C1A00506443 /* BlockingSessionViewController.swift in Sources */,
 				B3987E262CA4858E00896414 /* MainWidgetModuleData.swift in Sources */,
@@ -2124,10 +2237,12 @@
 				AFABBD7C2C80F2E0007BEFD8 /* UsageView.swift in Sources */,
 				AF9D41DA2CA49BE50077F565 /* UsageViewModel.swift in Sources */,
 				B34F3E032C6A93A30041D7BD /* BlockAppsViewController.swift in Sources */,
+				B35BFBEB2CB5B9D600092B42 /* TutorialCenterButtonLabel.swift in Sources */,
 				B35BFBCF2CB55F3F00092B42 /* SeparatorView.swift in Sources */,
 				B34F3E402C74E3270041D7BD /* WidgetModuleCell.swift in Sources */,
 				B35BFB892CB4605C00092B42 /* TutorialMultiParagraphLabel.swift in Sources */,
 				B35BFB8A2CB4605C00092B42 /* TutorialTextParagraphLabel.swift in Sources */,
+				B35BFBE72CB5AAA600092B42 /* TutorialCenterLocalizedTexts.swift in Sources */,
 				B35BFB8B2CB4605C00092B42 /* TutorialTitleLabel.swift in Sources */,
 				B34F3E1C2C6BD3DA0041D7BD /* HomeViewModel.swift in Sources */,
 				B32B61012C88EC1A007DDCE3 /* WidgetSetupStyleCompositionalLayout.swift in Sources */,
@@ -2138,8 +2253,10 @@
 				AF763F282CAF4710002FBE26 /* AppBlockerManager.swift in Sources */,
 				B35BFB9B2CB46C8700092B42 /* SettingsLocalizedTexts.swift in Sources */,
 				B34F3E182C6B93FA0041D7BD /* TipCollectionViewCell.swift in Sources */,
+				B35BFBDD2CB5A9A800092B42 /* TutorialCenterViewController.swift in Sources */,
 				B3987E162CA38C7900896414 /* MainWidgetEntry.swift in Sources */,
-				B39A25FA2CB06437001C76A5 /* TutorialEditWidgetView.swift in Sources */,
+				B39A25FA2CB06437001C76A5 /* TutorialCreateWidgetView.swift in Sources */,
+				B35BFC502CB609DC00092B42 /* TutorialAddWidgetViewController.swift in Sources */,
 				B3EB15BB2C7E5DC5003B1960 /* UILabel+AppNameConfiguration.swift in Sources */,
 				B34F3E2B2C6E83800041D7BD /* UIFont+TraitedTextStyle.swift in Sources */,
 				B34F3E2E2C6E87350041D7BD /* SetupHeaderReusableCell.swift in Sources */,
@@ -2148,17 +2265,19 @@
 				B39A25D32CAF2102001C76A5 /* Gradient.swift in Sources */,
 				B34F3E332C6E8AA60041D7BD /* UITextField+HorizontalPadding.swift in Sources */,
 				B32B610C2C8A449C007DDCE3 /* SelectAppsViewController.swift in Sources */,
-				B39A25FC2CB06446001C76A5 /* TutorialEditWidgetViewController.swift in Sources */,
+				B39A25FC2CB06446001C76A5 /* TutorialCreateWidgetViewController.swift in Sources */,
 				B3987E192CA3938200896414 /* AuxiliaryWidget.swift in Sources */,
 				B3987E232CA4857400896414 /* MainWidgetConfigurationData.swift in Sources */,
 				B39A25DE2CAF751B001C76A5 /* ModulitePlusLargeBadge.swift in Sources */,
 				B35BFBCD2CB4BE3D00092B42 /* SubscriptionDetailsDefaultLabel.swift in Sources */,
+				B35BFBE52CB5AA9F00092B42 /* TutorialCenterOptionButton.swift in Sources */,
 				B350C05A2C8F92C90035682F /* WidgetBuilderCoordinator.swift in Sources */,
 				B3987E1F2CA3A3BC00896414 /* MainWidgetModuleButton.swift in Sources */,
 				B39A26062CB06E60001C76A5 /* SelectAppsCoordinator.swift in Sources */,
 				B3987E312CA4F48C00896414 /* MainWidgetConfigurationEntity.swift in Sources */,
 				B34F3E372C6FDEAA0041D7BD /* SelectedAppCollectionViewCell.swift in Sources */,
 				B3CDD7012C766F2E00E558F8 /* ModuleStyleCell.swift in Sources */,
+				B35BFC462CB5F9A500092B42 /* TutorialEditWidgetView.swift in Sources */,
 				B3987E0F2CA38A9C00896414 /* MainWidgetView.swift in Sources */,
 				B34F3E072C6A93B30041D7BD /* UsageViewController.swift in Sources */,
 				B34F3E222C6D36390041D7BD /* WidgetEditorViewController.swift in Sources */,
@@ -2166,6 +2285,7 @@
 				B3F054362C7CF6CB0057F04D /* AppInfo+CoreDataClass.swift in Sources */,
 				AFABBD9B2C8A39F2007BEFD8 /* BlockAppsCollectionViewCell.swift in Sources */,
 				B34F3DF52C6701870041D7BD /* String+LocalizedKey.swift in Sources */,
+				B35BFC4E2CB609CD00092B42 /* TutorialAddWidgetView.swift in Sources */,
 				AFABBD9D2C8F7D5D007BEFD8 /* BlockAppsHeaderView.swift in Sources */,
 				B34F3E282C6D36D40041D7BD /* WidgetSetupViewController.swift in Sources */,
 				B32B60BC2C86492C007DDCE3 /* UIColorValueTransformer.swift in Sources */,
@@ -2176,6 +2296,7 @@
 				AFDC1A512CB46005008A816D /* ShieldConfigurationBuilder.swift in Sources */,
 				AF362BFF2CA5AD8000506443 /* ScreenTimeelectAppsContentView.swift in Sources */,
 				AFE5D5032CADD4C700503572 /* FamilyControlsManager.swift in Sources */,
+				B35BFC482CB5F9B600092B42 /* TutorialEditWidgetViewController.swift in Sources */,
 				B34F3E3A2C74BFB00041D7BD /* WidgetEditorViewModel.swift in Sources */,
 				B39A25E22CAF7871001C76A5 /* PaddedLabel.swift in Sources */,
 				B32B60B42C864247007DDCE3 /* CoreDataPersistenceController.swift in Sources */,

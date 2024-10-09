@@ -40,7 +40,9 @@ extension SettingsCoordinator: SettingsViewControllerDelegate {
     }
     
     func settingsViewControllerDidPressTutorials(_ viewController: SettingsViewController) {
-        // TODO: Present Tutorials view
+        let coordinator = TutorialCenterCoordinator(router: router)
+        
+        presentChild(coordinator, animated: true)
     }
     
     func settingsViewControllerDidPressFAQ(_ viewController: SettingsViewController) {

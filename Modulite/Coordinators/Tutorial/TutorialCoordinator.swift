@@ -1,13 +1,13 @@
 //
-//  TutorialEditWidgetCoordinator.swift
+//  TutorialCoordinator.swift
 //  Modulite
 //
-//  Created by Gustavo Munhoz Correa on 04/10/24.
+//  Created by Gustavo Munhoz Correa on 08/10/24.
 //
 
 import UIKit
 
-class TutorialEditWidgetCoordinator: Coordinator {
+class TutorialCoordinator<T: UIViewController & TutorialViewController>: Coordinator {
     var children: [Coordinator] = []
     
     var router: Router
@@ -17,7 +17,7 @@ class TutorialEditWidgetCoordinator: Coordinator {
     }
     
     func present(animated: Bool, onDismiss: (() -> Void)?) {
-        let viewController = TutorialEditWidgetViewController()
+        let viewController = T()
         
         router.present(viewController, animated: animated, onDismiss: onDismiss)
     }
