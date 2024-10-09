@@ -55,4 +55,41 @@ class AppBlockManager: ObservableObject {
         center.stopMonitoring([activityName])
         print("Monitoramento parado para \(activityName.rawValue)")
     }
+    
+    func createSchedule(
+        for weekDays: [WeekDay],
+        startHour: Int,
+        startMinute: Int,
+        endHour: Int,
+        endMinute: Int
+    ) -> DeviceActivitySchedule? {
+        guard startHour >= 0, startHour < 24, endHour >= 0, endHour < 24,
+              startMinute >= 0, startMinute < 60, endMinute >= 0, endMinute < 60 else {
+            return nil
+        }
+        
+        let scheduleEvents = weekDays.compactMap { day -> [DateComponents]? in
+            var startComponents = DateComponents()
+            startComponents.weekday = day.rawValue + 1
+            startComponents.hour = startHour
+            startComponents.minute = startMinute
+            
+            var endComponents = DateComponents()
+            endComponents.weekday = day.rawValue + 1
+            endComponents.hour = endHour
+            endComponents.minute = endMinute
+            
+            return [startComponents, endComponents]
+        }.flatMap { $0 }
+        
+        guard !scheduleEvents.isEmpty else {
+            return nil
+        }
+        
+        let startComponents = scheduleEvents[0]
+        let endComponents = scheduleEvents[1]
+        
+        return DeviceActivitySchedule(intervalStart: startComponents, intervalEnd: endComponents, repeats: true)
+    }
+
 }
