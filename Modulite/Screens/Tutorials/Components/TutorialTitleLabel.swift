@@ -11,17 +11,35 @@ class TutorialTitleLabel: UILabel {
     convenience init(textLocalizedKey: TutorialWidgetConfigurationTexts) {
         self.init(frame: .zero)
         
-        text = .localized(for: textLocalizedKey)
+        let text = String.localized(for: textLocalizedKey)
+        let font = UIFont(textStyle: .title2, weight: .bold)
+                
+        let firstThreeCharacters = String(text.prefix(3))
+        let sizeOfFirstThreeCharacters = (firstThreeCharacters as NSString)
+            .size(withAttributes: [.font: font])
+        
+        let paragraphStyle = NSMutableParagraphStyle()
+        paragraphStyle.lineBreakMode = .byWordWrapping
+        paragraphStyle.headIndent = sizeOfFirstThreeCharacters.width
+        paragraphStyle.firstLineHeadIndent = 0
+        
+        let attributedText = NSAttributedString(
+            string: text,
+            attributes: [
+                .paragraphStyle: paragraphStyle,
+                .font: font,
+                .foregroundColor: UIColor.textPrimary
+            ]
+        )
+        
+        self.attributedText = attributedText
     }
     
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        font = UIFont(textStyle: .title2, weight: .bold)
+        numberOfLines = 0
         textAlignment = .left
-        lineBreakMode = .byWordWrapping
-        numberOfLines = -1
-        textColor = .textPrimary
     }
     
     required init?(coder: NSCoder) {

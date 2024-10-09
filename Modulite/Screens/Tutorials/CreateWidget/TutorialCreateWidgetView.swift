@@ -1,5 +1,5 @@
 //
-//  TutorialEditWidgetView.swift
+//  TutorialCreateWidgetView.swift
 //  Modulite
 //
 //  Created by Gustavo Munhoz Correa on 04/10/24.
@@ -8,24 +8,15 @@
 import UIKit
 import SnapKit
 
-class TutorialEditWidgetView: UIScrollView {
+class TutorialCreateWidgetView: UIScrollView {
     
     private let contentView = UIView()
     
     // MARK: - Subviews
     
-    private(set) lazy var titleLabel: UILabel = {
-        let titleLabel = UILabel()
-        titleLabel.text = .localized(
-            for: TutorialCenterLocalizedTexts.tutorialCenterHowToCreateWidget
-        )
-        titleLabel.font = UIFont(textStyle: .title1, weight: .bold)
-        titleLabel.numberOfLines = 0
-        titleLabel.lineBreakMode = .byWordWrapping
-        titleLabel.textAlignment = .left
-        
-        return titleLabel
-    }()
+    private(set) lazy var titleLabel = TutorialLargeTitleLabel(
+        textLocalizedKey: .tutorialCenterHowToCreateWidget
+    )
     
     private(set) var changeModulesTitle = TutorialTitleLabel(
         textLocalizedKey: .tutorialEditWidgetHowToChangeModulesTitle
