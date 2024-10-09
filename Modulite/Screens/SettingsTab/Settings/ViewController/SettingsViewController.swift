@@ -49,6 +49,7 @@ class SettingsViewController: UIViewController {
     private func setupNavigationBar() {
         navigationItem.title = .localized(for: .settingsViewControllerTabBarItemTitle)
         navigationController?.navigationBar.prefersLargeTitles = true
+        navigationController?.navigationBar.barTintColor = .whiteTurnip
     }
     
     private func setupTableView() {
