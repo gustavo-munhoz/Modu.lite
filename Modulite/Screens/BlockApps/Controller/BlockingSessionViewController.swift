@@ -25,6 +25,9 @@ class BlockingSessionViewController: UIViewController {
     var viewModel = BlockingSessionViewModel()
     weak var delegate: BlockingSessionViewControllerDelegate?
     
+    var isEditingSession = false
+    var currentSession: AppBlockingSession?
+    
     // MARK: - Init Methods
     override func loadView() {
         self.view = createBlockingSessionView
@@ -64,7 +67,6 @@ class BlockingSessionViewController: UIViewController {
     }
     
     private func setupCallbacks() {
-
         createBlockingSessionView.onSelectApps = { [weak self] in
             self?.presentSelectApps()
         }
@@ -75,7 +77,6 @@ class BlockingSessionViewController: UIViewController {
     }
     
     @objc private func saveBlockingSession() {
-        
         guard viewModel.activitySelection
             .applications
             .isEmpty == false ||
@@ -86,6 +87,22 @@ class BlockingSessionViewController: UIViewController {
             return
         }
 
+        if isEditingSession, let session = currentSession {
+            session.name = viewModel.getName()
+            session.updateSelection(viewModel.activitySelection)
+            session.blockingType = viewModel.getBlockingType()
+            session.isAllDay = viewModel.getIsAllDay()
+            session.startsAt = viewModel.getStartsAt()
+            session.endsAt = viewModel.getEndsAt()
+            session.daysOfWeek = viewModel.getDaysOfWeek()
+            session.isActive = false
+            
+            delegate?.createBlockingSessionViewController(self, didCreate: session)
+            dismiss(animated: true, completion: nil)
+            return
+            
+        }
+        
         let newBlockingSession = AppBlockingSession(
             name: viewModel.getName(),
             selection: viewModel.getActivitySelection(),
@@ -93,15 +110,10 @@ class BlockingSessionViewController: UIViewController {
             isAllDay: viewModel.getIsAllDay(),
             startsAt: viewModel.getStartsAt(),
             endsAt: viewModel.getEndsAt(),
-            daysOfWeek: viewModel.getDaysOfWeek(),
-            isActive: viewModel.getIsActive()
+            daysOfWeek: viewModel.getDaysOfWeek()
         )
         
-        delegate?.createBlockingSessionViewController(
-            self,
-            didCreate: newBlockingSession
-        )
-
+        delegate?.createBlockingSessionViewController(self, didCreate: newBlockingSession)
         dismiss(animated: true, completion: nil)
     }
 
@@ -153,6 +165,7 @@ extension BlockingSessionViewController: ScreenTimeSelectAppsContentViewDelegate
 }
 
 extension BlockingSessionViewController: NewBlockingSessionViewDelegate {
+    
     func saveData(
         title: String,
         isAllDay: Bool,
