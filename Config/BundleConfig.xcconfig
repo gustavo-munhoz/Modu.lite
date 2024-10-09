@@ -1,8 +1,0 @@
-DEVELOPMENT_TEAM = 7U55BCTM6U
-BUNDLE_ID = dev.mnhz.modu.lite
-WIDGET_BUNDLE_ID = dev.mnhz.modu.lite.widget
-APP_GROUP_ID = group.dev.mnhz.modu.lite.shared
-ACTIVITY_MONITOR_BUNDLE_ID = dev.mnhz.modu.lite.deviceActivityMonitor
-ACTIVITY_REPORT_BUNDLE_ID = dev.mnhz.modu.lite.deviceActivityReport
-SHIELD_CONFIGURATION_BUNDLE_ID = dev.mnhz.modu.lite.shieldConfiguration
-SHIELD_ACTION_BUNDLE_ID = dev.mnhz.modu.lite.shieldAction
