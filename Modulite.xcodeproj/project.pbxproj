@@ -549,7 +549,6 @@
 		B39A25A92CAC7C89001C76A5 /* WidgetEditorViewController+UICollectionViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WidgetEditorViewController+UICollectionViewDataSource.swift"; sourceTree = "<group>"; };
 		B39A25AB2CAC7D2A001C76A5 /* WidgetEditorViewController+UICollectionViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WidgetEditorViewController+UICollectionViewDelegate.swift"; sourceTree = "<group>"; };
 		B39A25AD2CAC7DC2001C76A5 /* WidgetEditorViewController+UICollectionViewDragAndDropDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WidgetEditorViewController+UICollectionViewDragAndDropDelegate.swift"; sourceTree = "<group>"; };
-		B39A25B82CAE1A81001C76A5 /* generate_xcconfig.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = generate_xcconfig.sh; sourceTree = "<group>"; };
 		B39A25C32CAEC44E001C76A5 /* MainWidgetsPlaceholderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainWidgetsPlaceholderView.swift; sourceTree = "<group>"; };
 		B39A25CF2CAF1B0D001C76A5 /* GradientLabelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientLabelView.swift; sourceTree = "<group>"; };
 		B39A25D22CAF2102001C76A5 /* Gradient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gradient.swift; sourceTree = "<group>"; };
@@ -1618,7 +1617,6 @@
 			isa = PBXGroup;
 			children = (
 				B39A25E32CAFADA2001C76A5 /* BundleConfig.xcconfig */,
-				B39A25B82CAE1A81001C76A5 /* generate_xcconfig.sh */,
 			);
 			path = Config;
 			sourceTree = "<group>";
@@ -1928,7 +1926,6 @@
 			buildConfigurationList = B36927BE2C66B6E40089F769 /* Build configuration list for PBXNativeTarget "Modulite" */;
 			buildPhases = (
 				B34F3E382C7056820041D7BD /* ShellScript */,
-				AFE5D5552CAF359A00503572 /* ShellScript */,
 				B36927902C66B6E30089F769 /* Sources */,
 				B36927912C66B6E30089F769 /* Frameworks */,
 				B36927922C66B6E30089F769 /* Resources */,
@@ -2127,25 +2124,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		AFE5D5552CAF359A00503572 /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			alwaysOutOfDate = 1;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-			);
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"$PROJECT_DIR/Config/generate_xcconfig.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		B34F3E382C7056820041D7BD /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			alwaysOutOfDate = 1;
@@ -2529,7 +2507,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 0.3.2;
-				DEVELOPMENT_TEAM = 7U55BCTM6U;
+				DEVELOPMENT_TEAM = "$(DEVELOPMENT_TEAM)";
 				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = ModuliteDeviceActivityMonitor/Info.plist;
@@ -2561,7 +2539,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 0.3.2;
-				DEVELOPMENT_TEAM = 7U55BCTM6U;
+				DEVELOPMENT_TEAM = "$(DEVELOPMENT_TEAM)";
 				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = ModuliteDeviceActivityMonitor/Info.plist;
@@ -2593,7 +2571,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 0.3.2;
-				DEVELOPMENT_TEAM = 7U55BCTM6U;
+				DEVELOPMENT_TEAM = "$(DEVELOPMENT_TEAM)";
 				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = ModuliteDeviceActivityReport/Info.plist;
@@ -2623,7 +2601,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 0.3.2;
-				DEVELOPMENT_TEAM = 7U55BCTM6U;
+				DEVELOPMENT_TEAM = "$(DEVELOPMENT_TEAM)";
 				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = ModuliteDeviceActivityReport/Info.plist;
@@ -2655,7 +2633,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 0.3.2;
-				DEVELOPMENT_TEAM = 7U55BCTM6U;
+				DEVELOPMENT_TEAM = "$(DEVELOPMENT_TEAM)";
 				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = ModuliteWidget/Info.plist;
@@ -2687,7 +2665,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 0.3.2;
-				DEVELOPMENT_TEAM = 7U55BCTM6U;
+				DEVELOPMENT_TEAM = "$(DEVELOPMENT_TEAM)";
 				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = ModuliteWidget/Info.plist;
@@ -2717,7 +2695,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 0.3.2;
-				DEVELOPMENT_TEAM = 7U55BCTM6U;
+				DEVELOPMENT_TEAM = "$(DEVELOPMENT_TEAM)";
 				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = ModuliteShieldConfiguration/Info.plist;
@@ -2747,7 +2725,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 0.3.2;
-				DEVELOPMENT_TEAM = 7U55BCTM6U;
+				DEVELOPMENT_TEAM = "$(DEVELOPMENT_TEAM)";
 				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = ModuliteShieldConfiguration/Info.plist;
@@ -2777,7 +2755,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 0.3.2;
-				DEVELOPMENT_TEAM = 7U55BCTM6U;
+				DEVELOPMENT_TEAM = "$(DEVELOPMENT_TEAM)";
 				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = ModuliteShieldAction/Info.plist;
@@ -2807,7 +2785,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 0.3.2;
-				DEVELOPMENT_TEAM = 7U55BCTM6U;
+				DEVELOPMENT_TEAM = "$(DEVELOPMENT_TEAM)";
 				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = ModuliteShieldAction/Info.plist;
@@ -2866,6 +2844,7 @@
 				COPY_PHASE_STRIP = NO;
 				CURRENT_PROJECT_VERSION = 0.3.2;
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = "$(DEVELOPMENT_TEAM)";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
@@ -2935,6 +2914,7 @@
 				COPY_PHASE_STRIP = NO;
 				CURRENT_PROJECT_VERSION = 0.3.2;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = "$(DEVELOPMENT_TEAM)";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
@@ -2970,7 +2950,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 0.3.2;
-				DEVELOPMENT_TEAM = 7U55BCTM6U;
+				DEVELOPMENT_TEAM = "$(DEVELOPMENT_TEAM)";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Modulite/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Modu.lite;
@@ -3004,7 +2984,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 0.3.2;
-				DEVELOPMENT_TEAM = 7U55BCTM6U;
+				DEVELOPMENT_TEAM = "$(DEVELOPMENT_TEAM)";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Modulite/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Modu.lite;
