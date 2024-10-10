@@ -20,15 +20,7 @@ struct MainWidgetProvider: TimelineProvider {
     }
     
     func placeholder(in context: Context) -> MainWidgetEntry {
-        MainWidgetEntry(
-            date: .now,
-            configuration: MainWidgetConfigurationData(
-                id: UUID(),
-                name: "Placeholder Widget",
-                background: .color(.systemBackground),
-                modules: []
-            )
-        )
+        MainWidgetEntry(date: .now, configuration: nil)
     }
     
     func getSnapshot(in context: Context, completion: @escaping (MainWidgetEntry) -> Void) {
@@ -41,7 +33,8 @@ struct MainWidgetProvider: TimelineProvider {
         let configurations = CoreDataPersistenceController.shared.fetchWidgets()
         
         guard let config = configurations.first else {
-            let entry = placeholder(in: context)
+            let entry = MainWidgetEntry(date: .now, configuration: nil)
+            
             completion(entry)
             return
         }
@@ -104,15 +97,7 @@ struct MainWidgetIntentProvider: AppIntentTimelineProvider {
     typealias Entry = MainWidgetEntry
     
     func placeholder(in context: Context) -> MainWidgetEntry {
-        MainWidgetEntry(
-            date: .now,
-            configuration: MainWidgetConfigurationData(
-                id: UUID(),
-                name: "Placeholder Widget",
-                background: .color(.systemBackground),
-                modules: []
-            )
-        )
+        MainWidgetEntry(date: .now, configuration: nil)
     }
     
     func snapshot(

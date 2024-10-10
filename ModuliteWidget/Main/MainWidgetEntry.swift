@@ -10,5 +10,5 @@ import SwiftUI
 
 struct MainWidgetEntry: TimelineEntry {
     let date: Date
-    let configuration: MainWidgetConfigurationData
+    let configuration: MainWidgetConfigurationData?
 }

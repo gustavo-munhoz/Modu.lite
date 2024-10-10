@@ -12,7 +12,7 @@ struct SelectMainWidgetConfigurationIntent: WidgetConfigurationIntent {
     static var title: LocalizedStringResource = "Select Widget Configuration"
     static var description = IntentDescription("Selects the widget configuration to display.")
 
-    @Parameter(title: "Widget Configuration")
+    @Parameter(title: "Widget")
     var widgetConfiguration: MainWidgetConfigurationEntity?
 
     init() {}
