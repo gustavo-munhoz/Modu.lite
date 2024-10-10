@@ -31,13 +31,8 @@
 		AFBBC5032C7E459900A9B256 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AFBBC4EB2C7E457C00A9B256 /* WidgetKit.framework */; };
 		AFBBC5042C7E459900A9B256 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AFBBC4ED2C7E457C00A9B256 /* SwiftUI.framework */; };
 		AFBBC5072C7E459900A9B256 /* ModuliteWidgetBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFBBC5062C7E459900A9B256 /* ModuliteWidgetBundle.swift */; };
-		AFBBC5092C7E459900A9B256 /* ModuliteWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFBBC5082C7E459900A9B256 /* ModuliteWidget.swift */; };
 		AFBBC50B2C7E459A00A9B256 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AFBBC50A2C7E459A00A9B256 /* Assets.xcassets */; };
 		AFBBC50F2C7E459A00A9B256 /* ModuliteWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = AFBBC5022C7E459900A9B256 /* ModuliteWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		AFBBC51C2C7E4AEB00A9B256 /* WidgetButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFBBC51B2C7E4AEB00A9B256 /* WidgetButtonView.swift */; };
-		AFBBC51E2C7E4C8500A9B256 /* WidgetButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFBBC51B2C7E4AEB00A9B256 /* WidgetButtonView.swift */; };
-		AFBBC5202C7E4D6900A9B256 /* WidgetButtonLabelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFBBC51F2C7E4D6900A9B256 /* WidgetButtonLabelView.swift */; };
-		AFBBC5212C7E4E0700A9B256 /* WidgetButtonLabelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFBBC51F2C7E4D6900A9B256 /* WidgetButtonLabelView.swift */; };
 		AFBBC5222C7E5D8D00A9B256 /* AppInfo+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3F054352C7CF6CB0057F04D /* AppInfo+CoreDataClass.swift */; };
 		AFDC1A512CB46005008A816D /* ShieldConfigurationBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFDC1A502CB46005008A816D /* ShieldConfigurationBuilder.swift */; };
 		AFDC1A522CB4600B008A816D /* ShieldConfigurationBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFDC1A502CB46005008A816D /* ShieldConfigurationBuilder.swift */; };
@@ -393,11 +388,8 @@
 		AFBBC4ED2C7E457C00A9B256 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
 		AFBBC5022C7E459900A9B256 /* ModuliteWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = ModuliteWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		AFBBC5062C7E459900A9B256 /* ModuliteWidgetBundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModuliteWidgetBundle.swift; sourceTree = "<group>"; };
-		AFBBC5082C7E459900A9B256 /* ModuliteWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModuliteWidget.swift; sourceTree = "<group>"; };
 		AFBBC50A2C7E459A00A9B256 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AFBBC50C2C7E459A00A9B256 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		AFBBC51B2C7E4AEB00A9B256 /* WidgetButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetButtonView.swift; sourceTree = "<group>"; };
-		AFBBC51F2C7E4D6900A9B256 /* WidgetButtonLabelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetButtonLabelView.swift; sourceTree = "<group>"; };
 		AFDC1A502CB46005008A816D /* ShieldConfigurationBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShieldConfigurationBuilder.swift; sourceTree = "<group>"; };
 		AFE5D5012CADD4C700503572 /* FamilyControlsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FamilyControlsManager.swift; sourceTree = "<group>"; };
 		AFE5D5092CADD51600503572 /* ModuliteShieldConfiguration.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = ModuliteShieldConfiguration.appex; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -770,9 +762,6 @@
 				AFBBC5062C7E459900A9B256 /* ModuliteWidgetBundle.swift */,
 				B3987E0A2CA388FB00896414 /* Auxiliary */,
 				B3987E092CA388F900896414 /* Main */,
-				AFBBC5082C7E459900A9B256 /* ModuliteWidget.swift */,
-				AFBBC51B2C7E4AEB00A9B256 /* WidgetButtonView.swift */,
-				AFBBC51F2C7E4D6900A9B256 /* WidgetButtonLabelView.swift */,
 				AFBBC50A2C7E459A00A9B256 /* Assets.xcassets */,
 				AFBBC50C2C7E459A00A9B256 /* Info.plist */,
 			);
@@ -2246,7 +2235,6 @@
 				B37284722C82992C00D9A1E7 /* String+TextCase.swift in Sources */,
 				B3850BB82C9521E600F400C0 /* WidgetBackground.swift in Sources */,
 				B37284742C82995C00D9A1E7 /* UIFont+TraitedTextStyle.swift in Sources */,
-				AFBBC5092C7E459900A9B256 /* ModuliteWidget.swift in Sources */,
 				B32B60F82C87AC5F007DDCE3 /* PersistableWidgetConfiguration+CoreDataClass.swift in Sources */,
 				B32B60F42C87AB75007DDCE3 /* PersistableModuleConfiguration+CoreDataClass.swift in Sources */,
 				B3987E0C2CA38A8A00896414 /* MainWidget.swift in Sources */,
@@ -2256,7 +2244,6 @@
 				B3987E102CA38A9C00896414 /* MainWidgetView.swift in Sources */,
 				B37284752C82996600D9A1E7 /* String+LocalizedKey.swift in Sources */,
 				B32B60FA2C87AC84007DDCE3 /* CoreDataPersistenceController.swift in Sources */,
-				AFBBC51C2C7E4AEB00A9B256 /* WidgetButtonView.swift in Sources */,
 				B3987E212CA4801600896414 /* UIColorValueTransformer.swift in Sources */,
 				B3987E202CA3A3BC00896414 /* MainWidgetModuleButton.swift in Sources */,
 				AF763F292CAF4793002FBE26 /* AppBlockerManager.swift in Sources */,
@@ -2283,7 +2270,6 @@
 				B32B60F62C87AB8F007DDCE3 /* PersistableWidgetConfiguration+CoreDataProperties.swift in Sources */,
 				AF763F262CAF4492002FBE26 /* FamilyControlsManager.swift in Sources */,
 				B37284712C82992200D9A1E7 /* ModuleAppNameTextConfiguration.swift in Sources */,
-				AFBBC5202C7E4D6900A9B256 /* WidgetButtonLabelView.swift in Sources */,
 				AFBBC5222C7E5D8D00A9B256 /* AppInfo+CoreDataClass.swift in Sources */,
 				B32B60F92C87AC81007DDCE3 /* FileManagerImagePersistenceController.swift in Sources */,
 				B372846E2C8298F100D9A1E7 /* ModuleConfiguration.swift in Sources */,
@@ -2357,8 +2343,6 @@
 				B36927DA2C66C2770089F769 /* HomeView.swift in Sources */,
 				B36927D52C66BCE60089F769 /* HomeCoordinator.swift in Sources */,
 				B3987E122CA38AF400896414 /* MainWidgetProvider.swift in Sources */,
-				AFBBC5212C7E4E0700A9B256 /* WidgetButtonLabelView.swift in Sources */,
-				AFBBC51E2C7E4C8500A9B256 /* WidgetButtonView.swift in Sources */,
 				B3CDD7032C767FD300E558F8 /* ModuleColorCell.swift in Sources */,
 				B35BFBB62CB4B5F600092B42 /* PreferenceTableViewCell.swift in Sources */,
 				B35BFBB72CB4B5F600092B42 /* SettingsView.swift in Sources */,
