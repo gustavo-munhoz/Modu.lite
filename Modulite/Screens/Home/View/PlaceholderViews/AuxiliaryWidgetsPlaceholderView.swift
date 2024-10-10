@@ -74,7 +74,7 @@ class AuxiliaryWidgetsPlaceholderView: UIView {
         
         plusLargeBadge.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
-            make.top.equalTo(titleLabel.snp.bottom).offset(20)
+            make.top.equalTo(titleLabel.snp.bottom).offset(10)
             make.width.equalTo(250)
         }
     }

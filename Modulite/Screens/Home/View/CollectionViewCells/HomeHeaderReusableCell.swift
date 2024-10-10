@@ -92,7 +92,7 @@ class HomeHeaderReusableCell: UICollectionViewCell {
             make.width.equalTo(70)
             make.height.equalTo(31)
             make.centerY.equalTo(titleLabel)
-            make.right.equalTo(actionButton.snp.left)
+            make.left.equalTo(titleLabel.snp.right).offset(12)
         }
     }
     

@@ -230,12 +230,4 @@ class HomeView: UIScrollView {
         
         return collectionView
     }
-    
-    // TODO: Implement this
-    private func createSeparator() -> UIView {
-        let separator = UIView()
-        separator.frame = CGRect(x: 0, y: 0, width: bounds.width - 48, height: 2)
-        
-        return separator
-    }
 }
