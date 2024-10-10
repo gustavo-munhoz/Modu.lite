@@ -51,11 +51,16 @@ class RootTabCoordinator: Coordinator {
     private func configureHome() -> UINavigationController {
         let viewController = HomeViewController()
         let navigationController = UINavigationController(rootViewController: viewController)
-        navigationController.tabBarItem = createTabBarItem(
+        
+        let tabBarItem = createTabBarItem(
             titleKey: .homeViewControllerTabBarItemTitle,
-            imageName: "house",
+            imageName: "house.fill",
             selectedImageName: "house.fill"
         )
+        
+        tabBarItem.tag = 0
+        navigationController.tabBarItem = tabBarItem
+        
         let homeRouter = NavigationRouter(navigationController: navigationController)
         let homeCoordinator = HomeCoordinator(router: homeRouter)
         viewController.delegate = homeCoordinator
@@ -69,11 +74,16 @@ class RootTabCoordinator: Coordinator {
     /// - Returns: A configured navigation controller for the Usage tab.
     private func configureUsage() -> UINavigationController {
         let navigationController = UINavigationController(rootViewController: UsageViewController())
-        navigationController.tabBarItem = createTabBarItem(
+        
+        let tabBarItem = createTabBarItem(
             titleKey: .usageViewControllerTabBarItemTitle,
-            imageName: "chart.bar",
-            selectedImageName: "chart.bar.fill"
+            imageName: "chart.bar.xaxis",
+            selectedImageName: "chart.bar.xaxis"
         )
+        
+        tabBarItem.tag = 1
+        navigationController.tabBarItem = tabBarItem
+        
         let usageRouter = NavigationRouter(navigationController: navigationController)
         let usageCoordinator = UsageCoordinator(router: usageRouter)
         children.append(usageCoordinator)
@@ -85,11 +95,16 @@ class RootTabCoordinator: Coordinator {
     /// - Returns: A configured navigation controller for the Block Apps tab.
     private func configureBlockApps() -> UINavigationController {
         let navigationController = UINavigationController(rootViewController: BlockAppsViewController())
-        navigationController.tabBarItem = createTabBarItem(
+        
+        let tabBarItem = createTabBarItem(
             titleKey: .blockAppsViewControllerTabBarItemTitle,
-            imageName: "lock",
+            imageName: "lock.fill",
             selectedImageName: "lock.fill"
         )
+        
+        tabBarItem.tag = 2
+        navigationController.tabBarItem = tabBarItem
+        
         let blockAppsRouter = NavigationRouter(navigationController: navigationController)
         let blockAppsCoordinator = BlockAppsCoordinator(router: blockAppsRouter)
         children.append(blockAppsCoordinator)
@@ -102,11 +117,16 @@ class RootTabCoordinator: Coordinator {
     private func configureSettings() -> UINavigationController {
         let settingsController = SettingsViewController()
         let navigationController = UINavigationController(rootViewController: settingsController)
-        navigationController.tabBarItem = createTabBarItem(
+        
+        let tabBarItem = createTabBarItem(
             titleKey: .settingsViewControllerTabBarItemTitle,
-            imageName: "gearshape",
+            imageName: "gearshape.fill",
             selectedImageName: "gearshape.fill"
         )
+        
+        tabBarItem.tag = 3
+        navigationController.tabBarItem = tabBarItem
+        
         let settingsRouter = NavigationRouter(navigationController: navigationController)
         let settingsCoordinator = SettingsCoordinator(router: settingsRouter)
         
@@ -125,13 +145,17 @@ class RootTabCoordinator: Coordinator {
     private func createTabBarItem(
         titleKey: String.LocalizedKey,
         imageName: String,
-        selectedImageName: String,
-        shouldFlipImageHorizontally: Bool = false
+        selectedImageName: String
     ) -> UITabBarItem {
-        return UITabBarItem(
+        let image = UIImage(systemName: imageName)
+        let selectedImage = UIImage(systemName: selectedImageName)
+        let tabBarItem = UITabBarItem(
             title: .localized(for: titleKey),
-            image: UIImage(systemName: imageName),
-            selectedImage: UIImage(systemName: selectedImageName)
+            image: image,
+            selectedImage: selectedImage
         )
+        
+        return tabBarItem
     }
+
 }
