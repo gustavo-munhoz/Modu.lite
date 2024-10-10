@@ -131,7 +131,7 @@ class HomeView: UIScrollView {
         contentView.addSubview(mainWidgetsCollectionView)
         contentView.addSubview(auxWidgetsPlaceholderView)
         contentView.addSubview(auxiliaryWidgetsCollectionView)
-        contentView.addSubview(tipsCollectionView)
+//        contentView.addSubview(tipsCollectionView)
     }
         
     private func setupConstraints() {
@@ -167,20 +167,23 @@ class HomeView: UIScrollView {
             make.top.equalTo(secondSeparator.snp.bottom)
             make.left.right.equalToSuperview()
             make.height.equalTo(190)
+            make.bottom.equalToSuperview().offset(-20)
         }
         
         auxWidgetsPlaceholderView.snp.makeConstraints { make in
             make.edges.equalTo(auxiliaryWidgetsCollectionView)
         }
         
-        let thirdSeparator = addSeparatorBelow(view: auxWidgetsPlaceholderView)
+        // TODO: Add TipsView
         
-        tipsCollectionView.snp.makeConstraints { make in
-            make.top.equalTo(thirdSeparator.snp.bottom)
-            make.left.right.equalToSuperview()
-            make.height.equalTo(210)
-            make.bottom.equalToSuperview().offset(-20)
-        }
+//        let thirdSeparator = addSeparatorBelow(view: auxWidgetsPlaceholderView)
+//        
+//        tipsCollectionView.snp.makeConstraints { make in
+//            make.top.equalTo(thirdSeparator.snp.bottom)
+//            make.left.right.equalToSuperview()
+//            make.height.equalTo(210)
+//            make.bottom.equalToSuperview().offset(-20)
+//        }
     }
     
     func setMainWidgetPlaceholderVisibility(to shouldShow: Bool) {

@@ -109,6 +109,50 @@
         }
       }
     },
+    "comingSoonViewAppBlockingDescription" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Soon you'll be able to take your journey towards reducing screen time and phone usage to the next level with customizable blocking sessions."
+          }
+        }
+      }
+    },
+    "comingSoonViewAppBlockingTitle" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Block distracting apps"
+          }
+        }
+      }
+    },
+    "comingSoonViewScreenTimeDescription" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Soon you'll be able track how much time you spend on your phone each day and easily compare it with previous days."
+          }
+        }
+      }
+    },
+    "comingSoonViewScreenTimeTitle" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Screen time usage"
+          }
+        }
+      }
+    },
     "delete" : {
       "extractionState" : "manual",
       "localizations" : {
