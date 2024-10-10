@@ -102,8 +102,6 @@
 		B34F3E072C6A93B30041D7BD /* UsageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B34F3E062C6A93B30041D7BD /* UsageViewController.swift */; };
 		B34F3E092C6A96A20041D7BD /* RootTabCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B34F3E082C6A96A20041D7BD /* RootTabCoordinator.swift */; };
 		B34F3E0B2C6A9E350041D7BD /* NavigationRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B34F3E0A2C6A9E350041D7BD /* NavigationRouter.swift */; };
-		B34F3E0D2C6B0C790041D7BD /* UsageCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B34F3E0C2C6B0C790041D7BD /* UsageCoordinator.swift */; };
-		B34F3E0F2C6B0D340041D7BD /* BlockAppsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B34F3E0E2C6B0D340041D7BD /* BlockAppsCoordinator.swift */; };
 		B34F3E142C6B93C80041D7BD /* MainWidgetCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B34F3E132C6B93C80041D7BD /* MainWidgetCollectionViewCell.swift */; };
 		B34F3E162C6B93EA0041D7BD /* AuxiliaryWidgetCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B34F3E152C6B93EA0041D7BD /* AuxiliaryWidgetCollectionViewCell.swift */; };
 		B34F3E182C6B93FA0041D7BD /* TipCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B34F3E172C6B93FA0041D7BD /* TipCollectionViewCell.swift */; };
@@ -251,6 +249,13 @@
 		B39A26002CB06628001C76A5 /* TutorialWidgetConfigurationTexts.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39A25FF2CB06628001C76A5 /* TutorialWidgetConfigurationTexts.swift */; };
 		B39A26022CB06E01001C76A5 /* WidgetBuilderCoordinator+WidgetSetupViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39A26012CB06E01001C76A5 /* WidgetBuilderCoordinator+WidgetSetupViewControllerDelegate.swift */; };
 		B39A26062CB06E60001C76A5 /* SelectAppsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39A26042CB06E60001C76A5 /* SelectAppsCoordinator.swift */; };
+		B39D89D22CB85602005EEC46 /* ComingSoonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39D89D12CB85602005EEC46 /* ComingSoonViewController.swift */; };
+		B39D89D52CB85620005EEC46 /* ComingSoonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39D89D42CB85620005EEC46 /* ComingSoonView.swift */; };
+		B39D89D72CB858A0005EEC46 /* ComingSoonLocalizedTexts.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39D89D62CB858A0005EEC46 /* ComingSoonLocalizedTexts.swift */; };
+		B39D89DB2CB85B8C005EEC46 /* ComingSoonFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39D89DA2CB85B8C005EEC46 /* ComingSoonFeature.swift */; };
+		B39D89E02CB85C38005EEC46 /* BlockAppsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39D89DE2CB85C38005EEC46 /* BlockAppsCoordinator.swift */; };
+		B39D89E32CB85C3C005EEC46 /* UsageCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39D89E12CB85C3C005EEC46 /* UsageCoordinator.swift */; };
+		B39D89E92CB86058005EEC46 /* ComingSoonCircularIconView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39D89E72CB86058005EEC46 /* ComingSoonCircularIconView.swift */; };
 		B3C1877F2C78D1E000A891A8 /* ModuliteWidgetConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3C1877E2C78D1E000A891A8 /* ModuliteWidgetConfiguration.swift */; };
 		B3C187822C79009B00A891A8 /* WidgetConfigurationBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3C187812C79009B00A891A8 /* WidgetConfigurationBuilder.swift */; };
 		B3C187842C791D1300A891A8 /* WidgetStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3C187832C791D1300A891A8 /* WidgetStyle.swift */; };
@@ -440,8 +445,6 @@
 		B34F3E062C6A93B30041D7BD /* UsageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsageViewController.swift; sourceTree = "<group>"; };
 		B34F3E082C6A96A20041D7BD /* RootTabCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootTabCoordinator.swift; sourceTree = "<group>"; };
 		B34F3E0A2C6A9E350041D7BD /* NavigationRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationRouter.swift; sourceTree = "<group>"; };
-		B34F3E0C2C6B0C790041D7BD /* UsageCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsageCoordinator.swift; sourceTree = "<group>"; };
-		B34F3E0E2C6B0D340041D7BD /* BlockAppsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockAppsCoordinator.swift; sourceTree = "<group>"; };
 		B34F3E132C6B93C80041D7BD /* MainWidgetCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainWidgetCollectionViewCell.swift; sourceTree = "<group>"; };
 		B34F3E152C6B93EA0041D7BD /* AuxiliaryWidgetCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuxiliaryWidgetCollectionViewCell.swift; sourceTree = "<group>"; };
 		B34F3E172C6B93FA0041D7BD /* TipCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -563,6 +566,13 @@
 		B39A25FF2CB06628001C76A5 /* TutorialWidgetConfigurationTexts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialWidgetConfigurationTexts.swift; sourceTree = "<group>"; };
 		B39A26012CB06E01001C76A5 /* WidgetBuilderCoordinator+WidgetSetupViewControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WidgetBuilderCoordinator+WidgetSetupViewControllerDelegate.swift"; sourceTree = "<group>"; };
 		B39A26042CB06E60001C76A5 /* SelectAppsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectAppsCoordinator.swift; sourceTree = "<group>"; };
+		B39D89D12CB85602005EEC46 /* ComingSoonViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComingSoonViewController.swift; sourceTree = "<group>"; };
+		B39D89D42CB85620005EEC46 /* ComingSoonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComingSoonView.swift; sourceTree = "<group>"; };
+		B39D89D62CB858A0005EEC46 /* ComingSoonLocalizedTexts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComingSoonLocalizedTexts.swift; sourceTree = "<group>"; };
+		B39D89DA2CB85B8C005EEC46 /* ComingSoonFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComingSoonFeature.swift; sourceTree = "<group>"; };
+		B39D89DE2CB85C38005EEC46 /* BlockAppsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockAppsCoordinator.swift; sourceTree = "<group>"; };
+		B39D89E12CB85C3C005EEC46 /* UsageCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsageCoordinator.swift; sourceTree = "<group>"; };
+		B39D89E72CB86058005EEC46 /* ComingSoonCircularIconView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComingSoonCircularIconView.swift; sourceTree = "<group>"; };
 		B3C1877E2C78D1E000A891A8 /* ModuliteWidgetConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModuliteWidgetConfiguration.swift; sourceTree = "<group>"; };
 		B3C187812C79009B00A891A8 /* WidgetConfigurationBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetConfigurationBuilder.swift; sourceTree = "<group>"; };
 		B3C187832C791D1300A891A8 /* WidgetStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetStyle.swift; sourceTree = "<group>"; };
@@ -1411,10 +1421,10 @@
 		B36927C82C66B8330089F769 /* Coordinators */ = {
 			isa = PBXGroup;
 			children = (
-				B34F3E0E2C6B0D340041D7BD /* BlockAppsCoordinator.swift */,
+				B39D89E22CB85C3C005EEC46 /* Usage */,
+				B39D89DF2CB85C38005EEC46 /* BlockApps */,
 				B36927CE2C66B8A30089F769 /* Coordinator.swift */,
 				B34F3E082C6A96A20041D7BD /* RootTabCoordinator.swift */,
-				B34F3E0C2C6B0C790041D7BD /* UsageCoordinator.swift */,
 				B32B61072C8A4406007DDCE3 /* Home */,
 				B35BFB9E2CB47D9B00092B42 /* Settings */,
 				B35BFBF12CB5CCCD00092B42 /* Tutorial */,
@@ -1450,6 +1460,7 @@
 		B36927CB2C66B8430089F769 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				B39D89C72CB855D2005EEC46 /* ComingSoon */,
 				B34F3DFC2C6A92890041D7BD /* RootTabBarController.swift */,
 				B34F3E002C6A93700041D7BD /* BlockApps */,
 				B36927CC2C66B86D0089F769 /* Home */,
@@ -1704,6 +1715,66 @@
 				B39A26042CB06E60001C76A5 /* SelectAppsCoordinator.swift */,
 			);
 			path = WidgetConfiguration;
+			sourceTree = "<group>";
+		};
+		B39D89C72CB855D2005EEC46 /* ComingSoon */ = {
+			isa = PBXGroup;
+			children = (
+				B39D89D92CB85B87005EEC46 /* Model */,
+				B39D89D62CB858A0005EEC46 /* ComingSoonLocalizedTexts.swift */,
+				B39D89CD2CB855E7005EEC46 /* View */,
+				B39D89CE2CB855E7005EEC46 /* ViewController */,
+			);
+			path = ComingSoon;
+			sourceTree = "<group>";
+		};
+		B39D89CD2CB855E7005EEC46 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				B39D89E82CB86058005EEC46 /* Components */,
+				B39D89D42CB85620005EEC46 /* ComingSoonView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		B39D89CE2CB855E7005EEC46 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				B39D89D12CB85602005EEC46 /* ComingSoonViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		B39D89D92CB85B87005EEC46 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				B39D89DA2CB85B8C005EEC46 /* ComingSoonFeature.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		B39D89DF2CB85C38005EEC46 /* BlockApps */ = {
+			isa = PBXGroup;
+			children = (
+				B39D89DE2CB85C38005EEC46 /* BlockAppsCoordinator.swift */,
+			);
+			path = BlockApps;
+			sourceTree = "<group>";
+		};
+		B39D89E22CB85C3C005EEC46 /* Usage */ = {
+			isa = PBXGroup;
+			children = (
+				B39D89E12CB85C3C005EEC46 /* UsageCoordinator.swift */,
+			);
+			path = Usage;
+			sourceTree = "<group>";
+		};
+		B39D89E82CB86058005EEC46 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				B39D89E72CB86058005EEC46 /* ComingSoonCircularIconView.swift */,
+			);
+			path = Components;
 			sourceTree = "<group>";
 		};
 		B3C187802C79008800A891A8 /* Builders */ = {
@@ -2246,7 +2317,6 @@
 				B39A25AE2CAC7DC2001C76A5 /* WidgetEditorViewController+UICollectionViewDragAndDropDelegate.swift in Sources */,
 				B35BFBC32CB4B62800092B42 /* SubscriptionDetailsViewController.swift in Sources */,
 				B39A25DC2CAF4255001C76A5 /* AuxiliaryWidgetsPlaceholderView.swift in Sources */,
-				B34F3E0F2C6B0D340041D7BD /* BlockAppsCoordinator.swift in Sources */,
 				B39A26002CB06628001C76A5 /* TutorialWidgetConfigurationTexts.swift in Sources */,
 				B39A259D2CAB2945001C76A5 /* Copying.swift in Sources */,
 				B32B60C62C865042007DDCE3 /* PersistableWidgetConfiguration+CoreDataClass.swift in Sources */,
@@ -2263,11 +2333,11 @@
 				B35BFB952CB4632900092B42 /* ModuliteFreeSmallBadge.swift in Sources */,
 				B35BFBCB2CB4BC7600092B42 /* SubscriptionDetailsSmallTitle.swift in Sources */,
 				B35BFBED2CB5BA8000092B42 /* TutorialCenterSmallTitle.swift in Sources */,
+				B39D89D22CB85602005EEC46 /* ComingSoonViewController.swift in Sources */,
 				B369279C2C66B6E30089F769 /* HomeViewController.swift in Sources */,
 				B35BFC5C2CB6F22100092B42 /* FAQView.swift in Sources */,
 				B35BFBC72CB4BC0900092B42 /* SubscriptionLocalizedTexts.swift in Sources */,
 				B3C187842C791D1300A891A8 /* WidgetStyle.swift in Sources */,
-				B34F3E0D2C6B0C790041D7BD /* UsageCoordinator.swift in Sources */,
 				B35BFB7F2CB2428A00092B42 /* TutorialWallpaperView.swift in Sources */,
 				B35BFC4A2CB5FB4600092B42 /* TutorialLargeTitleLabel.swift in Sources */,
 				B32B61102C8A474B007DDCE3 /* SelectAppsViewModel.swift in Sources */,
@@ -2313,6 +2383,7 @@
 				B39A25D62CAF260C001C76A5 /* CAGradientLayer+Gradient.swift in Sources */,
 				B3C1877F2C78D1E000A891A8 /* ModuliteWidgetConfiguration.swift in Sources */,
 				B32B60FE2C88E43F007DDCE3 /* CustomizedTextFactory.swift in Sources */,
+				B39D89E92CB86058005EEC46 /* ComingSoonCircularIconView.swift in Sources */,
 				B35BFBEF2CB5C7CC00092B42 /* TutorialViewController.swift in Sources */,
 				B35BFBDB2CB5A99200092B42 /* TutorialCenterView.swift in Sources */,
 				B39A25AA2CAC7C89001C76A5 /* WidgetEditorViewController+UICollectionViewDataSource.swift in Sources */,
@@ -2326,6 +2397,7 @@
 				B3D1B7DF2CB7121D00DFC4F5 /* HelpViewController.swift in Sources */,
 				B372846A2C81096A00D9A1E7 /* ModuleStyle.swift in Sources */,
 				B32B60B72C864301007DDCE3 /* AppInfo+CoreDataProperties.swift in Sources */,
+				B39D89E32CB85C3C005EEC46 /* UsageCoordinator.swift in Sources */,
 				B3D1B7CB2CB6FB0600DFC4F5 /* FAQQuestionAndAnswerView.swift in Sources */,
 				B39A25C42CAEC44E001C76A5 /* MainWidgetsPlaceholderView.swift in Sources */,
 				B34F3E142C6B93C80041D7BD /* MainWidgetCollectionViewCell.swift in Sources */,
@@ -2341,6 +2413,7 @@
 				B32B61032C88EE1E007DDCE3 /* WidgetSetupAppsTagFlowLayout.swift in Sources */,
 				B3987E2B2CA4F43100896414 /* SelectMainWidgetConfigurationIntent.swift in Sources */,
 				B32B60CA2C8657EC007DDCE3 /* AppInfoData.swift in Sources */,
+				B39D89D72CB858A0005EEC46 /* ComingSoonLocalizedTexts.swift in Sources */,
 				AF362C812CAC6C1A00506443 /* BlockingSessionViewController.swift in Sources */,
 				B3987E262CA4858E00896414 /* MainWidgetModuleData.swift in Sources */,
 				B32B610A2C8A4485007DDCE3 /* SelectAppsView.swift in Sources */,
@@ -2357,6 +2430,7 @@
 				B34F3E1C2C6BD3DA0041D7BD /* HomeViewModel.swift in Sources */,
 				B32B61012C88EC1A007DDCE3 /* WidgetSetupStyleCompositionalLayout.swift in Sources */,
 				B3D1B7CD2CB6FC5400DFC4F5 /* FAQViewModel.swift in Sources */,
+				B39D89DB2CB85B8C005EEC46 /* ComingSoonFeature.swift in Sources */,
 				B3850BB52C94D1F200F400C0 /* UICollectionViewCell+toggleIsHighlighted.swift in Sources */,
 				B3C187862C79208600A891A8 /* WidgetStyleFactory.swift in Sources */,
 				B3D1B7E42CB7128700DFC4F5 /* HelpLocalizedTexts.swift in Sources */,
@@ -2399,6 +2473,7 @@
 				B3F054362C7CF6CB0057F04D /* AppInfo+CoreDataClass.swift in Sources */,
 				AFABBD9B2C8A39F2007BEFD8 /* BlockAppsCollectionViewCell.swift in Sources */,
 				B34F3DF52C6701870041D7BD /* String+LocalizedKey.swift in Sources */,
+				B39D89E02CB85C38005EEC46 /* BlockAppsCoordinator.swift in Sources */,
 				B35BFC4E2CB609CD00092B42 /* TutorialAddWidgetView.swift in Sources */,
 				AFABBD9D2C8F7D5D007BEFD8 /* BlockAppsHeaderView.swift in Sources */,
 				B3D1B7CF2CB6FDF800DFC4F5 /* FAQStackView.swift in Sources */,
@@ -2410,6 +2485,7 @@
 				B34F3E262C6D36C20041D7BD /* WidgetSetupView.swift in Sources */,
 				B30AAD632C9227BA002806A7 /* WidgetContent.swift in Sources */,
 				AFDC1A512CB46005008A816D /* ShieldConfigurationBuilder.swift in Sources */,
+				B39D89D52CB85620005EEC46 /* ComingSoonView.swift in Sources */,
 				AF362BFF2CA5AD8000506443 /* ScreenTimeelectAppsContentView.swift in Sources */,
 				AFE5D5032CADD4C700503572 /* FamilyControlsManager.swift in Sources */,
 				B35BFC602CB6F4A500092B42 /* FAQCoordinator.swift in Sources */,
