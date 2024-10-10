@@ -21,7 +21,7 @@ class HomeView: UIScrollView {
     private(set) lazy var moduliteAppLogo: UIImageView = {
         let view = UIImageView(image: .moduliteAppName)
         view.contentMode = .scaleAspectFit
-        
+                
         return view
     }()
     
@@ -107,11 +107,26 @@ class HomeView: UIScrollView {
         )
     }
     
+    @discardableResult
+    func addSeparatorBelow(view: UIView) -> SeparatorView {
+        let separator = SeparatorView()
+        
+        contentView.addSubview(separator)
+        
+        separator.snp.makeConstraints { make in
+            make.top.equalTo(view.snp.bottom).offset(12)
+            make.left.right.equalToSuperview()
+        }
+        
+        return separator
+    }
+    
     /// Adds all subviews to the contentView, which is then added to the UIScrollView.
     private func addSubviews() {
         addSubview(contentView)
         
         contentView.addSubview(moduliteAppLogo)
+        
         contentView.addSubview(mainWidgetsPlaceholderView)
         contentView.addSubview(mainWidgetsCollectionView)
         contentView.addSubview(auxWidgetsPlaceholderView)
@@ -134,8 +149,10 @@ class HomeView: UIScrollView {
             make.width.equalTo(226)
         }
         
+        let firstSeparator = addSeparatorBelow(view: moduliteAppLogo)
+        
         mainWidgetsCollectionView.snp.makeConstraints { make in
-            make.top.equalTo(moduliteAppLogo.snp.bottom).offset(16)
+            make.top.equalTo(firstSeparator.snp.bottom).offset(16)
             make.left.right.equalToSuperview()
             make.height.equalTo(300)
         }
@@ -144,8 +161,10 @@ class HomeView: UIScrollView {
             make.edges.equalTo(mainWidgetsCollectionView)
         }
         
+        let secondSeparator = addSeparatorBelow(view: mainWidgetsCollectionView)
+        
         auxiliaryWidgetsCollectionView.snp.makeConstraints { make in
-            make.top.equalTo(mainWidgetsCollectionView.snp.bottom)
+            make.top.equalTo(secondSeparator.snp.bottom)
             make.left.right.equalToSuperview()
             make.height.equalTo(190)
         }
@@ -154,8 +173,10 @@ class HomeView: UIScrollView {
             make.edges.equalTo(auxiliaryWidgetsCollectionView)
         }
         
+        let thirdSeparator = addSeparatorBelow(view: auxWidgetsPlaceholderView)
+        
         tipsCollectionView.snp.makeConstraints { make in
-            make.top.equalTo(auxiliaryWidgetsCollectionView.snp.bottom)
+            make.top.equalTo(thirdSeparator.snp.bottom)
             make.left.right.equalToSuperview()
             make.height.equalTo(210)
             make.bottom.equalToSuperview().offset(-20)
