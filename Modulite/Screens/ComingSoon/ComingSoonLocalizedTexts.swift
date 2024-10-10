@@ -6,3 +6,11 @@
 //
 
 import Foundation
+
+enum ComingSoonLocalizedTexts: LocalizedKeyProtocol {
+    case comingSoonViewScreenTimeTitle
+    case comingSoonViewScreenTimeDescription
+    
+    case comingSoonViewAppBlockingTitle
+    case comingSoonViewAppBlockingDescription
+}
