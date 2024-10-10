@@ -73,7 +73,10 @@ class RootTabCoordinator: Coordinator {
     /// This tab focuses on presenting statistical data and usage patterns to the user.
     /// - Returns: A configured navigation controller for the Usage tab.
     private func configureUsage() -> UINavigationController {
-        let navigationController = UINavigationController(rootViewController: UsageViewController())
+        let vc = ComingSoonViewController()
+        vc.fillComingSoonView(for: .screenTime)
+        
+        let navigationController = UINavigationController(rootViewController: vc)
         
         let tabBarItem = createTabBarItem(
             titleKey: .usageViewControllerTabBarItemTitle,
@@ -94,7 +97,10 @@ class RootTabCoordinator: Coordinator {
     /// This tab allows users to manage application restrictions and settings.
     /// - Returns: A configured navigation controller for the Block Apps tab.
     private func configureBlockApps() -> UINavigationController {
-        let navigationController = UINavigationController(rootViewController: BlockAppsViewController())
+        let vc = ComingSoonViewController()
+        vc.fillComingSoonView(for: .appBlocking)
+        
+        let navigationController = UINavigationController(rootViewController: vc)
         
         let tabBarItem = createTabBarItem(
             titleKey: .blockAppsViewControllerTabBarItemTitle,
