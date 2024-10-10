@@ -19,19 +19,30 @@ struct MainWidgetView: View {
     
     var body: some View {
         VStack {
-            HStack {
-                LazyVGrid(columns: columns, spacing: 4) {
-                    ForEach(entry.configuration.modules) { module in
-                        MainWidgetModuleButton(
-                            moduleImage: module.image,
-                            stringURL: module.associatedURLScheme?.absoluteString
-                        )
+            Group {
+                if let config = entry.configuration {
+                    HStack {
+                        Group {
+                            LazyVGrid(columns: columns, spacing: 4) {
+                                ForEach(config.modules) { module in
+                                    MainWidgetModuleButton(
+                                        moduleImage: module.image,
+                                        stringURL: module.associatedURLScheme?.absoluteString
+                                    )
+                                }
+                            }
+                        }
                     }
+                    .padding(.horizontal, -10)
+                    .background(.black)
+                    .background(ignoresSafeAreaEdges: .all)
+                } else {
+                    Image(.homeWidgetTutorialMain)
+                        .resizable()
+                        .scaledToFill()
+                        .padding(.all, -16)
                 }
             }
-            .padding(.horizontal, -10)
-            .background(.black)
-            .background(ignoresSafeAreaEdges: .all)
         }
     }
 }

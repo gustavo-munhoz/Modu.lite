@@ -11,8 +11,7 @@ import CoreData
 struct MainWidgetConfigurationEntity: AppEntity {
     var id: UUID
     var name: String
-    
-    // TODO: Use default localizable key pattern
+        
     static var typeDisplayRepresentation: TypeDisplayRepresentation = "Main Widget Configuration"
 
     var displayRepresentation: DisplayRepresentation {

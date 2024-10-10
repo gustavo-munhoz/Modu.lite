@@ -1756,7 +1756,7 @@
         }
       }
     },
-    "Widget Configuration" : {
+    "Widget" : {
 
     },
     "widgetCreatingUnsavedChangesAlertMessage" : {
