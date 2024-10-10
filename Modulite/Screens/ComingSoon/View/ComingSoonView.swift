@@ -1,5 +1,5 @@
 //
-//  ComingSoonBadge.swift
+//  ComingSoonView.swift
 //  Modulite
 //
 //  Created by Gustavo Munhoz Correa on 10/10/24.
@@ -8,20 +8,18 @@
 import UIKit
 import SnapKit
 
-class ComingSoonBadge: UIView {
+class ComingSoonView: UIView {
     
     // MARK: - Subviews
-    private(set) lazy var iconImageView: UIImageView = {
-        let view = UIImageView()
-        view.contentMode = .scaleAspectFit
-        view.preferredSymbolConfiguration = .init(pointSize: 67)
+    private(set) lazy var circularImageView: ComingSoonCircularIconView = {
+        let view = ComingSoonCircularIconView()
         
         return view
     }()
     
     private(set) lazy var comingSoonLabel: UILabel = {
         let label = UILabel()
-        label.text = .localized(for: .comingSoonTitle).dropLast(3).capitalized
+        label.text = .localized(for: .comingSoonTitle).dropLast().capitalized
         label.font = UIFont(textStyle: .title3, weight: .semibold, italic: true)
         label.textAlignment = .center
         
@@ -30,8 +28,10 @@ class ComingSoonBadge: UIView {
     
     private(set) lazy var titleLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont(textStyle: .largeTitle, weight: .bold)
+        label.font = UIFont(textStyle: .title1, weight: .bold)
         label.textAlignment = .center
+        label.adjustsFontSizeToFitWidth = true
+        label.minimumScaleFactor = 0.75
         
         return label
     }()
@@ -39,8 +39,13 @@ class ComingSoonBadge: UIView {
     private(set) lazy var featureDescriptionLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont(textStyle: .body, weight: .regular)
+        
         label.textAlignment = .center
         label.textColor = .systemGray
+        label.lineBreakMode = .byWordWrapping
+        label.numberOfLines = 0
+        label.adjustsFontSizeToFitWidth = true
+        label.minimumScaleFactor = 0.75
         
         return label
     }()
@@ -60,34 +65,35 @@ class ComingSoonBadge: UIView {
     func setup(
         iconName: String,
         color: UIColor,
-        titleKey: LocalizedKeyProtocol,
-        descriptionKey: LocalizedKeyProtocol
+        titleKey: ComingSoonLocalizedTexts,
+        descriptionKey: ComingSoonLocalizedTexts
     ) {
-        let image = UIImage(systemName: iconName)?
+        let image = UIImage(systemName: iconName)!
             .withTintColor(color, renderingMode: .alwaysOriginal)
-        
-        iconImageView.image = image
+                
+        circularImageView.setup(with: image, color: color)
+        comingSoonLabel.textColor = color
         titleLabel.text = .localized(for: titleKey)
         featureDescriptionLabel.text = .localized(for: descriptionKey)
     }
     
     private func addSubviews() {
-        addSubview(iconImageView)
+        addSubview(circularImageView)
         addSubview(comingSoonLabel)
         addSubview(titleLabel)
         addSubview(featureDescriptionLabel)
     }
     
     private func setupConstraints() {
-        iconImageView.snp.makeConstraints { make in
-            make.top.equalTo(snp.centerY).offset(-100)
+        circularImageView.snp.makeConstraints { make in
+            make.top.equalTo(snp.centerY).offset(-150)
             make.width.height.equalTo(67)
             make.centerX.equalToSuperview()
         }
         
         comingSoonLabel.snp.makeConstraints { make in
-            make.top.equalTo(iconImageView.snp.bottom).offset(12)
-            make.left.right.equalToSuperview().inset(50)
+            make.top.equalTo(circularImageView.snp.bottom).offset(12)
+            make.left.right.equalToSuperview().inset(55)
         }
         
         titleLabel.snp.makeConstraints { make in

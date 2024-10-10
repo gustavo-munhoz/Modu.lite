@@ -5,4 +5,25 @@
 //  Created by Gustavo Munhoz Correa on 10/10/24.
 //
 
-import Foundation
+import UIKit
+
+class ComingSoonViewController: UIViewController {
+    
+    // MARK: - Properties
+    private let comingSoonView = ComingSoonView()
+    
+    // MARK: - Lifecycle
+    override func loadView() {
+        view = comingSoonView
+    }
+    
+    // MARK: - Setup Methods
+    func fillComingSoonView(for feature: ComingSoonFeature) {
+        comingSoonView.setup(
+            iconName: feature.iconName,
+            color: feature.color,
+            titleKey: feature.titleKey,
+            descriptionKey: feature.descriptionKey
+        )
+    }
+}
