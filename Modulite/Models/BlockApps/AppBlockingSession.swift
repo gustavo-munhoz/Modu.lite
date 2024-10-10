@@ -59,19 +59,24 @@ class AppBlockingSession {
         self.endsAt = endsAt
         self.daysOfWeek = daysOfWeek
         self.isActive = false
-        
         self.activityName = DeviceActivityName("block_\(UUID().uuidString)")
         
-        self.schedule = DeviceActivitySchedule(
-            intervalStart: startsAt,
-            intervalEnd: endsAt,
-            repeats: true
-        )
+        let startComponents = DateComponents(hour: startsAt.hour ?? 0, minute: startsAt.minute ?? 0)
+        let endComponents = DateComponents(hour: endsAt.hour ?? 23, minute: endsAt.minute ?? 59)
+        self.schedule = DeviceActivitySchedule(intervalStart: startComponents, intervalEnd: endComponents, repeats: true)
         
         self.blockManager = AppBlockManager(
-            selection: selection,
+            selection: self.selection,
             activityName: self.activityName,
             schedule: self.schedule
+        )
+        
+        createSchedule(
+            for: daysOfWeek,
+            startHour: self.startsAt?.hour ?? 0,
+            startMinute: self.startsAt?.minute ?? 0,
+            endHour: self.endsAt?.hour ?? 23,
+            endMinute: self.endsAt?.minute ?? 59
         )
     }
     
@@ -80,6 +85,47 @@ class AppBlockingSession {
             return "00:00"
         }
         return String(format: "%02d:%02d", hour, minute)
+    }
+    
+    func createSchedule(
+        for weekDays: [WeekDay],
+        startHour: Int,
+        startMinute: Int,
+        endHour: Int,
+        endMinute: Int
+    ) {
+        guard startHour >= 0, startHour < 24, endHour >= 0, endHour < 24,
+              startMinute >= 0, startMinute < 60, endMinute >= 0, endMinute < 60 else {
+            return
+        }
+        
+        let scheduleEvents = weekDays.compactMap { day -> [DateComponents]? in
+            var startComponents = DateComponents()
+            startComponents.weekday = day.rawValue + 1
+            startComponents.hour = startHour
+            startComponents.minute = startMinute
+            
+            var endComponents = DateComponents()
+            endComponents.weekday = day.rawValue + 1
+            endComponents.hour = endHour
+            endComponents.minute = endMinute
+            
+            return [startComponents, endComponents]
+        }.flatMap { $0 }
+        
+        guard !scheduleEvents.isEmpty else {
+            return
+        }
+        
+        let startComponents = scheduleEvents[0]
+        let endComponents = scheduleEvents[1]
+        self.schedule = DeviceActivitySchedule(
+            intervalStart: startComponents,
+            intervalEnd: endComponents,
+            repeats: true
+        )
+
+        blockManager.updateSchedule(self.schedule)
     }
     
     // MARK: - Block Functions: BlockManager
@@ -97,7 +143,46 @@ class AppBlockingSession {
     }
     
     // MARK: - Edit properties
-    func updateSelection(_ selection: FamilyActivitySelection ) {
-        blockManager.activitySelection = selection
+    func updateSelection(_ selection: FamilyActivitySelection) {
+        self.selection = selection
+        blockManager.updateSelection(selection)
+    }
+    
+    func updateDaysOfWeek(_ daysOfWeek: [WeekDay]) {
+        self.daysOfWeek = daysOfWeek
+        createSchedule(
+            for: daysOfWeek,
+            startHour: startsAt?.hour ?? 0,
+            startMinute: startsAt?.minute ?? 0,
+            endHour: endsAt?.hour ?? 23,
+            endMinute: endsAt?.minute ?? 59
+        )
+    }
+
+    func updateStartAndEndTime(startHour: Int, startMinute: Int, endHour: Int, endMinute: Int) {
+        // Atualiza os horários da sessão
+        self.startsAt?.hour = startHour
+        self.startsAt?.minute = startMinute
+        self.endsAt?.hour = endHour
+        self.endsAt?.minute = endMinute
+        
+        // Recria o schedule com os novos horários
+        createSchedule(
+            for: daysOfWeek,
+            startHour: startHour,
+            startMinute: startMinute,
+            endHour: endHour,
+            endMinute: endMinute
+        )
+    }
+
+    func updateStartTime(startHour: Int, startMinute: Int) {
+        updateStartAndEndTime(startHour: startHour, startMinute: startMinute, endHour: endsAt?.hour ?? 23, endMinute: endsAt?.minute ?? 59)
+    }
+
+    func updateEndTime(endHour: Int, endMinute: Int) {
+        updateStartAndEndTime(startHour: startsAt?.hour ?? 0, startMinute: startsAt?.minute ?? 0, endHour: endHour, endMinute: endMinute)
     }
 }
+
+

@@ -80,52 +80,94 @@ class BlockingSessionViewController: UIViewController {
         guard viewModel.activitySelection
             .applications
             .isEmpty == false ||
-                viewModel.activitySelection
+            viewModel.activitySelection
             .categories
             .isEmpty == false else {
-            print("Any app selected")
+            print("Nenhum aplicativo selecionado")
             return
         }
+
+        let weekDays = viewModel.getDaysOfWeek()
+        let startTime = viewModel.getStartsAt()
+        let endTime = viewModel.getEndsAt()
+        
+        guard let startHour = startTime.hour,
+              let startMinute = startTime.minute,
+              let endHour = endTime.hour,
+              let endMinute = endTime.minute else {
+            print("Horários inválidos")
+            return
+        }
+
+        let appBlockManager = AppBlockManager(
+            selection: viewModel.getActivitySelection(),
+            activityName: DeviceActivityName(viewModel.getName()),
+            weekDays: weekDays,
+            startHour: startHour,
+            startMinute: startMinute,
+            endHour: endHour,
+            endMinute: endMinute
+        )
 
         if isEditingSession, let session = currentSession {
             session.name = viewModel.getName()
             session.updateSelection(viewModel.activitySelection)
             session.blockingType = viewModel.getBlockingType()
             session.isAllDay = viewModel.getIsAllDay()
-            session.startsAt = viewModel.getStartsAt()
-            session.endsAt = viewModel.getEndsAt()
-            session.daysOfWeek = viewModel.getDaysOfWeek()
+            session.startsAt = startTime
+            session.endsAt = endTime
+            session.daysOfWeek = weekDays
             session.isActive = false
             
             delegate?.createBlockingSessionViewController(self, didCreate: session)
             dismiss(animated: true, completion: nil)
             return
-            
         }
-        
-        let newBlockingSession = AppBlockingSession(
+
+        let newBlockingSession = createSession(
             name: viewModel.getName(),
             selection: viewModel.getActivitySelection(),
             blockingType: viewModel.getBlockingType(),
             isAllDay: viewModel.getIsAllDay(),
-            startsAt: viewModel.getStartsAt(),
-            endsAt: viewModel.getEndsAt(),
-            daysOfWeek: viewModel.getDaysOfWeek()
+            startsAt: startTime,
+            endsAt: endTime,
+            daysOfWeek: weekDays
         )
         
         delegate?.createBlockingSessionViewController(self, didCreate: newBlockingSession)
         dismiss(animated: true, completion: nil)
     }
+    
+    func createSession(
+        name: String,
+        selection: FamilyActivitySelection,
+        blockingType: BlockType,
+        isAllDay: Bool,
+        startsAt: DateComponents,
+        endsAt: DateComponents,
+        daysOfWeek: [WeekDay]
+    ) -> AppBlockingSession {
+        
+        return AppBlockingSession(
+            name: name,
+            selection: selection,
+            blockingType: blockingType,
+            isAllDay: isAllDay,
+            startsAt: startsAt,
+            endsAt: endsAt
+        )
+    }
+
 
     @objc private func presentSelectApps() {
         let appBlockManager = AppBlockManager(
             selection: viewModel.activitySelection,
             activityName: DeviceActivityName(viewModel.getName()),
-            schedule: DeviceActivitySchedule(
-                intervalStart: viewModel.getStartsAt(),
-                intervalEnd: viewModel.getEndsAt(),
-                repeats: true
-            )
+            weekDays: viewModel.getDaysOfWeek(),
+            startHour: viewModel.getStartsAt().hour ?? 0,
+            startMinute: viewModel.getStartsAt().minute ?? 0,
+            endHour: viewModel.getEndsAt().hour ?? 23,
+            endMinute: viewModel.getEndsAt().minute ?? 59
         )
         
         let selectAppsView = ScreenTimeSelectAppsContentView(
