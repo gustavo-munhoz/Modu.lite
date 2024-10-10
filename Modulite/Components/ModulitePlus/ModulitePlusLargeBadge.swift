@@ -38,6 +38,10 @@ class ModulitePlusLargeBadge: UIView {
     }
     
     private func setupConstraints() {
+        snp.makeConstraints { make in
+            make.height.equalTo(31)
+        }
+        
         moduliteImage.snp.makeConstraints { make in
             make.left.centerY.equalToSuperview()
             make.width.equalTo(170)

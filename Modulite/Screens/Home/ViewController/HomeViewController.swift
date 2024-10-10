@@ -43,24 +43,9 @@ class HomeViewController: UIViewController {
     
     // MARK: - Setup methods
     private func setupNavigationBar() {
-        // FIXME: Make image be on bottom-left of navbar with large title
-            
-        let appearance = UINavigationBarAppearance()
-        appearance.configureWithOpaqueBackground()
-        appearance.backgroundColor = UIColor.whiteTurnip
-                
-        navigationController?.navigationBar.standardAppearance = appearance
-        navigationController?.navigationBar.scrollEdgeAppearance = appearance
-        
-        guard let image = UIImage(named: "moduliteAppName") else {
-            print("Image not found")
-            return
-        }
-        
-        let imageView = UIImageView(image: image)
-        imageView.contentMode = .scaleAspectFit
-        
-        navigationItem.titleView = imageView
+        navigationItem.title = "Modu.lite"
+        navigationItem.titleView = UIView()
+        navigationController?.navigationBar.barTintColor = .whiteTurnip
     }
     
     // MARK: - Actions

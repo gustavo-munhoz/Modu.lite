@@ -18,6 +18,13 @@ class HomeView: UIScrollView {
     /// Container view that holds all subviews to enable vertical scrolling.
     private let contentView = UIView()
     
+    private(set) lazy var moduliteAppLogo: UIImageView = {
+        let view = UIImageView(image: .moduliteAppName)
+        view.contentMode = .scaleAspectFit
+                
+        return view
+    }()
+    
     /// Collection view for displaying main widgets.
     private(set) lazy var mainWidgetsCollectionView = createCollectionView(for: .mainWidgets)
     
@@ -100,9 +107,26 @@ class HomeView: UIScrollView {
         )
     }
     
+    @discardableResult
+    func addSeparatorBelow(view: UIView) -> SeparatorView {
+        let separator = SeparatorView()
+        
+        contentView.addSubview(separator)
+        
+        separator.snp.makeConstraints { make in
+            make.top.equalTo(view.snp.bottom).offset(12)
+            make.left.right.equalToSuperview()
+        }
+        
+        return separator
+    }
+    
     /// Adds all subviews to the contentView, which is then added to the UIScrollView.
     private func addSubviews() {
         addSubview(contentView)
+        
+        contentView.addSubview(moduliteAppLogo)
+        
         contentView.addSubview(mainWidgetsPlaceholderView)
         contentView.addSubview(mainWidgetsCollectionView)
         contentView.addSubview(auxWidgetsPlaceholderView)
@@ -113,14 +137,23 @@ class HomeView: UIScrollView {
     private func setupConstraints() {
         contentView.snp.makeConstraints { make in
             make.edges.equalToSuperview().inset(
-                UIEdgeInsets(top: 24, left: 20, bottom: 0, right: -20)
+                UIEdgeInsets(top: 0, left: 20, bottom: 0, right: -20)
             )
             make.width.equalToSuperview().offset(-40)
-            make.height.equalTo(800)
         }
         
+        moduliteAppLogo.snp.makeConstraints { make in
+            make.top.equalToSuperview()
+            make.left.equalToSuperview()
+            make.height.equalTo(32)
+            make.width.equalTo(226)
+        }
+        
+        let firstSeparator = addSeparatorBelow(view: moduliteAppLogo)
+        
         mainWidgetsCollectionView.snp.makeConstraints { make in
-            make.left.right.top.equalToSuperview()
+            make.top.equalTo(firstSeparator.snp.bottom).offset(16)
+            make.left.right.equalToSuperview()
             make.height.equalTo(300)
         }
         
@@ -128,8 +161,10 @@ class HomeView: UIScrollView {
             make.edges.equalTo(mainWidgetsCollectionView)
         }
         
+        let secondSeparator = addSeparatorBelow(view: mainWidgetsCollectionView)
+        
         auxiliaryWidgetsCollectionView.snp.makeConstraints { make in
-            make.top.equalTo(mainWidgetsCollectionView.snp.bottom)
+            make.top.equalTo(secondSeparator.snp.bottom)
             make.left.right.equalToSuperview()
             make.height.equalTo(190)
         }
@@ -138,10 +173,13 @@ class HomeView: UIScrollView {
             make.edges.equalTo(auxiliaryWidgetsCollectionView)
         }
         
+        let thirdSeparator = addSeparatorBelow(view: auxWidgetsPlaceholderView)
+        
         tipsCollectionView.snp.makeConstraints { make in
-            make.top.equalTo(auxiliaryWidgetsCollectionView.snp.bottom)
+            make.top.equalTo(thirdSeparator.snp.bottom)
             make.left.right.equalToSuperview()
             make.height.equalTo(210)
+            make.bottom.equalToSuperview().offset(-20)
         }
     }
     
@@ -212,13 +250,5 @@ class HomeView: UIScrollView {
         collectionView.showsHorizontalScrollIndicator = false
         
         return collectionView
-    }
-    
-    // TODO: Implement this
-    private func createSeparator() -> UIView {
-        let separator = UIView()
-        separator.frame = CGRect(x: 0, y: 0, width: bounds.width - 48, height: 2)
-        
-        return separator
     }
 }
