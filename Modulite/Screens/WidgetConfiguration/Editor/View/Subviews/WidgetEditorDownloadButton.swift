@@ -38,7 +38,7 @@ class WidgetEditorDownloadButton: UIButton {
         config.titleLineBreakMode = .byClipping
         
         config.image = UIImage(systemName: "square.and.arrow.down")?
-            .withTintColor(.black, renderingMode: .alwaysOriginal)
+            .withTintColor(.textPrimary, renderingMode: .alwaysOriginal)
         
         config.imagePlacement = .leading
         config.imagePadding = 5
