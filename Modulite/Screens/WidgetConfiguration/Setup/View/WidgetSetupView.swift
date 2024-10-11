@@ -93,6 +93,7 @@ class WidgetSetupView: UIScrollView {
         label.font = UIFont(textStyle: .caption1, symbolicTraits: .traitItalic)
         label.textColor = .systemGray
         label.numberOfLines = -1
+        label.lineBreakMode = .byWordWrapping
         
         return label
     }()
@@ -224,10 +225,6 @@ class WidgetSetupView: UIScrollView {
         )
     }
     
-    private func updateSaveButtonVisibility() {
-        
-    }
-    
     private func addSubviews() {
         addSubview(contentView)
         contentView.addSubview(widgetNameTextField)
@@ -241,7 +238,9 @@ class WidgetSetupView: UIScrollView {
     
     private func setupConstraints() {
         contentView.snp.makeConstraints { make in
-            make.edges.equalToSuperview().inset(UIEdgeInsets(top: 16, left: 24, bottom: 0, right: -24))
+            make.edges.equalToSuperview().inset(
+                UIEdgeInsets(top: 24, left: 24, bottom: 0, right: -24)
+            )
             make.width.equalToSuperview().offset(-48)
             make.height.greaterThanOrEqualTo(700).priority(.required)
         }
@@ -279,7 +278,7 @@ class WidgetSetupView: UIScrollView {
         searchAppsHelperText.snp.makeConstraints { make in
             make.left.equalToSuperview()
             make.width.equalTo(220)
-            make.height.equalTo(32)
+            make.height.greaterThanOrEqualTo(32)
             make.bottom.equalTo(nextViewButton.snp.top).offset(-21)
         }
         
@@ -287,7 +286,7 @@ class WidgetSetupView: UIScrollView {
             make.right.equalToSuperview()
             make.width.equalTo(160)
             make.height.equalTo(45)
-            make.bottom.equalToSuperview()
+            make.bottom.equalToSuperview().offset(-20)
         }
     }
 }
