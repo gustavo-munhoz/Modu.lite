@@ -268,7 +268,7 @@ class WidgetEditorView: UIScrollView {
             make.top.equalTo(wallpaperHeader.snp.bottom).offset(16)
             make.width.equalTo(260)
             make.height.equalTo(40)
-            make.left.equalTo(wallpaperHeader).inset(35)
+            make.centerX.equalToSuperview()
         }
         
         saveWidgetButton.snp.makeConstraints { make in
