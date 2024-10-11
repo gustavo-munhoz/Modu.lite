@@ -78,6 +78,11 @@ class RootTabBarController: UITabBarController {
             clockwise: true
         )
         
+        circleLayer.shadowColor = UIColor.black.cgColor
+        circleLayer.shadowOpacity = 0.2
+        circleLayer.shadowOffset = CGSize(width: 1, height: 1)
+        circleLayer.shadowRadius = 2
+        
         let newFillColor = getColorForSelectedTag().cgColor
         
         UIView.animate(withDuration: 0.2) { [weak self] in

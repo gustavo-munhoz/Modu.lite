@@ -167,6 +167,9 @@ extension String {
         case homeViewMainWidgetsPlaceholderSubtitle2
         case homeViewAuxiliaryWidgetsPlaceholderTitle
         
+        case homeViewMainWidgetsDidReachMaxCountAlertTitle
+        case homeViewMainWidgetsDidReachMaxCountAlertMessage
+        
         // MARK: - WidgetSetupView & WidgetSetupViewController
         case widgetSetupViewMainWidgetNamePlaceholder(number: Int)
         case widgetSetupViewStyleHeaderTitle

@@ -48,6 +48,15 @@ class HomeHeaderReusableCell: UICollectionViewCell {
         return view
     }()
     
+    private(set) var countLabel: UILabel = {
+        let view = UILabel()
+        
+        view.font = UIFont(textStyle: .body, weight: .regular)
+        view.textColor = .secondaryLabel
+        
+        return view
+    }()
+    
     private(set) lazy var plusBadge = ModulitePlusSmallBadge()
     
     // MARK: - Setup methods
@@ -57,27 +66,44 @@ class HomeHeaderReusableCell: UICollectionViewCell {
         buttonImage: UIImage? = nil,
         buttonColor: UIColor = .fiestaGreen,
         buttonAction: @escaping () -> Void = {},
-        isPlusExclusive: Bool = false
+        isPlusExclusive: Bool = false,
+        countValues: (current: Int, max: Int)? = nil
     ) {
         actionButton.configuration?.image = buttonImage
         actionButton.configuration?.baseForegroundColor = buttonColor
         onButtonTap = buttonAction
-        
-        addSubviews(isPlusExclusive)
-        setupContraints(isPlusExclusive)
-        
         titleLabel.text = title
+        
+        var shouldAddCount: Bool
+        if let (count, max) = countValues {
+            shouldAddCount = true
+            countLabel.text = "\(count)/\(max)"
+            
+        } else {
+            shouldAddCount = false
+        }
+        
+        addSubviews(shouldAddBadge: isPlusExclusive, shouldAddCount: shouldAddCount)
+        setupContraints(shouldAddBadge: isPlusExclusive, shouldAddCount: shouldAddCount)
     }
     
-    private func addSubviews(_ shouldAddBadge: Bool) {
+    private func addSubviews(
+        shouldAddBadge: Bool,
+        shouldAddCount: Bool
+    ) {
         addSubview(titleLabel)
         
         if shouldAddBadge { addSubview(plusBadge) }
         
         addSubview(actionButton)
+        
+        if shouldAddCount { addSubview(countLabel) }
     }
     
-    private func setupContraints(_ shouldAddBadge: Bool) {
+    private func setupContraints(
+        shouldAddBadge: Bool,
+        shouldAddCount: Bool
+    ) {
         titleLabel.snp.makeConstraints { make in
             make.top.left.bottom.equalToSuperview()
         }
@@ -86,17 +112,33 @@ class HomeHeaderReusableCell: UICollectionViewCell {
             make.top.right.bottom.equalToSuperview()
         }
         
-        guard shouldAddBadge else { return }
+        if shouldAddBadge {
+            plusBadge.snp.makeConstraints { make in
+                make.width.equalTo(70)
+                make.height.equalTo(31)
+                make.centerY.equalTo(titleLabel)
+                make.left.equalTo(titleLabel.snp.right).offset(12)
+            }
+        }
         
-        plusBadge.snp.makeConstraints { make in
-            make.width.equalTo(70)
-            make.height.equalTo(31)
-            make.centerY.equalTo(titleLabel)
-            make.left.equalTo(titleLabel.snp.right).offset(12)
+        if shouldAddCount {
+            countLabel.snp.makeConstraints { make in
+                make.centerY.equalTo(actionButton)
+                make.right.equalTo(actionButton.snp.left)
+            }
         }
     }
     
     // MARK: - Actions
+    
+    func updateCurrentCount(to newCount: Int) {
+        guard let text = countLabel.text else { return }
+        
+        var separated = text.components(separatedBy: "/")
+        separated[0] = String(newCount)
+        
+        countLabel.text = separated.joined(separator: "/")
+    }
     
     @objc func handleButtonTap() {
         onButtonTap?()
