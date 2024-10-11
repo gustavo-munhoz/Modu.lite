@@ -604,6 +604,28 @@
         }
       }
     },
+    "homeViewMainWidgetsDidReachMaxCountAlertMessage" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Soon you'll be able to upgrade to the premium subscription to create more widgets!"
+          }
+        }
+      }
+    },
+    "homeViewMainWidgetsDidReachMaxCountAlertTitle" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "You've reached your widget limit"
+          }
+        }
+      }
+    },
     "homeViewMainWidgetsPlaceholderSubtitle1" : {
       "extractionState" : "manual",
       "localizations" : {
