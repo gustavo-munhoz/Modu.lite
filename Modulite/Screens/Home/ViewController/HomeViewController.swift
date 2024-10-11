@@ -85,6 +85,9 @@ class HomeViewController: UIViewController {
         
         homeView.mainWidgetsCollectionView.performBatchUpdates { [weak self] in
             self?.homeView.mainWidgetsCollectionView.insertItems(at: [indexPath])
+        } completion: { [weak self] _ in
+            let indexSet = IndexSet(integer: 0)
+            self?.homeView.mainWidgetsCollectionView.reloadSections(indexSet)
         }
         
         updatePlaceholderViews()
@@ -110,6 +113,10 @@ class HomeViewController: UIViewController {
         viewModel.deleteMainWidget(widget)
         homeView.mainWidgetsCollectionView.performBatchUpdates { [weak self] in
             self?.homeView.mainWidgetsCollectionView.deleteItems(at: [indexPath])
+        }
+        completion: { [weak self] _ in
+            let indexSet = IndexSet(integer: 0)
+            self?.homeView.mainWidgetsCollectionView.reloadSections(indexSet)
         }
         
         updatePlaceholderViews()
@@ -211,8 +218,11 @@ extension HomeViewController: UICollectionViewDataSource {
                         self,
                         type: .main
                     )
-                }
+                },
+                countValues: (current: viewModel.mainWidgets.count, max: 3)
             )
+            
+            header.updateCurrentCount(to: viewModel.mainWidgets.count)
             
         case homeView.auxiliaryWidgetsCollectionView:
             header.setup(
