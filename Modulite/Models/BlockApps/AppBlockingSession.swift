@@ -22,7 +22,7 @@ class AppBlockingSession {
     
     private var blockManager: AppBlockManager
     private var activityName: DeviceActivityName
-    private var schedule: DeviceActivitySchedule
+    var schedule: DeviceActivitySchedule
     
     var time: String {
         let startFormatted = formatTime(from: startsAt)
@@ -63,7 +63,11 @@ class AppBlockingSession {
         
         let startComponents = DateComponents(hour: startsAt.hour ?? 0, minute: startsAt.minute ?? 0)
         let endComponents = DateComponents(hour: endsAt.hour ?? 23, minute: endsAt.minute ?? 59)
-        self.schedule = DeviceActivitySchedule(intervalStart: startComponents, intervalEnd: endComponents, repeats: true)
+        self.schedule = DeviceActivitySchedule(
+            intervalStart: startComponents,
+            intervalEnd: endComponents,
+            repeats: true
+        )
         
         self.blockManager = AppBlockManager(
             selection: self.selection,
@@ -160,13 +164,11 @@ class AppBlockingSession {
     }
 
     func updateStartAndEndTime(startHour: Int, startMinute: Int, endHour: Int, endMinute: Int) {
-        // Atualiza os horários da sessão
         self.startsAt?.hour = startHour
         self.startsAt?.minute = startMinute
         self.endsAt?.hour = endHour
         self.endsAt?.minute = endMinute
         
-        // Recria o schedule com os novos horários
         createSchedule(
             for: daysOfWeek,
             startHour: startHour,
@@ -177,12 +179,20 @@ class AppBlockingSession {
     }
 
     func updateStartTime(startHour: Int, startMinute: Int) {
-        updateStartAndEndTime(startHour: startHour, startMinute: startMinute, endHour: endsAt?.hour ?? 23, endMinute: endsAt?.minute ?? 59)
+        updateStartAndEndTime(
+            startHour: startHour,
+            startMinute: startMinute,
+            endHour: endsAt?.hour ?? 23,
+            endMinute: endsAt?.minute ?? 59
+        )
     }
 
     func updateEndTime(endHour: Int, endMinute: Int) {
-        updateStartAndEndTime(startHour: startsAt?.hour ?? 0, startMinute: startsAt?.minute ?? 0, endHour: endHour, endMinute: endMinute)
+        updateStartAndEndTime(
+            startHour: startsAt?.hour ?? 0,
+            startMinute: startsAt?.minute ?? 0,
+            endHour: endHour,
+            endMinute: endMinute
+        )
     }
 }
-
-

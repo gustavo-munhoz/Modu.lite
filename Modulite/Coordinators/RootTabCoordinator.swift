@@ -97,8 +97,10 @@ class RootTabCoordinator: Coordinator {
     /// This tab allows users to manage application restrictions and settings.
     /// - Returns: A configured navigation controller for the Block Apps tab.
     private func configureBlockApps() -> UINavigationController {
-        let vc = ComingSoonViewController()
-        vc.fillComingSoonView(for: .appBlocking)
+//        let vc = ComingSoonViewController()
+//        vc.fillComingSoonView(for: .appBlocking)
+        
+        let vc = BlockAppsViewController()
         
         let navigationController = UINavigationController(rootViewController: vc)
         

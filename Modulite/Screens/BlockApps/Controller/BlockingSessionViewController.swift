@@ -16,6 +16,11 @@ protocol BlockingSessionViewControllerDelegate: AnyObject {
         _ viewController: BlockingSessionViewController,
         didCreate session: AppBlockingSession
     )
+    
+    func updateBlockingSessionViewController(
+        _ viewController: BlockingSessionViewController,
+        didUpdate session: AppBlockingSession
+    )
 }
 
 class BlockingSessionViewController: UIViewController {
@@ -90,7 +95,7 @@ class BlockingSessionViewController: UIViewController {
         let weekDays = viewModel.getDaysOfWeek()
         let startTime = viewModel.getStartsAt()
         let endTime = viewModel.getEndsAt()
-        
+
         guard let startHour = startTime.hour,
               let startMinute = startTime.minute,
               let endHour = endTime.hour,
@@ -99,75 +104,57 @@ class BlockingSessionViewController: UIViewController {
             return
         }
 
-        let appBlockManager = AppBlockManager(
-            selection: viewModel.getActivitySelection(),
-            activityName: DeviceActivityName(viewModel.getName()),
-            weekDays: weekDays,
-            startHour: startHour,
-            startMinute: startMinute,
-            endHour: endHour,
-            endMinute: endMinute
-        )
-
-        if isEditingSession, let session = currentSession {
-            session.name = viewModel.getName()
-            session.updateSelection(viewModel.activitySelection)
-            session.blockingType = viewModel.getBlockingType()
-            session.isAllDay = viewModel.getIsAllDay()
-            session.startsAt = startTime
-            session.endsAt = endTime
-            session.daysOfWeek = weekDays
-            session.isActive = false
-            
-            delegate?.createBlockingSessionViewController(self, didCreate: session)
-            dismiss(animated: true, completion: nil)
-            return
+        if isEditingSession {
+            updateBlockingSession()
+        } else {
+            createBlockingSession()
         }
-
-        let newBlockingSession = createSession(
+    }
+    
+    private func createBlockingSession() {
+        let newBlockingSession = AppBlockingSession(
             name: viewModel.getName(),
             selection: viewModel.getActivitySelection(),
             blockingType: viewModel.getBlockingType(),
             isAllDay: viewModel.getIsAllDay(),
-            startsAt: startTime,
-            endsAt: endTime,
-            daysOfWeek: weekDays
+            startsAt: viewModel.getStartsAt(),
+            endsAt: viewModel.getEndsAt(),
+            daysOfWeek: viewModel.getDaysOfWeek()
         )
         
         delegate?.createBlockingSessionViewController(self, didCreate: newBlockingSession)
         dismiss(animated: true, completion: nil)
     }
     
-    func createSession(
-        name: String,
-        selection: FamilyActivitySelection,
-        blockingType: BlockType,
-        isAllDay: Bool,
-        startsAt: DateComponents,
-        endsAt: DateComponents,
-        daysOfWeek: [WeekDay]
-    ) -> AppBlockingSession {
+    private func updateBlockingSession() {
+        guard let session = currentSession else { return }
         
-        return AppBlockingSession(
-            name: name,
-            selection: selection,
-            blockingType: blockingType,
-            isAllDay: isAllDay,
-            startsAt: startsAt,
-            endsAt: endsAt
-        )
+        session.name = viewModel.getName()
+        session.updateSelection(viewModel.getActivitySelection())
+        session.blockingType = viewModel.getBlockingType()
+        session.isAllDay = viewModel.getIsAllDay()
+        session.startsAt = viewModel.getStartsAt()
+        session.endsAt = viewModel.getEndsAt()
+        session.daysOfWeek = viewModel.getDaysOfWeek()
+        session.isActive = false
+        
+        delegate?.updateBlockingSessionViewController(self, didUpdate: session)
+        dismiss(animated: true, completion: nil)
     }
-
 
     @objc private func presentSelectApps() {
         let appBlockManager = AppBlockManager(
-            selection: viewModel.activitySelection,
+            selection: viewModel.getActivitySelection(),
             activityName: DeviceActivityName(viewModel.getName()),
-            weekDays: viewModel.getDaysOfWeek(),
-            startHour: viewModel.getStartsAt().hour ?? 0,
-            startMinute: viewModel.getStartsAt().minute ?? 0,
-            endHour: viewModel.getEndsAt().hour ?? 23,
-            endMinute: viewModel.getEndsAt().minute ?? 59
+            schedule: AppBlockingSession(
+                name: viewModel.getName(),
+                selection: viewModel.getActivitySelection(),
+                blockingType: viewModel.getBlockingType(),
+                isAllDay: viewModel.getIsAllDay(),
+                startsAt: viewModel.getStartsAt(),
+                endsAt: viewModel.getEndsAt(),
+                daysOfWeek: viewModel.getDaysOfWeek()
+            ).schedule
         )
         
         let selectAppsView = ScreenTimeSelectAppsContentView(
@@ -180,11 +167,9 @@ class BlockingSessionViewController: UIViewController {
                 self.dismiss(animated: true, completion: nil)
             }
         )
-
         let hostingController = UIHostingController(rootView: selectAppsView)
         present(hostingController, animated: true, completion: nil)
     }
-
 }
 
 extension BlockingSessionViewController {

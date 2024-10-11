@@ -174,69 +174,56 @@ class BlockAppsViewController:
 
         sessions = viewModel.blockingSessions
 
-        let activeSessions = sessions.filter { $0.isActive }
-        let inactiveSessions = sessions.filter { !$0.isActive }
-        
         blockAppsView.activeCollectionView.performBatchUpdates({
-            if sectionType == .active {
-                let newIndexPath = IndexPath(item: inactiveSessions.count - 1, section: SectionType.inactive.rawValue)
-                blockAppsView.activeCollectionView.moveItem(at: index, to: newIndexPath)
-            } else {
-                let newIndexPath = IndexPath(item: activeSessions.count - 1, section: SectionType.active.rawValue)
-                blockAppsView.activeCollectionView.moveItem(at: index, to: newIndexPath)
-            }
+            blockAppsView.activeCollectionView.reloadSections(IndexSet(integer: SectionType.active.rawValue))
+            blockAppsView.activeCollectionView.reloadSections(IndexSet(integer: SectionType.inactive.rawValue))
         }, completion: { _ in
             self.blockAppsView.activeCollectionView.reloadData()
         })
     }
-
 }
 
 // MARK: - CreateBlockingSessionViewControllerDelegate
 extension BlockAppsViewController: BlockingSessionViewControllerDelegate {
-    func createBlockingSessionViewController(
+    func updateBlockingSessionViewController(
         _ viewController: BlockingSessionViewController,
-        didCreate session: AppBlockingSession
+        didUpdate session: AppBlockingSession
     ) {
         if let index = sessions.firstIndex(where: { $0.id == session.id }) {
             sessions[index] = session
-            
+
             let indexPath = IndexPath(
                 item: index,
                 section: session.isActive ? SectionType.active.rawValue : SectionType.inactive.rawValue
             )
-            
+
             blockAppsView.activeCollectionView.performBatchUpdates({
-                blockAppsView.activeCollectionView.reloadItems(at: [indexPath])
-            }, completion: { _ in
-                self.blockAppsView.activeCollectionView.reloadData()
-            })
-        } else {
-            viewModel.createBlockingSession(session)
-            sessions = viewModel.blockingSessions
-            
-            let activeSessions = sessions.filter { $0.isActive }
-            let inactiveSessions = sessions.filter { !$0.isActive }
-            
-            blockAppsView.activeCollectionView.performBatchUpdates(
-                {
-                    if !activeSessions.isEmpty {
-                        let newIndexPath = IndexPath(
-                            item: activeSessions.count - 1,
-                            section: SectionType.active.rawValue
-                        )
-                        blockAppsView.activeCollectionView.insertItems(at: [newIndexPath])
-                    } else if !inactiveSessions.isEmpty {
-                        let newIndexPath = IndexPath(
-                            item: inactiveSessions.count - 1,
-                            section: SectionType.inactive.rawValue
-                        )
-                        blockAppsView.activeCollectionView.insertItems(at: [newIndexPath])
-                    }
-                },
-                completion: { _ in
-                self.blockAppsView.activeCollectionView.reloadData()
+                if blockAppsView.activeCollectionView.numberOfItems(inSection: indexPath.section) > index {
+                    blockAppsView.activeCollectionView.reloadItems(at: [indexPath])
+                }
+            }, completion: { success in
+                if success {
+                    self.blockAppsView.activeCollectionView.reloadData()
+                }
             })
         }
     }
+
+    func createBlockingSessionViewController(
+        _ viewController: BlockingSessionViewController,
+        didCreate session: AppBlockingSession
+    ) {
+        viewModel.createBlockingSession(session)
+        sessions = viewModel.blockingSessions
+
+        blockAppsView.activeCollectionView.performBatchUpdates({
+            blockAppsView.activeCollectionView.reloadSections(IndexSet(integer: SectionType.active.rawValue))
+            blockAppsView.activeCollectionView.reloadSections(IndexSet(integer: SectionType.inactive.rawValue))
+        }, completion: { success in
+            if success {
+                self.blockAppsView.activeCollectionView.reloadData()
+            }
+        })
+    }
+
 }
