@@ -54,12 +54,36 @@ extension HomeCoordinator: HomeViewControllerDelegate {
         parentViewController.present(alert, animated: true)
     }
     
+    func presentMaxWidgetCountAlert(_ parentViewController: UIViewController) {
+        let alert = UIAlertController(
+            title: .localized(for: .homeViewMainWidgetsDidReachMaxCountAlertTitle),
+            message: .localized(
+                for: .homeViewMainWidgetsDidReachMaxCountAlertMessage
+            ),
+            preferredStyle: .alert
+        )
+        
+        let okAction = UIAlertAction(
+            title: .localized(for: .okay).uppercased(),
+            style: .cancel
+        )
+        
+        alert.addAction(okAction)
+        
+        parentViewController.present(alert, animated: true)
+    }
+    
     func homeViewControllerDidStartWidgetCreationFlow(
         _ viewController: HomeViewController,
         type: WidgetType
     ) {
         guard type == .main else {
             presentFeatureComingAlert(viewController)
+            return
+        }
+        
+        guard viewController.getCurrentMainWidgetCount() < 3 else {
+            presentMaxWidgetCountAlert(viewController)
             return
         }
         
