@@ -21,7 +21,7 @@ class ModuliteFreeSmallBadge: GradientLabelView {
         attributedText = NSAttributedString(
             string: .localized(for: .free),
             attributes: [
-                .foregroundColor: UIColor.textPrimary,
+                .foregroundColor: UIColor.black,
                 .font: UIFont.systemFont(
                     ofSize: 16,
                     weight: .heavy,

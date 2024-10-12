@@ -14,8 +14,8 @@ class SettingsView: UIView {
     
     private(set) lazy var profilePicture: UIImageView = {
         let view = UIImageView()
-        
-        view.backgroundColor = .systemGray4
+        view.image = .finderProfilePicture
+        view.contentMode = .scaleAspectFit
         
         return view
     }()
@@ -24,6 +24,7 @@ class SettingsView: UIView {
         let view = UITextField()
         view.text = .localized(for: .guest)
         view.font = UIFont(textStyle: .title2, weight: .bold)
+        view.isUserInteractionEnabled = false
         
         return view
     }()

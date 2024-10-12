@@ -36,7 +36,7 @@ class WidgetEditorSaveButton: UIButton {
         )
         
         config.imagePlacement = .leading
-        config.image = UIImage(systemName: "envelope")
+        config.image = UIImage(systemName: "checkmark")
         config.imagePadding = 10
         config.preferredSymbolConfigurationForImage = .init(pointSize: 15, weight: .bold)
         config.baseForegroundColor = .white
