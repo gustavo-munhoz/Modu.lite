@@ -710,12 +710,12 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
-		AFABBD792C80F2CC007BEFD8 /* Controller */ = {
+		AFABBD792C80F2CC007BEFD8 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
 				B34F3E062C6A93B30041D7BD /* UsageViewController.swift */,
 			);
-			path = Controller;
+			path = ViewController;
 			sourceTree = "<group>";
 		};
 		AFABBD7A2C80F2D4007BEFD8 /* View */ = {
@@ -892,9 +892,9 @@
 		B34F3DFF2C6A936C0041D7BD /* Usage */ = {
 			isa = PBXGroup;
 			children = (
-				AF9D41D92CA49BE50077F565 /* ViewModel */,
 				AFABBD7A2C80F2D4007BEFD8 /* View */,
-				AFABBD792C80F2CC007BEFD8 /* Controller */,
+				AFABBD792C80F2CC007BEFD8 /* ViewController */,
+				AF9D41D92CA49BE50077F565 /* ViewModel */,
 			);
 			path = Usage;
 			sourceTree = "<group>";
@@ -1449,8 +1449,8 @@
 		B36927CB2C66B8430089F769 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
-				B39D89C72CB855D2005EEC46 /* ComingSoon */,
 				B34F3DFC2C6A92890041D7BD /* RootTabBarController.swift */,
+				B39D89C72CB855D2005EEC46 /* ComingSoon */,
 				B34F3E002C6A93700041D7BD /* BlockApps */,
 				B36927CC2C66B86D0089F769 /* Home */,
 				B36927CD2C66B88F0089F769 /* LaunchScreen */,
