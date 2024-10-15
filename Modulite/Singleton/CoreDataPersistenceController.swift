@@ -79,7 +79,7 @@ struct CoreDataPersistenceController {
 extension CoreDataPersistenceController {
     
     func fetchApps(predicate: NSPredicate? = nil) -> [AppInfo] {
-        let request = AppInfo.nameSortedFetchRequest()
+        let request = AppInfo.prioritySortedFetchRequest()
         request.predicate = predicate
         do {
             let apps = try container.viewContext.fetch(request)
