@@ -149,11 +149,23 @@ extension SelectAppsViewController: UICollectionViewDelegate {
     ) -> [(from: Int, to: Int)] {
         
         var moves = [(from: Int, to: Int)]()
+        var usedOldIndices = Set<Int>()
+        
         for (newIndex, newItem) in newData.enumerated() {
-            if let oldIndex = oldData.firstIndex(where: { $0.data.name == newItem.data.name }) {
+            var oldIndex: Int?
+            for (index, oldItem) in oldData.enumerated() {
+                if !usedOldIndices.contains(index) &&
+                   oldItem.data.name == newItem.data.name &&
+                   oldItem.isSelected == newItem.isSelected {
+                    oldIndex = index
+                    break
+                }
+            }
+            if let oldIndex = oldIndex {
                 if oldIndex != newIndex {
                     moves.append((from: oldIndex, to: newIndex))
                 }
+                usedOldIndices.insert(oldIndex)
             }
         }
         return moves

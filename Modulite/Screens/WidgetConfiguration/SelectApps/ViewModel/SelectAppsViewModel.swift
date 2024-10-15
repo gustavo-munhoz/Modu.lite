@@ -129,10 +129,19 @@ class SelectAppsViewModel: NSObject {
     
     private func sortApps() {
         apps.sort {
-            if $0.isSelected == $1.isSelected {
+            if $0.isSelected && $1.isSelected {
                 return $0.data.name < $1.data.name
             }
-            return $0.isSelected && !$1.isSelected
+            
+            if $0.isSelected != $1.isSelected {
+                return $0.isSelected && !$1.isSelected
+            }
+            
+            if $0.data.relevance != $1.data.relevance {
+                return $0.data.relevance < $1.data.relevance
+            }
+            
+            return $0.data.name < $1.data.name
         }
     }
 }
