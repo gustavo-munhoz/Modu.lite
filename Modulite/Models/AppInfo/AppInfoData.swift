@@ -10,4 +10,5 @@ import Foundation
 struct AppInfoData: Codable {
     let name: String
     let urlScheme: URL
+    let relevance: Int
 }
