@@ -11,29 +11,69 @@ struct UsageActivityView: View {
     var activityReport: ActivityReport
     
     var body: some View {
-        VStack {
-            Spacer(minLength: 50)
-            Text("Total Screen Time")
-            Spacer(minLength: 10)
-            Text(activityReport.totalDuration.toHoursAndMinutes())
-            List(activityReport.apps) { app in
-                ListRow(eachApp: app)
+        ScrollView {
+            VStack {
+                HStack {
+                    BorderedText(
+                        text: Date.today.formattedWithOrdinal(),
+                        maxWidth: 260
+                    )
+                }
+                .padding(.horizontal)
+                .padding(.bottom, 24)
+                
+                Text(verbatim: .localized(for: .youHaveSpent))
+                    .font(.body.weight(.semibold))
+                    .foregroundStyle(.gray)
+                
+                BorderedText(
+                    text: activityReport.formattedTime(for: .today),
+                    textColor: .textPrimary,
+                    verticalPadding: 26,
+                    horizontalPadding: 32,
+                    font: .largeTitle.bold(),
+                    cornerRadius: 20,
+                    lineWidth: 4
+                )
+                
+                Text(verbatim: .localized(for: .onYourPhoneToday))
+                    .font(.body.weight(.semibold))
+                    .foregroundStyle(.gray)
+                
+                Separator()
+                
+                Text(verbatim: .localized(for: .comparisonOverview))
+                    .font(.title3.bold())
+                    .frame(maxWidth: .infinity, alignment: .topLeading)
+                    .padding([.horizontal, .bottom], 24)
+                
+                HStack(alignment: .center) {
+                    Spacer()
+                    
+                    LabeledBorderedText(
+                        labelText: .localized(for: .screenTimeYesterday),
+                        borderedText: activityReport.formattedTime(for: .yesterday),
+                        borderColor: .ketchupRed
+                    )
+                    .padding(.trailing, -12)
+                    
+                    LabeledBorderedText(
+                        labelText: .localized(for: .screenTime7DaysAverage),
+                        labelWidth: 125,
+                        borderedText: activityReport.formattedAverageTimeLastWeek,
+                        borderColor: .fiestaGreen
+                    )
+                    .padding(.leading, -12)
+                    
+                    Spacer()
+                }
+                
+                Separator()
+                
+                Spacer()
             }
         }
-    }
-}
-
-struct ListRow: View {
-    var eachApp: AppDeviceActivity
-    var body: some View {
-        HStack {
-            Text(eachApp.displayName)
-            Spacer()
-            Text(eachApp.id)
-            Spacer()
-            Text("\(eachApp.numberOfPickups)")
-            Spacer()
-            Text(String(eachApp.duration.formatted()))
-        }
+        .scrollClipDisabled()
+        .padding(.vertical)
     }
 }

@@ -1,0 +1,61 @@
+{
+  "sourceLanguage" : "en",
+  "strings" : {
+    "comparisonOverview" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Comparison overview"
+          }
+        }
+      }
+    },
+    "onYourPhoneToday" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "on your phone today"
+          }
+        }
+      }
+    },
+    "screenTime7DaysAverage" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Your average in the last 7 days"
+          }
+        }
+      }
+    },
+    "screenTimeYesterday" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Your screen time yesterday"
+          }
+        }
+      }
+    },
+    "youHaveSpent" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "You have spent"
+          }
+        }
+      }
+    }
+  },
+  "version" : "1.0"
+}
