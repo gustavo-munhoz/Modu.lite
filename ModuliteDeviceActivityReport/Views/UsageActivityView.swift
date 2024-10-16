@@ -1,5 +1,5 @@
 //
-//  TotalActivityView.swift
+//  UsageActivityView.swift
 //  ModuliteDeviceActivityReport
 //
 //  Created by André Wozniack on 27/09/24.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct TotalActivityView: View {
+struct UsageActivityView: View {
     var activityReport: ActivityReport
     
     var body: some View {
@@ -15,7 +15,7 @@ struct TotalActivityView: View {
             Spacer(minLength: 50)
             Text("Total Screen Time")
             Spacer(minLength: 10)
-            Text(activityReport.totalDuration.stringFromTimeInterval())
+            Text(activityReport.totalDuration.toHoursAndMinutes())
             List(activityReport.apps) { app in
                 ListRow(eachApp: app)
             }

@@ -1,30 +1,32 @@
 import UIKit
 import DeviceActivity
 import FamilyControls
-import Combine
+import SwiftUI
 
 class UsageViewController: UIViewController {
     
-    private var usageView = UsageView() // Custom view
-    private var usageViewModel = UsageViewModel() // ViewModel que contém a lógica de negócios
-    private var cancellables: Set<AnyCancellable> = []
+    private var usageViewModel = UsageViewModel()
     
     // MARK: - Lifecycle
     
-    override func loadView() {
-        view = usageView
-    }
-
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        setupBindings()
-        
         let authCenter = AuthorizationCenter.shared
-
+        
         Task {
             do {
                 try await authCenter.requestAuthorization(for: .individual)
+                
+                let context: DeviceActivityReport.Context = .init("TotalActivity")
+                
+                let reportView = DeviceActivityReport(context)
+                let hostingController = UIHostingController(rootView: reportView)
+                
+                addChild(hostingController)
+                hostingController.view.frame = view.bounds
+                view.addSubview(hostingController.view)
+                hostingController.didMove(toParent: self)
                 
             } catch {
                 print("Authorization Error")
@@ -41,16 +43,5 @@ class UsageViewController: UIViewController {
     private func setupNavigationBar() {
         navigationItem.title = .localized(for: .usageViewControllerNavigationTitle)
         navigationController?.navigationBar.prefersLargeTitles = true
-    }
-    
-    private func setupBindings() {
-       
-    }
-    
-    // Função utilitária para formatar o tempo
-    private func formatTime(_ timeInterval: TimeInterval) -> String {
-        let hours = Int(timeInterval) / 3600
-        let minutes = (Int(timeInterval) % 3600) / 60
-        return "\(hours)h \(minutes)m"
     }
 }
