@@ -1,5 +1,5 @@
 //
-//  TotalActivityView.swift
+//  UsageActivityView.swift
 //  ModuliteDeviceActivityReport
 //
 //  Created by André Wozniack on 27/09/24.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct TotalActivityView: View {
+struct UsageActivityView: View {
     var activityReport: ActivityReport
     
     var body: some View {

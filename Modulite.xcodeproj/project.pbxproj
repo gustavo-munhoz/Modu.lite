@@ -14,7 +14,7 @@
 		AF362C422CA5ED3700506443 /* AppUsageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF362C412CA5ED3700506443 /* AppUsageCell.swift */; };
 		AF362C5D2CA73EDC00506443 /* ModuliteDeviceActivityReport.appex in Embed ExtensionKit Extensions */ = {isa = PBXBuildFile; fileRef = AF362C512CA73EDC00506443 /* ModuliteDeviceActivityReport.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		AF362C6C2CA7478B00506443 /* UsageActivityReport.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF362C672CA7478B00506443 /* UsageActivityReport.swift */; };
-		AF362C6D2CA7478B00506443 /* TotalActivityReport.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF362C682CA7478B00506443 /* TotalActivityReport.swift */; };
+		AF362C6D2CA7478B00506443 /* UsageActivityReportScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF362C682CA7478B00506443 /* UsageActivityReportScene.swift */; };
 		AF362C732CAB174C00506443 /* BlockAppsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF362C722CAB174C00506443 /* BlockAppsViewModel.swift */; };
 		AF362C7F2CAB374900506443 /* BlockingSessionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF362C7E2CAB374900506443 /* BlockingSessionView.swift */; };
 		AF362C812CAC6C1A00506443 /* BlockingSessionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF362C802CAC6C1A00506443 /* BlockingSessionViewController.swift */; };
@@ -257,7 +257,7 @@
 		B3CC57C32CBF38EB00945DE2 /* ActivityReport.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3CC57C22CBF38EB00945DE2 /* ActivityReport.swift */; };
 		B3CC57C52CBF393E00945DE2 /* TimeInterval+ToHoursAndMinutes.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3CC57C42CBF393E00945DE2 /* TimeInterval+ToHoursAndMinutes.swift */; };
 		B3CC57C72CBF394900945DE2 /* AsyncSequence+Collect.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3CC57C62CBF394900945DE2 /* AsyncSequence+Collect.swift */; };
-		B3CC57CB2CBF3C7F00945DE2 /* TotalActivityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3CC57C92CBF3C7F00945DE2 /* TotalActivityView.swift */; };
+		B3CC57CB2CBF3C7F00945DE2 /* UsageActivityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3CC57C92CBF3C7F00945DE2 /* UsageActivityView.swift */; };
 		B3CDD7012C766F2E00E558F8 /* ModuleStyleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3CDD7002C766F2E00E558F8 /* ModuleStyleCell.swift */; };
 		B3CDD7032C767FD300E558F8 /* ModuleColorCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3CDD7022C767FD300E558F8 /* ModuleColorCell.swift */; };
 		B3CDD7072C77C59B00E558F8 /* ImageProcessingFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3CDD7062C77C59B00E558F8 /* ImageProcessingFactory.swift */; };
@@ -373,7 +373,7 @@
 		AF362C652CA7478B00506443 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AF362C662CA7478B00506443 /* ModuliteDeviceActivityReport.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ModuliteDeviceActivityReport.entitlements; sourceTree = "<group>"; };
 		AF362C672CA7478B00506443 /* UsageActivityReport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsageActivityReport.swift; sourceTree = "<group>"; };
-		AF362C682CA7478B00506443 /* TotalActivityReport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TotalActivityReport.swift; sourceTree = "<group>"; };
+		AF362C682CA7478B00506443 /* UsageActivityReportScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsageActivityReportScene.swift; sourceTree = "<group>"; };
 		AF362C722CAB174C00506443 /* BlockAppsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockAppsViewModel.swift; sourceTree = "<group>"; };
 		AF362C7E2CAB374900506443 /* BlockingSessionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockingSessionView.swift; sourceTree = "<group>"; };
 		AF362C802CAC6C1A00506443 /* BlockingSessionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockingSessionViewController.swift; sourceTree = "<group>"; };
@@ -574,7 +574,7 @@
 		B3CC57C22CBF38EB00945DE2 /* ActivityReport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityReport.swift; sourceTree = "<group>"; };
 		B3CC57C42CBF393E00945DE2 /* TimeInterval+ToHoursAndMinutes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TimeInterval+ToHoursAndMinutes.swift"; sourceTree = "<group>"; };
 		B3CC57C62CBF394900945DE2 /* AsyncSequence+Collect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AsyncSequence+Collect.swift"; sourceTree = "<group>"; };
-		B3CC57C92CBF3C7F00945DE2 /* TotalActivityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TotalActivityView.swift; sourceTree = "<group>"; };
+		B3CC57C92CBF3C7F00945DE2 /* UsageActivityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsageActivityView.swift; sourceTree = "<group>"; };
 		B3CDD7002C766F2E00E558F8 /* ModuleStyleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModuleStyleCell.swift; sourceTree = "<group>"; };
 		B3CDD7022C767FD300E558F8 /* ModuleColorCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModuleColorCell.swift; sourceTree = "<group>"; };
 		B3CDD7062C77C59B00E558F8 /* ImageProcessingFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageProcessingFactory.swift; sourceTree = "<group>"; };
@@ -686,7 +686,7 @@
 				AF362C652CA7478B00506443 /* Info.plist */,
 				AF362C662CA7478B00506443 /* ModuliteDeviceActivityReport.entitlements */,
 				AF362C672CA7478B00506443 /* UsageActivityReport.swift */,
-				AF362C682CA7478B00506443 /* TotalActivityReport.swift */,
+				AF362C682CA7478B00506443 /* UsageActivityReportScene.swift */,
 			);
 			path = ModuliteDeviceActivityReport;
 			sourceTree = "<group>";
@@ -1804,7 +1804,7 @@
 		B3CC57CA2CBF3C7F00945DE2 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				B3CC57C92CBF3C7F00945DE2 /* TotalActivityView.swift */,
+				B3CC57C92CBF3C7F00945DE2 /* UsageActivityView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -2258,8 +2258,8 @@
 				AF362C6C2CA7478B00506443 /* UsageActivityReport.swift in Sources */,
 				B3CC57C52CBF393E00945DE2 /* TimeInterval+ToHoursAndMinutes.swift in Sources */,
 				B3CC57C32CBF38EB00945DE2 /* ActivityReport.swift in Sources */,
-				AF362C6D2CA7478B00506443 /* TotalActivityReport.swift in Sources */,
-				B3CC57CB2CBF3C7F00945DE2 /* TotalActivityView.swift in Sources */,
+				AF362C6D2CA7478B00506443 /* UsageActivityReportScene.swift in Sources */,
+				B3CC57CB2CBF3C7F00945DE2 /* UsageActivityView.swift in Sources */,
 				B3CC57C72CBF394900945DE2 /* AsyncSequence+Collect.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
