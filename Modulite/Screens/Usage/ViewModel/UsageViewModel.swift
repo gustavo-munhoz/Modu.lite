@@ -9,5 +9,9 @@ import Foundation
 import FamilyControls
 
 class UsageViewModel {
+    private let authCenter = AuthorizationCenter.shared
     
+    func requestAuthorization() async throws {
+        try await authCenter.requestAuthorization(for: .individual)
+    }
 }
