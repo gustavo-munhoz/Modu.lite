@@ -1,5 +1,5 @@
 //
-//  TotalActivityReport.swift
+//  UsageActivityReportScene.swift
 //  ModuliteDeviceActivityReport
 //
 //  Created by André Wozniack on 27/09/24.
@@ -15,7 +15,7 @@ extension DeviceActivityReport.Context {
 struct UsageActivityReportScene: DeviceActivityReportScene {
         
     let context: DeviceActivityReport.Context = .totalActivity
-    let content: (ActivityReport) -> TotalActivityView
+    let content: (ActivityReport) -> UsageActivityView
     
     func makeConfiguration(
         representing deviceActivityResults: DeviceActivityResults<DeviceActivityData>
