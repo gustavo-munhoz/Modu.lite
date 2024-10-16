@@ -8,6 +8,16 @@
 import Foundation
 
 extension Date {
+    static var today: Date {
+        Calendar.current.startOfDay(for: .now)
+    }
+    
+    static var yesterday: Date {
+        Calendar.current.date(byAdding: .day, value: -1, to: .now)!
+    }
+}
+
+extension Date {
     func formattedWithOrdinal(locale: Locale = Locale.current) -> String {
         let calendar = Calendar.current
         
