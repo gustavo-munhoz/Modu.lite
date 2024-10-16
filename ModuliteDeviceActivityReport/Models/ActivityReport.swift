@@ -6,3 +6,8 @@
 //
 
 import Foundation
+
+struct ActivityReport {
+    let totalDuration: TimeInterval
+    let apps: [AppDeviceActivity]
+}
