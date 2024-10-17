@@ -69,11 +69,19 @@ struct UsageActivityView: View {
                 }
                 
                 Separator()
+
+                Text(verbatim: .localized(for: .howYouveSpentYourTime))
+                    .font(.title2.bold())
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .padding([.horizontal, .bottom], 24)
                 
-                Spacer()
+                AppUsageList(
+                    apps: activityReport.relevantApps(for: .today)
+                )
             }
+            .background(.whiteTurnip)
+            .frame(maxWidth: .infinity)
+            .padding(.vertical)
         }
-        .scrollClipDisabled()
-        .padding(.vertical)
     }
 }
