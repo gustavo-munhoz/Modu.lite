@@ -101,3 +101,43 @@ class AppBlockingSession {
         blockManager.activitySelection = selection
     }
 }
+
+
+extension AppBlockingSession {
+    func shouldActivateBlock() -> Bool {
+        // Obter a data e hora atual
+        let now = Date()
+        let calendar = Calendar.current
+        
+        // Verificar o dia da semana atual
+        let currentWeekday = calendar.component(.weekday, from: now) - 1 // Calendar's weekday starts from 1 (Sunday)
+        guard daysOfWeek.contains(WeekDay(rawValue: currentWeekday) ?? .monday) else {
+            return false
+        }
+        
+        // Obter os componentes de tempo atuais
+        let currentTimeComponents = calendar.dateComponents([.hour, .minute], from: now)
+        guard let currentHour = currentTimeComponents.hour, let currentMinute = currentTimeComponents.minute else {
+            return false
+        }
+
+        // Verificar se está dentro do intervalo de tempo
+        if let allDay = isAllDay {
+            return true
+        }
+        
+        // Comparar com o horário de início e término
+        if let startHour = startsAt?.hour, let startMinute = startsAt?.minute,
+           let endHour = endsAt?.hour, let endMinute = endsAt?.minute {
+            
+            let currentTimeInMinutes = (currentHour * 60) + currentMinute
+            let startTimeInMinutes = (startHour * 60) + startMinute
+            let endTimeInMinutes = (endHour * 60) + endMinute
+            
+            // Se o tempo atual está dentro do intervalo configurado, ativar
+            return currentTimeInMinutes >= startTimeInMinutes && currentTimeInMinutes <= endTimeInMinutes
+        }
+        
+        return false
+    }
+}
