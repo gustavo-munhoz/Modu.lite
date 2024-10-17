@@ -21,4 +21,10 @@ struct ActivityReport {
     var formattedAverageTimeLastWeek: String {
         averageTimeLastWeek.formattedWithUnits()
     }
+    
+    func relevantApps(for date: Date) -> [AppDeviceActivity] {
+        (appUsage[date] ?? [])
+            .filter { $0.duration > 60}
+            .sorted(by: { $0.duration > $1.duration })
+    }
 }
