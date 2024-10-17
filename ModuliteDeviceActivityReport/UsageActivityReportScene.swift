@@ -104,6 +104,7 @@ struct UsageActivityReportScene: DeviceActivityReportScene {
         let appActivities = await apps.map {
             AppDeviceActivity(
                 id: $0.application.bundleIdentifier ?? "Unknown Bundle ID",
+                token: $0.application.token,
                 displayName: $0.application.localizedDisplayName ?? "Unknown App",
                 duration: $0.totalActivityDuration,
                 numberOfPickups: $0.numberOfPickups

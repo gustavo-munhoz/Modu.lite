@@ -8,6 +8,15 @@
 import Foundation
 
 extension TimeInterval {
+    func formattedAsMinutes() -> String {
+        let formatter = DateComponentsFormatter()
+        formatter.allowedUnits = [.minute]
+        formatter.unitsStyle = .short
+        formatter.zeroFormattingBehavior = .dropAll
+        
+        return formatter.string(from: self) ?? "0 min"
+    }
+    
     func toHoursAndMinutes() -> String {
         let time = NSInteger(self)
         let minutes = (time / 60) % 60
@@ -26,7 +35,7 @@ extension TimeInterval {
         guard let formattedString = formatter.string(from: self) else {
             return "0 min"
         }
-                
+        
         let components = formattedString.split(separator: ",")
         let spacedComponents = components.map { $0.trimmingCharacters(in: .whitespaces) }
             .joined(separator: " ")
