@@ -6,9 +6,11 @@
 //
 
 import Foundation
+import ManagedSettings
 
 struct AppDeviceActivity: Identifiable, Hashable {
     var id: String
+    var token: ApplicationToken?
     var displayName: String
     var duration: TimeInterval
     var numberOfPickups: Int
