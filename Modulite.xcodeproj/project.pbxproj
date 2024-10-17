@@ -22,12 +22,15 @@
 		AF362C812CAC6C1A00506443 /* BlockingSessionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF362C802CAC6C1A00506443 /* BlockingSessionViewController.swift */; };
 		AF763F262CAF4492002FBE26 /* FamilyControlsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFE5D5012CADD4C700503572 /* FamilyControlsManager.swift */; };
 		AF763F282CAF4710002FBE26 /* AppBlockerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF763F272CAF4710002FBE26 /* AppBlockerManager.swift */; };
-		AF763F292CAF4793002FBE26 /* AppBlockerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF763F272CAF4710002FBE26 /* AppBlockerManager.swift */; };
 		AF9D41DA2CA49BE50077F565 /* UsageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF9D41D82CA49BE50077F565 /* UsageViewModel.swift */; };
 		AFABBD7C2C80F2E0007BEFD8 /* UsageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFABBD7B2C80F2E0007BEFD8 /* UsageView.swift */; };
 		AFABBD982C8A359E007BEFD8 /* BlockAppsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFABBD972C8A359E007BEFD8 /* BlockAppsView.swift */; };
 		AFABBD9B2C8A39F2007BEFD8 /* BlockAppsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFABBD9A2C8A39F2007BEFD8 /* BlockAppsCollectionViewCell.swift */; };
 		AFABBD9D2C8F7D5D007BEFD8 /* BlockAppsHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFABBD9C2C8F7D5D007BEFD8 /* BlockAppsHeaderView.swift */; };
+		AFAF91BD2CC039C6002D363C /* ScreenTimeSelectAppsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFAF91BC2CC039C6002D363C /* ScreenTimeSelectAppsModel.swift */; };
+		AFAF91BE2CC04B03002D363C /* AppBlockerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF763F272CAF4710002FBE26 /* AppBlockerManager.swift */; };
+		AFAF91BF2CC04B42002D363C /* AppBlockerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF763F272CAF4710002FBE26 /* AppBlockerManager.swift */; };
+		AFAF91C02CC04B93002D363C /* WeekDay.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFE5D54F2CAF24E500503572 /* WeekDay.swift */; };
 		AFBBC5032C7E459900A9B256 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AFBBC4EB2C7E457C00A9B256 /* WidgetKit.framework */; };
 		AFBBC5042C7E459900A9B256 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AFBBC4ED2C7E457C00A9B256 /* SwiftUI.framework */; };
 		AFBBC5072C7E459900A9B256 /* ModuliteWidgetBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFBBC5062C7E459900A9B256 /* ModuliteWidgetBundle.swift */; };
@@ -384,6 +387,7 @@
 		AFABBD972C8A359E007BEFD8 /* BlockAppsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockAppsView.swift; sourceTree = "<group>"; };
 		AFABBD9A2C8A39F2007BEFD8 /* BlockAppsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockAppsCollectionViewCell.swift; sourceTree = "<group>"; };
 		AFABBD9C2C8F7D5D007BEFD8 /* BlockAppsHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockAppsHeaderView.swift; sourceTree = "<group>"; };
+		AFAF91BC2CC039C6002D363C /* ScreenTimeSelectAppsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenTimeSelectAppsModel.swift; sourceTree = "<group>"; };
 		AFBBC4EB2C7E457C00A9B256 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
 		AFBBC4ED2C7E457C00A9B256 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
 		AFBBC5022C7E459900A9B256 /* ModuliteWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = ModuliteWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -687,6 +691,7 @@
 		AF362C712CAB172900506443 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				AFAF91BC2CC039C6002D363C /* ScreenTimeSelectAppsModel.swift */,
 				AF362C722CAB174C00506443 /* BlockAppsViewModel.swift */,
 				AFE5D5452CAF1B1300503572 /* BlockingSessionViewModel.swift */,
 				AF763F272CAF4710002FBE26 /* AppBlockerManager.swift */,
@@ -2213,6 +2218,8 @@
 			files = (
 				AFE5D5022CADD4C700503572 /* FamilyControlsManager.swift in Sources */,
 				AF362C162CA5B1B000506443 /* DeviceActivityMonitorExtension.swift in Sources */,
+				AFAF91C02CC04B93002D363C /* WeekDay.swift in Sources */,
+				AFAF91BE2CC04B03002D363C /* AppBlockerManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2244,9 +2251,9 @@
 				B3987E102CA38A9C00896414 /* MainWidgetView.swift in Sources */,
 				B37284752C82996600D9A1E7 /* String+LocalizedKey.swift in Sources */,
 				B32B60FA2C87AC84007DDCE3 /* CoreDataPersistenceController.swift in Sources */,
+				AFAF91BF2CC04B42002D363C /* AppBlockerManager.swift in Sources */,
 				B3987E212CA4801600896414 /* UIColorValueTransformer.swift in Sources */,
 				B3987E202CA3A3BC00896414 /* MainWidgetModuleButton.swift in Sources */,
-				AF763F292CAF4793002FBE26 /* AppBlockerManager.swift in Sources */,
 				B32B60F72C87ABC1007DDCE3 /* PersistableModuleConfiguration+CoreDataProperties.swift in Sources */,
 				B37284772C829A8C00D9A1E7 /* WidgetStyleFactory.swift in Sources */,
 				B32B60FB2C87AC8D007DDCE3 /* AppInfoData.swift in Sources */,
@@ -2356,6 +2363,7 @@
 				B3EB15B62C7E4BF0003B1960 /* ModuleConfiguration.swift in Sources */,
 				B35BFBE92CB5AF9B00092B42 /* TutorialCenterCoordinator.swift in Sources */,
 				AF362C732CAB174C00506443 /* BlockAppsViewModel.swift in Sources */,
+				AFAF91BD2CC039C6002D363C /* ScreenTimeSelectAppsModel.swift in Sources */,
 				AFABBD982C8A359E007BEFD8 /* BlockAppsView.swift in Sources */,
 				B36927D32C66BBC10089F769 /* SceneDelegateRouter.swift in Sources */,
 				B32B61062C8A4140007DDCE3 /* ModalNavigationRouter.swift in Sources */,
