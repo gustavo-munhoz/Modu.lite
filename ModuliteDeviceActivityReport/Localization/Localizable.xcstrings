@@ -12,6 +12,17 @@
         }
       }
     },
+    "howYouveSpentYourTime" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "How you’ve spent your time"
+          }
+        }
+      }
+    },
     "onYourPhoneToday" : {
       "extractionState" : "manual",
       "localizations" : {

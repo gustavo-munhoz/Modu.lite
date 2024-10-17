@@ -53,6 +53,7 @@ extension String {
         case comparisonOverview
         case screenTimeYesterday
         case screenTime7DaysAverage
+        case howYouveSpentYourTime
     }
     
     static func localized(for key: DeviceActivityReportTextKey) -> String {
