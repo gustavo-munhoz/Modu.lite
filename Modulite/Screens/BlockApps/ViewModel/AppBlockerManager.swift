@@ -25,22 +25,25 @@ class AppBlockManager: ObservableObject {
     }
     
     func startBlock() {
-        let applications = activitySelection.applicationTokens
-        let categories = activitySelection.categoryTokens
-        
-        store.shield.applications = applications.isEmpty ? nil : applications
-        
-        store.shield.applicationCategories = ShieldSettings
-            .ActivityCategoryPolicy
-            .specific(categories)
-        
-        store.shield.webDomainCategories = ShieldSettings
-            .ActivityCategoryPolicy
-            .specific(categories)
         
         do {
             try center.startMonitoring(activityName, during: schedule)
-            print("Monitoramento iniciado com sucesso para \(activityName.rawValue)")
+            
+            if let applications = activitySelection.applications.isEmpty ? nil : activitySelection.applicationTokens {
+                store.shield.applications = applications
+            }
+            
+            if let categories = activitySelection.categories.isEmpty ? nil : activitySelection.categoryTokens {
+                store.shield.applicationCategories = ShieldSettings
+                    .ActivityCategoryPolicy
+                    .specific(categories)
+                
+                store.shield.webDomainCategories = ShieldSettings
+                    .ActivityCategoryPolicy
+                    .specific(categories)
+            }
+            print(activityName)
+            
         } catch {
             print("Erro ao iniciar monitoramento: \(error)")
         }

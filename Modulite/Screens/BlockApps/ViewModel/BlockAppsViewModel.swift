@@ -10,13 +10,14 @@ import FamilyControls
 
 class BlockAppsViewModel: ObservableObject {
     @Published var blockingSessions: [AppBlockingSession] = []
-    var activitySelection: FamilyActivitySelection?
     
-    @discardableResult
-    func createBlockingSession(_ session: AppBlockingSession) -> Int {
-        
+    func createBlockingSession(_ session: AppBlockingSession) {
         blockingSessions.append(session)
-        return 0
     }
     
+    func updateBlockingSession(_ session: AppBlockingSession) {
+        if let index = blockingSessions.firstIndex(where: { $0.id == session.id }) {
+            blockingSessions[index] = session
+        }
+    }
 }

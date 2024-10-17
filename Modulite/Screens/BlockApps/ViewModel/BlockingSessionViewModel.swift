@@ -11,47 +11,13 @@ import FamilyControls
 class BlockingSessionViewModel: ObservableObject {
     // MARK: - Properties
     @Published var activitySelection: FamilyActivitySelection = .init()
-    private var name: String = ""
-    private var blockingType: BlockType = .scheduled
-    private var isAllDay: Bool = false
-    private var startsAt: DateComponents = .init(hour: 0, minute: 0)
-    private var endsAt: DateComponents = .init(hour: 23, minute: 59)
-    private var daysOfWeek: [WeekDay] = []
-    private var isActive = true
-    
-    // MARK: - Getters
-    
-    func getName() -> String {
-        return name
-    }
-    
-    func getBlockingType() -> BlockType {
-        return blockingType
-    }
-    
-    func getIsAllDay() -> Bool {
-        return isAllDay
-    }
-    
-    func getStartsAt() -> DateComponents {
-        return startsAt
-    }
-    
-    func getEndsAt() -> DateComponents {
-        return endsAt
-    }
-    
-    func getDaysOfWeek() -> [WeekDay] {
-        return daysOfWeek
-    }
-    
-    func getIsActive() -> Bool {
-        return isActive
-    }
-    
-    func getActivitySelection() -> FamilyActivitySelection {
-        return activitySelection
-    }
+    var name: String = ""
+    var blockingType: BlockType = .scheduled
+    var isAllDay: Bool = false
+    var startsAt: DateComponents = .init(hour: 0, minute: 0)
+    var endsAt: DateComponents = .init(hour: 23, minute: 59)
+    var daysOfWeek: [WeekDay] = []
+    var isActive = true
     
     // MARK: - Setters
     
