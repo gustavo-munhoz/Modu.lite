@@ -85,6 +85,8 @@
 		B32B610A2C8A4485007DDCE3 /* SelectAppsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B32B61092C8A4485007DDCE3 /* SelectAppsView.swift */; };
 		B32B610C2C8A449C007DDCE3 /* SelectAppsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B32B610B2C8A449C007DDCE3 /* SelectAppsViewController.swift */; };
 		B32B61102C8A474B007DDCE3 /* SelectAppsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B32B610F2C8A474B007DDCE3 /* SelectAppsViewModel.swift */; };
+		B338088D2CC1902E00D56884 /* AppUsageItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = B338088C2CC1902E00D56884 /* AppUsageItem.swift */; };
+		B338088F2CC1905500D56884 /* AppUsageList.swift in Sources */ = {isa = PBXBuildFile; fileRef = B338088E2CC1905500D56884 /* AppUsageList.swift */; };
 		B34F3DF02C66EACE0041D7BD /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = B34F3DEF2C66EACE0041D7BD /* SnapKit */; };
 		B34F3DF32C6701740041D7BD /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = B34F3DF22C6701740041D7BD /* Localizable.xcstrings */; };
 		B34F3DF52C6701870041D7BD /* String+LocalizedKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = B34F3DF42C6701870041D7BD /* String+LocalizedKey.swift */; };
@@ -436,6 +438,8 @@
 		B32B61092C8A4485007DDCE3 /* SelectAppsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectAppsView.swift; sourceTree = "<group>"; };
 		B32B610B2C8A449C007DDCE3 /* SelectAppsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectAppsViewController.swift; sourceTree = "<group>"; };
 		B32B610F2C8A474B007DDCE3 /* SelectAppsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectAppsViewModel.swift; sourceTree = "<group>"; };
+		B338088C2CC1902E00D56884 /* AppUsageItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppUsageItem.swift; sourceTree = "<group>"; };
+		B338088E2CC1905500D56884 /* AppUsageList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppUsageList.swift; sourceTree = "<group>"; };
 		B34F3DF22C6701740041D7BD /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
 		B34F3DF42C6701870041D7BD /* String+LocalizedKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+LocalizedKey.swift"; sourceTree = "<group>"; };
 		B34F3DF72C69A3810041D7BD /* DebugOptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebugOptions.swift; sourceTree = "<group>"; };
@@ -1833,6 +1837,8 @@
 				B3CC57D32CC067AB00945DE2 /* Separator.swift */,
 				B3CC57D62CC067B800945DE2 /* LabeledBorderedText.swift */,
 				B3CC57D82CC067CB00945DE2 /* BorderedText.swift */,
+				B338088C2CC1902E00D56884 /* AppUsageItem.swift */,
+				B338088E2CC1905500D56884 /* AppUsageList.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -2300,6 +2306,8 @@
 				B3CC57C32CBF38EB00945DE2 /* ActivityReport.swift in Sources */,
 				B3CC57D72CC067B800945DE2 /* LabeledBorderedText.swift in Sources */,
 				AF362C6D2CA7478B00506443 /* UsageActivityReportScene.swift in Sources */,
+				B338088D2CC1902E00D56884 /* AppUsageItem.swift in Sources */,
+				B338088F2CC1905500D56884 /* AppUsageList.swift in Sources */,
 				B3CC57CB2CBF3C7F00945DE2 /* UsageActivityView.swift in Sources */,
 				B3CC57E12CC0718B00945DE2 /* LocalizedStrings.swift in Sources */,
 				B3CC57D52CC067AB00945DE2 /* Separator.swift in Sources */,
