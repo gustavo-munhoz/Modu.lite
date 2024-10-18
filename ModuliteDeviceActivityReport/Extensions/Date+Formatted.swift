@@ -8,6 +8,23 @@
 import Foundation
 
 extension Date {
+    func formattedWithDayAndMonth(locale: Locale = Locale.current) -> String {
+        let calendar = Calendar.current
+        
+        let monthFormatter = DateFormatter()
+        monthFormatter.locale = locale
+        monthFormatter.setLocalizedDateFormatFromTemplate("MMM")
+        var month = monthFormatter.string(from: self)
+        if !month.hasSuffix(".") {
+            month.append(".")
+        }
+        
+        let day = calendar.component(.day, from: self)
+        let dayString = formattedDayWithOrdinal(day: day, locale: locale)
+        
+        return "\(month) \(dayString)"
+    }
+    
     func formattedWithOrdinal(locale: Locale = Locale.current) -> String {
         let calendar = Calendar.current
         
