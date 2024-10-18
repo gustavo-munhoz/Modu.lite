@@ -42,11 +42,11 @@ struct UsageActivityView: View {
     
     // MARK: - Body
     var body: some View {
-        VStack {
-            dateHeader
-            
+        NavigationView {
             ScrollView {
                 VStack {
+                    dateHeader
+                    
                     mainScreenTimeLabel
                     
                     Separator()
@@ -61,6 +61,9 @@ struct UsageActivityView: View {
                 .frame(maxWidth: .infinity)
                 .padding(.vertical)
             }
+            .background(Color.whiteTurnip.ignoresSafeArea())
+            .navigationTitle("My screen time")
+            .navigationBarTitleDisplayMode(.large)
         }
     }
     
