@@ -102,7 +102,11 @@ struct UsageActivityView: View {
     
     var mainScreenTimeLabel: some View {
         VStack {
-            Text(verbatim: .localized(for: .youHaveSpent))
+            Text(
+                verbatim: .localized(
+                    for: currentDate == .today ? .youHaveSpent : .youSpent
+                )
+            )
                 .font(.body.weight(.semibold))
                 .foregroundStyle(.gray)
             
@@ -116,7 +120,14 @@ struct UsageActivityView: View {
                 lineWidth: 4
             )
             
-            Text(verbatim: .localized(for: .onYourPhoneToday))
+            Text(
+                verbatim: .localized(
+                    for: currentDate == .today ?
+                        .onYourPhoneToday : .onYourPhoneAt(
+                            date: currentDate.formattedWithDayAndMonth()
+                        )
+                )
+            )
                 .font(.body.weight(.semibold))
                 .foregroundStyle(.gray)
         }
@@ -133,7 +144,10 @@ struct UsageActivityView: View {
                 Spacer()
                 
                 LabeledBorderedText(
-                    labelText: .localized(for: .screenTimeYesterday),
+                    labelText: .localized(
+                        for: currentDate == .today ?
+                            .screenTimeYesterday : .screenTimeDayBefore
+                    ),
                     borderedText: activityReport.formattedTime(
                         for: currentDate.subtractOneDay()
                     ),
