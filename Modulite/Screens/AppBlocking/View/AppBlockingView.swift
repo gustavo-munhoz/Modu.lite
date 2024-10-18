@@ -1,5 +1,5 @@
 //
-//  BlockAppsView.swift
+//  AppBlockingView.swift
 //  Modulite
 //
 //  Created by André Wozniack on 05/09/24.
@@ -8,11 +8,11 @@
 import UIKit
 import SnapKit
 
-class BlockAppsView: UIView {
+class AppBlockingView: UIView {
     
     // MARK: - Properties
-    private(set) lazy var layoutHeader: BlockAppsHeaderView = {
-        let view = BlockAppsHeaderView()
+    private(set) lazy var layoutHeader: AppBlockingHeaderView = {
+        let view = AppBlockingHeaderView()
     
         return view
     }()

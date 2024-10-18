@@ -8,7 +8,7 @@
 import UIKit
 import SnapKit
 
-class BlockAppsHeaderView: UIView {
+class AppBlockingHeaderView: UIView {
     
     // MARK: - Properties
     
