@@ -42,24 +42,26 @@ struct UsageActivityView: View {
     
     // MARK: - Body
     var body: some View {
-        NavigationView {
+        NavigationStack {
             ScrollView {
-                VStack {
-                    dateHeader
-                    
-                    mainScreenTimeLabel
-                    
-                    Separator()
-                    
-                    comparisonOverview
-                    
-                    Separator()
-                    
-                    appUsageList
+                LazyVStack(pinnedViews: [.sectionHeaders]) {
+                    Section(header: dateHeader) {
+                        VStack {
+                            mainScreenTimeLabel
+                            
+                            Separator()
+                            
+                            comparisonOverview
+                            
+                            Separator()
+                            
+                            appUsageList
+                        }
+                        .background(.whiteTurnip)
+                        .frame(maxWidth: .infinity)
+                        .padding(.vertical)
+                    }
                 }
-                .background(.whiteTurnip)
-                .frame(maxWidth: .infinity)
-                .padding(.vertical)
             }
             .background(Color.whiteTurnip.ignoresSafeArea())
             .navigationTitle("My screen time")
@@ -69,57 +71,64 @@ struct UsageActivityView: View {
     
     // MARK: - Subviews
     var dateHeader: some View {
-        HStack {
-            Button {
-                guard canSubtractDay else { return }
+        VStack(spacing: 0) {
+            HStack {
+                Button {
+                    guard canSubtractDay else { return }
+                    
+                    transitionEdge = .leading
+                    previousDate = currentDate
+                    withAnimation {
+                        currentDate = currentDate.subtractOneDay()
+                        animateLeft = true
+                        animateRight = false
+                    }
+                } label: {
+                    Image(systemName: "arrow.left.circle")
+                        .font(.title.weight(.semibold))
+                        .foregroundStyle(canSubtractDay ? .carrotOrange : .gray)
+                        .symbolEffect(.bounce, options: .speed(2), value: animateLeft)
+                }
+                .padding(.trailing, 16)
+                .disabled(!canSubtractDay)
                 
-                transitionEdge = .leading
-                previousDate = currentDate
-                withAnimation {
-                    currentDate = currentDate.subtractOneDay()
-                    animateLeft = true
+                BorderedText(
+                    text: currentDate.formattedWithOrdinal(),
+                    maxWidth: 260
+                )
+                
+                Button {
+                    guard canAddDay else { return }
+                    
+                    transitionEdge = .trailing
+                    previousDate = currentDate
+                    withAnimation {
+                        currentDate = currentDate.addOneDay()
+                        animateRight = true
+                        animateLeft = false
+                    }
+                } label: {
+                    Image(systemName: "arrow.right.circle")
+                        .font(.title.weight(.semibold))
+                        .foregroundStyle(canAddDay ? .carrotOrange : .gray)
+                        .symbolEffect(.bounce, options: .speed(2), value: animateRight)
+                }
+                .padding(.leading, 16)
+                .disabled(!canAddDay)
+            }
+            .onChange(of: currentDate) {
+                DispatchQueue.main.asyncAfter(deadline: .now()) {
+                    animateLeft = false
                     animateRight = false
                 }
-            } label: {
-                Image(systemName: "arrow.left.circle")
-                    .font(.title.weight(.semibold))
-                    .foregroundStyle(canSubtractDay ? .carrotOrange : .gray)
-                    .symbolEffect(.bounce, options: .speed(2), value: animateLeft)
             }
-            .padding(.trailing, 16)
-            .disabled(!canSubtractDay)
+            .padding([.horizontal, .top], 24)
+            .padding(.bottom, 12)
             
-            BorderedText(
-                text: currentDate.formattedWithOrdinal(),
-                maxWidth: 260
-            )
-            
-            Button {
-                guard canAddDay else { return }
-                
-                transitionEdge = .trailing
-                previousDate = currentDate
-                withAnimation {
-                    currentDate = currentDate.addOneDay()
-                    animateRight = true
-                    animateLeft = false
-                }
-            } label: {
-                Image(systemName: "arrow.right.circle")
-                    .font(.title.weight(.semibold))
-                    .foregroundStyle(canAddDay ? .carrotOrange : .gray)
-                    .symbolEffect(.bounce, options: .speed(2), value: animateRight)
-            }
-            .padding(.leading, 16)
-            .disabled(!canAddDay)
+            Separator(verticalPadding: 2, horizontalPadding: 16)
         }
-        .onChange(of: currentDate) {
-            DispatchQueue.main.asyncAfter(deadline: .now()) {
-                animateLeft = false
-                animateRight = false
-            }
-        }
-        .padding(24)
+        .padding(.bottom, 4)
+        .background(Color.whiteTurnip)
     }
     
     var mainScreenTimeLabel: some View {
