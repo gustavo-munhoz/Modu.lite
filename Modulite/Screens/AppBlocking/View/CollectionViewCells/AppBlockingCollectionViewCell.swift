@@ -1,5 +1,5 @@
 //
-//  BlockAppsCollectionViewCell.swift
+//  AppBlokingCollectionViewCell.swift
 //  Modulite
 //
 //  Created by André Wozniack on 05/09/24.
@@ -8,14 +8,14 @@
 import UIKit
 import SnapKit
 
-protocol BlockAppsCellDelegate: AnyObject {
+protocol AppBlockingCellDelegate: AnyObject {
     func didToggleSwitch(at index: IndexPath, isActive: Bool)
 }
 
-class BlockAppsCollectionViewCell: UICollectionViewCell {
-    static let reusId = "BlockAppsCollectionViewCell"
+class AppBlokingCollectionViewCell: UICollectionViewCell {
+    static let reusId = "AppBlokingCollectionViewCell"
     
-    weak var delegate: BlockAppsCellDelegate?
+    weak var delegate: AppBlockingCellDelegate?
     var indexPath: IndexPath?
     
     var isActive: Bool = true {
