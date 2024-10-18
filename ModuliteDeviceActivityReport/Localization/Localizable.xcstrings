@@ -23,6 +23,16 @@
         }
       }
     },
+    "My screen time" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "My screen time"
+          }
+        }
+      }
+    },
     "onYourPhoneAt" : {
       "extractionState" : "manual",
       "localizations" : {

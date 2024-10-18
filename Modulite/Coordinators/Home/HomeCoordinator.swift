@@ -45,7 +45,7 @@ extension HomeCoordinator: HomeViewControllerDelegate {
         )
         
         let okAction = UIAlertAction(
-            title: .localized(for: .okay).uppercased(),
+            title: .localized(for: .ok).uppercased(),
             style: .cancel
         )
         
@@ -64,7 +64,7 @@ extension HomeCoordinator: HomeViewControllerDelegate {
         )
         
         let okAction = UIAlertAction(
-            title: .localized(for: .okay).uppercased(),
+            title: .localized(for: .ok).uppercased(),
             style: .cancel
         )
         

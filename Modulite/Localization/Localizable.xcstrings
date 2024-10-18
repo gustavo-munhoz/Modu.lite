@@ -4,6 +4,9 @@
     "%@" : {
 
     },
+    "Authorization Error" : {
+
+    },
     "back" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -716,7 +719,7 @@
         }
       }
     },
-    "okay" : {
+    "ok" : {
       "extractionState" : "manual",
       "localizations" : {
         "en" : {

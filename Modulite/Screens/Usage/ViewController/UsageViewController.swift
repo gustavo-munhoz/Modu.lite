@@ -1,47 +1,64 @@
 import UIKit
 import DeviceActivity
-import FamilyControls
 import SwiftUI
 
-class UsageViewController: UIViewController {
-    
+class UsageViewController: UIHostingController<DeviceActivityReport> {
+
     private let reportIdentifier = "TotalActivity"
-    
     private var viewModel = UsageViewModel()
-    
-    // MARK: - Lifecycle
-    
+
+    init() {
+        super.init(
+            rootView: DeviceActivityReport(
+                DeviceActivityReport.Context(reportIdentifier),
+                filter: DeviceActivityFilter()
+            )
+        )
+    }
+
+    @MainActor @objc required dynamic init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
-                
-        fetchAndDisplayActivityReport()
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
+        
         setupNavigationBar()
+        fetchAndDisplayActivityReport()
+        view.backgroundColor = .whiteTurnip
     }
     
-    // MARK: - Setup methods
+    // MARK: - Setup Methods
+
     private func setupNavigationBar() {
         navigationItem.title = .localized(for: .usageViewControllerNavigationTitle)
         navigationController?.navigationBar.prefersLargeTitles = true
     }
     
+    private func updateNavigationBarUponLoad() {
+        safeAreaRegions = SafeAreaRegions()
+        navigationController?.setNavigationBarHidden(true, animated: false)
+    }
+
+    // MARK: - Data Fetching
+
     private func fetchAndDisplayActivityReport() {
         Task {
             do {
                 try await viewModel.requestAuthorization()
-                
                 let reportView = await createDeviceActivityReport()
-                await displayReport(reportView)
+                await MainActor.run {
+                    self.rootView = reportView
+                    
+                    self.updateNavigationBarUponLoad()
+                }
                 
             } catch {
                 await handleAuthorizationError(error)
             }
         }
     }
-    
+
     private func createDeviceActivityReport() async -> DeviceActivityReport {
         let calendar = Calendar.current
         let now = Date()
@@ -64,29 +81,22 @@ class UsageViewController: UIViewController {
         let reportView = DeviceActivityReport(context, filter: filter)
         return reportView
     }
-    
-    private func displayReport(_ reportView: DeviceActivityReport) async {
-        let hostingController = UIHostingController(rootView: reportView)
-        hostingController.view.backgroundColor = .whiteTurnip
-        
-        await MainActor.run {
-            addChild(hostingController)
-            hostingController.view.frame = view.bounds
-            hostingController.view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-            view.addSubview(hostingController.view)
-            hostingController.didMove(toParent: self)
-        }
-    }
-    
+
+    // MARK: - Error Handling
+
     private func handleAuthorizationError(_ error: Error) async {
         await MainActor.run {
             let alert = UIAlertController(
-                title: "Authorization Error",
+                title: NSLocalizedString("Authorization Error", comment: ""),
                 message: error.localizedDescription,
                 preferredStyle: .alert
             )
-            
-            alert.addAction(UIAlertAction(title: "OK", style: .default))
+            alert.addAction(
+                UIAlertAction(
+                    title: .localized(for: .ok).uppercased(),
+                    style: .default
+                )
+            )
             present(alert, animated: true)
         }
     }

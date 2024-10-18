@@ -41,7 +41,7 @@ extension HelpCoordinator: MFMailComposeViewControllerDelegate {
             preferredStyle: .alert
         )
         alert.addAction(UIAlertAction(
-            title: .localized(for: .okay).uppercased(),
+            title: .localized(for: .ok).uppercased(),
             style: .default
         ))
         
