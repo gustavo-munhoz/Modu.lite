@@ -133,7 +133,7 @@ extension String {
         // MARK: - Localized Keys -
         
         // MARK: - Reusable texts
-        case okay
+        case ok
         case next
         case save
         case cancel
