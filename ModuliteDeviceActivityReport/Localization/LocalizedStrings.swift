@@ -49,9 +49,12 @@ extension LocalizedKey {
 extension String {
     enum DeviceActivityReportTextKey: LocalizedKey {
         case youHaveSpent
+        case youSpent
+        case onYourPhoneAt(date: String)
         case onYourPhoneToday
         case comparisonOverview
         case screenTimeYesterday
+        case screenTimeDayBefore
         case screenTime7DaysAverage
         case howYouveSpentYourTime
     }

@@ -23,6 +23,17 @@
         }
       }
     },
+    "onYourPhoneAt" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "on your phone at %@"
+          }
+        }
+      }
+    },
     "onYourPhoneToday" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -45,6 +56,17 @@
         }
       }
     },
+    "screenTimeDayBefore" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Your screen time the day before"
+          }
+        }
+      }
+    },
     "screenTimeYesterday" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -63,6 +85,17 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "You have spent"
+          }
+        }
+      }
+    },
+    "youSpent" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "You spent"
           }
         }
       }
