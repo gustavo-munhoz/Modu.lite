@@ -26,7 +26,7 @@ class BlockAppsCoordinator: Coordinator {
     ///   - animated: Determines if the presentation should be animated.
     ///   - onDismiss: Optional closure to execute when the block apps view controller is dismissed.
     func present(animated: Bool, onDismiss: (() -> Void)?) {
-        let vc = BlockAppsViewController()
+        let vc = AppBlockingViewController()
         router.present(vc, animated: animated, onDismiss: onDismiss)
     }
 }

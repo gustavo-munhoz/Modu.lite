@@ -5,9 +5,9 @@ class BlockAppsViewController:
     UIViewController,
         UICollectionViewDelegate,
         UICollectionViewDataSource,
-        BlockAppsCellDelegate {
+    AppBlockingCellDelegate {
 
-    private let blockAppsView = BlockAppsView()
+    private let blockAppsView = AppBlockingView()
     private var sessions: [AppBlockingSession] = []
     private var viewModel: BlockAppsViewModel = BlockAppsViewModel()
 
@@ -33,8 +33,8 @@ class BlockAppsViewController:
         blockAppsView.activeCollectionView.delegate = self
         blockAppsView.activeCollectionView.dataSource = self
         blockAppsView.activeCollectionView.register(
-            BlockAppsCollectionViewCell.self,
-            forCellWithReuseIdentifier: BlockAppsCollectionViewCell.reusId
+            AppBlokingCollectionViewCell.self,
+            forCellWithReuseIdentifier: AppBlokingCollectionViewCell.reusId
         )
         navigationItem.rightBarButtonItem = selectAppsButton
 
@@ -76,9 +76,9 @@ class BlockAppsViewController:
         cellForItemAt indexPath: IndexPath
     ) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(
-            withReuseIdentifier: BlockAppsCollectionViewCell.reusId,
+            withReuseIdentifier: AppBlokingCollectionViewCell.reusId,
             for: indexPath
-        ) as? BlockAppsCollectionViewCell else {
+        ) as? AppBlokingCollectionViewCell else {
             return UICollectionViewCell()
         }
         
