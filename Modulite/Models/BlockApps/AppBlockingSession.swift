@@ -24,6 +24,14 @@ class AppBlockingSession {
     private var activityName: DeviceActivityName
     private var schedule: DeviceActivitySchedule
     
+    // Used to encode codable to UserDefaults
+    private let encoder = PropertyListEncoder()
+
+    // Used to decode codable from UserDefaults
+    private let decoder = PropertyListDecoder()
+
+    private let userDefaultsKey: String
+    
     var time: String {
         let startFormatted = formatTime(from: startsAt)
         let endFormatted = formatTime(from: endsAt)
@@ -69,10 +77,12 @@ class AppBlockingSession {
         )
         
         self.blockManager = AppBlockManager(
-            selection: selection,
-            activityName: self.activityName,
-            schedule: self.schedule
+            activityName: self.activityName
         )
+        
+        self.userDefaultsKey = activityName.rawValue
+        
+        saveFamilyActivitySelection(selection: selection)
     }
     
     private func formatTime(from components: DateComponents?) -> String {
@@ -82,22 +92,53 @@ class AppBlockingSession {
         return String(format: "%02d:%02d", hour, minute)
     }
     
+    func saveFamilyActivitySelection(selection: FamilyActivitySelection) {
+        print(
+            "selected app updated: ",
+            selection.applicationTokens.count,
+            " category: ",
+            selection.categoryTokens.count
+        )
+        let defaults = UserDefaults.standard
+
+        defaults.set(
+            try? encoder.encode(selection),
+            forKey: userDefaultsKey
+        )
+        
+        print(getSavedFamilyActivitySelection()?.applications.count ?? "")
+        print(getSavedFamilyActivitySelection()?.categories.count ?? "")
+    }
+    
+    func getSavedFamilyActivitySelection() -> FamilyActivitySelection? {
+        let defaults = UserDefaults.standard
+        guard let data = defaults.data(forKey: userDefaultsKey) else {
+            return nil
+        }
+        var selectedApp: FamilyActivitySelection?
+        let decoder = PropertyListDecoder()
+        selectedApp = try? decoder.decode(FamilyActivitySelection.self, from: data)
+        
+        print("saved selected app updated: ", selectedApp?.categoryTokens.count ?? "0")
+        return selectedApp
+    }
+    
     // MARK: - Block Functions: BlockManager
     func activateBlock() {
         blockManager.startBlock()
     }
 
     func deactivateBlock() {
-        blockManager.stopBlock()
+        blockManager.stopAppRestrictions()
     }
     
     func updateBlock() {
-        blockManager.stopBlock()
+        blockManager.stopAppRestrictions()
         blockManager.startBlock()
     }
     
     // MARK: - Edit properties
     func updateSelection(_ selection: FamilyActivitySelection ) {
-        blockManager.activitySelection = selection
+        self.selection = selection
     }
 }
