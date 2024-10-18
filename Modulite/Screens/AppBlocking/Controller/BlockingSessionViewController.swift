@@ -119,13 +119,7 @@ class BlockingSessionViewController: UIViewController {
 
     @objc private func presentSelectApps() {
         let appBlockManager = AppBlockManager(
-            selection: viewModel.activitySelection,
-            activityName: DeviceActivityName(viewModel.getName()),
-            schedule: DeviceActivitySchedule(
-                intervalStart: viewModel.getStartsAt(),
-                intervalEnd: viewModel.getEndsAt(),
-                repeats: true
-            )
+            activityName: DeviceActivityName(viewModel.getName())
         )
         
         let selectAppsView = ScreenTimeSelectAppsContentView(

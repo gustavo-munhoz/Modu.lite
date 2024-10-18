@@ -1,7 +1,7 @@
 import UIKit
 import SwiftUI
 
-class BlockAppsViewController:
+class AppBlockingViewController:
     UIViewController,
         UICollectionViewDelegate,
         UICollectionViewDataSource,
@@ -193,7 +193,7 @@ class BlockAppsViewController:
 }
 
 // MARK: - CreateBlockingSessionViewControllerDelegate
-extension BlockAppsViewController: BlockingSessionViewControllerDelegate {
+extension AppBlockingViewController: BlockingSessionViewControllerDelegate {
     func createBlockingSessionViewController(
         _ viewController: BlockingSessionViewController,
         didCreate session: AppBlockingSession
