@@ -23,7 +23,22 @@ struct UsageActivityView: View {
     @State private var canAddDay: Bool = false
     @State private var canSubtractDay: Bool = true
     
+    @State private var transitionEdge: Edge = .leading
+    
+    private var isCurrentDateUseLessThanPrevious: Bool {
+        activityReport.isPreviousDateUseLessThan(date: currentDate)
+    }
+    
     var activityReport: ActivityReport
+    
+    private var slideTransition: AnyTransition {
+        .asymmetric(
+            insertion: .move(edge: transitionEdge),
+            removal: .move(edge: transitionEdge.opposite)
+        )
+        .combined(with: .scale(scale: 0.25))
+        .combined(with: .opacity)
+    }
     
     // MARK: - Body
     var body: some View {
@@ -55,8 +70,9 @@ struct UsageActivityView: View {
             Button {
                 guard canSubtractDay else { return }
                 
+                transitionEdge = .leading
+                previousDate = currentDate
                 withAnimation {
-                    previousDate = currentDate
                     currentDate = currentDate.subtractOneDay()
                     animateLeft = true
                     animateRight = false
@@ -67,6 +83,7 @@ struct UsageActivityView: View {
                     .foregroundStyle(canSubtractDay ? .carrotOrange : .gray)
                     .symbolEffect(.bounce, options: .speed(2), value: animateLeft)
             }
+            .padding(.trailing, 16)
             .disabled(!canSubtractDay)
             
             BorderedText(
@@ -77,8 +94,9 @@ struct UsageActivityView: View {
             Button {
                 guard canAddDay else { return }
                 
+                transitionEdge = .trailing
+                previousDate = currentDate
                 withAnimation {
-                    previousDate = currentDate
                     currentDate = currentDate.addOneDay()
                     animateRight = true
                     animateLeft = false
@@ -89,6 +107,7 @@ struct UsageActivityView: View {
                     .foregroundStyle(canAddDay ? .carrotOrange : .gray)
                     .symbolEffect(.bounce, options: .speed(2), value: animateRight)
             }
+            .padding(.leading, 16)
             .disabled(!canAddDay)
         }
         .onChange(of: currentDate) {
@@ -107,11 +126,14 @@ struct UsageActivityView: View {
                     for: currentDate == .today ? .youHaveSpent : .youSpent
                 )
             )
-                .font(.body.weight(.semibold))
-                .foregroundStyle(.gray)
+            .font(.body.weight(.semibold))
+            .foregroundStyle(.gray)
+            .transition(slideTransition)
+            .id("\(currentDate)-\(transitionEdge)")
             
             BorderedText(
                 text: activityReport.formattedTime(for: currentDate),
+                borderColor: isCurrentDateUseLessThanPrevious ? .fiestaGreen : .ketchupRed,
                 textColor: .textPrimary,
                 verticalPadding: 26,
                 horizontalPadding: 32,
@@ -119,6 +141,8 @@ struct UsageActivityView: View {
                 cornerRadius: 20,
                 lineWidth: 4
             )
+            .transition(slideTransition)
+            .id("\(currentDate)-\(transitionEdge)")
             
             Text(
                 verbatim: .localized(
@@ -128,8 +152,10 @@ struct UsageActivityView: View {
                         )
                 )
             )
-                .font(.body.weight(.semibold))
-                .foregroundStyle(.gray)
+            .transition(slideTransition)
+            .id("\(currentDate)-\(transitionEdge)")
+            .font(.body.weight(.semibold))
+            .foregroundStyle(.gray)
         }
     }
     
@@ -151,16 +177,20 @@ struct UsageActivityView: View {
                     borderedText: activityReport.formattedTime(
                         for: currentDate.subtractOneDay()
                     ),
-                    borderColor: .ketchupRed
+                    borderColor: .carrotOrange
                 )
+                .transition(.blurReplace)
+                .id(currentDate)
                 .padding(.trailing, -12)
                 
                 LabeledBorderedText(
                     labelText: .localized(for: .screenTime7DaysAverage),
                     labelWidth: 125,
                     borderedText: activityReport.formattedAverageTimeLastWeek,
-                    borderColor: .fiestaGreen
+                    borderColor: .carrotOrange
                 )
+                .transition(.blurReplace)
+                .id(currentDate)
                 .padding(.leading, -12)
                 
                 Spacer()
@@ -178,6 +208,21 @@ struct UsageActivityView: View {
             AppUsageList(
                 apps: activityReport.relevantApps(for: currentDate)
             )
+        }
+    }
+}
+
+extension Edge {
+    var opposite: Edge {
+        switch self {
+        case .leading:
+            return .trailing
+        case .trailing:
+            return .leading
+        case .top:
+            return .bottom
+        case .bottom:
+            return .top
         }
     }
 }
