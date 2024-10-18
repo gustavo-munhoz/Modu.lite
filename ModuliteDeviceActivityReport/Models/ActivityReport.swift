@@ -27,4 +27,8 @@ struct ActivityReport {
             .filter { $0.duration > 60}
             .sorted(by: { $0.duration > $1.duration })
     }
+    
+    func isPreviousDateUseLessThan(date: Date) -> Bool {
+        (dailyUsage[date] ?? 0) < (dailyUsage[date.subtractOneDay()] ?? 0)
+    }
 }
