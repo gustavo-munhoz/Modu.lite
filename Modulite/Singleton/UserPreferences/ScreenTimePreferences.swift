@@ -5,4 +5,10 @@
 //  Created by Gustavo Munhoz Correa on 18/10/24.
 //
 
-import Foundation
+enum ScreenTime: String, UserPreferenceKey {
+    var key: String {
+        self.rawValue
+    }
+    
+    case hasAuthorizedBefore
+}
