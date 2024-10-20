@@ -93,6 +93,11 @@ class RootTabCoordinator: Coordinator {
         
         let usageRouter = NavigationRouter(navigationController: navigationController)
         let usageCoordinator = UsageCoordinator(router: usageRouter)
+        
+        #if DEBUG
+        vc.delegate = usageCoordinator
+        #endif
+        
         children.append(usageCoordinator)
         return navigationController
     }

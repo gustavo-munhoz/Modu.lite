@@ -30,3 +30,14 @@ class UsageCoordinator: Coordinator {
         router.present(vc, animated: animated, onDismiss: onDismiss)
     }
 }
+
+extension UsageCoordinator: UsageViewControllerDelegate {
+    func usageViewControllerShouldRequestAuth(
+        _ viewController: UsageViewController,
+        onCompletion: @escaping (Result<Void, any Error>) -> Void
+    ) {
+        let vc = RequestScreenTimeViewController()
+        
+        viewController.present(vc, animated: true)
+    }
+}
