@@ -741,6 +741,94 @@
         }
       }
     },
+    "requestScreenConnectButtonTitle" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "CONNECT SCREEN TIME"
+          }
+        }
+      }
+    },
+    "requestScreenDismissButtonTitle" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "I don't want to connect"
+          }
+        }
+      }
+    },
+    "requestScreenTimeAppBlockSubtitle" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "In order to block distracting apps, Modu.lite needs to connect with Screen Time on your iPhone"
+          }
+        }
+      }
+    },
+    "requestScreenTimeAppBlockTitle" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "We need access to Screen Time to Block Apps "
+          }
+        }
+      }
+    },
+    "requestScreenTimeFootnoteBold" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "no data is stored by Modu.lite."
+          }
+        }
+      }
+    },
+    "requestScreenTimeFootnoteRegular" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Screen Time technology is local and built by Apple, so all your browsing and app usage data stays securely on your device and "
+          }
+        }
+      }
+    },
+    "requestScreenTimeUsageSubtitle" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "To see your usage statistics, Modu.lite needs to connect to Screen Time on your iPhone"
+          }
+        }
+      }
+    },
+    "requestScreenTimeUsageTitle" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "We need access to Screen Time to present your usage"
+          }
+        }
+      }
+    },
     "save" : {
       "extractionState" : "manual",
       "localizations" : {
