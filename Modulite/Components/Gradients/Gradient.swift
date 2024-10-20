@@ -27,4 +27,16 @@ struct Gradient {
             direction: direction
         )
     }
+    
+    static func potato(direction: CGVector = CGVector(dx: 0, dy: 1)) -> Gradient {
+        Gradient(
+            colors: [
+                .potatoYellow.resolvedColor(
+                    with: UITraitCollection(userInterfaceStyle: .light)
+                ),
+                .lemonYellow
+            ],
+            direction: direction
+        )
+    }
 }
