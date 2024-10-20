@@ -2,11 +2,34 @@ import UIKit
 import DeviceActivity
 import SwiftUI
 
-class UsageViewController: UIHostingController<DeviceActivityReport> {
+protocol UsageViewControllerDelegate: AnyObject {
+    func usageViewControllerShouldRequestAuth(
+        _ viewController: UsageViewController,
+        onCompletion: @escaping (Result<Void, Error>) -> Void
+    )
+}
 
+extension UsageViewController {
+    static func instantiate(
+        with delegate: UsageViewControllerDelegate
+    ) -> UsageViewController {
+        let vc = UsageViewController()
+        vc.delegate = delegate
+        
+        return vc
+    }
+}
+
+class UsageViewController: UIHostingController<DeviceActivityReport> {
+    
+    // MARK: - Properties
+    
     private let reportIdentifier = "TotalActivity"
     private var viewModel = UsageViewModel()
+    
+    weak var delegate: UsageViewControllerDelegate?
 
+    // MARK: - Initializers
     init() {
         super.init(
             rootView: DeviceActivityReport(
@@ -20,12 +43,30 @@ class UsageViewController: UIHostingController<DeviceActivityReport> {
         fatalError("init(coder:) has not been implemented")
     }
 
+    // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setupNavigationBar()
-        fetchAndDisplayActivityReport()
         view.backgroundColor = .whiteTurnip
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        guard UserPreference<ScreenTime>.shared.bool(for: .hasAuthorizedBefore) else {
+            delegate?.usageViewControllerShouldRequestAuth(self) { [weak self] result in
+                switch result {
+                case .success:
+                    self?.fetchAndDisplayActivityReport()
+                case .failure:
+                    break
+                }
+            }
+            return
+        }
+        
+        fetchAndDisplayActivityReport()
     }
     
     // MARK: - Setup Methods
