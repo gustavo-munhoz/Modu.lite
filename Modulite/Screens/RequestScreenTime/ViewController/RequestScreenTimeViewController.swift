@@ -13,9 +13,13 @@ protocol RequestScreenTimeViewControllerDelegate: AnyObject {
 }
 
 extension RequestScreenTimeViewController {
-    static func instantiate(delegate: RequestScreenTimeViewControllerDelegate) -> Self {
+    static func instantiate(
+        delegate: RequestScreenTimeViewControllerDelegate,
+        type: ScreenTimeRequestType
+    ) -> Self {
         let vc = Self()
         vc.delegate = delegate
+        vc.type = type
         
         return vc
     }
@@ -28,10 +32,13 @@ class RequestScreenTimeViewController: UIViewController {
     
     weak var delegate: RequestScreenTimeViewControllerDelegate?
     
+    private var type: ScreenTimeRequestType = .usage
+    
     // MARK: - Lifecycle
     override func loadView() {
         super.loadView()
         view = requestView
+        requestView.setRequestType(to: type)
     }
     
     override func viewDidLoad() {
