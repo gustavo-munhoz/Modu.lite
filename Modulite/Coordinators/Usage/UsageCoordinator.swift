@@ -36,8 +36,18 @@ extension UsageCoordinator: UsageViewControllerDelegate {
         _ viewController: UsageViewController,
         onCompletion: @escaping (Result<Void, any Error>) -> Void
     ) {
-        let vc = RequestScreenTimeViewController()
+        let router = ModalNavigationRouter(
+            parentViewController: viewController,
+            presentationStyle: .fullScreen
+        )
         
-        viewController.present(vc, animated: true)
+        router.setHasSaveButton(false)
+        
+        let coordinator = RequestScreenTimeCoordinator(
+            router: router,
+            onCompletion: onCompletion
+        )
+        
+        presentChild(coordinator, animated: true)
     }
 }
