@@ -10,5 +10,5 @@ enum ScreenTime: String, UserPreferenceKey {
         self.rawValue
     }
     
-    case hasAuthorizedBefore
+    case hasSetPreferenceBefore
 }

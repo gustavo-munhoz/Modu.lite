@@ -18,11 +18,11 @@ class UserPreferenceManager {
         let key = ObjectIdentifier(type)
         if let instance = instances[key] as? UserPreference<T> {
             return instance
-        } else {
-            let instance = UserPreference<T>()
-            instances[key] = instance
-            return instance
         }
+        
+        let instance = UserPreference<T>()
+        instances[key] = instance
+        return instance
     }
 }
 
