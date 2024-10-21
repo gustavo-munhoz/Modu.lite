@@ -30,24 +30,3 @@ class UsageCoordinator: Coordinator {
         router.present(vc, animated: animated, onDismiss: onDismiss)
     }
 }
-
-extension UsageCoordinator: UsageViewControllerDelegate {
-    func usageViewControllerShouldRequestAuth(
-        _ viewController: UsageViewController,
-        onCompletion: @escaping (Result<Void, any Error>) -> Void
-    ) {
-        let router = ModalNavigationRouter(
-            parentViewController: viewController,
-            presentationStyle: .fullScreen
-        )
-        
-        router.setHasSaveButton(false)
-        
-        let coordinator = RequestScreenTimeCoordinator(
-            router: router,
-            onCompletion: onCompletion
-        )
-        
-        presentChild(coordinator, animated: true)
-    }
-}
