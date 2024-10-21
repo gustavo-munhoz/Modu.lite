@@ -12,19 +12,21 @@ class RequestScreenTimeCoordinator: Coordinator {
     
     var router: Router
     
-    var onCompletion: (Result<Void, Error>) -> Void = { _ in }
+    var type: ScreenTimeRequestType = .usage
     
     init(router: Router) {
         self.router = router
     }
     
-    init(router: Router, onCompletion: @escaping (Result<Void, Error>) -> Void) {
+    init(router: Router, requestType: ScreenTimeRequestType) {
         self.router = router
-        self.onCompletion = onCompletion
+        self.type = requestType
     }
     
     func present(animated: Bool, onDismiss: (() -> Void)?) {
-        let viewController = RequestScreenTimeViewController.instantiate(delegate: self)
+        let viewController = RequestScreenTimeViewController.instantiate(
+            delegate: self, type: self.type
+        )
         
         router.present(viewController, animated: animated, onDismiss: onDismiss)
     }
@@ -34,20 +36,20 @@ extension RequestScreenTimeCoordinator: RequestScreenTimeViewControllerDelegate 
     func requestScreenTimeDidPressConnect(
         _ viewController: RequestScreenTimeViewController
     ) {
-        onCompletion(.success(()))
-        router.dismiss(animated: true)
+        UserPreference<ScreenTime>.shared.set(true, for: .hasSetPreferenceBefore)
+        FamilyControlsManager.shared.requestAuthorization { [weak self] _ in
+            guard let self = self else { return }
+            
+            DispatchQueue.main.async {
+                self.router.dismiss(animated: true)
+            }
+        }
     }
     
     func requestScreenTimeDidPressDismiss(
         _ viewController: RequestScreenTimeViewController
     ) {
-        let error = NSError(
-            domain: "dev.mnhz.modu.lite",
-            code: -1,
-            userInfo: [NSLocalizedDescriptionKey: "User dismissed the screen time request."]
-        )
-
-        onCompletion(.failure(error))
+        UserPreference<ScreenTime>.shared.set(true, for: .hasSetPreferenceBefore)
         router.dismiss(animated: true)
     }
 }
