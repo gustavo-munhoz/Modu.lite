@@ -4,9 +4,6 @@
     "%@" : {
 
     },
-    "Authorization Error" : {
-
-    },
     "back" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -706,6 +703,9 @@
       }
     },
     "Main Widget Configuration" : {
+
+    },
+    "My screen time" : {
 
     },
     "next" : {
