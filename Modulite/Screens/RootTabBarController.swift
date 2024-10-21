@@ -7,11 +7,29 @@
 
 import UIKit
 
+protocol RootTabBarControllerDelegate: AnyObject {
+    func rootTabBarControllerDidRequestScreenTime(
+        _ viewController: RootTabBarController,
+        in type: ScreenTimeRequestType
+    )
+}
+
+extension RootTabBarController {
+    static func instantiate(delegate: RootTabBarControllerDelegate) -> Self {
+        let vc = Self()
+        vc.requestDelegate = delegate
+        
+        return vc
+    }
+}
+
 class RootTabBarController: UITabBarController {
 
     private let circleLayer = CAShapeLayer()
     private var tabBarFrameObserver: NSKeyValueObservation?
 
+    weak var requestDelegate: RootTabBarControllerDelegate?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -132,6 +150,27 @@ extension RootTabBarController: UITabBarControllerDelegate {
             if let index = tabBar.items?.firstIndex(of: item) {
                 self.updateCirclePosition(for: index)
             }
+        }
+        
+        requestScreenTimeIfNeeded(for: item)
+    }
+    
+    private func requestScreenTimeIfNeeded(for item: UITabBarItem) {
+        guard !UserPreference<ScreenTime>.shared.bool(for: .hasSetPreferenceBefore) else {
+            return
+        }
+        
+        switch item.tag {
+        case 1:
+            requestDelegate?.rootTabBarControllerDidRequestScreenTime(
+                self, in: .usage
+            )
+        case 2:
+            requestDelegate?.rootTabBarControllerDidRequestScreenTime(
+                self, in: .appBlocking
+            )
+        default:
+            return
         }
     }
 }
