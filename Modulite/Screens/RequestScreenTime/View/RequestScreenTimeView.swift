@@ -186,7 +186,7 @@ class RequestScreenTimeView: UIView {
     
     private func setupConstraints() {
         titleLabel.snp.makeConstraints { make in
-            make.top.equalTo(safeAreaLayoutGuide).offset(120)
+            make.top.equalTo(safeAreaLayoutGuide).offset(80)
             make.left.right.equalToSuperview().inset(24)
         }
         
