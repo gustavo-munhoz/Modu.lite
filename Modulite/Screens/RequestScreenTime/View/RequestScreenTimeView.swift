@@ -175,6 +175,12 @@ class RequestScreenTimeView: UIView {
     }
     
     // MARK: - Setup Methods
+    func setRequestType(to type: ScreenTimeRequestType) {
+        requestType = type
+        titleLabel.text = .localized(for: titleText)
+        subtitleLabel.text = .localized(for: subtitleText)
+    }
+    
     private func addSubviews() {
         addSubview(titleLabel)
         addSubview(subtitleLabel)
