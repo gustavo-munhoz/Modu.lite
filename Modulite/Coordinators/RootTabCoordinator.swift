@@ -18,7 +18,7 @@ class RootTabCoordinator: Coordinator {
     let router: Router
     
     /// The root tab bar controller managed by this coordinator.
-    let rootTabBarController = RootTabBarController()
+    lazy var rootTabBarController = RootTabBarController.instantiate(delegate: self)
     
     /// Initializes the coordinator with a router.
     /// - Parameter router: The router used for presenting the root tab bar controller.
@@ -93,6 +93,7 @@ class RootTabCoordinator: Coordinator {
         
         let usageRouter = NavigationRouter(navigationController: navigationController)
         let usageCoordinator = UsageCoordinator(router: usageRouter)
+        
         children.append(usageCoordinator)
         return navigationController
     }
@@ -171,5 +172,25 @@ class RootTabCoordinator: Coordinator {
         
         return tabBarItem
     }
+}
 
+extension RootTabCoordinator: RootTabBarControllerDelegate {
+    func rootTabBarControllerDidRequestScreenTime(
+        _ viewController: RootTabBarController,
+        in type: ScreenTimeRequestType
+    ) {
+        let router = ModalNavigationRouter(
+            parentViewController: viewController,
+            presentationStyle: .fullScreen
+        )
+        
+        router.setHasSaveButton(false)
+        
+        let coordinator = RequestScreenTimeCoordinator(
+            router: router,
+            requestType: type
+        )
+        
+        presentChild(coordinator, animated: true)
+    }
 }
