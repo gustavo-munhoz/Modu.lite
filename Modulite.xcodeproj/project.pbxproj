@@ -50,6 +50,8 @@
 		AFE5D5512CAF24E500503572 /* WeekDay.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFE5D54F2CAF24E500503572 /* WeekDay.swift */; };
 		AFE5D5532CAF24F100503572 /* BlockType.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFE5D5522CAF24F100503572 /* BlockType.swift */; };
 		AFE5D5542CAF24F100503572 /* BlockType.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFE5D5522CAF24F100503572 /* BlockType.swift */; };
+		B30201692CC7074F00301646 /* View+PulseEffect.swift in Sources */ = {isa = PBXBuildFile; fileRef = B30201682CC7074F00301646 /* View+PulseEffect.swift */; };
+		B302016A2CC7074F00301646 /* View+PulseEffect.swift in Sources */ = {isa = PBXBuildFile; fileRef = B30201682CC7074F00301646 /* View+PulseEffect.swift */; };
 		B30AAD632C9227BA002806A7 /* WidgetContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = B30AAD622C9227BA002806A7 /* WidgetContent.swift */; };
 		B30AAD652C9227DE002806A7 /* WidgetContentBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = B30AAD642C9227DE002806A7 /* WidgetContentBuilder.swift */; };
 		B32B60A52C838EB0007DDCE3 /* WidgetModuleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B34F3E3F2C74E3270041D7BD /* WidgetModuleCell.swift */; };
@@ -95,6 +97,7 @@
 		B33808AC2CC31D8300D56884 /* RequestScreenTimeTexts.swift in Sources */ = {isa = PBXBuildFile; fileRef = B33808AB2CC31D8300D56884 /* RequestScreenTimeTexts.swift */; };
 		B33808B02CC47C0300D56884 /* RequestScreenTimeCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B33808AF2CC47C0300D56884 /* RequestScreenTimeCoordinator.swift */; };
 		B33808B22CC6D83300D56884 /* UsageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B33808B12CC6D83300D56884 /* UsageView.swift */; };
+		B33808B82CC7070800D56884 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B33808B62CC7070800D56884 /* LoadingView.swift */; };
 		B34F3DF02C66EACE0041D7BD /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = B34F3DEF2C66EACE0041D7BD /* SnapKit */; };
 		B34F3DF32C6701740041D7BD /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = B34F3DF22C6701740041D7BD /* Localizable.xcstrings */; };
 		B34F3DF52C6701870041D7BD /* String+LocalizedKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = B34F3DF42C6701870041D7BD /* String+LocalizedKey.swift */; };
@@ -423,6 +426,7 @@
 		AFE5D54B2CAF24DE00503572 /* AppBlockingSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppBlockingSession.swift; sourceTree = "<group>"; };
 		AFE5D54F2CAF24E500503572 /* WeekDay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekDay.swift; sourceTree = "<group>"; };
 		AFE5D5522CAF24F100503572 /* BlockType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockType.swift; sourceTree = "<group>"; };
+		B30201682CC7074F00301646 /* View+PulseEffect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+PulseEffect.swift"; sourceTree = "<group>"; };
 		B30AAD622C9227BA002806A7 /* WidgetContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetContent.swift; sourceTree = "<group>"; };
 		B30AAD642C9227DE002806A7 /* WidgetContentBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetContentBuilder.swift; sourceTree = "<group>"; };
 		B32B60B32C864247007DDCE3 /* CoreDataPersistenceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataPersistenceController.swift; sourceTree = "<group>"; };
@@ -454,6 +458,7 @@
 		B33808AB2CC31D8300D56884 /* RequestScreenTimeTexts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestScreenTimeTexts.swift; sourceTree = "<group>"; };
 		B33808AF2CC47C0300D56884 /* RequestScreenTimeCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestScreenTimeCoordinator.swift; sourceTree = "<group>"; };
 		B33808B12CC6D83300D56884 /* UsageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsageView.swift; sourceTree = "<group>"; };
+		B33808B62CC7070800D56884 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		B34F3DF22C6701740041D7BD /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
 		B34F3DF42C6701870041D7BD /* String+LocalizedKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+LocalizedKey.swift"; sourceTree = "<group>"; };
 		B34F3DF72C69A3810041D7BD /* DebugOptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebugOptions.swift; sourceTree = "<group>"; };
@@ -839,6 +844,14 @@
 			path = BlockApps;
 			sourceTree = "<group>";
 		};
+		B30201672CC7074400301646 /* SwiftUIView */ = {
+			isa = PBXGroup;
+			children = (
+				B30201682CC7074F00301646 /* View+PulseEffect.swift */,
+			);
+			path = SwiftUIView;
+			sourceTree = "<group>";
+		};
 		B32B60B52C8642F3007DDCE3 /* AppInfo */ = {
 			isa = PBXGroup;
 			children = (
@@ -964,6 +977,14 @@
 			path = RequestScreenTime;
 			sourceTree = "<group>";
 		};
+		B33808B72CC7070800D56884 /* Loading */ = {
+			isa = PBXGroup;
+			children = (
+				B33808B62CC7070800D56884 /* LoadingView.swift */,
+			);
+			path = Loading;
+			sourceTree = "<group>";
+		};
 		B34F3DF12C6701070041D7BD /* Localization */ = {
 			isa = PBXGroup;
 			children = (
@@ -1038,6 +1059,7 @@
 		B34F3E292C6E83670041D7BD /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				B30201672CC7074400301646 /* SwiftUIView */,
 				B39A25C62CAF0806001C76A5 /* UIView */,
 				B34F3E2A2C6E837F0041D7BD /* UIFont+TraitedTextStyle.swift */,
 				B3EB15BC2C7E7311003B1960 /* String+TextCase.swift */,
@@ -1739,6 +1761,7 @@
 		B39A25CB2CAF0EB9001C76A5 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				B33808B72CC7070800D56884 /* Loading */,
 				B39A25E02CAF7863001C76A5 /* TextRelated */,
 				B39A25DA2CAF276C001C76A5 /* ModulitePlus */,
 				B39A25D02CAF1B0D001C76A5 /* Gradients */,
@@ -2414,6 +2437,7 @@
 				B3987E2C2CA4F43100896414 /* SelectMainWidgetConfigurationIntent.swift in Sources */,
 				B3987E152CA38C7900896414 /* MainWidgetEntry.swift in Sources */,
 				B32B60A52C838EB0007DDCE3 /* WidgetModuleCell.swift in Sources */,
+				B30201692CC7074F00301646 /* View+PulseEffect.swift in Sources */,
 				B39A259E2CAB2969001C76A5 /* Copying.swift in Sources */,
 				B32B60FC2C87AC90007DDCE3 /* AppInfo+CoreDataProperties.swift in Sources */,
 				AFE5D5512CAF24E500503572 /* WeekDay.swift in Sources */,
@@ -2536,6 +2560,7 @@
 				B34F3DFD2C6A92890041D7BD /* RootTabBarController.swift in Sources */,
 				AFE5D5502CAF24E500503572 /* WeekDay.swift in Sources */,
 				B35BFC5E2CB6F23300092B42 /* FAQViewController.swift in Sources */,
+				B302016A2CC7074F00301646 /* View+PulseEffect.swift in Sources */,
 				B350C0492C8B8B680035682F /* UIEdgeInsets+Directions.swift in Sources */,
 				B39A26022CB06E01001C76A5 /* WidgetBuilderCoordinator+WidgetSetupViewControllerDelegate.swift in Sources */,
 				B3D1B7DF2CB7121D00DFC4F5 /* HelpViewController.swift in Sources */,
@@ -2635,6 +2660,7 @@
 				B39D89D52CB85620005EEC46 /* ComingSoonView.swift in Sources */,
 				B33808AA2CC30CD900D56884 /* ScreenTimePreferences.swift in Sources */,
 				AF362BFF2CA5AD8000506443 /* ScreenTimeelectAppsContentView.swift in Sources */,
+				B33808B82CC7070800D56884 /* LoadingView.swift in Sources */,
 				AFE5D5032CADD4C700503572 /* FamilyControlsManager.swift in Sources */,
 				B35BFC602CB6F4A500092B42 /* FAQCoordinator.swift in Sources */,
 				B35BFC482CB5F9B600092B42 /* TutorialEditWidgetViewController.swift in Sources */,
