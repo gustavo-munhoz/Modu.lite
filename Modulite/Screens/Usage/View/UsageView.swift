@@ -13,22 +13,26 @@ struct UsageView: View {
     @StateObject private var viewModel = UsageViewModel()
     
     var body: some View {
-        Group {
-            if viewModel.isAuthorized {
-                viewModel.createDeviceActivityReport()
-                
-            } else {
-                NavigationStack {
-                    EmptyView()
-                }
-                .navigationTitle("My screen time")
-                .navigationBarTitleDisplayMode(.large)
+        ZStack {
+            LoadingView(hasText: true)
                 .background(.whiteTurnip)
+            
+            Group {
+                if viewModel.isAuthorized {
+                    viewModel.createDeviceActivityReport()
+                    
+                } else {
+                    NavigationStack {
+                        EmptyView()
+                    }
+                    .navigationTitle("My screen time")
+                    .navigationBarTitleDisplayMode(.large)
+                    .background(.whiteTurnip)
+                }
+            }
+            .onAppear {
+                viewModel.performAuth()
             }
         }
-        .onAppear {
-            viewModel.performAuth()
-        }
-        .background(Color.whiteTurnip.ignoresSafeArea())
     }
 }
