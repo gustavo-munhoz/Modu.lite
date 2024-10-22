@@ -692,6 +692,9 @@
         }
       }
     },
+    "Loading..." : {
+
+    },
     "Main Widget" : {
       "localizations" : {
         "en" : {
