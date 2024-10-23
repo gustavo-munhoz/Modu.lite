@@ -213,10 +213,19 @@ extension String {
         // MARK: - BlockAppsView & BlockAppsViewController
         case blockAppsViewBlockingSession(number: Int)
         
-        // MARK: - CreatingNewBlockingSessionView & CreatingNewBlockingSessionViewController
-        case blockingSessionChooseAppsToBlock
-        case blockingSessionButtonSearchApps
-        case blcokingSessionCreateBlockingSession
+        // MARK: - CreateBlockingSessionView
+        case createBlockingSessionName
+        case createBlockingSessionChooseApps
+        case createBlockingSessionSearchApps
+        case createBlockingSessionSelectedCount(number: Int)
+        case createBlockingSessionSelectConditions
+        case createBlockingSessionScheduled
+        case createBlockingSessionAlwaysOn
+        case createBlockingSessionAllDay
+        case createBlockingSessionStartAt
+        case createBlockingSessionFinishesAt
+        case createBlockingSessionDaysOfWeek
+        case createBlockingSessionSaveSession
         
         // MARK: - Widget Styles
         case widgetStyleNameAnalog
