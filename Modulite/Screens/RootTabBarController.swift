@@ -136,11 +136,13 @@ extension RootTabBarController: UITabBarControllerDelegate {
 
     override func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
         tabBar.standardAppearance.stackedLayoutAppearance.selected.titleTextAttributes = [
-            .foregroundColor: self.getColorForSelectedTag()
+            .foregroundColor: self.getColorForSelectedTag(),
+            .font: UIFont(textStyle: .footnote, weight: .bold)
         ]
         
         tabBar.scrollEdgeAppearance?.stackedLayoutAppearance.selected.titleTextAttributes = [
-            .foregroundColor: self.getColorForSelectedTag()
+            .foregroundColor: self.getColorForSelectedTag(),
+            .font: UIFont(textStyle: .footnote, weight: .bold)
         ]
         
         DispatchQueue.main.async { [weak self] in

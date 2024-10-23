@@ -39,33 +39,34 @@ class RootTabCoordinator: Coordinator {
     /// - Parameter rootTabBarController: The root tab bar controller to configure.
     private func setupTabs(for rootTabBarController: RootTabBarController) {
         rootTabBarController.viewControllers = [
-            configureHome(),
+            configureWidgets(),
             configureUsage(),
             configureBlockApps(),
             configureSettings()
         ]
     }
 
-    /// Creates and configures the Home tab with a navigation controller.
-    /// - Returns: A configured navigation controller for the Home tab.
-    private func configureHome() -> UINavigationController {
+    /// Creates and configures the Widgets tab with a navigation controller.
+    /// This tab focuses on all widgets settings
+    /// - Returns: A configured navigation controller for the Widgets tab.
+    private func configureWidgets() -> UINavigationController {
         let viewController = HomeViewController()
         let navigationController = UINavigationController(rootViewController: viewController)
         
         let tabBarItem = createTabBarItem(
             titleKey: .homeViewControllerTabBarItemTitle,
-            imageName: "house.fill",
-            selectedImageName: "house.fill"
+            imageName: "square.grid.3x2.fill",
+            selectedImageName: "square.grid.3x2.fill"
         )
         
         tabBarItem.tag = 0
         navigationController.tabBarItem = tabBarItem
         
-        let homeRouter = NavigationRouter(navigationController: navigationController)
-        let homeCoordinator = HomeCoordinator(router: homeRouter)
-        viewController.delegate = homeCoordinator
+        let widgetsRouter = NavigationRouter(navigationController: navigationController)
+        let widgetsCoordinator = HomeCoordinator(router: widgetsRouter)
+        viewController.delegate = widgetsCoordinator
         
-        children.append(homeCoordinator)
+        children.append(widgetsCoordinator)
         return navigationController
     }
     
