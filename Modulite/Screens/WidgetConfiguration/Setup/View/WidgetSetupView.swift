@@ -26,7 +26,6 @@ class WidgetSetupView: UIScrollView {
         textField.font = UIFont(textStyle: .title2, weight: .bold)
         textField.textColor = .textPrimary
         textField.backgroundColor = .potatoYellow
-        
         textField.layer.cornerRadius = 12
         textField.setLeftPaddingPoints(15)
         
@@ -173,7 +172,6 @@ class WidgetSetupView: UIScrollView {
     }
     
     // MARK: - Setup methods
-        
     func updateSelectedAppsCollectionViewHeight() {
         selectedAppsCollectionView.snp.updateConstraints { make in
             make.height.greaterThanOrEqualTo(selectedAppsCollectionView.contentSize.height)
