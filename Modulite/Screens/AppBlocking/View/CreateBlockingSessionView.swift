@@ -7,7 +7,6 @@
 
 import SwiftUI
 import FamilyControls
-import UIKit
 
 struct CreateBlockingSessionView: View {
     
