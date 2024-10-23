@@ -6,3 +6,9 @@
 //
 
 import Foundation
+
+class AppBlockingViewModel: ObservableObject {
+    
+    @Published var sessions: [AppBlockingSession] = []
+    
+}
