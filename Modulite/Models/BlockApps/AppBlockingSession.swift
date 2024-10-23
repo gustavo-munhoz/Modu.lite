@@ -10,12 +10,17 @@ import ManagedSettings
 import DeviceActivity
 import FamilyControls
 
+enum BlockingType: String, Codable {
+    case scheduled
+    case alwaysOn
+}
+
 class AppBlockingSession: ObservableObject {
     
     var id = UUID()
     var sessionName: String = ""
     @Published var activitySelection: FamilyActivitySelection
-    var blockingType: BlockingType?
+    var blockingType: BlockingType
     var isAllDay: Bool
     var startsAt: DateComponents?
     var endsAt: DateComponents?
@@ -31,6 +36,10 @@ class AppBlockingSession: ObservableObject {
     
     var webDomainsCount: Int {
         return activitySelection.webDomains.count
+    }
+    
+    var totalSelectionCount: Int {
+        appsCount + categoriesCount + webDomainsCount
     }
     
     var activityName: DeviceActivityName {
@@ -49,14 +58,14 @@ class AppBlockingSession: ObservableObject {
     
     init(
         id: UUID = UUID(),
-        sessionName: String,
-        activitySelection: FamilyActivitySelection,
-        blockingType: BlockingType? = nil,
-        isAllDay: Bool,
+        sessionName: String = "",
+        activitySelection: FamilyActivitySelection = .init(),
+        blockingType: BlockingType = .scheduled,
+        isAllDay: Bool = false,
         startsAt: DateComponents? = nil,
         endsAt: DateComponents? = nil,
         daysOfWeek: [Int]? = nil,
-        isActive: Bool
+        isActive: Bool = false
     ) {
         self.id = id
         self.sessionName = sessionName
@@ -75,9 +84,4 @@ class AppBlockingSession: ObservableObject {
         }
         return String(format: "%02d:%02d", hour, minute)
     }
-}
-
-enum BlockingType: String, Codable {
-    case schedule
-    case alwaysOn
 }
