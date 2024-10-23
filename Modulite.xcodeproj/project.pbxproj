@@ -35,7 +35,7 @@
 		AFE5D5362CADD53000503572 /* ShieldActionExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFE5D5342CADD53000503572 /* ShieldActionExtension.swift */; };
 		AFE5D5392CADD7CA00503572 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AFE5D5382CADD7CA00503572 /* Assets.xcassets */; };
 		AFFB44632CC6DB5C007CDA51 /* AppBlockingSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFFB44612CC6DB5C007CDA51 /* AppBlockingSession.swift */; };
-		AFFB44652CC6DBD0007CDA51 /* ScreenTimeSelectAppsContentViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFFB44642CC6DBD0007CDA51 /* ScreenTimeSelectAppsContentViewDelegate.swift */; };
+		AFFB44652CC6DBD0007CDA51 /* ScreenTimeSelectAppsContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFFB44642CC6DBD0007CDA51 /* ScreenTimeSelectAppsContentView.swift */; };
 		AFFB446A2CC6E350007CDA51 /* AppBlockingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFFB44692CC6E350007CDA51 /* AppBlockingViewController.swift */; };
 		AFFB446C2CC6E35A007CDA51 /* AppBlockingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFFB446B2CC6E35A007CDA51 /* AppBlockingViewModel.swift */; };
 		AFFB446E2CC6E37B007CDA51 /* AppBlockingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFFB446D2CC6E37B007CDA51 /* AppBlockingView.swift */; };
@@ -411,7 +411,7 @@
 		AFE5D5342CADD53000503572 /* ShieldActionExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShieldActionExtension.swift; sourceTree = "<group>"; };
 		AFE5D5382CADD7CA00503572 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AFFB44612CC6DB5C007CDA51 /* AppBlockingSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppBlockingSession.swift; sourceTree = "<group>"; };
-		AFFB44642CC6DBD0007CDA51 /* ScreenTimeSelectAppsContentViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenTimeSelectAppsContentViewDelegate.swift; sourceTree = "<group>"; };
+		AFFB44642CC6DBD0007CDA51 /* ScreenTimeSelectAppsContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenTimeSelectAppsContentView.swift; sourceTree = "<group>"; };
 		AFFB44662CC6DF37007CDA51 /* BlockManger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockManger.swift; sourceTree = "<group>"; };
 		AFFB44692CC6E350007CDA51 /* AppBlockingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppBlockingViewController.swift; sourceTree = "<group>"; };
 		AFFB446B2CC6E35A007CDA51 /* AppBlockingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppBlockingViewModel.swift; sourceTree = "<group>"; };
@@ -779,7 +779,7 @@
 			children = (
 				B302016F2CC8C97500301646 /* Components */,
 				AFFB446D2CC6E37B007CDA51 /* AppBlockingView.swift */,
-				AFFB44642CC6DBD0007CDA51 /* ScreenTimeSelectAppsContentViewDelegate.swift */,
+				AFFB44642CC6DBD0007CDA51 /* ScreenTimeSelectAppsContentView.swift */,
 				B302016C2CC8230200301646 /* CreateBlockingSessionView.swift */,
 			);
 			path = View;
@@ -2525,7 +2525,7 @@
 				B39A25A42CAB5CE3001C76A5 /* WidgetEditorSaveButton.swift in Sources */,
 				B33808A62CC3051700D56884 /* UserPreference.swift in Sources */,
 				B32B60F02C876F4A007DDCE3 /* FileManagerImagePersistenceController.swift in Sources */,
-				AFFB44652CC6DBD0007CDA51 /* ScreenTimeSelectAppsContentViewDelegate.swift in Sources */,
+				AFFB44652CC6DBD0007CDA51 /* ScreenTimeSelectAppsContentView.swift in Sources */,
 				B3EB15B92C7E4CD6003B1960 /* ModuleAppNameTextConfiguration.swift in Sources */,
 				B39A25AC2CAC7D2A001C76A5 /* WidgetEditorViewController+UICollectionViewDelegate.swift in Sources */,
 				B30201772CC8C9EE00301646 /* ConditionRowView.swift in Sources */,

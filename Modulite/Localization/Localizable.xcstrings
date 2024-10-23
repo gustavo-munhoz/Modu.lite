@@ -7,6 +7,9 @@
     "%@" : {
 
     },
+    "%lld/7 days" : {
+
+    },
     "back" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -1010,9 +1013,6 @@
       }
     },
     "Selects the widget configuration to display." : {
-
-    },
-    "Session Name" : {
 
     },
     "settingsViewControllerTabBarItemTitle" : {
