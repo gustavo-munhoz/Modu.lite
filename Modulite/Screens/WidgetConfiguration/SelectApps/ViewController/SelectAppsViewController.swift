@@ -213,4 +213,8 @@ extension SelectAppsViewController: UISearchBarDelegate {
         viewModel.filterApps(with: searchText)
         selectAppsView.appsCollectionView.reloadData()
     }
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.resignFirstResponder()
+    }
 }
