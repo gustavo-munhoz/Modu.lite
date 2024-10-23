@@ -15,7 +15,6 @@
 		AF362C6D2CA7478B00506443 /* UsageActivityReportScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF362C682CA7478B00506443 /* UsageActivityReportScene.swift */; };
 		AF763F262CAF4492002FBE26 /* FamilyControlsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFE5D5012CADD4C700503572 /* FamilyControlsManager.swift */; };
 		AF9D41DA2CA49BE50077F565 /* UsageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF9D41D82CA49BE50077F565 /* UsageViewModel.swift */; };
-		AFABBD7C2C80F2E0007BEFD8 /* UsageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFABBD7B2C80F2E0007BEFD8 /* UsageView.swift */; };
 		AFBBC5032C7E459900A9B256 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AFBBC4EB2C7E457C00A9B256 /* WidgetKit.framework */; };
 		AFBBC5042C7E459900A9B256 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AFBBC4ED2C7E457C00A9B256 /* SwiftUI.framework */; };
 		AFBBC5072C7E459900A9B256 /* ModuliteWidgetBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFBBC5062C7E459900A9B256 /* ModuliteWidgetBundle.swift */; };
@@ -35,15 +34,16 @@
 		AFE5D5312CADD52E00503572 /* ShieldConfigurationExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFE5D52E2CADD52E00503572 /* ShieldConfigurationExtension.swift */; };
 		AFE5D5362CADD53000503572 /* ShieldActionExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFE5D5342CADD53000503572 /* ShieldActionExtension.swift */; };
 		AFE5D5392CADD7CA00503572 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AFE5D5382CADD7CA00503572 /* Assets.xcassets */; };
-		AFFB44622CC6DB5C007CDA51 /* AppBlockingSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFFB44612CC6DB5C007CDA51 /* AppBlockingSession.swift */; };
+		AFE73F8C2CC834D9006ECE03 /* AppBlockingSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFFB44612CC6DB5C007CDA51 /* AppBlockingSession.swift */; };
+		AFE73F8D2CC834F7006ECE03 /* BlockManger.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFFB44662CC6DF37007CDA51 /* BlockManger.swift */; };
+		AFE73F8E2CC83506006ECE03 /* BlockManger.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFFB44662CC6DF37007CDA51 /* BlockManger.swift */; };
 		AFFB44632CC6DB5C007CDA51 /* AppBlockingSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFFB44612CC6DB5C007CDA51 /* AppBlockingSession.swift */; };
 		AFFB44652CC6DBD0007CDA51 /* ScreenTimeSelectAppsContentViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFFB44642CC6DBD0007CDA51 /* ScreenTimeSelectAppsContentViewDelegate.swift */; };
-		AFFB44672CC6DF37007CDA51 /* BlockManger.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFFB44662CC6DF37007CDA51 /* BlockManger.swift */; };
 		AFFB446A2CC6E350007CDA51 /* AppBlockingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFFB44692CC6E350007CDA51 /* AppBlockingViewController.swift */; };
-		B30201692CC7074F00301646 /* View+PulseEffect.swift in Sources */ = {isa = PBXBuildFile; fileRef = B30201682CC7074F00301646 /* View+PulseEffect.swift */; };
-		B302016A2CC7074F00301646 /* View+PulseEffect.swift in Sources */ = {isa = PBXBuildFile; fileRef = B30201682CC7074F00301646 /* View+PulseEffect.swift */; };
 		AFFB446C2CC6E35A007CDA51 /* AppBlockingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFFB446B2CC6E35A007CDA51 /* AppBlockingViewModel.swift */; };
 		AFFB446E2CC6E37B007CDA51 /* AppBlockingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFFB446D2CC6E37B007CDA51 /* AppBlockingView.swift */; };
+		B30201692CC7074F00301646 /* View+PulseEffect.swift in Sources */ = {isa = PBXBuildFile; fileRef = B30201682CC7074F00301646 /* View+PulseEffect.swift */; };
+		B302016A2CC7074F00301646 /* View+PulseEffect.swift in Sources */ = {isa = PBXBuildFile; fileRef = B30201682CC7074F00301646 /* View+PulseEffect.swift */; };
 		B30AAD632C9227BA002806A7 /* WidgetContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = B30AAD622C9227BA002806A7 /* WidgetContent.swift */; };
 		B30AAD652C9227DE002806A7 /* WidgetContentBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = B30AAD642C9227DE002806A7 /* WidgetContentBuilder.swift */; };
 		B32B60A52C838EB0007DDCE3 /* WidgetModuleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B34F3E3F2C74E3270041D7BD /* WidgetModuleCell.swift */; };
@@ -2349,6 +2349,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AFE73F8C2CC834D9006ECE03 /* AppBlockingSession.swift in Sources */,
+				AFE73F8E2CC83506006ECE03 /* BlockManger.swift in Sources */,
 				AFE5D5022CADD4C700503572 /* FamilyControlsManager.swift in Sources */,
 				AF362C162CA5B1B000506443 /* DeviceActivityMonitorExtension.swift in Sources */,
 			);
@@ -2382,7 +2384,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				B37284722C82992C00D9A1E7 /* String+TextCase.swift in Sources */,
-				AFFB44672CC6DF37007CDA51 /* BlockManger.swift in Sources */,
 				B3850BB82C9521E600F400C0 /* WidgetBackground.swift in Sources */,
 				B37284742C82995C00D9A1E7 /* UIFont+TraitedTextStyle.swift in Sources */,
 				B32B60F82C87AC5F007DDCE3 /* PersistableWidgetConfiguration+CoreDataClass.swift in Sources */,
@@ -2403,7 +2404,6 @@
 				B37284702C82990B00D9A1E7 /* WidgetStyle.swift in Sources */,
 				AFBBC5072C7E459900A9B256 /* ModuliteWidgetBundle.swift in Sources */,
 				B3987E052CA3602900896414 /* UIView+animateBorderColor.swift in Sources */,
-				AFFB44622CC6DB5C007CDA51 /* AppBlockingSession.swift in Sources */,
 				B3987E2C2CA4F43100896414 /* SelectMainWidgetConfigurationIntent.swift in Sources */,
 				B3987E152CA38C7900896414 /* MainWidgetEntry.swift in Sources */,
 				B32B60A52C838EB0007DDCE3 /* WidgetModuleCell.swift in Sources */,
@@ -2510,6 +2510,7 @@
 				B3987E2E2CA4F46A00896414 /* MainWidgetConfigurationQuery.swift in Sources */,
 				B35BFBC52CB4B6CE00092B42 /* SubscriptionDetailsCoordinator.swift in Sources */,
 				B3C187822C79009B00A891A8 /* WidgetConfigurationBuilder.swift in Sources */,
+				AFE73F8D2CC834F7006ECE03 /* BlockManger.swift in Sources */,
 				B3D1B7C72CB6F61E00DFC4F5 /* FAQLocalizedTexts.swift in Sources */,
 				B39A25D62CAF260C001C76A5 /* CAGradientLayer+Gradient.swift in Sources */,
 				B3C1877F2C78D1E000A891A8 /* ModuliteWidgetConfiguration.swift in Sources */,
@@ -2520,7 +2521,6 @@
 				B39A25AA2CAC7C89001C76A5 /* WidgetEditorViewController+UICollectionViewDataSource.swift in Sources */,
 				B34F3E3E2C74CE090041D7BD /* EditorSectionHeader.swift in Sources */,
 				B33808932CC2FFED00D56884 /* RequestScreenTimeViewController.swift in Sources */,
-				AFFB44682CC6DF37007CDA51 /* BlockManger.swift in Sources */,
 				B35BFC522CB60B7300092B42 /* TutorialStepsStackView.swift in Sources */,
 				B34F3DFD2C6A92890041D7BD /* RootTabBarController.swift in Sources */,
 				B35BFC5E2CB6F23300092B42 /* FAQViewController.swift in Sources */,

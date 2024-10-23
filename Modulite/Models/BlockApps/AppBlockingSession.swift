@@ -45,7 +45,7 @@ class AppBlockingSession: ObservableObject {
         return "\(startFormatted) - \(endFormatted)"
     }
     
-    var blockManager: BlockManager?
+    var blockManager: BlockManager
     
     init(
         id: UUID = UUID(),
@@ -56,7 +56,8 @@ class AppBlockingSession: ObservableObject {
         startsAt: DateComponents? = nil,
         endsAt: DateComponents? = nil,
         daysOfWeek: [Int]? = nil,
-        isActive: Bool
+        isActive: Bool,
+        blockManager: BlockManager
     ) {
         self.id = id
         self.sessionName = sessionName
@@ -67,6 +68,7 @@ class AppBlockingSession: ObservableObject {
         self.endsAt = endsAt
         self.daysOfWeek = daysOfWeek
         self.isActive = isActive
+        self.blockManager = blockManager
     }
     
     private func formatTime(from components: DateComponents?) -> String {
