@@ -2,27 +2,51 @@
 //  AppBlockingSession.swift
 //  Modulite
 //
-//  Created by André Wozniack on 03/10/24.
+//  Created by André Wozniack on 21/10/24.
 //
 
 import Foundation
-import FamilyControls
+import ManagedSettings
 import DeviceActivity
+import FamilyControls
 
-class AppBlockingSession {
+enum BlockingType: String, Codable {
+    case scheduled
+    case alwaysOn
+}
+
+class AppBlockingSession: ObservableObject {
+    
     var id = UUID()
-    var name: String?
-    var selection: FamilyActivitySelection!
-    var blockingType: BlockType?
-    var isAllDay: Bool?
+    var sessionName: String = ""
+    @Published var activitySelection: FamilyActivitySelection
+    var blockingType: BlockingType
+    var isAllDay: Bool
     var startsAt: DateComponents?
     var endsAt: DateComponents?
-    var daysOfWeek: [WeekDay] = []
-    var isActive: Bool
+    var daysOfWeek: [Int]?
     
-    private var blockManager: AppBlockManager
-    private var activityName: DeviceActivityName
-    private var schedule: DeviceActivitySchedule
+    var appsCount: Int {
+        return activitySelection.applications.count
+    }
+    
+    var categoriesCount: Int {
+        return activitySelection.categories.count
+    }
+    
+    var webDomainsCount: Int {
+        return activitySelection.webDomains.count
+    }
+    
+    var totalSelectionCount: Int {
+        appsCount + categoriesCount + webDomainsCount
+    }
+    
+    var activityName: DeviceActivityName {
+        return DeviceActivityName(self.id.uuidString)
+    }
+    
+    var isActive: Bool
     
     var time: String {
         let startFormatted = formatTime(from: startsAt)
@@ -30,49 +54,28 @@ class AppBlockingSession {
         return "\(startFormatted) - \(endFormatted)"
     }
     
-    var appsBlocked: Int {
-        return selection.applications.count
-    }
-
-    var categoriesBlocked: Int {
-        return selection.categories.count
-    }
-    
-    var webDomainsBlocked: Int {
-        return selection.webDomains.count
-    }
+    var blockManager: BlockManager?
     
     init(
-        name: String,
-        selection: FamilyActivitySelection,
-        blockingType: BlockType,
-        isAllDay: Bool,
-        startsAt: DateComponents,
-        endsAt: DateComponents,
-        daysOfWeek: [WeekDay] = []
+        id: UUID = UUID(),
+        sessionName: String = "",
+        activitySelection: FamilyActivitySelection = .init(),
+        blockingType: BlockingType = .scheduled,
+        isAllDay: Bool = false,
+        startsAt: DateComponents? = nil,
+        endsAt: DateComponents? = nil,
+        daysOfWeek: [Int]? = nil,
+        isActive: Bool = false
     ) {
-        self.name = name
-        self.selection = selection
+        self.id = id
+        self.sessionName = sessionName
+        self.activitySelection = activitySelection
         self.blockingType = blockingType
         self.isAllDay = isAllDay
         self.startsAt = startsAt
         self.endsAt = endsAt
         self.daysOfWeek = daysOfWeek
-        self.isActive = false
-        
-        self.activityName = DeviceActivityName("block_\(UUID().uuidString)")
-        
-        self.schedule = DeviceActivitySchedule(
-            intervalStart: startsAt,
-            intervalEnd: endsAt,
-            repeats: true
-        )
-        
-        self.blockManager = AppBlockManager(
-            selection: selection,
-            activityName: self.activityName,
-            schedule: self.schedule
-        )
+        self.isActive = isActive
     }
     
     private func formatTime(from components: DateComponents?) -> String {
@@ -80,24 +83,5 @@ class AppBlockingSession {
             return "00:00"
         }
         return String(format: "%02d:%02d", hour, minute)
-    }
-    
-    // MARK: - Block Functions: BlockManager
-    func activateBlock() {
-        blockManager.startBlock()
-    }
-
-    func deactivateBlock() {
-        blockManager.stopBlock()
-    }
-    
-    func updateBlock() {
-        blockManager.stopBlock()
-        blockManager.startBlock()
-    }
-    
-    // MARK: - Edit properties
-    func updateSelection(_ selection: FamilyActivitySelection ) {
-        blockManager.activitySelection = selection
     }
 }

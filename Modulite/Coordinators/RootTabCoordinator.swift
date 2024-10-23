@@ -104,7 +104,7 @@ class RootTabCoordinator: Coordinator {
     /// - Returns: A configured navigation controller for the Block Apps tab.
     private func configureBlockApps() -> UINavigationController {
         #if DEBUG
-        let vc = BlockAppsViewController()
+        let vc = AppBlockingViewController()
         #else
         let vc = ComingSoonViewController()
         vc.fillComingSoonView(for: .appBlocking)

@@ -1,7 +1,13 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
+    "" : {
+
+    },
     "%@" : {
+
+    },
+    "%lld/7 days" : {
 
     },
     "back" : {
@@ -14,9 +20,6 @@
           }
         }
       }
-    },
-    "blcokingSessionCreateBlockingSession" : {
-      "extractionState" : "manual"
     },
     "blockAppsViewBlockingSession" : {
       "extractionState" : "manual",
@@ -36,28 +39,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Block apps"
-          }
-        }
-      }
-    },
-    "blockingSessionButtonSearchApps" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "SEARCH APPS"
-          }
-        }
-      }
-    },
-    "blockingSessionChooseAppsToBlock" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Choose apps to block"
           }
         }
       }
@@ -149,6 +130,138 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Screen time usage"
+          }
+        }
+      }
+    },
+    "createBlockingSessionAllDay" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "All day"
+          }
+        }
+      }
+    },
+    "createBlockingSessionAlwaysOn" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Always on"
+          }
+        }
+      }
+    },
+    "createBlockingSessionChooseApps" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Choose apps to block"
+          }
+        }
+      }
+    },
+    "createBlockingSessionDaysOfWeek" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Days of the week"
+          }
+        }
+      }
+    },
+    "createBlockingSessionFinishesAt" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Finishes at"
+          }
+        }
+      }
+    },
+    "createBlockingSessionName" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "New Session"
+          }
+        }
+      }
+    },
+    "createBlockingSessionSaveSession" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "SAVE SESSION"
+          }
+        }
+      }
+    },
+    "createBlockingSessionScheduled" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Scheduled"
+          }
+        }
+      }
+    },
+    "createBlockingSessionSearchApps" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "SEARCH APPS"
+          }
+        }
+      }
+    },
+    "createBlockingSessionSelectConditions" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Select duration and conditions"
+          }
+        }
+      }
+    },
+    "createBlockingSessionSelectedCount" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%d selected"
+          }
+        }
+      }
+    },
+    "createBlockingSessionStartAt" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Start at"
           }
         }
       }
@@ -691,6 +804,9 @@
           }
         }
       }
+    },
+    "Key" : {
+      "extractionState" : "manual"
     },
     "Loading..." : {
 
