@@ -265,6 +265,7 @@
 		B39D89E02CB85C38005EEC46 /* BlockAppsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39D89DE2CB85C38005EEC46 /* BlockAppsCoordinator.swift */; };
 		B39D89E32CB85C3C005EEC46 /* UsageCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39D89E12CB85C3C005EEC46 /* UsageCoordinator.swift */; };
 		B39D89E92CB86058005EEC46 /* ComingSoonCircularIconView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39D89E72CB86058005EEC46 /* ComingSoonCircularIconView.swift */; };
+		B3AEF83B2CCA705C0019E91A /* AppBlockingSessionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3AEF83A2CCA705C0019E91A /* AppBlockingSessionHeader.swift */; };
 		B3C1877F2C78D1E000A891A8 /* ModuliteWidgetConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3C1877E2C78D1E000A891A8 /* ModuliteWidgetConfiguration.swift */; };
 		B3C187822C79009B00A891A8 /* WidgetConfigurationBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3C187812C79009B00A891A8 /* WidgetConfigurationBuilder.swift */; };
 		B3C187842C791D1300A891A8 /* WidgetStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3C187832C791D1300A891A8 /* WidgetStyle.swift */; };
@@ -603,6 +604,7 @@
 		B39D89DE2CB85C38005EEC46 /* BlockAppsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockAppsCoordinator.swift; sourceTree = "<group>"; };
 		B39D89E12CB85C3C005EEC46 /* UsageCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsageCoordinator.swift; sourceTree = "<group>"; };
 		B39D89E72CB86058005EEC46 /* ComingSoonCircularIconView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComingSoonCircularIconView.swift; sourceTree = "<group>"; };
+		B3AEF83A2CCA705C0019E91A /* AppBlockingSessionHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppBlockingSessionHeader.swift; sourceTree = "<group>"; };
 		B3C1877E2C78D1E000A891A8 /* ModuliteWidgetConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModuliteWidgetConfiguration.swift; sourceTree = "<group>"; };
 		B3C187812C79009B00A891A8 /* WidgetConfigurationBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetConfigurationBuilder.swift; sourceTree = "<group>"; };
 		B3C187832C791D1300A891A8 /* WidgetStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetStyle.swift; sourceTree = "<group>"; };
@@ -791,6 +793,7 @@
 				B302017D2CC9C0FA00301646 /* CreateBlockingSession */,
 				AFFB446D2CC6E37B007CDA51 /* AppBlockingView.swift */,
 				B302017E2CC9C11C00301646 /* AppBlockingSessionCell.swift */,
+				B3AEF83A2CCA705C0019E91A /* AppBlockingSessionHeader.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -2563,6 +2566,7 @@
 				B3EB15B92C7E4CD6003B1960 /* ModuleAppNameTextConfiguration.swift in Sources */,
 				B39A25AC2CAC7D2A001C76A5 /* WidgetEditorViewController+UICollectionViewDelegate.swift in Sources */,
 				B30201772CC8C9EE00301646 /* ConditionRowView.swift in Sources */,
+				B3AEF83B2CCA705C0019E91A /* AppBlockingSessionHeader.swift in Sources */,
 				B3EB15B62C7E4BF0003B1960 /* ModuleConfiguration.swift in Sources */,
 				B35BFBE92CB5AF9B00092B42 /* TutorialCenterCoordinator.swift in Sources */,
 				B36927D32C66BBC10089F769 /* SceneDelegateRouter.swift in Sources */,
