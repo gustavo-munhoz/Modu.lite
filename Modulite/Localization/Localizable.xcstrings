@@ -10,6 +10,39 @@
     "%lld/7 days" : {
 
     },
+    "appBlockingViewControllerActiveTitle" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Active blocking sessions"
+          }
+        }
+      }
+    },
+    "appBlockingViewControllerInactiveTitle" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Inactive blocking sessions"
+          }
+        }
+      }
+    },
+    "appBlockingViewControllerNavigationTitle" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Block distracting apps"
+          }
+        }
+      }
+    },
     "back" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -804,9 +837,6 @@
           }
         }
       }
-    },
-    "Key" : {
-      "extractionState" : "manual"
     },
     "Loading..." : {
 
