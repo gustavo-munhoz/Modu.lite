@@ -266,7 +266,7 @@ class WidgetEditorView: UIScrollView {
         
         downloadWallpaperButton.snp.makeConstraints { make in
             make.top.equalTo(wallpaperHeader.snp.bottom).offset(16)
-            make.width.equalTo(260)
+//            make.width.greaterThanOrEqualTo(260)
             make.height.equalTo(40)
             make.centerX.equalToSuperview()
         }

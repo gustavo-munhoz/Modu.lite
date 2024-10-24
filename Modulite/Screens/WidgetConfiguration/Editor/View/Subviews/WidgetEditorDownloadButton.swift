@@ -30,7 +30,7 @@ class WidgetEditorDownloadButton: UIButton {
             .localized(for: .widgetEditorViewWallpaperButton),
             attributes: AttributeContainer([
                 .font: UIFont(textStyle: .body, weight: .bold),
-                .foregroundColor: UIColor.textPrimary
+                .foregroundColor: UIColor.white
             ])
         )
         
@@ -39,16 +39,18 @@ class WidgetEditorDownloadButton: UIButton {
         
         config.image = UIImage(systemName: "square.and.arrow.down")?
             .withTintColor(.textPrimary, renderingMode: .alwaysOriginal)
+            .withConfiguration(
+                UIImage.SymbolConfiguration(
+                    font: UIFont(textStyle: .body, weight: .semibold)
+                )
+            )
         
         config.imagePlacement = .leading
         config.imagePadding = 5
         
-        config.baseBackgroundColor = .clear
+        config.baseBackgroundColor = .carrotOrange
         
         configuration = config
-        
-        layer.borderColor = UIColor.carrotOrange.cgColor
-        layer.borderWidth = 2
         
         configurationUpdateHandler = { button in
             var updatedConfig = button.configuration
