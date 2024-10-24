@@ -11,7 +11,14 @@ class ModuliteFreeSmallBadge: GradientLabelView {
     convenience init() {
         self.init(
             gradient: Gradient(
-                colors: [.potatoYellow, .potatoYellow],
+                colors: [
+                    .potatoYellow.resolvedColor(
+                        with: .init(userInterfaceStyle: .light)
+                    ),
+                    .potatoYellow.resolvedColor(
+                        with: .init(userInterfaceStyle: .light)
+                    )
+                ],
                 direction: CGVector(dx: 1, dy: 0)
             ),
             insets: .init(vertical: 5, horizontal: 5)
