@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AF0026652CCAC8300052B101 /* ShieldContentFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF0026642CCAC8300052B101 /* ShieldContentFactory.swift */; };
+		AF0026662CCAC8300052B101 /* ShieldContentFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF0026642CCAC8300052B101 /* ShieldContentFactory.swift */; };
+		AF0026672CCAC8300052B101 /* ShieldContentFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF0026642CCAC8300052B101 /* ShieldContentFactory.swift */; };
+		AF0026682CCACE6E0052B101 /* String+LocalizedKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = B34F3DF42C6701870041D7BD /* String+LocalizedKey.swift */; };
 		AF362C052CA5B1A300506443 /* DeviceActivity.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AFABBD872C88E388007BEFD8 /* DeviceActivity.framework */; };
 		AF362C0D2CA5B1A300506443 /* ModuliteDeviceActivityMonitor.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = AF362C042CA5B1A300506443 /* ModuliteDeviceActivityMonitor.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		AF362C162CA5B1B000506443 /* DeviceActivityMonitorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF362C122CA5B1B000506443 /* DeviceActivityMonitorExtension.swift */; };
@@ -379,6 +383,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		AF0026642CCAC8300052B101 /* ShieldContentFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShieldContentFactory.swift; sourceTree = "<group>"; };
 		AF362C042CA5B1A300506443 /* ModuliteDeviceActivityMonitor.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = ModuliteDeviceActivityMonitor.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		AF362C122CA5B1B000506443 /* DeviceActivityMonitorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceActivityMonitorExtension.swift; sourceTree = "<group>"; };
 		AF362C132CA5B1B000506443 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -800,9 +805,9 @@
 		AFE5D52F2CADD52E00503572 /* ModuliteShieldConfiguration */ = {
 			isa = PBXGroup;
 			children = (
-				AFE5D52C2CADD52E00503572 /* Info.plist */,
-				AFE5D52D2CADD52E00503572 /* ModuliteShieldConfiguration.entitlements */,
 				AFE5D52E2CADD52E00503572 /* ShieldConfigurationExtension.swift */,
+				AFE5D52D2CADD52E00503572 /* ModuliteShieldConfiguration.entitlements */,
+				AFE5D52C2CADD52E00503572 /* Info.plist */,
 				AFE5D5382CADD7CA00503572 /* Assets.xcassets */,
 			);
 			path = ModuliteShieldConfiguration;
@@ -1945,6 +1950,7 @@
 				B3CDD7062C77C59B00E558F8 /* ImageProcessingFactory.swift */,
 				B3C187852C79208600A891A8 /* WidgetStyleFactory.swift */,
 				B32B60FD2C88E43F007DDCE3 /* CustomizedTextFactory.swift */,
+				AF0026642CCAC8300052B101 /* ShieldContentFactory.swift */,
 			);
 			path = Factories;
 			sourceTree = "<group>";
@@ -2409,6 +2415,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B37284722C82992C00D9A1E7 /* String+TextCase.swift in Sources */,
+				AF0026662CCAC8300052B101 /* ShieldContentFactory.swift in Sources */,
 				B3850BB82C9521E600F400C0 /* WidgetBackground.swift in Sources */,
 				B37284742C82995C00D9A1E7 /* UIFont+TraitedTextStyle.swift in Sources */,
 				B32B60F82C87AC5F007DDCE3 /* PersistableWidgetConfiguration+CoreDataClass.swift in Sources */,
@@ -2459,6 +2466,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				AFDC1A522CB4600B008A816D /* ShieldConfigurationBuilder.swift in Sources */,
+				AF0026672CCAC8300052B101 /* ShieldContentFactory.swift in Sources */,
+				AF0026682CCACE6E0052B101 /* String+LocalizedKey.swift in Sources */,
 				AFE5D5312CADD52E00503572 /* ShieldConfigurationExtension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2539,6 +2548,7 @@
 				B3C187822C79009B00A891A8 /* WidgetConfigurationBuilder.swift in Sources */,
 				B302016D2CC8230200301646 /* CreateBlockingSessionView.swift in Sources */,
 				B302016B2CC8229200301646 /* BlockManger.swift in Sources */,
+				AF0026652CCAC8300052B101 /* ShieldContentFactory.swift in Sources */,
 				B30201792CC9705800301646 /* SelectableDay.swift in Sources */,
 				B3D1B7C72CB6F61E00DFC4F5 /* FAQLocalizedTexts.swift in Sources */,
 				B39A25D62CAF260C001C76A5 /* CAGradientLayer+Gradient.swift in Sources */,
