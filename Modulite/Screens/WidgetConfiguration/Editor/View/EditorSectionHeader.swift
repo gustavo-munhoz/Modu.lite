@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SnapKit
 
 class EditorSectionHeader: UIView {
     
@@ -24,11 +25,28 @@ class EditorSectionHeader: UIView {
     }()
     
     private(set) lazy var infoButton: UIButton = {
-        let view = UIButton()
-        // TODO: Fix image sizing
-        view.setImage(UIImage(systemName: "info.circle")!, for: .normal)
-            
+        var config = UIButton.Configuration.plain()
+        
+        config.baseForegroundColor = .carrotOrange
+        config.image = UIImage(systemName: "info.circle")?.withConfiguration(
+            UIImage.SymbolConfiguration(pointSize: 17, weight: .semibold)
+        )
+        
+        config.contentInsets = .zero
+        
+        let view = UIButton(configuration: config)
         view.addTarget(self, action: #selector(infoButtonTapped), for: .touchUpInside)
+        
+        view.configurationUpdateHandler = { button in
+            UIView.animate(withDuration: 0.15) {
+                switch button.state {
+                case .highlighted:
+                    button.alpha = 0.6
+                default:
+                    button.alpha = 1
+                }
+            }
+        }
         
         return view
     }()
