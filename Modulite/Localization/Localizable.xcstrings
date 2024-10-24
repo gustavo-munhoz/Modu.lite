@@ -10,6 +10,17 @@
     "%lld/7 days" : {
 
     },
+    "actionButtonTitle" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ok, I'll wait!"
+          }
+        }
+      }
+    },
     "back" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -1066,6 +1077,215 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Tutorials"
+          }
+        }
+      }
+    },
+    "shieldContent1" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ is on dial-up speed...  It'll be back later!"
+          }
+        }
+      }
+    },
+    "shieldContent2" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Loading %@… just like your favorite ‘90s website. Try again after your break!"
+          }
+        }
+      }
+    },
+    "shieldContent3" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ is busy rewinding its VHS. Check back soon!"
+          }
+        }
+      }
+    },
+    "shieldContent4" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Looks like %@ is on a CD-ROM.  It’ll spin back up later!"
+          }
+        }
+      }
+    },
+    "shieldContent5" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ is on a Y2K break — let’s give it some time!"
+          }
+        }
+      }
+    },
+    "shieldContent6" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ is on pause, like your favorite Saturday morning cartoon during a cereal break!"
+          }
+        }
+      }
+    },
+    "shieldContent7" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ is out of battery! It's searching for 6 AA batteries to power back up!"
+          }
+        }
+      }
+    },
+    "shieldContent8" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ is developing photos, old-school style — check back once they’re out of the darkroom!"
+          }
+        }
+      }
+    },
+    "shieldContent9" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ is on a road trip in a ‘90s station wagon — catch it when it’s back!"
+          }
+        }
+      }
+    },
+    "shieldContent10" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Remember floppy disks? Yeah, %@ is kinda like that right now... out of space!"
+          }
+        }
+      }
+    },
+    "shieldContent11" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ is off playing Snake on a Nokia — give it a minute!"
+          }
+        }
+      }
+    },
+    "shieldContent12" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ is busy burning a mixtape. Try again once it’s done!"
+          }
+        }
+      }
+    },
+    "shieldContent13" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ is waiting for its favorite song to come on the radio. Try later!"
+          }
+        }
+      }
+    },
+    "shieldContent14" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Currently stuck in a Blockbuster checkout line —  %@ will be back soon!"
+          }
+        }
+      }
+    },
+    "shieldContent15" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Currently looking for the TV remote — %@ will be back soon!"
+          }
+        }
+      }
+    },
+    "shieldContent16" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ is on a road trip with no GPS. It'll find its way back eventually!"
+          }
+        }
+      }
+    },
+    "shieldContent17" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Gone to play at the arcade. %@ will be back after the high score!"
+          }
+        }
+      }
+    },
+    "shieldContent18" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ is updating its MySpace profile. Give it a moment!"
+          }
+        }
+      }
+    },
+    "shieldContent19" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ is updating its MySpace profile. Give it a moment!"
           }
         }
       }
