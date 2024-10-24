@@ -225,7 +225,6 @@ class WidgetEditorView: UIScrollView {
         contentView.snp.makeConstraints { make in
             make.edges.equalToSuperview().inset(UIEdgeInsets(top: 24, left: 24, bottom: 24, right: -24))
             make.width.equalToSuperview().offset(-48)
-            make.height.equalTo(900)
         }
         
         layoutHeader.snp.makeConstraints { make in
