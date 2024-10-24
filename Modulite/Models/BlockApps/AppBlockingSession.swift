@@ -22,9 +22,9 @@ class AppBlockingSession: ObservableObject {
     @Published var activitySelection: FamilyActivitySelection
     var blockingType: BlockingType
     var isAllDay: Bool
-    var startsAt: DateComponents?
-    var endsAt: DateComponents?
-    var daysOfWeek: [Int]?
+    var startsAt: DateComponents = .init(hour: 0, minute: 0)
+    var endsAt: DateComponents = .init(hour: 0, minute: 0)
+    var daysOfWeek: [Int] = []
     
     var appsCount: Int {
         return activitySelection.applications.count
@@ -62,9 +62,9 @@ class AppBlockingSession: ObservableObject {
         activitySelection: FamilyActivitySelection = .init(),
         blockingType: BlockingType = .scheduled,
         isAllDay: Bool = false,
-        startsAt: DateComponents? = nil,
-        endsAt: DateComponents? = nil,
-        daysOfWeek: [Int]? = nil,
+        startsAt: DateComponents = .init(),
+        endsAt: DateComponents = .init(),
+        daysOfWeek: [Int] = [],
         isActive: Bool = false
     ) {
         self.id = id
