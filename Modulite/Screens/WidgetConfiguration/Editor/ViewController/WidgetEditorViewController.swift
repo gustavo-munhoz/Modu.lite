@@ -97,29 +97,55 @@ class WidgetEditorViewController: UIViewController {
     }
     
     private func handleDownloadWallpaperTouch() {
-        do {
-            try viewModel.saveWallpaperImageToPhotos()
-            presentWallpaperSaveAlert(success: true)
-            disableWallpaperDownloadButton()
-            
-        } catch {
-            presentWallpaperSaveAlert(success: false)
+        viewModel.saveWallpaperImageToPhotos { [weak self] result in
+            DispatchQueue.main.async {
+                guard let self = self else { return }
+                switch result {
+                case .success:
+                    self.presentWallpaperSaveAlert(success: true)
+                    self.disableWallpaperDownloadButton()
+                case .failure(let error):
+                    self.presentWallpaperSaveAlert(success: false, error: error)
+                }
+            }
         }
     }
-    
+
     private func disableWallpaperDownloadButton() {
         editorView.downloadWallpaperButton.isEnabled = false
     }
-    
-    private func presentWallpaperSaveAlert(success: Bool) {
-        // TODO: Implement alert messages
+
+    private func presentWallpaperSaveAlert(success: Bool, error: Error? = nil) {
+        let titleKey: WidgetEditorLocalizedTexts = success ?
+            .widgetEditorWallpaperAlertSuccessTitle : .widgetEditorWallpaperAlertErrorTitle
+        
+        let title = String.localized(for: titleKey)
+        let message: String
+        
+        if success {
+            message = .localized(for: WidgetEditorLocalizedTexts.widgetEditorWallpaperAlertSuccessMessage)
+            
+        } else if let error = error as? WallpaperSaveError {
+            message = error.localizedDescription
+            
+        } else {
+            message = .localized(for: .unknownErrorOcurred)
+        }
+        
         let alert = UIAlertController(
-            title: success ? "Success" : "Error",
-            message: nil,
+            title: title,
+            message: message,
             preferredStyle: .alert
         )
         
-        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        alert.addAction(
+            UIAlertAction(
+                title: .localized(for: .gotIt),
+                style: .default,
+                handler: nil
+            )
+        )
+        
         present(alert, animated: true, completion: nil)
     }
     

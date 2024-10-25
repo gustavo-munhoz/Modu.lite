@@ -99,6 +99,8 @@
 		B33808B02CC47C0300D56884 /* RequestScreenTimeCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B33808AF2CC47C0300D56884 /* RequestScreenTimeCoordinator.swift */; };
 		B33808B22CC6D83300D56884 /* UsageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B33808B12CC6D83300D56884 /* UsageView.swift */; };
 		B33808B82CC7070800D56884 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B33808B62CC7070800D56884 /* LoadingView.swift */; };
+		B34C62D62CCC1585004E014B /* WallpaperSaveError.swift in Sources */ = {isa = PBXBuildFile; fileRef = B34C62D42CCC1585004E014B /* WallpaperSaveError.swift */; };
+		B34C62D82CCC18D8004E014B /* WidgetEditorLocalizedTexts.swift in Sources */ = {isa = PBXBuildFile; fileRef = B34C62D72CCC18D8004E014B /* WidgetEditorLocalizedTexts.swift */; };
 		B34F3DF02C66EACE0041D7BD /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = B34F3DEF2C66EACE0041D7BD /* SnapKit */; };
 		B34F3DF32C6701740041D7BD /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = B34F3DF22C6701740041D7BD /* Localizable.xcstrings */; };
 		B34F3DF52C6701870041D7BD /* String+LocalizedKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = B34F3DF42C6701870041D7BD /* String+LocalizedKey.swift */; };
@@ -461,6 +463,8 @@
 		B33808AF2CC47C0300D56884 /* RequestScreenTimeCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestScreenTimeCoordinator.swift; sourceTree = "<group>"; };
 		B33808B12CC6D83300D56884 /* UsageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsageView.swift; sourceTree = "<group>"; };
 		B33808B62CC7070800D56884 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
+		B34C62D42CCC1585004E014B /* WallpaperSaveError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WallpaperSaveError.swift; sourceTree = "<group>"; };
+		B34C62D72CCC18D8004E014B /* WidgetEditorLocalizedTexts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetEditorLocalizedTexts.swift; sourceTree = "<group>"; };
 		B34F3DF22C6701740041D7BD /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
 		B34F3DF42C6701870041D7BD /* String+LocalizedKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+LocalizedKey.swift"; sourceTree = "<group>"; };
 		B34F3DF72C69A3810041D7BD /* DebugOptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebugOptions.swift; sourceTree = "<group>"; };
@@ -986,6 +990,14 @@
 			path = Loading;
 			sourceTree = "<group>";
 		};
+		B34C62D52CCC1585004E014B /* Errors */ = {
+			isa = PBXGroup;
+			children = (
+				B34C62D42CCC1585004E014B /* WallpaperSaveError.swift */,
+			);
+			path = Errors;
+			sourceTree = "<group>";
+		};
 		B34F3DF12C6701070041D7BD /* Localization */ = {
 			isa = PBXGroup;
 			children = (
@@ -1096,6 +1108,7 @@
 				B350C04F2C8B90860035682F /* View */,
 				B350C04E2C8B907B0035682F /* ViewController */,
 				B350C04D2C8B90750035682F /* ViewModel */,
+				B34C62D72CCC18D8004E014B /* WidgetEditorLocalizedTexts.swift */,
 			);
 			path = Editor;
 			sourceTree = "<group>";
@@ -1103,6 +1116,7 @@
 		B350C04D2C8B90750035682F /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				B34C62D52CCC1585004E014B /* Errors */,
 				B34F3E392C74BFB00041D7BD /* WidgetEditorViewModel.swift */,
 			);
 			path = ViewModel;
@@ -2596,10 +2610,12 @@
 				B34F3E402C74E3270041D7BD /* WidgetModuleCell.swift in Sources */,
 				B33808AC2CC31D8300D56884 /* RequestScreenTimeTexts.swift in Sources */,
 				B35BFB892CB4605C00092B42 /* TutorialMultiParagraphLabel.swift in Sources */,
+				B34C62D62CCC1585004E014B /* WallpaperSaveError.swift in Sources */,
 				B35BFB8A2CB4605C00092B42 /* TutorialTextParagraphLabel.swift in Sources */,
 				B35BFBE72CB5AAA600092B42 /* TutorialCenterLocalizedTexts.swift in Sources */,
 				B35BFB8B2CB4605C00092B42 /* TutorialTitleLabel.swift in Sources */,
 				B34F3E1C2C6BD3DA0041D7BD /* HomeViewModel.swift in Sources */,
+				B34C62D82CCC18D8004E014B /* WidgetEditorLocalizedTexts.swift in Sources */,
 				B32B61012C88EC1A007DDCE3 /* WidgetSetupStyleCompositionalLayout.swift in Sources */,
 				B3D1B7CD2CB6FC5400DFC4F5 /* FAQViewModel.swift in Sources */,
 				B39D89DB2CB85B8C005EEC46 /* ComingSoonFeature.swift in Sources */,
