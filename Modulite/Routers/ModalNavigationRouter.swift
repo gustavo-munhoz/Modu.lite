@@ -22,6 +22,18 @@ class ModalNavigationRouter: NSObject {
         self.navigationController.sheetPresentationController?.prefersGrabberVisible = true
     }
     
+     init(
+        parentViewController: UIViewController,
+        presentationStyle: UIModalPresentationStyle
+    ) {
+        self.parentViewController = parentViewController
+        super.init()
+        self.navigationController.modalPresentationStyle = presentationStyle
+        self.navigationController.delegate = self
+        self.navigationController.presentationController?.delegate = self
+        self.navigationController.sheetPresentationController?.prefersGrabberVisible = true
+    }
+    
     func setHasSaveButton(_ value: Bool) {
         hasSaveButton = value
     }

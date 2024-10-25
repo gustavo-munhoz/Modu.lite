@@ -1,8 +1,25 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
+    "" : {
+
+    },
     "%@" : {
 
+    },
+    "%lld/7 days" : {
+
+    },
+    "actionButtonTitle" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ok, I'll wait!"
+          }
+        }
+      }
     },
     "back" : {
       "extractionState" : "manual",
@@ -14,9 +31,6 @@
           }
         }
       }
-    },
-    "blcokingSessionCreateBlockingSession" : {
-      "extractionState" : "manual"
     },
     "blockAppsViewBlockingSession" : {
       "extractionState" : "manual",
@@ -36,28 +50,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Block apps"
-          }
-        }
-      }
-    },
-    "blockingSessionButtonSearchApps" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "SEARCH APPS"
-          }
-        }
-      }
-    },
-    "blockingSessionChooseAppsToBlock" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Choose apps to block"
           }
         }
       }
@@ -149,6 +141,138 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Screen time usage"
+          }
+        }
+      }
+    },
+    "createBlockingSessionAllDay" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "All day"
+          }
+        }
+      }
+    },
+    "createBlockingSessionAlwaysOn" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Always on"
+          }
+        }
+      }
+    },
+    "createBlockingSessionChooseApps" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Choose apps to block"
+          }
+        }
+      }
+    },
+    "createBlockingSessionDaysOfWeek" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Days of the week"
+          }
+        }
+      }
+    },
+    "createBlockingSessionFinishesAt" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Finishes at"
+          }
+        }
+      }
+    },
+    "createBlockingSessionName" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "New Session"
+          }
+        }
+      }
+    },
+    "createBlockingSessionSaveSession" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "SAVE SESSION"
+          }
+        }
+      }
+    },
+    "createBlockingSessionScheduled" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Scheduled"
+          }
+        }
+      }
+    },
+    "createBlockingSessionSearchApps" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "SEARCH APPS"
+          }
+        }
+      }
+    },
+    "createBlockingSessionSelectConditions" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Select duration and conditions"
+          }
+        }
+      }
+    },
+    "createBlockingSessionSelectedCount" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%d selected"
+          }
+        }
+      }
+    },
+    "createBlockingSessionStartAt" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Start at"
           }
         }
       }
@@ -373,6 +497,17 @@
         }
       }
     },
+    "gotIt" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Got it!"
+          }
+        }
+      }
+    },
     "guest" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -566,7 +701,7 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Home"
+            "value" : "Widgets"
           }
         }
       }
@@ -692,6 +827,12 @@
         }
       }
     },
+    "Key" : {
+      "extractionState" : "manual"
+    },
+    "Loading..." : {
+
+    },
     "Main Widget" : {
       "localizations" : {
         "en" : {
@@ -705,6 +846,9 @@
     "Main Widget Configuration" : {
 
     },
+    "My screen time" : {
+
+    },
     "next" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -716,13 +860,24 @@
         }
       }
     },
-    "okay" : {
+    "ok" : {
       "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "ok"
+          }
+        }
+      }
+    },
+    "photosAuthorizationDenied" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Permission to access the photo library was denied. Please enable access in Settings."
           }
         }
       }
@@ -734,6 +889,94 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "PLUS"
+          }
+        }
+      }
+    },
+    "requestScreenConnectButtonTitle" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "CONNECT SCREEN TIME"
+          }
+        }
+      }
+    },
+    "requestScreenDismissButtonTitle" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "I don't want to connect"
+          }
+        }
+      }
+    },
+    "requestScreenTimeAppBlockSubtitle" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "In order to block distracting apps, Modu.lite needs to connect with Screen Time on your iPhone"
+          }
+        }
+      }
+    },
+    "requestScreenTimeAppBlockTitle" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "We need access to Screen Time to Block Apps "
+          }
+        }
+      }
+    },
+    "requestScreenTimeFootnoteBold" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "no data is stored by Modu.lite."
+          }
+        }
+      }
+    },
+    "requestScreenTimeFootnoteRegular" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Screen Time technology is local and built by Apple, so all your browsing and app usage data stays securely on your device and "
+          }
+        }
+      }
+    },
+    "requestScreenTimeUsageSubtitle" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "To see your usage statistics, Modu.lite needs to connect to Screen Time on your iPhone"
+          }
+        }
+      }
+    },
+    "requestScreenTimeUsageTitle" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "We need access to Screen Time to present your usage"
           }
         }
       }
@@ -751,6 +994,17 @@
     },
     "Save" : {
 
+    },
+    "saveFailed" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Failed to save the wallpaper: %@"
+          }
+        }
+      }
     },
     "Select Apps" : {
 
@@ -856,6 +1110,215 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Tutorials"
+          }
+        }
+      }
+    },
+    "shieldContent1" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ is on dial-up speed...  It'll be back later!"
+          }
+        }
+      }
+    },
+    "shieldContent2" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Loading %@… just like your favorite ‘90s website. Try again after your break!"
+          }
+        }
+      }
+    },
+    "shieldContent3" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ is busy rewinding its VHS. Check back soon!"
+          }
+        }
+      }
+    },
+    "shieldContent4" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Looks like %@ is on a CD-ROM.  It’ll spin back up later!"
+          }
+        }
+      }
+    },
+    "shieldContent5" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ is on a Y2K break — let’s give it some time!"
+          }
+        }
+      }
+    },
+    "shieldContent6" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ is on pause, like your favorite Saturday morning cartoon during a cereal break!"
+          }
+        }
+      }
+    },
+    "shieldContent7" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ is out of battery! It's searching for 6 AA batteries to power back up!"
+          }
+        }
+      }
+    },
+    "shieldContent8" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ is developing photos, old-school style — check back once they’re out of the darkroom!"
+          }
+        }
+      }
+    },
+    "shieldContent9" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ is on a road trip in a ‘90s station wagon — catch it when it’s back!"
+          }
+        }
+      }
+    },
+    "shieldContent10" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Remember floppy disks? Yeah, %@ is kinda like that right now... out of space!"
+          }
+        }
+      }
+    },
+    "shieldContent11" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ is off playing Snake on a Nokia — give it a minute!"
+          }
+        }
+      }
+    },
+    "shieldContent12" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ is busy burning a mixtape. Try again once it’s done!"
+          }
+        }
+      }
+    },
+    "shieldContent13" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ is waiting for its favorite song to come on the radio. Try later!"
+          }
+        }
+      }
+    },
+    "shieldContent14" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Currently stuck in a Blockbuster checkout line —  %@ will be back soon!"
+          }
+        }
+      }
+    },
+    "shieldContent15" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Currently looking for the TV remote — %@ will be back soon!"
+          }
+        }
+      }
+    },
+    "shieldContent16" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ is on a road trip with no GPS. It'll find its way back eventually!"
+          }
+        }
+      }
+    },
+    "shieldContent17" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Gone to play at the arcade. %@ will be back after the high score!"
+          }
+        }
+      }
+    },
+    "shieldContent18" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ is updating its MySpace profile. Give it a moment!"
+          }
+        }
+      }
+    },
+    "shieldContent19" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ is updating its MySpace profile. Give it a moment!"
           }
         }
       }
@@ -1690,6 +2153,28 @@
         }
       }
     },
+    "unableToSaveWallpaper" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Unable to prepare the wallpaper for saving."
+          }
+        }
+      }
+    },
+    "unknownErrorOcurred" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "An unknown error ocurred. Please try again."
+          }
+        }
+      }
+    },
     "usageDailyAvarageLastWeek" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -1774,6 +2259,17 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "You have spent"
+          }
+        }
+      }
+    },
+    "wallpaperUnknownError" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "An unknown error occurred while saving the wallpaper."
           }
         }
       }
@@ -1931,6 +2427,39 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Download your matching wallpaper"
+          }
+        }
+      }
+    },
+    "widgetEditorWallpaperAlertErrorTitle" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "An Error Ocurred"
+          }
+        }
+      }
+    },
+    "widgetEditorWallpaperAlertSuccessMessage" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "You can set it on Settings > Wallpaper > Add new Wallpaper"
+          }
+        }
+      }
+    },
+    "widgetEditorWallpaperAlertSuccessTitle" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Your wallpapers were successfully downloaded!"
           }
         }
       }

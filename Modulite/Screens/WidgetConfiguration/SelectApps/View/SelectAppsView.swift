@@ -7,6 +7,7 @@
 
 import UIKit
 import SnapKit
+import SwiftUI
 
 class SelectAppsView: UIView {
     
@@ -23,7 +24,7 @@ class SelectAppsView: UIView {
     private(set) lazy var subtitleLabel: UILabel = {
         let label = UILabel()
         label.text = .localized(for: .selectAppsViewSubtitle)
-        label.textColor = .charcoalGray
+        label.textColor = .systemGray
         label.font = UIFont(textStyle: .footnote, symbolicTraits: .traitItalic)
         
         return label
@@ -71,9 +72,9 @@ class SelectAppsView: UIView {
     
     private(set) lazy var appsCollectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
-        layout.itemSize = CGSize(width: UIScreen.main.bounds.width - 52, height: 32)
+        layout.itemSize = CGSize(width: UIScreen.main.bounds.width - 52, height: 44)
         layout.scrollDirection = .vertical
-        layout.minimumLineSpacing = 4
+        layout.minimumLineSpacing = 0
         
         let view = UICollectionView(frame: .zero, collectionViewLayout: layout)
         view.backgroundColor = .clear
@@ -167,5 +168,16 @@ class SelectAppsView: UIView {
     
     func updateAppCountText(to count: Int) {
         appsSelectedLabel.text = .localized(for: .selectAppsViewAppsSelected(count: count))
+        
+        updateSelectedLabelBorderColor(for: count)
+    }
+    
+    func updateSelectedLabelBorderColor(for count: Int) {
+        UIView.animate(withDuration: 0.25) { [weak self] in
+            guard let self = self else { return }
+            
+            self.appsSelectedLabel.layer.borderColor =
+            count > 0 ? UIColor.fiestaGreen.cgColor : UIColor.ketchupRed.cgColor
+        }
     }
 }

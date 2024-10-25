@@ -133,7 +133,7 @@ extension String {
         // MARK: - Localized Keys -
         
         // MARK: - Reusable texts
-        case okay
+        case ok
         case next
         case save
         case cancel
@@ -142,6 +142,8 @@ extension String {
         case plus
         case free
         case guest
+        case gotIt
+        case unknownErrorOcurred
         case comingSoonTitle
         case comingSoonMessageSingular(feature: String)
         case comingSoonMessagePlural(feature: String)
@@ -213,10 +215,19 @@ extension String {
         // MARK: - BlockAppsView & BlockAppsViewController
         case blockAppsViewBlockingSession(number: Int)
         
-        // MARK: - CreatingNewBlockingSessionView & CreatingNewBlockingSessionViewController
-        case blockingSessionChooseAppsToBlock
-        case blockingSessionButtonSearchApps
-        case blcokingSessionCreateBlockingSession
+        // MARK: - CreateBlockingSessionView
+        case createBlockingSessionName
+        case createBlockingSessionChooseApps
+        case createBlockingSessionSearchApps
+        case createBlockingSessionSelectedCount(number: Int)
+        case createBlockingSessionSelectConditions
+        case createBlockingSessionScheduled
+        case createBlockingSessionAlwaysOn
+        case createBlockingSessionAllDay
+        case createBlockingSessionStartAt
+        case createBlockingSessionFinishesAt
+        case createBlockingSessionDaysOfWeek
+        case createBlockingSessionSaveSession
         
         // MARK: - Widget Styles
         case widgetStyleNameAnalog

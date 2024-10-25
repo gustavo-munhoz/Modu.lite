@@ -13,16 +13,20 @@ import UIKit
 class ShieldConfigurationBuilder {
     private var backgroundBlurStyle: UIBlurEffect.Style = .dark
     private var backgroundColor: UIColor = .black
-    private var icon: UIImage? = UIImage(named: "icon2")
-    private var titleText: String = "BLOQUEADO"
+    private var icon: UIImage?
+    private var titleText: String = ""
     private var titleColor: UIColor = .white
-    private var subtitleText: String = "PERDEU PLAYBOY"
-    private var subtitleColor: UIColor = .white
-    private var primaryButtonLabelText: String = "VAZA"
+    private var primaryButtonLabelText: String = ""
     private var primaryButtonLabelColor: UIColor = .black
     private var primaryButtonBackgroundColor: UIColor = .yellow
     
-    // Métodos `with` para configurar os valores de cada campo
+    func withContent(_ content: ShieldContent) -> ShieldConfigurationBuilder {
+        self.icon = content.image.resized(to: CGSize(width: 200, height: 200))
+        self.titleText = content.title
+        self.primaryButtonLabelText = content.buttonText
+        return self
+    }
+
     func withBackgroundBlurStyle(_ style: UIBlurEffect.Style) -> ShieldConfigurationBuilder {
         self.backgroundBlurStyle = style
         return self
@@ -30,29 +34,6 @@ class ShieldConfigurationBuilder {
     
     func withBackgroundColor(_ color: UIColor) -> ShieldConfigurationBuilder {
         self.backgroundColor = color
-        return self
-    }
-    
-    func withIcon(_ icon: UIImage?) -> ShieldConfigurationBuilder {
-        self.icon = icon
-        return self
-    }
-    
-    func withTitleText(_ text: String, color: UIColor = .white) -> ShieldConfigurationBuilder {
-        self.titleText = text
-        self.titleColor = color
-        return self
-    }
-    
-    func withSubtitleText(_ text: String, color: UIColor = .white) -> ShieldConfigurationBuilder {
-        self.subtitleText = text
-        self.subtitleColor = color
-        return self
-    }
-    
-    func withPrimaryButtonLabel(_ text: String, color: UIColor = .black) -> ShieldConfigurationBuilder {
-        self.primaryButtonLabelText = text
-        self.primaryButtonLabelColor = color
         return self
     }
     
@@ -70,15 +51,21 @@ class ShieldConfigurationBuilder {
                 text: titleText,
                 color: titleColor
             ),
-            subtitle: ShieldConfiguration.Label(
-                text: subtitleText,
-                color: subtitleColor
-            ),
             primaryButtonLabel: ShieldConfiguration.Label(
                 text: primaryButtonLabelText,
                 color: primaryButtonLabelColor
             ),
             primaryButtonBackgroundColor: primaryButtonBackgroundColor
         )
+    }
+}
+
+
+extension UIImage {
+    func resized(to size: CGSize) -> UIImage? {
+        UIGraphicsBeginImageContextWithOptions(size, false, 0.0)
+        defer { UIGraphicsEndImageContext() }
+        self.draw(in: CGRect(origin: .zero, size: size))
+        return UIGraphicsGetImageFromCurrentImageContext()
     }
 }

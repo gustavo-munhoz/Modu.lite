@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Photos
 
 class WidgetEditorViewModel: NSObject {
     
@@ -13,10 +14,6 @@ class WidgetEditorViewModel: NSObject {
     @Published private(set) var selectedCellIndex: Int?
     
     let builder: WidgetConfigurationBuilder
-    
-    enum WidgetCreationError: Swift.Error {
-        case unableToSaveWallpaper
-    }
     
     // MARK: - Initializers
     init(
@@ -87,19 +84,51 @@ class WidgetEditorViewModel: NSObject {
     }
     
     // MARK: - Actions
-    func saveWallpaperImageToPhotos() throws {
+    func saveWallpaperImageToPhotos(completion: @escaping (Result<Void, Error>) -> Void) {
         let (blocked, home) = builder.getStyleWallpapers()
         
         let screenSize = UIScreen.main.bounds.size
         
         guard let resizedBlocked = resizeImage(image: blocked, targetSize: screenSize),
-              let resizedHome = resizeImage(image: home, targetSize: screenSize)
-        else {
-            throw WidgetCreationError.unableToSaveWallpaper
+              let resizedHome = resizeImage(image: home, targetSize: screenSize) else {
+            completion(.failure(WallpaperSaveError.unableToSaveWallpaper))
+            return
         }
         
-        UIImageWriteToSavedPhotosAlbum(resizedBlocked, nil, nil, nil)
-        UIImageWriteToSavedPhotosAlbum(resizedHome, nil, nil, nil)
+        saveImagesToPhotoLibrary(
+            images: [resizedBlocked, resizedHome],
+            completion: completion
+        )
+    }
+
+    private func saveImagesToPhotoLibrary(
+        images: [UIImage],
+        completion: @escaping (Result<Void, Error>) -> Void
+    ) {
+        PHPhotoLibrary.shared().performChanges({
+            for image in images {
+                PHAssetChangeRequest.creationRequestForAsset(from: image)
+            }
+        }, completionHandler: { success, error in
+            DispatchQueue.main.async {
+                if success {
+                    completion(.success(()))
+                    return
+                }
+                
+                if PHPhotoLibrary.authorizationStatus(for: .addOnly) != .authorized {
+                    completion(.failure(WallpaperSaveError.photosAuthorizationDenied))
+                    return
+                }
+                
+                if let error = error {
+                    completion(.failure(WallpaperSaveError.saveFailed(error)))
+                    return
+                }
+                
+                completion(.failure(WallpaperSaveError.wallpaperUnknownError))
+            }
+        })
     }
     
     @discardableResult

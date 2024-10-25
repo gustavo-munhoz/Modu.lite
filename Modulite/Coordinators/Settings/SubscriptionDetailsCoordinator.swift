@@ -37,7 +37,7 @@ extension SubscriptionDetailsCoordinator: SubscriptionDetailsViewControllerDeleg
         )
         
         let okAction = UIAlertAction(
-            title: .localized(for: .okay).uppercased(),
+            title: .localized(for: .ok).uppercased(),
             style: .cancel
         )
         

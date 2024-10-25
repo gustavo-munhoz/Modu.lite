@@ -18,7 +18,7 @@ class RootTabCoordinator: Coordinator {
     let router: Router
     
     /// The root tab bar controller managed by this coordinator.
-    let rootTabBarController = RootTabBarController()
+    lazy var rootTabBarController = RootTabBarController.instantiate(delegate: self)
     
     /// Initializes the coordinator with a router.
     /// - Parameter router: The router used for presenting the root tab bar controller.
@@ -39,33 +39,34 @@ class RootTabCoordinator: Coordinator {
     /// - Parameter rootTabBarController: The root tab bar controller to configure.
     private func setupTabs(for rootTabBarController: RootTabBarController) {
         rootTabBarController.viewControllers = [
-            configureHome(),
+            configureWidgets(),
             configureUsage(),
             configureBlockApps(),
             configureSettings()
         ]
     }
 
-    /// Creates and configures the Home tab with a navigation controller.
-    /// - Returns: A configured navigation controller for the Home tab.
-    private func configureHome() -> UINavigationController {
+    /// Creates and configures the Widgets tab with a navigation controller.
+    /// This tab focuses on all widgets settings
+    /// - Returns: A configured navigation controller for the Widgets tab.
+    private func configureWidgets() -> UINavigationController {
         let viewController = HomeViewController()
         let navigationController = UINavigationController(rootViewController: viewController)
         
         let tabBarItem = createTabBarItem(
             titleKey: .homeViewControllerTabBarItemTitle,
-            imageName: "house.fill",
-            selectedImageName: "house.fill"
+            imageName: "square.grid.3x2.fill",
+            selectedImageName: "square.grid.3x2.fill"
         )
         
         tabBarItem.tag = 0
         navigationController.tabBarItem = tabBarItem
         
-        let homeRouter = NavigationRouter(navigationController: navigationController)
-        let homeCoordinator = HomeCoordinator(router: homeRouter)
-        viewController.delegate = homeCoordinator
+        let widgetsRouter = NavigationRouter(navigationController: navigationController)
+        let widgetsCoordinator = HomeCoordinator(router: widgetsRouter)
+        viewController.delegate = widgetsCoordinator
         
-        children.append(homeCoordinator)
+        children.append(widgetsCoordinator)
         return navigationController
     }
     
@@ -93,6 +94,7 @@ class RootTabCoordinator: Coordinator {
         
         let usageRouter = NavigationRouter(navigationController: navigationController)
         let usageCoordinator = UsageCoordinator(router: usageRouter)
+        
         children.append(usageCoordinator)
         return navigationController
     }
@@ -102,7 +104,7 @@ class RootTabCoordinator: Coordinator {
     /// - Returns: A configured navigation controller for the Block Apps tab.
     private func configureBlockApps() -> UINavigationController {
         #if DEBUG
-        let vc = BlockAppsViewController()
+        let vc = AppBlockingViewController()
         #else
         let vc = ComingSoonViewController()
         vc.fillComingSoonView(for: .appBlocking)
@@ -171,5 +173,25 @@ class RootTabCoordinator: Coordinator {
         
         return tabBarItem
     }
+}
 
+extension RootTabCoordinator: RootTabBarControllerDelegate {
+    func rootTabBarControllerDidRequestScreenTime(
+        _ viewController: RootTabBarController,
+        in type: ScreenTimeRequestType
+    ) {
+        let router = ModalNavigationRouter(
+            parentViewController: viewController,
+            presentationStyle: .fullScreen
+        )
+        
+        router.setHasSaveButton(false)
+        
+        let coordinator = RequestScreenTimeCoordinator(
+            router: router,
+            requestType: type
+        )
+        
+        presentChild(coordinator, animated: true)
+    }
 }

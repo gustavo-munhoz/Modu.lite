@@ -50,7 +50,9 @@ class AppCollectionViewCell: UICollectionViewCell {
         
         return label
     }()
-        
+    
+    private let separator = SeparatorView()
+    
     // MARK: - Setup methods
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -86,6 +88,7 @@ class AppCollectionViewCell: UICollectionViewCell {
     private func addSubviews() {
         addSubview(selectedImageView)
         addSubview(appNameLabel)
+        addSubview(separator)
     }
     
     private func setupContraints() {
@@ -97,6 +100,11 @@ class AppCollectionViewCell: UICollectionViewCell {
         appNameLabel.snp.makeConstraints { make in
             make.left.equalTo(selectedImageView.snp.right).offset(15)
             make.right.top.bottom.equalToSuperview()
+        }
+        
+        separator.snp.makeConstraints { make in
+            make.left.right.equalToSuperview()
+            make.bottom.equalToSuperview()
         }
     }
     

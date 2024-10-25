@@ -1,0 +1,115 @@
+{
+  "sourceLanguage" : "en",
+  "strings" : {
+    "comparisonOverview" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Comparison overview"
+          }
+        }
+      }
+    },
+    "howYouveSpentYourTime" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "How you’ve spent your time"
+          }
+        }
+      }
+    },
+    "My screen time" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "My screen time"
+          }
+        }
+      }
+    },
+    "onYourPhoneAt" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "on your phone at %@"
+          }
+        }
+      }
+    },
+    "onYourPhoneToday" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "on your phone today"
+          }
+        }
+      }
+    },
+    "screenTime7DaysAverage" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Your average in the last 7 days"
+          }
+        }
+      }
+    },
+    "screenTimeDayBefore" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Your screen time the day before"
+          }
+        }
+      }
+    },
+    "screenTimeYesterday" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Your screen time yesterday"
+          }
+        }
+      }
+    },
+    "youHaveSpent" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "You have spent"
+          }
+        }
+      }
+    },
+    "youSpent" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "You spent"
+          }
+        }
+      }
+    }
+  },
+  "version" : "1.0"
+}
