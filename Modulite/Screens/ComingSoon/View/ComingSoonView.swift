@@ -55,6 +55,8 @@ class ComingSoonView: UIView {
         super.init(frame: frame)
         addSubviews()
         setupConstraints()
+        
+        backgroundColor = .whiteTurnip
     }
     
     required init?(coder: NSCoder) {
