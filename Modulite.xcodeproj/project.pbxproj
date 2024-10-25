@@ -3248,6 +3248,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Modulite/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Modu.lite;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "We need access to your photo library to be able to save your wallpapers in it.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
@@ -3284,6 +3285,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Modulite/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Modu.lite;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "We need access to your photo library to be able to save your wallpapers in it.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;

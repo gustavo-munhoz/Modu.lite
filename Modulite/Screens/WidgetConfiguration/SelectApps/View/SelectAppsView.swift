@@ -24,7 +24,7 @@ class SelectAppsView: UIView {
     private(set) lazy var subtitleLabel: UILabel = {
         let label = UILabel()
         label.text = .localized(for: .selectAppsViewSubtitle)
-        label.textColor = .charcoalGray
+        label.textColor = .systemGray
         label.font = UIFont(textStyle: .footnote, symbolicTraits: .traitItalic)
         
         return label
