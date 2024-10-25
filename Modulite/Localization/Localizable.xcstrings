@@ -486,6 +486,17 @@
         }
       }
     },
+    "gotIt" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Got it!"
+          }
+        }
+      }
+    },
     "guest" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -849,6 +860,17 @@
         }
       }
     },
+    "photosAuthorizationDenied" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Permission to access the photo library was denied. Please enable access in Settings."
+          }
+        }
+      }
+    },
     "plus" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -961,6 +983,17 @@
     },
     "Save" : {
 
+    },
+    "saveFailed" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Failed to save the wallpaper: %@"
+          }
+        }
+      }
     },
     "Select Apps" : {
 
@@ -1900,6 +1933,28 @@
         }
       }
     },
+    "unableToSaveWallpaper" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Unable to prepare the wallpaper for saving."
+          }
+        }
+      }
+    },
+    "unknownErrorOcurred" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "An unknown error ocurred. Please try again."
+          }
+        }
+      }
+    },
     "usageDailyAvarageLastWeek" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -1984,6 +2039,17 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "You have spent"
+          }
+        }
+      }
+    },
+    "wallpaperUnknownError" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "An unknown error occurred while saving the wallpaper."
           }
         }
       }
@@ -2141,6 +2207,39 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Download your matching wallpaper"
+          }
+        }
+      }
+    },
+    "widgetEditorWallpaperAlertErrorTitle" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "An Error Ocurred"
+          }
+        }
+      }
+    },
+    "widgetEditorWallpaperAlertSuccessMessage" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "You can set it on Settings > Wallpaper > Add new Wallpaper"
+          }
+        }
+      }
+    },
+    "widgetEditorWallpaperAlertSuccessTitle" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Your wallpapers were successfully downloaded!"
           }
         }
       }

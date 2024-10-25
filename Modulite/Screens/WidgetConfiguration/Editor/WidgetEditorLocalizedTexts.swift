@@ -6,3 +6,10 @@
 //
 
 import Foundation
+
+enum WidgetEditorLocalizedTexts: LocalizedKeyProtocol {
+    case widgetEditorWallpaperAlertSuccessTitle
+    case widgetEditorWallpaperAlertSuccessMessage
+    
+    case widgetEditorWallpaperAlertErrorTitle
+}

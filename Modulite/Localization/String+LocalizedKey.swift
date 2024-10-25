@@ -142,6 +142,8 @@ extension String {
         case plus
         case free
         case guest
+        case gotIt
+        case unknownErrorOcurred
         case comingSoonTitle
         case comingSoonMessageSingular(feature: String)
         case comingSoonMessagePlural(feature: String)
