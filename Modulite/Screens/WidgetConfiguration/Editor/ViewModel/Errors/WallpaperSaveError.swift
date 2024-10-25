@@ -6,3 +6,14 @@
 //
 
 import Foundation
+
+enum WallpaperSaveError: LocalizedError, LocalizedKeyProtocol {
+    case unableToSaveWallpaper
+    case photosAuthorizationDenied
+    case saveFailed(Error)
+    case wallpaperUnknownError
+    
+    var errorDescription: String? {
+        .localized(for: self)
+    }
+}
