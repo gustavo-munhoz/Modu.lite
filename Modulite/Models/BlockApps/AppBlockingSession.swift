@@ -26,6 +26,8 @@ class AppBlockingSession: ObservableObject {
     var endsAt: DateComponents = .init(hour: 0, minute: 0)
     var daysOfWeek: [Int] = []
     
+    var lastTimeToggled: Date = .now
+    
     var appsCount: Int {
         return activitySelection.applications.count
     }
@@ -83,5 +85,15 @@ class AppBlockingSession: ObservableObject {
             return "00:00"
         }
         return String(format: "%02d:%02d", hour, minute)
+    }
+}
+
+extension AppBlockingSession: Hashable, Equatable {
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(id)
+    }
+    
+    static func == (lhs: AppBlockingSession, rhs: AppBlockingSession) -> Bool {
+        return lhs.id == rhs.id
     }
 }
