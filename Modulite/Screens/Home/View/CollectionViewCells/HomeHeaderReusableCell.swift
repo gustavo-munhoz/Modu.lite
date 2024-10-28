@@ -61,6 +61,8 @@ class HomeHeaderReusableCell: UICollectionViewCell {
     
     private(set) lazy var plusBadge = ModulitePlusSmallBadge()
     
+    private var didAddSubviews = false
+    
     // MARK: - Setup methods
     
     func setup(
@@ -85,8 +87,11 @@ class HomeHeaderReusableCell: UICollectionViewCell {
             shouldAddCount = false
         }
         
+        if didAddSubviews { return }
+        
         addSubviews(shouldAddBadge: isPlusExclusive, shouldAddCount: shouldAddCount)
         setupContraints(shouldAddBadge: isPlusExclusive, shouldAddCount: shouldAddCount)
+        didAddSubviews = true
     }
     
     private func addSubviews(
