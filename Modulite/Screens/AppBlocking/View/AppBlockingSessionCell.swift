@@ -55,6 +55,8 @@ class AppBlockingSessionCell: UICollectionViewCell {
         delegate: AppBlockingSessionCellDelegate,
         session: AppBlockingSession
     ) {
+        self.delegate = delegate
+        
         sessionSwitch.isOn = session.isActive
         sessionName.text = session.sessionName
         sessionInfo.text = "\(session.startsAt) - \(session.endsAt)  |  \(session.daysOfWeek.count) days a week"
