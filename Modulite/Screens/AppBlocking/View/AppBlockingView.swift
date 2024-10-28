@@ -37,10 +37,6 @@ class AppBlockingView: UIView {
     }
     
     // MARK: - Setup Methods
-    func setCollectionViewDataSource(to dataSource: UICollectionViewDataSource) {
-        sessionsCollectionView.dataSource = dataSource
-    }
-    
     func setCollectionViewDelegate(to delegate: UICollectionViewDelegate) {
         sessionsCollectionView.delegate = delegate
     }
