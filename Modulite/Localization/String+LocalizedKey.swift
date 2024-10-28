@@ -214,6 +214,9 @@ extension String {
         
         // MARK: - BlockAppsView & BlockAppsViewController
         case blockAppsViewBlockingSession(number: Int)
+        case appBlockingViewControllerNavigationTitle
+        case appBlockingViewControllerActiveTitle
+        case appBlockingViewControllerInactiveTitle
         
         // MARK: - CreateBlockingSessionView
         case createBlockingSessionName

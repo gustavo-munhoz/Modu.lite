@@ -53,6 +53,7 @@
 		B30201772CC8C9EE00301646 /* ConditionRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B30201762CC8C9EE00301646 /* ConditionRowView.swift */; };
 		B30201792CC9705800301646 /* SelectableDay.swift in Sources */ = {isa = PBXBuildFile; fileRef = B30201782CC9705800301646 /* SelectableDay.swift */; };
 		B302017B2CC9707800301646 /* WeekDaysSelectorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B302017A2CC9707800301646 /* WeekDaysSelectorView.swift */; };
+		B302017F2CC9C11C00301646 /* AppBlockingSessionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B302017E2CC9C11C00301646 /* AppBlockingSessionCell.swift */; };
 		B30AAD632C9227BA002806A7 /* WidgetContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = B30AAD622C9227BA002806A7 /* WidgetContent.swift */; };
 		B30AAD652C9227DE002806A7 /* WidgetContentBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = B30AAD642C9227DE002806A7 /* WidgetContentBuilder.swift */; };
 		B32B60A52C838EB0007DDCE3 /* WidgetModuleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B34F3E3F2C74E3270041D7BD /* WidgetModuleCell.swift */; };
@@ -264,6 +265,7 @@
 		B39D89E02CB85C38005EEC46 /* BlockAppsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39D89DE2CB85C38005EEC46 /* BlockAppsCoordinator.swift */; };
 		B39D89E32CB85C3C005EEC46 /* UsageCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39D89E12CB85C3C005EEC46 /* UsageCoordinator.swift */; };
 		B39D89E92CB86058005EEC46 /* ComingSoonCircularIconView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39D89E72CB86058005EEC46 /* ComingSoonCircularIconView.swift */; };
+		B3AEF83B2CCA705C0019E91A /* AppBlockingSessionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3AEF83A2CCA705C0019E91A /* AppBlockingSessionHeader.swift */; };
 		B3C1877F2C78D1E000A891A8 /* ModuliteWidgetConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3C1877E2C78D1E000A891A8 /* ModuliteWidgetConfiguration.swift */; };
 		B3C187822C79009B00A891A8 /* WidgetConfigurationBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3C187812C79009B00A891A8 /* WidgetConfigurationBuilder.swift */; };
 		B3C187842C791D1300A891A8 /* WidgetStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3C187832C791D1300A891A8 /* WidgetStyle.swift */; };
@@ -431,6 +433,7 @@
 		B30201762CC8C9EE00301646 /* ConditionRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConditionRowView.swift; sourceTree = "<group>"; };
 		B30201782CC9705800301646 /* SelectableDay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectableDay.swift; sourceTree = "<group>"; };
 		B302017A2CC9707800301646 /* WeekDaysSelectorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekDaysSelectorView.swift; sourceTree = "<group>"; };
+		B302017E2CC9C11C00301646 /* AppBlockingSessionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppBlockingSessionCell.swift; sourceTree = "<group>"; };
 		B30AAD622C9227BA002806A7 /* WidgetContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetContent.swift; sourceTree = "<group>"; };
 		B30AAD642C9227DE002806A7 /* WidgetContentBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetContentBuilder.swift; sourceTree = "<group>"; };
 		B32B60B32C864247007DDCE3 /* CoreDataPersistenceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataPersistenceController.swift; sourceTree = "<group>"; };
@@ -601,6 +604,7 @@
 		B39D89DE2CB85C38005EEC46 /* BlockAppsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockAppsCoordinator.swift; sourceTree = "<group>"; };
 		B39D89E12CB85C3C005EEC46 /* UsageCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsageCoordinator.swift; sourceTree = "<group>"; };
 		B39D89E72CB86058005EEC46 /* ComingSoonCircularIconView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComingSoonCircularIconView.swift; sourceTree = "<group>"; };
+		B3AEF83A2CCA705C0019E91A /* AppBlockingSessionHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppBlockingSessionHeader.swift; sourceTree = "<group>"; };
 		B3C1877E2C78D1E000A891A8 /* ModuliteWidgetConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModuliteWidgetConfiguration.swift; sourceTree = "<group>"; };
 		B3C187812C79009B00A891A8 /* WidgetConfigurationBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetConfigurationBuilder.swift; sourceTree = "<group>"; };
 		B3C187832C791D1300A891A8 /* WidgetStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetStyle.swift; sourceTree = "<group>"; };
@@ -786,10 +790,10 @@
 		AFABBD962C8A358D007BEFD8 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				B302016F2CC8C97500301646 /* Components */,
+				B302017D2CC9C0FA00301646 /* CreateBlockingSession */,
 				AFFB446D2CC6E37B007CDA51 /* AppBlockingView.swift */,
-				AFFB44642CC6DBD0007CDA51 /* ScreenTimeSelectAppsContentView.swift */,
-				B302016C2CC8230200301646 /* CreateBlockingSessionView.swift */,
+				B302017E2CC9C11C00301646 /* AppBlockingSessionCell.swift */,
+				B3AEF83A2CCA705C0019E91A /* AppBlockingSessionHeader.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -855,6 +859,16 @@
 				B302017A2CC9707800301646 /* WeekDaysSelectorView.swift */,
 			);
 			path = Components;
+			sourceTree = "<group>";
+		};
+		B302017D2CC9C0FA00301646 /* CreateBlockingSession */ = {
+			isa = PBXGroup;
+			children = (
+				B302016F2CC8C97500301646 /* Components */,
+				AFFB44642CC6DBD0007CDA51 /* ScreenTimeSelectAppsContentView.swift */,
+				B302016C2CC8230200301646 /* CreateBlockingSessionView.swift */,
+			);
+			path = CreateBlockingSession;
 			sourceTree = "<group>";
 		};
 		B32B60B52C8642F3007DDCE3 /* AppInfo */ = {
@@ -2552,6 +2566,7 @@
 				B3EB15B92C7E4CD6003B1960 /* ModuleAppNameTextConfiguration.swift in Sources */,
 				B39A25AC2CAC7D2A001C76A5 /* WidgetEditorViewController+UICollectionViewDelegate.swift in Sources */,
 				B30201772CC8C9EE00301646 /* ConditionRowView.swift in Sources */,
+				B3AEF83B2CCA705C0019E91A /* AppBlockingSessionHeader.swift in Sources */,
 				B3EB15B62C7E4BF0003B1960 /* ModuleConfiguration.swift in Sources */,
 				B35BFBE92CB5AF9B00092B42 /* TutorialCenterCoordinator.swift in Sources */,
 				B36927D32C66BBC10089F769 /* SceneDelegateRouter.swift in Sources */,
@@ -2618,6 +2633,7 @@
 				B34C62D82CCC18D8004E014B /* WidgetEditorLocalizedTexts.swift in Sources */,
 				B32B61012C88EC1A007DDCE3 /* WidgetSetupStyleCompositionalLayout.swift in Sources */,
 				B3D1B7CD2CB6FC5400DFC4F5 /* FAQViewModel.swift in Sources */,
+				B302017F2CC9C11C00301646 /* AppBlockingSessionCell.swift in Sources */,
 				B39D89DB2CB85B8C005EEC46 /* ComingSoonFeature.swift in Sources */,
 				B3850BB52C94D1F200F400C0 /* UICollectionViewCell+toggleIsHighlighted.swift in Sources */,
 				B3C187862C79208600A891A8 /* WidgetStyleFactory.swift in Sources */,

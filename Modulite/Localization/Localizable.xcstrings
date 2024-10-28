@@ -11,12 +11,45 @@
 
     },
     "actionButtonTitle" : {
+        "extractionState" : "manual",
+        "localizations" : {
+          "en" : {
+            "stringUnit" : {
+              "state" : "translated",
+              "value" : "Ok, I'll wait!"
+            }
+          }
+        }
+      },
+    "appBlockingViewControllerActiveTitle" : {
       "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Ok, I'll wait!"
+            "value" : "Active blocking sessions"
+          }
+        }
+      }
+    },
+    "appBlockingViewControllerInactiveTitle" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Inactive blocking sessions"
+          }
+        }
+      }
+    },
+    "appBlockingViewControllerNavigationTitle" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Block distracting apps"
           }
         }
       }
@@ -826,9 +859,6 @@
           }
         }
       }
-    },
-    "Key" : {
-      "extractionState" : "manual"
     },
     "Loading..." : {
 
