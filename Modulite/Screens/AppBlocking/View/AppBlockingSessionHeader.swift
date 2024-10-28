@@ -12,6 +12,8 @@ class AppBlockingSessionHeader: HomeHeaderReusableCell {
     
     private let separator = SeparatorView()
     
+    private var didAddSeparator: Bool = false
+    
     func setup(
         title: String,
         hasButton: Bool,
@@ -25,8 +27,9 @@ class AppBlockingSessionHeader: HomeHeaderReusableCell {
             countValues: countValues
         )
         
-        // FIXME: Constraints are having conflicts
+        if didAddSeparator { return }
         
+        didAddSeparator = true
         addSubview(separator)
         separator.snp.makeConstraints { make in
             make.top.equalToSuperview()
