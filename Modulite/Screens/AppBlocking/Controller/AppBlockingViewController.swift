@@ -13,6 +13,8 @@ class AppBlockingViewController: UIViewController {
     private var appBlockingView = AppBlockingView()
     private let viewModel = AppBlockingViewModel()
     
+    private var dataSource: UICollectionViewDiffableDataSource<Int, AppBlockingSession>!
+    
     // MARK: - Lifecycle
     override func loadView() {
         view = appBlockingView
@@ -22,6 +24,8 @@ class AppBlockingViewController: UIViewController {
         super.viewDidLoad()
         setupNavigationBar()
         setupViewDependencies()
+        setupDataSource()
+        applySnapshot(animatingDifferences: false)
     }
     
     // MARK: - Setup
@@ -32,7 +36,69 @@ class AppBlockingViewController: UIViewController {
     
     private func setupViewDependencies() {
         appBlockingView.setCollectionViewDelegate(to: self)
-        appBlockingView.setCollectionViewDataSource(to: self)
+    }
+    
+    // MARK: - Actions
+    private func didPressAddButton() {
+        print("Add button pressed")
+    }
+}
+
+// MARK: - UICollectionViewDiffableDataSource
+extension AppBlockingViewController {
+    private func setupDataSource() {
+        dataSource = UICollectionViewDiffableDataSource<Int, AppBlockingSession>(
+            collectionView: appBlockingView.sessionsCollectionView
+        ) { (collectionView, indexPath, session) -> UICollectionViewCell? in
+            
+            guard let cell = collectionView.dequeueReusableCell(
+                withReuseIdentifier: AppBlockingSessionCell.reuseId,
+                for: indexPath
+            ) as? AppBlockingSessionCell else {
+                fatalError("Could not dequeue AppBlockingSessionCell")
+            }
+            
+            cell.setup(delegate: self, session: session)
+            return cell
+        }
+                
+        dataSource.supplementaryViewProvider = { [weak self] (collectionView, kind, indexPath) in
+            guard let self = self else { return nil }
+            guard let header = collectionView.dequeueReusableSupplementaryView(
+                ofKind: kind,
+                withReuseIdentifier: AppBlockingSessionHeader.reuseId,
+                for: indexPath
+            ) as? AppBlockingSessionHeader else {
+                fatalError("Could not dequeue AppBlockingSessionHeader")
+            }
+            
+            let title: String = .localized(
+                for: indexPath.section == 0 ?
+                    .appBlockingViewControllerActiveTitle : .appBlockingViewControllerInactiveTitle
+            )
+            
+            let hasButton = indexPath.section == 0
+            
+            header.setup(
+                title: title,
+                hasButton: hasButton,
+                buttonAction: hasButton ? didPressAddButton : {}
+            )
+            
+            return header
+        }
+    }
+    
+    private func applySnapshot(animatingDifferences: Bool = true) {
+        var snapshot = NSDiffableDataSourceSnapshot<Int, AppBlockingSession>()
+        snapshot.appendSections([0, 1])
+                
+        viewModel.sortSessions()
+        
+        snapshot.appendItems(viewModel.activeSessions, toSection: 0)
+        snapshot.appendItems(viewModel.inactiveSessions, toSection: 1)
+        
+        dataSource.apply(snapshot, animatingDifferences: animatingDifferences)
     }
 }
 
@@ -42,78 +108,11 @@ extension AppBlockingViewController: AppBlockingSessionCellDelegate {
         _ cell: AppBlockingSessionCell,
         didToggleTo newValue: Bool
     ) {
-        
-    }
-}
-
-// MARK: - UICollectionViewDataSource
-extension AppBlockingViewController: UICollectionViewDataSource {
-    func numberOfSections(in collectionView: UICollectionView) -> Int {
-        2
-    }
-    
-    func collectionView(
-        _ collectionView: UICollectionView,
-        numberOfItemsInSection section: Int
-    ) -> Int {
-        switch section {
-        case 0: return viewModel.activeSessions.count
-        case 1: return viewModel.inactiveSessions.count
-        default: return 0
-        }
-    }
-    
-    func collectionView(
-        _ collectionView: UICollectionView,
-        cellForItemAt indexPath: IndexPath
-    ) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(
-            withReuseIdentifier: AppBlockingSessionCell.reuseId,
-            for: indexPath
-        ) as? AppBlockingSessionCell else {
-            fatalError("Could not dequeue AppBlockingSessionCell")
-        }
-        
-        let session = sessionFor(indexPath: indexPath)
+        guard let indexPath = appBlockingView.sessionsCollectionView.indexPath(for: cell),
+              let session = dataSource.itemIdentifier(for: indexPath) else { return }
                 
-        cell.setup(delegate: self, session: session)
-        
-        return cell
-    }
-    
-    func collectionView(
-        _ collectionView: UICollectionView,
-        viewForSupplementaryElementOfKind kind: String,
-        at indexPath: IndexPath
-    ) -> UICollectionReusableView {
-        guard let header = collectionView.dequeueReusableSupplementaryView(
-            ofKind: kind,
-            withReuseIdentifier: AppBlockingSessionHeader.reuseId,
-            for: indexPath
-        ) as? AppBlockingSessionHeader else {
-            fatalError("Could not dequeue AppBlockingSessionHeader")
-        }
-        
-        let title: String = .localized(
-            for: indexPath.section == 0 ?
-                .appBlockingViewControllerActiveTitle : .appBlockingViewControllerInactiveTitle
-        )
-        
-        header.setup(title: title, hasButton: indexPath.section == 0)
-        
-        return header
-    }
-    
-    private func sessionFor(indexPath: IndexPath) -> AppBlockingSession {
-        guard indexPath.section == 0 || indexPath.section == 1 else {
-            fatalError("Invalid section provided in indexPath: \(indexPath)")
-        }
-        
-        if indexPath.section == 0 {
-            return viewModel.activeSessions[indexPath.item]
-        }
-        
-        return viewModel.inactiveSessions[indexPath.item]
+        viewModel.updateState(of: session, to: newValue)
+        applySnapshot()
     }
 }
 
