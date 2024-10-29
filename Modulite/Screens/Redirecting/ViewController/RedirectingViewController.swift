@@ -7,10 +7,15 @@
 
 import UIKit
 
-class RedirectionViewController: UIViewController {
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        view.backgroundColor = .white
-        // Configure sua view aqui
+class RedirectingViewController: UIViewController {
+    
+    private var redirectingView = RedirectingView()
+    
+    override func loadView() {
+        view = redirectingView
     }
+    
+//    override func viewDidLoad() {
+//        super.viewDidLoad()
+//    }
 }
