@@ -38,7 +38,7 @@ class WidgetEditorDownloadButton: UIButton {
         config.titleLineBreakMode = .byClipping
         
         config.image = UIImage(systemName: "square.and.arrow.down")?
-            .withTintColor(.textPrimary, renderingMode: .alwaysOriginal)
+            .withTintColor(.white, renderingMode: .alwaysOriginal)
             .withConfiguration(
                 UIImage.SymbolConfiguration(
                     font: UIFont(textStyle: .body, weight: .semibold)
