@@ -6,3 +6,9 @@
 //
 
 import Foundation
+
+enum OnboardingLocalizedTexts: LocalizedKeyProtocol {
+    case onboardingWelcomeTitle
+    case onboardingWelcomeSubtitle
+    case onboardingGetStartedButton
+}

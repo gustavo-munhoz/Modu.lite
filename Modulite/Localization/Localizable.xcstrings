@@ -11,16 +11,16 @@
 
     },
     "actionButtonTitle" : {
-        "extractionState" : "manual",
-        "localizations" : {
-          "en" : {
-            "stringUnit" : {
-              "state" : "translated",
-              "value" : "Ok, I'll wait!"
-            }
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ok, I'll wait!"
           }
         }
-      },
+      }
+    },
     "appBlockingViewControllerActiveTitle" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -897,6 +897,39 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "ok"
+          }
+        }
+      }
+    },
+    "onboardingGetStartedButton" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "LET'S START"
+          }
+        }
+      }
+    },
+    "onboardingWelcomeSubtitle" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "We're here to organize and customize  your way into a better life!\n\nLet's start our new journey with a simple step-by-step setup, so you can make your phone a better tool ASAP."
+          }
+        }
+      }
+    },
+    "onboardingWelcomeTitle" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Welcome to\nModu.lite!"
           }
         }
       }
