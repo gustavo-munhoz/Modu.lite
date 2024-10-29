@@ -102,6 +102,8 @@
 		B33808B82CC7070800D56884 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B33808B62CC7070800D56884 /* LoadingView.swift */; };
 		B34C62D62CCC1585004E014B /* WallpaperSaveError.swift in Sources */ = {isa = PBXBuildFile; fileRef = B34C62D42CCC1585004E014B /* WallpaperSaveError.swift */; };
 		B34C62D82CCC18D8004E014B /* WidgetEditorLocalizedTexts.swift in Sources */ = {isa = PBXBuildFile; fileRef = B34C62D72CCC18D8004E014B /* WidgetEditorLocalizedTexts.swift */; };
+		B34C62E42CD16134004E014B /* AppsData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B34C62E32CD16134004E014B /* AppsData.swift */; };
+		B34C62E52CD16134004E014B /* AppsData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B34C62E32CD16134004E014B /* AppsData.swift */; };
 		B34F3DF02C66EACE0041D7BD /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = B34F3DEF2C66EACE0041D7BD /* SnapKit */; };
 		B34F3DF32C6701740041D7BD /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = B34F3DF22C6701740041D7BD /* Localizable.xcstrings */; };
 		B34F3DF52C6701870041D7BD /* String+LocalizedKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = B34F3DF42C6701870041D7BD /* String+LocalizedKey.swift */; };
@@ -468,6 +470,7 @@
 		B33808B62CC7070800D56884 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		B34C62D42CCC1585004E014B /* WallpaperSaveError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WallpaperSaveError.swift; sourceTree = "<group>"; };
 		B34C62D72CCC18D8004E014B /* WidgetEditorLocalizedTexts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetEditorLocalizedTexts.swift; sourceTree = "<group>"; };
+		B34C62E32CD16134004E014B /* AppsData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppsData.swift; sourceTree = "<group>"; };
 		B34F3DF22C6701740041D7BD /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
 		B34F3DF42C6701870041D7BD /* String+LocalizedKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+LocalizedKey.swift"; sourceTree = "<group>"; };
 		B34F3DF72C69A3810041D7BD /* DebugOptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebugOptions.swift; sourceTree = "<group>"; };
@@ -877,6 +880,7 @@
 				B3F054352C7CF6CB0057F04D /* AppInfo+CoreDataClass.swift */,
 				B32B60B62C864301007DDCE3 /* AppInfo+CoreDataProperties.swift */,
 				B32B60C92C8657EC007DDCE3 /* AppInfoData.swift */,
+				B34C62E32CD16134004E014B /* AppsData.swift */,
 			);
 			path = AppInfo;
 			sourceTree = "<group>";
@@ -2466,6 +2470,7 @@
 				B3987E052CA3602900896414 /* UIView+animateBorderColor.swift in Sources */,
 				B3987E2C2CA4F43100896414 /* SelectMainWidgetConfigurationIntent.swift in Sources */,
 				B3987E152CA38C7900896414 /* MainWidgetEntry.swift in Sources */,
+				B34C62E52CD16134004E014B /* AppsData.swift in Sources */,
 				B32B60A52C838EB0007DDCE3 /* WidgetModuleCell.swift in Sources */,
 				B30201692CC7074F00301646 /* View+PulseEffect.swift in Sources */,
 				B39A259E2CAB2969001C76A5 /* Copying.swift in Sources */,
@@ -2521,6 +2526,7 @@
 				B3850BB72C951DD700F400C0 /* WidgetBackground.swift in Sources */,
 				B32B60C72C865042007DDCE3 /* PersistableWidgetConfiguration+CoreDataProperties.swift in Sources */,
 				B39A25A62CAB5F11001C76A5 /* WidgetEditorDeleteButton.swift in Sources */,
+				B34C62E42CD16134004E014B /* AppsData.swift in Sources */,
 				B34F3E1A2C6B94080041D7BD /* HomeHeaderReusableCell.swift in Sources */,
 				B36927CF2C66B8A30089F769 /* Coordinator.swift in Sources */,
 				B3D1B7E72CB7140600DFC4F5 /* HelpTopicView.swift in Sources */,
