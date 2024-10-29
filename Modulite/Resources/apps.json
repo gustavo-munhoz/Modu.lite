@@ -2,8 +2,7 @@
     "version": 1,
     "apps": [
         {"name": "Mail", "urlScheme": "message://", "relevance": 1},
-        {"name": "Messages", "urlScheme": "sms://phonenumber", "relevance": 1},
-        {"name": "Phone", "urlScheme": "tel://phonenumber", "relevance": 1},
+        {"name": "Messages", "urlScheme": "messages://", "relevance": 1},
         {"name": "WhatsApp", "urlScheme": "whatsapp://", "relevance": 1},
         {"name": "Safari", "urlScheme": "x-web-search://", "relevance": 1},
         {"name": "Google Maps", "urlScheme": "googlemaps://", "relevance": 1},
@@ -23,7 +22,6 @@
 
         {"name": "Apple Music", "urlScheme": "music://", "relevance": 3},
         {"name": "Contacts", "urlScheme": "contacts://", "relevance": 3},
-        {"name": "FaceTime", "urlScheme": "facetime://phoneoremail", "relevance": 3},
         {"name": "Files", "urlScheme": "shareddocuments://", "relevance": 3},
         {"name": "Shortcuts", "urlScheme": "shortcuts://", "relevance": 3},
         {"name": "Wallet", "urlScheme": "shoebox://", "relevance": 3},
