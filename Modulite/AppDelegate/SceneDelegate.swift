@@ -22,9 +22,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             return
         }
         
-        _ = handleDeepLink(url: url)
+        handleDeepLink(url: url)
+
     }
 
+    @discardableResult
     private func handleDeepLink(url: URL) -> Bool {
         guard let scheme = url.scheme, scheme == "moduliteapp" else {
             print("Invalid URL scheme: \(url.scheme ?? "nil")")
@@ -42,14 +44,26 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             return false
         }
         
-        performOpenAppAction(with: parameter)
+        let redirectingVC = RedirectingViewController()
+        redirectingVC.modalPresentationStyle = .fullScreen
+        
+        if let rootVC = window?.rootViewController {
+            rootVC.present(redirectingVC, animated: false)
+        }
+        
+        performOpenAppAction(with: parameter) {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                redirectingVC.dismiss(animated: false)
+            }
+        }
+        
         return true
     }
-    
-    private func performOpenAppAction(with urlScheme: String) {
+    private func performOpenAppAction(with urlScheme: String, completion: @escaping () -> Void) {
         print("Opening app with urlScheme: \(urlScheme)")
-        UIApplication.shared.open(URL(string: urlScheme)!)
-
+        UIApplication.shared.open(URL(string: urlScheme)!) { _ in
+            completion()
+        }
     }
     
     func scene(
@@ -64,6 +78,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         window = UIWindow(windowScene: windowScene)
         coordinator.present(animated: true, onDismiss: nil)
+        
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
