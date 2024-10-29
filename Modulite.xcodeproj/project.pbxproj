@@ -112,6 +112,12 @@
 		B34C62D82CCC18D8004E014B /* WidgetEditorLocalizedTexts.swift in Sources */ = {isa = PBXBuildFile; fileRef = B34C62D72CCC18D8004E014B /* WidgetEditorLocalizedTexts.swift */; };
 		B34C62E42CD16134004E014B /* AppsData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B34C62E32CD16134004E014B /* AppsData.swift */; };
 		B34C62E52CD16134004E014B /* AppsData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B34C62E32CD16134004E014B /* AppsData.swift */; };
+		B34C62EF2CD17617004E014B /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B34C62EE2CD17617004E014B /* WelcomeViewController.swift */; };
+		B34C62F12CD1761D004E014B /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B34C62F02CD1761D004E014B /* WelcomeView.swift */; };
+		B34C62F32CD17687004E014B /* OnboardingLocalizedTexts.swift in Sources */ = {isa = PBXBuildFile; fileRef = B34C62F22CD17687004E014B /* OnboardingLocalizedTexts.swift */; };
+		B34C62F52CD179E9004E014B /* OnboardingPreferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = B34C62F42CD179E9004E014B /* OnboardingPreferences.swift */; };
+		B34C62F62CD179E9004E014B /* OnboardingPreferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = B34C62F42CD179E9004E014B /* OnboardingPreferences.swift */; };
+		B34C62FB2CD1847F004E014B /* OnboardingCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B34C62FA2CD1847F004E014B /* OnboardingCoordinator.swift */; };
 		B34F3DF02C66EACE0041D7BD /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = B34F3DEF2C66EACE0041D7BD /* SnapKit */; };
 		B34F3DF32C6701740041D7BD /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = B34F3DF22C6701740041D7BD /* Localizable.xcstrings */; };
 		B34F3DF52C6701870041D7BD /* String+LocalizedKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = B34F3DF42C6701870041D7BD /* String+LocalizedKey.swift */; };
@@ -487,6 +493,11 @@
 		B34C62D42CCC1585004E014B /* WallpaperSaveError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WallpaperSaveError.swift; sourceTree = "<group>"; };
 		B34C62D72CCC18D8004E014B /* WidgetEditorLocalizedTexts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetEditorLocalizedTexts.swift; sourceTree = "<group>"; };
 		B34C62E32CD16134004E014B /* AppsData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppsData.swift; sourceTree = "<group>"; };
+		B34C62EE2CD17617004E014B /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
+		B34C62F02CD1761D004E014B /* WelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
+		B34C62F22CD17687004E014B /* OnboardingLocalizedTexts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingLocalizedTexts.swift; sourceTree = "<group>"; };
+		B34C62F42CD179E9004E014B /* OnboardingPreferences.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingPreferences.swift; sourceTree = "<group>"; };
+		B34C62FA2CD1847F004E014B /* OnboardingCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingCoordinator.swift; sourceTree = "<group>"; };
 		B34F3DF22C6701740041D7BD /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
 		B34F3DF42C6701870041D7BD /* String+LocalizedKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+LocalizedKey.swift"; sourceTree = "<group>"; };
 		B34F3DF72C69A3810041D7BD /* DebugOptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebugOptions.swift; sourceTree = "<group>"; };
@@ -1088,6 +1099,7 @@
 			children = (
 				B33808A52CC3051700D56884 /* UserPreference.swift */,
 				B33808A82CC30CD900D56884 /* ScreenTimePreferences.swift */,
+				B34C62F42CD179E9004E014B /* OnboardingPreferences.swift */,
 			);
 			path = UserPreferences;
 			sourceTree = "<group>";
@@ -1114,6 +1126,48 @@
 				B34C62D42CCC1585004E014B /* WallpaperSaveError.swift */,
 			);
 			path = Errors;
+			sourceTree = "<group>";
+		};
+		B34C62E72CD175FA004E014B /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				B34C62F22CD17687004E014B /* OnboardingLocalizedTexts.swift */,
+				B34C62ED2CD1760F004E014B /* Welcome */,
+			);
+			path = Onboarding;
+			sourceTree = "<group>";
+		};
+		B34C62EB2CD1760F004E014B /* View */ = {
+			isa = PBXGroup;
+			children = (
+				B34C62F02CD1761D004E014B /* WelcomeView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		B34C62EC2CD1760F004E014B /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				B34C62EE2CD17617004E014B /* WelcomeViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		B34C62ED2CD1760F004E014B /* Welcome */ = {
+			isa = PBXGroup;
+			children = (
+				B34C62EB2CD1760F004E014B /* View */,
+				B34C62EC2CD1760F004E014B /* ViewController */,
+			);
+			path = Welcome;
+			sourceTree = "<group>";
+		};
+		B34C62F92CD18478004E014B /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				B34C62FA2CD1847F004E014B /* OnboardingCoordinator.swift */,
+			);
+			path = Onboarding;
 			sourceTree = "<group>";
 		};
 		B34F3DF12C6701070041D7BD /* Localization */ = {
@@ -1660,6 +1714,7 @@
 			isa = PBXGroup;
 			children = (
 				AF0DB4A22CD40C5900451E18 /* StylePreview */,
+				B34C62F92CD18478004E014B /* Onboarding */,
 				B33808AE2CC47BFD00D56884 /* RequestScreenTime */,
 				B39D89E22CB85C3C005EEC46 /* Usage */,
 				B39D89DF2CB85C38005EEC46 /* BlockApps */,
@@ -1701,6 +1756,7 @@
 			isa = PBXGroup;
 			children = (
 				AF5F2D0B2CD15AE800EBAAB5 /* Redirecting */,
+				B34C62E72CD175FA004E014B /* Onboarding */,
 				B34F3DFC2C6A92890041D7BD /* RootTabBarController.swift */,
 				B39D89C72CB855D2005EEC46 /* ComingSoon */,
 				B34F3E002C6A93700041D7BD /* AppBlocking */,
@@ -2557,6 +2613,7 @@
 				B32B60F82C87AC5F007DDCE3 /* PersistableWidgetConfiguration+CoreDataClass.swift in Sources */,
 				B32B60F42C87AB75007DDCE3 /* PersistableModuleConfiguration+CoreDataClass.swift in Sources */,
 				B3987E0C2CA38A8A00896414 /* MainWidget.swift in Sources */,
+				B34C62F52CD179E9004E014B /* OnboardingPreferences.swift in Sources */,
 				B372846D2C8298EB00D9A1E7 /* ModuleStyle.swift in Sources */,
 				B33808A92CC30CD900D56884 /* ScreenTimePreferences.swift in Sources */,
 				B32B60F32C8782E2007DDCE3 /* UIView+asImage.swift in Sources */,
@@ -2641,6 +2698,7 @@
 				B34F3E242C6D366A0041D7BD /* WidgetEditorView.swift in Sources */,
 				B35BFB952CB4632900092B42 /* ModuliteFreeSmallBadge.swift in Sources */,
 				B35BFBCB2CB4BC7600092B42 /* SubscriptionDetailsSmallTitle.swift in Sources */,
+				B34C62F12CD1761D004E014B /* WelcomeView.swift in Sources */,
 				B35BFBED2CB5BA8000092B42 /* TutorialCenterSmallTitle.swift in Sources */,
 				B39D89D22CB85602005EEC46 /* ComingSoonViewController.swift in Sources */,
 				B369279C2C66B6E30089F769 /* HomeViewController.swift in Sources */,
@@ -2648,6 +2706,7 @@
 				B35BFBC72CB4BC0900092B42 /* SubscriptionLocalizedTexts.swift in Sources */,
 				AF0DB4A02CD3F95500451E18 /* ImagePreviewCell.swift in Sources */,
 				B3C187842C791D1300A891A8 /* WidgetStyle.swift in Sources */,
+				B34C62EF2CD17617004E014B /* WelcomeViewController.swift in Sources */,
 				B35BFB7F2CB2428A00092B42 /* TutorialWallpaperView.swift in Sources */,
 				B35BFC4A2CB5FB4600092B42 /* TutorialLargeTitleLabel.swift in Sources */,
 				B32B61102C8A474B007DDCE3 /* SelectAppsViewModel.swift in Sources */,
@@ -2672,6 +2731,7 @@
 				B35BFBB82CB4B5F600092B42 /* SettingsViewController.swift in Sources */,
 				B35BFBB92CB4B5F600092B42 /* SettingsViewModel.swift in Sources */,
 				AFFB446C2CC6E35A007CDA51 /* AppBlockingViewModel.swift in Sources */,
+				B34C62F32CD17687004E014B /* OnboardingLocalizedTexts.swift in Sources */,
 				B39A25A42CAB5CE3001C76A5 /* WidgetEditorSaveButton.swift in Sources */,
 				B33808A62CC3051700D56884 /* UserPreference.swift in Sources */,
 				B32B60F02C876F4A007DDCE3 /* FileManagerImagePersistenceController.swift in Sources */,
@@ -2717,6 +2777,7 @@
 				AF5F2D1B2CD2B93300EBAAB5 /* WidgetSetupViewController+StyleCollectionViewCellDelegate.swift in Sources */,
 				B39A25C42CAEC44E001C76A5 /* MainWidgetsPlaceholderView.swift in Sources */,
 				B34F3E142C6B93C80041D7BD /* MainWidgetCollectionViewCell.swift in Sources */,
+				B34C62FB2CD1847F004E014B /* OnboardingCoordinator.swift in Sources */,
 				B3987E0D2CA38A8A00896414 /* MainWidget.swift in Sources */,
 				B3CDD7072C77C59B00E558F8 /* ImageProcessingFactory.swift in Sources */,
 				B34F3E092C6A96A20041D7BD /* RootTabCoordinator.swift in Sources */,
@@ -2793,6 +2854,7 @@
 				B35BFC462CB5F9A500092B42 /* TutorialEditWidgetView.swift in Sources */,
 				B3987E0F2CA38A9C00896414 /* MainWidgetView.swift in Sources */,
 				B34F3E072C6A93B30041D7BD /* UsageViewController.swift in Sources */,
+				B34C62F62CD179E9004E014B /* OnboardingPreferences.swift in Sources */,
 				B34F3E222C6D36390041D7BD /* WidgetEditorViewController.swift in Sources */,
 				B34F3E312C6E87A50041D7BD /* StyleCollectionViewCell.swift in Sources */,
 				B3F054362C7CF6CB0057F04D /* AppInfo+CoreDataClass.swift in Sources */,
