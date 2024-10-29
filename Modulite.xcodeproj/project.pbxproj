@@ -17,6 +17,8 @@
 		AF362C5D2CA73EDC00506443 /* ModuliteDeviceActivityReport.appex in Embed ExtensionKit Extensions */ = {isa = PBXBuildFile; fileRef = AF362C512CA73EDC00506443 /* ModuliteDeviceActivityReport.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		AF362C6C2CA7478B00506443 /* UsageActivityReport.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF362C672CA7478B00506443 /* UsageActivityReport.swift */; };
 		AF362C6D2CA7478B00506443 /* UsageActivityReportScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF362C682CA7478B00506443 /* UsageActivityReportScene.swift */; };
+		AF5F2D142CD165E500EBAAB5 /* RedirectingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF5F2D122CD165E500EBAAB5 /* RedirectingViewController.swift */; };
+		AF5F2D182CD165F400EBAAB5 /* RedirectingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF5F2D172CD165F400EBAAB5 /* RedirectingView.swift */; };
 		AF763F262CAF4492002FBE26 /* FamilyControlsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFE5D5012CADD4C700503572 /* FamilyControlsManager.swift */; };
 		AF9D41DA2CA49BE50077F565 /* UsageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF9D41D82CA49BE50077F565 /* UsageViewModel.swift */; };
 		AFBBC5032C7E459900A9B256 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AFBBC4EB2C7E457C00A9B256 /* WidgetKit.framework */; };
@@ -399,6 +401,8 @@
 		AF362C662CA7478B00506443 /* ModuliteDeviceActivityReport.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ModuliteDeviceActivityReport.entitlements; sourceTree = "<group>"; };
 		AF362C672CA7478B00506443 /* UsageActivityReport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsageActivityReport.swift; sourceTree = "<group>"; };
 		AF362C682CA7478B00506443 /* UsageActivityReportScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsageActivityReportScene.swift; sourceTree = "<group>"; };
+		AF5F2D122CD165E500EBAAB5 /* RedirectingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RedirectingViewController.swift; sourceTree = "<group>"; };
+		AF5F2D172CD165F400EBAAB5 /* RedirectingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RedirectingView.swift; sourceTree = "<group>"; };
 		AF9D41D82CA49BE50077F565 /* UsageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsageViewModel.swift; sourceTree = "<group>"; };
 		AFABBD7E2C863036007BEFD8 /* ModuliteWidgetExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ModuliteWidgetExtension.entitlements; sourceTree = "<group>"; };
 		AFABBD872C88E388007BEFD8 /* DeviceActivity.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DeviceActivity.framework; path = System/Library/Frameworks/DeviceActivity.framework; sourceTree = SDKROOT; };
@@ -756,6 +760,39 @@
 				AFE5D5012CADD4C700503572 /* FamilyControlsManager.swift */,
 			);
 			path = FamilyControls;
+			sourceTree = "<group>";
+		};
+		AF5F2D0B2CD15AE800EBAAB5 /* Redirecting */ = {
+			isa = PBXGroup;
+			children = (
+				AF5F2D162CD165E500EBAAB5 /* View */,
+				AF5F2D132CD165E500EBAAB5 /* ViewController */,
+				AF5F2D152CD165E500EBAAB5 /* ViewModel */,
+			);
+			path = Redirecting;
+			sourceTree = "<group>";
+		};
+		AF5F2D132CD165E500EBAAB5 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				AF5F2D122CD165E500EBAAB5 /* RedirectingViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		AF5F2D152CD165E500EBAAB5 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		AF5F2D162CD165E500EBAAB5 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				AF5F2D172CD165F400EBAAB5 /* RedirectingView.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		AF9D41D92CA49BE50077F565 /* ViewModel */ = {
@@ -1597,6 +1634,7 @@
 		B36927CB2C66B8430089F769 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				AF5F2D0B2CD15AE800EBAAB5 /* Redirecting */,
 				B34F3DFC2C6A92890041D7BD /* RootTabBarController.swift */,
 				B39D89C72CB855D2005EEC46 /* ComingSoon */,
 				B34F3E002C6A93700041D7BD /* AppBlocking */,
@@ -2532,6 +2570,7 @@
 				B3D1B7E72CB7140600DFC4F5 /* HelpTopicView.swift in Sources */,
 				B32B60BA2C864807007DDCE3 /* PersistableModuleConfiguration+CoreDataClass.swift in Sources */,
 				B3987E042CA3602900896414 /* UIView+animateBorderColor.swift in Sources */,
+				AF5F2D182CD165F400EBAAB5 /* RedirectingView.swift in Sources */,
 				B3D1B7DD2CB7121700DFC4F5 /* HelpView.swift in Sources */,
 				B34F3E242C6D366A0041D7BD /* WidgetEditorView.swift in Sources */,
 				B35BFB952CB4632900092B42 /* ModuliteFreeSmallBadge.swift in Sources */,
@@ -2635,6 +2674,7 @@
 				B35BFB8A2CB4605C00092B42 /* TutorialTextParagraphLabel.swift in Sources */,
 				B35BFBE72CB5AAA600092B42 /* TutorialCenterLocalizedTexts.swift in Sources */,
 				B35BFB8B2CB4605C00092B42 /* TutorialTitleLabel.swift in Sources */,
+				AF5F2D142CD165E500EBAAB5 /* RedirectingViewController.swift in Sources */,
 				B34F3E1C2C6BD3DA0041D7BD /* HomeViewModel.swift in Sources */,
 				B34C62D82CCC18D8004E014B /* WidgetEditorLocalizedTexts.swift in Sources */,
 				B32B61012C88EC1A007DDCE3 /* WidgetSetupStyleCompositionalLayout.swift in Sources */,
