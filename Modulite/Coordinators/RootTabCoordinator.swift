@@ -194,4 +194,22 @@ extension RootTabCoordinator: RootTabBarControllerDelegate {
         
         presentChild(coordinator, animated: true)
     }
+    
+    func rootTabBarController(
+        _ viewController: RootTabBarController,
+        shouldPresentOnboarding: Bool
+    ) {
+        guard shouldPresentOnboarding else { return }
+        
+        let router = ModalNavigationRouter(
+            parentViewController: viewController,
+            presentationStyle: .fullScreen
+        )
+        
+        router.setHasSaveButton(false)
+        
+        let coordinator = OnboardingCoordinator(router: router)
+        
+        presentChild(coordinator, animated: true)
+    }
 }
