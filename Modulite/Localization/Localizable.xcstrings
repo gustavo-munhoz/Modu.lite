@@ -860,6 +860,9 @@
         }
       }
     },
+    "Key" : {
+      "extractionState" : "manual"
+    },
     "Loading..." : {
 
     },
@@ -901,6 +904,50 @@
         }
       }
     },
+    "onboardingDownloadWallpapersMessage" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Remember the ”magic” will come from the combination of the widget and wallpaper "
+          }
+        }
+      }
+    },
+    "onboardingDownloadWallpapersTitle" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "You're done! Just download the wallpaper and save the widget!"
+          }
+        }
+      }
+    },
+    "onboardingDragModulesTitle" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "You can drag around the modules to place them where you want"
+          }
+        }
+      }
+    },
+    "onboardingEditModulesTitle" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "If you want to edit a module, just press it and choose between the styles and colors available"
+          }
+        }
+      }
+    },
     "onboardingGetStartedButton" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -908,6 +955,50 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "LET'S START"
+          }
+        }
+      }
+    },
+    "onboardingSelectAppsMessage" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Be mindful and pick only the most useful ones!"
+          }
+        }
+      }
+    },
+    "onboardingSelectAppsTitle" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Now tap search to find your essential apps for your widget"
+          }
+        }
+      }
+    },
+    "onboardingSelectWidgetStyleMessage" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "This will be the aesthetic of your new home page"
+          }
+        }
+      }
+    },
+    "onboardingSelectWidgetStyleTitle" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "First, you'll select a widget style"
           }
         }
       }

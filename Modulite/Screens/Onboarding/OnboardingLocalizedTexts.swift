@@ -11,4 +11,17 @@ enum OnboardingLocalizedTexts: LocalizedKeyProtocol {
     case onboardingWelcomeTitle
     case onboardingWelcomeSubtitle
     case onboardingGetStartedButton
+    
+    case onboardingSelectWidgetStyleTitle
+    case onboardingSelectWidgetStyleMessage
+    
+    case onboardingSelectAppsTitle
+    case onboardingSelectAppsMessage
+    
+    case onboardingDragModulesTitle
+    
+    case onboardingEditModulesTitle
+    
+    case onboardingDownloadWallpapersTitle
+    case onboardingDownloadWallpapersMessage
 }
