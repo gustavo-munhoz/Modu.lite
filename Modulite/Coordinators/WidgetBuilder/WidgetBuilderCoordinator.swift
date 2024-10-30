@@ -35,6 +35,9 @@ class WidgetBuilderCoordinator: Coordinator {
     
     var injectedConfiguration: ModuliteWidgetConfiguration?
     
+    private var shouldHideBackButton = false
+    private var isOnboarding = false
+    
     // MARK: - Initializers
     
     init(router: Router) {
@@ -70,10 +73,26 @@ class WidgetBuilderCoordinator: Coordinator {
         }
     }
     
+    // MARK: - Optional Setup
+    func setHidesBackButton(_ hidesBackButton: Bool) {
+        shouldHideBackButton = hidesBackButton
+    }
+    
+    func setIsOnboarding(_ isOnboarding: Bool) {
+        self.isOnboarding = isOnboarding
+    }
+    
     // MARK: - Presenting
     
     func present(animated: Bool, onDismiss: (() -> Void)?) {
         let viewController = WidgetSetupViewController.instantiate(delegate: self)
+                
+        viewController.navigationItem.setHidesBackButton(
+            shouldHideBackButton,
+            animated: false
+        )
+        
+        viewController.isOnboarding = isOnboarding
         
         if injectedConfiguration != nil {
             viewController.navigationItem.title = .localized(for: .widgetEditingNavigationTitle)
