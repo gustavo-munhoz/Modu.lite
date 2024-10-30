@@ -18,6 +18,8 @@ enum OnboardingLocalizedTexts: LocalizedKeyProtocol {
     case onboardingSelectAppsTitle
     case onboardingSelectAppsMessage
     
+    case onboardingProceedToEditorTitle
+    
     case onboardingDragModulesTitle
     
     case onboardingEditModulesTitle

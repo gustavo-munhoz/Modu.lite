@@ -959,6 +959,17 @@
         }
       }
     },
+    "onboardingProceedToEditorTitle" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Press next to start editing your widget"
+          }
+        }
+      }
+    },
     "onboardingSelectAppsMessage" : {
       "extractionState" : "manual",
       "localizations" : {
