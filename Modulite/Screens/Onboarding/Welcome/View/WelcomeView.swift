@@ -88,7 +88,7 @@ class WelcomeView: UIView {
     
     private func setupConstraints() {
         welcomeTitle.snp.makeConstraints { make in
-            make.top.equalTo(safeAreaLayoutGuide).offset(32)
+            make.top.equalTo(safeAreaLayoutGuide)
             make.left.right.equalToSuperview().inset(32)
         }
         
