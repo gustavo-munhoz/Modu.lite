@@ -95,6 +95,8 @@
 		B32B610A2C8A4485007DDCE3 /* SelectAppsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B32B61092C8A4485007DDCE3 /* SelectAppsView.swift */; };
 		B32B610C2C8A449C007DDCE3 /* SelectAppsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B32B610B2C8A449C007DDCE3 /* SelectAppsViewController.swift */; };
 		B32B61102C8A474B007DDCE3 /* SelectAppsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B32B610F2C8A474B007DDCE3 /* SelectAppsViewModel.swift */; };
+		B32F3BA52CD2E7D7000F4825 /* ProceedToEditorTip.swift in Sources */ = {isa = PBXBuildFile; fileRef = B32F3BA42CD2E7D7000F4825 /* ProceedToEditorTip.swift */; };
+		B32F3BA72CD2F2B1000F4825 /* WidgetSetupViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B32F3BA62CD2F2B1000F4825 /* WidgetSetupViewControllerDelegate.swift */; };
 		B338088D2CC1902E00D56884 /* AppUsageItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = B338088C2CC1902E00D56884 /* AppUsageItem.swift */; };
 		B338088F2CC1905500D56884 /* AppUsageList.swift in Sources */ = {isa = PBXBuildFile; fileRef = B338088E2CC1905500D56884 /* AppUsageList.swift */; };
 		B33808912CC19E6500D56884 /* Date+Operations.swift in Sources */ = {isa = PBXBuildFile; fileRef = B33808902CC19E6500D56884 /* Date+Operations.swift */; };
@@ -484,6 +486,8 @@
 		B32B61092C8A4485007DDCE3 /* SelectAppsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectAppsView.swift; sourceTree = "<group>"; };
 		B32B610B2C8A449C007DDCE3 /* SelectAppsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectAppsViewController.swift; sourceTree = "<group>"; };
 		B32B610F2C8A474B007DDCE3 /* SelectAppsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectAppsViewModel.swift; sourceTree = "<group>"; };
+		B32F3BA42CD2E7D7000F4825 /* ProceedToEditorTip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProceedToEditorTip.swift; sourceTree = "<group>"; };
+		B32F3BA62CD2F2B1000F4825 /* WidgetSetupViewControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetSetupViewControllerDelegate.swift; sourceTree = "<group>"; };
 		B338088C2CC1902E00D56884 /* AppUsageItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppUsageItem.swift; sourceTree = "<group>"; };
 		B338088E2CC1905500D56884 /* AppUsageList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppUsageList.swift; sourceTree = "<group>"; };
 		B33808902CC19E6500D56884 /* Date+Operations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Operations.swift"; sourceTree = "<group>"; };
@@ -1189,6 +1193,7 @@
 				B34C63062CD2D835004E014B /* DragModuleTip.swift */,
 				B34C63082CD2D83A004E014B /* EditModuleTip.swift */,
 				B34C630A2CD2D84A004E014B /* DownloadWallpapersTip.swift */,
+				B32F3BA42CD2E7D7000F4825 /* ProceedToEditorTip.swift */,
 			);
 			path = Tips;
 			sourceTree = "<group>";
@@ -1361,6 +1366,7 @@
 			children = (
 				B34F3E272C6D36D40041D7BD /* WidgetSetupViewController.swift */,
 				AF5F2D1A2CD2B93300EBAAB5 /* WidgetSetupViewController+StyleCollectionViewCellDelegate.swift */,
+				B32F3BA62CD2F2B1000F4825 /* WidgetSetupViewControllerDelegate.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -2752,6 +2758,7 @@
 				B35BFBB62CB4B5F600092B42 /* PreferenceTableViewCell.swift in Sources */,
 				B35BFBB72CB4B5F600092B42 /* SettingsView.swift in Sources */,
 				B35BFBB82CB4B5F600092B42 /* SettingsViewController.swift in Sources */,
+				B32F3BA52CD2E7D7000F4825 /* ProceedToEditorTip.swift in Sources */,
 				B35BFBB92CB4B5F600092B42 /* SettingsViewModel.swift in Sources */,
 				AFFB446C2CC6E35A007CDA51 /* AppBlockingViewModel.swift in Sources */,
 				B34C62F32CD17687004E014B /* OnboardingLocalizedTexts.swift in Sources */,
@@ -2800,6 +2807,7 @@
 				AF5F2D1B2CD2B93300EBAAB5 /* WidgetSetupViewController+StyleCollectionViewCellDelegate.swift in Sources */,
 				B39A25C42CAEC44E001C76A5 /* MainWidgetsPlaceholderView.swift in Sources */,
 				B34F3E142C6B93C80041D7BD /* MainWidgetCollectionViewCell.swift in Sources */,
+				B32F3BA72CD2F2B1000F4825 /* WidgetSetupViewControllerDelegate.swift in Sources */,
 				B34C62FB2CD1847F004E014B /* OnboardingCoordinator.swift in Sources */,
 				B3987E0D2CA38A8A00896414 /* MainWidget.swift in Sources */,
 				B3CDD7072C77C59B00E558F8 /* ImageProcessingFactory.swift in Sources */,
