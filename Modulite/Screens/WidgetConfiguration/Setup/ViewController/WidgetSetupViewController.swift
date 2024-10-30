@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import TipKit
 
 protocol WidgetSetupViewControllerDelegate: AnyObject {
     func getPlaceholderName() -> String
@@ -38,6 +39,8 @@ protocol WidgetSetupViewControllerDelegate: AnyObject {
 }
 
 class WidgetSetupViewController: UIViewController {
+    static let didSelectWidgetStyle = Tips.Event(id: "didSelectWidgetStyle")
+    static let didSelectApps = Tips.Event(id: "didSelectApps")
     
     // MARK: - Properties
     let setupView = WidgetSetupView()
@@ -48,6 +51,16 @@ class WidgetSetupViewController: UIViewController {
     private var isEditingWidget: Bool = false
     
     private var didMakeChanges: Bool = false
+    
+    var isOnboarding: Bool = false
+    
+    private var selectWidgetStyleTip = SelectWidgetStyleTip()
+    private var selectAppsTip = SelectAppsTip()
+    private var proceedToEditorTip = ProceedToEditorTip()
+    private var styleTipObservationTask: Task<Void, Never>?
+    private var selectAppsTipObservationTask: Task<Void, Never>?
+    private var proceedTipObservationTask: Task<Void, Never>?
+    private weak var tipPopoverController: TipUIPopoverViewController?
     
     // MARK: - Lifecycle
     override func loadView() {
@@ -66,7 +79,49 @@ class WidgetSetupViewController: UIViewController {
         setupView.updateSelectedAppsCollectionViewHeight()
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        guard isOnboarding else { return }
+        
+        setupTipObservers()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+
+        breakdownTipObservers()
+    }
+    
     // MARK: - Setup methods
+    private func setupTipObservers() {
+        styleTipObservationTask = styleTipObservationTask ?? createObservationTask(
+            for: selectWidgetStyleTip,
+            sourceItem: setupView.stylesCollectionView
+        )
+        
+        selectAppsTipObservationTask = selectAppsTipObservationTask ?? createObservationTask(
+            for: selectAppsTip,
+            sourceItem: setupView.searchAppsButton
+        )
+        
+        proceedTipObservationTask = proceedTipObservationTask ?? createObservationTask(
+            for: proceedToEditorTip,
+            sourceItem: setupView.nextViewButton
+        )
+    }
+    
+    private func breakdownTipObservers() {
+        styleTipObservationTask?.cancel()
+        styleTipObservationTask = nil
+        
+        selectAppsTipObservationTask?.cancel()
+        selectAppsTipObservationTask = nil
+        
+        proceedTipObservationTask?.cancel()
+        proceedTipObservationTask = nil
+    }
+    
     func setupNavigationBar() {
         guard isEditingWidget else { return }
         
@@ -105,15 +160,25 @@ class WidgetSetupViewController: UIViewController {
         viewModel.setSelectedApps(to: apps)
         
         setupView.selectedAppsCollectionView.reloadData()
+        
+        if !apps.isEmpty, isOnboarding {
+            Self.didSelectApps.sendDonation()
+        }
     }
     
     func proceedToWidgetEditor() {
+        if isOnboarding { dismissCurrentTip() }
+        
         delegate?.widgetSetupViewControllerDidPressNext(
             widgetName: setupView.getWidgetName()
         )
     }
     
     func presentSearchModal() {
+        if isOnboarding && tipPopoverController != nil {
+            dismissCurrentTip()
+        }
+        
         delegate?.widgetSetupViewControllerDidTapSearchApps(self)
     }
     
@@ -125,6 +190,43 @@ class WidgetSetupViewController: UIViewController {
     func setSetupViewHasAppsSelected(to value: Bool) {
         setupView.hasAppsSelected = value
         setupView.updateButtonConfig()
+    }
+    
+    // MARK: - Onboarding
+    
+    private func createObservationTask(
+        for tip: any Tip,
+        sourceItem: UIPopoverPresentationControllerSourceItem
+    ) -> Task<Void, Never>? {
+        Task { @MainActor in
+            for await shouldDisplay in tip.shouldDisplayUpdates where shouldDisplay {
+                presentTip(tip, sourceItem: sourceItem)
+            }
+        }
+    }
+    
+    private func presentTip(
+        _ tip: any Tip,
+        sourceItem: any UIPopoverPresentationControllerSourceItem
+    ) {
+        dismissCurrentTip()
+        
+        let popoverController = TipUIPopoverViewController(
+            tip,
+            sourceItem: sourceItem
+        )
+        
+        popoverController.popoverPresentationController?.passthroughViews = [setupView]
+        
+        present(popoverController, animated: true)
+        tipPopoverController = popoverController
+    }
+    
+    private func dismissCurrentTip(_ animated: Bool = true) {
+        if presentedViewController is TipUIPopoverViewController {
+            dismiss(animated: animated)
+            tipPopoverController = nil
+        }
     }
 }
 
@@ -259,9 +361,7 @@ extension WidgetSetupViewController: UICollectionViewDataSource {
             header.setup(title: .localized(for: .widgetSetupViewStyleHeaderTitle))
             
         } else {
-            header.setup(
-                title: .localized(for: .widgetSetupViewAppsHeaderTitle)
-            )
+            header.setup(title: .localized(for: .widgetSetupViewAppsHeaderTitle))
         }
         return header
     }
@@ -289,6 +389,8 @@ extension WidgetSetupViewController: UICollectionViewDelegate {
             delegate?.widgetSetupViewControllerDidSelectWidgetStyle(self, style: style)
             
             collectionView.reloadData()
+            
+            if isOnboarding { Self.didSelectWidgetStyle.sendDonation() }
             
         default: return
         }
