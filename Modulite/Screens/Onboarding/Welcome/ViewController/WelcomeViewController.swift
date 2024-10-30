@@ -7,10 +7,18 @@
 
 import UIKit
 
+protocol WelcomeViewControllerDelegate: AnyObject {
+    func welcomeViewControllerDidPressStart(
+        _ viewController: WelcomeViewController
+    )
+}
+
 class WelcomeViewController: UIViewController {
     
     // MARK: - Properties
     private let welcomeView = WelcomeView()
+    
+    weak var delegate: WelcomeViewControllerDelegate?
     
     // MARK: - Lifecycle
     override func loadView() {
@@ -24,6 +32,11 @@ class WelcomeViewController: UIViewController {
     
     // MARK: - Setup Methods
     private func setupViewActions() {
-        
+        welcomeView.onStartButtonPressed = didPressStart
+    }
+    
+    // MARK: - Actions
+    private func didPressStart() {
+        delegate?.welcomeViewControllerDidPressStart(self)
     }
 }
