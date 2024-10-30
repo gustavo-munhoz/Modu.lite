@@ -26,6 +26,20 @@ class OnboardingCoordinator: Coordinator {
     ///   - onDismiss: Optional closure to execute when the block apps view controller is dismissed.
     func present(animated: Bool, onDismiss: (() -> Void)?) {
         let vc = WelcomeViewController()
+        vc.delegate = self
+        
         router.present(vc, animated: animated, onDismiss: onDismiss)
+    }
+}
+
+extension OnboardingCoordinator: WelcomeViewControllerDelegate {
+    func welcomeViewControllerDidPressStart(
+        _ viewController: WelcomeViewController
+    ) {
+        let widgetCoordinator = WidgetBuilderCoordinator(router: router)
+        widgetCoordinator.setHidesBackButton(true)
+        widgetCoordinator.setIsOnboarding(true)
+        
+        presentChild(widgetCoordinator, animated: true)
     }
 }
