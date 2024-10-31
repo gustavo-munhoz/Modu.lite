@@ -14,6 +14,8 @@
 		AF0DB4962CD2C08900451E18 /* StylePreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF0DB4952CD2C08900451E18 /* StylePreviewView.swift */; };
 		AF0DB4982CD2C09500451E18 /* StylePreviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF0DB4972CD2C09500451E18 /* StylePreviewViewController.swift */; };
 		AF0DB49A2CD2C09E00451E18 /* StylePreviewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF0DB4992CD2C09E00451E18 /* StylePreviewViewModel.swift */; };
+		AF0DB4A02CD3F95500451E18 /* ImagePreviewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF0DB49E2CD3F95500451E18 /* ImagePreviewCell.swift */; };
+		AF0DB4A42CD40C6400451E18 /* StylePreviewCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF0DB4A32CD40C6400451E18 /* StylePreviewCoordinator.swift */; };
 		AF362C052CA5B1A300506443 /* DeviceActivity.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AFABBD872C88E388007BEFD8 /* DeviceActivity.framework */; };
 		AF362C0D2CA5B1A300506443 /* ModuliteDeviceActivityMonitor.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = AF362C042CA5B1A300506443 /* ModuliteDeviceActivityMonitor.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		AF362C162CA5B1B000506443 /* DeviceActivityMonitorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF362C122CA5B1B000506443 /* DeviceActivityMonitorExtension.swift */; };
@@ -399,6 +401,8 @@
 		AF0DB4952CD2C08900451E18 /* StylePreviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StylePreviewView.swift; sourceTree = "<group>"; };
 		AF0DB4972CD2C09500451E18 /* StylePreviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StylePreviewViewController.swift; sourceTree = "<group>"; };
 		AF0DB4992CD2C09E00451E18 /* StylePreviewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StylePreviewViewModel.swift; sourceTree = "<group>"; };
+		AF0DB49E2CD3F95500451E18 /* ImagePreviewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePreviewCell.swift; sourceTree = "<group>"; };
+		AF0DB4A32CD40C6400451E18 /* StylePreviewCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StylePreviewCoordinator.swift; sourceTree = "<group>"; };
 		AF362C042CA5B1A300506443 /* ModuliteDeviceActivityMonitor.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = ModuliteDeviceActivityMonitor.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		AF362C122CA5B1B000506443 /* DeviceActivityMonitorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceActivityMonitorExtension.swift; sourceTree = "<group>"; };
 		AF362C132CA5B1B000506443 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -731,6 +735,7 @@
 		AF0DB4912CD2BED600451E18 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				AF0DB49F2CD3F95500451E18 /* Components */,
 				AF0DB4952CD2C08900451E18 /* StylePreviewView.swift */,
 			);
 			path = View;
@@ -758,6 +763,22 @@
 				AF0DB4912CD2BED600451E18 /* View */,
 				AF0DB4922CD2BED600451E18 /* ViewController */,
 				AF0DB4932CD2BED600451E18 /* ViewModel */,
+			);
+			path = StylePreview;
+			sourceTree = "<group>";
+		};
+		AF0DB49F2CD3F95500451E18 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				AF0DB49E2CD3F95500451E18 /* ImagePreviewCell.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		AF0DB4A22CD40C5900451E18 /* StylePreview */ = {
+			isa = PBXGroup;
+			children = (
+				AF0DB4A32CD40C6400451E18 /* StylePreviewCoordinator.swift */,
 			);
 			path = StylePreview;
 			sourceTree = "<group>";
@@ -1638,6 +1659,7 @@
 		B36927C82C66B8330089F769 /* Coordinators */ = {
 			isa = PBXGroup;
 			children = (
+				AF0DB4A22CD40C5900451E18 /* StylePreview */,
 				B33808AE2CC47BFD00D56884 /* RequestScreenTime */,
 				B39D89E22CB85C3C005EEC46 /* Usage */,
 				B39D89DF2CB85C38005EEC46 /* BlockApps */,
@@ -2624,6 +2646,7 @@
 				B369279C2C66B6E30089F769 /* HomeViewController.swift in Sources */,
 				B35BFC5C2CB6F22100092B42 /* FAQView.swift in Sources */,
 				B35BFBC72CB4BC0900092B42 /* SubscriptionLocalizedTexts.swift in Sources */,
+				AF0DB4A02CD3F95500451E18 /* ImagePreviewCell.swift in Sources */,
 				B3C187842C791D1300A891A8 /* WidgetStyle.swift in Sources */,
 				B35BFB7F2CB2428A00092B42 /* TutorialWallpaperView.swift in Sources */,
 				B35BFC4A2CB5FB4600092B42 /* TutorialLargeTitleLabel.swift in Sources */,
@@ -2669,6 +2692,7 @@
 				B302016B2CC8229200301646 /* BlockManger.swift in Sources */,
 				AF0026652CCAC8300052B101 /* ShieldContentFactory.swift in Sources */,
 				B30201792CC9705800301646 /* SelectableDay.swift in Sources */,
+				AF0DB4A42CD40C6400451E18 /* StylePreviewCoordinator.swift in Sources */,
 				B3D1B7C72CB6F61E00DFC4F5 /* FAQLocalizedTexts.swift in Sources */,
 				B39A25D62CAF260C001C76A5 /* CAGradientLayer+Gradient.swift in Sources */,
 				B3C1877F2C78D1E000A891A8 /* ModuliteWidgetConfiguration.swift in Sources */,
