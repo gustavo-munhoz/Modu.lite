@@ -56,7 +56,7 @@ class WidgetEditorView: UIScrollView {
     
     private(set) lazy var moduleStyleCollectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
-        layout.itemSize = CGSize(width: 100, height: 145)
+        layout.itemSize = CGSize(width: 108 * 0.8, height: 170 * 0.8)
         layout.scrollDirection = .horizontal
         layout.minimumLineSpacing = 25
         layout.sectionInset = .init(top: 0, left: 30, bottom: 0, right: 30)
@@ -247,7 +247,7 @@ class WidgetEditorView: UIScrollView {
         
         moduleStyleCollectionView.snp.makeConstraints { make in
             make.top.equalTo(moduleStyleHeader.snp.bottom).offset(15)
-            make.height.equalTo(180)
+            make.height.equalTo(190)
             make.left.equalToSuperview()
             make.width.equalToSuperview().offset(44)
         }
