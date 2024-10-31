@@ -70,6 +70,13 @@ extension WidgetEditorViewController: UICollectionViewDelegate {
         }
     }
     
+    private func sendEditModuleEventIfNeeded() {
+        guard !hasCompletedEdit, isOnboarding else { return }
+        
+        Self.didEditModule.sendDonation()
+        hasCompletedEdit = true
+    }
+    
     private func clearSelectedStyleCell() {
         editorView.moduleStyleCollectionView.subviews.forEach { cell in
             guard let cell = cell as? ModuleStyleCell else { return }
