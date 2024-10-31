@@ -8,6 +8,10 @@
 import UIKit
 import TipKit
 
+extension Notification.Name {
+    static let widgetEditorDidFinishOnboarding = Notification.Name("widgetEditorDidFinishOnboarding")
+}
+
 protocol WidgetEditorViewControllerDelegate: AnyObject {
     func widgetEditorViewController(
         _ viewController: WidgetEditorViewController,
@@ -54,6 +58,7 @@ class WidgetEditorViewController: UIViewController {
     private var wallpapersObservationTask: Task<Void, Never>?
     private weak var tipPopoverController: TipUIPopoverViewController?
     
+    var hasCompletedDrag: Bool = false
     var hasCompletedEdit: Bool = false
     
     // MARK: - Lifecycle
@@ -61,6 +66,7 @@ class WidgetEditorViewController: UIViewController {
         view = editorView
         editorView.setCollectionViewDelegates(to: self)
         editorView.setCollectionViewDataSources(to: self)
+        editorView.delegate = self
         
         setViewActions()
         
@@ -175,7 +181,7 @@ class WidgetEditorViewController: UIViewController {
         tipPopoverController = popoverController
     }
     
-    private func dismissCurrentTip(_ animated: Bool = true) {
+    func dismissCurrentTip(_ animated: Bool = true) {
         if presentedViewController is TipUIPopoverViewController {
             dismiss(animated: animated)
             tipPopoverController = nil
@@ -252,6 +258,11 @@ class WidgetEditorViewController: UIViewController {
         
         let widget = viewModel.saveWidget(from: editorView.widgetLayoutCollectionView)
         delegate?.widgetEditorViewController(self, didSave: widget)
+        
+        if isOnboarding {
+            UserPreference<Onboarding>.shared.set(true, for: .hasCompletedOnboarding)
+            NotificationCenter.default.post(name: .widgetEditorDidFinishOnboarding, object: nil)
+        }
     }
     
     func handleDeleteWidgetButtonTouch() {
