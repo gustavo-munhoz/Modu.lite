@@ -22,8 +22,8 @@ protocol HomeViewControllerDelegate: AnyObject {
 class HomeViewController: UIViewController {
 
     // MARK: - Properties
-    private let homeView = HomeView()
-    private let viewModel = HomeViewModel()
+    private(set) var homeView = HomeView()
+    private(set) var viewModel = HomeViewModel()
     
     weak var delegate: HomeViewControllerDelegate?
     
@@ -39,6 +39,15 @@ class HomeViewController: UIViewController {
 
         setupNavigationBar()
         updatePlaceholderViews()
+        setupOnboardingObserverIfNeeded()
+    }
+    
+    deinit {
+        NotificationCenter.default.removeObserver(
+            self,
+            name: .widgetEditorDidFinishOnboarding,
+            object: nil
+        )
     }
     
     // MARK: - Setup methods
@@ -48,7 +57,24 @@ class HomeViewController: UIViewController {
         navigationController?.navigationBar.barTintColor = .whiteTurnip
     }
     
+    private func setupOnboardingObserverIfNeeded() {
+        if !UserPreference<Onboarding>.shared.bool(for: .hasCompletedOnboarding) {
+            NotificationCenter.default.addObserver(
+                self,
+                selector: #selector(handleOnboardingCompletion),
+                name: .widgetEditorDidFinishOnboarding,
+                object: nil
+            )
+        }
+    }
+    
     // MARK: - Actions
+    @objc private func handleOnboardingCompletion() {
+        viewModel = HomeViewModel()
+        
+        homeView.setMainWidgetPlaceholderVisibility(to: false)
+        homeView.mainWidgetsCollectionView.reloadData()
+    }
     func updatePlaceholderViews() {
         homeView.setMainWidgetPlaceholderVisibility(to: viewModel.mainWidgets.isEmpty)
         homeView.setAuxWidgetPlaceholderVisibility(to: viewModel.auxiliaryWidgets.isEmpty)
