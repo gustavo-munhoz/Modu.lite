@@ -64,6 +64,8 @@ extension WidgetEditorViewController: UICollectionViewDropDelegate {
                 }
                 
                 coordinator.drop(items.first!.dragItem, toItemAt: destinationIndexPath)
+                
+                Self.didDragModule.sendDonation()
                 clearSelectedModuleCell()
             }
         default:
