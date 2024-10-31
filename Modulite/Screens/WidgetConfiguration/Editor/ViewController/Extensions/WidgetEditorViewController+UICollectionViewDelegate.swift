@@ -9,6 +9,15 @@ import UIKit
 
 extension WidgetEditorViewController: UICollectionViewDelegate {
     
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        if scrollView === editorView {
+            let bottomEdge = scrollView.contentOffset.y + scrollView.frame.size.height
+            if bottomEdge >= scrollView.contentSize.height {
+                sendEditModuleEventIfNeeded()
+            }
+        }
+    }
+    
     // MARK: - Change internal collectionView's position based on scroll %
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let totalScrollWidth = scrollView.contentSize.width - scrollView.bounds.width
@@ -39,6 +48,7 @@ extension WidgetEditorViewController: UICollectionViewDelegate {
                 return
             }
             
+            dismissCurrentTip()
             selectModuleCell(at: indexPath.row)
             
         case editorView.moduleStyleCollectionView:
@@ -71,7 +81,7 @@ extension WidgetEditorViewController: UICollectionViewDelegate {
     }
     
     private func sendEditModuleEventIfNeeded() {
-        guard !hasCompletedEdit, isOnboarding else { return }
+        guard hasCompletedDrag, !hasCompletedEdit, isOnboarding else { return }
         
         Self.didEditModule.sendDonation()
         hasCompletedEdit = true
