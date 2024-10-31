@@ -35,8 +35,8 @@ class WidgetBuilderCoordinator: Coordinator {
     
     var injectedConfiguration: ModuliteWidgetConfiguration?
     
-    private var shouldHideBackButton = false
-    private var isOnboarding = false
+    var shouldHideBackButton = false
+    var isOnboarding = false
     
     // MARK: - Initializers
     
