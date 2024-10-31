@@ -1145,8 +1145,8 @@
 		B34C62E72CD175FA004E014B /* Onboarding */ = {
 			isa = PBXGroup;
 			children = (
-				B34C63002CD1CAF9004E014B /* Tips */,
 				B34C62F22CD17687004E014B /* OnboardingLocalizedTexts.swift */,
+				B34C63002CD1CAF9004E014B /* Tips */,
 				B34C62ED2CD1760F004E014B /* Welcome */,
 			);
 			path = Onboarding;
@@ -1787,6 +1787,7 @@
 				AF5F2D0B2CD15AE800EBAAB5 /* Redirecting */,
 				B34C62E72CD175FA004E014B /* Onboarding */,
 				B34F3DFC2C6A92890041D7BD /* RootTabBarController.swift */,
+				B34C62E72CD175FA004E014B /* Onboarding */,
 				B39D89C72CB855D2005EEC46 /* ComingSoon */,
 				B34F3E002C6A93700041D7BD /* AppBlocking */,
 				B36927CC2C66B86D0089F769 /* Home */,
