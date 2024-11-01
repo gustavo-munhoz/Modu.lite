@@ -17,6 +17,10 @@ protocol HomeViewControllerDelegate: AnyObject {
         _ viewController: HomeViewController,
         widget: ModuliteWidgetConfiguration
     )
+    
+    func homeViewControllerDidFinishOnboarding(
+        _ viewController: HomeViewController
+    )
 }
 
 class HomeViewController: UIViewController {
@@ -40,6 +44,11 @@ class HomeViewController: UIViewController {
         setupNavigationBar()
         updatePlaceholderViews()
         setupOnboardingObserverIfNeeded()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        delegate?.homeViewControllerDidFinishOnboarding(self)
     }
     
     deinit {
@@ -70,8 +79,9 @@ class HomeViewController: UIViewController {
     
     // MARK: - Actions
     @objc private func handleOnboardingCompletion() {
-        viewModel = HomeViewModel()
+        delegate?.homeViewControllerDidFinishOnboarding(self)
         
+        viewModel = HomeViewModel()
         homeView.setMainWidgetPlaceholderVisibility(to: false)
         homeView.mainWidgetsCollectionView.reloadData()
     }

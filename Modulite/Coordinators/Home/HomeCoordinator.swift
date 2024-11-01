@@ -83,6 +83,21 @@ extension HomeCoordinator: HomeViewControllerDelegate {
         presentChild(coordinator, animated: true)
     }
     
+    func homeViewControllerDidFinishOnboarding(
+        _ viewController: HomeViewController
+    ) {
+        let router = ModalNavigationRouter(
+            parentViewController: viewController,
+            presentationStyle: .fullScreen
+        )
+        
+        router.setHasSaveButton(false)
+        
+        let coordinator = OnboardingCompletionCoordinator(router: router)
+        
+        presentChild(coordinator, animated: true)
+    }
+    
     private func presentFeatureComingAlert(_ parentViewController: UIViewController) {
         let alert = UIAlertController(
             title: .localized(for: .comingSoonTitle),
