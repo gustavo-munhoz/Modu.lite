@@ -102,7 +102,6 @@
 		B32F3BD32CD40669000F4825 /* OnboardingDeclutterHomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B32F3BD22CD40669000F4825 /* OnboardingDeclutterHomeView.swift */; };
 		B32F3BD52CD40C51000F4825 /* OnboardingTutorialsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B32F3BD42CD40C51000F4825 /* OnboardingTutorialsView.swift */; };
 		B32F3BD92CD41189000F4825 /* OnboardingNumberedTutorial.swift in Sources */ = {isa = PBXBuildFile; fileRef = B32F3BD82CD41189000F4825 /* OnboardingNumberedTutorial.swift */; };
-		B32F3BDB2CD41B0D000F4825 /* OnboardingTutorialButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B32F3BDA2CD41B0D000F4825 /* OnboardingTutorialButton.swift */; };
 		B32F3BDD2CD41FFF000F4825 /* OnboardingCompletionCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B32F3BDC2CD41FFF000F4825 /* OnboardingCompletionCoordinator.swift */; };
 		B32F3BE12CD56412000F4825 /* ButtonFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = B32F3BE02CD56412000F4825 /* ButtonFactory.swift */; };
 		B32F3BE22CD56412000F4825 /* ButtonFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = B32F3BE02CD56412000F4825 /* ButtonFactory.swift */; };
@@ -502,7 +501,6 @@
 		B32F3BD22CD40669000F4825 /* OnboardingDeclutterHomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingDeclutterHomeView.swift; sourceTree = "<group>"; };
 		B32F3BD42CD40C51000F4825 /* OnboardingTutorialsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingTutorialsView.swift; sourceTree = "<group>"; };
 		B32F3BD82CD41189000F4825 /* OnboardingNumberedTutorial.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingNumberedTutorial.swift; sourceTree = "<group>"; };
-		B32F3BDA2CD41B0D000F4825 /* OnboardingTutorialButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingTutorialButton.swift; sourceTree = "<group>"; };
 		B32F3BDC2CD41FFF000F4825 /* OnboardingCompletionCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingCompletionCoordinator.swift; sourceTree = "<group>"; };
 		B32F3BE02CD56412000F4825 /* ButtonFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonFactory.swift; sourceTree = "<group>"; };
 		B338088C2CC1902E00D56884 /* AppUsageItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppUsageItem.swift; sourceTree = "<group>"; };
@@ -1155,7 +1153,6 @@
 			isa = PBXGroup;
 			children = (
 				B32F3BD82CD41189000F4825 /* OnboardingNumberedTutorial.swift */,
-				B32F3BDA2CD41B0D000F4825 /* OnboardingTutorialButton.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
