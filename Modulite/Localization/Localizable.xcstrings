@@ -959,6 +959,17 @@
         }
       }
     },
+    "onboardingHowDoIDoThat" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "How do I do that?"
+          }
+        }
+      }
+    },
     "onboardingProceedToEditorTitle" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -1010,6 +1021,61 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "First, you'll select a widget style"
+          }
+        }
+      }
+    },
+    "onboardingSetWallpaperHighlightedText" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Apply your new wallpaper"
+          }
+        }
+      }
+    },
+    "onboardingSetWallpaperNumberBoxText" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "to your iPhone, so it can integrate seamlessly with your brand new widget!"
+          }
+        }
+      }
+    },
+    "onboardingTutorialsAllSet" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ALL SET"
+          }
+        }
+      }
+    },
+    "onboardingTutorialsSubtitle" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "You just created and customised\nyour first widget on Modu.lite!\n\nNow we'll help you set it up!"
+          }
+        }
+      }
+    },
+    "onboardingTutorialsTitle" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Congratulations!"
           }
         }
       }
