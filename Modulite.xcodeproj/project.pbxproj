@@ -97,6 +97,15 @@
 		B32B61102C8A474B007DDCE3 /* SelectAppsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B32B610F2C8A474B007DDCE3 /* SelectAppsViewModel.swift */; };
 		B32F3BA52CD2E7D7000F4825 /* ProceedToEditorTip.swift in Sources */ = {isa = PBXBuildFile; fileRef = B32F3BA42CD2E7D7000F4825 /* ProceedToEditorTip.swift */; };
 		B32F3BA72CD2F2B1000F4825 /* WidgetSetupViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B32F3BA62CD2F2B1000F4825 /* WidgetSetupViewControllerDelegate.swift */; };
+		B32F3BBF2CD40606000F4825 /* OnboardingTutorialsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B32F3BBB2CD40606000F4825 /* OnboardingTutorialsViewController.swift */; };
+		B32F3BD12CD40665000F4825 /* OnboardingDeclutterHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B32F3BD02CD40665000F4825 /* OnboardingDeclutterHomeViewController.swift */; };
+		B32F3BD32CD40669000F4825 /* OnboardingDeclutterHomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B32F3BD22CD40669000F4825 /* OnboardingDeclutterHomeView.swift */; };
+		B32F3BD52CD40C51000F4825 /* OnboardingTutorialsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B32F3BD42CD40C51000F4825 /* OnboardingTutorialsView.swift */; };
+		B32F3BD92CD41189000F4825 /* OnboardingNumberedTutorial.swift in Sources */ = {isa = PBXBuildFile; fileRef = B32F3BD82CD41189000F4825 /* OnboardingNumberedTutorial.swift */; };
+		B32F3BDB2CD41B0D000F4825 /* OnboardingTutorialButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B32F3BDA2CD41B0D000F4825 /* OnboardingTutorialButton.swift */; };
+		B32F3BDD2CD41FFF000F4825 /* OnboardingCompletionCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B32F3BDC2CD41FFF000F4825 /* OnboardingCompletionCoordinator.swift */; };
+		B32F3BE12CD56412000F4825 /* ButtonFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = B32F3BE02CD56412000F4825 /* ButtonFactory.swift */; };
+		B32F3BE22CD56412000F4825 /* ButtonFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = B32F3BE02CD56412000F4825 /* ButtonFactory.swift */; };
 		B338088D2CC1902E00D56884 /* AppUsageItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = B338088C2CC1902E00D56884 /* AppUsageItem.swift */; };
 		B338088F2CC1905500D56884 /* AppUsageList.swift in Sources */ = {isa = PBXBuildFile; fileRef = B338088E2CC1905500D56884 /* AppUsageList.swift */; };
 		B33808912CC19E6500D56884 /* Date+Operations.swift in Sources */ = {isa = PBXBuildFile; fileRef = B33808902CC19E6500D56884 /* Date+Operations.swift */; };
@@ -488,6 +497,14 @@
 		B32B610F2C8A474B007DDCE3 /* SelectAppsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectAppsViewModel.swift; sourceTree = "<group>"; };
 		B32F3BA42CD2E7D7000F4825 /* ProceedToEditorTip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProceedToEditorTip.swift; sourceTree = "<group>"; };
 		B32F3BA62CD2F2B1000F4825 /* WidgetSetupViewControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetSetupViewControllerDelegate.swift; sourceTree = "<group>"; };
+		B32F3BBB2CD40606000F4825 /* OnboardingTutorialsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingTutorialsViewController.swift; sourceTree = "<group>"; };
+		B32F3BD02CD40665000F4825 /* OnboardingDeclutterHomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingDeclutterHomeViewController.swift; sourceTree = "<group>"; };
+		B32F3BD22CD40669000F4825 /* OnboardingDeclutterHomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingDeclutterHomeView.swift; sourceTree = "<group>"; };
+		B32F3BD42CD40C51000F4825 /* OnboardingTutorialsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingTutorialsView.swift; sourceTree = "<group>"; };
+		B32F3BD82CD41189000F4825 /* OnboardingNumberedTutorial.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingNumberedTutorial.swift; sourceTree = "<group>"; };
+		B32F3BDA2CD41B0D000F4825 /* OnboardingTutorialButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingTutorialButton.swift; sourceTree = "<group>"; };
+		B32F3BDC2CD41FFF000F4825 /* OnboardingCompletionCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingCompletionCoordinator.swift; sourceTree = "<group>"; };
+		B32F3BE02CD56412000F4825 /* ButtonFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonFactory.swift; sourceTree = "<group>"; };
 		B338088C2CC1902E00D56884 /* AppUsageItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppUsageItem.swift; sourceTree = "<group>"; };
 		B338088E2CC1905500D56884 /* AppUsageList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppUsageList.swift; sourceTree = "<group>"; };
 		B33808902CC19E6500D56884 /* Date+Operations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Operations.swift"; sourceTree = "<group>"; };
@@ -1074,6 +1091,83 @@
 			path = Home;
 			sourceTree = "<group>";
 		};
+		B32F3BA92CD40545000F4825 /* OnboardingCompletion */ = {
+			isa = PBXGroup;
+			children = (
+				B32F3BD72CD41176000F4825 /* Components */,
+				B32F3BCB2CD4063A000F4825 /* DeclutterHome */,
+				B32F3BBD2CD40606000F4825 /* OnboardingTutorials */,
+			);
+			path = OnboardingCompletion;
+			sourceTree = "<group>";
+		};
+		B32F3BBA2CD40606000F4825 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				B32F3BD42CD40C51000F4825 /* OnboardingTutorialsView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		B32F3BBC2CD40606000F4825 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				B32F3BBB2CD40606000F4825 /* OnboardingTutorialsViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		B32F3BBD2CD40606000F4825 /* OnboardingTutorials */ = {
+			isa = PBXGroup;
+			children = (
+				B32F3BBA2CD40606000F4825 /* View */,
+				B32F3BBC2CD40606000F4825 /* ViewController */,
+			);
+			path = OnboardingTutorials;
+			sourceTree = "<group>";
+		};
+		B32F3BC92CD4063A000F4825 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				B32F3BD22CD40669000F4825 /* OnboardingDeclutterHomeView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		B32F3BCA2CD4063A000F4825 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				B32F3BD02CD40665000F4825 /* OnboardingDeclutterHomeViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		B32F3BCB2CD4063A000F4825 /* DeclutterHome */ = {
+			isa = PBXGroup;
+			children = (
+				B32F3BC92CD4063A000F4825 /* View */,
+				B32F3BCA2CD4063A000F4825 /* ViewController */,
+			);
+			path = DeclutterHome;
+			sourceTree = "<group>";
+		};
+		B32F3BD72CD41176000F4825 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				B32F3BD82CD41189000F4825 /* OnboardingNumberedTutorial.swift */,
+				B32F3BDA2CD41B0D000F4825 /* OnboardingTutorialButton.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		B32F3BDF2CD56404000F4825 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				B32F3BE02CD56412000F4825 /* ButtonFactory.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		B33808982CC3004400D56884 /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -1146,6 +1240,7 @@
 			isa = PBXGroup;
 			children = (
 				B34C62F22CD17687004E014B /* OnboardingLocalizedTexts.swift */,
+				B32F3BA92CD40545000F4825 /* OnboardingCompletion */,
 				B34C63002CD1CAF9004E014B /* Tips */,
 				B34C62ED2CD1760F004E014B /* Welcome */,
 			);
@@ -1181,6 +1276,7 @@
 			isa = PBXGroup;
 			children = (
 				B34C62FA2CD1847F004E014B /* OnboardingCoordinator.swift */,
+				B32F3BDC2CD41FFF000F4825 /* OnboardingCompletionCoordinator.swift */,
 			);
 			path = Onboarding;
 			sourceTree = "<group>";
@@ -1346,9 +1442,9 @@
 		B350C0502C8B90A90035682F /* Setup */ = {
 			isa = PBXGroup;
 			children = (
-				B350C0532C8B90B20035682F /* View */,
 				B350C0522C8B90AE0035682F /* ViewController */,
 				B350C0512C8B90AB0035682F /* ViewModel */,
+				B350C0532C8B90B20035682F /* View */,
 			);
 			path = Setup;
 			sourceTree = "<group>";
@@ -2169,6 +2265,7 @@
 		B3CDD7052C77C51500E558F8 /* Factories */ = {
 			isa = PBXGroup;
 			children = (
+				B32F3BDF2CD56404000F4825 /* Views */,
 				B3CDD7062C77C59B00E558F8 /* ImageProcessingFactory.swift */,
 				B3C187852C79208600A891A8 /* WidgetStyleFactory.swift */,
 				B32B60FD2C88E43F007DDCE3 /* CustomizedTextFactory.swift */,
@@ -2678,6 +2775,7 @@
 				B37284712C82992200D9A1E7 /* ModuleAppNameTextConfiguration.swift in Sources */,
 				AFBBC5222C7E5D8D00A9B256 /* AppInfo+CoreDataClass.swift in Sources */,
 				B32B60F92C87AC81007DDCE3 /* FileManagerImagePersistenceController.swift in Sources */,
+				B32F3BE22CD56412000F4825 /* ButtonFactory.swift in Sources */,
 				B372846E2C8298F100D9A1E7 /* ModuleConfiguration.swift in Sources */,
 				B372846B2C8298BB00D9A1E7 /* ModuliteWidgetConfiguration.swift in Sources */,
 				B33808A72CC3051700D56884 /* UserPreference.swift in Sources */,
@@ -2746,11 +2844,13 @@
 				B36927982C66B6E30089F769 /* AppDelegate.swift in Sources */,
 				B35BFBDF2CB5A9FE00092B42 /* TutorialCenterViewModel.swift in Sources */,
 				B369279A2C66B6E30089F769 /* SceneDelegate.swift in Sources */,
+				B32F3BE12CD56412000F4825 /* ButtonFactory.swift in Sources */,
 				B32B60F22C878290007DDCE3 /* UIView+asImage.swift in Sources */,
 				B35BFBF32CB5CCD200092B42 /* TutorialCoordinator.swift in Sources */,
 				B39A25D82CAF275F001C76A5 /* ModulitePlusSmallBadge.swift in Sources */,
 				B34F3E0B2C6A9E350041D7BD /* NavigationRouter.swift in Sources */,
 				AF0DB4982CD2C09500451E18 /* StylePreviewViewController.swift in Sources */,
+				B32F3BDB2CD41B0D000F4825 /* OnboardingTutorialButton.swift in Sources */,
 				B36927DA2C66C2770089F769 /* HomeView.swift in Sources */,
 				B30201732CC8C9C200301646 /* TimeSelectPicker.swift in Sources */,
 				B36927D52C66BCE60089F769 /* HomeCoordinator.swift in Sources */,
@@ -2773,6 +2873,7 @@
 				B3AEF83B2CCA705C0019E91A /* AppBlockingSessionHeader.swift in Sources */,
 				B3EB15B62C7E4BF0003B1960 /* ModuleConfiguration.swift in Sources */,
 				B35BFBE92CB5AF9B00092B42 /* TutorialCenterCoordinator.swift in Sources */,
+				B32F3BD92CD41189000F4825 /* OnboardingNumberedTutorial.swift in Sources */,
 				B36927D32C66BBC10089F769 /* SceneDelegateRouter.swift in Sources */,
 				B32B61062C8A4140007DDCE3 /* ModalNavigationRouter.swift in Sources */,
 				B35BFB9F2CB47D9B00092B42 /* SettingsCoordinator.swift in Sources */,
@@ -2807,6 +2908,7 @@
 				B3D1B7CB2CB6FB0600DFC4F5 /* FAQQuestionAndAnswerView.swift in Sources */,
 				AF5F2D1B2CD2B93300EBAAB5 /* WidgetSetupViewController+StyleCollectionViewCellDelegate.swift in Sources */,
 				B39A25C42CAEC44E001C76A5 /* MainWidgetsPlaceholderView.swift in Sources */,
+				B32F3BD52CD40C51000F4825 /* OnboardingTutorialsView.swift in Sources */,
 				B34F3E142C6B93C80041D7BD /* MainWidgetCollectionViewCell.swift in Sources */,
 				B32F3BA72CD2F2B1000F4825 /* WidgetSetupViewControllerDelegate.swift in Sources */,
 				B34C62FB2CD1847F004E014B /* OnboardingCoordinator.swift in Sources */,
@@ -2839,6 +2941,7 @@
 				B34C62D62CCC1585004E014B /* WallpaperSaveError.swift in Sources */,
 				B35BFB8A2CB4605C00092B42 /* TutorialTextParagraphLabel.swift in Sources */,
 				B35BFBE72CB5AAA600092B42 /* TutorialCenterLocalizedTexts.swift in Sources */,
+				B32F3BDD2CD41FFF000F4825 /* OnboardingCompletionCoordinator.swift in Sources */,
 				B35BFB8B2CB4605C00092B42 /* TutorialTitleLabel.swift in Sources */,
 				AF5F2D142CD165E500EBAAB5 /* RedirectingViewController.swift in Sources */,
 				B34F3E1C2C6BD3DA0041D7BD /* HomeViewModel.swift in Sources */,
@@ -2882,9 +2985,11 @@
 				B35BFBE52CB5AA9F00092B42 /* TutorialCenterOptionButton.swift in Sources */,
 				B350C05A2C8F92C90035682F /* WidgetBuilderCoordinator.swift in Sources */,
 				B3987E1F2CA3A3BC00896414 /* MainWidgetModuleButton.swift in Sources */,
+				B32F3BBF2CD40606000F4825 /* OnboardingTutorialsViewController.swift in Sources */,
 				B39A26062CB06E60001C76A5 /* SelectAppsCoordinator.swift in Sources */,
 				B3987E312CA4F48C00896414 /* MainWidgetConfigurationEntity.swift in Sources */,
 				B34F3E372C6FDEAA0041D7BD /* SelectedAppCollectionViewCell.swift in Sources */,
+				B32F3BD32CD40669000F4825 /* OnboardingDeclutterHomeView.swift in Sources */,
 				B3CDD7012C766F2E00E558F8 /* ModuleStyleCell.swift in Sources */,
 				B35BFC462CB5F9A500092B42 /* TutorialEditWidgetView.swift in Sources */,
 				B3987E0F2CA38A9C00896414 /* MainWidgetView.swift in Sources */,
@@ -2895,6 +3000,7 @@
 				B34C63052CD2D82D004E014B /* SelectAppsTip.swift in Sources */,
 				B3F054362C7CF6CB0057F04D /* AppInfo+CoreDataClass.swift in Sources */,
 				B34F3DF52C6701870041D7BD /* String+LocalizedKey.swift in Sources */,
+				B32F3BD12CD40665000F4825 /* OnboardingDeclutterHomeViewController.swift in Sources */,
 				B39D89E02CB85C38005EEC46 /* BlockAppsCoordinator.swift in Sources */,
 				B35BFC4E2CB609CD00092B42 /* TutorialAddWidgetView.swift in Sources */,
 				B3D1B7CF2CB6FDF800DFC4F5 /* FAQStackView.swift in Sources */,
