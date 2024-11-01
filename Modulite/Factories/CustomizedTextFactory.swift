@@ -9,13 +9,19 @@ import UIKit
 
 class CustomizedTextFactory {
     
-    static func createTextWithAsterisk(with text: String) -> NSAttributedString {
+    static func createTextWithAsterisk(
+        with text: String,
+        asteriskRect: CGRect = CGRect(x: 0, y: -2.5, width: 21, height: 21),
+        textStyle: UIFont.TextStyle = .title2,
+        symbolicTraits: UIFontDescriptor.SymbolicTraits = .traitBold.union(.traitItalic),
+        paragraphHeadIndent: CGFloat = 28
+    ) -> NSAttributedString {
         let imageAttachment = NSTextAttachment(
             image: UIImage(systemName: "asterisk")!
                 .withTintColor(.lemonYellow, renderingMode: .alwaysOriginal)
         )
         
-        imageAttachment.bounds = CGRect(x: 0, y: -2.5, width: 21, height: 21)
+        imageAttachment.bounds = asteriskRect
         let attachmentString = NSAttributedString(attachment: imageAttachment)
         let completeText = NSMutableAttributedString("")
         
@@ -23,16 +29,16 @@ class CustomizedTextFactory {
         completeText.append(NSAttributedString("  "))
         
         let paragraphStyle = NSMutableParagraphStyle()
-        paragraphStyle.headIndent = 28
+        paragraphStyle.headIndent = paragraphHeadIndent
         paragraphStyle.firstLineHeadIndent = 0
         
         completeText.addAttributes(
-            [.font: UIFont(textStyle: .title2, weight: .heavy)],
+            [.font: UIFont(textStyle: textStyle, weight: .heavy)],
             range: NSRange(location: 0, length: 1)
         )
         
         let titleString = NSAttributedString(string: text, attributes: [
-            .font: UIFont(textStyle: .title2, symbolicTraits: .traitBold.union(.traitItalic))!,
+            .font: UIFont(textStyle: textStyle, symbolicTraits: symbolicTraits)!,
             .paragraphStyle: paragraphStyle
         ])
         
