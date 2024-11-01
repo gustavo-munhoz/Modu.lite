@@ -10,6 +10,8 @@ import SnapKit
 
 class OnboardingNumberedTutorial: UIView {
     
+    var onTutorialButtonPressed: (() -> Void)?
+    
     // MARK: - Subviews
     private(set) lazy var numberLabel: UILabel = {
         let view = UILabel()
@@ -37,8 +39,11 @@ class OnboardingNumberedTutorial: UIView {
             font: UIFont(textStyle: .body, weight: .bold),
             image: UIImage(systemName: "info.circle"),
             imagePointSize: 16,
-            backgroundColor: .systemGray
+            backgroundColor: .systemGray,
+            size: CGSize(width: 240, height: 45)
         )
+        
+        view.addTarget(self, action: #selector(didPressTutorial), for: .touchUpInside)
         
         return view
     }()
@@ -54,8 +59,17 @@ class OnboardingNumberedTutorial: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
+    // MARK: - Actions
+    @objc private func didPressTutorial() {
+        onTutorialButtonPressed?()
+    }
+    
     // MARK: - Setup Methods
-    func setup(number: Int, highlightedText: NSAttributedString? = nil, text: String) {
+    func setup(
+        number: Int,
+        highlightedText: NSAttributedString? = nil,
+        text: String
+    ) {
         numberLabel.text = "\(number)"
         
         let completeText = NSMutableAttributedString("")
