@@ -7,20 +7,66 @@
 
 import UIKit
 
+enum OnboardingTutorialType {
+    case wallpaper
+    case widget
+}
+
+protocol OnboardingTutorialsControllerDelegate: AnyObject {
+    func onboardingTutorialsViewController(
+        _ viewController: OnboardingTutorialsViewController,
+        didPressPresent tutorial: OnboardingTutorialType
+    )
+}
+
 class OnboardingTutorialsViewController: UIViewController {
     
     // MARK: - Properties
-    private let setWallpaperView = OnboardingTutorialsView()
+    private let tutorialsView = OnboardingTutorialsView()
+    
+    weak var delegate: OnboardingTutorialsControllerDelegate?
     
     // MARK: - Lifecycle
     override func loadView() {
         super.loadView()
-        view = setWallpaperView
+        view = tutorialsView
     }
-//    
-//    override func viewDidLoad() {
-//        super.viewDidLoad()        
-//    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        setupNavigationBar()
+        setupViewActions()
+    }
     
     // MARK: - Setup Methods
+    private func setupNavigationBar() {
+        navigationController?.navigationBar.barTintColor = .whiteTurnip
+    }
+    
+    private func setupViewActions() {
+        tutorialsView.textBox1.onTutorialButtonPressed = { [weak self] in
+            guard let self = self else { return }
+            self.didPressWallpaperButton()
+        }
+        
+        tutorialsView.textBox2.onTutorialButtonPressed = { [weak self] in
+            guard let self = self else { return }
+            self.didPressWidgetButton()
+        }
+    }
+
+    // MARK: - Actions
+    private func didPressWallpaperButton() {
+        delegate?.onboardingTutorialsViewController(
+            self,
+            didPressPresent: .wallpaper
+        )
+    }
+    
+    private func didPressWidgetButton() {
+        delegate?.onboardingTutorialsViewController(
+            self,
+            didPressPresent: .widget
+        )
+    }
 }
