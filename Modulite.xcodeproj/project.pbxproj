@@ -11,6 +11,11 @@
 		AF0026662CCAC8300052B101 /* ShieldContentFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF0026642CCAC8300052B101 /* ShieldContentFactory.swift */; };
 		AF0026672CCAC8300052B101 /* ShieldContentFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF0026642CCAC8300052B101 /* ShieldContentFactory.swift */; };
 		AF0026682CCACE6E0052B101 /* String+LocalizedKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = B34F3DF42C6701870041D7BD /* String+LocalizedKey.swift */; };
+		AF0DB4962CD2C08900451E18 /* StylePreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF0DB4952CD2C08900451E18 /* StylePreviewView.swift */; };
+		AF0DB4982CD2C09500451E18 /* StylePreviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF0DB4972CD2C09500451E18 /* StylePreviewViewController.swift */; };
+		AF0DB49A2CD2C09E00451E18 /* StylePreviewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF0DB4992CD2C09E00451E18 /* StylePreviewViewModel.swift */; };
+		AF0DB4A02CD3F95500451E18 /* ImagePreviewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF0DB49E2CD3F95500451E18 /* ImagePreviewCell.swift */; };
+		AF0DB4A42CD40C6400451E18 /* StylePreviewCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF0DB4A32CD40C6400451E18 /* StylePreviewCoordinator.swift */; };
 		AF362C052CA5B1A300506443 /* DeviceActivity.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AFABBD872C88E388007BEFD8 /* DeviceActivity.framework */; };
 		AF362C0D2CA5B1A300506443 /* ModuliteDeviceActivityMonitor.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = AF362C042CA5B1A300506443 /* ModuliteDeviceActivityMonitor.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		AF362C162CA5B1B000506443 /* DeviceActivityMonitorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF362C122CA5B1B000506443 /* DeviceActivityMonitorExtension.swift */; };
@@ -19,6 +24,7 @@
 		AF362C6D2CA7478B00506443 /* UsageActivityReportScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF362C682CA7478B00506443 /* UsageActivityReportScene.swift */; };
 		AF5F2D142CD165E500EBAAB5 /* RedirectingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF5F2D122CD165E500EBAAB5 /* RedirectingViewController.swift */; };
 		AF5F2D182CD165F400EBAAB5 /* RedirectingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF5F2D172CD165F400EBAAB5 /* RedirectingView.swift */; };
+		AF5F2D1B2CD2B93300EBAAB5 /* WidgetSetupViewController+StyleCollectionViewCellDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF5F2D1A2CD2B93300EBAAB5 /* WidgetSetupViewController+StyleCollectionViewCellDelegate.swift */; };
 		AF763F262CAF4492002FBE26 /* FamilyControlsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFE5D5012CADD4C700503572 /* FamilyControlsManager.swift */; };
 		AF9D41DA2CA49BE50077F565 /* UsageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF9D41D82CA49BE50077F565 /* UsageViewModel.swift */; };
 		AFBBC5032C7E459900A9B256 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AFBBC4EB2C7E457C00A9B256 /* WidgetKit.framework */; };
@@ -392,6 +398,11 @@
 
 /* Begin PBXFileReference section */
 		AF0026642CCAC8300052B101 /* ShieldContentFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShieldContentFactory.swift; sourceTree = "<group>"; };
+		AF0DB4952CD2C08900451E18 /* StylePreviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StylePreviewView.swift; sourceTree = "<group>"; };
+		AF0DB4972CD2C09500451E18 /* StylePreviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StylePreviewViewController.swift; sourceTree = "<group>"; };
+		AF0DB4992CD2C09E00451E18 /* StylePreviewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StylePreviewViewModel.swift; sourceTree = "<group>"; };
+		AF0DB49E2CD3F95500451E18 /* ImagePreviewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePreviewCell.swift; sourceTree = "<group>"; };
+		AF0DB4A32CD40C6400451E18 /* StylePreviewCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StylePreviewCoordinator.swift; sourceTree = "<group>"; };
 		AF362C042CA5B1A300506443 /* ModuliteDeviceActivityMonitor.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = ModuliteDeviceActivityMonitor.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		AF362C122CA5B1B000506443 /* DeviceActivityMonitorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceActivityMonitorExtension.swift; sourceTree = "<group>"; };
 		AF362C132CA5B1B000506443 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -403,6 +414,7 @@
 		AF362C682CA7478B00506443 /* UsageActivityReportScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsageActivityReportScene.swift; sourceTree = "<group>"; };
 		AF5F2D122CD165E500EBAAB5 /* RedirectingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RedirectingViewController.swift; sourceTree = "<group>"; };
 		AF5F2D172CD165F400EBAAB5 /* RedirectingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RedirectingView.swift; sourceTree = "<group>"; };
+		AF5F2D1A2CD2B93300EBAAB5 /* WidgetSetupViewController+StyleCollectionViewCellDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WidgetSetupViewController+StyleCollectionViewCellDelegate.swift"; sourceTree = "<group>"; };
 		AF9D41D82CA49BE50077F565 /* UsageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsageViewModel.swift; sourceTree = "<group>"; };
 		AFABBD7E2C863036007BEFD8 /* ModuliteWidgetExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ModuliteWidgetExtension.entitlements; sourceTree = "<group>"; };
 		AFABBD872C88E388007BEFD8 /* DeviceActivity.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DeviceActivity.framework; path = System/Library/Frameworks/DeviceActivity.framework; sourceTree = SDKROOT; };
@@ -720,6 +732,57 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		AF0DB4912CD2BED600451E18 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				AF0DB49F2CD3F95500451E18 /* Components */,
+				AF0DB4952CD2C08900451E18 /* StylePreviewView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		AF0DB4922CD2BED600451E18 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				AF0DB4972CD2C09500451E18 /* StylePreviewViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		AF0DB4932CD2BED600451E18 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				AF0DB4992CD2C09E00451E18 /* StylePreviewViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		AF0DB4942CD2BED600451E18 /* StylePreview */ = {
+			isa = PBXGroup;
+			children = (
+				AF0DB4912CD2BED600451E18 /* View */,
+				AF0DB4922CD2BED600451E18 /* ViewController */,
+				AF0DB4932CD2BED600451E18 /* ViewModel */,
+			);
+			path = StylePreview;
+			sourceTree = "<group>";
+		};
+		AF0DB49F2CD3F95500451E18 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				AF0DB49E2CD3F95500451E18 /* ImagePreviewCell.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		AF0DB4A22CD40C5900451E18 /* StylePreview */ = {
+			isa = PBXGroup;
+			children = (
+				AF0DB4A32CD40C6400451E18 /* StylePreviewCoordinator.swift */,
+			);
+			path = StylePreview;
+			sourceTree = "<group>";
+		};
 		AF362C152CA5B1B000506443 /* ModuliteDeviceActivityMonitor */ = {
 			isa = PBXGroup;
 			children = (
@@ -1117,6 +1180,7 @@
 		B34F3E1D2C6D35D50041D7BD /* WidgetConfiguration */ = {
 			isa = PBXGroup;
 			children = (
+				AF0DB4942CD2BED600451E18 /* StylePreview */,
 				B350C0502C8B90A90035682F /* Setup */,
 				B350C0542C8B90C70035682F /* SelectApps */,
 				B350C04C2C8B90710035682F /* Editor */,
@@ -1219,6 +1283,7 @@
 			isa = PBXGroup;
 			children = (
 				B34F3E272C6D36D40041D7BD /* WidgetSetupViewController.swift */,
+				AF5F2D1A2CD2B93300EBAAB5 /* WidgetSetupViewController+StyleCollectionViewCellDelegate.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -1594,6 +1659,7 @@
 		B36927C82C66B8330089F769 /* Coordinators */ = {
 			isa = PBXGroup;
 			children = (
+				AF0DB4A22CD40C5900451E18 /* StylePreview */,
 				B33808AE2CC47BFD00D56884 /* RequestScreenTime */,
 				B39D89E22CB85C3C005EEC46 /* Usage */,
 				B39D89DF2CB85C38005EEC46 /* BlockApps */,
@@ -2580,6 +2646,7 @@
 				B369279C2C66B6E30089F769 /* HomeViewController.swift in Sources */,
 				B35BFC5C2CB6F22100092B42 /* FAQView.swift in Sources */,
 				B35BFBC72CB4BC0900092B42 /* SubscriptionLocalizedTexts.swift in Sources */,
+				AF0DB4A02CD3F95500451E18 /* ImagePreviewCell.swift in Sources */,
 				B3C187842C791D1300A891A8 /* WidgetStyle.swift in Sources */,
 				B35BFB7F2CB2428A00092B42 /* TutorialWallpaperView.swift in Sources */,
 				B35BFC4A2CB5FB4600092B42 /* TutorialLargeTitleLabel.swift in Sources */,
@@ -2594,6 +2661,7 @@
 				B35BFBF32CB5CCD200092B42 /* TutorialCoordinator.swift in Sources */,
 				B39A25D82CAF275F001C76A5 /* ModulitePlusSmallBadge.swift in Sources */,
 				B34F3E0B2C6A9E350041D7BD /* NavigationRouter.swift in Sources */,
+				AF0DB4982CD2C09500451E18 /* StylePreviewViewController.swift in Sources */,
 				B36927DA2C66C2770089F769 /* HomeView.swift in Sources */,
 				B30201732CC8C9C200301646 /* TimeSelectPicker.swift in Sources */,
 				B36927D52C66BCE60089F769 /* HomeCoordinator.swift in Sources */,
@@ -2624,6 +2692,7 @@
 				B302016B2CC8229200301646 /* BlockManger.swift in Sources */,
 				AF0026652CCAC8300052B101 /* ShieldContentFactory.swift in Sources */,
 				B30201792CC9705800301646 /* SelectableDay.swift in Sources */,
+				AF0DB4A42CD40C6400451E18 /* StylePreviewCoordinator.swift in Sources */,
 				B3D1B7C72CB6F61E00DFC4F5 /* FAQLocalizedTexts.swift in Sources */,
 				B39A25D62CAF260C001C76A5 /* CAGradientLayer+Gradient.swift in Sources */,
 				B3C1877F2C78D1E000A891A8 /* ModuliteWidgetConfiguration.swift in Sources */,
@@ -2645,6 +2714,7 @@
 				B32B60B72C864301007DDCE3 /* AppInfo+CoreDataProperties.swift in Sources */,
 				B39D89E32CB85C3C005EEC46 /* UsageCoordinator.swift in Sources */,
 				B3D1B7CB2CB6FB0600DFC4F5 /* FAQQuestionAndAnswerView.swift in Sources */,
+				AF5F2D1B2CD2B93300EBAAB5 /* WidgetSetupViewController+StyleCollectionViewCellDelegate.swift in Sources */,
 				B39A25C42CAEC44E001C76A5 /* MainWidgetsPlaceholderView.swift in Sources */,
 				B34F3E142C6B93C80041D7BD /* MainWidgetCollectionViewCell.swift in Sources */,
 				B3987E0D2CA38A8A00896414 /* MainWidget.swift in Sources */,
@@ -2662,6 +2732,7 @@
 				B39D89D72CB858A0005EEC46 /* ComingSoonLocalizedTexts.swift in Sources */,
 				B3987E262CA4858E00896414 /* MainWidgetModuleData.swift in Sources */,
 				AFFB44632CC6DB5C007CDA51 /* AppBlockingSession.swift in Sources */,
+				AF0DB49A2CD2C09E00451E18 /* StylePreviewViewModel.swift in Sources */,
 				AFFB446E2CC6E37B007CDA51 /* AppBlockingView.swift in Sources */,
 				B32B610A2C8A4485007DDCE3 /* SelectAppsView.swift in Sources */,
 				AF9D41DA2CA49BE50077F565 /* UsageViewModel.swift in Sources */,
@@ -2681,6 +2752,7 @@
 				B3D1B7CD2CB6FC5400DFC4F5 /* FAQViewModel.swift in Sources */,
 				B302017F2CC9C11C00301646 /* AppBlockingSessionCell.swift in Sources */,
 				B39D89DB2CB85B8C005EEC46 /* ComingSoonFeature.swift in Sources */,
+				AF0DB4962CD2C08900451E18 /* StylePreviewView.swift in Sources */,
 				B3850BB52C94D1F200F400C0 /* UICollectionViewCell+toggleIsHighlighted.swift in Sources */,
 				B3C187862C79208600A891A8 /* WidgetStyleFactory.swift in Sources */,
 				B3D1B7E42CB7128700DFC4F5 /* HelpLocalizedTexts.swift in Sources */,

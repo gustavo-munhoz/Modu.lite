@@ -8,10 +8,17 @@
 import UIKit
 import SnapKit
 
+protocol StyleCollectionViewCellDelegate: AnyObject {
+    func styleCollectionViewCellDidPressPreview(_ cell: StyleCollectionViewCell)
+}
+
 class StyleCollectionViewCell: UICollectionViewCell {
     static let reuseId = "StyleCollectionViewCell"
     
     // MARK: - Properties
+    
+    weak var delegate: StyleCollectionViewCellDelegate?
+    
     var hasSelectionBeenMade: Bool = false {
         didSet {
             updateOverlayAlpha()
@@ -56,10 +63,36 @@ class StyleCollectionViewCell: UICollectionViewCell {
         return label
     }()
     
-    // MARK: - Setup methods
-    func setup(image: UIImage, title: String) {
-        subviews.forEach { $0.removeFromSuperview() }
+    private(set) lazy var previewButton: UIButton = {
+        var config = UIButton.Configuration.plain()
+        config.image = UIImage(systemName: "eye") // Ícone de olho do SF Symbols
+        config.imagePadding = 0
+        config.baseForegroundColor = .white
+        config.background.backgroundColor = UIColor.blueberry
+
+        let view = UIButton(configuration: config)
         
+        view.layer.cornerRadius = 34/2
+        view.layer.borderWidth = 2
+        view.layer.borderColor = UIColor.whiteTurnip.resolvedColor(
+            with: .init(userInterfaceStyle: .light)
+        ).cgColor
+        
+        view.clipsToBounds = true
+        
+        view.snp.makeConstraints { make in
+            make.width.height.equalTo(34)
+        }
+        
+        view.addTarget(self, action: #selector(previewButtonTapped), for: .touchUpInside)
+        
+        return view
+    }()
+
+    // MARK: - Setup methods
+    func setup(image: UIImage, title: String, delegate: StyleCollectionViewCellDelegate) {
+        subviews.forEach { $0.removeFromSuperview() }
+        self.delegate = delegate
         styleImageView.image = image
         styleTitle.text = title
         
@@ -71,6 +104,7 @@ class StyleCollectionViewCell: UICollectionViewCell {
         addSubview(styleImageView)
         styleImageView.addSubview(overlayView)
         addSubview(styleTitle)
+        addSubview(previewButton)
     }
     
     private func setupConstraints() {
@@ -87,9 +121,18 @@ class StyleCollectionViewCell: UICollectionViewCell {
             make.top.equalTo(styleImageView.snp.bottom).offset(16)
             make.left.right.equalToSuperview()
         }
+        
+        previewButton.snp.makeConstraints { make in
+            make.bottom.equalToSuperview().offset(-16)
+            make.right.equalToSuperview().offset(-16)
+        }
     }
     
     // MARK: - Actions
+    @objc private func previewButtonTapped() {
+        delegate?.styleCollectionViewCellDidPressPreview(self)
+    }
+    
     private func updateOverlayAlpha() {
         if hasSelectionBeenMade {
             DispatchQueue.main.async {

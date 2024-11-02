@@ -30,13 +30,18 @@ protocol WidgetSetupViewControllerDelegate: AnyObject {
         _ viewController: WidgetSetupViewController,
         didMakeChanges: Bool
     )
+    
+    func widgetSetupViewControllerShouldPresentPreview(
+        _ viewController: WidgetSetupViewController,
+        for style: WidgetStyle
+    )
 }
 
 class WidgetSetupViewController: UIViewController {
     
     // MARK: - Properties
-    private let setupView = WidgetSetupView()
-    private var viewModel = WidgetSetupViewModel()
+    let setupView = WidgetSetupView()
+    var viewModel = WidgetSetupViewModel()
     
     weak var delegate: WidgetSetupViewControllerDelegate?
     
@@ -202,7 +207,8 @@ extension WidgetSetupViewController: UICollectionViewDataSource {
             
             cell.setup(
                 image: style.previewImage,
-                title: style.name
+                title: style.name,
+                delegate: self
             )
             
             cell.hasSelectionBeenMade = viewModel.isStyleSelected()
@@ -257,19 +263,26 @@ extension WidgetSetupViewController: UICollectionViewDataSource {
                 title: .localized(for: .widgetSetupViewAppsHeaderTitle)
             )
         }
-        
         return header
     }
 }
 
 // MARK: - UICollectionViewDelegate
 extension WidgetSetupViewController: UICollectionViewDelegate {
+    func selectStyle(_ style: WidgetStyle) {
+        guard let index = viewModel.widgetStyles.firstIndex(of: style) else { return }
+        let indexPath = IndexPath(item: index, section: 1)
+        
+        setupView.stylesCollectionView.selectItem(
+            at: indexPath,
+            animated: true,
+            scrollPosition: .centeredHorizontally
+        )
+    }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         switch collectionView {
         case setupView.stylesCollectionView:
-            guard let style = viewModel.selectStyle(at: indexPath.row) else {
-                return
-            }
+            guard let style = viewModel.selectStyle(at: indexPath.row) else { return }
             
             didMakeChanges = true
             setSetupViewStyleSelected(to: true)
