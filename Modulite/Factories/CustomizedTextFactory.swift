@@ -20,8 +20,7 @@ class CustomizedTextFactory {
             image: UIImage(systemName: "asterisk")!
                 .withTintColor(.lemonYellow, renderingMode: .alwaysOriginal)
         )
-        
-        imageAttachment.bounds = asteriskRect
+
         let attachmentString = NSAttributedString(attachment: imageAttachment)
         let completeText = NSMutableAttributedString("")
         
@@ -51,4 +50,50 @@ class CustomizedTextFactory {
         return completeText
     }
     
+    static func createMarkdownTextWithAsterisk(
+        with markdownText: String,
+        asteriskRect: CGRect = CGRect(x: 0, y: -2.5, width: 17, height: 17),
+        paragraphHeadIndent: CGFloat = 0,
+        textStyle: UIFont.TextStyle = .body
+    ) -> NSAttributedString {
+        let imageAttachment = NSTextAttachment()
+        
+        let boldAsteriskImage = UIImage(systemName: "asterisk")?
+            .withTintColor(.lemonYellow, renderingMode: .alwaysOriginal)
+            .withConfiguration(UIImage.SymbolConfiguration(weight: .heavy))
+        
+        imageAttachment.image = boldAsteriskImage
+        imageAttachment.bounds = asteriskRect
+        
+        let attachmentString = NSAttributedString(attachment: imageAttachment)
+        
+        let completeText = NSMutableAttributedString()
+        completeText.append(attachmentString)
+        completeText.append(NSAttributedString("  "))
+        
+        let paragraphStyle = NSMutableParagraphStyle()
+        paragraphStyle.headIndent = paragraphHeadIndent
+        paragraphStyle.firstLineHeadIndent = 0
+
+        if let markdownAttributedString = try? AttributedString(markdown: markdownText) {
+            let attributedMarkdown = NSMutableAttributedString(markdownAttributedString)
+                        
+            attributedMarkdown.addAttributes([
+                .paragraphStyle: paragraphStyle
+            ], range: NSRange(location: 0, length: attributedMarkdown.length))
+            
+            completeText.append(attributedMarkdown)
+        } else {
+            let plainText = NSAttributedString(string: markdownText, attributes: [
+                .paragraphStyle: paragraphStyle
+            ])
+            completeText.append(plainText)
+        }
+        
+        completeText.addAttributes([
+            .font: UIFont.preferredFont(forTextStyle: .body)
+        ], range: .init(location: 0, length: completeText.length))
+
+        return completeText
+    }
 }
