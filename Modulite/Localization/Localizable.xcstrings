@@ -1091,6 +1091,17 @@
         }
       }
     },
+    "onboardingTutorialsGoToSettings" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Go to Settings"
+          }
+        }
+      }
+    },
     "onboardingTutorialsSubtitle" : {
       "extractionState" : "manual",
       "localizations" : {
