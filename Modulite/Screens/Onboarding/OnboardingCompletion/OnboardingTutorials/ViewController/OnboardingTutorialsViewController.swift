@@ -17,6 +17,10 @@ protocol OnboardingTutorialsControllerDelegate: AnyObject {
         _ viewController: OnboardingTutorialsViewController,
         didPressPresent tutorial: OnboardingTutorialType
     )
+    
+    func onboardingTutorialsViewControllerDidPressAllSet(
+        _ viewController: OnboardingTutorialsViewController
+    )
 }
 
 class OnboardingTutorialsViewController: UIViewController {
@@ -53,6 +57,8 @@ class OnboardingTutorialsViewController: UIViewController {
             guard let self = self else { return }
             self.didPressWidgetButton()
         }
+        
+        tutorialsView.onAllSetButtonPressed = didPressAllSetButton
     }
 
     // MARK: - Actions
@@ -68,5 +74,9 @@ class OnboardingTutorialsViewController: UIViewController {
             self,
             didPressPresent: .widget
         )
+    }
+    
+    private func didPressAllSetButton() {
+        delegate?.onboardingTutorialsViewControllerDidPressAllSet(self)
     }
 }
