@@ -12,6 +12,7 @@ class OnboardingTutorialsView: UIView {
     
     var onWallpaperTutorialPressed: (() -> Void)?
     var onWidgetTutorialPressed: (() -> Void)?
+    var onAllSetButtonPressed: (() -> Void)?
     
     // MARK: - Subviews
     
@@ -43,19 +44,12 @@ class OnboardingTutorialsView: UIView {
     
     private(set) lazy var textBox1: OnboardingNumberedTutorial = {
         let view = OnboardingNumberedTutorial()
-        
-        let highlightedText = CustomizedTextFactory.createTextWithAsterisk(
-            with: .localized(for: OnboardingLocalizedTexts.onboardingSetWallpaperHighlightedText),
-            asteriskRect: CGRect(x: 0, y: -2.5, width: 17, height: 17),
-            textStyle: .body,
-            symbolicTraits: .traitBold,
-            paragraphHeadIndent: 0
-        )
-        
+       
         view.setup(
             number: 1,
-            highlightedText: highlightedText,
-            text: .localized(for: OnboardingLocalizedTexts.onboardingSetWallpaperNumberBoxText)
+            attributedText: CustomizedTextFactory.createMarkdownTextWithAsterisk(
+                with: .localized(for: OnboardingLocalizedTexts.onboardingSetWallpaperNumberBoxText)
+            )
         )
         
         view.onTutorialButtonPressed = onWallpaperTutorialPressed
@@ -66,18 +60,11 @@ class OnboardingTutorialsView: UIView {
     private(set) lazy var textBox2: OnboardingNumberedTutorial = {
         let view = OnboardingNumberedTutorial()
         
-        let highlightedText = CustomizedTextFactory.createTextWithAsterisk(
-            with: .localized(for: OnboardingLocalizedTexts.onboardingSetWallpaperHighlightedText),
-            asteriskRect: CGRect(x: 0, y: -2.5, width: 17, height: 17),
-            textStyle: .body,
-            symbolicTraits: .traitBold,
-            paragraphHeadIndent: 0
-        )
-        
         view.setup(
             number: 2,
-            highlightedText: highlightedText,
-            text: .localized(for: OnboardingLocalizedTexts.onboardingSetWallpaperNumberBoxText)
+            attributedText: CustomizedTextFactory.createMarkdownTextWithAsterisk(
+                with: .localized(for: OnboardingLocalizedTexts.onboardingAddWidgetNumberBoxText)
+            )
         )
 
         view.onTutorialButtonPressed = onWidgetTutorialPressed
@@ -91,6 +78,8 @@ class OnboardingTutorialsView: UIView {
             image: UIImage(systemName: "arrow.right"),
             imagePlacement: .trailing
         )
+        
+        button.addTarget(self, action: #selector(didPressAllSetButton), for: .touchUpInside)
         
         return button
     }()
@@ -106,6 +95,11 @@ class OnboardingTutorialsView: UIView {
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    // MARK: - Actions
+    @objc private func didPressAllSetButton() {
+        onAllSetButtonPressed?()
     }
     
     // MARK: - Setup Methods
