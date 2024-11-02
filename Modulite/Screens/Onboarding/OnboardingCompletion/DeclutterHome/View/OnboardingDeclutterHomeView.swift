@@ -51,6 +51,7 @@ class OnboardingDeclutterHomeView: UIView {
             imagePlacement: .trailing
         )
         
+        button.addTarget(self, action: #selector(didPressGotItButton), for: .touchUpInside)
         return button
     }()
     
@@ -65,6 +66,11 @@ class OnboardingDeclutterHomeView: UIView {
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    // MARK: - Actions
+    @objc private func didPressGotItButton() {
+        onGotItButtonPressed?()
     }
     
     // MARK: - Setup Methods
