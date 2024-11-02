@@ -54,6 +54,15 @@ extension OnboardingCompletionCoordinator: OnboardingTutorialsControllerDelegate
     func onboardingTutorialsViewControllerDidPressAllSet(
         _ viewController: OnboardingTutorialsViewController
     ) {
-        router.present(OnboardingDeclutterHomeViewController(), animated: true)
+        let vc = OnboardingDeclutterHomeViewController()
+        vc.delegate = self
+        
+        router.present(vc, animated: true)
+    }
+}
+
+extension OnboardingCompletionCoordinator: OnboardingDeclutterControllerDelegate {
+    func onboardingDeclutterHomeviewControllerDidFinish() {
+        dismiss(animated: true)
     }
 }
