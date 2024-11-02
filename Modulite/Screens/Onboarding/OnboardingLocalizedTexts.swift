@@ -31,7 +31,12 @@ enum OnboardingLocalizedTexts: LocalizedKeyProtocol {
     
     case onboardingTutorialsTitle
     case onboardingTutorialsSubtitle
-    case onboardingSetWallpaperHighlightedText
     case onboardingSetWallpaperNumberBoxText
+    case onboardingAddWidgetNumberBoxText
     case onboardingTutorialsAllSet
+    
+    case onboardingDeclutterTitle
+    case onboardingDeclutterText
+    
+    case onboardingDeclutterGotIt
 }

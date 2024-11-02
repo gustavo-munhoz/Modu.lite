@@ -59,7 +59,7 @@ extension String {
     
     /// Represents keys for localized strings in the app, allowing for dynamic localization with associated values.
     /// The cases should be 1-1 with `Localizable.xcstrings` keys.
-    public enum LocalizedKey {
+    public enum LocalizedKey: LocalizedKeyProtocol {
         // MARK: - Computed Properties
         
         /// Computes the key for localization by extracting the case name from the enum instance.

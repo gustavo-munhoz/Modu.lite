@@ -904,6 +904,50 @@
         }
       }
     },
+    "onboardingAddWidgetNumberBoxText" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "It’s time to **set your new widget** on your **home screen!**"
+          }
+        }
+      }
+    },
+    "onboardingDeclutterGotIt" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "GOT IT!"
+          }
+        }
+      }
+    },
+    "onboardingDeclutterText" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "**Declutter** your home screen by **removing unnecessary apps** and **organizing** them properly.\n\\\n\\\n**But how exactly do I do it?**\n\\\n\\\n**1. Remove other apps from the first page and use just the widget**\n\\\n\\\nYou don’t have to remove every app that isn't part of your main widget. You can still keep \"normal-looking\" apps on your iPhone, but for a **more aesthetically pleasing** and **mindful experience**, we **recommend organizing** these apps on **different pages**. This helps you focus on what's most important and avoid distractions.\n\\\n\\\n**2. Consider deleting distracting or useless apps**\n\\\n\\\n**Distracting apps** can consume a lot of your time and, even worse, can become addictive. How about trying to delete them? If you find yourself instinctively reaching for an app you've already removed, **take a moment to reflect on why** you were drawn to it in the first place. This pause can help you understand and break the habit.\n"
+          }
+        }
+      }
+    },
+    "onboardingDeclutterTitle" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Want to make your home screen even better?"
+          }
+        }
+      }
+    },
     "onboardingDownloadWallpapersMessage" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -1025,24 +1069,13 @@
         }
       }
     },
-    "onboardingSetWallpaperHighlightedText" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Apply your new wallpaper"
-          }
-        }
-      }
-    },
     "onboardingSetWallpaperNumberBoxText" : {
       "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "to your iPhone, so it can integrate seamlessly with your brand new widget!"
+            "value" : "**Apply your new wallpaper** to your iPhone, so it can integrate seamlessly with your brand new widget!"
           }
         }
       }
