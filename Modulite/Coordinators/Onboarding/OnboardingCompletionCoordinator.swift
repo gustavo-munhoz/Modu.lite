@@ -50,4 +50,10 @@ extension OnboardingCompletionCoordinator: OnboardingTutorialsControllerDelegate
             presentChild(coordinator, animated: true)
         }
     }
+    
+    func onboardingTutorialsViewControllerDidPressAllSet(
+        _ viewController: OnboardingTutorialsViewController
+    ) {
+        router.present(OnboardingDeclutterHomeViewController(), animated: true)
+    }
 }
