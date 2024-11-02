@@ -39,7 +39,7 @@ class OnboardingDeclutterHomeView: UIView {
             )
         )
         
-        view.setRemovesButton(true)
+        view.setRemovesTutorialButton(true)
         
         return view
     }()

@@ -52,6 +52,10 @@ class OnboardingTutorialsView: UIView {
             )
         )
         
+        view.setHasRedirectButton(
+            title: .localized(for: OnboardingLocalizedTexts.onboardingTutorialsGoToSettings)
+        )
+        
         view.onTutorialButtonPressed = onWallpaperTutorialPressed
         
         return view
