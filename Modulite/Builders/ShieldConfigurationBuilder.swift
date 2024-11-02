@@ -60,7 +60,6 @@ class ShieldConfigurationBuilder {
     }
 }
 
-
 extension UIImage {
     func resized(to size: CGSize) -> UIImage? {
         UIGraphicsBeginImageContextWithOptions(size, false, 0.0)
