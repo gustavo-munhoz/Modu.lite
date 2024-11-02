@@ -19,5 +19,6 @@ class TutorialAddWidgetViewController: UIViewController, TutorialViewController 
         super.viewDidLoad()
         
         navigationItem.largeTitleDisplayMode = .never
+        navigationController?.navigationBar.barTintColor = .whiteTurnip
     }
 }
