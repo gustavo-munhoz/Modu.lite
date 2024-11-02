@@ -65,23 +65,20 @@ class OnboardingNumberedTutorial: UIView {
     }
     
     // MARK: - Setup Methods
-    func setup(
-        number: Int,
-        highlightedText: NSAttributedString? = nil,
-        text: String
-    ) {
-        numberLabel.text = "\(number)"
+    func setRemovesButton(_ remove: Bool) {
+        guard remove else { return }
         
-        let completeText = NSMutableAttributedString("")
-        
-        if let highlightedText {
-            completeText.append(highlightedText)
-            completeText.append(NSAttributedString(" "))
+        tutorialButton.removeFromSuperview()
+        textLabel.snp.remakeConstraints { make in
+            make.top.equalTo(numberLabel.snp.bottom).offset(8)
+            make.left.right.equalToSuperview().inset(24)
+            make.bottom.equalToSuperview().offset(-24)
         }
-        
-        completeText.append(NSAttributedString(string: text))
-        
-        textLabel.attributedText = completeText
+    }
+    
+    func setup(number: Int, attributedText: NSAttributedString) {
+        numberLabel.text = "\(number)"
+        textLabel.attributedText = attributedText
         
         layer.cornerRadius = 5
         layer.borderWidth = 2
