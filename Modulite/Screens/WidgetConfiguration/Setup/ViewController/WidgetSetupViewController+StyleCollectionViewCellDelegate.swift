@@ -6,3 +6,13 @@
 //
 
 import Foundation
+
+extension WidgetSetupViewController: StyleCollectionViewCellDelegate {
+    func styleCollectionViewCellDidPressPreview(_ cell: StyleCollectionViewCell) {
+        guard let indexPath = setupView.stylesCollectionView.indexPath(for: cell) else { return }
+        
+        let style = viewModel.widgetStyles[indexPath.row]
+        
+        delegate?.widgetSetupViewControllerShouldPresentPreview(self, for: style)
+    }
+}
