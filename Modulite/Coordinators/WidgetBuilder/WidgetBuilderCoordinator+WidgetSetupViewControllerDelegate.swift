@@ -108,4 +108,23 @@ extension WidgetBuilderCoordinator: WidgetSetupViewControllerDelegate {
         
         dismiss(animated: true)
     }
+    
+    func widgetSetupViewControllerShouldPresentPreview(
+        _ viewController: WidgetSetupViewController,
+        for style: WidgetStyle
+    ) {
+        let router = ModalNavigationRouter(parentViewController: viewController)
+        router.setHasSaveButton(false)
+        
+        let coordinator = StylePreviewCoordinator(style: style, router: router)
+        
+        let previewViewController = StylePreviewViewController(style: style)
+        previewViewController.onStyleSelected = { [weak viewController] selectedStyle in
+            viewController?.selectStyle(selectedStyle)
+        }
+        
+        router.present(previewViewController, animated: true) {
+            viewController.viewModel.setWidgetStyle(to: style)
+        }
+    }
 }
