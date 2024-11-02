@@ -11,6 +11,7 @@ import SnapKit
 class OnboardingNumberedTutorial: UIView {
     
     var onTutorialButtonPressed: (() -> Void)?
+    var onRedirectButtonPressed: (() -> Void)?
     
     // MARK: - Subviews
     private(set) lazy var numberLabel: UILabel = {
@@ -48,6 +49,8 @@ class OnboardingNumberedTutorial: UIView {
         return view
     }()
     
+    private(set) var redirectButton: UIButton?
+    
     // MARK: - Initializers
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -64,8 +67,38 @@ class OnboardingNumberedTutorial: UIView {
         onTutorialButtonPressed?()
     }
     
+    @objc private func didPressRedirect() {
+        onRedirectButtonPressed?()
+    }
+    
     // MARK: - Setup Methods
-    func setRemovesButton(_ remove: Bool) {
+    func setHasRedirectButton(title: String) {
+        // For now will only work if it has tutorial button
+        guard subviews.contains(tutorialButton) else { return }
+        
+        redirectButton = ButtonFactory.textLinkButton(
+            text: title
+        )
+        
+        redirectButton?.addTarget(self, action: #selector(didPressRedirect), for: .touchUpInside)
+        redirectButton!.titleLabel?.text = title
+        
+        addSubview(redirectButton!)
+        tutorialButton.snp.remakeConstraints { make in
+            make.top.equalTo(textLabel.snp.bottom).offset(16)
+            make.centerX.equalToSuperview()
+            make.width.equalTo(240)
+            make.height.equalTo(45)
+        }
+        
+        redirectButton!.snp.makeConstraints { make in
+            make.top.equalTo(tutorialButton.snp.bottom).offset(4)
+            make.left.right.equalToSuperview().inset(24)
+            make.bottom.equalToSuperview().offset(-12)
+        }
+    }
+    
+    func setRemovesTutorialButton(_ remove: Bool) {
         guard remove else { return }
         
         tutorialButton.removeFromSuperview()
