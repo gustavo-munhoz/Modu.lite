@@ -17,7 +17,7 @@ enum SpaceGrotesk: String {
 
 extension UIFont {
     static func spaceGrotesk(
-        forTextStyle textStyle: UIFont.TextStyle,
+        textStyle: UIFont.TextStyle,
         weight: UIFont.Weight = .regular
     ) -> UIFont {
         let baseSize: CGFloat

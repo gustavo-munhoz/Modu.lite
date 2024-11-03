@@ -105,7 +105,7 @@ class RequestScreenTimeView: UIView {
     private(set) lazy var connectButton: UIButton = {
         let button = ButtonFactory.mediumButton(
             titleKey: RequestScreenTimeTexts.requestScreenConnectButtonTitle,
-            font: .spaceGrotesk(forTextStyle: .title2, weight: .bold),
+            font: .spaceGrotesk(textStyle: .title2, weight: .bold),
             backgroundColor: .fiestaGreen.resolvedColor(with: .init(userInterfaceStyle: .light))
         )
         

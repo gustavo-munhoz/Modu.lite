@@ -49,7 +49,7 @@ class WidgetEditorDownloadButton: UIButton {
                     updatedConfig?.attributedTitle = AttributedString(
                         .localized(for: .widgetEditorViewWallpaperButtonSaved),
                         attributes: AttributeContainer([
-                            .font: UIFont.spaceGrotesk(forTextStyle: .title3, weight: .bold),
+                            .font: UIFont.spaceGrotesk(textStyle: .title3, weight: .bold),
                             .foregroundColor: UIColor.white
                         ])
                     )

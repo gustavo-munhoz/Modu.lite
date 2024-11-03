@@ -22,7 +22,7 @@ class HelpView: UIScrollView {
     private(set) lazy var reportIssuesButton: UIButton = {
         let button = ButtonFactory.mediumButton(
             titleKey: HelpLocalizedTexts.helpViewEncounteredBugButton,
-            font: .spaceGrotesk(forTextStyle: .title2, weight: .bold),
+            font: .spaceGrotesk(textStyle: .title2, weight: .bold),
             image: UIImage(systemName: "envelope"),
             backgroundColor: .blueberry
         )

@@ -11,7 +11,7 @@ import SnapKit
 enum ButtonFactory {
     static func smallButton(
         titleKey: LocalizedKeyProtocol? = nil,
-        font: UIFont = .spaceGrotesk(forTextStyle: .title3, weight: .bold),
+        font: UIFont = .spaceGrotesk(textStyle: .title3, weight: .bold),
         image: UIImage? = nil,
         imagePadding: CGFloat = 10,
         imagePlacement: NSDirectionalRectEdge = .trailing,
@@ -70,7 +70,7 @@ enum ButtonFactory {
     
     static func mediumButton(
         titleKey: LocalizedKeyProtocol? = nil,
-        font: UIFont = .spaceGrotesk(forTextStyle: .title3, weight: .bold),
+        font: UIFont = .spaceGrotesk(textStyle: .title3, weight: .bold),
         image: UIImage? = nil,
         imagePadding: CGFloat = 10,
         imagePlacement: NSDirectionalRectEdge = .leading,
@@ -175,7 +175,7 @@ enum ButtonFactory {
 extension ButtonFactory {
     static func mediumButtonConfiguration(
         titleKey: LocalizedKeyProtocol? = nil,
-        font: UIFont = .spaceGrotesk(forTextStyle: .title3, weight: .bold),
+        font: UIFont = .spaceGrotesk(textStyle: .title3, weight: .bold),
         image: UIImage? = nil,
         imagePadding: CGFloat = 10,
         imagePlacement: NSDirectionalRectEdge = .leading,
