@@ -24,32 +24,14 @@ class WidgetEditorDownloadButton: UIButton {
     // MARK: - Setup
     
     private func setupButton() {
-        var config = UIButton.Configuration.bordered()
-        
-        config.attributedTitle = AttributedString(
-            .localized(for: .widgetEditorViewWallpaperButton),
-            attributes: AttributeContainer([
-                .font: UIFont(textStyle: .body, weight: .bold),
-                .foregroundColor: UIColor.white
-            ])
+        var config = ButtonFactory.mediumButtonConfiguration(
+            titleKey: String.LocalizedKey.widgetEditorViewWallpaperButton,
+            image: UIImage(systemName: "square.and.arrow.down"),
+            backgroundColor: .carrotOrange
         )
         
-        config.titleAlignment = .center
         config.titleLineBreakMode = .byClipping
-        
-        config.image = UIImage(systemName: "square.and.arrow.down")?
-            .withTintColor(.white, renderingMode: .alwaysOriginal)
-            .withConfiguration(
-                UIImage.SymbolConfiguration(
-                    font: UIFont(textStyle: .body, weight: .semibold)
-                )
-            )
-        
-        config.imagePlacement = .leading
-        config.imagePadding = 5
-        
-        config.baseBackgroundColor = .carrotOrange
-        
+        config.contentInsets = .init(top: 8, leading: 8, bottom: 10, trailing: 10)
         configuration = config
         
         configurationUpdateHandler = { button in
@@ -58,17 +40,17 @@ class WidgetEditorDownloadButton: UIButton {
             UIView.animate(withDuration: 0.1) {
                 switch button.state {
                 case .highlighted:
-                    button.alpha = 0.67
+                    button.alpha = 0.9
                     button.transform = CGAffineTransform(scaleX: 0.97, y: 0.97)
                     
                 case .disabled:
-                    button.alpha = 0.67
-                    button.layer.borderColor = UIColor.gray.cgColor
+                    button.alpha = 0.9
+                    updatedConfig?.background.backgroundColor = .systemGray2
                     updatedConfig?.attributedTitle = AttributedString(
                         .localized(for: .widgetEditorViewWallpaperButtonSaved),
                         attributes: AttributeContainer([
-                            .font: UIFont(textStyle: .body, weight: .bold),
-                            .foregroundColor: UIColor.textPrimary
+                            .font: UIFont.spaceGrotesk(forTextStyle: .title3, weight: .bold),
+                            .foregroundColor: UIColor.white
                         ])
                     )
                     button.configuration = updatedConfig
