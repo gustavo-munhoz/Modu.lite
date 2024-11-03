@@ -159,7 +159,9 @@ class WidgetEditorView: UIScrollView {
             make.width.equalTo(130)
             make.right.equalToSuperview().inset(24)
         }
-            
+        
+        deleteWidgetButton.snp.removeConstraints()
+        
         deleteWidgetButton.snp.makeConstraints { make in
             make.top.width.height.equalTo(saveWidgetButton)
             make.left.equalToSuperview().inset(24)
@@ -225,7 +227,7 @@ class WidgetEditorView: UIScrollView {
         contentView.snp.makeConstraints { make in
             make.edges.equalToSuperview().inset(UIEdgeInsets(top: 24, left: 24, bottom: 24, right: -24))
             make.width.equalToSuperview().offset(-48)
-            make.height.greaterThanOrEqualTo(900)
+            make.height.greaterThanOrEqualTo(950)
         }
         
         layoutHeader.snp.makeConstraints { make in
@@ -266,8 +268,6 @@ class WidgetEditorView: UIScrollView {
         
         downloadWallpaperButton.snp.makeConstraints { make in
             make.top.equalTo(wallpaperHeader.snp.bottom).offset(16)
-//            make.width.greaterThanOrEqualTo(260)
-            make.height.equalTo(40)
             make.centerX.equalToSuperview()
         }
         

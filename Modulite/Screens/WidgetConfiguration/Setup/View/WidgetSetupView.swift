@@ -59,16 +59,16 @@ class WidgetSetupView: UIScrollView {
     }()
     
     private(set) lazy var searchAppsButton: UIButton = {
-        var config = UIButton.Configuration.filled()
-        config.baseBackgroundColor = .carrotOrange
-        config.title = .localized(for: .widgetSetupViewSearchAppsButtonTitle)
-        config.image = UIImage(systemName: "magnifyingglass")
-        config.imagePadding = 10
+        let button = ButtonFactory.mediumButton(
+            titleKey: String.LocalizedKey.widgetSetupViewSearchAppsButtonTitle,
+            image: UIImage(systemName: "magnifyingglass"),
+            imagePointSize: 17,
+            backgroundColor: .carrotOrange
+        )
+                
+        button.addTarget(self, action: #selector(handleSearchButtonPressed), for: .touchUpInside)
         
-        let view = UIButton(configuration: config)
-        view.addTarget(self, action: #selector(handleSearchButtonPressed), for: .touchUpInside)
-        
-        return view
+        return button
     }()
     
     private(set) lazy var selectedAppsCollectionView: UICollectionView = {
@@ -98,19 +98,13 @@ class WidgetSetupView: UIScrollView {
     }()
     
     private(set) lazy var nextViewButton: UIButton = {
-        var config = UIButton.Configuration.filled()
-        config.baseBackgroundColor = .blueberry
-        config.title = .localized(for: .next)
-        config.imagePlacement = .trailing
-        config.image = UIImage(systemName: "arrow.right")
-        config.imagePadding = 10
-        config.preferredSymbolConfigurationForImage = .init(pointSize: 20, weight: .bold)
-        config.baseForegroundColor = .white
+        let button = ButtonFactory.smallButton(
+            titleKey: String.LocalizedKey.next,
+            image: UIImage(systemName: "arrow.right")
+        )
         
-        let view = UIButton(configuration: config)
-        
-        view.addTarget(self, action: #selector(handleNextButtonPressed), for: .touchUpInside)
-        view.configurationUpdateHandler = { [weak self] btn in
+        button.addTarget(self, action: #selector(handleNextButtonPressed), for: .touchUpInside)
+        button.configurationUpdateHandler = { [weak self] btn in
             guard let self = self, var config = btn.configuration else { return }
             
             btn.isEnabled = self.isStyleSelected && self.hasAppsSelected
@@ -119,14 +113,19 @@ class WidgetSetupView: UIScrollView {
             case .disabled:
                 config.background.backgroundColor = .systemGray2
                 
+            case .highlighted:
+                button.transform = .init(scaleX: 0.97, y: 0.97)
+                button.alpha = 0.67
             default:
+                button.transform = .identity
+                button.alpha = 1
                 config.background.backgroundColor = .blueberry
             }
             
             btn.configuration = config
         }
         
-        return view
+        return button
     }()
     
     // MARK: - Actions
@@ -282,8 +281,6 @@ class WidgetSetupView: UIScrollView {
         
         nextViewButton.snp.makeConstraints { make in
             make.right.equalToSuperview()
-            make.width.equalTo(160)
-            make.height.equalTo(45)
             make.bottom.equalToSuperview().offset(-20)
         }
     }

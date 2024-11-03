@@ -11,11 +11,11 @@ import SnapKit
 enum ButtonFactory {
     static func smallButton(
         titleKey: LocalizedKeyProtocol? = nil,
-        font: UIFont = UIFont(textStyle: .title3, weight: .bold),
+        font: UIFont = .spaceGrotesk(forTextStyle: .title3, weight: .bold),
         image: UIImage? = nil,
         imagePadding: CGFloat = 10,
         imagePlacement: NSDirectionalRectEdge = .trailing,
-        imagePointSize: CGFloat = 20,
+        imagePointSize: CGFloat = 17,
         foregroundColor: UIColor = .white,
         backgroundColor: UIColor = .blueberry,
         contentHorizontalAlignment: UIControl.ContentHorizontalAlignment = .center,
@@ -34,7 +34,7 @@ enum ButtonFactory {
             
             config.attributedTitle = attributedTitle
         }
-
+        
         let image = image?
             .withTintColor(foregroundColor, renderingMode: .alwaysOriginal)
             .withConfiguration(
@@ -70,62 +70,48 @@ enum ButtonFactory {
     
     static func mediumButton(
         titleKey: LocalizedKeyProtocol? = nil,
-        font: UIFont = UIFont(textStyle: .title3, weight: .bold),
+        font: UIFont = .spaceGrotesk(forTextStyle: .title3, weight: .bold),
         image: UIImage? = nil,
         imagePadding: CGFloat = 10,
         imagePlacement: NSDirectionalRectEdge = .leading,
-        imagePointSize: CGFloat = 20,
+        imagePointSize: CGFloat = 17,
         foregroundColor: UIColor = .white,
         backgroundColor: UIColor = .fiestaGreen,
         contentHorizontalAlignment: UIControl.ContentHorizontalAlignment = .center,
         size: CGSize = CGSize(width: 230, height: 45)
     ) -> UIButton {
-        var config = UIButton.Configuration.filled()
+        let config = mediumButtonConfiguration(
+            titleKey: titleKey,
+            font: font,
+            image: image,
+            imagePadding: imagePadding,
+            imagePlacement: imagePlacement,
+            imagePointSize: imagePointSize,
+            foregroundColor: foregroundColor,
+            backgroundColor: backgroundColor,
+            contentHorizontalAlignment: contentHorizontalAlignment
+        )
         
-        if let titleKey {
-            let attributedTitle = AttributedString(
-                .localized(for: titleKey),
-                attributes: AttributeContainer([
-                    .font: font,
-                    .foregroundColor: foregroundColor
-                ])
-            )
-            
-            config.attributedTitle = attributedTitle
-        }
-
-        let image = image?
-            .withTintColor(foregroundColor, renderingMode: .alwaysOriginal)
-            .withConfiguration(
-                UIImage.SymbolConfiguration(pointSize: imagePointSize, weight: .semibold)
-            )
+        let button = UIButton(configuration: config)
         
-        config.image = image
-        config.imagePadding = imagePadding
-        config.imagePlacement = imagePlacement
-        config.baseForegroundColor = foregroundColor
-        config.baseBackgroundColor = backgroundColor
-        
-        let view = UIButton(configuration: config)
-        
-        view.snp.makeConstraints { make in
-            make.width.height.equalTo(size)
+        button.snp.makeConstraints { make in
+            make.width.equalTo(size.width)
+            make.height.equalTo(size.height)
         }
         
-        view.configurationUpdateHandler = { button in
+        button.configurationUpdateHandler = { button in
             UIView.animate(withDuration: 0.1) {
-                switch button.state {
-                case .highlighted:
-                    button.transform = .init(scaleX: 0.97, y: 0.97)
-                default:
+                if button.state == .highlighted {
+                    button.transform = CGAffineTransform(scaleX: 0.97, y: 0.97)
+                } else {
                     button.transform = .identity
                 }
             }
         }
         
-        view.contentHorizontalAlignment = contentHorizontalAlignment
+        button.contentHorizontalAlignment = contentHorizontalAlignment
         
-        return view
+        return button
     }
     
     static func textLinkButton(
@@ -147,14 +133,14 @@ enum ButtonFactory {
         chevronAttachment.image = UIImage(systemName: "chevron.right")?
             .withTintColor(color, renderingMode: .alwaysOriginal)
             .withConfiguration(UIImage.SymbolConfiguration(weight: .bold))
-                
+        
         chevronAttachment.bounds = CGRect(
             x: 0,
             y: (UIFont.preferredFont(forTextStyle: textStyle).descender + 2),
             width: 11,
             height: 14
         )
-    
+        
         let chevronString = NSAttributedString(attachment: chevronAttachment)
         attributedText.append(NSAttributedString(string: " "))
         attributedText.append(chevronString)
@@ -183,5 +169,47 @@ enum ButtonFactory {
         }
         
         return button
+    }
+}
+
+extension ButtonFactory {
+    static func mediumButtonConfiguration(
+        titleKey: LocalizedKeyProtocol? = nil,
+        font: UIFont = .spaceGrotesk(forTextStyle: .title3, weight: .bold),
+        image: UIImage? = nil,
+        imagePadding: CGFloat = 10,
+        imagePlacement: NSDirectionalRectEdge = .leading,
+        imagePointSize: CGFloat = 17,
+        foregroundColor: UIColor = .white,
+        backgroundColor: UIColor = .fiestaGreen,
+        contentHorizontalAlignment: UIControl.ContentHorizontalAlignment = .center
+    ) -> UIButton.Configuration {
+        var config = UIButton.Configuration.filled()
+        
+        if let titleKey {
+            let attributedTitle = AttributedString(
+                .localized(for: titleKey),
+                attributes: AttributeContainer([
+                    .font: font,
+                    .foregroundColor: foregroundColor
+                ])
+            )
+            config.attributedTitle = attributedTitle
+        }
+        
+        let image = image?
+            .withTintColor(foregroundColor, renderingMode: .alwaysOriginal)
+            .withConfiguration(
+                UIImage.SymbolConfiguration(pointSize: imagePointSize, weight: .semibold)
+            )
+        
+        config.image = image
+        config.imagePadding = imagePadding
+        config.imagePlacement = imagePlacement
+        config.baseForegroundColor = foregroundColor
+        config.baseBackgroundColor = backgroundColor
+        config.contentInsets = .zero
+        
+        return config
     }
 }

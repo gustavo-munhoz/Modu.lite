@@ -24,24 +24,23 @@ class WidgetEditorDeleteButton: UIButton {
     // MARK: - Setup
     
     private func setupButton() {
-        var config = UIButton.Configuration.filled()
-        config.baseBackgroundColor = .ketchupRed
         
-        config.attributedTitle = AttributedString(
-            .localized(for: .delete).uppercased(),
-            attributes: AttributeContainer([
-                .font: UIFont(textStyle: .body, weight: .bold),
-                .foregroundColor: UIColor.white
-            ])
+        let config = ButtonFactory.mediumButtonConfiguration(
+            titleKey: WidgetEditorLocalizedTexts.widgetEditorDeleteButtonTitle,
+            image: UIImage(systemName: "trash"),
+            backgroundColor: .ketchupRed
         )
-        
-        config.imagePlacement = .leading
-        config.image = UIImage(systemName: "trash")
-        config.imagePadding = 10
-        config.preferredSymbolConfigurationForImage = .init(pointSize: 15, weight: .bold)
-        config.baseForegroundColor = .white
+    
+        self.configurationUpdateHandler = { button in
+            UIView.animate(withDuration: 0.1) {
+                if button.state == .highlighted {
+                    button.transform = CGAffineTransform(scaleX: 0.97, y: 0.97)
+                } else {
+                    button.transform = .identity
+                }
+            }
+        }
         
         configuration = config
-        layer.cornerRadius = 0
     }
 }
