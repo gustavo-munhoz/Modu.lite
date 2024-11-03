@@ -46,6 +46,9 @@ enum ButtonFactory {
         config.imagePlacement = imagePlacement
         config.baseForegroundColor = foregroundColor
         config.baseBackgroundColor = backgroundColor
+        config.background.cornerRadius = 0
+        config.cornerStyle = .fixed
+        
         let view = UIButton(configuration: config)
         
         view.snp.makeConstraints { make in
@@ -209,6 +212,8 @@ extension ButtonFactory {
         config.baseForegroundColor = foregroundColor
         config.baseBackgroundColor = backgroundColor
         config.contentInsets = .zero
+        config.background.cornerRadius = 0
+        config.cornerStyle = .fixed
         
         return config
     }
