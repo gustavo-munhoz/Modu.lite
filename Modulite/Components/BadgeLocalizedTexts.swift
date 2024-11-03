@@ -6,3 +6,7 @@
 //
 
 import Foundation
+
+enum BadgeLocalizedTexts: LocalizedKeyProtocol {
+    case skinUnlockBadgeText
+}
