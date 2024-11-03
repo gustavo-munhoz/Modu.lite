@@ -44,23 +44,12 @@ class WelcomeView: UIView {
     }()
     
     private(set) lazy var startButton: UIButton = {
-        var config = UIButton.Configuration.filled()
-        config.baseForegroundColor = .white
-        config.baseBackgroundColor = .fiestaGreen
-        config.image = UIImage(systemName: "arrow.right")?
-            .withTintColor(.white, renderingMode: .alwaysOriginal)
-            .withConfiguration(UIImage.SymbolConfiguration(pointSize: 16, weight: .bold))
-        
-        config.imagePlacement = .trailing
-        config.imagePadding = 12
-        config.attributedTitle = AttributedString(
-            .localized(for: OnboardingLocalizedTexts.onboardingGetStartedButton),
-            attributes: AttributeContainer([
-                .font: UIFont(textStyle: .title2, weight: .bold)
-            ])
+        let view = ButtonFactory.mediumButton(
+            titleKey: OnboardingLocalizedTexts.onboardingGetStartedButton,
+            image: UIImage(systemName: "arrow.right"),
+            imagePlacement: .trailing
         )
         
-        let view = UIButton(configuration: config)
         view.addTarget(self, action: #selector(startButtonTapped), for: .touchUpInside)
         
         return view
