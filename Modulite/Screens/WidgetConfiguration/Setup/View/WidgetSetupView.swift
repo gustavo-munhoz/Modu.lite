@@ -65,13 +65,7 @@ class WidgetSetupView: UIScrollView {
             imagePointSize: 17,
             backgroundColor: .carrotOrange
         )
-        var config = UIButton.Configuration.filled()
-        config.baseBackgroundColor = .carrotOrange
-        config.title = .localized(for: .widgetSetupViewSearchAppsButtonTitle)
-        config.image = UIImage(systemName: "magnifyingglass")
-        config.imagePadding = 10
-        
-        let view = UIButton(configuration: config)
+                
         button.addTarget(self, action: #selector(handleSearchButtonPressed), for: .touchUpInside)
         
         return button
