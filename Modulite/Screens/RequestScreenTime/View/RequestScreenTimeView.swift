@@ -36,12 +36,18 @@ class RequestScreenTimeView: UIView {
     
     private(set) lazy var titleLabel: UILabel = {
         let view = UILabel()
-        view.font = UIFont(textStyle: .largeTitle, weight: .bold)
         view.numberOfLines = -1
         view.lineBreakMode = .byWordWrapping
         view.textAlignment = .left
-        view.text = .localized(for: titleText)
-        view.textColor = .black
+        
+        view.attributedText = NSAttributedString(
+            string: .localized(for: titleText),
+            attributes: [
+                .font: UIFont.spaceGrotesk(textStyle: .largeTitle, weight: .bold),
+                .foregroundColor: UIColor.black,
+                .kern: -0.4
+            ]
+        )
         
         return view
     }()
@@ -105,7 +111,7 @@ class RequestScreenTimeView: UIView {
     private(set) lazy var connectButton: UIButton = {
         let button = ButtonFactory.mediumButton(
             titleKey: RequestScreenTimeTexts.requestScreenConnectButtonTitle,
-            font: .spaceGrotesk(forTextStyle: .title2, weight: .bold),
+            font: .spaceGrotesk(textStyle: .title2, weight: .bold),
             backgroundColor: .fiestaGreen.resolvedColor(with: .init(userInterfaceStyle: .light))
         )
         

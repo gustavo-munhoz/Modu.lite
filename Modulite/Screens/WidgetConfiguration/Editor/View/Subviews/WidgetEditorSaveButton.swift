@@ -26,7 +26,7 @@ class WidgetEditorSaveButton: UIButton {
     private func setupButton() {
         self.configuration = ButtonFactory.mediumButtonConfiguration(
             titleKey: String.LocalizedKey.widgetEditorViewSaveWidgetButton,
-            font: UIFont.spaceGrotesk(forTextStyle: .body, weight: .bold),
+            font: UIFont.spaceGrotesk(textStyle: .body, weight: .bold),
             image: UIImage(systemName: "checkmark"),
             imagePadding: 10,
             imagePlacement: .leading,
@@ -58,7 +58,7 @@ class WidgetEditorSaveButton: UIButton {
         config?.attributedTitle = AttributedString(
             .localized(for: .save).uppercased(),
             attributes: AttributeContainer([
-                .font: UIFont.spaceGrotesk(forTextStyle: .title3, weight: .bold),
+                .font: UIFont.spaceGrotesk(textStyle: .title3, weight: .bold),
                 .foregroundColor: UIColor.white
             ])
         )
