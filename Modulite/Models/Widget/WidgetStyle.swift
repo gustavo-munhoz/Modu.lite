@@ -26,6 +26,8 @@ class WidgetStyle {
     var blockedScreenWallpaperImage: UIImage
     var homeScreenWallpaperImage: UIImage
     var imageBlendMode: CGBlendMode?
+    var isPurchased: Bool = false
+    var isGrantedByPlus: Bool = false
     
     // MARK: - Initalizers
     init(

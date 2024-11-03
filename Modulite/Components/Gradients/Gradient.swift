@@ -39,4 +39,14 @@ struct Gradient {
             direction: direction
         )
     }
+    
+    static func ambrosia(direction: CGVector = CGVector(dx: 1, dy: 0)) -> Gradient {
+        Gradient(
+            colors: [
+                UIColor(red: 0.886, green: 0.682, blue: 0.282, alpha: 1),
+                UIColor(red: 0.808, green: 0.459, blue: 0.23, alpha: 1)
+            ],
+            direction: direction
+        )
+    }
 }

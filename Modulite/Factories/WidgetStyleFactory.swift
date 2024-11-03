@@ -19,7 +19,11 @@ class WidgetStyleFactory {
             return createTapedeckStyle()
         }
     }
-    
+
+}
+
+// MARK: - Analog
+extension WidgetStyleFactory {
     private static func createAnalogStyle() -> WidgetStyle {
         let textConfig = ModuleAppNameTextConfiguration()
             .font(UIFont(textStyle: .caption2, weight: .semibold))
@@ -41,6 +45,8 @@ class WidgetStyleFactory {
             homeScreenWallpaperImage: .analogWallpaper,
             imageBlendMode: .plusDarker
         )
+        style.isPurchased = true
+//        style.isPurchased = PurchasedSkinsManager.shared.isSkinPurchased(style.name)
         
         let moduleStyles = [
             ModuleStyle(from: style, key: .analogRegular),
@@ -55,7 +61,10 @@ class WidgetStyleFactory {
         
         return style
     }
-    
+}
+
+// MARK: - Tapedeck
+extension WidgetStyleFactory {
     private static func createTapedeckStyle() -> WidgetStyle {
         let textConfig = ModuleAppNameTextConfiguration()
             .font(UIFont(textStyle: .caption2, weight: .semibold))
@@ -74,6 +83,8 @@ class WidgetStyleFactory {
             homeScreenWallpaperImage: .tapedeckWallpaper,
             imageBlendMode: .hue
         )
+        style.isPurchased = true
+//        style.isPurchased = PurchasedSkinsManager.shared.isSkinPurchased(style.name)
         
         let moduleStyles = [
             ModuleStyle(from: style, key: .tapedeckMain8seg),

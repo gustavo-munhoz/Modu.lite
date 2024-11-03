@@ -1598,6 +1598,17 @@
         }
       }
     },
+    "skinUnlockBadgeText" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "UNLOCK FOR **US$0.99**"
+          }
+        }
+      }
+    },
     "subsctiptionDetailsViewCurrentPlan" : {
       "extractionState" : "manual",
       "localizations" : {

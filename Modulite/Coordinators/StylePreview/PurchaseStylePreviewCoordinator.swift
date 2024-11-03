@@ -1,25 +1,22 @@
 //
-//  StylePreviewCoordinator.swift
+//  PurchaseStylePreviewCoordinator.swift
 //  Modulite
 //
-//  Created by André Wozniack on 31/10/24.
+//  Created by André Wozniack on 02/11/24.
 //
 
 import Foundation
 
-class StylePreviewCoordinator: Coordinator {
+class PurchaseStylePreviewCoordinator: Coordinator {
     var children: [Coordinator] = []
-    
     var router: Router
-    var style: WidgetStyle = WidgetStyleFactory.styleForKey(.analog)
+    var style: WidgetStyle
+    
+    var onStylePurchased: (() -> Void)?
     
     func present(animated: Bool, onDismiss: (() -> Void)?) {
-        let viewController = StylePreviewViewController(style: style)
+        let viewController = PurchaseStylePreviewViewController(style: style)
         router.present(viewController, animated: animated)
-    }
-    
-    init(router: Router) {
-        self.router = router
     }
     
     init(style: WidgetStyle, router: Router) {

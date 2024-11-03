@@ -20,7 +20,7 @@ class WidgetSetupViewController: UIViewController {
     
     private var isEditingWidget: Bool = false
     
-    private var didMakeChanges: Bool = false
+    var didMakeChanges: Bool = false
     
     var isOnboarding: Bool = false
     
@@ -39,6 +39,12 @@ class WidgetSetupViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        viewModel.updatePurchaseStatus()
+        
+        PurchasedSkinsManager.shared.onPurchaseCompleted = { [weak self] productId in
+            self?.handlePurchaseCompleted(for: productId)
+        }
         
         configureViewDependencies()
         setupNavigationBar()
@@ -198,6 +204,13 @@ class WidgetSetupViewController: UIViewController {
             tipPopoverController = nil
         }
     }
+    
+    private func handlePurchaseCompleted(for productId: String) {
+        if let index = viewModel.widgetStyles.firstIndex(where: { $0.key.rawValue == productId }) {
+            viewModel.widgetStyles[index].isPurchased = true
+            setupView.stylesCollectionView.reloadData()
+        }
+    }
 }
 
 extension WidgetSetupViewController {
@@ -280,7 +293,8 @@ extension WidgetSetupViewController: UICollectionViewDataSource {
             cell.setup(
                 image: style.previewImage,
                 title: style.name,
-                delegate: self
+                delegate: self,
+                isPurchased: style.isPurchased
             )
             
             cell.hasSelectionBeenMade = viewModel.isStyleSelected()
@@ -300,7 +314,6 @@ extension WidgetSetupViewController: UICollectionViewDataSource {
             }
             
             cell.setup(with: viewModel.selectedApps[indexPath.row].name)
-            
             cell.delegate = self
             
             return cell
@@ -343,21 +356,33 @@ extension WidgetSetupViewController: UICollectionViewDelegate {
         guard let index = viewModel.widgetStyles.firstIndex(of: style) else { return }
         let indexPath = IndexPath(item: index, section: 1)
         
+        viewModel.selectStyle(at: index)
+        viewModel.setWidgetStyle(to: style)
+        
         setupView.stylesCollectionView.selectItem(
             at: indexPath,
             animated: true,
             scrollPosition: .centeredHorizontally
         )
+        
+        setupView.stylesCollectionView.reloadData()
     }
+    
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         switch collectionView {
         case setupView.stylesCollectionView:
-            guard let style = viewModel.selectStyle(at: indexPath.row) else { return }
+            let widgetStyle = viewModel.widgetStyles[indexPath.row]
             
-            didMakeChanges = true
-            setSetupViewStyleSelected(to: true)
-            delegate?.widgetSetupViewControllerDidSelectWidgetStyle(self, style: style)
-            
+            if widgetStyle.isPurchased {
+                guard let style = viewModel.selectStyle(at: indexPath.row) else { return }
+                
+                didMakeChanges = true
+                setSetupViewStyleSelected(to: true)
+                delegate?.widgetSetupViewControllerDidSelectWidgetStyle(self, style: style)
+            } else {
+                delegate?.widgetSetupViewControllerShouldPresentPurchasePreview(self, for: widgetStyle)
+            }
+
             collectionView.reloadData()
             
             if isOnboarding { Self.didSelectWidgetStyle.sendDonation() }
@@ -379,39 +404,5 @@ extension WidgetSetupViewController: UICollectionViewDelegateFlowLayout {
         let size = (text as NSString).size(withAttributes: [NSAttributedString.Key.font: font])
         
         return CGSize(width: size.width + 45, height: size.height + 24)
-    }
-}
-
-// MARK: - UITextFieldDelegate
-extension WidgetSetupViewController: UITextFieldDelegate {
-    func textField(
-        _ textField: UITextField,
-        shouldChangeCharactersIn range: NSRange,
-        replacementString string: String
-    ) -> Bool {
-        if string.rangeOfCharacter(from: CharacterSet.newlines) != nil {
-            return false
-        }
-        
-        let currentText = textField.text ?? ""
-                
-        guard let textRange = Range(range, in: currentText) else {
-            return false
-        }
-        
-        let updatedText = currentText.replacingCharacters(in: textRange, with: string)
-        
-        if updatedText.count > 24 {
-            return false
-        }
-        
-        didMakeChanges = true
-        
-        return true
-    }
-    
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        textField.resignFirstResponder()
-        return false
     }
 }

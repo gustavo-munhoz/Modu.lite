@@ -87,5 +87,11 @@ class WidgetSetupViewModel: NSObject {
     func clearSelectedStyle() {
         selectedStyle = nil
     }
+    
+    func updatePurchaseStatus() {
+        for style in widgetStyles {
+            style.isPurchased = PurchasedSkinsManager.shared.isSkinPurchased(style.key.rawValue)
+        }
+    }
         
 }
