@@ -2618,6 +2618,17 @@
         }
       }
     },
+    "widgetEditorDeleteButtonTitle" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "DELETE"
+          }
+        }
+      }
+    },
     "widgetEditorViewDeleteAlertMessage" : {
       "extractionState" : "manual",
       "localizations" : {
