@@ -30,4 +30,9 @@ protocol WidgetSetupViewControllerDelegate: AnyObject {
         _ viewController: WidgetSetupViewController,
         didMakeChanges: Bool
     )
+    
+    func widgetSetupViewControllerShouldPresentPreview(
+        _ viewController: WidgetSetupViewController,
+        for style: WidgetStyle
+    )
 }

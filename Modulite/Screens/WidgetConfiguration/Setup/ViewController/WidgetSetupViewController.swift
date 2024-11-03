@@ -8,36 +8,6 @@
 import UIKit
 import TipKit
 
-protocol WidgetSetupViewControllerDelegate: AnyObject {
-    func getPlaceholderName() -> String
-    
-    func widgetSetupViewControllerDidPressNext(widgetName: String)
-    
-    func widgetSetupViewControllerDidTapSearchApps(
-        _ parentController: WidgetSetupViewController
-    )
-    
-    func widgetSetupViewControllerDidDeselectApp(
-        _ controller: WidgetSetupViewController,
-        app: AppInfo
-    )
-    
-    func widgetSetupViewControllerDidSelectWidgetStyle(
-        _ controller: WidgetSetupViewController,
-        style: WidgetStyle
-    )
-    
-    func widgetSetupViewControllerDidPressBack(
-        _ viewController: WidgetSetupViewController,
-        didMakeChanges: Bool
-    )
-    
-    func widgetSetupViewControllerShouldPresentPreview(
-        _ viewController: WidgetSetupViewController,
-        for style: WidgetStyle
-    )
-}
-
 class WidgetSetupViewController: UIViewController {
     static let didSelectWidgetStyle = Tips.Event(id: "didSelectWidgetStyle")
     static let didSelectApps = Tips.Event(id: "didSelectApps")
