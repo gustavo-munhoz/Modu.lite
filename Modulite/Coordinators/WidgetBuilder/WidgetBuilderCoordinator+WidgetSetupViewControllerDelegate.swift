@@ -22,6 +22,8 @@ extension WidgetBuilderCoordinator: WidgetSetupViewControllerDelegate {
             delegate: self
         )
         
+        viewController.setIsOnboarding(isOnboarding)
+        
         if injectedConfiguration != nil {
             viewController.loadDataFromBuilder(configurationBuilder)
             viewController.navigationItem.title = .localized(for: .widgetEditingNavigationTitle)

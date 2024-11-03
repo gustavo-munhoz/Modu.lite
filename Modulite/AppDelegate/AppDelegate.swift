@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import TipKit
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -17,7 +18,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         CoreDataPersistenceController.shared.executeInitialSetup()
         
-        // Override point for customization after application launch.
+        try? Tips.configure([.displayFrequency(.immediate)])
+        
         return true
     }
 

@@ -22,5 +22,6 @@ class TutorialWallpaperViewController: UIViewController, TutorialViewController 
     
     private func setupNavigationBar() {
         navigationItem.largeTitleDisplayMode = .never
+        navigationController?.navigationBar.barTintColor = .whiteTurnip
     }
 }
