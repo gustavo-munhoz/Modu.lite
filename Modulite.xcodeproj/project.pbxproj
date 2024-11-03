@@ -105,6 +105,13 @@
 		B32F3BDD2CD41FFF000F4825 /* OnboardingCompletionCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B32F3BDC2CD41FFF000F4825 /* OnboardingCompletionCoordinator.swift */; };
 		B32F3BE12CD56412000F4825 /* ButtonFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = B32F3BE02CD56412000F4825 /* ButtonFactory.swift */; };
 		B32F3BE22CD56412000F4825 /* ButtonFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = B32F3BE02CD56412000F4825 /* ButtonFactory.swift */; };
+		B32F3BF82CD709E8000F4825 /* SpaceGrotesk-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B32F3BF22CD709E8000F4825 /* SpaceGrotesk-Bold.ttf */; };
+		B32F3BF92CD709E8000F4825 /* SpaceGrotesk-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B32F3BF32CD709E8000F4825 /* SpaceGrotesk-Light.ttf */; };
+		B32F3BFA2CD709E8000F4825 /* SpaceGrotesk-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B32F3BF42CD709E8000F4825 /* SpaceGrotesk-Medium.ttf */; };
+		B32F3BFB2CD709E8000F4825 /* SpaceGrotesk-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B32F3BF52CD709E8000F4825 /* SpaceGrotesk-Regular.ttf */; };
+		B32F3BFC2CD709E8000F4825 /* SpaceGrotesk-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B32F3BF62CD709E8000F4825 /* SpaceGrotesk-SemiBold.ttf */; };
+		B32F3BFE2CD70A0F000F4825 /* SpaceGrotesk.swift in Sources */ = {isa = PBXBuildFile; fileRef = B32F3BFD2CD70A0F000F4825 /* SpaceGrotesk.swift */; };
+		B32F3BFF2CD70D77000F4825 /* SpaceGrotesk.swift in Sources */ = {isa = PBXBuildFile; fileRef = B32F3BFD2CD70A0F000F4825 /* SpaceGrotesk.swift */; };
 		B338088D2CC1902E00D56884 /* AppUsageItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = B338088C2CC1902E00D56884 /* AppUsageItem.swift */; };
 		B338088F2CC1905500D56884 /* AppUsageList.swift in Sources */ = {isa = PBXBuildFile; fileRef = B338088E2CC1905500D56884 /* AppUsageList.swift */; };
 		B33808912CC19E6500D56884 /* Date+Operations.swift in Sources */ = {isa = PBXBuildFile; fileRef = B33808902CC19E6500D56884 /* Date+Operations.swift */; };
@@ -503,6 +510,12 @@
 		B32F3BD82CD41189000F4825 /* OnboardingNumberedTutorial.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingNumberedTutorial.swift; sourceTree = "<group>"; };
 		B32F3BDC2CD41FFF000F4825 /* OnboardingCompletionCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingCompletionCoordinator.swift; sourceTree = "<group>"; };
 		B32F3BE02CD56412000F4825 /* ButtonFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonFactory.swift; sourceTree = "<group>"; };
+		B32F3BF22CD709E8000F4825 /* SpaceGrotesk-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SpaceGrotesk-Bold.ttf"; sourceTree = "<group>"; };
+		B32F3BF32CD709E8000F4825 /* SpaceGrotesk-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SpaceGrotesk-Light.ttf"; sourceTree = "<group>"; };
+		B32F3BF42CD709E8000F4825 /* SpaceGrotesk-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SpaceGrotesk-Medium.ttf"; sourceTree = "<group>"; };
+		B32F3BF52CD709E8000F4825 /* SpaceGrotesk-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SpaceGrotesk-Regular.ttf"; sourceTree = "<group>"; };
+		B32F3BF62CD709E8000F4825 /* SpaceGrotesk-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SpaceGrotesk-SemiBold.ttf"; sourceTree = "<group>"; };
+		B32F3BFD2CD70A0F000F4825 /* SpaceGrotesk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpaceGrotesk.swift; sourceTree = "<group>"; };
 		B338088C2CC1902E00D56884 /* AppUsageItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppUsageItem.swift; sourceTree = "<group>"; };
 		B338088E2CC1905500D56884 /* AppUsageList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppUsageList.swift; sourceTree = "<group>"; };
 		B33808902CC19E6500D56884 /* Date+Operations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Operations.swift"; sourceTree = "<group>"; };
@@ -1165,6 +1178,27 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		B32F3BF02CD709DD000F4825 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				B32F3BF72CD709E8000F4825 /* Files */,
+				B32F3BFD2CD70A0F000F4825 /* SpaceGrotesk.swift */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+		B32F3BF72CD709E8000F4825 /* Files */ = {
+			isa = PBXGroup;
+			children = (
+				B32F3BF22CD709E8000F4825 /* SpaceGrotesk-Bold.ttf */,
+				B32F3BF32CD709E8000F4825 /* SpaceGrotesk-Light.ttf */,
+				B32F3BF42CD709E8000F4825 /* SpaceGrotesk-Medium.ttf */,
+				B32F3BF52CD709E8000F4825 /* SpaceGrotesk-Regular.ttf */,
+				B32F3BF62CD709E8000F4825 /* SpaceGrotesk-SemiBold.ttf */,
+			);
+			path = Files;
+			sourceTree = "<group>";
+		};
 		B33808982CC3004400D56884 /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -1779,6 +1813,7 @@
 		B36927962C66B6E30089F769 /* Modulite */ = {
 			isa = PBXGroup;
 			children = (
+				B32F3BF02CD709DD000F4825 /* Fonts */,
 				B39A259B2CAB2933001C76A5 /* Prototype */,
 				B3850BC42C979D1F00F400C0 /* Transformers */,
 				B32B61042C88F594007DDCE3 /* Modulite.entitlements */,
@@ -1878,7 +1913,6 @@
 			isa = PBXGroup;
 			children = (
 				AF5F2D0B2CD15AE800EBAAB5 /* Redirecting */,
-				B34C62E72CD175FA004E014B /* Onboarding */,
 				B34F3DFC2C6A92890041D7BD /* RootTabBarController.swift */,
 				B34C62E72CD175FA004E014B /* Onboarding */,
 				B39D89C72CB855D2005EEC46 /* ComingSoon */,
@@ -2649,6 +2683,11 @@
 				B3987DFF2CA202C100896414 /* InfoPlist.xcstrings in Resources */,
 				B39A25E42CAFADF6001C76A5 /* BundleConfig.xcconfig in Resources */,
 				B3F0543C2C7D04D60057F04D /* apps.json in Resources */,
+				B32F3BF82CD709E8000F4825 /* SpaceGrotesk-Bold.ttf in Resources */,
+				B32F3BF92CD709E8000F4825 /* SpaceGrotesk-Light.ttf in Resources */,
+				B32F3BFA2CD709E8000F4825 /* SpaceGrotesk-Medium.ttf in Resources */,
+				B32F3BFB2CD709E8000F4825 /* SpaceGrotesk-Regular.ttf in Resources */,
+				B32F3BFC2CD709E8000F4825 /* SpaceGrotesk-SemiBold.ttf in Resources */,
 				B36927A42C66B6E40089F769 /* Base in Resources */,
 				B34F3DF32C6701740041D7BD /* Localizable.xcstrings in Resources */,
 			);
@@ -2738,6 +2777,7 @@
 				B32B60F42C87AB75007DDCE3 /* PersistableModuleConfiguration+CoreDataClass.swift in Sources */,
 				B3987E0C2CA38A8A00896414 /* MainWidget.swift in Sources */,
 				B34C62F52CD179E9004E014B /* OnboardingPreferences.swift in Sources */,
+				B32F3BFF2CD70D77000F4825 /* SpaceGrotesk.swift in Sources */,
 				B372846D2C8298EB00D9A1E7 /* ModuleStyle.swift in Sources */,
 				B33808A92CC30CD900D56884 /* ScreenTimePreferences.swift in Sources */,
 				B32B60F32C8782E2007DDCE3 /* UIView+asImage.swift in Sources */,
@@ -2847,7 +2887,6 @@
 				B39A25D82CAF275F001C76A5 /* ModulitePlusSmallBadge.swift in Sources */,
 				B34F3E0B2C6A9E350041D7BD /* NavigationRouter.swift in Sources */,
 				AF0DB4982CD2C09500451E18 /* StylePreviewViewController.swift in Sources */,
-				B32F3BDB2CD41B0D000F4825 /* OnboardingTutorialButton.swift in Sources */,
 				B36927DA2C66C2770089F769 /* HomeView.swift in Sources */,
 				B30201732CC8C9C200301646 /* TimeSelectPicker.swift in Sources */,
 				B36927D52C66BCE60089F769 /* HomeCoordinator.swift in Sources */,
@@ -2964,6 +3003,7 @@
 				B35BFC502CB609DC00092B42 /* TutorialAddWidgetViewController.swift in Sources */,
 				B30201752CC8C9D800301646 /* AsteriskText.swift in Sources */,
 				B3D1B7D12CB7024700DFC4F5 /* FAQSummaryStackView.swift in Sources */,
+				B32F3BFE2CD70A0F000F4825 /* SpaceGrotesk.swift in Sources */,
 				B3EB15BB2C7E5DC5003B1960 /* UILabel+AppNameConfiguration.swift in Sources */,
 				B34C63072CD2D835004E014B /* DragModuleTip.swift in Sources */,
 				B34F3E2B2C6E83800041D7BD /* UIFont+TraitedTextStyle.swift in Sources */,
