@@ -18,6 +18,10 @@ protocol OnboardingTutorialsControllerDelegate: AnyObject {
         didPressPresent tutorial: OnboardingTutorialType
     )
     
+    func onboardingTutorialsViewControllerDidPressSettings(
+        _ viewController: OnboardingTutorialsViewController
+    )
+    
     func onboardingTutorialsViewControllerDidPressAllSet(
         _ viewController: OnboardingTutorialsViewController
     )
@@ -53,6 +57,11 @@ class OnboardingTutorialsViewController: UIViewController {
             self.didPressWallpaperButton()
         }
         
+        tutorialsView.textBox1.onRedirectButtonPressed = { [weak self] in
+            guard let self = self else { return }
+            self.didPressGoToSettingsButton()
+        }
+        
         tutorialsView.textBox2.onTutorialButtonPressed = { [weak self] in
             guard let self = self else { return }
             self.didPressWidgetButton()
@@ -67,6 +76,10 @@ class OnboardingTutorialsViewController: UIViewController {
             self,
             didPressPresent: .wallpaper
         )
+    }
+    
+    private func didPressGoToSettingsButton() {
+        delegate?.onboardingTutorialsViewControllerDidPressSettings(self)
     }
     
     private func didPressWidgetButton() {

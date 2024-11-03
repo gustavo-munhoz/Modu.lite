@@ -10,8 +10,6 @@ import SnapKit
 
 class OnboardingTutorialsView: UIView {
     
-    var onWallpaperTutorialPressed: (() -> Void)?
-    var onWidgetTutorialPressed: (() -> Void)?
     var onAllSetButtonPressed: (() -> Void)?
     
     // MARK: - Subviews
@@ -56,8 +54,6 @@ class OnboardingTutorialsView: UIView {
             title: .localized(for: OnboardingLocalizedTexts.onboardingTutorialsGoToSettings)
         )
         
-        view.onTutorialButtonPressed = onWallpaperTutorialPressed
-        
         return view
     }()
     
@@ -70,8 +66,6 @@ class OnboardingTutorialsView: UIView {
                 with: .localized(for: OnboardingLocalizedTexts.onboardingAddWidgetNumberBoxText)
             )
         )
-
-        view.onTutorialButtonPressed = onWidgetTutorialPressed
         
         return view
     }()

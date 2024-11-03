@@ -51,6 +51,16 @@ extension OnboardingCompletionCoordinator: OnboardingTutorialsControllerDelegate
         }
     }
     
+    func onboardingTutorialsViewControllerDidPressSettings(
+        _ viewController: OnboardingTutorialsViewController
+    ) {
+        guard let settingsURL = URL(string: UIApplication.openSettingsURLString) else { return }
+        
+        if UIApplication.shared.canOpenURL(settingsURL) {
+            UIApplication.shared.open(settingsURL, options: [:], completionHandler: nil)
+        }
+    }
+    
     func onboardingTutorialsViewControllerDidPressAllSet(
         _ viewController: OnboardingTutorialsViewController
     ) {
