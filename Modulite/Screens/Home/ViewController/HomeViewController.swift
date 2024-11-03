@@ -46,11 +46,6 @@ class HomeViewController: UIViewController {
         setupOnboardingObserverIfNeeded()
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        delegate?.homeViewControllerDidFinishOnboarding(self)
-    }
-    
     deinit {
         NotificationCenter.default.removeObserver(
             self,
