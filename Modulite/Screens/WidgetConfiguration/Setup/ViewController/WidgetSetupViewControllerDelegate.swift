@@ -35,4 +35,10 @@ protocol WidgetSetupViewControllerDelegate: AnyObject {
         _ viewController: WidgetSetupViewController,
         for style: WidgetStyle
     )
+    
+    func widgetSetupViewControllerShouldPresentPurchasePreview(
+        _ viewController: WidgetSetupViewController,
+        for style: WidgetStyle
+    )
+        
 }
