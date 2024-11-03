@@ -19,6 +19,8 @@ class StyleCollectionViewCell: UICollectionViewCell {
     
     weak var delegate: StyleCollectionViewCellDelegate?
     
+    var isPurchased: Bool = false
+    
     var hasSelectionBeenMade: Bool = false {
         didSet {
             updateOverlayAlpha()
@@ -65,7 +67,7 @@ class StyleCollectionViewCell: UICollectionViewCell {
     
     private(set) lazy var previewButton: UIButton = {
         var config = UIButton.Configuration.plain()
-        config.image = UIImage(systemName: "eye") // Ícone de olho do SF Symbols
+        config.image = UIImage(systemName: "eye")
         config.imagePadding = 0
         config.baseForegroundColor = .white
         config.background.backgroundColor = UIColor.blueberry
@@ -88,9 +90,21 @@ class StyleCollectionViewCell: UICollectionViewCell {
         
         return view
     }()
+    
+    private lazy var unlockBadge: UILabel = {
+        // TODO: Change text to localizable format
+        let label = UILabel()
+        label.text = "Unlock for $0.99"
+        label.font = UIFont.boldSystemFont(ofSize: 14)
+        label.textAlignment = .center
+        label.backgroundColor = UIColor.carrotOrange
+        label.layer.cornerRadius = 10
+        label.clipsToBounds = true
+        return label
+    }()
 
     // MARK: - Setup methods
-    func setup(image: UIImage, title: String, delegate: StyleCollectionViewCellDelegate) {
+    func setup(image: UIImage, title: String, delegate: StyleCollectionViewCellDelegate, isPurchased: Bool) {
         subviews.forEach { $0.removeFromSuperview() }
         self.delegate = delegate
         styleImageView.image = image
@@ -98,6 +112,7 @@ class StyleCollectionViewCell: UICollectionViewCell {
         
         addSubviews()
         setupConstraints()
+        unlockBadge.isHidden = isPurchased
     }
     
     private func addSubviews() {
@@ -105,6 +120,7 @@ class StyleCollectionViewCell: UICollectionViewCell {
         styleImageView.addSubview(overlayView)
         addSubview(styleTitle)
         addSubview(previewButton)
+        addSubview(unlockBadge)
     }
     
     private func setupConstraints() {
@@ -125,6 +141,13 @@ class StyleCollectionViewCell: UICollectionViewCell {
         previewButton.snp.makeConstraints { make in
             make.bottom.equalToSuperview().offset(-16)
             make.right.equalToSuperview().offset(-16)
+        }
+        
+        unlockBadge.snp.makeConstraints { make in
+            make.top.equalToSuperview().offset(8)
+            make.right.equalToSuperview().offset(-8)
+            make.width.equalTo(80) // ou ajuste conforme necessário
+            make.height.equalTo(24)
         }
     }
     

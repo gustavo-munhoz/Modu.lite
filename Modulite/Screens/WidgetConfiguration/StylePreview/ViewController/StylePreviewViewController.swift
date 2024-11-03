@@ -38,9 +38,7 @@ class StylePreviewViewController: UIViewController {
         styleView.selectStyleButtonPressed = { [weak self] in
             guard let self = self else { return }
             self.onStyleSelected?(self.style)
-            self.dismiss(animated: true, completion: nil) // Fecha a tela de preview
         }
-        
     }
     
     private func setupCollectionView() {
@@ -71,7 +69,6 @@ class StylePreviewViewController: UIViewController {
 
 extension StylePreviewViewController: UICollectionViewDataSource {
     // MARK: - UICollectionViewDataSource
-    
     func collectionView(
         _ collectionView: UICollectionView,
         numberOfItemsInSection section: Int
@@ -112,7 +109,9 @@ extension StylePreviewViewController: UICollectionViewDelegateFlowLayout {
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        
         let pageIndex = round(scrollView.contentOffset.x / styleView.collectionView.frame.width)
         styleView.pageControl.currentPage = Int(pageIndex)
+        
     }
 }
