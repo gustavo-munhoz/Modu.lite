@@ -11,11 +11,11 @@ import SnapKit
 enum ButtonFactory {
     static func smallButton(
         titleKey: LocalizedKeyProtocol? = nil,
-        font: UIFont = UIFont(textStyle: .title3, weight: .bold),
+        font: UIFont = .spaceGrotesk(forTextStyle: .title3, weight: .bold),
         image: UIImage? = nil,
         imagePadding: CGFloat = 10,
         imagePlacement: NSDirectionalRectEdge = .trailing,
-        imagePointSize: CGFloat = 20,
+        imagePointSize: CGFloat = 17,
         foregroundColor: UIColor = .white,
         backgroundColor: UIColor = .blueberry,
         contentHorizontalAlignment: UIControl.ContentHorizontalAlignment = .center,
@@ -70,11 +70,11 @@ enum ButtonFactory {
     
     static func mediumButton(
         titleKey: LocalizedKeyProtocol? = nil,
-        font: UIFont = UIFont(textStyle: .title3, weight: .bold),
+        font: UIFont = .spaceGrotesk(forTextStyle: .title3, weight: .bold),
         image: UIImage? = nil,
         imagePadding: CGFloat = 10,
         imagePlacement: NSDirectionalRectEdge = .leading,
-        imagePointSize: CGFloat = 20,
+        imagePointSize: CGFloat = 17,
         foregroundColor: UIColor = .white,
         backgroundColor: UIColor = .fiestaGreen,
         contentHorizontalAlignment: UIControl.ContentHorizontalAlignment = .center,
