@@ -5,7 +5,6 @@
 //  Created by André Wozniack on 03/11/24.
 //
 
-
 import Foundation
 import StoreKit
 
@@ -15,15 +14,22 @@ class PurchasedSkinsManager: NSObject, SKPaymentTransactionObserver, SKProductsR
     private var availableSkins: [SKProduct] = []
     private var productRequest: SKProductsRequest?
     
+    var onPurchaseCompleted: ((String) -> Void)?
+    var onPurchaseFailed: ((String, Error?) -> Void)?
+    var onPurchaseRestored: ((String) -> Void)?
+    
+    private let purchasedKey = "purchasedWidgetStyles"
+    
     override init() {
         super.init()
-        SKPaymentQueue.default().add(self) // Adiciona o manager como observador
+        SKPaymentQueue.default().add(self)
     }
     
     deinit {
-        SKPaymentQueue.default().remove(self) // Remove o observador ao finalizar
+        SKPaymentQueue.default().remove(self)
     }
     
+    // MARK: - Fetch Available Skins
     func fetchAvailableSkins(productIds: [String]) {
         productRequest?.cancel()
         productRequest = SKProductsRequest(productIdentifiers: Set(productIds))
@@ -33,10 +39,7 @@ class PurchasedSkinsManager: NSObject, SKPaymentTransactionObserver, SKProductsR
     
     func productsRequest(_ request: SKProductsRequest, didReceive response: SKProductsResponse) {
         availableSkins = response.products
-        
-        if availableSkins.isEmpty {
-            print("Nenhum produto de teste encontrado.")
-        }
+        NotificationCenter.default.post(name: .skinsLoaded, object: nil)
     }
     
     func purchaseSkin(with productId: String) {
@@ -54,7 +57,7 @@ class PurchasedSkinsManager: NSObject, SKPaymentTransactionObserver, SKProductsR
         SKPaymentQueue.default().add(payment)
     }
     
-    // MARK: - SKPaymentTransactionObserver
+    // MARK: - Transaction Handling
     func paymentQueue(_ queue: SKPaymentQueue, updatedTransactions transactions: [SKPaymentTransaction]) {
         for transaction in transactions {
             switch transaction.transactionState {
@@ -72,23 +75,48 @@ class PurchasedSkinsManager: NSObject, SKPaymentTransactionObserver, SKProductsR
     
     private func complete(transaction: SKPaymentTransaction) {
         unlockSkin(productId: transaction.payment.productIdentifier)
+        onPurchaseCompleted?(transaction.payment.productIdentifier)
         SKPaymentQueue.default().finishTransaction(transaction)
     }
     
     private func restore(transaction: SKPaymentTransaction) {
         unlockSkin(productId: transaction.payment.productIdentifier)
+        onPurchaseRestored?(transaction.payment.productIdentifier)
         SKPaymentQueue.default().finishTransaction(transaction)
     }
     
     private func failed(transaction: SKPaymentTransaction) {
-        if let error = transaction.error as NSError? {
-            print("Transaction failed: \(error.localizedDescription)")
-        }
+        let productId = transaction.payment.productIdentifier
+        onPurchaseFailed?(productId, transaction.error)
         SKPaymentQueue.default().finishTransaction(transaction)
     }
     
+    // MARK: - Unlock Skin and Save Purchase
     private func unlockSkin(productId: String) {
-        // Lógica para desbloquear a skin e salvar a compra
-        print("Skin desbloqueada para o produto: \(productId)")
+        savePurchasedSkin(productId: productId)
+        NotificationCenter.default.post(name: .skinPurchased, object: productId)
     }
+    
+    // MARK: - UserDefaults Persistence
+    private func savePurchasedSkin(productId: String) {
+        var purchasedSkins = getPurchasedSkins()
+        if !purchasedSkins.contains(productId) {
+            purchasedSkins.append(productId)
+            UserDefaults.standard.set(purchasedSkins, forKey: purchasedKey)
+        }
+    }
+    
+    func getPurchasedSkins() -> [String] {
+        return UserDefaults.standard.stringArray(forKey: purchasedKey) ?? []
+    }
+    
+    func isSkinPurchased(_ productId: String) -> Bool {
+        return getPurchasedSkins().contains(productId)
+    }
+}
+
+// MARK: - Notification Extension
+extension Notification.Name {
+    static let skinPurchased = Notification.Name("skinPurchased")
+    static let skinsLoaded = Notification.Name("skinsLoaded")
 }

@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import UIKit
 
 class StylePreviewCoordinator: Coordinator {
     var children: [Coordinator] = []
