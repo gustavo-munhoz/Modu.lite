@@ -103,22 +103,15 @@ class RequestScreenTimeView: UIView {
     }()
     
     private(set) lazy var connectButton: UIButton = {
-        var config = UIButton.Configuration.filled()
-        config.baseForegroundColor = .white
-        config.baseBackgroundColor = .fiestaGreen.resolvedColor(
-            with: .init(userInterfaceStyle: .light)
-        )
-        config.attributedTitle = AttributedString(
-            .localized(for: RequestScreenTimeTexts.requestScreenConnectButtonTitle),
-            attributes: AttributeContainer([
-                .font: UIFont(textStyle: .title2, weight: .bold)
-            ])
+        let button = ButtonFactory.mediumButton(
+            titleKey: RequestScreenTimeTexts.requestScreenConnectButtonTitle,
+            font: .spaceGrotesk(forTextStyle: .title2, weight: .bold),
+            backgroundColor: .fiestaGreen.resolvedColor(with: .init(userInterfaceStyle: .light))
         )
         
-        let view = UIButton(configuration: config)
-        view.addTarget(self, action: #selector(didPressConnectButton), for: .touchUpInside)
+        button.addTarget(self, action: #selector(didPressConnectButton), for: .touchUpInside)
         
-        return view
+        return button
     }()
     
     private(set) lazy var dismissButton: UIButton = {
@@ -212,7 +205,7 @@ class RequestScreenTimeView: UIView {
             make.left.right.equalToSuperview().inset(24)
         }
         
-        connectButton.snp.makeConstraints { make in
+        connectButton.snp.remakeConstraints { make in
             make.top.equalTo(footnoteLabel.snp.bottom).offset(32)
             make.left.right.equalToSuperview().inset(24)
             make.height.equalTo(44)
