@@ -19,12 +19,18 @@ class OnboardingDeclutterHomeView: UIView {
     
     private(set) lazy var titleLabel: UILabel = {
         let view = UILabel()
-        view.textColor = .fiestaGreen
         view.textAlignment = .center
-        view.font = UIFont(textStyle: .largeTitle, weight: .bold)
         view.numberOfLines = -1
         view.lineBreakMode = .byWordWrapping
-        view.text = .localized(for: OnboardingLocalizedTexts.onboardingDeclutterTitle)
+        
+        view.attributedText = NSAttributedString(
+            string: .localized(for: OnboardingLocalizedTexts.onboardingDeclutterTitle),
+            attributes: [
+                .font: UIFont.spaceGrotesk(textStyle: .largeTitle, weight: .bold),
+                .foregroundColor: UIColor.fiestaGreen,
+                .kern: -0.4
+            ]
+        )
         
         return view
     }()

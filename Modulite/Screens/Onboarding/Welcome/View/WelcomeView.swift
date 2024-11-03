@@ -15,12 +15,18 @@ class WelcomeView: UIView {
     // MARK: - Subviews
     private(set) lazy var welcomeTitle: UILabel = {
         let label = UILabel()
-        label.text = .localized(for: OnboardingLocalizedTexts.onboardingWelcomeTitle)
         label.numberOfLines = 0
         label.lineBreakMode = .byWordWrapping
         label.textAlignment = .center
-        label.textColor = .fiestaGreen
-        label.font = UIFont(textStyle: .largeTitle, weight: .bold)
+        
+        label.attributedText = NSAttributedString(
+            string: .localized(for: OnboardingLocalizedTexts.onboardingWelcomeTitle),
+            attributes: [
+                .font: UIFont.spaceGrotesk(textStyle: .largeTitle, weight: .bold),
+                .foregroundColor: UIColor.fiestaGreen,
+                .kern: -0.4
+            ]
+        )
         
         return label
     }()
