@@ -96,4 +96,37 @@ class CustomizedTextFactory {
 
         return completeText
     }
+    
+    static func createFromMarkdown(
+        with markdownText: String,
+        paragraphHeadIndent: CGFloat = 0,
+        textStyle: UIFont.TextStyle = .body
+    ) -> NSAttributedString {
+        let completeText = NSMutableAttributedString()
+        
+        let paragraphStyle = NSMutableParagraphStyle()
+        paragraphStyle.headIndent = paragraphHeadIndent
+        paragraphStyle.firstLineHeadIndent = 0
+
+        if let markdownAttributedString = try? AttributedString(markdown: markdownText) {
+            let attributedMarkdown = NSMutableAttributedString(markdownAttributedString)
+                        
+            attributedMarkdown.addAttributes([
+                .paragraphStyle: paragraphStyle
+            ], range: NSRange(location: 0, length: attributedMarkdown.length))
+            
+            completeText.append(attributedMarkdown)
+        } else {
+            let plainText = NSAttributedString(string: markdownText, attributes: [
+                .paragraphStyle: paragraphStyle
+            ])
+            completeText.append(plainText)
+        }
+        
+        completeText.addAttributes([
+            .font: UIFont.preferredFont(forTextStyle: textStyle)
+        ], range: .init(location: 0, length: completeText.length))
+
+        return completeText
+    }
 }
