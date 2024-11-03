@@ -122,13 +122,13 @@
 		B32F3BDD2CD41FFF000F4825 /* OnboardingCompletionCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B32F3BDC2CD41FFF000F4825 /* OnboardingCompletionCoordinator.swift */; };
 		B32F3BE12CD56412000F4825 /* ButtonFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = B32F3BE02CD56412000F4825 /* ButtonFactory.swift */; };
 		B32F3BE22CD56412000F4825 /* ButtonFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = B32F3BE02CD56412000F4825 /* ButtonFactory.swift */; };
-		B32F3BF82CD709E8000F4825 /* SpaceGrotesk-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B32F3BF22CD709E8000F4825 /* SpaceGrotesk-Bold.ttf */; };
-		B32F3BF92CD709E8000F4825 /* SpaceGrotesk-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B32F3BF32CD709E8000F4825 /* SpaceGrotesk-Light.ttf */; };
-		B32F3BFA2CD709E8000F4825 /* SpaceGrotesk-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B32F3BF42CD709E8000F4825 /* SpaceGrotesk-Medium.ttf */; };
-		B32F3BFB2CD709E8000F4825 /* SpaceGrotesk-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B32F3BF52CD709E8000F4825 /* SpaceGrotesk-Regular.ttf */; };
-		B32F3BFC2CD709E8000F4825 /* SpaceGrotesk-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B32F3BF62CD709E8000F4825 /* SpaceGrotesk-SemiBold.ttf */; };
 		B32F3BFE2CD70A0F000F4825 /* SpaceGrotesk.swift in Sources */ = {isa = PBXBuildFile; fileRef = B32F3BFD2CD70A0F000F4825 /* SpaceGrotesk.swift */; };
 		B32F3BFF2CD70D77000F4825 /* SpaceGrotesk.swift in Sources */ = {isa = PBXBuildFile; fileRef = B32F3BFD2CD70A0F000F4825 /* SpaceGrotesk.swift */; };
+		B32F3C072CD745C3000F4825 /* SpaceGrotesk-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B32F3C012CD745C3000F4825 /* SpaceGrotesk-Bold.ttf */; };
+		B32F3C082CD745C3000F4825 /* SpaceGrotesk-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B32F3C022CD745C3000F4825 /* SpaceGrotesk-Light.ttf */; };
+		B32F3C092CD745C3000F4825 /* SpaceGrotesk-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B32F3C032CD745C3000F4825 /* SpaceGrotesk-Medium.ttf */; };
+		B32F3C0A2CD745C3000F4825 /* SpaceGrotesk-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B32F3C042CD745C3000F4825 /* SpaceGrotesk-Regular.ttf */; };
+		B32F3C0B2CD745C3000F4825 /* SpaceGrotesk-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B32F3C052CD745C3000F4825 /* SpaceGrotesk-SemiBold.ttf */; };
 		B338088D2CC1902E00D56884 /* AppUsageItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = B338088C2CC1902E00D56884 /* AppUsageItem.swift */; };
 		B338088F2CC1905500D56884 /* AppUsageList.swift in Sources */ = {isa = PBXBuildFile; fileRef = B338088E2CC1905500D56884 /* AppUsageList.swift */; };
 		B33808912CC19E6500D56884 /* Date+Operations.swift in Sources */ = {isa = PBXBuildFile; fileRef = B33808902CC19E6500D56884 /* Date+Operations.swift */; };
@@ -538,12 +538,12 @@
 		B32F3BD82CD41189000F4825 /* OnboardingNumberedTutorial.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingNumberedTutorial.swift; sourceTree = "<group>"; };
 		B32F3BDC2CD41FFF000F4825 /* OnboardingCompletionCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingCompletionCoordinator.swift; sourceTree = "<group>"; };
 		B32F3BE02CD56412000F4825 /* ButtonFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonFactory.swift; sourceTree = "<group>"; };
-		B32F3BF22CD709E8000F4825 /* SpaceGrotesk-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SpaceGrotesk-Bold.ttf"; sourceTree = "<group>"; };
-		B32F3BF32CD709E8000F4825 /* SpaceGrotesk-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SpaceGrotesk-Light.ttf"; sourceTree = "<group>"; };
-		B32F3BF42CD709E8000F4825 /* SpaceGrotesk-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SpaceGrotesk-Medium.ttf"; sourceTree = "<group>"; };
-		B32F3BF52CD709E8000F4825 /* SpaceGrotesk-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SpaceGrotesk-Regular.ttf"; sourceTree = "<group>"; };
-		B32F3BF62CD709E8000F4825 /* SpaceGrotesk-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SpaceGrotesk-SemiBold.ttf"; sourceTree = "<group>"; };
 		B32F3BFD2CD70A0F000F4825 /* SpaceGrotesk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpaceGrotesk.swift; sourceTree = "<group>"; };
+		B32F3C012CD745C3000F4825 /* SpaceGrotesk-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SpaceGrotesk-Bold.ttf"; sourceTree = "<group>"; };
+		B32F3C022CD745C3000F4825 /* SpaceGrotesk-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SpaceGrotesk-Light.ttf"; sourceTree = "<group>"; };
+		B32F3C032CD745C3000F4825 /* SpaceGrotesk-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SpaceGrotesk-Medium.ttf"; sourceTree = "<group>"; };
+		B32F3C042CD745C3000F4825 /* SpaceGrotesk-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SpaceGrotesk-Regular.ttf"; sourceTree = "<group>"; };
+		B32F3C052CD745C3000F4825 /* SpaceGrotesk-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SpaceGrotesk-SemiBold.ttf"; sourceTree = "<group>"; };
 		B338088C2CC1902E00D56884 /* AppUsageItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppUsageItem.swift; sourceTree = "<group>"; };
 		B338088E2CC1905500D56884 /* AppUsageList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppUsageList.swift; sourceTree = "<group>"; };
 		B33808902CC19E6500D56884 /* Date+Operations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Operations.swift"; sourceTree = "<group>"; };
@@ -1271,13 +1271,21 @@
 		B32F3BF72CD709E8000F4825 /* Files */ = {
 			isa = PBXGroup;
 			children = (
-				B32F3BF22CD709E8000F4825 /* SpaceGrotesk-Bold.ttf */,
-				B32F3BF32CD709E8000F4825 /* SpaceGrotesk-Light.ttf */,
-				B32F3BF42CD709E8000F4825 /* SpaceGrotesk-Medium.ttf */,
-				B32F3BF52CD709E8000F4825 /* SpaceGrotesk-Regular.ttf */,
-				B32F3BF62CD709E8000F4825 /* SpaceGrotesk-SemiBold.ttf */,
+				B32F3C062CD745C3000F4825 /* SpaceGrotesk */,
 			);
 			path = Files;
+			sourceTree = "<group>";
+		};
+		B32F3C062CD745C3000F4825 /* SpaceGrotesk */ = {
+			isa = PBXGroup;
+			children = (
+				B32F3C012CD745C3000F4825 /* SpaceGrotesk-Bold.ttf */,
+				B32F3C022CD745C3000F4825 /* SpaceGrotesk-Light.ttf */,
+				B32F3C032CD745C3000F4825 /* SpaceGrotesk-Medium.ttf */,
+				B32F3C042CD745C3000F4825 /* SpaceGrotesk-Regular.ttf */,
+				B32F3C052CD745C3000F4825 /* SpaceGrotesk-SemiBold.ttf */,
+			);
+			path = SpaceGrotesk;
 			sourceTree = "<group>";
 		};
 		B33808982CC3004400D56884 /* View */ = {
@@ -2777,11 +2785,11 @@
 				B3987DFF2CA202C100896414 /* InfoPlist.xcstrings in Resources */,
 				B39A25E42CAFADF6001C76A5 /* BundleConfig.xcconfig in Resources */,
 				B3F0543C2C7D04D60057F04D /* apps.json in Resources */,
-				B32F3BF82CD709E8000F4825 /* SpaceGrotesk-Bold.ttf in Resources */,
-				B32F3BF92CD709E8000F4825 /* SpaceGrotesk-Light.ttf in Resources */,
-				B32F3BFA2CD709E8000F4825 /* SpaceGrotesk-Medium.ttf in Resources */,
-				B32F3BFB2CD709E8000F4825 /* SpaceGrotesk-Regular.ttf in Resources */,
-				B32F3BFC2CD709E8000F4825 /* SpaceGrotesk-SemiBold.ttf in Resources */,
+				B32F3C072CD745C3000F4825 /* SpaceGrotesk-Bold.ttf in Resources */,
+				B32F3C082CD745C3000F4825 /* SpaceGrotesk-Light.ttf in Resources */,
+				B32F3C092CD745C3000F4825 /* SpaceGrotesk-Medium.ttf in Resources */,
+				B32F3C0A2CD745C3000F4825 /* SpaceGrotesk-Regular.ttf in Resources */,
+				B32F3C0B2CD745C3000F4825 /* SpaceGrotesk-SemiBold.ttf in Resources */,
 				B36927A42C66B6E40089F769 /* Base in Resources */,
 				B34F3DF32C6701740041D7BD /* Localizable.xcstrings in Resources */,
 			);
