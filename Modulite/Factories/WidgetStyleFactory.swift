@@ -49,9 +49,11 @@ extension WidgetStyleFactory {
             textConfiguration: textConfig,
             blockedScreenWallpaperImage: .analogWallpaper,
             homeScreenWallpaperImage: .analogWallpaper,
-            imageBlendMode: .plusDarker
+            imageBlendMode: .plusDarker,
+            isPurchased: true,
+            isGrantedByPlus: false
         )
-        style.isPurchased = true
+        
 //        style.isPurchased = PurchasedSkinsManager.shared.isSkinPurchased(style.name)
         
         let moduleStyles = [
@@ -87,10 +89,11 @@ extension WidgetStyleFactory {
             textConfiguration: textConfig,
             blockedScreenWallpaperImage: .tapedeckWallpaper,
             homeScreenWallpaperImage: .tapedeckWallpaper,
-            imageBlendMode: .hue
+            imageBlendMode: .hue,
+            isPurchased: true,
+            isGrantedByPlus: false
         )
         
-        style.isPurchased = true
 //        style.isPurchased = PurchasedSkinsManager.shared.isSkinPurchased(style.name)
         
         let moduleStyles = [
@@ -124,10 +127,10 @@ extension WidgetStyleFactory {
             defaultColor: .black,
             textConfiguration: textConfig,
             blockedScreenWallpaperImage: .retromacWhiteBlockedWallpaper,
-            homeScreenWallpaperImage: .retromacWhiteWallpaper
+            homeScreenWallpaperImage: .retromacWhiteWallpaper,
+            isPurchased: true,
+            isGrantedByPlus: false
         )
-        
-        style.isPurchased = true
         
         let modules = [
             ModuleStyle(from: style, key: .retromacMainBook),
@@ -180,10 +183,10 @@ extension WidgetStyleFactory {
             defaultColor: .black,
             textConfiguration: textConfig,
             blockedScreenWallpaperImage: .retromacGreenBlockedWallpaper,
-            homeScreenWallpaperImage: .retromacGreenWallpaper
+            homeScreenWallpaperImage: .retromacGreenWallpaper,
+            isPurchased: true,
+            isGrantedByPlus: false
         )
-        
-        style.isPurchased = true
         
         let modules = [
             ModuleStyle(from: style, key: .retromacMainBook),

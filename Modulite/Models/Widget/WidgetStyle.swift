@@ -28,8 +28,8 @@ class WidgetStyle {
     var blockedScreenWallpaperImage: UIImage
     var homeScreenWallpaperImage: UIImage
     var imageBlendMode: CGBlendMode?
-    var isPurchased: Bool = false
-    var isGrantedByPlus: Bool = false
+    var isPurchased: Bool
+    var isGrantedByPlus: Bool
     
     // MARK: - Initalizers
     init(
@@ -44,7 +44,9 @@ class WidgetStyle {
         textConfiguration: ModuleAppNameTextConfiguration,
         blockedScreenWallpaperImage: UIImage,
         homeScreenWallpaperImage: UIImage,
-        imageBlendMode: CGBlendMode? = nil
+        imageBlendMode: CGBlendMode? = nil,
+        isPurchased: Bool,
+        isGrantedByPlus: Bool
     ) {
         self.key = key
         self.name = name
@@ -58,6 +60,8 @@ class WidgetStyle {
         self.blockedScreenWallpaperImage = blockedScreenWallpaperImage
         self.homeScreenWallpaperImage = homeScreenWallpaperImage
         self.imageBlendMode = imageBlendMode
+        self.isPurchased = isPurchased
+        self.isGrantedByPlus = isGrantedByPlus
     }
     
     // MARK: - Setters
