@@ -106,12 +106,14 @@ class RequestScreenTimeView: UIView {
     
     private(set) lazy var dismissButton: UIButton = {
         var config = UIButton.Configuration.plain()
+        let textColor = UIColor.charcoalGray.resolvedColor(with: UITraitCollection(userInterfaceStyle: .light))
+        
         config.attributedTitle = AttributedString(
             .localized(for: RequestScreenTimeTexts.requestScreenDismissButtonTitle),
             attributes: AttributeContainer([
                 .font: UIFont(textStyle: .body, weight: .semibold),
-                .foregroundColor: UIColor.charcoalGray,
-                .underlineColor: UIColor.charcoalGray,
+                .foregroundColor: textColor,
+                .underlineColor: textColor,
                 .underlineStyle: NSUnderlineStyle.single.rawValue
             ])
         )

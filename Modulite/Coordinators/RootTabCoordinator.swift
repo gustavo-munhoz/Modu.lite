@@ -74,12 +74,12 @@ class RootTabCoordinator: Coordinator {
     /// This tab focuses on presenting statistical data and usage patterns to the user.
     /// - Returns: A configured navigation controller for the Usage tab.
     private func configureUsage() -> UINavigationController {
-        #if DEBUG
+//        #if DEBUG
         let vc = UsageViewController()
-        #else
-        let vc = ComingSoonViewController()
-        vc.fillComingSoonView(for: .screenTime)
-        #endif
+//        #else
+//        let vc = ComingSoonViewController()
+//        vc.fillComingSoonView(for: .screenTime)
+//        #endif
         
         let navigationController = UINavigationController(rootViewController: vc)
         
