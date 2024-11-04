@@ -18,12 +18,9 @@ struct MainWidget: Widget {
             provider: MainWidgetIntentProvider(),
             content: { entry in
                 MainWidgetView(entry: entry)
-                    .containerBackground(
-                        .black,
-                        for: .widget
-                    )
             }
         )
+        .contentMarginsDisabled()
         // TODO: Use default localizable key pattern
         .configurationDisplayName("Main Widget")
         .supportedFamilies([.systemLarge])
