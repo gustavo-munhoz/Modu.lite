@@ -128,7 +128,6 @@ class WelcomeView: UIView {
     }
 }
 
-
 #Preview {
     WelcomeView()
 }
