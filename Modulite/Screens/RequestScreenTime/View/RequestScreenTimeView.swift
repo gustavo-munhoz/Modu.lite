@@ -16,17 +16,15 @@ enum ScreenTimeRequestType {
 class RequestScreenTimeView: UIView {
     
     var requestType: ScreenTimeRequestType = .usage
-        
+    
     private let gradientLayer = CAGradientLayer()
     
     private var titleText: RequestScreenTimeTexts {
-        requestType == .usage ?
-            .requestScreenTimeUsageTitle : .requestScreenTimeAppBlockTitle
+        requestType == .usage ? .requestScreenTimeUsageTitle : .requestScreenTimeAppBlockTitle
     }
     
     private var subtitleText: RequestScreenTimeTexts {
-        requestType == .usage ?
-            .requestScreenTimeUsageSubtitle : .requestScreenTimeAppBlockSubtitle
+        requestType == .usage ? .requestScreenTimeUsageSubtitle : .requestScreenTimeAppBlockSubtitle
     }
     
     var onConnectButtonPress: (() -> Void)?
@@ -34,13 +32,15 @@ class RequestScreenTimeView: UIView {
     
     // MARK: - Subviews
     
+    private let scrollView = UIScrollView()
+    private let contentView = UIView()
+    
     private(set) lazy var titleLabel: UILabel = {
-        let view = UILabel()
-        view.numberOfLines = -1
-        view.lineBreakMode = .byWordWrapping
-        view.textAlignment = .left
-        
-        view.attributedText = NSAttributedString(
+        let label = UILabel()
+        label.numberOfLines = 0
+        label.lineBreakMode = .byWordWrapping
+        label.textAlignment = .left
+        label.attributedText = NSAttributedString(
             string: .localized(for: titleText),
             attributes: [
                 .font: UIFont.spaceGrotesk(textStyle: .largeTitle, weight: .bold),
@@ -48,43 +48,33 @@ class RequestScreenTimeView: UIView {
                 .kern: -0.4
             ]
         )
-        
-        return view
+        return label
     }()
     
     private(set) lazy var subtitleLabel: UILabel = {
-        let view = UILabel()
-        view.font = UIFont(textStyle: .headline, weight: .semibold)
-        view.numberOfLines = -1
-        view.lineBreakMode = .byWordWrapping
-        view.textAlignment = .left
-        view.text = .localized(for: subtitleText)
-        view.textColor = .black
-        
-        return view
+        let label = UILabel()
+        label.font = UIFont(textStyle: .headline, weight: .semibold)
+        label.numberOfLines = 0
+        label.lineBreakMode = .byWordWrapping
+        label.textAlignment = .left
+        label.text = .localized(for: subtitleText)
+        label.textColor = .black
+        return label
     }()
     
     private(set) lazy var screenTimeVsModuliteImage: UIImageView = {
-        let view = UIImageView()
-        view.contentMode = .scaleAspectFit
-        view.image = .screenTimeVsModulite
-        
-        return view
+        let imageView = UIImageView(image: .screenTimeVsModulite)
+        imageView.contentMode = .scaleAspectFit
+        return imageView
     }()
     
     private(set) lazy var footnoteLabel: UILabel = {
-        let view = UILabel()
-        view.numberOfLines = 0
-        view.lineBreakMode = .byWordWrapping
-        view.textAlignment = .left
-
-        let regularText = String.localized(
-            for: RequestScreenTimeTexts.requestScreenTimeFootnoteRegular
-        )
-        let boldText = String.localized(
-            for: RequestScreenTimeTexts.requestScreenTimeFootnoteBold
-        )
-
+        let label = UILabel()
+        label.numberOfLines = 0
+        label.lineBreakMode = .byWordWrapping
+        label.textAlignment = .left
+        let regularText = String.localized(for: RequestScreenTimeTexts.requestScreenTimeFootnoteRegular)
+        let boldText = String.localized(for: RequestScreenTimeTexts.requestScreenTimeFootnoteBold)
         let attributedString = NSMutableAttributedString(
             string: regularText,
             attributes: [
@@ -92,7 +82,6 @@ class RequestScreenTimeView: UIView {
                 .foregroundColor: UIColor.black
             ]
         )
-
         let boldAttributedString = NSAttributedString(
             string: boldText,
             attributes: [
@@ -100,12 +89,9 @@ class RequestScreenTimeView: UIView {
                 .foregroundColor: UIColor.black
             ]
         )
-
         attributedString.append(boldAttributedString)
-
-        view.attributedText = attributedString
-
-        return view
+        label.attributedText = attributedString
+        return label
     }()
     
     private(set) lazy var connectButton: UIButton = {
@@ -114,15 +100,12 @@ class RequestScreenTimeView: UIView {
             font: .spaceGrotesk(textStyle: .title2, weight: .bold),
             backgroundColor: .fiestaGreen.resolvedColor(with: .init(userInterfaceStyle: .light))
         )
-        
         button.addTarget(self, action: #selector(didPressConnectButton), for: .touchUpInside)
-        
         return button
     }()
     
     private(set) lazy var dismissButton: UIButton = {
         var config = UIButton.Configuration.plain()
-        
         config.attributedTitle = AttributedString(
             .localized(for: RequestScreenTimeTexts.requestScreenDismissButtonTitle),
             attributes: AttributeContainer([
@@ -132,34 +115,28 @@ class RequestScreenTimeView: UIView {
                 .underlineStyle: NSUnderlineStyle.single.rawValue
             ])
         )
-        
-        let view = UIButton(configuration: config)
-        view.addTarget(self, action: #selector(didPressDismissButton), for: .touchUpInside)
-        
-        view.configurationUpdateHandler = { btn in
-            switch btn.state {
-            case .highlighted:
-                btn.alpha = 0.6
-                
-            default:
-                btn.alpha = 1
-            }
+        let button = UIButton(configuration: config)
+        button.addTarget(self, action: #selector(didPressDismissButton), for: .touchUpInside)
+        button.configurationUpdateHandler = { btn in
+            btn.alpha = btn.state == .highlighted ? 0.6 : 1
         }
-        
-        return view
+        return button
     }()
     
     // MARK: - Initializers
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupGradientBackground()
+        setupScrollView()
         addSubviews()
         setupConstraints()
+        scrollView.showsVerticalScrollIndicator = false
     }
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
         setupGradientBackground()
+        setupScrollView()
         addSubviews()
         setupConstraints()
     }
@@ -174,6 +151,20 @@ class RequestScreenTimeView: UIView {
     }
     
     // MARK: - Setup Methods
+    private func setupScrollView() {
+        addSubview(scrollView)
+        scrollView.addSubview(contentView)
+        
+        scrollView.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
+        }
+        
+        contentView.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
+            make.width.equalToSuperview()
+        }
+    }
+    
     func setRequestType(to type: ScreenTimeRequestType) {
         requestType = type
         titleLabel.text = .localized(for: titleText)
@@ -181,17 +172,17 @@ class RequestScreenTimeView: UIView {
     }
     
     private func addSubviews() {
-        addSubview(titleLabel)
-        addSubview(subtitleLabel)
-        addSubview(screenTimeVsModuliteImage)
-        addSubview(footnoteLabel)
-        addSubview(connectButton)
-        addSubview(dismissButton)
+        contentView.addSubview(titleLabel)
+        contentView.addSubview(subtitleLabel)
+        contentView.addSubview(screenTimeVsModuliteImage)
+        contentView.addSubview(footnoteLabel)
+        contentView.addSubview(connectButton)
+        contentView.addSubview(dismissButton)
     }
     
     private func setupConstraints() {
         titleLabel.snp.makeConstraints { make in
-            make.top.equalTo(safeAreaLayoutGuide).offset(80)
+            make.top.equalToSuperview().offset(80)
             make.left.right.equalToSuperview().inset(24)
         }
         
@@ -220,16 +211,15 @@ class RequestScreenTimeView: UIView {
         dismissButton.snp.makeConstraints { make in
             make.top.equalTo(connectButton.snp.bottom).offset(16)
             make.left.right.equalToSuperview()
+            make.bottom.equalToSuperview().offset(-20)
         }
     }
     
     private func setupGradientBackground() {
         let gradient = Gradient.potato()
-        
         gradientLayer.colors = gradient.colors
         gradientLayer.startPoint = gradient.startPoint
         gradientLayer.endPoint = gradient.endPoint
-        
         if gradientLayer.superlayer == nil {
             layer.insertSublayer(gradientLayer, at: 0)
         }
