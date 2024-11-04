@@ -18,7 +18,7 @@ class WidgetStyleFactory {
         case .tapedeck:
             return createTapedeckStyle()
             
-        case .retromac:
+        case .retromacWhite:
             return createRetromacStyle()
             
         case .retromacGreen:
@@ -119,7 +119,7 @@ extension WidgetStyleFactory {
             .textCase(.capitalized)
         
         let style = WidgetStyle(
-            key: .retromac,
+            key: .retromacWhite,
             name: .localized(for: .widgetStyleNameRetromac),
             previewImage: .retromacWhiteWidgetPreview,
             background: .color(.white),

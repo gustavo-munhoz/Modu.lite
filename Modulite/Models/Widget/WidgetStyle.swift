@@ -10,7 +10,7 @@ import UIKit
 enum WidgetStyleKey: String, Codable {
     case analog
     case tapedeck
-    case retromac
+    case retromacWhite
     case retromacGreen
 }
 
@@ -97,7 +97,7 @@ extension WidgetStyle {
         return switch key {
         case .analog: .color(.black)
         case .tapedeck: .color(.burntCoconut)
-        case .retromac: .color(.white)
+        case .retromacWhite: .color(.white)
         case .retromacGreen: .color(.retromacGreen)
         }
     }
