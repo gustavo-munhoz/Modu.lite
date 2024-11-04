@@ -23,6 +23,11 @@ class WidgetSetupViewModel: NSObject {
     @Published private(set) var selectedApps: [AppInfo] = []
     
     // MARK: - Getters
+    func getIndexForSelectedStyle() -> Int? {
+        guard let selectedStyle = selectedStyle else { return nil }
+        return widgetStyles.firstIndex(where: { $0.key == selectedStyle.key })
+    }
+
     func isStyleSelected() -> Bool {
         selectedStyle != nil
     }
@@ -95,5 +100,4 @@ class WidgetSetupViewModel: NSObject {
             style.isPurchased = PurchasedSkinsManager.shared.isSkinPurchased(style.key.rawValue)
         }
     }
-        
 }
