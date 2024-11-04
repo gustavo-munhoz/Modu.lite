@@ -87,3 +87,14 @@ extension WidgetStyle: Equatable {
         lhs.name == rhs.name
     }
 }
+
+extension WidgetStyle {
+    static func background(for key: WidgetStyleKey) -> WidgetBackground {
+        return switch key {
+        case .analog: .color(.black)
+        case .tapedeck: .color(.burntCoconut)
+        case .retromac: .color(.white)
+        case .retromacGreen: .color(.retromacGreen)
+        }
+    }
+}
