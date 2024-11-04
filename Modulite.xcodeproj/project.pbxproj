@@ -323,6 +323,9 @@
 		B39D89E02CB85C38005EEC46 /* BlockAppsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39D89DE2CB85C38005EEC46 /* BlockAppsCoordinator.swift */; };
 		B39D89E32CB85C3C005EEC46 /* UsageCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39D89E12CB85C3C005EEC46 /* UsageCoordinator.swift */; };
 		B39D89E92CB86058005EEC46 /* ComingSoonCircularIconView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39D89E72CB86058005EEC46 /* ComingSoonCircularIconView.swift */; };
+		B39FB7B82CD9758200967E3A /* ArchivoSemiCondensed-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B39FB7B72CD9758200967E3A /* ArchivoSemiCondensed-Bold.ttf */; };
+		B39FB7BA2CD9758A00967E3A /* Archivo.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39FB7B92CD9758A00967E3A /* Archivo.swift */; };
+		B39FB7BB2CD975F900967E3A /* Archivo.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39FB7B92CD9758A00967E3A /* Archivo.swift */; };
 		B3AEF83B2CCA705C0019E91A /* AppBlockingSessionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3AEF83A2CCA705C0019E91A /* AppBlockingSessionHeader.swift */; };
 		B3C1877F2C78D1E000A891A8 /* ModuliteWidgetConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3C1877E2C78D1E000A891A8 /* ModuliteWidgetConfiguration.swift */; };
 		B3C187822C79009B00A891A8 /* WidgetConfigurationBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3C187812C79009B00A891A8 /* WidgetConfigurationBuilder.swift */; };
@@ -709,6 +712,8 @@
 		B39D89DE2CB85C38005EEC46 /* BlockAppsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockAppsCoordinator.swift; sourceTree = "<group>"; };
 		B39D89E12CB85C3C005EEC46 /* UsageCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsageCoordinator.swift; sourceTree = "<group>"; };
 		B39D89E72CB86058005EEC46 /* ComingSoonCircularIconView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComingSoonCircularIconView.swift; sourceTree = "<group>"; };
+		B39FB7B72CD9758200967E3A /* ArchivoSemiCondensed-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ArchivoSemiCondensed-Bold.ttf"; sourceTree = "<group>"; };
+		B39FB7B92CD9758A00967E3A /* Archivo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Archivo.swift; sourceTree = "<group>"; };
 		B3AEF83A2CCA705C0019E91A /* AppBlockingSessionHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppBlockingSessionHeader.swift; sourceTree = "<group>"; };
 		B3C1877E2C78D1E000A891A8 /* ModuliteWidgetConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModuliteWidgetConfiguration.swift; sourceTree = "<group>"; };
 		B3C187812C79009B00A891A8 /* WidgetConfigurationBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetConfigurationBuilder.swift; sourceTree = "<group>"; };
@@ -1269,6 +1274,7 @@
 			children = (
 				B32F3BF72CD709E8000F4825 /* Files */,
 				B32F3BFD2CD70A0F000F4825 /* SpaceGrotesk.swift */,
+				B39FB7B92CD9758A00967E3A /* Archivo.swift */,
 				B32F3C102CD7463D000F4825 /* PixelOperator.swift */,
 			);
 			path = Fonts;
@@ -1277,6 +1283,7 @@
 		B32F3BF72CD709E8000F4825 /* Files */ = {
 			isa = PBXGroup;
 			children = (
+				B39FB7B62CD9757600967E3A /* Archivo */,
 				B32F3C0D2CD74620000F4825 /* PixelOperator */,
 				B32F3C062CD745C3000F4825 /* SpaceGrotesk */,
 			);
@@ -2343,6 +2350,14 @@
 			path = Components;
 			sourceTree = "<group>";
 		};
+		B39FB7B62CD9757600967E3A /* Archivo */ = {
+			isa = PBXGroup;
+			children = (
+				B39FB7B72CD9758200967E3A /* ArchivoSemiCondensed-Bold.ttf */,
+			);
+			path = Archivo;
+			sourceTree = "<group>";
+		};
 		B3C187802C79008800A891A8 /* Builders */ = {
 			isa = PBXGroup;
 			children = (
@@ -2800,6 +2815,7 @@
 				B3987DFF2CA202C100896414 /* InfoPlist.xcstrings in Resources */,
 				B39A25E42CAFADF6001C76A5 /* BundleConfig.xcconfig in Resources */,
 				B3F0543C2C7D04D60057F04D /* apps.json in Resources */,
+				B39FB7B82CD9758200967E3A /* ArchivoSemiCondensed-Bold.ttf in Resources */,
 				B32F3C072CD745C3000F4825 /* SpaceGrotesk-Bold.ttf in Resources */,
 				B32F3C082CD745C3000F4825 /* SpaceGrotesk-Light.ttf in Resources */,
 				B32F3C092CD745C3000F4825 /* SpaceGrotesk-Medium.ttf in Resources */,
@@ -2900,6 +2916,7 @@
 				B33808A92CC30CD900D56884 /* ScreenTimePreferences.swift in Sources */,
 				B32B60F32C8782E2007DDCE3 /* UIView+asImage.swift in Sources */,
 				B32B60A62C838ED9007DDCE3 /* UILabel+AppNameConfiguration.swift in Sources */,
+				B39FB7BB2CD975F900967E3A /* Archivo.swift in Sources */,
 				B3987E102CA38A9C00896414 /* MainWidgetView.swift in Sources */,
 				B37284752C82996600D9A1E7 /* String+LocalizedKey.swift in Sources */,
 				B32B60FA2C87AC84007DDCE3 /* CoreDataPersistenceController.swift in Sources */,
@@ -3126,6 +3143,7 @@
 				B35BFBDD2CB5A9A800092B42 /* TutorialCenterViewController.swift in Sources */,
 				B3987E162CA38C7900896414 /* MainWidgetEntry.swift in Sources */,
 				B338089D2CC3005600D56884 /* RequestScreenTimeView.swift in Sources */,
+				B39FB7BA2CD9758A00967E3A /* Archivo.swift in Sources */,
 				B39A25FA2CB06437001C76A5 /* TutorialCreateWidgetView.swift in Sources */,
 				B30201712CC8C99B00301646 /* BlockingTypeSelectButton.swift in Sources */,
 				B35BFC502CB609DC00092B42 /* TutorialAddWidgetViewController.swift in Sources */,
