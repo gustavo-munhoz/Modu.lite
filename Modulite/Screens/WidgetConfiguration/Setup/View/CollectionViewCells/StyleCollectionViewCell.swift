@@ -19,8 +19,6 @@ class StyleCollectionViewCell: UICollectionViewCell {
     
     weak var delegate: StyleCollectionViewCellDelegate?
     
-    var isPurchased: Bool = false
-    
     var hasSelectionBeenMade: Bool = false {
         didSet {
             updateOverlayAlpha()
@@ -104,7 +102,12 @@ class StyleCollectionViewCell: UICollectionViewCell {
     }()
 
     // MARK: - Setup methods
-    func setup(image: UIImage, title: String, delegate: StyleCollectionViewCellDelegate, isPurchased: Bool) {
+    func setup(
+        image: UIImage,
+        title: String,
+        delegate: StyleCollectionViewCellDelegate,
+        isPurchased: Bool
+    ) {
         subviews.forEach { $0.removeFromSuperview() }
         self.delegate = delegate
         styleImageView.image = image
