@@ -75,7 +75,7 @@ extension WidgetStyleFactory {
 extension WidgetStyleFactory {
     private static func createTapedeckStyle() -> WidgetStyle {
         let textConfig = ModuleAppNameTextConfiguration()
-            .font(UIFont(textStyle: .caption2, weight: .semibold))
+            .font(.archivo(textStyle: .caption2))
             .textColor(.white)
             .textCase(.upper)
         
