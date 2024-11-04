@@ -10,6 +10,8 @@ import UIKit
 enum WidgetStyleKey: String, Codable {
     case analog
     case tapedeck
+    case retromac
+    case retromacGreen
 }
 
 class WidgetStyle {
