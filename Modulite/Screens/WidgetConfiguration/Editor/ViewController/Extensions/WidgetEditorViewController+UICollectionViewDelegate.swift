@@ -62,6 +62,11 @@ extension WidgetEditorViewController: UICollectionViewDelegate {
             selectStyleCell(style: style)
             viewModel.applyStyleToSelectedModule(style)
             editorView.widgetLayoutCollectionView.reloadData()
+            editorView.moduleStyleCollectionView.scrollToItem(
+                at: indexPath,
+                at: .centeredHorizontally,
+                animated: true
+            )
             
         case editorView.moduleColorCollectionView:
             // MARK: - Handle module color touch
@@ -74,6 +79,11 @@ extension WidgetEditorViewController: UICollectionViewDelegate {
             selectColorCell(color: color)
             viewModel.applyColorToSelectedModule(color)
             editorView.widgetLayoutCollectionView.reloadData()
+            editorView.moduleColorCollectionView.scrollToItem(
+                at: indexPath,
+                at: .centeredHorizontally,
+                animated: true
+            )
             
         default: return
             
@@ -145,5 +155,27 @@ extension WidgetEditorViewController: UICollectionViewDelegate {
         
         selectStyleCell(style: selectedStyle)
         selectColorCell(color: selectedColor)
+        
+        scrollToSelectedOptions()
+    }
+    
+    private func scrollToSelectedOptions() {
+        guard let styleIndex = viewModel.getIndexForSelectedStyle(),
+              let colorIndex = viewModel.getIndexForSelectedColor()
+        else { return }
+        
+        let styleIndexPath = IndexPath(item: styleIndex, section: 0)
+        editorView.moduleStyleCollectionView.scrollToItem(
+            at: styleIndexPath,
+            at: .centeredHorizontally,
+            animated: true
+        )
+        
+        let colorIndexPath = IndexPath(item: colorIndex, section: 0)
+        editorView.moduleColorCollectionView.scrollToItem(
+            at: colorIndexPath,
+            at: .centeredHorizontally,
+            animated: true
+        )
     }
 }

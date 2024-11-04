@@ -58,9 +58,10 @@ class WidgetSetupViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        guard isOnboarding else { return }
+        scrollToSelectedStyle()
+
+        if isOnboarding { setupTipObservers() }
         
-        setupTipObservers()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -380,6 +381,8 @@ extension WidgetSetupViewController: UICollectionViewDelegate {
                 didMakeChanges = true
                 setSetupViewStyleSelected(to: true)
                 delegate?.widgetSetupViewControllerDidSelectWidgetStyle(self, style: style)
+                scrollToSelectedStyle()
+                
             } else {
                 delegate?.widgetSetupViewControllerShouldPresentPurchasePreview(self, for: widgetStyle)
             }
@@ -390,6 +393,16 @@ extension WidgetSetupViewController: UICollectionViewDelegate {
             
         default: return
         }
+    }
+    
+    private func scrollToSelectedStyle() {
+        guard let selectedStyleIndex = viewModel.getIndexForSelectedStyle() else { return }
+        let selectedIndexPath = IndexPath(item: selectedStyleIndex, section: 1)
+        setupView.stylesCollectionView.scrollToItem(
+            at: selectedIndexPath,
+            at: .centeredHorizontally,
+            animated: true
+        )
     }
 }
 
