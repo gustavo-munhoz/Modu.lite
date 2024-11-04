@@ -121,9 +121,11 @@ extension WidgetBuilderCoordinator: WidgetSetupViewControllerDelegate {
         
         let coordinator = StylePreviewCoordinator(style: style, router: router)
         
-        presentChild(coordinator, animated: true) {
+        coordinator.onSelect = { style in
             viewController.selectStyle(style)
         }
+        
+        presentChild(coordinator, animated: true)
     }
     
     func widgetSetupViewControllerShouldPresentPurchasePreview(

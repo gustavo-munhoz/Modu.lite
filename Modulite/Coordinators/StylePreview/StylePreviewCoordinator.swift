@@ -13,9 +13,13 @@ class StylePreviewCoordinator: Coordinator {
     var router: Router
     var style: WidgetStyle = WidgetStyleFactory.styleForKey(.analog)
     
+    var onSelect: ((WidgetStyle) -> Void)?
+    
     func present(animated: Bool, onDismiss: (() -> Void)?) {
-        let viewController = StylePreviewViewController(style: style)
-        router.present(viewController, animated: animated)
+        let vc = StylePreviewViewController(style: style)
+        vc.delegate = self
+        
+        router.present(vc, animated: animated)
     }
     
     init(router: Router) {
@@ -25,5 +29,14 @@ class StylePreviewCoordinator: Coordinator {
     init(style: WidgetStyle, router: Router) {
         self.style = style
         self.router = router
+    }
+}
+
+extension StylePreviewCoordinator: StylePreviewViewControllerDelegate {
+    func stylePreviewViewControllerDidPressUseStyle(
+        _ viewController: StylePreviewViewController
+    ) {
+        onSelect?(style)
+        dismiss(animated: true)
     }
 }
