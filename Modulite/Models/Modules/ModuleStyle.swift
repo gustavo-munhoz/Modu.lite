@@ -41,6 +41,36 @@ enum ModuleStyleKey: String, Codable {
     case tapedeckAuxButton
     case tapedeckAuxBlueButton
     
+    // MARK: - Retromac -
+    case retromacMainBook
+    case retromacMainCalculator
+    case retromacMainCamera
+    case retromacMainCar
+    case retromacMainChart
+    case retromacMainClock
+    case retromacMainCloud
+    case retromacMainDoc
+    case retromacMainEmail
+    case retromacMainEmpty
+    case retromacMainGame
+    case retromacMainGear
+    case retromacMainHeart
+    case retromacMainMail
+    case retromacMainMap
+    case retromacMainMessage
+    case retromacMainMoney
+    case retromacMainMusic
+    case retromacMainPet
+    case retromacMainPhone
+    case retromacMainPhoto
+    case retromacMainReading
+    case retromacMainSmile
+    case retromacMainSocial
+    case retromacMainSparkle
+    case retromacMainTelephone
+    case retromacMainWeb
+    case retromacMainWork
+    
     func getModuleImage() -> UIImage {
         UIImage(named: rawValue)!
     }
