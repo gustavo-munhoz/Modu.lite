@@ -15,6 +15,7 @@ class WidgetModuleCell: UICollectionViewCell {
         
     private(set) lazy var moduleImageView: UIImageView = {
         let view = UIImageView()
+        view.overrideUserInterfaceStyle = .light
         
         return view
     }()
