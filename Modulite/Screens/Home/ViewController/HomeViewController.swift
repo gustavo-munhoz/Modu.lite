@@ -33,6 +33,8 @@ class HomeViewController: UIViewController {
     
     // MARK: - Lifecycle
     override func loadView() {
+        super.loadView()
+        
         self.view = homeView
         homeView.setCollectionViewDelegates(to: self)
         homeView.setCollectionViewDataSources(to: self)

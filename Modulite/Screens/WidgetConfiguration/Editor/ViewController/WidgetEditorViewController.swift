@@ -260,7 +260,6 @@ class WidgetEditorViewController: UIViewController {
         delegate?.widgetEditorViewController(self, didSave: widget)
         
         if isOnboarding {
-            UserPreference<Onboarding>.shared.set(true, for: .hasCompletedOnboarding)
             NotificationCenter.default.post(name: .widgetEditorDidFinishOnboarding, object: nil)
         }
     }
