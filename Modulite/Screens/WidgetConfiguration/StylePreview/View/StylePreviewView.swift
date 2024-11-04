@@ -10,7 +10,7 @@ import SnapKit
 
 class StylePreviewView: UIView {
     
-    var selectStyleButtonPressed: (() -> Void)?
+    var onSelectStylePressed: (() -> Void)?
     var updateSelectedStyleIndex: ((_ index: Int) -> Void)?
     
     // MARK: - Subviews
@@ -118,13 +118,13 @@ class StylePreviewView: UIView {
     // MARK: - Actions
     
     @objc func didPressUseButton() {
-        selectStyleButtonPressed?()
+        onSelectStylePressed?()
     }
     
     @objc func didChangePageControl() {
         let pageIndex = pageControl.currentPage
         let currentOffset = collectionView.contentOffset.x / collectionView.frame.width
-        let animated = abs(currentOffset - CGFloat(pageIndex)) == 1 // Apenas anima se o salto for de uma página
+        let animated = abs(currentOffset - CGFloat(pageIndex)) == 1
 
         let offsetX = CGFloat(pageIndex) * collectionView.frame.width
         collectionView.setContentOffset(CGPoint(x: offsetX, y: 0), animated: animated)

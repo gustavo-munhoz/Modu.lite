@@ -7,7 +7,15 @@
 
 import UIKit
 
+protocol StylePreviewViewControllerDelegate: AnyObject {
+    func stylePreviewViewControllerDidPressUseStyle(
+        _ viewController: StylePreviewViewController
+    )
+}
+
 class StylePreviewViewController: UIViewController {
+    
+    // MARK: - Properties
     
     private var styleView = StylePreviewView()
     private var viewModel = StylePreviewViewModel()
@@ -16,6 +24,10 @@ class StylePreviewViewController: UIViewController {
     
     private var imageNames: [String] = []
     private var texts: [String] = []
+    
+    weak var delegate: StylePreviewViewControllerDelegate?
+    
+    // MARK: - Initializers
     
     init(style: WidgetStyle) {
         self.style = style
@@ -26,6 +38,7 @@ class StylePreviewViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
+    // MARK: - Lifecycle
     override func loadView() {
         view = styleView
         setupCollectionView()
@@ -34,11 +47,13 @@ class StylePreviewViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureView()
-        
-        styleView.selectStyleButtonPressed = { [weak self] in
-            guard let self = self else { return }
-            self.onStyleSelected?(self.style)
-        }
+        setupViewActions()
+    }
+    
+    // MARK: - Setup
+    
+    private func setupViewActions() {
+        styleView.onSelectStylePressed = didPressSelectStyle
     }
     
     private func setupCollectionView() {
@@ -65,10 +80,15 @@ class StylePreviewViewController: UIViewController {
         styleView.pageControl.numberOfPages = imageNames.count
         styleView.collectionView.reloadData()
     }
+    
+    // MARK: - Actions
+    private func didPressSelectStyle() {
+        delegate?.stylePreviewViewControllerDidPressUseStyle(self)
+    }
 }
 
+// MARK: - UICollectionViewDataSource
 extension StylePreviewViewController: UICollectionViewDataSource {
-    // MARK: - UICollectionViewDataSource
     func collectionView(
         _ collectionView: UICollectionView,
         numberOfItemsInSection section: Int
