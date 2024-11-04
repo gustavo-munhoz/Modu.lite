@@ -33,6 +33,8 @@ class HomeHeaderReusableCell: UICollectionViewCell {
         
         config.preferredSymbolConfigurationForImage = .init(font: UIFont(descriptor: customFd, size: 0))
         
+        config.contentInsets = .zero
+        
         let view = UIButton(configuration: config)
         view.addTarget(self, action: #selector(handleButtonTap), for: .touchUpInside)
         
@@ -59,6 +61,8 @@ class HomeHeaderReusableCell: UICollectionViewCell {
     
     private(set) lazy var plusBadge = ModulitePlusSmallBadge()
     
+    private var didAddSubviews = false
+    
     // MARK: - Setup methods
     
     func setup(
@@ -83,8 +87,11 @@ class HomeHeaderReusableCell: UICollectionViewCell {
             shouldAddCount = false
         }
         
+        if didAddSubviews { return }
+        
         addSubviews(shouldAddBadge: isPlusExclusive, shouldAddCount: shouldAddCount)
         setupContraints(shouldAddBadge: isPlusExclusive, shouldAddCount: shouldAddCount)
+        didAddSubviews = true
     }
     
     private func addSubviews(
@@ -124,7 +131,7 @@ class HomeHeaderReusableCell: UICollectionViewCell {
         if shouldAddCount {
             countLabel.snp.makeConstraints { make in
                 make.centerY.equalTo(actionButton)
-                make.right.equalTo(actionButton.snp.left)
+                make.right.equalTo(actionButton.snp.left).offset(-8)
             }
         }
     }

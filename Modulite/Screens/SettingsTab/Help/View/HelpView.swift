@@ -20,32 +20,16 @@ class HelpView: UIScrollView {
     private(set) var topicsStackView = HelpTopicsStackView()
     
     private(set) lazy var reportIssuesButton: UIButton = {
-        var config = UIButton.Configuration.filled()
-        
-        config.attributedTitle = AttributedString(
-            .localized(for: HelpLocalizedTexts.helpViewEncounteredBugButton),
-            attributes: AttributeContainer([
-                .font: UIFont(textStyle: .title2, weight: .bold)
-            ])
+        let button = ButtonFactory.mediumButton(
+            titleKey: HelpLocalizedTexts.helpViewEncounteredBugButton,
+            font: .spaceGrotesk(textStyle: .title2, weight: .bold),
+            image: UIImage(systemName: "envelope"),
+            backgroundColor: .blueberry
         )
+
+        button.addTarget(self, action: #selector(reportIssuesButtonTapped), for: .touchUpInside)
         
-        config.baseBackgroundColor = .blueberry
-        config.baseForegroundColor = .white
-        
-        let envelopeIcon = UIImage(systemName: "envelope")?
-            .withTintColor(.white, renderingMode: .alwaysOriginal)
-            .withConfiguration(
-                UIImage.SymbolConfiguration(pointSize: 16, weight: .semibold)
-            )
-        
-        config.image = envelopeIcon
-        config.imagePlacement = .leading
-        config.imagePadding = 5
-         
-        let view = UIButton(configuration: config)
-        view.addTarget(self, action: #selector(reportIssuesButtonTapped), for: .touchUpInside)
-        
-        return view
+        return button
     }()
     
     private(set) var moduliteTeamLabel: UILabel = {
@@ -103,8 +87,6 @@ class HelpView: UIScrollView {
         
         reportIssuesButton.snp.makeConstraints { make in
             make.top.equalTo(topicsStackView.snp.bottom).offset(16)
-            make.height.equalTo(45)
-            make.width.greaterThanOrEqualTo(230)
             make.centerX.equalToSuperview()
         }
         

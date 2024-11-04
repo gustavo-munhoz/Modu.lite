@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import TipKit
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -17,11 +18,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         CoreDataPersistenceController.shared.executeInitialSetup()
         
-        // Override point for customization after application launch.
+        try? Tips.configure([.displayFrequency(.immediate)])
+        
         return true
     }
 
     // MARK: UISceneSession Lifecycle
+    func application(
+        _ application: UIApplication,
+        open url: URL,
+        options: [UIApplication.OpenURLOptionsKey: Any] = [:]
+    ) -> Bool {
+        guard let scene = application.connectedScenes.first as? UIWindowScene,
+              let sceneDelegate = scene.delegate as? SceneDelegate else {
+            return false
+        }
+        return sceneDelegate.handleDeepLink(url: url)
+    }
 
     func application(
         _ application: UIApplication,

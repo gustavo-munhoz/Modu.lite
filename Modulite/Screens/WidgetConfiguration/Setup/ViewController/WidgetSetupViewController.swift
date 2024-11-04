@@ -6,43 +6,31 @@
 //
 
 import UIKit
-
-protocol WidgetSetupViewControllerDelegate: AnyObject {
-    func getPlaceholderName() -> String
-    
-    func widgetSetupViewControllerDidPressNext(widgetName: String)
-    
-    func widgetSetupViewControllerDidTapSearchApps(
-        _ parentController: WidgetSetupViewController
-    )
-    
-    func widgetSetupViewControllerDidDeselectApp(
-        _ controller: WidgetSetupViewController,
-        app: AppInfo
-    )
-    
-    func widgetSetupViewControllerDidSelectWidgetStyle(
-        _ controller: WidgetSetupViewController,
-        style: WidgetStyle
-    )
-    
-    func widgetSetupViewControllerDidPressBack(
-        _ viewController: WidgetSetupViewController,
-        didMakeChanges: Bool
-    )
-}
+import TipKit
 
 class WidgetSetupViewController: UIViewController {
+    static let didSelectWidgetStyle = Tips.Event(id: "didSelectWidgetStyle")
+    static let didSelectApps = Tips.Event(id: "didSelectApps")
     
     // MARK: - Properties
-    private let setupView = WidgetSetupView()
-    private var viewModel = WidgetSetupViewModel()
+    let setupView = WidgetSetupView()
+    var viewModel = WidgetSetupViewModel()
     
     weak var delegate: WidgetSetupViewControllerDelegate?
     
     private var isEditingWidget: Bool = false
     
-    private var didMakeChanges: Bool = false
+    var didMakeChanges: Bool = false
+    
+    var isOnboarding: Bool = false
+    
+    private var selectWidgetStyleTip = SelectWidgetStyleTip()
+    private var selectAppsTip = SelectAppsTip()
+    private var proceedToEditorTip = ProceedToEditorTip()
+    private var styleTipObservationTask: Task<Void, Never>?
+    private var selectAppsTipObservationTask: Task<Void, Never>?
+    private var proceedTipObservationTask: Task<Void, Never>?
+    private weak var tipPopoverController: TipUIPopoverViewController?
     
     // MARK: - Lifecycle
     override func loadView() {
@@ -51,6 +39,12 @@ class WidgetSetupViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+                
+//        viewModel.updatePurchaseStatus()
+//        
+//        PurchasedSkinsManager.shared.onPurchaseCompleted = { [weak self] productId in
+//            self?.handlePurchaseCompleted(for: productId)
+//        }
         
         configureViewDependencies()
         setupNavigationBar()
@@ -61,7 +55,50 @@ class WidgetSetupViewController: UIViewController {
         setupView.updateSelectedAppsCollectionViewHeight()
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        scrollToSelectedStyle()
+
+        if isOnboarding { setupTipObservers() }
+        
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+
+        breakdownTipObservers()
+    }
+    
     // MARK: - Setup methods
+    private func setupTipObservers() {
+        styleTipObservationTask = styleTipObservationTask ?? createObservationTask(
+            for: selectWidgetStyleTip,
+            sourceItem: setupView.stylesCollectionView
+        )
+        
+        selectAppsTipObservationTask = selectAppsTipObservationTask ?? createObservationTask(
+            for: selectAppsTip,
+            sourceItem: setupView.searchAppsButton
+        )
+        
+        proceedTipObservationTask = proceedTipObservationTask ?? createObservationTask(
+            for: proceedToEditorTip,
+            sourceItem: setupView.nextViewButton
+        )
+    }
+    
+    private func breakdownTipObservers() {
+        styleTipObservationTask?.cancel()
+        styleTipObservationTask = nil
+        
+        selectAppsTipObservationTask?.cancel()
+        selectAppsTipObservationTask = nil
+        
+        proceedTipObservationTask?.cancel()
+        proceedTipObservationTask = nil
+    }
+    
     func setupNavigationBar() {
         guard isEditingWidget else { return }
         
@@ -100,15 +137,25 @@ class WidgetSetupViewController: UIViewController {
         viewModel.setSelectedApps(to: apps)
         
         setupView.selectedAppsCollectionView.reloadData()
+        
+        if !apps.isEmpty, isOnboarding {
+            Self.didSelectApps.sendDonation()
+        }
     }
     
     func proceedToWidgetEditor() {
+        if isOnboarding { dismissCurrentTip() }
+        
         delegate?.widgetSetupViewControllerDidPressNext(
             widgetName: setupView.getWidgetName()
         )
     }
     
     func presentSearchModal() {
+        if isOnboarding && tipPopoverController != nil {
+            dismissCurrentTip()
+        }
+        
         delegate?.widgetSetupViewControllerDidTapSearchApps(self)
     }
     
@@ -120,6 +167,50 @@ class WidgetSetupViewController: UIViewController {
     func setSetupViewHasAppsSelected(to value: Bool) {
         setupView.hasAppsSelected = value
         setupView.updateButtonConfig()
+    }
+    
+    // MARK: - Onboarding
+    
+    private func createObservationTask(
+        for tip: any Tip,
+        sourceItem: UIPopoverPresentationControllerSourceItem
+    ) -> Task<Void, Never>? {
+        Task { @MainActor in
+            for await shouldDisplay in tip.shouldDisplayUpdates where shouldDisplay {
+                presentTip(tip, sourceItem: sourceItem)
+            }
+        }
+    }
+    
+    private func presentTip(
+        _ tip: any Tip,
+        sourceItem: any UIPopoverPresentationControllerSourceItem
+    ) {
+        dismissCurrentTip()
+        
+        let popoverController = TipUIPopoverViewController(
+            tip,
+            sourceItem: sourceItem
+        )
+        
+        popoverController.popoverPresentationController?.passthroughViews = [setupView]
+        
+        present(popoverController, animated: true)
+        tipPopoverController = popoverController
+    }
+    
+    private func dismissCurrentTip(_ animated: Bool = true) {
+        if presentedViewController is TipUIPopoverViewController {
+            dismiss(animated: animated)
+            tipPopoverController = nil
+        }
+    }
+    
+    private func handlePurchaseCompleted(for productId: String) {
+        if let index = viewModel.widgetStyles.firstIndex(where: { $0.key.rawValue == productId }) {
+            viewModel.widgetStyles[index].isPurchased = true
+            setupView.stylesCollectionView.reloadData()
+        }
     }
 }
 
@@ -144,6 +235,7 @@ extension WidgetSetupViewController {
     }
 }
 
+// MARK: - SelectedAppCollectionViewCellDelegate
 extension WidgetSetupViewController: SelectedAppCollectionViewCellDelegate {
     func selectedAppCollectionViewCellDidPressDelete(_ cell: SelectedAppCollectionViewCell) {
         guard let indexPath = setupView.selectedAppsCollectionView.indexPath(for: cell) else {
@@ -202,7 +294,9 @@ extension WidgetSetupViewController: UICollectionViewDataSource {
             
             cell.setup(
                 image: style.previewImage,
-                title: style.name
+                title: style.name,
+                delegate: self,
+                isPurchased: style.isPurchased
             )
             
             cell.hasSelectionBeenMade = viewModel.isStyleSelected()
@@ -222,7 +316,6 @@ extension WidgetSetupViewController: UICollectionViewDataSource {
             }
             
             cell.setup(with: viewModel.selectedApps[indexPath.row].name)
-            
             cell.delegate = self
             
             return cell
@@ -253,32 +346,63 @@ extension WidgetSetupViewController: UICollectionViewDataSource {
             header.setup(title: .localized(for: .widgetSetupViewStyleHeaderTitle))
             
         } else {
-            header.setup(
-                title: .localized(for: .widgetSetupViewAppsHeaderTitle)
-            )
+            header.setup(title: .localized(for: .widgetSetupViewAppsHeaderTitle))
         }
-        
         return header
     }
 }
 
 // MARK: - UICollectionViewDelegate
 extension WidgetSetupViewController: UICollectionViewDelegate {
+    func selectStyle(_ style: WidgetStyle) {
+        guard let index = viewModel.widgetStyles.firstIndex(of: style) else { return }
+        let indexPath = IndexPath(item: index, section: 1)
+        
+        viewModel.selectStyle(at: index)
+        viewModel.setWidgetStyle(to: style)
+        
+        setupView.stylesCollectionView.selectItem(
+            at: indexPath,
+            animated: true,
+            scrollPosition: .centeredHorizontally
+        )
+        
+        setupView.stylesCollectionView.reloadData()
+    }
+    
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         switch collectionView {
         case setupView.stylesCollectionView:
-            guard let style = viewModel.selectStyle(at: indexPath.row) else {
-                return
+            let widgetStyle = viewModel.widgetStyles[indexPath.row]
+            
+            if widgetStyle.isPurchased {
+                guard let style = viewModel.selectStyle(at: indexPath.row) else { return }
+                
+                didMakeChanges = true
+                setSetupViewStyleSelected(to: true)
+                delegate?.widgetSetupViewControllerDidSelectWidgetStyle(self, style: style)
+                scrollToSelectedStyle()
+                
+            } else {
+                delegate?.widgetSetupViewControllerShouldPresentPurchasePreview(self, for: widgetStyle)
             }
-            
-            didMakeChanges = true
-            setSetupViewStyleSelected(to: true)
-            delegate?.widgetSetupViewControllerDidSelectWidgetStyle(self, style: style)
-            
+
             collectionView.reloadData()
+            
+            if isOnboarding { Self.didSelectWidgetStyle.sendDonation() }
             
         default: return
         }
+    }
+    
+    private func scrollToSelectedStyle() {
+        guard let selectedStyleIndex = viewModel.getIndexForSelectedStyle() else { return }
+        let selectedIndexPath = IndexPath(item: selectedStyleIndex, section: 1)
+        setupView.stylesCollectionView.scrollToItem(
+            at: selectedIndexPath,
+            at: .centeredHorizontally,
+            animated: true
+        )
     }
 }
 
@@ -294,39 +418,5 @@ extension WidgetSetupViewController: UICollectionViewDelegateFlowLayout {
         let size = (text as NSString).size(withAttributes: [NSAttributedString.Key.font: font])
         
         return CGSize(width: size.width + 45, height: size.height + 24)
-    }
-}
-
-// MARK: - UITextFieldDelegate
-extension WidgetSetupViewController: UITextFieldDelegate {
-    func textField(
-        _ textField: UITextField,
-        shouldChangeCharactersIn range: NSRange,
-        replacementString string: String
-    ) -> Bool {
-        if string.rangeOfCharacter(from: CharacterSet.newlines) != nil {
-            return false
-        }
-        
-        let currentText = textField.text ?? ""
-                
-        guard let textRange = Range(range, in: currentText) else {
-            return false
-        }
-        
-        let updatedText = currentText.replacingCharacters(in: textRange, with: string)
-        
-        if updatedText.count > 24 {
-            return false
-        }
-        
-        didMakeChanges = true
-        
-        return true
-    }
-    
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        textField.resignFirstResponder()
-        return false
     }
 }

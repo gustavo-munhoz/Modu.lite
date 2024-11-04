@@ -22,6 +22,7 @@ extension WidgetEditorViewController: UICollectionViewDragDelegate {
         let dragItem = UIDragItem(itemProvider: itemProvider)
         dragItem.localObject = item
         clearSelectedModuleCell()
+        
         return [dragItem]
     }
 }
@@ -64,10 +65,20 @@ extension WidgetEditorViewController: UICollectionViewDropDelegate {
                 }
                 
                 coordinator.drop(items.first!.dragItem, toItemAt: destinationIndexPath)
+                
+                sendDragDonationIfNeeded()
                 clearSelectedModuleCell()
             }
         default:
             return
         }
+    }
+    
+    private func sendDragDonationIfNeeded() {
+        guard !hasCompletedDrag, isOnboarding else { return }
+        
+        Self.didDragModule.sendDonation()
+        
+        hasCompletedDrag = true
     }
 }

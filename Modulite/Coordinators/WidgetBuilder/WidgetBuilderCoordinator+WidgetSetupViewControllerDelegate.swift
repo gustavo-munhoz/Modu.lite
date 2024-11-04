@@ -8,6 +8,7 @@
 import UIKit
 
 extension WidgetBuilderCoordinator: WidgetSetupViewControllerDelegate {
+
     func getPlaceholderName() -> String {
         .localized(
             for: .widgetSetupViewMainWidgetNamePlaceholder(number: currentWidgetCount + 1)
@@ -21,6 +22,8 @@ extension WidgetBuilderCoordinator: WidgetSetupViewControllerDelegate {
             builder: configurationBuilder,
             delegate: self
         )
+        
+        viewController.setIsOnboarding(isOnboarding)
         
         if injectedConfiguration != nil {
             viewController.loadDataFromBuilder(configurationBuilder)
@@ -107,5 +110,36 @@ extension WidgetBuilderCoordinator: WidgetSetupViewControllerDelegate {
         }
         
         dismiss(animated: true)
+    }
+    
+    func widgetSetupViewControllerShouldPresentPreview(
+        _ viewController: WidgetSetupViewController,
+        for style: WidgetStyle
+    ) {
+        let router = ModalNavigationRouter(parentViewController: viewController)
+        router.setHasSaveButton(false)
+        
+        let coordinator = StylePreviewCoordinator(style: style, router: router)
+        
+        coordinator.onSelect = { style in
+            viewController.selectStyle(style)
+        }
+        
+        presentChild(coordinator, animated: true)
+    }
+    
+    func widgetSetupViewControllerShouldPresentPurchasePreview(
+        _ viewController: WidgetSetupViewController,
+        for style: WidgetStyle
+    ) {
+        
+        let router = ModalNavigationRouter(parentViewController: viewController)
+        router.setHasSaveButton(false)
+        
+        let coordinator = PurchaseStylePreviewCoordinator(style: style, router: router)
+        
+        presentChild(coordinator, animated: true) {
+            viewController.selectStyle(style)
+        }
     }
 }

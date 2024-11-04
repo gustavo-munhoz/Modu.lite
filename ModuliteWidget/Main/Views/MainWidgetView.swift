@@ -21,9 +21,11 @@ struct MainWidgetView: View {
         VStack {
             Group {
                 if let config = entry.configuration {
+                    let background = config.background
+                    
                     HStack {
                         Group {
-                            LazyVGrid(columns: columns, spacing: 4) {
+                            LazyVGrid(columns: columns, spacing: 2) {
                                 ForEach(config.modules) { module in
                                     MainWidgetModuleButton(
                                         moduleImage: module.image,
@@ -33,9 +35,12 @@ struct MainWidgetView: View {
                             }
                         }
                     }
-                    .padding(.horizontal, -10)
-                    .background(.black)
-                    .background(ignoresSafeAreaEdges: .all)
+                    .padding(.horizontal, 6)
+                    .edgesIgnoringSafeArea(.all)
+                    .widgetBackground {
+                        backgroundView(for: background)
+                    }
+                    
                 } else {
                     Image(.homeWidgetTutorialMain)
                         .resizable()
@@ -44,5 +49,25 @@ struct MainWidgetView: View {
                 }
             }
         }
+    }
+}
+
+extension View {
+    @ViewBuilder
+    func backgroundView(for background: WidgetBackground) -> some View {
+        switch background {
+        case .image(let uiImage):
+            Image(uiImage: uiImage)
+                .resizable()
+                .scaledToFill()
+            
+        case .color(let uiColor):
+            Color(uiColor)
+        }
+    }
+    
+    @ViewBuilder
+    func widgetBackground<T: View>(@ViewBuilder content: () -> T) -> some View {
+        containerBackground(for: .widget, content: content)
     }
 }

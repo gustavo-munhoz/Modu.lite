@@ -6,6 +6,11 @@
 //
 
 import UIKit
+import TipKit
+
+extension Notification.Name {
+    static let widgetEditorDidFinishOnboarding = Notification.Name("widgetEditorDidFinishOnboarding")
+}
 
 protocol WidgetEditorViewControllerDelegate: AnyObject {
     func widgetEditorViewController(
@@ -32,6 +37,8 @@ protocol WidgetEditorViewControllerDelegate: AnyObject {
 }
 
 class WidgetEditorViewController: UIViewController {
+    static let didDragModule = Tips.Event(id: "didDragModule")
+    static let didEditModule = Tips.Event(id: "didEditModule")
     
     // MARK: - Properties
     private(set) var editorView = WidgetEditorView()
@@ -41,11 +48,25 @@ class WidgetEditorViewController: UIViewController {
     
     private var isCreatingNewWidget: Bool = true
     
+    private(set) var isOnboarding: Bool = false
+    
+    private var dragModuleTip = DragModuleTip()
+    private var editModuleTip = EditModuleTip()
+    private var downloadWallpapersTip = DownloadWallpapersTip()
+    private var dragModuleObservationTask: Task<Void, Never>?
+    private var editModuleObservationTask: Task<Void, Never>?
+    private var wallpapersObservationTask: Task<Void, Never>?
+    private weak var tipPopoverController: TipUIPopoverViewController?
+    
+    var hasCompletedDrag: Bool = false
+    var hasCompletedEdit: Bool = false
+    
     // MARK: - Lifecycle
     override func loadView() {
         view = editorView
         editorView.setCollectionViewDelegates(to: self)
         editorView.setCollectionViewDataSources(to: self)
+        editorView.delegate = self
         
         setViewActions()
         
@@ -60,7 +81,24 @@ class WidgetEditorViewController: UIViewController {
         setupNavigationBar()
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        guard isOnboarding else { return }
+        
+        setupTipObservers()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        breakdownTipObservers()
+    }
+    
     // MARK: - Setup
+    func setIsOnboarding(_ isOnboarding: Bool) {
+        self.isOnboarding = isOnboarding
+    }
     
     func setViewActions() {
         editorView.onDownloadWallpaperButtonTapped = handleDownloadWallpaperTouch
@@ -78,11 +116,75 @@ class WidgetEditorViewController: UIViewController {
         }
     }
     
-    func setupNavigationBar() {
+    private func setupNavigationBar() {
         guard isCreatingNewWidget else { return }
         
         navigationItem.backAction = UIAction { [weak self] _ in
             self?.handleBackButtonPress()
+        }
+    }
+    
+    private func setupTipObservers() {
+        dragModuleObservationTask = dragModuleObservationTask ?? createObservationTask(
+            for: dragModuleTip,
+            sourceItem: editorView.widgetLayoutCollectionView
+        )
+        
+        editModuleObservationTask = editModuleObservationTask ?? createObservationTask(
+            for: editModuleTip,
+            sourceItem: editorView.widgetLayoutCollectionView
+        )
+        
+        wallpapersObservationTask = wallpapersObservationTask ?? createObservationTask(
+            for: downloadWallpapersTip,
+            sourceItem: editorView.downloadWallpaperButton
+        )
+    }
+    
+    private func breakdownTipObservers() {
+        dragModuleObservationTask?.cancel()
+        dragModuleObservationTask = nil
+        
+        editModuleObservationTask?.cancel()
+        editModuleObservationTask = nil
+        
+        wallpapersObservationTask?.cancel()
+        wallpapersObservationTask = nil
+    }
+    
+    // MARK: - Onboarding
+    private func createObservationTask(
+        for tip: any Tip,
+        sourceItem: UIPopoverPresentationControllerSourceItem
+    ) -> Task<Void, Never>? {
+        Task { @MainActor in
+            for await shouldDisplay in tip.shouldDisplayUpdates where shouldDisplay {
+                presentTip(tip, sourceItem: sourceItem)
+            }
+        }
+    }
+    
+    private func presentTip(
+        _ tip: any Tip,
+        sourceItem: any UIPopoverPresentationControllerSourceItem
+    ) {
+        dismissCurrentTip()
+        
+        let popoverController = TipUIPopoverViewController(
+            tip,
+            sourceItem: sourceItem
+        )
+        
+        popoverController.popoverPresentationController?.passthroughViews = [editorView]
+        
+        present(popoverController, animated: true)
+        tipPopoverController = popoverController
+    }
+    
+    func dismissCurrentTip(_ animated: Bool = true) {
+        if presentedViewController is TipUIPopoverViewController {
+            dismiss(animated: animated)
+            tipPopoverController = nil
         }
     }
     
@@ -97,6 +199,8 @@ class WidgetEditorViewController: UIViewController {
     }
     
     private func handleDownloadWallpaperTouch() {
+        dismissCurrentTip()
+        
         viewModel.saveWallpaperImageToPhotos { [weak self] result in
             DispatchQueue.main.async {
                 guard let self = self else { return }
@@ -154,6 +258,10 @@ class WidgetEditorViewController: UIViewController {
         
         let widget = viewModel.saveWidget(from: editorView.widgetLayoutCollectionView)
         delegate?.widgetEditorViewController(self, didSave: widget)
+        
+        if isOnboarding {
+            NotificationCenter.default.post(name: .widgetEditorDidFinishOnboarding, object: nil)
+        }
     }
     
     func handleDeleteWidgetButtonTouch() {

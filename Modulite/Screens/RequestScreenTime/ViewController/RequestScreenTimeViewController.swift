@@ -39,6 +39,7 @@ class RequestScreenTimeViewController: UIViewController {
         super.loadView()
         view = requestView
         requestView.setRequestType(to: type)
+        navigationController?.navigationBar.isHidden = true
     }
     
     override func viewDidLoad() {

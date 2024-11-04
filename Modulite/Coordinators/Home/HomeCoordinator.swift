@@ -33,46 +33,6 @@ class HomeCoordinator: Coordinator {
 }
 
 extension HomeCoordinator: HomeViewControllerDelegate {
-    private func presentFeatureComingAlert(_ parentViewController: UIViewController) {
-        let alert = UIAlertController(
-            title: .localized(for: .comingSoonTitle),
-            message: .localized(
-                for: .comingSoonMessagePlural(
-                    feature: .localized(for: .homeViewAuxiliarySectionHeaderTitle)
-                )
-            ),
-            preferredStyle: .alert
-        )
-        
-        let okAction = UIAlertAction(
-            title: .localized(for: .ok).uppercased(),
-            style: .cancel
-        )
-        
-        alert.addAction(okAction)
-        
-        parentViewController.present(alert, animated: true)
-    }
-    
-    func presentMaxWidgetCountAlert(_ parentViewController: UIViewController) {
-        let alert = UIAlertController(
-            title: .localized(for: .homeViewMainWidgetsDidReachMaxCountAlertTitle),
-            message: .localized(
-                for: .homeViewMainWidgetsDidReachMaxCountAlertMessage
-            ),
-            preferredStyle: .alert
-        )
-        
-        let okAction = UIAlertAction(
-            title: .localized(for: .ok).uppercased(),
-            style: .cancel
-        )
-        
-        alert.addAction(okAction)
-        
-        parentViewController.present(alert, animated: true)
-    }
-    
     func homeViewControllerDidStartWidgetCreationFlow(
         _ viewController: HomeViewController,
         type: WidgetType
@@ -121,5 +81,60 @@ extension HomeCoordinator: HomeViewControllerDelegate {
         }
         
         presentChild(coordinator, animated: true)
+    }
+    
+    func homeViewControllerDidFinishOnboarding(
+        _ viewController: HomeViewController
+    ) {
+        let router = ModalNavigationRouter(
+            parentViewController: viewController,
+            presentationStyle: .fullScreen
+        )
+        
+        router.setHasSaveButton(false)
+        
+        let coordinator = OnboardingCompletionCoordinator(router: router)
+        
+        presentChild(coordinator, animated: true)
+    }
+    
+    private func presentFeatureComingAlert(_ parentViewController: UIViewController) {
+        let alert = UIAlertController(
+            title: .localized(for: .comingSoonTitle),
+            message: .localized(
+                for: .comingSoonMessagePlural(
+                    feature: .localized(for: .homeViewAuxiliarySectionHeaderTitle)
+                )
+            ),
+            preferredStyle: .alert
+        )
+        
+        let okAction = UIAlertAction(
+            title: .localized(for: .ok).uppercased(),
+            style: .cancel
+        )
+        
+        alert.addAction(okAction)
+        
+        parentViewController.present(alert, animated: true)
+    }
+    
+    func presentMaxWidgetCountAlert(_ parentViewController: UIViewController) {
+        let alert = UIAlertController(
+            title: .localized(for: .homeViewMainWidgetsDidReachMaxCountAlertTitle),
+            message: .localized(
+                for: .homeViewMainWidgetsDidReachMaxCountAlertMessage
+            ),
+            preferredStyle: .alert
+        )
+        
+        let okAction = UIAlertAction(
+            title: .localized(for: .ok).uppercased(),
+            style: .cancel
+        )
+        
+        alert.addAction(okAction)
+        
+        parentViewController.present(alert, animated: true)
     }
 }

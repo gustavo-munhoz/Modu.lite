@@ -24,35 +24,41 @@ class WidgetEditorSaveButton: UIButton {
     // MARK: - Setup
     
     private func setupButton() {
-        var config = UIButton.Configuration.filled()
-        config.baseBackgroundColor = .fiestaGreen
-        
-        config.attributedTitle = AttributedString(
-            .localized(for: .widgetEditorViewSaveWidgetButton),
-            attributes: AttributeContainer([
-                .font: UIFont(textStyle: .body, weight: .bold),
-                .foregroundColor: UIColor.white
-            ])
+        self.configuration = ButtonFactory.mediumButtonConfiguration(
+            titleKey: String.LocalizedKey.widgetEditorViewSaveWidgetButton,
+            font: UIFont.spaceGrotesk(textStyle: .body, weight: .bold),
+            image: UIImage(systemName: "checkmark"),
+            imagePadding: 10,
+            imagePlacement: .leading,
+            imagePointSize: 15,
+            foregroundColor: .white,
+            backgroundColor: .fiestaGreen,
+            contentHorizontalAlignment: .center
         )
-        
-        config.imagePlacement = .leading
-        config.image = UIImage(systemName: "checkmark")
-        config.imagePadding = 10
-        config.preferredSymbolConfigurationForImage = .init(pointSize: 15, weight: .bold)
-        config.baseForegroundColor = .white
-        
-        self.configuration = config
+                
         self.layer.cornerRadius = 0
+                
+        self.configurationUpdateHandler = { button in
+            UIView.animate(withDuration: 0.1) {
+                if button.state == .highlighted {
+                    button.transform = CGAffineTransform(scaleX: 0.97, y: 0.97)
+                } else {
+                    button.transform = .identity
+                }
+            }
+        }
+                
+        self.contentHorizontalAlignment = .center
     }
     
-    // MARK: - Appereance updating
+    // MARK: - Appearance Updating
     
     func setToEditingState() {
         var config = self.configuration
         config?.attributedTitle = AttributedString(
             .localized(for: .save).uppercased(),
             attributes: AttributeContainer([
-                .font: UIFont(textStyle: .body, weight: .bold),
+                .font: UIFont.spaceGrotesk(textStyle: .title3, weight: .bold),
                 .foregroundColor: UIColor.white
             ])
         )

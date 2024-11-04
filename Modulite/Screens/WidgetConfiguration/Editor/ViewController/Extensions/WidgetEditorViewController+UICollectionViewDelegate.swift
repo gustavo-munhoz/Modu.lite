@@ -9,6 +9,15 @@ import UIKit
 
 extension WidgetEditorViewController: UICollectionViewDelegate {
     
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        if scrollView === editorView {
+            let bottomEdge = scrollView.contentOffset.y + scrollView.frame.size.height
+            if bottomEdge >= scrollView.contentSize.height {
+                sendEditModuleEventIfNeeded()
+            }
+        }
+    }
+    
     // MARK: - Change internal collectionView's position based on scroll %
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let totalScrollWidth = scrollView.contentSize.width - scrollView.bounds.width
@@ -39,6 +48,7 @@ extension WidgetEditorViewController: UICollectionViewDelegate {
                 return
             }
             
+            dismissCurrentTip()
             selectModuleCell(at: indexPath.row)
             
         case editorView.moduleStyleCollectionView:
@@ -52,6 +62,11 @@ extension WidgetEditorViewController: UICollectionViewDelegate {
             selectStyleCell(style: style)
             viewModel.applyStyleToSelectedModule(style)
             editorView.widgetLayoutCollectionView.reloadData()
+            editorView.moduleStyleCollectionView.scrollToItem(
+                at: indexPath,
+                at: .centeredHorizontally,
+                animated: true
+            )
             
         case editorView.moduleColorCollectionView:
             // MARK: - Handle module color touch
@@ -64,10 +79,22 @@ extension WidgetEditorViewController: UICollectionViewDelegate {
             selectColorCell(color: color)
             viewModel.applyColorToSelectedModule(color)
             editorView.widgetLayoutCollectionView.reloadData()
+            editorView.moduleColorCollectionView.scrollToItem(
+                at: indexPath,
+                at: .centeredHorizontally,
+                animated: true
+            )
             
         default: return
             
         }
+    }
+    
+    private func sendEditModuleEventIfNeeded() {
+        guard hasCompletedDrag, !hasCompletedEdit, isOnboarding else { return }
+        
+        Self.didEditModule.sendDonation()
+        hasCompletedEdit = true
     }
     
     private func clearSelectedStyleCell() {
@@ -128,5 +155,27 @@ extension WidgetEditorViewController: UICollectionViewDelegate {
         
         selectStyleCell(style: selectedStyle)
         selectColorCell(color: selectedColor)
+        
+        scrollToSelectedOptions()
+    }
+    
+    private func scrollToSelectedOptions() {
+        guard let styleIndex = viewModel.getIndexForSelectedStyle(),
+              let colorIndex = viewModel.getIndexForSelectedColor()
+        else { return }
+        
+        let styleIndexPath = IndexPath(item: styleIndex, section: 0)
+        editorView.moduleStyleCollectionView.scrollToItem(
+            at: styleIndexPath,
+            at: .centeredHorizontally,
+            animated: true
+        )
+        
+        let colorIndexPath = IndexPath(item: colorIndex, section: 0)
+        editorView.moduleColorCollectionView.scrollToItem(
+            at: colorIndexPath,
+            at: .centeredHorizontally,
+            animated: true
+        )
     }
 }

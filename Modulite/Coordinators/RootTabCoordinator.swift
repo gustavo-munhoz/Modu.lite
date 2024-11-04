@@ -74,12 +74,12 @@ class RootTabCoordinator: Coordinator {
     /// This tab focuses on presenting statistical data and usage patterns to the user.
     /// - Returns: A configured navigation controller for the Usage tab.
     private func configureUsage() -> UINavigationController {
-        #if DEBUG
+//        #if DEBUG
         let vc = UsageViewController()
-        #else
-        let vc = ComingSoonViewController()
-        vc.fillComingSoonView(for: .screenTime)
-        #endif
+//        #else
+//        let vc = ComingSoonViewController()
+//        vc.fillComingSoonView(for: .screenTime)
+//        #endif
         
         let navigationController = UINavigationController(rootViewController: vc)
         
@@ -191,6 +191,24 @@ extension RootTabCoordinator: RootTabBarControllerDelegate {
             router: router,
             requestType: type
         )
+        
+        presentChild(coordinator, animated: true)
+    }
+    
+    func rootTabBarController(
+        _ viewController: RootTabBarController,
+        shouldPresentOnboarding: Bool
+    ) {
+        guard shouldPresentOnboarding else { return }
+        
+        let router = ModalNavigationRouter(
+            parentViewController: viewController,
+            presentationStyle: .fullScreen
+        )
+        
+        router.setHasSaveButton(false)
+        
+        let coordinator = OnboardingCoordinator(router: router)
         
         presentChild(coordinator, animated: true)
     }

@@ -12,6 +12,11 @@ protocol RootTabBarControllerDelegate: AnyObject {
         _ viewController: RootTabBarController,
         in type: ScreenTimeRequestType
     )
+    
+    func rootTabBarController(
+        _ viewController: RootTabBarController,
+        shouldPresentOnboarding: Bool
+    )
 }
 
 extension RootTabBarController {
@@ -25,11 +30,13 @@ extension RootTabBarController {
 
 class RootTabBarController: UITabBarController {
 
+    // MARK: - Properties
     private let circleLayer = CAShapeLayer()
     private var tabBarFrameObserver: NSKeyValueObservation?
 
     weak var requestDelegate: RootTabBarControllerDelegate?
     
+    // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -61,9 +68,11 @@ class RootTabBarController: UITabBarController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        presentOnboardingIfNeeded()
         updateTabBarItemImagePositions()
     }
 
+    // MARK: - Setup
     private func setupCircleLayer() {
         circleLayer.fillColor = getColorForSelectedTag().cgColor
         tabBar.layer.insertSublayer(circleLayer, below: nil)
@@ -79,6 +88,14 @@ class RootTabBarController: UITabBarController {
         }
     }
 
+    // MARK: - Actions
+    private func presentOnboardingIfNeeded() {
+        requestDelegate?.rootTabBarController(
+            self,
+            shouldPresentOnboarding: !UserPreference<Onboarding>.shared.bool(for: .hasCompletedOnboarding)
+        )
+    }
+    
     private func updateCirclePosition(for index: Int) {
         guard let tabBarItems = tabBar.items, index < tabBarItems.count else { return }
         

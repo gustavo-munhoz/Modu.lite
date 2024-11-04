@@ -25,6 +25,16 @@ class WidgetEditorViewModel: NSObject {
     
     // MARK: - Getters
     
+    func getIndexForSelectedStyle() -> Int? {
+        guard let selectedStyle = getStyleFromSelectedModule() else { return nil }
+        return getAvailableStyles().firstIndex(where: { $0.key == selectedStyle.key })
+    }
+
+    func getIndexForSelectedColor() -> Int? {
+        guard let selectedColor = getColorFromSelectedModule() else { return nil }
+        return getAvailableColors().firstIndex(of: selectedColor)
+    }
+    
     func getWidgetId() -> UUID {
         builder.getWidgetId()
     }

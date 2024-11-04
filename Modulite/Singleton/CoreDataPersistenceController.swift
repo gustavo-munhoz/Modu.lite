@@ -67,11 +67,7 @@ struct CoreDataPersistenceController {
     }
     
     func executeInitialSetup() {
-        let apps = fetchApps()
-        
-        if apps.isEmpty {
-            populateAppsAtFirstExecution()
-        }
+        checkVersionAndPopulateIfNeeded()
     }
 }
 
@@ -96,22 +92,46 @@ extension CoreDataPersistenceController {
         return apps.first
     }
     
-    private func populateAppsAtFirstExecution() {
+    private func checkVersionAndPopulateIfNeeded() {
         guard let url = Bundle.main.url(forResource: "apps", withExtension: "json") else {
             fatalError("Failed to find apps.json")
         }
         
         do {
             let data = try Data(contentsOf: url)
-            let appsData = try JSONDecoder().decode([AppInfoData].self, from: data)
+            let appsData = try JSONDecoder().decode(AppsData.self, from: data)
+                        
+            let currentVersion = UserDefaults.standard.integer(forKey: "appsDataVersion")
             
-            appsData.forEach { data in
+            guard appsData.version > currentVersion else {
+                print("App data is already up to date with version \(currentVersion).")
+                return
+            }
+            
+            clearOldAppsData()
+            
+            appsData.apps.forEach { data in
                 AppInfo.createFromData(data, using: container.viewContext)
             }
             
-            print("Populated apps with \(appsData.count) items.")
+            UserDefaults.standard.set(appsData.version, forKey: "appsDataVersion")
+            
+            print("Populated apps with \(appsData.apps.count) items.")
+            
         } catch {
             print("Failed to populate appInfo table with error \(error.localizedDescription)")
+        }
+    }
+    
+    private func clearOldAppsData() {
+        let fetchRequest: NSFetchRequest<NSFetchRequestResult> = AppInfo.fetchRequest()
+        let deleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
+        
+        do {
+            try container.viewContext.execute(deleteRequest)
+            print("Cleared old app data.")
+        } catch {
+            print("Failed to clear old app data with error \(error.localizedDescription)")
         }
     }
 }

@@ -59,7 +59,7 @@ extension String {
     
     /// Represents keys for localized strings in the app, allowing for dynamic localization with associated values.
     /// The cases should be 1-1 with `Localizable.xcstrings` keys.
-    public enum LocalizedKey {
+    public enum LocalizedKey: LocalizedKeyProtocol {
         // MARK: - Computed Properties
         
         /// Computes the key for localization by extracting the case name from the enum instance.
@@ -214,6 +214,9 @@ extension String {
         
         // MARK: - BlockAppsView & BlockAppsViewController
         case blockAppsViewBlockingSession(number: Int)
+        case appBlockingViewControllerNavigationTitle
+        case appBlockingViewControllerActiveTitle
+        case appBlockingViewControllerInactiveTitle
         
         // MARK: - CreateBlockingSessionView
         case createBlockingSessionName
@@ -232,6 +235,8 @@ extension String {
         // MARK: - Widget Styles
         case widgetStyleNameAnalog
         case widgetStyleNameTapedeck
+        case widgetStyleNameRetromac
+        case widgetStyleNameRetromacGreen
     }
             
     /// Returns a localized string using the key and associated values defined by the `LocalizedKey` enum.

@@ -8,6 +8,8 @@
 import Foundation
 
 enum WidgetEditorLocalizedTexts: LocalizedKeyProtocol {
+    case widgetEditorDeleteButtonTitle
+    
     case widgetEditorWallpaperAlertSuccessTitle
     case widgetEditorWallpaperAlertSuccessMessage
     

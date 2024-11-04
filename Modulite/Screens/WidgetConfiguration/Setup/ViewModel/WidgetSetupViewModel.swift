@@ -13,7 +13,9 @@ class WidgetSetupViewModel: NSObject {
     
     @Published private(set) var widgetStyles: [WidgetStyle] = [
         WidgetStyleFactory.styleForKey(.analog),
-        WidgetStyleFactory.styleForKey(.tapedeck)
+        WidgetStyleFactory.styleForKey(.tapedeck),
+        WidgetStyleFactory.styleForKey(.retromacWhite),
+        WidgetStyleFactory.styleForKey(.retromacGreen)
     ]
     
     @Published private(set) var widgetName: String?
@@ -21,6 +23,11 @@ class WidgetSetupViewModel: NSObject {
     @Published private(set) var selectedApps: [AppInfo] = []
     
     // MARK: - Getters
+    func getIndexForSelectedStyle() -> Int? {
+        guard let selectedStyle = selectedStyle else { return nil }
+        return widgetStyles.firstIndex(where: { $0.key == selectedStyle.key })
+    }
+
     func isStyleSelected() -> Bool {
         selectedStyle != nil
     }
@@ -87,5 +94,10 @@ class WidgetSetupViewModel: NSObject {
     func clearSelectedStyle() {
         selectedStyle = nil
     }
-        
+    
+    func updatePurchaseStatus() {
+        for style in widgetStyles {
+            style.isPurchased = PurchasedSkinsManager.shared.isSkinPurchased(style.key.rawValue)
+        }
+    }
 }

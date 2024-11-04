@@ -21,6 +21,39 @@
         }
       }
     },
+    "appBlockingViewControllerActiveTitle" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Active blocking sessions"
+          }
+        }
+      }
+    },
+    "appBlockingViewControllerInactiveTitle" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Inactive blocking sessions"
+          }
+        }
+      }
+    },
+    "appBlockingViewControllerNavigationTitle" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Block distracting apps"
+          }
+        }
+      }
+    },
     "back" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -871,6 +904,248 @@
         }
       }
     },
+    "onboardingAddWidgetNumberBoxText" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "It’s time to **set your new widget** on your **home screen!**"
+          }
+        }
+      }
+    },
+    "onboardingDeclutterGotIt" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "GOT IT!"
+          }
+        }
+      }
+    },
+    "onboardingDeclutterText" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "**Declutter** your home screen by **removing unnecessary apps** and **organizing** them properly.\n\\\n\\\n**But how exactly do I do it?**\n\\\n\\\n**1. Remove other apps from the first page and use just the widget**\n\\\n\\\nYou don’t have to remove every app that isn't part of your main widget. You can still keep \"normal-looking\" apps on your iPhone, but for a **more aesthetically pleasing** and **mindful experience**, we **recommend organizing** these apps on **different pages**. This helps you focus on what's most important and avoid distractions.\n\\\n\\\n**2. Consider deleting distracting or useless apps**\n\\\n\\\n**Distracting apps** can consume a lot of your time and, even worse, can become addictive. How about trying to delete them? If you find yourself instinctively reaching for an app you've already removed, **take a moment to reflect on why** you were drawn to it in the first place. This pause can help you understand and break the habit.\n"
+          }
+        }
+      }
+    },
+    "onboardingDeclutterTitle" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Want to make your home screen even better?"
+          }
+        }
+      }
+    },
+    "onboardingDownloadWallpapersMessage" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Remember the ”magic” will come from the combination of the widget and wallpaper "
+          }
+        }
+      }
+    },
+    "onboardingDownloadWallpapersTitle" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "You're done! Just download the wallpaper and save the widget!"
+          }
+        }
+      }
+    },
+    "onboardingDragModulesTitle" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "You can drag around the modules to place them where you want"
+          }
+        }
+      }
+    },
+    "onboardingEditModulesTitle" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "If you want to edit a module, just press it and choose between the styles and colors available"
+          }
+        }
+      }
+    },
+    "onboardingGetStartedButton" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "LET'S START"
+          }
+        }
+      }
+    },
+    "onboardingHowDoIDoThat" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "How do I do that?"
+          }
+        }
+      }
+    },
+    "onboardingProceedToEditorTitle" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Press next to start editing your widget"
+          }
+        }
+      }
+    },
+    "onboardingSelectAppsMessage" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Be mindful and pick only the most useful ones!"
+          }
+        }
+      }
+    },
+    "onboardingSelectAppsTitle" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Now tap search to find your essential apps for your widget"
+          }
+        }
+      }
+    },
+    "onboardingSelectWidgetStyleMessage" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "This will be the aesthetic of your new home page"
+          }
+        }
+      }
+    },
+    "onboardingSelectWidgetStyleTitle" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "First, you'll select a widget style"
+          }
+        }
+      }
+    },
+    "onboardingSetWallpaperNumberBoxText" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "**Apply your new wallpaper** to your iPhone, so it can integrate seamlessly with your brand new widget!"
+          }
+        }
+      }
+    },
+    "onboardingTutorialsAllSet" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ALL SET"
+          }
+        }
+      }
+    },
+    "onboardingTutorialsGoToSettings" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Go to Settings"
+          }
+        }
+      }
+    },
+    "onboardingTutorialsSubtitle" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "You just created and customised\nyour first widget on Modu.lite!\n\nNow we'll help you set it up!"
+          }
+        }
+      }
+    },
+    "onboardingTutorialsTitle" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Congratulations!"
+          }
+        }
+      }
+    },
+    "onboardingWelcomeSubtitle" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "We're here to organize and customize  your way into a better life!\n\nLet's start our new journey with a simple step-by-step setup, so you can make your phone a better tool ASAP."
+          }
+        }
+      }
+    },
+    "onboardingWelcomeTitle" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Welcome to\nModu.lite!"
+          }
+        }
+      }
+    },
     "photosAuthorizationDenied" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -1319,6 +1594,17 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "%@ is updating its MySpace profile. Give it a moment!"
+          }
+        }
+      }
+    },
+    "skinUnlockBadgeText" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "UNLOCK FOR **US$0.99**"
           }
         }
       }
@@ -2343,6 +2629,17 @@
         }
       }
     },
+    "widgetEditorDeleteButtonTitle" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "DELETE"
+          }
+        }
+      }
+    },
     "widgetEditorViewDeleteAlertMessage" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -2526,6 +2823,28 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Analog"
+          }
+        }
+      }
+    },
+    "widgetStyleNameRetromac" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Retromac White"
+          }
+        }
+      }
+    },
+    "widgetStyleNameRetromacGreen" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Retromac Green"
           }
         }
       }

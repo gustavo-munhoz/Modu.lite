@@ -135,6 +135,11 @@ struct MainWidgetIntentProvider: AppIntentTimelineProvider {
     private func convertToMainWidgetConfigurationData(
         _ configuration: PersistableWidgetConfiguration
     ) -> MainWidgetConfigurationData {
+        guard let styleKey = WidgetStyleKey(rawValue: configuration.widgetStyleKey) else {
+            fatalError("Could not get widget style from String")
+        }
+        
+        let background = WidgetStyle.background(for: styleKey)
         
         let moduleImages = FileManagerImagePersistenceController.shared.getModuleImages(
             for: configuration.id
@@ -155,8 +160,7 @@ struct MainWidgetIntentProvider: AppIntentTimelineProvider {
         return MainWidgetConfigurationData(
             id: configuration.id,
             name: configuration.name ?? "Widget",
-            // FIXME: Get background from configuration
-            background: .color(.black),
+            background: background,
             modules: modules
         )
     }

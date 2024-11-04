@@ -13,6 +13,21 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     lazy var router = SceneDelegateRouter(window: window!)
     lazy var coordinator = RootTabCoordinator(router: router)
 
+    func scene(
+        _ scene: UIScene,
+        willConnectTo session: UISceneSession,
+        options connectionOptions: UIScene.ConnectionOptions
+    ) {
+        guard let windowScene = (scene as? UIWindowScene) else { return }
+        
+        window = UIWindow(windowScene: windowScene)
+        coordinator.present(animated: true, onDismiss: nil)
+        
+        if let url = connectionOptions.urlContexts.first?.url {
+            handleDeepLink(url: url)
+        }
+    }
+
     // MARK: - Handle Deeplink
     func scene(
         _ scene: UIScene,
@@ -22,17 +37,18 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             return
         }
         
-        _ = handleDeepLink(url: url)
+        handleDeepLink(url: url)
     }
 
-    private func handleDeepLink(url: URL) -> Bool {
+    @discardableResult
+    func handleDeepLink(url: URL) -> Bool {
         guard let scheme = url.scheme, scheme == "moduliteapp" else {
             print("Invalid URL scheme: \(url.scheme ?? "nil")")
             return false
         }
 
-        guard let host = url.host(), host == "app" else {
-            print("Invalid URL host: \(url.host() ?? "nil")")
+        guard let host = url.host, host == "app" else {
+            print("Invalid URL host: \(url.host ?? "nil")")
             return false
         }
         
@@ -42,28 +58,31 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             return false
         }
         
-        performOpenAppAction(with: parameter)
+        let redirectingVC = RedirectingViewController()
+        redirectingVC.modalPresentationStyle = .fullScreen
+        
+        if let rootVC = window?.rootViewController {
+            rootVC.present(redirectingVC, animated: false)
+        }
+        
+        performOpenAppAction(with: parameter) {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                redirectingVC.dismiss(animated: false)
+            }
+        }
+        
         return true
     }
-    
-    private func performOpenAppAction(with urlScheme: String) {
-        print("Opening app with urlScheme: \(urlScheme)")
-        UIApplication.shared.open(URL(string: urlScheme)!)
 
-    }
-    
-    func scene(
-        _ scene: UIScene,
-        willConnectTo session: UISceneSession,
-        options connectionOptions: UIScene.ConnectionOptions
-    ) {
-        // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
-        // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
-        // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
-        guard let windowScene = (scene as? UIWindowScene) else { return }
-        
-        window = UIWindow(windowScene: windowScene)
-        coordinator.present(animated: true, onDismiss: nil)
+    private func performOpenAppAction(with urlScheme: String, completion: @escaping () -> Void) {
+        print("Opening app with urlScheme: \(urlScheme)")
+        if let url = URL(string: urlScheme) {
+            UIApplication.shared.open(url) { _ in
+                completion()
+            }
+        } else {
+            print("Invalid URL for scheme: \(urlScheme)")
+        }
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
