@@ -14,7 +14,7 @@ class WidgetSetupViewModel: NSObject {
     @Published private(set) var widgetStyles: [WidgetStyle] = [
         WidgetStyleFactory.styleForKey(.analog),
         WidgetStyleFactory.styleForKey(.tapedeck),
-        WidgetStyleFactory.styleForKey(.retromac),
+        WidgetStyleFactory.styleForKey(.retromacWhite),
         WidgetStyleFactory.styleForKey(.retromacGreen)
     ]
     

@@ -80,11 +80,11 @@ class PurchaseStylePreviewViewController: UIViewController {
     
     private func configureView() {
         styleView.configure(with: style)
-        
+        print(style.key.rawValue.lowercased())
         imageNames = [
-            "\(style.name.lowercased())Preview1",
-            "\(style.name.lowercased())Preview2",
-            "\(style.name.lowercased())Preview3"
+            "\(style.key.rawValue)Preview1",
+            "\(style.key.rawValue)Preview2",
+            "\(style.key.rawValue)Preview3"
         ]
         
         texts = [

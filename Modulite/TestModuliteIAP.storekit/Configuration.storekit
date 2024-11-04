@@ -45,6 +45,36 @@
       "promotionalImageID" : "358C32B9",
       "referenceName" : "Analog",
       "type" : "NonConsumable"
+    },
+    {
+      "displayPrice" : "0.99",
+      "familyShareable" : false,
+      "internalID" : "A4600E60",
+      "localizations" : [
+        {
+          "description" : "",
+          "displayName" : "",
+          "locale" : "en_US"
+        }
+      ],
+      "productID" : "retromacGreen",
+      "referenceName" : "Retromac Green",
+      "type" : "NonConsumable"
+    },
+    {
+      "displayPrice" : "0.99",
+      "familyShareable" : false,
+      "internalID" : "9C0C0A0D",
+      "localizations" : [
+        {
+          "description" : "",
+          "displayName" : "",
+          "locale" : "en_US"
+        }
+      ],
+      "productID" : "retromacWhite",
+      "referenceName" : "Retromac White",
+      "type" : "NonConsumable"
     }
   ],
   "settings" : {
