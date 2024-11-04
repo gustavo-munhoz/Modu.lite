@@ -23,6 +23,7 @@
 	</array>
 	<key>UIAppFonts</key>
 	<array>
+		<string>ArchivoSemiCondensed-Bold.ttf</string>
 		<string>PixelOperator8-Bold.ttf</string>
 		<string>SpaceGrotesk-Medium.ttf</string>
 		<string>SpaceGrotesk-Light.ttf</string>
