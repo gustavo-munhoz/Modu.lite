@@ -39,12 +39,12 @@ class WidgetSetupViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        viewModel.updatePurchaseStatus()
-        
-        PurchasedSkinsManager.shared.onPurchaseCompleted = { [weak self] productId in
-            self?.handlePurchaseCompleted(for: productId)
-        }
+                
+//        viewModel.updatePurchaseStatus()
+//        
+//        PurchasedSkinsManager.shared.onPurchaseCompleted = { [weak self] productId in
+//            self?.handlePurchaseCompleted(for: productId)
+//        }
         
         configureViewDependencies()
         setupNavigationBar()
@@ -234,6 +234,7 @@ extension WidgetSetupViewController {
     }
 }
 
+// MARK: - SelectedAppCollectionViewCellDelegate
 extension WidgetSetupViewController: SelectedAppCollectionViewCellDelegate {
     func selectedAppCollectionViewCellDidPressDelete(_ cell: SelectedAppCollectionViewCell) {
         guard let indexPath = setupView.selectedAppsCollectionView.indexPath(for: cell) else {
