@@ -13,6 +13,9 @@ class WelcomeView: UIView {
     var onStartButtonPressed: (() -> Void)?
     
     // MARK: - Subviews
+    private let scrollView = UIScrollView()
+    private let contentView = UIView()
+    
     private(set) lazy var welcomeTitle: UILabel = {
         let label = UILabel()
         label.numberOfLines = 0
@@ -75,15 +78,27 @@ class WelcomeView: UIView {
     
     // MARK: - Setup Methods
     private func addSubviews() {
-        addSubview(welcomeTitle)
-        addSubview(subtitleLabel)
-        addSubview(mockupImage)
-        addSubview(startButton)
+        addSubview(scrollView)
+        scrollView.addSubview(contentView)
+        
+        contentView.addSubview(welcomeTitle)
+        contentView.addSubview(subtitleLabel)
+        contentView.addSubview(mockupImage)
+        contentView.addSubview(startButton)
     }
     
     private func setupConstraints() {
+        scrollView.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
+        }
+        
+        contentView.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
+            make.width.equalToSuperview()
+        }
+        
         welcomeTitle.snp.makeConstraints { make in
-            make.top.equalTo(safeAreaLayoutGuide)
+            make.top.equalToSuperview().offset(20)
             make.left.right.equalToSuperview().inset(32)
         }
         
@@ -95,6 +110,7 @@ class WelcomeView: UIView {
         mockupImage.snp.makeConstraints { make in
             make.top.equalTo(subtitleLabel.snp.bottom).offset(20)
             make.centerX.equalToSuperview()
+            make.width.lessThanOrEqualToSuperview().multipliedBy(0.8)
         }
         
         startButton.snp.makeConstraints { make in
@@ -102,6 +118,7 @@ class WelcomeView: UIView {
             make.centerX.equalToSuperview()
             make.width.greaterThanOrEqualTo(230)
             make.height.greaterThanOrEqualTo(45)
+            make.bottom.equalToSuperview().offset(-20)
         }
     }
     
@@ -110,6 +127,7 @@ class WelcomeView: UIView {
         onStartButtonPressed?()
     }
 }
+
 
 #Preview {
     WelcomeView()
