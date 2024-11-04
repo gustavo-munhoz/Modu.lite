@@ -129,6 +129,9 @@
 		B32F3C092CD745C3000F4825 /* SpaceGrotesk-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B32F3C032CD745C3000F4825 /* SpaceGrotesk-Medium.ttf */; };
 		B32F3C0A2CD745C3000F4825 /* SpaceGrotesk-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B32F3C042CD745C3000F4825 /* SpaceGrotesk-Regular.ttf */; };
 		B32F3C0B2CD745C3000F4825 /* SpaceGrotesk-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B32F3C052CD745C3000F4825 /* SpaceGrotesk-SemiBold.ttf */; };
+		B32F3C0F2CD7462F000F4825 /* PixelOperator8-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B32F3C0E2CD7462F000F4825 /* PixelOperator8-Bold.ttf */; };
+		B32F3C112CD7463D000F4825 /* PixelOperator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B32F3C102CD7463D000F4825 /* PixelOperator.swift */; };
+		B32F3C122CD7463D000F4825 /* PixelOperator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B32F3C102CD7463D000F4825 /* PixelOperator.swift */; };
 		B338088D2CC1902E00D56884 /* AppUsageItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = B338088C2CC1902E00D56884 /* AppUsageItem.swift */; };
 		B338088F2CC1905500D56884 /* AppUsageList.swift in Sources */ = {isa = PBXBuildFile; fileRef = B338088E2CC1905500D56884 /* AppUsageList.swift */; };
 		B33808912CC19E6500D56884 /* Date+Operations.swift in Sources */ = {isa = PBXBuildFile; fileRef = B33808902CC19E6500D56884 /* Date+Operations.swift */; };
@@ -544,6 +547,8 @@
 		B32F3C032CD745C3000F4825 /* SpaceGrotesk-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SpaceGrotesk-Medium.ttf"; sourceTree = "<group>"; };
 		B32F3C042CD745C3000F4825 /* SpaceGrotesk-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SpaceGrotesk-Regular.ttf"; sourceTree = "<group>"; };
 		B32F3C052CD745C3000F4825 /* SpaceGrotesk-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SpaceGrotesk-SemiBold.ttf"; sourceTree = "<group>"; };
+		B32F3C0E2CD7462F000F4825 /* PixelOperator8-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "PixelOperator8-Bold.ttf"; sourceTree = "<group>"; };
+		B32F3C102CD7463D000F4825 /* PixelOperator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PixelOperator.swift; sourceTree = "<group>"; };
 		B338088C2CC1902E00D56884 /* AppUsageItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppUsageItem.swift; sourceTree = "<group>"; };
 		B338088E2CC1905500D56884 /* AppUsageList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppUsageList.swift; sourceTree = "<group>"; };
 		B33808902CC19E6500D56884 /* Date+Operations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Operations.swift"; sourceTree = "<group>"; };
@@ -1264,6 +1269,7 @@
 			children = (
 				B32F3BF72CD709E8000F4825 /* Files */,
 				B32F3BFD2CD70A0F000F4825 /* SpaceGrotesk.swift */,
+				B32F3C102CD7463D000F4825 /* PixelOperator.swift */,
 			);
 			path = Fonts;
 			sourceTree = "<group>";
@@ -1271,6 +1277,7 @@
 		B32F3BF72CD709E8000F4825 /* Files */ = {
 			isa = PBXGroup;
 			children = (
+				B32F3C0D2CD74620000F4825 /* PixelOperator */,
 				B32F3C062CD745C3000F4825 /* SpaceGrotesk */,
 			);
 			path = Files;
@@ -1286,6 +1293,14 @@
 				B32F3C052CD745C3000F4825 /* SpaceGrotesk-SemiBold.ttf */,
 			);
 			path = SpaceGrotesk;
+			sourceTree = "<group>";
+		};
+		B32F3C0D2CD74620000F4825 /* PixelOperator */ = {
+			isa = PBXGroup;
+			children = (
+				B32F3C0E2CD7462F000F4825 /* PixelOperator8-Bold.ttf */,
+			);
+			path = PixelOperator;
 			sourceTree = "<group>";
 		};
 		B33808982CC3004400D56884 /* View */ = {
@@ -2788,6 +2803,7 @@
 				B32F3C072CD745C3000F4825 /* SpaceGrotesk-Bold.ttf in Resources */,
 				B32F3C082CD745C3000F4825 /* SpaceGrotesk-Light.ttf in Resources */,
 				B32F3C092CD745C3000F4825 /* SpaceGrotesk-Medium.ttf in Resources */,
+				B32F3C0F2CD7462F000F4825 /* PixelOperator8-Bold.ttf in Resources */,
 				B32F3C0A2CD745C3000F4825 /* SpaceGrotesk-Regular.ttf in Resources */,
 				B32F3C0B2CD745C3000F4825 /* SpaceGrotesk-SemiBold.ttf in Resources */,
 				B36927A42C66B6E40089F769 /* Base in Resources */,
@@ -2907,6 +2923,7 @@
 				B32B60F52C87AB85007DDCE3 /* WidgetData.xcdatamodeld in Sources */,
 				B3987E2F2CA4F46A00896414 /* MainWidgetConfigurationQuery.swift in Sources */,
 				B3987E272CA4858E00896414 /* MainWidgetModuleData.swift in Sources */,
+				B32F3C122CD7463D000F4825 /* PixelOperator.swift in Sources */,
 				B37284762C82997700D9A1E7 /* ImageProcessingFactory.swift in Sources */,
 				B3987E242CA4857400896414 /* MainWidgetConfigurationData.swift in Sources */,
 				B3987E182CA3938200896414 /* AuxiliaryWidget.swift in Sources */,
@@ -3060,6 +3077,7 @@
 				B3CDD7072C77C59B00E558F8 /* ImageProcessingFactory.swift in Sources */,
 				AF09AE862CD7102700E0707A /* GradientButton.swift in Sources */,
 				B34F3E092C6A96A20041D7BD /* RootTabCoordinator.swift in Sources */,
+				B32F3C112CD7463D000F4825 /* PixelOperator.swift in Sources */,
 				B34F3E352C6E93570041D7BD /* WidgetSetupViewModel.swift in Sources */,
 				B35BFB812CB2429200092B42 /* TutorialWallpaperViewController.swift in Sources */,
 				B34F3DF82C69A3810041D7BD /* DebugOptions.swift in Sources */,
