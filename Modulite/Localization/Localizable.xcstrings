@@ -2827,6 +2827,28 @@
         }
       }
     },
+    "widgetStyleNameRetromac" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Retromac White"
+          }
+        }
+      }
+    },
+    "widgetStyleNameRetromacGreen" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Retromac Green"
+          }
+        }
+      }
+    },
     "widgetStyleNameTapedeck" : {
       "extractionState" : "manual",
       "localizations" : {
