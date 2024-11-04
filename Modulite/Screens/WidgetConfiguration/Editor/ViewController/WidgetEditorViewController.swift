@@ -116,7 +116,7 @@ class WidgetEditorViewController: UIViewController {
         }
     }
     
-    func setupNavigationBar() {
+    private func setupNavigationBar() {
         guard isCreatingNewWidget else { return }
         
         navigationItem.backAction = UIAction { [weak self] _ in
