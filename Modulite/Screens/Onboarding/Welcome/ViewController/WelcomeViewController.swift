@@ -37,6 +37,8 @@ class WelcomeViewController: UIViewController {
     
     // MARK: - Actions
     private func didPressStart() {
+        UserPreference<Onboarding>.shared.set(true, for: .hasCompletedOnboarding)
+        
         delegate?.welcomeViewControllerDidPressStart(self)
     }
 }
