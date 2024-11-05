@@ -22,7 +22,7 @@ extension WidgetSetupViewController: UICollectionViewDelegate {
             animated: true,
             scrollPosition: .centeredHorizontally
         )
-        
+        collectionView(self.setupView.stylesCollectionView, didSelectItemAt: indexPath)
         setupView.stylesCollectionView.reloadData()
     }
     
@@ -34,7 +34,6 @@ extension WidgetSetupViewController: UICollectionViewDelegate {
                 if let product = products.first(where: { $0.id == productID }) {
                     try await purchaseManager.purchase(product: product)
                     
-                    // Se a compra foi bem-sucedida e verificada, marque como comprada
                     if let index = viewModel.widgetStyles.firstIndex(where: { $0.key == style.key }) {
                         viewModel.widgetStyles[index].isPurchased = true
                         print("Widget \(productID) purchase successful")

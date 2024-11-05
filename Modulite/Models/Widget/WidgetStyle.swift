@@ -12,6 +12,7 @@ enum WidgetStyleKey: String, Codable, CaseIterable {
     case tapedeck
     case retromacWhite
     case retromacGreen
+    case modutouch3
 }
 
 class WidgetStyle {
@@ -45,8 +46,8 @@ class WidgetStyle {
         blockedScreenWallpaperImage: UIImage,
         homeScreenWallpaperImage: UIImage,
         imageBlendMode: CGBlendMode? = nil,
-        isPurchased: Bool,
-        isGrantedByPlus: Bool
+        isPurchased: Bool = false,
+        isGrantedByPlus: Bool = false
     ) {
         self.key = key
         self.name = name
@@ -99,6 +100,7 @@ extension WidgetStyle {
         case .tapedeck: .color(.burntCoconut)
         case .retromacWhite: .color(.white)
         case .retromacGreen: .color(.retromacGreen)
+        case .modutouch3: .image(.modutouch3WidgetBackground)
         }
     }
 }

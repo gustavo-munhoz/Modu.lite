@@ -237,6 +237,7 @@ extension String {
         case widgetStyleNameTapedeck
         case widgetStyleNameRetromac
         case widgetStyleNameRetromacGreen
+        case widgetStyleModutouch3
     }
             
     /// Returns a localized string using the key and associated values defined by the `LocalizedKey` enum.
