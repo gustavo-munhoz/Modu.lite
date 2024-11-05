@@ -20,4 +20,10 @@ struct SelectWidgetStyleTip: Tip {
             String.localized(for: OnboardingLocalizedTexts.onboardingSelectWidgetStyleMessage)
         )
     }
+    
+    var rules: [Rule] {
+        #Rule(WidgetSetupViewController.didSelectWidgetStyle) {
+            $0.donations.count == 0
+        }
+    }
 }
