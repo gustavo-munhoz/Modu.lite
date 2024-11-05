@@ -63,28 +63,27 @@ extension WidgetSetupViewController: UICollectionViewDelegate {
         _ collectionView: UICollectionView,
         didSelectItemAt indexPath: IndexPath
     ) {
-        switch collectionView {
-        case setupView.stylesCollectionView:
-            let widgetStyle = viewModel.widgetStyles[indexPath.row]
+        guard collectionView === setupView.stylesCollectionView else { return }
+        guard indexPath.row >= 0, indexPath.row < viewModel.widgetStyles.count else { return }
+        
+        let widgetStyle = viewModel.widgetStyles[indexPath.row]
+        
+        if widgetStyle.isPurchased {
+            guard let style = viewModel.selectStyle(at: indexPath.row) else { return }
             
-            if widgetStyle.isPurchased {
-                guard let style = viewModel.selectStyle(at: indexPath.row) else { return }
-                
-                didMakeChanges = true
-                setSetupViewStyleSelected(to: true)
-                delegate?.widgetSetupViewControllerDidSelectWidgetStyle(self, style: style)
-                scrollToSelectedStyle()
-                
-            } else {
-                delegate?.widgetSetupViewControllerShouldPresentPurchasePreview(self, for: widgetStyle)
+            didMakeChangesToWidget = true
+            setupView.isStyleSelected = true
+            delegate?.widgetSetupViewControllerDidSelectWidgetStyle(self, style: style)
+            scrollToSelectedStyle()
+            
+            if isOnboarding {
+                Self.didSelectWidgetStyle.sendDonation()
             }
-
-            collectionView.reloadData()
-            
-            if isOnboarding { Self.didSelectWidgetStyle.sendDonation() }
-            
-        default: return
+        } else {
+            delegate?.widgetSetupViewControllerShouldPresentPurchasePreview(self, for: widgetStyle)
         }
+
+        collectionView.reloadData()
     }
     
     func scrollToSelectedStyle() {

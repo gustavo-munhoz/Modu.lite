@@ -30,7 +30,7 @@ extension WidgetSetupViewController: UITextFieldDelegate {
             return false
         }
         
-        didMakeChanges = true
+        didMakeChangesToWidget = true
         
         return true
     }

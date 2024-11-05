@@ -21,7 +21,7 @@ class WidgetSetupViewController: UIViewController {
     
     private var isEditingWidget: Bool = false
     
-    var didMakeChanges: Bool = false
+    var didMakeChangesToWidget: Bool = false
     
     var isOnboarding: Bool = false
     
@@ -62,7 +62,7 @@ class WidgetSetupViewController: UIViewController {
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
 
-        breakdownTipObservers()
+        teardownTipObservers()
     }
     
     // MARK: - Setup methods
@@ -83,7 +83,7 @@ class WidgetSetupViewController: UIViewController {
         )
     }
     
-    private func breakdownTipObservers() {
+    private func teardownTipObservers() {
         styleTipObservationTask?.cancel()
         styleTipObservationTask = nil
         
@@ -123,7 +123,7 @@ class WidgetSetupViewController: UIViewController {
     @objc func handleBackButtonPress() {
         delegate?.widgetSetupViewControllerDidPressBack(
             self,
-            didMakeChanges: didMakeChanges
+            didMakeChanges: didMakeChangesToWidget
         )
     }
     

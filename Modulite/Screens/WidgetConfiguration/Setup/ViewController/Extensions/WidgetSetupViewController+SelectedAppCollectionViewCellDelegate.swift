@@ -15,7 +15,7 @@ extension WidgetSetupViewController: SelectedAppCollectionViewCellDelegate {
             return
         }
         
-        didMakeChanges = true
+        didMakeChangesToWidget = true
         
         let app = viewModel.selectedApps[indexPath.row]
         viewModel.removeSelectedApp(app)
