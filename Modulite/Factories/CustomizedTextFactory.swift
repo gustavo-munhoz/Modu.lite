@@ -104,13 +104,17 @@ class CustomizedTextFactory {
     static func createFromMarkdown(
         with markdownText: String,
         paragraphHeadIndent: CGFloat = 0,
-        textStyle: UIFont.TextStyle = .body
+        textStyle: UIFont.TextStyle = .body,
+        font: UIFont? = nil,
+        fontSize: CGFloat? = nil,
+        alignment: NSTextAlignment = .natural
     ) -> NSAttributedString {
         let completeText = NSMutableAttributedString()
         
         let paragraphStyle = NSMutableParagraphStyle()
         paragraphStyle.headIndent = paragraphHeadIndent
         paragraphStyle.firstLineHeadIndent = 0
+        paragraphStyle.alignment = alignment
 
         if let markdownAttributedString = try? AttributedString(markdown: markdownText) {
             let attributedMarkdown = NSMutableAttributedString(markdownAttributedString)
@@ -127,10 +131,20 @@ class CustomizedTextFactory {
             completeText.append(plainText)
         }
         
+        let selectedFont: UIFont
+        if let font = font {
+            selectedFont = fontSize != nil ? font.withSize(fontSize!) : font
+        } else {
+            selectedFont = fontSize != nil ? UIFont.systemFont(
+                ofSize: fontSize!
+            ) : UIFont.preferredFont(forTextStyle: textStyle)
+        }
+        
         completeText.addAttributes([
-            .font: UIFont.preferredFont(forTextStyle: textStyle)
+            .font: selectedFont
         ], range: .init(location: 0, length: completeText.length))
 
         return completeText
     }
+
 }
