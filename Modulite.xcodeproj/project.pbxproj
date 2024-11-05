@@ -30,6 +30,8 @@
 		AF0DB5242CD6DAA300451E18 /* TestModuliteIAP.storekit in Resources */ = {isa = PBXBuildFile; fileRef = AF0DB51F2CD6DAA300451E18 /* TestModuliteIAP.storekit */; };
 		AF0DB5252CD6DAA300451E18 /* TestModuliteIAP.storekit in Resources */ = {isa = PBXBuildFile; fileRef = AF0DB51F2CD6DAA300451E18 /* TestModuliteIAP.storekit */; };
 		AF0DB5272CD6DB8600451E18 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF0DB5262CD6DB8600451E18 /* StoreKit.framework */; };
+		AF34A7DB2CDA9C4000016A7A /* CantOpenAppViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF34A7DA2CDA9C4000016A7A /* CantOpenAppViewController.swift */; };
+		AF34A7DD2CDA9C4D00016A7A /* CantOpenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF34A7DC2CDA9C4D00016A7A /* CantOpenView.swift */; };
 		AF362C052CA5B1A300506443 /* DeviceActivity.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AFABBD872C88E388007BEFD8 /* DeviceActivity.framework */; };
 		AF362C0D2CA5B1A300506443 /* ModuliteDeviceActivityMonitor.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = AF362C042CA5B1A300506443 /* ModuliteDeviceActivityMonitor.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		AF362C162CA5B1B000506443 /* DeviceActivityMonitorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF362C122CA5B1B000506443 /* DeviceActivityMonitorExtension.swift */; };
@@ -533,6 +535,8 @@
 		AF0DB51F2CD6DAA300451E18 /* TestModuliteIAP.storekit */ = {isa = PBXFileReference; lastKnownFileType = folder; path = TestModuliteIAP.storekit; sourceTree = "<group>"; };
 		AF0DB5262CD6DB8600451E18 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		AF34A7DE2CDBF48200016A7A /* Modu.storekit */ = {isa = PBXFileReference; lastKnownFileType = text; path = Modu.storekit; sourceTree = "<group>"; };
+		AF34A7DA2CDA9C4000016A7A /* CantOpenAppViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CantOpenAppViewController.swift; sourceTree = "<group>"; };
+		AF34A7DC2CDA9C4D00016A7A /* CantOpenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CantOpenView.swift; sourceTree = "<group>"; };
 		AF362C042CA5B1A300506443 /* ModuliteDeviceActivityMonitor.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = ModuliteDeviceActivityMonitor.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		AF362C122CA5B1B000506443 /* DeviceActivityMonitorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceActivityMonitorExtension.swift; sourceTree = "<group>"; };
 		AF362C132CA5B1B000506443 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -1108,6 +1112,7 @@
 			isa = PBXGroup;
 			children = (
 				AF5F2D122CD165E500EBAAB5 /* RedirectingViewController.swift */,
+				AF34A7DA2CDA9C4000016A7A /* CantOpenAppViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -1123,6 +1128,7 @@
 			isa = PBXGroup;
 			children = (
 				AF5F2D172CD165F400EBAAB5 /* RedirectingView.swift */,
+				AF34A7DC2CDA9C4D00016A7A /* CantOpenView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -2177,8 +2183,8 @@
 		B36927CB2C66B8430089F769 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
-				AF5F2D0B2CD15AE800EBAAB5 /* Redirecting */,
 				B34F3DFC2C6A92890041D7BD /* RootTabBarController.swift */,
+				AF5F2D0B2CD15AE800EBAAB5 /* Redirecting */,
 				B34C62E72CD175FA004E014B /* Onboarding */,
 				B39D89C72CB855D2005EEC46 /* ComingSoon */,
 				B34F3E002C6A93700041D7BD /* AppBlocking */,
@@ -3500,6 +3506,7 @@
 				B3987E262CA4858E00896414 /* MainWidgetModuleData.swift in Sources */,
 				AFFB44632CC6DB5C007CDA51 /* AppBlockingSession.swift in Sources */,
 				AF09AE842CD70E7B00E0707A /* PurchaseStylePreviewView.swift in Sources */,
+				AF34A7DB2CDA9C4000016A7A /* CantOpenAppViewController.swift in Sources */,
 				AF0DB49A2CD2C09E00451E18 /* StylePreviewViewModel.swift in Sources */,
 				AFFB446E2CC6E37B007CDA51 /* AppBlockingView.swift in Sources */,
 				B32B610A2C8A4485007DDCE3 /* SelectAppsView.swift in Sources */,
@@ -3601,6 +3608,7 @@
 				B35BFC602CB6F4A500092B42 /* FAQCoordinator.swift in Sources */,
 				AFFB446A2CC6E350007CDA51 /* AppBlockingViewController.swift in Sources */,
 				B35BFC482CB5F9B600092B42 /* TutorialEditWidgetViewController.swift in Sources */,
+				AF34A7DD2CDA9C4D00016A7A /* CantOpenView.swift in Sources */,
 				B34F3E3A2C74BFB00041D7BD /* WidgetEditorViewModel.swift in Sources */,
 				B39A25E22CAF7871001C76A5 /* PaddedLabel.swift in Sources */,
 			);
