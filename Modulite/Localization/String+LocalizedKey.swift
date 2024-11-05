@@ -239,6 +239,10 @@ extension String {
         case widgetStyleNameRetromac
         case widgetStyleNameRetromacGreen
         case widgetStyleModutouch3
+        
+        // MARK: - Redirecting
+        case redirectingAlertTitle
+        case redirectingAlertMessage
     }
             
     /// Returns a localized string using the key and associated values defined by the `LocalizedKey` enum.

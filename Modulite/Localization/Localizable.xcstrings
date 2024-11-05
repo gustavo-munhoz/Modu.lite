@@ -860,9 +860,6 @@
         }
       }
     },
-    "Key" : {
-      "extractionState" : "manual"
-    },
     "Loading..." : {
 
     },
@@ -899,7 +896,7 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "ok"
+            "value" : "OK"
           }
         }
       }
@@ -1164,6 +1161,28 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "PLUS"
+          }
+        }
+      }
+    },
+    "redirectingAlertMessage" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Modu.lite could not reach this app :(\n\\\n\\\nPlease check if **you've selected the correct app** for your widget, or if the app may have been **uninstalled**."
+          }
+        }
+      }
+    },
+    "redirectingAlertTitle" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Oops!"
           }
         }
       }
