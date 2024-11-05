@@ -138,6 +138,10 @@ extension WidgetBuilderCoordinator: WidgetSetupViewControllerDelegate {
         
         let coordinator = PurchaseStylePreviewCoordinator(style: style, router: router)
         
+        coordinator.onBuy = { style in
+            viewController.handleStylePurchase(for: style)
+        }
+        
         presentChild(coordinator, animated: true) {
             viewController.selectStyle(style)
         }
