@@ -75,6 +75,21 @@
       "productID" : "retromacWhite",
       "referenceName" : "Retromac White",
       "type" : "NonConsumable"
+    },
+    {
+      "displayPrice" : "0.99",
+      "familyShareable" : false,
+      "internalID" : "2CBDB7CB",
+      "localizations" : [
+        {
+          "description" : "",
+          "displayName" : "",
+          "locale" : "en_US"
+        }
+      ],
+      "productID" : "modutouch3",
+      "referenceName" : "Modutouch3",
+      "type" : "NonConsumable"
     }
   ],
   "settings" : {
