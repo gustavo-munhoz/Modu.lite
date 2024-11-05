@@ -27,10 +27,11 @@ class WidgetEditorSaveButton: UIButton {
         self.configuration = ButtonFactory.mediumButtonConfiguration(
             titleKey: String.LocalizedKey.widgetEditorViewSaveWidgetButton,
             font: UIFont.spaceGrotesk(textStyle: .body, weight: .bold),
-            image: UIImage(systemName: "checkmark"),
+            image: UIImage(named: "custom.floppyDisk"),
             imagePadding: 10,
             imagePlacement: .leading,
-            imagePointSize: 15,
+            imagePointSize: 17,
+            imageWeight: .regular,
             foregroundColor: .white,
             backgroundColor: .fiestaGreen,
             contentHorizontalAlignment: .center
@@ -42,6 +43,7 @@ class WidgetEditorSaveButton: UIButton {
             UIView.animate(withDuration: 0.1) {
                 if button.state == .highlighted {
                     button.transform = CGAffineTransform(scaleX: 0.97, y: 0.97)
+                    button.imageView?.addSymbolEffect(.bounce)
                 } else {
                     button.transform = .identity
                 }

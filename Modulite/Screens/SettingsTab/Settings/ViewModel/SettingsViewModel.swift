@@ -24,7 +24,7 @@ struct SettingCellData {
     static func subscription() -> Self {
         .init(
             setting: .subscription,
-            symbolName: "star.circle",
+            symbolName: "custom.diamond",
             symbolColor: .lemonYellow,
             titleKey: .settingsViewSubscriptionDetailsTitle
         )

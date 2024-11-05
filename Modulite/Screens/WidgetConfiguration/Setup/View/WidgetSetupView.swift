@@ -115,6 +115,7 @@ class WidgetSetupView: UIScrollView {
                 
             case .highlighted:
                 button.transform = .init(scaleX: 0.97, y: 0.97)
+                button.imageView?.addSymbolEffect(.bounce)
                 button.alpha = 0.67
             default:
                 button.transform = .identity

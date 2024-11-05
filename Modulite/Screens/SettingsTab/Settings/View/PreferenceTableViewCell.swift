@@ -61,7 +61,7 @@ class PreferenceTableViewCell: UITableViewCell {
         hasBottomSeparator: Bool
     ) {
         subviews.forEach { $0.removeFromSuperview() }
-        let image = UIImage(systemName: sfSymbolName)!
+        let image = (UIImage(systemName: sfSymbolName) ?? UIImage(named: sfSymbolName))!
             .withTintColor(iconColor, renderingMode: .alwaysOriginal)
             .withConfiguration(
                 UIImage.SymbolConfiguration(
