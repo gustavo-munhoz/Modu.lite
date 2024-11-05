@@ -25,16 +25,20 @@ class ModuleConfiguration {
     }
     
     var resultingImage: UIImage? {
+        let lightModeImage = selectedStyle.image.withConfiguration(
+            UIImage.Configuration(traitCollection: .init(userInterfaceStyle: .light))
+        )
+        
         if let color = selectedColor,
            let blendMode = selectedStyle.widgetStyle.imageBlendMode {
             return ImageProcessingFactory.createColorBlendedImage(
-                selectedStyle.image,
+                lightModeImage,
                 mode: blendMode,
                 color: color
             )
         }
         
-        return selectedStyle.image
+        return lightModeImage
     }
     
     /// Initializes a new module configuration with detailed customization options.
