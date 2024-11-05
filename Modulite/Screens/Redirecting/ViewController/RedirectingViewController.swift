@@ -15,7 +15,16 @@ class RedirectingViewController: UIViewController {
         view = redirectingView
     }
     
-//    override func viewDidLoad() {
-//        super.viewDidLoad()
-//    }
+    func showAlert(completion: @escaping () -> Void) {
+        let cantOpenVC = CantOpenAppViewController()
+        cantOpenVC.modalPresentationStyle = .overCurrentContext
+        cantOpenVC.modalTransitionStyle = .crossDissolve
+        
+        cantOpenVC.onOkPressed = { [weak self] in
+            self?.dismiss(animated: false)
+            completion()
+        }
+        
+        present(cantOpenVC, animated: false)
+    }
 }
