@@ -16,6 +16,7 @@ enum ButtonFactory {
         imagePadding: CGFloat = 10,
         imagePlacement: NSDirectionalRectEdge = .trailing,
         imagePointSize: CGFloat = 17,
+        imageWeight: UIImage.SymbolWeight = .semibold,
         foregroundColor: UIColor = .white,
         backgroundColor: UIColor = .blueberry,
         contentHorizontalAlignment: UIControl.ContentHorizontalAlignment = .center,
@@ -38,7 +39,7 @@ enum ButtonFactory {
         let image = image?
             .withTintColor(foregroundColor, renderingMode: .alwaysOriginal)
             .withConfiguration(
-                UIImage.SymbolConfiguration(pointSize: imagePointSize, weight: .semibold)
+                UIImage.SymbolConfiguration(pointSize: imagePointSize, weight: imageWeight)
             )
         
         config.image = image
@@ -60,6 +61,7 @@ enum ButtonFactory {
                 switch button.state {
                 case .highlighted:
                     button.transform = .init(scaleX: 0.97, y: 0.97)
+                    button.imageView?.addSymbolEffect(.bounce)
                 default:
                     button.transform = .identity
                 }
@@ -78,6 +80,7 @@ enum ButtonFactory {
         imagePadding: CGFloat = 10,
         imagePlacement: NSDirectionalRectEdge = .leading,
         imagePointSize: CGFloat = 17,
+        imageWeight: UIImage.SymbolWeight = .semibold,
         foregroundColor: UIColor = .white,
         backgroundColor: UIColor = .fiestaGreen,
         contentHorizontalAlignment: UIControl.ContentHorizontalAlignment = .center,
@@ -90,6 +93,7 @@ enum ButtonFactory {
             imagePadding: imagePadding,
             imagePlacement: imagePlacement,
             imagePointSize: imagePointSize,
+            imageWeight: imageWeight,
             foregroundColor: foregroundColor,
             backgroundColor: backgroundColor,
             contentHorizontalAlignment: contentHorizontalAlignment
@@ -106,6 +110,7 @@ enum ButtonFactory {
             UIView.animate(withDuration: 0.1) {
                 if button.state == .highlighted {
                     button.transform = CGAffineTransform(scaleX: 0.97, y: 0.97)
+                    button.imageView?.addSymbolEffect(.bounce)
                 } else {
                     button.transform = .identity
                 }
@@ -183,6 +188,7 @@ extension ButtonFactory {
         imagePadding: CGFloat = 10,
         imagePlacement: NSDirectionalRectEdge = .leading,
         imagePointSize: CGFloat = 17,
+        imageWeight: UIImage.SymbolWeight = .semibold,
         foregroundColor: UIColor = .white,
         backgroundColor: UIColor = .fiestaGreen,
         contentHorizontalAlignment: UIControl.ContentHorizontalAlignment = .center
@@ -203,7 +209,7 @@ extension ButtonFactory {
         let image = image?
             .withTintColor(foregroundColor, renderingMode: .alwaysOriginal)
             .withConfiguration(
-                UIImage.SymbolConfiguration(pointSize: imagePointSize, weight: .semibold)
+                UIImage.SymbolConfiguration(pointSize: imagePointSize, weight: imageWeight)
             )
         
         config.image = image
