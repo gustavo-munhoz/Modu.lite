@@ -65,26 +65,56 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             rootVC.present(redirectingVC, animated: false)
         }
         
-        performOpenAppAction(with: parameter) {
-            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-                redirectingVC.dismiss(animated: false)
+        performOpenAppAction(with: "someAppURLScheme") { result in
+            switch result {
+            case .success(let message):
+                print(message)
+                DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                    redirectingVC.dismiss(animated: false)
+                }
+            case .failure(let error):
+                if let appOpenError = error as? AppOpenError {
+                    switch appOpenError {
+                    case .invalidURL:
+                        print("URL inválido fornecido.")
+                        redirectingVC.showAlert {
+                            redirectingVC.dismiss(animated: false)
+                        }
+                    case .cannotOpenApp:
+                        print("Can't open app")
+                        redirectingVC.showAlert {
+                            redirectingVC.dismiss(animated: false)
+                        }
+                    }
+                } else {
+                    print("Erro desconhecido: \(error.localizedDescription)")
+                }
             }
         }
         
         return true
     }
 
-    private func performOpenAppAction(with urlScheme: String, completion: @escaping () -> Void) {
+    private func performOpenAppAction(with urlScheme: String, completion: @escaping (Result<String, Error>) -> Void) {
         print("Opening app with urlScheme: \(urlScheme)")
+        
         if let url = URL(string: urlScheme) {
-            UIApplication.shared.open(url) { _ in
-                completion()
+            if UIApplication.shared.canOpenURL(url) {
+                UIApplication.shared.open(url) { success in
+                    if success {
+                        completion(.success("Opened app"))
+                    } else {
+                        completion(.failure(AppOpenError.cannotOpenApp))
+                    }
+                }
+            } else {
+                completion(.failure(AppOpenError.cannotOpenApp))
             }
         } else {
-            print("Invalid URL for scheme: \(urlScheme)")
+            completion(.failure(AppOpenError.invalidURL))
         }
     }
-
+    
     func sceneDidDisconnect(_ scene: UIScene) {
         // Called as the scene is being released by the system.
         // This occurs shortly after the scene enters the background, or when its session is discarded.
@@ -112,4 +142,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // Use this method to save data, release shared resources, and store enough scene-specific state information
         // to restore the scene back to its current state.
     }
+}
+
+enum AppOpenError: Error {
+    case invalidURL
+    case cannotOpenApp
 }
