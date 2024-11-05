@@ -46,8 +46,8 @@ class WidgetStyle {
         blockedScreenWallpaperImage: UIImage,
         homeScreenWallpaperImage: UIImage,
         imageBlendMode: CGBlendMode? = nil,
-        isPurchased: Bool = false,
-        isGrantedByPlus: Bool = false
+        isPurchased: Bool,
+        isGrantedByPlus: Bool
     ) {
         self.key = key
         self.name = name

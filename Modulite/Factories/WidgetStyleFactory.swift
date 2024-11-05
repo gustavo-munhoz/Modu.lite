@@ -129,7 +129,9 @@ extension WidgetStyleFactory {
             defaultColor: .black,
             textConfiguration: textConfig,
             blockedScreenWallpaperImage: .retromacWhiteBlockedWallpaper,
-            homeScreenWallpaperImage: .retromacWhiteWallpaper
+            homeScreenWallpaperImage: .retromacWhiteWallpaper,
+            isPurchased: true,
+            isGrantedByPlus: false
         )
         
         let modules = [
@@ -263,8 +265,7 @@ extension WidgetStyleFactory {
             ModuleStyle(from: style, key: .modutouch3MainPhone),
             ModuleStyle(from: style, key: .modutouch3MainTools)
         ]
-        
-        // Configurando os estilos de módulo no WidgetStyle
+                
         style.setModuleStyles(to: module)
         style.setEmptyStyle(to: ModuleStyle(from: style, key: .modutouch3MainEmpty))
         
