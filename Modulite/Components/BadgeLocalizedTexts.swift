@@ -9,4 +9,7 @@ import Foundation
 
 enum BadgeLocalizedTexts: LocalizedKeyProtocol {
     case skinUnlockBadgeText
+    case skinUnlockBadgeMultilineText
+    case skinUnlockFor
+    case skin099
 }
