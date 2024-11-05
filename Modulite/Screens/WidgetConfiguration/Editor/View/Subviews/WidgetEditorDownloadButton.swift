@@ -42,6 +42,7 @@ class WidgetEditorDownloadButton: UIButton {
                 case .highlighted:
                     button.alpha = 0.9
                     button.transform = CGAffineTransform(scaleX: 0.97, y: 0.97)
+                    button.imageView?.addSymbolEffect(.bounce)
                     
                 case .disabled:
                     button.alpha = 0.9

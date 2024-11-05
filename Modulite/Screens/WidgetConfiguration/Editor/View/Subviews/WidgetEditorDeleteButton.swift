@@ -35,6 +35,7 @@ class WidgetEditorDeleteButton: UIButton {
             UIView.animate(withDuration: 0.1) {
                 if button.state == .highlighted {
                     button.transform = CGAffineTransform(scaleX: 0.97, y: 0.97)
+                    button.imageView?.addSymbolEffect(.bounce)
                 } else {
                     button.transform = .identity
                 }
