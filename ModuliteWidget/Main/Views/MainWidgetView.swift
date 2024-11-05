@@ -46,6 +46,9 @@ struct MainWidgetView: View {
                         .resizable()
                         .scaledToFill()
                         .padding(.all, -16)
+                        .widgetBackground {
+                            Color.clear
+                        }
                 }
             }
         }
@@ -68,6 +71,10 @@ extension View {
     
     @ViewBuilder
     func widgetBackground<T: View>(@ViewBuilder content: () -> T) -> some View {
-        containerBackground(for: .widget, content: content)
+        if #available(iOSApplicationExtension 17.0, *) {
+            containerBackground(for: .widget, content: content)
+        } else {
+            background(content())
+        }
     }
 }
