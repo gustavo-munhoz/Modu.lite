@@ -2849,6 +2849,17 @@
         }
       }
     },
+    "widgetStyleModutouch3" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Modutouch3"
+          }
+        }
+      }
+    },
     "widgetStyleNameAnalog" : {
       "extractionState" : "manual",
       "localizations" : {

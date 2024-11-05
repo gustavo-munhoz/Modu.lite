@@ -71,6 +71,19 @@ enum ModuleStyleKey: String, Codable {
     case retromacMainWeb
     case retromacMainWork
     
+    // MARK: - Modutouch3 -
+    case modutouch3MainBear
+    case modutouch3MainBusiness
+    case modutouch3MainCamera
+    case modutouch3MainCar
+    case modutouch3MainEmpty
+    case modutouch3MainFrog
+    case modutouch3MainMail
+    case modutouch3MainMap
+    case modutouch3MainMoney
+    case modutouch3MainPhone
+    case modutouch3MainTools
+    
     func getModuleImage() -> UIImage {
         UIImage(named: rawValue)!
     }

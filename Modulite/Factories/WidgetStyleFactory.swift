@@ -9,7 +9,6 @@ import UIKit
 import SwiftData
 
 class WidgetStyleFactory {
-    
     static func styleForKey(_ key: WidgetStyleKey) -> WidgetStyle {
         switch key {
         case .analog:
@@ -23,11 +22,13 @@ class WidgetStyleFactory {
             
         case .retromacGreen:
             return createRetromacGreenStyle()
+            
+        case .modutouch3:
+            return createModutouch3Style()
         }
     }
-
+    
 }
-
 // MARK: - Analog
 extension WidgetStyleFactory {
     private static func createAnalogStyle() -> WidgetStyle {
@@ -111,6 +112,7 @@ extension WidgetStyleFactory {
     }
 }
 
+// MARK: - Retromac
 extension WidgetStyleFactory {
     private static func createRetromacStyle() -> WidgetStyle {
         let textConfig = ModuleAppNameTextConfiguration()
@@ -127,9 +129,7 @@ extension WidgetStyleFactory {
             defaultColor: .black,
             textConfiguration: textConfig,
             blockedScreenWallpaperImage: .retromacWhiteBlockedWallpaper,
-            homeScreenWallpaperImage: .retromacWhiteWallpaper,
-            isPurchased: true,
-            isGrantedByPlus: false
+            homeScreenWallpaperImage: .retromacWhiteWallpaper
         )
         
         let modules = [
@@ -220,6 +220,53 @@ extension WidgetStyleFactory {
         
         style.setModuleStyles(to: modules)
         style.setEmptyStyle(to: ModuleStyle(from: style, key: .retromacMainEmpty))
+        
+        return style
+    }
+}
+
+// MARK: - Modutouch3
+extension WidgetStyleFactory {
+    private static func createModutouch3Style() -> WidgetStyle {
+        let textConfig = ModuleAppNameTextConfiguration()
+            .font(UIFont(textStyle: .caption2, weight: .semibold))
+            .textColor(.black)
+            .shadow(color: .gray, blurRadius: 3)
+            .textCase(.capitalized)
+        
+        let style = WidgetStyle(
+            key: .modutouch3,
+            name: .localized(for: .widgetStyleModutouch3),
+            previewImage: .modutouch3WidgetPreview,
+            background: .image(.modutouch3WidgetBackground),
+            colors: [.clear],
+            defaultColor: .black,
+            textConfiguration: textConfig,
+            blockedScreenWallpaperImage: .mt3BlockWallpaper,
+            homeScreenWallpaperImage: .mt3BlockWallpaper,
+            isPurchased: false,
+            isGrantedByPlus: false
+        )
+        
+        style.isPurchased = PurchaseManager.shared.isSkinPurchased(for: style.key.rawValue)
+        
+        let module = [
+            ModuleStyle(from: style, key: .modutouch3MainBear),
+            ModuleStyle(from: style, key: .modutouch3MainBusiness),
+            ModuleStyle(from: style, key: .modutouch3MainCamera),
+            ModuleStyle(from: style, key: .modutouch3MainCar),
+            ModuleStyle(from: style, key: .modutouch3MainEmpty),
+            ModuleStyle(from: style, key: .modutouch3MainFrog),
+            ModuleStyle(from: style, key: .modutouch3MainMail),
+            ModuleStyle(from: style, key: .modutouch3MainMap),
+            ModuleStyle(from: style, key: .modutouch3MainMoney),
+            ModuleStyle(from: style, key: .modutouch3MainPhone),
+            ModuleStyle(from: style, key: .modutouch3MainTools)
+        ]
+        
+        // Configurando os estilos de módulo no WidgetStyle
+        style.setModuleStyles(to: module)
+        style.setEmptyStyle(to: ModuleStyle(from: style, key: .modutouch3MainEmpty))
         
         return style
     }
