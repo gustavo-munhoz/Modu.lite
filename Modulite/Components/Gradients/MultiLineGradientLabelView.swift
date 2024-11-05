@@ -1,3 +1,10 @@
+//
+//  MultiLineGradientLabelView.swift
+//  Modulite
+//
+//  Created by André Wozniack on 04/11/24.
+//
+
 import UIKit
 import SnapKit
 
@@ -30,10 +37,9 @@ class MultiLineGradientLabelView: UIView {
 
     private func setupLabel() {
         addSubview(label)
-        
-        // Configuração para múltiplas linhas
-        label.numberOfLines = 0 // Permite linhas múltiplas
-        label.lineBreakMode = .byWordWrapping // Quebra de linha por palavra
+
+        label.numberOfLines = 0
+        label.lineBreakMode = .byWordWrapping
         
         label.snp.makeConstraints { make in
             make.left.equalToSuperview().inset(insets?.left ?? 0)
