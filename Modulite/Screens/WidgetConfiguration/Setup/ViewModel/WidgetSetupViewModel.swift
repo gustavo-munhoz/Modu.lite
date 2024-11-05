@@ -97,7 +97,7 @@ class WidgetSetupViewModel: NSObject {
     
     func updatePurchaseStatus() {
         for style in widgetStyles {
-            style.isPurchased = PurchasedSkinsManager.shared.isSkinPurchased(style.key.rawValue)
+            style.isPurchased = PurchaseManager.shared.isSkinPurchased(for: style.key.rawValue)
         }
     }
 }
