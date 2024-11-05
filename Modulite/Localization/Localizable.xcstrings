@@ -1598,6 +1598,28 @@
         }
       }
     },
+    "skin099" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "US$0.99"
+          }
+        }
+      }
+    },
+    "skinUnlockBadgeMultilineText" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "UNLOCK FOR\\n**US$0.99**"
+          }
+        }
+      }
+    },
     "skinUnlockBadgeText" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -1605,6 +1627,17 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "UNLOCK FOR **US$0.99**"
+          }
+        }
+      }
+    },
+    "skinUnlockFor" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "UNLOCK FOR"
           }
         }
       }
