@@ -8,12 +8,14 @@
 import UIKit
 
 protocol PurchaseStylePreviewControllerDelegate: AnyObject {
-    func didCompletePurchase(for productId: String)
-    func didFailPurchase(for productId: String, error: Error?)
-    func didRestorePurchase(for productId: String)
+    func purchaseStylePreviewViewControllerDidPressUseStyle(
+        _ viewController: PurchaseStylePreviewViewController
+    )
 }
 
 class PurchaseStylePreviewViewController: UIViewController {
+    
+    // MARK: - Properties
     
     private var styleView = PurchaseStylePreviewView()
     private var style: WidgetStyle
@@ -22,54 +24,38 @@ class PurchaseStylePreviewViewController: UIViewController {
     private var imageNames: [String] = []
     private var texts: [String] = []
     
+    weak var delegate: PurchaseStylePreviewControllerDelegate?
+    
+    // MARK: - Initializers
+    
     init(style: WidgetStyle) {
         self.style = style
         super.init(nibName: nil, bundle: nil)
         
-        PurchasedSkinsManager.shared.onPurchaseCompleted = { [weak self] productId in
-            self?.handlePurchaseSuccess(productId: productId)
-        }
-        
-        PurchasedSkinsManager.shared.onPurchaseFailed = { [weak self] productId, error in
-            self?.handlePurchaseFailure(productId: productId, error: error)
-        }
-        
-        PurchasedSkinsManager.shared.onPurchaseRestored = { [weak self] productId in
-            self?.handlePurchaseRestored(productId: productId)
-        }
-        
-        NotificationCenter.default.addObserver(
-            self,
-            selector: #selector(handleSkinPurchased(_:)),
-            name: .skinPurchased,
-            object: nil
-        )
-        
-        NotificationCenter.default.addObserver(
-            self,
-            selector: #selector(skinsLoaded),
-            name: .skinsLoaded,
-            object: nil
-        )
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
+    // MARK: - Lifecycle
+    
     override func loadView() {
+        super.loadView()
         view = styleView
-        setupCollectionView()
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         configureView()
-        
-        styleView.buyStyleButtonPressed = { [weak self] in
-            guard let self = self else { return }
-            self.fetchAndPurchaseSkin()
-        }
+        setupCollectionView()
+        setupViewActions()
+    }
+    
+    // MARK: - Setup
+    
+    private func setupViewActions() {
+        styleView.onBuyStylePressed = didPressSelectStyle
     }
     
     private func setupCollectionView() {
@@ -97,54 +83,9 @@ class PurchaseStylePreviewViewController: UIViewController {
         styleView.collectionView.reloadData()
     }
     
-    // MARK: - Fetch and Purchase Skin
-    private func fetchAndPurchaseSkin() {
-        PurchasedSkinsManager.shared.fetchAvailableSkins(productIds: [style.key.rawValue])
-    }
-    
-    @objc private func skinsLoaded() {
-        PurchasedSkinsManager.shared.purchaseSkin(with: style.key.rawValue)
-    }
-    
-    // MARK: - Handle Skin Purchase Notification
-    @objc private func handleSkinPurchased(_ notification: Notification) {
-        guard let purchasedProductId = notification.object as? String else { return }
-        
-        if purchasedProductId == style.key.rawValue {
-            style.isPurchased = true
-            onStyleSelected?(style)
-            
-            self.dismiss(animated: true, completion: nil)
-        }
-    }
-    // MARK: - Callbacks for Purchase Handling
-    private func handlePurchaseSuccess(productId: String) {
-        if productId == style.key.rawValue {
-            style.isPurchased = true
-            onStyleSelected?(style)
-            dismiss(animated: true, completion: nil)
-        }
-    }
-    
-    private func handlePurchaseFailure(productId: String, error: Error?) {
-        if productId == style.key.rawValue {
-            let errorMessage = error?.localizedDescription ?? "Compra falhou."
-            let alert = UIAlertController(title: "Erro", message: errorMessage, preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "OK", style: .default))
-            present(alert, animated: true)
-        }
-    }
-    
-    private func handlePurchaseRestored(productId: String) {
-        if productId == style.key.rawValue {
-            style.isPurchased = true
-            onStyleSelected?(style)
-            dismiss(animated: true, completion: nil)
-        }
-    }
-    
-    deinit {
-        NotificationCenter.default.removeObserver(self)
+    // MARK: - Actions
+    private func didPressSelectStyle() {
+        delegate?.purchaseStylePreviewViewControllerDidPressUseStyle(self)
     }
 }
 
