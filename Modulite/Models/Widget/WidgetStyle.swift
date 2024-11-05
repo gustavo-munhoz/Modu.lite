@@ -7,7 +7,7 @@
 
 import UIKit
 
-enum WidgetStyleKey: String, Codable {
+enum WidgetStyleKey: String, Codable, CaseIterable {
     case analog
     case tapedeck
     case retromacWhite
