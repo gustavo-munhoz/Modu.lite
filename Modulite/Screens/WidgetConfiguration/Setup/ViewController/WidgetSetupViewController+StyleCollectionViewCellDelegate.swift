@@ -8,6 +8,14 @@
 import Foundation
 
 extension WidgetSetupViewController: StyleCollectionViewCellDelegate {
+    func styleCollectionViewCellDidPressPurchasePreview(_ cell: StyleCollectionViewCell) {
+        guard let indexPath = setupView.stylesCollectionView.indexPath(for: cell) else { return }
+        
+        let style = viewModel.widgetStyles[indexPath.row]
+        
+        delegate?.widgetSetupViewControllerShouldPresentPurchasePreview(self, for: style)
+    }
+    
     func styleCollectionViewCellDidPressPreview(_ cell: StyleCollectionViewCell) {
         guard let indexPath = setupView.stylesCollectionView.indexPath(for: cell) else { return }
         

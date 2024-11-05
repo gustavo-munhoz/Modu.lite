@@ -31,14 +31,14 @@ class GradientButton: UIButton {
 
     private func setupGradientLayer(_ gradient: Gradient) {
         gradientLayer.setup(with: gradient)
-        gradientLayer.cornerRadius = 8 // Ajuste o raio para o estilo desejado
+        gradientLayer.cornerRadius = 8
         layer.insertSublayer(gradientLayer, at: 0)
     }
 
     private func setupButton() {
         titleLabel?.textAlignment = .center
-        titleLabel?.font = UIFont.systemFont(ofSize: 16, weight: .bold) // Ajuste conforme necessário
-        setTitleColor(.white, for: .normal) // Cor do texto
+        titleLabel?.font = UIFont.systemFont(ofSize: 16, weight: .bold)
+        setTitleColor(.white, for: .normal)
         clipsToBounds = true
     }
 
@@ -47,7 +47,6 @@ class GradientButton: UIButton {
         gradientLayer.frame = bounds
     }
     
-    // Configurações para texto e fonte do botão
     func setButtonText(_ text: String) {
         setTitle(text, for: .normal)
     }

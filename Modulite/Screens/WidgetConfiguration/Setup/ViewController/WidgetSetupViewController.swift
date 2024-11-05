@@ -17,6 +17,7 @@ class WidgetSetupViewController: UIViewController {
     var viewModel = WidgetSetupViewModel()
     
     weak var delegate: WidgetSetupViewControllerDelegate?
+    var purchaseManager = PurchaseManager.shared
     
     private var isEditingWidget: Bool = false
     
@@ -39,12 +40,6 @@ class WidgetSetupViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-                
-//        viewModel.updatePurchaseStatus()
-//        
-//        PurchasedSkinsManager.shared.onPurchaseCompleted = { [weak self] productId in
-//            self?.handlePurchaseCompleted(for: productId)
-//        }
         
         configureViewDependencies()
         setupNavigationBar()
@@ -349,60 +344,6 @@ extension WidgetSetupViewController: UICollectionViewDataSource {
             header.setup(title: .localized(for: .widgetSetupViewAppsHeaderTitle))
         }
         return header
-    }
-}
-
-// MARK: - UICollectionViewDelegate
-extension WidgetSetupViewController: UICollectionViewDelegate {
-    func selectStyle(_ style: WidgetStyle) {
-        guard let index = viewModel.widgetStyles.firstIndex(of: style) else { return }
-        let indexPath = IndexPath(item: index, section: 1)
-        
-        viewModel.selectStyle(at: index)
-        viewModel.setWidgetStyle(to: style)
-        
-        setupView.stylesCollectionView.selectItem(
-            at: indexPath,
-            animated: true,
-            scrollPosition: .centeredHorizontally
-        )
-        
-        setupView.stylesCollectionView.reloadData()
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        switch collectionView {
-        case setupView.stylesCollectionView:
-            let widgetStyle = viewModel.widgetStyles[indexPath.row]
-            
-            if widgetStyle.isPurchased {
-                guard let style = viewModel.selectStyle(at: indexPath.row) else { return }
-                
-                didMakeChanges = true
-                setSetupViewStyleSelected(to: true)
-                delegate?.widgetSetupViewControllerDidSelectWidgetStyle(self, style: style)
-                scrollToSelectedStyle()
-                
-            } else {
-                delegate?.widgetSetupViewControllerShouldPresentPurchasePreview(self, for: widgetStyle)
-            }
-
-            collectionView.reloadData()
-            
-            if isOnboarding { Self.didSelectWidgetStyle.sendDonation() }
-            
-        default: return
-        }
-    }
-    
-    private func scrollToSelectedStyle() {
-        guard let selectedStyleIndex = viewModel.getIndexForSelectedStyle() else { return }
-        let selectedIndexPath = IndexPath(item: selectedStyleIndex, section: 1)
-        setupView.stylesCollectionView.scrollToItem(
-            at: selectedIndexPath,
-            at: .centeredHorizontally,
-            animated: true
-        )
     }
 }
 

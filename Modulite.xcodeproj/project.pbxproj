@@ -16,10 +16,8 @@
 		AF09AE842CD70E7B00E0707A /* PurchaseStylePreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF09AE832CD70E7B00E0707A /* PurchaseStylePreviewView.swift */; };
 		AF09AE862CD7102700E0707A /* GradientButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF09AE852CD7102700E0707A /* GradientButton.swift */; };
 		AF09AE8A2CD7120B00E0707A /* WidgetSetupViewController+UITextFieldDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF09AE892CD7120B00E0707A /* WidgetSetupViewController+UITextFieldDelegate.swift */; };
-		AF09AE8E2CD7171200E0707A /* SkinUnlockBadge.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF09AE8D2CD7171200E0707A /* SkinUnlockBadge.swift */; };
+		AF09AE8E2CD7171200E0707A /* SkinUnlocklBadge.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF09AE8D2CD7171200E0707A /* SkinUnlocklBadge.swift */; };
 		AF09AE902CD717D900E0707A /* BadgeLocalizedTexts.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF09AE8F2CD717D900E0707A /* BadgeLocalizedTexts.swift */; };
-		AF09AE932CD7201F00E0707A /* PurchasedSkinsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF09AE922CD7201F00E0707A /* PurchasedSkinsManager.swift */; };
-		AF09AE942CD7201F00E0707A /* PurchasedSkinsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF09AE922CD7201F00E0707A /* PurchasedSkinsManager.swift */; };
 		AF09AE962CD727C400E0707A /* PurchaseStylePreviewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF09AE952CD727C400E0707A /* PurchaseStylePreviewViewModel.swift */; };
 		AF0DB4962CD2C08900451E18 /* StylePreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF0DB4952CD2C08900451E18 /* StylePreviewView.swift */; };
 		AF0DB4982CD2C09500451E18 /* StylePreviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF0DB4972CD2C09500451E18 /* StylePreviewViewController.swift */; };
@@ -52,6 +50,11 @@
 		AFBBC5222C7E5D8D00A9B256 /* AppInfo+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3F054352C7CF6CB0057F04D /* AppInfo+CoreDataClass.swift */; };
 		AFDC1A512CB46005008A816D /* ShieldConfigurationBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFDC1A502CB46005008A816D /* ShieldConfigurationBuilder.swift */; };
 		AFDC1A522CB4600B008A816D /* ShieldConfigurationBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFDC1A502CB46005008A816D /* ShieldConfigurationBuilder.swift */; };
+		AFE15AB32CD97EFC000A255B /* PurchaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFE15AB22CD97EFC000A255B /* PurchaseManager.swift */; };
+		AFE15AB42CD97EFC000A255B /* PurchaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFE15AB22CD97EFC000A255B /* PurchaseManager.swift */; };
+		AFE15AB72CD99A2B000A255B /* Modulite.storekit in Resources */ = {isa = PBXBuildFile; fileRef = AFE15AB62CD99A2B000A255B /* Modulite.storekit */; };
+		AFE15ABB2CD9A194000A255B /* MultiLineGradientLabelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFE15ABA2CD9A194000A255B /* MultiLineGradientLabelView.swift */; };
+		AFE15ABD2CD9BBFD000A255B /* WidgetSetupViewController+UICollectionViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFE15ABC2CD9BBFD000A255B /* WidgetSetupViewController+UICollectionViewDelegate.swift */; };
 		AFE5D5022CADD4C700503572 /* FamilyControlsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFE5D5012CADD4C700503572 /* FamilyControlsManager.swift */; };
 		AFE5D5032CADD4C700503572 /* FamilyControlsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFE5D5012CADD4C700503572 /* FamilyControlsManager.swift */; };
 		AFE5D5042CADD4C700503572 /* FamilyControlsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFE5D5012CADD4C700503572 /* FamilyControlsManager.swift */; };
@@ -454,16 +457,15 @@
 		AF09AE832CD70E7B00E0707A /* PurchaseStylePreviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseStylePreviewView.swift; sourceTree = "<group>"; };
 		AF09AE852CD7102700E0707A /* GradientButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientButton.swift; sourceTree = "<group>"; };
 		AF09AE892CD7120B00E0707A /* WidgetSetupViewController+UITextFieldDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WidgetSetupViewController+UITextFieldDelegate.swift"; sourceTree = "<group>"; };
-		AF09AE8D2CD7171200E0707A /* SkinUnlockBadge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkinUnlockBadge.swift; sourceTree = "<group>"; };
+		AF09AE8D2CD7171200E0707A /* SkinUnlocklBadge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkinUnlocklBadge.swift; sourceTree = "<group>"; };
 		AF09AE8F2CD717D900E0707A /* BadgeLocalizedTexts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadgeLocalizedTexts.swift; sourceTree = "<group>"; };
-		AF09AE922CD7201F00E0707A /* PurchasedSkinsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchasedSkinsManager.swift; sourceTree = "<group>"; };
 		AF09AE952CD727C400E0707A /* PurchaseStylePreviewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseStylePreviewViewModel.swift; sourceTree = "<group>"; };
 		AF0DB4952CD2C08900451E18 /* StylePreviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StylePreviewView.swift; sourceTree = "<group>"; };
 		AF0DB4972CD2C09500451E18 /* StylePreviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StylePreviewViewController.swift; sourceTree = "<group>"; };
 		AF0DB4992CD2C09E00451E18 /* StylePreviewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StylePreviewViewModel.swift; sourceTree = "<group>"; };
 		AF0DB49E2CD3F95500451E18 /* ImagePreviewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePreviewCell.swift; sourceTree = "<group>"; };
 		AF0DB4A32CD40C6400451E18 /* StylePreviewCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StylePreviewCoordinator.swift; sourceTree = "<group>"; };
-		AF0DB51F2CD6DAA300451E18 /* TestModuliteIAP.storekit */ = {isa = PBXFileReference; lastKnownFileType = text; path = TestModuliteIAP.storekit; sourceTree = "<group>"; };
+		AF0DB51F2CD6DAA300451E18 /* TestModuliteIAP.storekit */ = {isa = PBXFileReference; lastKnownFileType = folder; path = TestModuliteIAP.storekit; sourceTree = "<group>"; };
 		AF0DB5262CD6DB8600451E18 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		AF362C042CA5B1A300506443 /* ModuliteDeviceActivityMonitor.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = ModuliteDeviceActivityMonitor.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		AF362C122CA5B1B000506443 /* DeviceActivityMonitorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceActivityMonitorExtension.swift; sourceTree = "<group>"; };
@@ -487,6 +489,10 @@
 		AFBBC50A2C7E459A00A9B256 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AFBBC50C2C7E459A00A9B256 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AFDC1A502CB46005008A816D /* ShieldConfigurationBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShieldConfigurationBuilder.swift; sourceTree = "<group>"; };
+		AFE15AB22CD97EFC000A255B /* PurchaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseManager.swift; sourceTree = "<group>"; };
+		AFE15AB62CD99A2B000A255B /* Modulite.storekit */ = {isa = PBXFileReference; lastKnownFileType = text; path = Modulite.storekit; sourceTree = "<group>"; };
+		AFE15ABA2CD9A194000A255B /* MultiLineGradientLabelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiLineGradientLabelView.swift; sourceTree = "<group>"; };
+		AFE15ABC2CD9BBFD000A255B /* WidgetSetupViewController+UICollectionViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WidgetSetupViewController+UICollectionViewDelegate.swift"; sourceTree = "<group>"; };
 		AFE5D5012CADD4C700503572 /* FamilyControlsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FamilyControlsManager.swift; sourceTree = "<group>"; };
 		AFE5D5092CADD51600503572 /* ModuliteShieldConfiguration.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = ModuliteShieldConfiguration.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		AFE5D50A2CADD51600503572 /* ManagedSettings.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ManagedSettings.framework; path = System/Library/Frameworks/ManagedSettings.framework; sourceTree = SDKROOT; };
@@ -827,7 +833,7 @@
 		AF09AE732CD7047200E0707A /* Skins */ = {
 			isa = PBXGroup;
 			children = (
-				AF09AE922CD7201F00E0707A /* PurchasedSkinsManager.swift */,
+				AFE15AB22CD97EFC000A255B /* PurchaseManager.swift */,
 			);
 			path = Skins;
 			sourceTree = "<group>";
@@ -869,7 +875,7 @@
 		AF09AE8C2CD716F000E0707A /* Skins */ = {
 			isa = PBXGroup;
 			children = (
-				AF09AE8D2CD7171200E0707A /* SkinUnlockBadge.swift */,
+				AF09AE8D2CD7171200E0707A /* SkinUnlocklBadge.swift */,
 			);
 			path = Skins;
 			sourceTree = "<group>";
@@ -1607,6 +1613,7 @@
 				AF5F2D1A2CD2B93300EBAAB5 /* WidgetSetupViewController+StyleCollectionViewCellDelegate.swift */,
 				AF09AE892CD7120B00E0707A /* WidgetSetupViewController+UITextFieldDelegate.swift */,
 				B32F3BA62CD2F2B1000F4825 /* WidgetSetupViewControllerDelegate.swift */,
+				AFE15ABC2CD9BBFD000A255B /* WidgetSetupViewController+UICollectionViewDelegate.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -1926,8 +1933,9 @@
 		B36927962C66B6E30089F769 /* Modulite */ = {
 			isa = PBXGroup;
 			children = (
-				B32F3BF02CD709DD000F4825 /* Fonts */,
+				AFE15AB62CD99A2B000A255B /* Modulite.storekit */,
 				AF0DB51F2CD6DAA300451E18 /* TestModuliteIAP.storekit */,
+				B32F3BF02CD709DD000F4825 /* Fonts */,
 				B39A259B2CAB2933001C76A5 /* Prototype */,
 				B3850BC42C979D1F00F400C0 /* Transformers */,
 				B32B61042C88F594007DDCE3 /* Modulite.entitlements */,
@@ -2239,6 +2247,7 @@
 		B39A25D02CAF1B0D001C76A5 /* Gradients */ = {
 			isa = PBXGroup;
 			children = (
+				AFE15ABA2CD9A194000A255B /* MultiLineGradientLabelView.swift */,
 				AF09AE852CD7102700E0707A /* GradientButton.swift */,
 				B39A25CF2CAF1B0D001C76A5 /* GradientLabelView.swift */,
 				B39A25D22CAF2102001C76A5 /* Gradient.swift */,
@@ -2813,6 +2822,7 @@
 				AF0DB5252CD6DAA300451E18 /* TestModuliteIAP.storekit in Resources */,
 				B36927A12C66B6E40089F769 /* Assets.xcassets in Resources */,
 				B3987DFF2CA202C100896414 /* InfoPlist.xcstrings in Resources */,
+				AFE15AB72CD99A2B000A255B /* Modulite.storekit in Resources */,
 				B39A25E42CAFADF6001C76A5 /* BundleConfig.xcconfig in Resources */,
 				B3F0543C2C7D04D60057F04D /* apps.json in Resources */,
 				B39FB7B82CD9758200967E3A /* ArchivoSemiCondensed-Bold.ttf in Resources */,
@@ -2918,6 +2928,7 @@
 				B32B60A62C838ED9007DDCE3 /* UILabel+AppNameConfiguration.swift in Sources */,
 				B39FB7BB2CD975F900967E3A /* Archivo.swift in Sources */,
 				B3987E102CA38A9C00896414 /* MainWidgetView.swift in Sources */,
+				AFE15AB32CD97EFC000A255B /* PurchaseManager.swift in Sources */,
 				B37284752C82996600D9A1E7 /* String+LocalizedKey.swift in Sources */,
 				B32B60FA2C87AC84007DDCE3 /* CoreDataPersistenceController.swift in Sources */,
 				B3987E212CA4801600896414 /* UIColorValueTransformer.swift in Sources */,
@@ -2932,7 +2943,6 @@
 				B3987E152CA38C7900896414 /* MainWidgetEntry.swift in Sources */,
 				B34C62E52CD16134004E014B /* AppsData.swift in Sources */,
 				B32B60A52C838EB0007DDCE3 /* WidgetModuleCell.swift in Sources */,
-				AF09AE942CD7201F00E0707A /* PurchasedSkinsManager.swift in Sources */,
 				B30201692CC7074F00301646 /* View+PulseEffect.swift in Sources */,
 				B39A259E2CAB2969001C76A5 /* Copying.swift in Sources */,
 				B32B60FC2C87AC90007DDCE3 /* AppInfo+CoreDataProperties.swift in Sources */,
@@ -3006,7 +3016,6 @@
 				B35BFBED2CB5BA8000092B42 /* TutorialCenterSmallTitle.swift in Sources */,
 				B39D89D22CB85602005EEC46 /* ComingSoonViewController.swift in Sources */,
 				B369279C2C66B6E30089F769 /* HomeViewController.swift in Sources */,
-				AF09AE932CD7201F00E0707A /* PurchasedSkinsManager.swift in Sources */,
 				B35BFC5C2CB6F22100092B42 /* FAQView.swift in Sources */,
 				B35BFBC72CB4BC0900092B42 /* SubscriptionLocalizedTexts.swift in Sources */,
 				AF0DB4A02CD3F95500451E18 /* ImagePreviewCell.swift in Sources */,
@@ -3015,6 +3024,7 @@
 				B35BFB7F2CB2428A00092B42 /* TutorialWallpaperView.swift in Sources */,
 				B35BFC4A2CB5FB4600092B42 /* TutorialLargeTitleLabel.swift in Sources */,
 				B32B61102C8A474B007DDCE3 /* SelectAppsViewModel.swift in Sources */,
+				AFE15ABD2CD9BBFD000A255B /* WidgetSetupViewController+UICollectionViewDelegate.swift in Sources */,
 				B30AAD652C9227DE002806A7 /* WidgetContentBuilder.swift in Sources */,
 				B36927D12C66B8CA0089F769 /* Router.swift in Sources */,
 				B3D1B7D32CB7115F00DFC4F5 /* HelpCoordinator.swift in Sources */,
@@ -3051,6 +3061,7 @@
 				B35BFBE92CB5AF9B00092B42 /* TutorialCenterCoordinator.swift in Sources */,
 				B32F3BD92CD41189000F4825 /* OnboardingNumberedTutorial.swift in Sources */,
 				B36927D32C66BBC10089F769 /* SceneDelegateRouter.swift in Sources */,
+				AFE15AB42CD97EFC000A255B /* PurchaseManager.swift in Sources */,
 				B32B61062C8A4140007DDCE3 /* ModalNavigationRouter.swift in Sources */,
 				B35BFB9F2CB47D9B00092B42 /* SettingsCoordinator.swift in Sources */,
 				B3987E2E2CA4F46A00896414 /* MainWidgetConfigurationQuery.swift in Sources */,
@@ -3082,7 +3093,7 @@
 				B372846A2C81096A00D9A1E7 /* ModuleStyle.swift in Sources */,
 				B32B60B72C864301007DDCE3 /* AppInfo+CoreDataProperties.swift in Sources */,
 				B39D89E32CB85C3C005EEC46 /* UsageCoordinator.swift in Sources */,
-				AF09AE8E2CD7171200E0707A /* SkinUnlockBadge.swift in Sources */,
+				AF09AE8E2CD7171200E0707A /* SkinUnlocklBadge.swift in Sources */,
 				B3D1B7CB2CB6FB0600DFC4F5 /* FAQQuestionAndAnswerView.swift in Sources */,
 				AF5F2D1B2CD2B93300EBAAB5 /* WidgetSetupViewController+StyleCollectionViewCellDelegate.swift in Sources */,
 				B39A25C42CAEC44E001C76A5 /* MainWidgetsPlaceholderView.swift in Sources */,
@@ -3121,6 +3132,7 @@
 				B35BFB892CB4605C00092B42 /* TutorialMultiParagraphLabel.swift in Sources */,
 				B34C62D62CCC1585004E014B /* WallpaperSaveError.swift in Sources */,
 				B35BFB8A2CB4605C00092B42 /* TutorialTextParagraphLabel.swift in Sources */,
+				AFE15ABB2CD9A194000A255B /* MultiLineGradientLabelView.swift in Sources */,
 				B35BFBE72CB5AAA600092B42 /* TutorialCenterLocalizedTexts.swift in Sources */,
 				B32F3BDD2CD41FFF000F4825 /* OnboardingCompletionCoordinator.swift in Sources */,
 				B35BFB8B2CB4605C00092B42 /* TutorialTitleLabel.swift in Sources */,

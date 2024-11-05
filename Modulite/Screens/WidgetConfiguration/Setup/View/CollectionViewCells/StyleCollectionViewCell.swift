@@ -10,6 +10,7 @@ import SnapKit
 
 protocol StyleCollectionViewCellDelegate: AnyObject {
     func styleCollectionViewCellDidPressPreview(_ cell: StyleCollectionViewCell)
+    func styleCollectionViewCellDidPressPurchasePreview(_ cell: StyleCollectionViewCell)
 }
 
 class StyleCollectionViewCell: UICollectionViewCell {
@@ -18,6 +19,8 @@ class StyleCollectionViewCell: UICollectionViewCell {
     // MARK: - Properties
     
     weak var delegate: StyleCollectionViewCellDelegate?
+    
+    private var isPurchased: Bool = false
     
     var hasSelectionBeenMade: Bool = false {
         didSet {
@@ -89,16 +92,9 @@ class StyleCollectionViewCell: UICollectionViewCell {
         return view
     }()
     
-    private lazy var unlockBadge: UILabel = {
-        // TODO: Change text to localizable format
-        let label = UILabel()
-        label.text = "Unlock for $0.99"
-        label.font = UIFont.boldSystemFont(ofSize: 14)
-        label.textAlignment = .center
-        label.backgroundColor = UIColor.carrotOrange
-        label.layer.cornerRadius = 10
-        label.clipsToBounds = true
-        return label
+    private lazy var unlockBadge: SkinUnlockBadge = {
+        let badge = SkinUnlockBadge()
+        return badge
     }()
 
     // MARK: - Setup methods
@@ -115,6 +111,8 @@ class StyleCollectionViewCell: UICollectionViewCell {
         
         addSubviews()
         setupConstraints()
+        
+        self.isPurchased = isPurchased
         unlockBadge.isHidden = isPurchased
     }
     
@@ -149,14 +147,15 @@ class StyleCollectionViewCell: UICollectionViewCell {
         unlockBadge.snp.makeConstraints { make in
             make.top.equalToSuperview().offset(8)
             make.right.equalToSuperview().offset(-8)
-            make.width.equalTo(80) // ou ajuste conforme necessário
-            make.height.equalTo(24)
         }
     }
     
     // MARK: - Actions
     @objc private func previewButtonTapped() {
-        delegate?.styleCollectionViewCellDidPressPreview(self)
+        if isPurchased {
+            delegate?.styleCollectionViewCellDidPressPreview(self)
+        }
+        delegate?.styleCollectionViewCellDidPressPurchasePreview(self)
     }
     
     private func updateOverlayAlpha() {
