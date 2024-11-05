@@ -9,7 +9,7 @@ import UIKit
 import SnapKit
 
 class PurchaseStylePreviewView: UIView {
-    var buyStyleButtonPressed: (() -> Void)?
+    var onBuyStylePressed: (() -> Void)?
     var updateSelectedStyleIndex: ((_ index: Int) -> Void)?
     
     // MARK: - Subviews
@@ -54,7 +54,7 @@ class PurchaseStylePreviewView: UIView {
         button.setTitleColor(.white, for: .normal)
         
         // Ação do botão
-        button.addTarget(self, action: #selector(didPressUseButton), for: .touchUpInside)
+        button.addTarget(self, action: #selector(didPressBuyButton), for: .touchUpInside)
         
         return button
     }()
@@ -111,8 +111,8 @@ class PurchaseStylePreviewView: UIView {
     
     // MARK: - Actions
     
-    @objc func didPressUseButton() {
-        buyStyleButtonPressed?()
+    @objc func didPressBuyButton() {
+        onBuyStylePressed?()
     }
     
     @objc func didChangePageControl() {
