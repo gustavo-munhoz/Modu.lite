@@ -13,7 +13,7 @@ public protocol WidgetStyle {
     var preview: UIImage { get }
     var backgroundConfiguration: StyleBackgroundConfiguration { get }
     var moduleConfiguration: StyleModuleConfiguration { get }
-    var wallpaperConfiguration: StyleWallpaperConfiguration { get }
+    var wallpaperSet: WallpaperSet { get }
     var isPurchased: Bool { get }
     var isIncludedInPlus: Bool { get }
     
@@ -22,9 +22,4 @@ public protocol WidgetStyle {
     func getModuleStyles(for type: WidgetType) -> [ModuleStyle]
     func getBackground(for type: WidgetType) -> StyleBackground
     func getWallpapers() -> WallpaperSet
-}
-
-public struct WallpaperSet {
-    let blockScreen: UIImage
-    let homeScreen: UIImage
 }
