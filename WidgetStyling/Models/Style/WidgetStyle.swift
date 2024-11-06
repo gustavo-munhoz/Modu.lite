@@ -16,4 +16,8 @@ public protocol WidgetStyle {
     var wallpaperConfiguration: StyleWallpaperConfiguration { get }
     var isPurchased: Bool { get }
     var isIncludedInPlus: Bool { get }
+    
+    func getEmptyStyle(for type: WidgetType) -> ModuleStyle
+    func getRandomStyle(for type: WidgetType) -> ModuleStyle
+    func getModuleStyles(for type: WidgetType) -> [ModuleStyle]
 }
