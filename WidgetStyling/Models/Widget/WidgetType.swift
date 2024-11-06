@@ -6,3 +6,17 @@
 //
 
 import Foundation
+
+enum WidgetType {
+    case main
+    case auxiliary
+    
+    var maxModules: Int {
+        switch self {
+        case .main:
+            return 6
+        case .auxiliary:
+            return 3
+        }
+    }
+}
