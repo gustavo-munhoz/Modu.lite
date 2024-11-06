@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum WidgetType {
+public enum WidgetType {
     case main
     case auxiliary
     
