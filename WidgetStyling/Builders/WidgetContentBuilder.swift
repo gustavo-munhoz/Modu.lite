@@ -16,7 +16,7 @@ public class WidgetContentBuilder: Builder {
     private var style: WidgetStyle?
     private var apps: [AppData] = []
     
-    enum BuildError: Swift.Error {
+    enum ContentError: Swift.Error {
         case missingName
         case missingStyle
         case emptyApps
@@ -42,23 +42,23 @@ public class WidgetContentBuilder: Builder {
     }
     
     func appendApp(_ app: AppData) throws {
-        guard apps.count < type.maxModules else { throw BuildError.maxAppsReached }
+        guard apps.count < type.maxModules else { throw ContentError.maxAppsReached }
         
         apps.append(app)
     }
     
     func removeApp(_ app: AppData) throws {
-        guard apps.count > 0 else { throw BuildError.emptyApps }
-        guard let index = apps.firstIndex(of: app) else { throw BuildError.appNotFound }
+        guard apps.count > 0 else { throw ContentError.emptyApps }
+        guard let index = apps.firstIndex(of: app) else { throw ContentError.appNotFound }
         
         apps.remove(at: index)
     }
     
     // MARK: - Build
     func build() throws -> WidgetContent {
-        guard let name else { throw BuildError.missingName }
-        guard let style else { throw BuildError.missingStyle }
-        guard !apps.isEmpty else { throw BuildError.emptyApps }
+        guard let name else { throw ContentError.missingName }
+        guard let style else { throw ContentError.missingStyle }
+        guard !apps.isEmpty else { throw ContentError.emptyApps }
         
         let emptySpaces = Array(repeating: nil as AppData?, count: type.maxModules - apps.count)
         let appsArray = apps.map { Optional($0) } + emptySpaces
