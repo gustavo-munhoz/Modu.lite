@@ -349,6 +349,8 @@
 		B39FB8252CDAF00A00967E3A /* WidgetContentBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39FB8242CDAF00A00967E3A /* WidgetContentBuilder.swift */; };
 		B39FB8272CDAF02000967E3A /* Builder.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39FB8262CDAF02000967E3A /* Builder.swift */; };
 		B39FB8292CDAFC2700967E3A /* WidgetModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39FB8282CDAFC2700967E3A /* WidgetModule.swift */; };
+		B39FB82B2CDB030500967E3A /* WidgetSchema.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39FB82A2CDB030500967E3A /* WidgetSchema.swift */; };
+		B39FB82F2CDB036C00967E3A /* Cloneable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39FB82E2CDB036C00967E3A /* Cloneable.swift */; };
 		B3AEF83B2CCA705C0019E91A /* AppBlockingSessionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3AEF83A2CCA705C0019E91A /* AppBlockingSessionHeader.swift */; };
 		B3C1877F2C78D1E000A891A8 /* ModuliteWidgetConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3C1877E2C78D1E000A891A8 /* ModuliteWidgetConfiguration.swift */; };
 		B3C187822C79009B00A891A8 /* WidgetConfigurationBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3C187812C79009B00A891A8 /* WidgetConfigurationBuilder.swift */; };
@@ -794,6 +796,8 @@
 		B39FB8242CDAF00A00967E3A /* WidgetContentBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetContentBuilder.swift; sourceTree = "<group>"; };
 		B39FB8262CDAF02000967E3A /* Builder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Builder.swift; sourceTree = "<group>"; };
 		B39FB8282CDAFC2700967E3A /* WidgetModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetModule.swift; sourceTree = "<group>"; };
+		B39FB82A2CDB030500967E3A /* WidgetSchema.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetSchema.swift; sourceTree = "<group>"; };
+		B39FB82E2CDB036C00967E3A /* Cloneable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cloneable.swift; sourceTree = "<group>"; };
 		B3AEF83A2CCA705C0019E91A /* AppBlockingSessionHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppBlockingSessionHeader.swift; sourceTree = "<group>"; };
 		B3C1877E2C78D1E000A891A8 /* ModuliteWidgetConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModuliteWidgetConfiguration.swift; sourceTree = "<group>"; };
 		B3C187812C79009B00A891A8 /* WidgetConfigurationBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetConfigurationBuilder.swift; sourceTree = "<group>"; };
@@ -2482,6 +2486,7 @@
 		B39FB7F22CDAA53000967E3A /* WidgetStyling */ = {
 			isa = PBXGroup;
 			children = (
+				B39FB82D2CDB033100967E3A /* Prototype */,
 				B39FB8212CDAEF9400967E3A /* Builders */,
 				B39FB81B2CDABA1B00967E3A /* Extensions */,
 				B39FB7FC2CDAB47500967E3A /* Models */,
@@ -2536,6 +2541,7 @@
 			children = (
 				B39FB8222CDAEF9C00967E3A /* WidgetType.swift */,
 				B39FB8282CDAFC2700967E3A /* WidgetModule.swift */,
+				B39FB82A2CDB030500967E3A /* WidgetSchema.swift */,
 			);
 			path = Widget;
 			sourceTree = "<group>";
@@ -2547,6 +2553,14 @@
 				B39FB8242CDAF00A00967E3A /* WidgetContentBuilder.swift */,
 			);
 			path = Builders;
+			sourceTree = "<group>";
+		};
+		B39FB82D2CDB033100967E3A /* Prototype */ = {
+			isa = PBXGroup;
+			children = (
+				B39FB82E2CDB036C00967E3A /* Cloneable.swift */,
+			);
+			path = Prototype;
 			sourceTree = "<group>";
 		};
 		B3C187802C79008800A891A8 /* Builders */ = {
@@ -3526,9 +3540,11 @@
 				B39FB8272CDAF02000967E3A /* Builder.swift in Sources */,
 				B39FB80E2CDAB96B00967E3A /* StyleBackgroundConfiguration.swift in Sources */,
 				B39FB8232CDAEF9C00967E3A /* WidgetType.swift in Sources */,
+				B39FB82B2CDB030500967E3A /* WidgetSchema.swift in Sources */,
 				B39FB8122CDAB9A000967E3A /* StyleWallpaperConfiguration.swift in Sources */,
 				B39FB8102CDAB98300967E3A /* StyleModuleConfiguration.swift in Sources */,
 				B39FB8052CDAB95B00967E3A /* WidgetStyle.swift in Sources */,
+				B39FB82F2CDB036C00967E3A /* Cloneable.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
