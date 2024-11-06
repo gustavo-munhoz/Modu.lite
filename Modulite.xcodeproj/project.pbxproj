@@ -363,6 +363,8 @@
 		B39FB84D2CDC045100967E3A /* WidgetStyleProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39FB84C2CDC045100967E3A /* WidgetStyleProvider.swift */; };
 		B39FB8512CDC082800967E3A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B39FB8502CDC082800967E3A /* Images.xcassets */; };
 		B39FB8532CDC083E00967E3A /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B39FB8522CDC083E00967E3A /* Colors.xcassets */; };
+		B39FB8552CDC10D500967E3A /* PreviewSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39FB8542CDC10D500967E3A /* PreviewSet.swift */; };
+		B39FB8572CDC14D600967E3A /* PreviewSetData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39FB8562CDC14D600967E3A /* PreviewSetData.swift */; };
 		B3AEF83B2CCA705C0019E91A /* AppBlockingSessionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3AEF83A2CCA705C0019E91A /* AppBlockingSessionHeader.swift */; };
 		B3C1877F2C78D1E000A891A8 /* ModuliteWidgetConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3C1877E2C78D1E000A891A8 /* ModuliteWidgetConfiguration.swift */; };
 		B3C187822C79009B00A891A8 /* WidgetConfigurationBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3C187812C79009B00A891A8 /* WidgetConfigurationBuilder.swift */; };
@@ -822,6 +824,8 @@
 		B39FB84C2CDC045100967E3A /* WidgetStyleProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetStyleProvider.swift; sourceTree = "<group>"; };
 		B39FB8502CDC082800967E3A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		B39FB8522CDC083E00967E3A /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
+		B39FB8542CDC10D500967E3A /* PreviewSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewSet.swift; sourceTree = "<group>"; };
+		B39FB8562CDC14D600967E3A /* PreviewSetData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewSetData.swift; sourceTree = "<group>"; };
 		B3AEF83A2CCA705C0019E91A /* AppBlockingSessionHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppBlockingSessionHeader.swift; sourceTree = "<group>"; };
 		B3C1877E2C78D1E000A891A8 /* ModuliteWidgetConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModuliteWidgetConfiguration.swift; sourceTree = "<group>"; };
 		B3C187812C79009B00A891A8 /* WidgetConfigurationBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetConfigurationBuilder.swift; sourceTree = "<group>"; };
@@ -2543,6 +2547,7 @@
 				B39FB80F2CDAB98300967E3A /* StyleModuleConfiguration.swift */,
 				B39FB8322CDBEC9A00967E3A /* WallpaperSet.swift */,
 				B39FB8442CDBF2B000967E3A /* LoadedWidgetStyle.swift */,
+				B39FB8542CDC10D500967E3A /* PreviewSet.swift */,
 			);
 			path = Style;
 			sourceTree = "<group>";
@@ -2603,6 +2608,7 @@
 				B39FB8382CDBECD500967E3A /* StyleBackgroundConfigurationData.swift */,
 				B39FB83A2CDBECE300967E3A /* StyleModuleConfigurationData.swift */,
 				B39FB83C2CDBECF200967E3A /* WallpaperSetData.swift */,
+				B39FB8562CDC14D600967E3A /* PreviewSetData.swift */,
 			);
 			path = Decodable;
 			sourceTree = "<group>";
@@ -3602,6 +3608,8 @@
 				B39FB7F32CDAA53000967E3A /* WidgetStyling.docc in Sources */,
 				B39FB81C2CDABA1B00967E3A /* String+TextCase.swift in Sources */,
 				B39FB8372CDBECC300967E3A /* WidgetStyleData.swift in Sources */,
+				B39FB8572CDC14D600967E3A /* PreviewSetData.swift in Sources */,
+				B39FB8552CDC10D500967E3A /* PreviewSet.swift in Sources */,
 				B39FB8432CDBEF2300967E3A /* ModuleTextConfigurationData.swift in Sources */,
 				B39FB80A2CDAB95B00967E3A /* AuxModuleStyle.swift in Sources */,
 				B39FB8252CDAF00A00967E3A /* WidgetContentBuilder.swift in Sources */,
