@@ -63,11 +63,12 @@ public class WidgetContentBuilder: Builder {
         let emptySpaces = Array(repeating: nil as AppData?, count: type.maxModules - apps.count)
         let appsArray = apps.map { Optional($0) } + emptySpaces
 
-        return WidgetContent(name: name, style: style, apps: appsArray)
+        return WidgetContent(type: type, name: name, style: style, apps: appsArray)
     }
 }
 
 struct WidgetContent {
+    let type: WidgetType
     let name: String
     let style: WidgetStyle
     let apps: [AppData?]
