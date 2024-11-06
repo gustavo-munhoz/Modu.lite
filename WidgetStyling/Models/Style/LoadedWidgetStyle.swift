@@ -18,6 +18,10 @@ class LoadedWidgetStyle: WidgetStyle {
     var isPurchased: Bool
     var isIncludedInPlus: Bool
     
+    enum WidgetStyleError: Swift.Error {
+        case previewNotFound
+    }
+    
     // MARK: - Initializers
     init(
         identifier: String,
@@ -39,6 +43,22 @@ class LoadedWidgetStyle: WidgetStyle {
         self.wallpaperSet = wallpaperSet
     }
     
+    convenience init(from data: WidgetStyleData) throws {
+        guard let previewImage = UIImage(named: data.previewImageName) else {
+            throw WidgetStyleError.previewNotFound
+        }
+        
+        self.init(
+            identifier: data.identifier,
+            name: data.name,
+            preview: previewImage,
+            isPurchased: data.isPurchased,
+            isIncludedInPlus: data.isIncludedInPlus,
+            backgroundConfiguration: try .create(from: data.backgroundConfiguration),
+            moduleConfiguration: try .create(from: data.moduleConfiguration),
+            wallpaperSet: try .create(from: data.wallpaperSet)
+        )
+    }
     
     // MARK: - Methods
     func getEmptyStyle(for type: WidgetType) -> ModuleStyle {
