@@ -342,7 +342,6 @@
 		B39FB80C2CDAB95B00967E3A /* ModuleStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39FB8082CDAB95B00967E3A /* ModuleStyle.swift */; };
 		B39FB80E2CDAB96B00967E3A /* StyleBackgroundConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39FB80D2CDAB96B00967E3A /* StyleBackgroundConfiguration.swift */; };
 		B39FB8102CDAB98300967E3A /* StyleModuleConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39FB80F2CDAB98300967E3A /* StyleModuleConfiguration.swift */; };
-		B39FB8122CDAB9A000967E3A /* StyleWallpaperConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39FB8112CDAB9A000967E3A /* StyleWallpaperConfiguration.swift */; };
 		B39FB8162CDAB9DC00967E3A /* ModuleTextConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39FB8152CDAB9DC00967E3A /* ModuleTextConfiguration.swift */; };
 		B39FB81C2CDABA1B00967E3A /* String+TextCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39FB81A2CDABA1B00967E3A /* String+TextCase.swift */; };
 		B39FB8232CDAEF9C00967E3A /* WidgetType.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39FB8222CDAEF9C00967E3A /* WidgetType.swift */; };
@@ -352,6 +351,18 @@
 		B39FB82B2CDB030500967E3A /* WidgetSchema.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39FB82A2CDB030500967E3A /* WidgetSchema.swift */; };
 		B39FB82F2CDB036C00967E3A /* Cloneable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39FB82E2CDB036C00967E3A /* Cloneable.swift */; };
 		B39FB8312CDB413800967E3A /* WidgetSchemaBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39FB8302CDB413800967E3A /* WidgetSchemaBuilder.swift */; };
+		B39FB8332CDBEC9A00967E3A /* WallpaperSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39FB8322CDBEC9A00967E3A /* WallpaperSet.swift */; };
+		B39FB8372CDBECC300967E3A /* WidgetStyleData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39FB8362CDBECC300967E3A /* WidgetStyleData.swift */; };
+		B39FB8392CDBECD500967E3A /* StyleBackgroundConfigurationData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39FB8382CDBECD500967E3A /* StyleBackgroundConfigurationData.swift */; };
+		B39FB83B2CDBECE300967E3A /* StyleModuleConfigurationData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39FB83A2CDBECE300967E3A /* StyleModuleConfigurationData.swift */; };
+		B39FB83D2CDBECF200967E3A /* WallpaperSetData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39FB83C2CDBECF200967E3A /* WallpaperSetData.swift */; };
+		B39FB8412CDBEDF000967E3A /* ModuleStyleData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39FB8402CDBEDF000967E3A /* ModuleStyleData.swift */; };
+		B39FB8432CDBEF2300967E3A /* ModuleTextConfigurationData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39FB8422CDBEF2300967E3A /* ModuleTextConfigurationData.swift */; };
+		B39FB8452CDBF2B100967E3A /* LoadedWidgetStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39FB8442CDBF2B000967E3A /* LoadedWidgetStyle.swift */; };
+		B39FB8492CDBF97200967E3A /* CGBlendMode+FromName.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39FB8482CDBF97200967E3A /* CGBlendMode+FromName.swift */; };
+		B39FB84D2CDC045100967E3A /* WidgetStyleProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39FB84C2CDC045100967E3A /* WidgetStyleProvider.swift */; };
+		B39FB8512CDC082800967E3A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B39FB8502CDC082800967E3A /* Images.xcassets */; };
+		B39FB8532CDC083E00967E3A /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B39FB8522CDC083E00967E3A /* Colors.xcassets */; };
 		B3AEF83B2CCA705C0019E91A /* AppBlockingSessionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3AEF83A2CCA705C0019E91A /* AppBlockingSessionHeader.swift */; };
 		B3C1877F2C78D1E000A891A8 /* ModuliteWidgetConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3C1877E2C78D1E000A891A8 /* ModuliteWidgetConfiguration.swift */; };
 		B3C187822C79009B00A891A8 /* WidgetConfigurationBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3C187812C79009B00A891A8 /* WidgetConfigurationBuilder.swift */; };
@@ -790,7 +801,6 @@
 		B39FB8082CDAB95B00967E3A /* ModuleStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModuleStyle.swift; sourceTree = "<group>"; };
 		B39FB80D2CDAB96B00967E3A /* StyleBackgroundConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StyleBackgroundConfiguration.swift; sourceTree = "<group>"; };
 		B39FB80F2CDAB98300967E3A /* StyleModuleConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StyleModuleConfiguration.swift; sourceTree = "<group>"; };
-		B39FB8112CDAB9A000967E3A /* StyleWallpaperConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StyleWallpaperConfiguration.swift; sourceTree = "<group>"; };
 		B39FB8152CDAB9DC00967E3A /* ModuleTextConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModuleTextConfiguration.swift; sourceTree = "<group>"; };
 		B39FB81A2CDABA1B00967E3A /* String+TextCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+TextCase.swift"; sourceTree = "<group>"; };
 		B39FB8222CDAEF9C00967E3A /* WidgetType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetType.swift; sourceTree = "<group>"; };
@@ -800,6 +810,18 @@
 		B39FB82A2CDB030500967E3A /* WidgetSchema.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetSchema.swift; sourceTree = "<group>"; };
 		B39FB82E2CDB036C00967E3A /* Cloneable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cloneable.swift; sourceTree = "<group>"; };
 		B39FB8302CDB413800967E3A /* WidgetSchemaBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetSchemaBuilder.swift; sourceTree = "<group>"; };
+		B39FB8322CDBEC9A00967E3A /* WallpaperSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WallpaperSet.swift; sourceTree = "<group>"; };
+		B39FB8362CDBECC300967E3A /* WidgetStyleData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetStyleData.swift; sourceTree = "<group>"; };
+		B39FB8382CDBECD500967E3A /* StyleBackgroundConfigurationData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StyleBackgroundConfigurationData.swift; sourceTree = "<group>"; };
+		B39FB83A2CDBECE300967E3A /* StyleModuleConfigurationData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StyleModuleConfigurationData.swift; sourceTree = "<group>"; };
+		B39FB83C2CDBECF200967E3A /* WallpaperSetData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WallpaperSetData.swift; sourceTree = "<group>"; };
+		B39FB8402CDBEDF000967E3A /* ModuleStyleData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModuleStyleData.swift; sourceTree = "<group>"; };
+		B39FB8422CDBEF2300967E3A /* ModuleTextConfigurationData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModuleTextConfigurationData.swift; sourceTree = "<group>"; };
+		B39FB8442CDBF2B000967E3A /* LoadedWidgetStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadedWidgetStyle.swift; sourceTree = "<group>"; };
+		B39FB8482CDBF97200967E3A /* CGBlendMode+FromName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGBlendMode+FromName.swift"; sourceTree = "<group>"; };
+		B39FB84C2CDC045100967E3A /* WidgetStyleProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetStyleProvider.swift; sourceTree = "<group>"; };
+		B39FB8502CDC082800967E3A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		B39FB8522CDC083E00967E3A /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		B3AEF83A2CCA705C0019E91A /* AppBlockingSessionHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppBlockingSessionHeader.swift; sourceTree = "<group>"; };
 		B3C1877E2C78D1E000A891A8 /* ModuliteWidgetConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModuliteWidgetConfiguration.swift; sourceTree = "<group>"; };
 		B3C187812C79009B00A891A8 /* WidgetConfigurationBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetConfigurationBuilder.swift; sourceTree = "<group>"; };
@@ -2488,12 +2510,16 @@
 		B39FB7F22CDAA53000967E3A /* WidgetStyling */ = {
 			isa = PBXGroup;
 			children = (
+				B39FB84F2CDC04A700967E3A /* WidgetStyles */,
+				B39FB84B2CDC043300967E3A /* Providers */,
 				B39FB82D2CDB033100967E3A /* Prototype */,
 				B39FB8212CDAEF9400967E3A /* Builders */,
 				B39FB81B2CDABA1B00967E3A /* Extensions */,
 				B39FB7FC2CDAB47500967E3A /* Models */,
 				B39FB7F02CDAA53000967E3A /* WidgetStyling.h */,
 				B39FB7F12CDAA53000967E3A /* WidgetStyling.docc */,
+				B39FB8502CDC082800967E3A /* Images.xcassets */,
+				B39FB8522CDC083E00967E3A /* Colors.xcassets */,
 			);
 			path = WidgetStyling;
 			sourceTree = "<group>";
@@ -2511,10 +2537,12 @@
 		B39FB8042CDAB95B00967E3A /* Style */ = {
 			isa = PBXGroup;
 			children = (
+				B39FB8352CDBECBB00967E3A /* Decodable */,
 				B39FB8032CDAB95B00967E3A /* WidgetStyle.swift */,
 				B39FB80D2CDAB96B00967E3A /* StyleBackgroundConfiguration.swift */,
 				B39FB80F2CDAB98300967E3A /* StyleModuleConfiguration.swift */,
-				B39FB8112CDAB9A000967E3A /* StyleWallpaperConfiguration.swift */,
+				B39FB8322CDBEC9A00967E3A /* WallpaperSet.swift */,
+				B39FB8442CDBF2B000967E3A /* LoadedWidgetStyle.swift */,
 			);
 			path = Style;
 			sourceTree = "<group>";
@@ -2522,6 +2550,7 @@
 		B39FB8092CDAB95B00967E3A /* Module */ = {
 			isa = PBXGroup;
 			children = (
+				B39FB83F2CDBEDE900967E3A /* Decodable */,
 				B39FB8062CDAB95B00967E3A /* AuxModuleStyle.swift */,
 				B39FB8072CDAB95B00967E3A /* MainModuleStyle.swift */,
 				B39FB8082CDAB95B00967E3A /* ModuleStyle.swift */,
@@ -2534,6 +2563,7 @@
 			isa = PBXGroup;
 			children = (
 				B39FB81A2CDABA1B00967E3A /* String+TextCase.swift */,
+				B39FB8482CDBF97200967E3A /* CGBlendMode+FromName.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -2564,6 +2594,41 @@
 				B39FB82E2CDB036C00967E3A /* Cloneable.swift */,
 			);
 			path = Prototype;
+			sourceTree = "<group>";
+		};
+		B39FB8352CDBECBB00967E3A /* Decodable */ = {
+			isa = PBXGroup;
+			children = (
+				B39FB8362CDBECC300967E3A /* WidgetStyleData.swift */,
+				B39FB8382CDBECD500967E3A /* StyleBackgroundConfigurationData.swift */,
+				B39FB83A2CDBECE300967E3A /* StyleModuleConfigurationData.swift */,
+				B39FB83C2CDBECF200967E3A /* WallpaperSetData.swift */,
+			);
+			path = Decodable;
+			sourceTree = "<group>";
+		};
+		B39FB83F2CDBEDE900967E3A /* Decodable */ = {
+			isa = PBXGroup;
+			children = (
+				B39FB8402CDBEDF000967E3A /* ModuleStyleData.swift */,
+				B39FB8422CDBEF2300967E3A /* ModuleTextConfigurationData.swift */,
+			);
+			path = Decodable;
+			sourceTree = "<group>";
+		};
+		B39FB84B2CDC043300967E3A /* Providers */ = {
+			isa = PBXGroup;
+			children = (
+				B39FB84C2CDC045100967E3A /* WidgetStyleProvider.swift */,
+			);
+			path = Providers;
+			sourceTree = "<group>";
+		};
+		B39FB84F2CDC04A700967E3A /* WidgetStyles */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = WidgetStyles;
 			sourceTree = "<group>";
 		};
 		B3C187802C79008800A891A8 /* Builders */ = {
@@ -3116,6 +3181,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B39FB8512CDC082800967E3A /* Images.xcassets in Resources */,
+				B39FB8532CDC083E00967E3A /* Colors.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3534,19 +3601,28 @@
 			files = (
 				B39FB7F32CDAA53000967E3A /* WidgetStyling.docc in Sources */,
 				B39FB81C2CDABA1B00967E3A /* String+TextCase.swift in Sources */,
+				B39FB8372CDBECC300967E3A /* WidgetStyleData.swift in Sources */,
+				B39FB8432CDBEF2300967E3A /* ModuleTextConfigurationData.swift in Sources */,
 				B39FB80A2CDAB95B00967E3A /* AuxModuleStyle.swift in Sources */,
 				B39FB8252CDAF00A00967E3A /* WidgetContentBuilder.swift in Sources */,
+				B39FB83B2CDBECE300967E3A /* StyleModuleConfigurationData.swift in Sources */,
 				B39FB80B2CDAB95B00967E3A /* MainModuleStyle.swift in Sources */,
 				B39FB8292CDAFC2700967E3A /* WidgetModule.swift in Sources */,
+				B39FB8452CDBF2B100967E3A /* LoadedWidgetStyle.swift in Sources */,
 				B39FB8162CDAB9DC00967E3A /* ModuleTextConfiguration.swift in Sources */,
 				B39FB80C2CDAB95B00967E3A /* ModuleStyle.swift in Sources */,
 				B39FB8312CDB413800967E3A /* WidgetSchemaBuilder.swift in Sources */,
 				B39FB8272CDAF02000967E3A /* Builder.swift in Sources */,
 				B39FB80E2CDAB96B00967E3A /* StyleBackgroundConfiguration.swift in Sources */,
 				B39FB8232CDAEF9C00967E3A /* WidgetType.swift in Sources */,
+				B39FB8412CDBEDF000967E3A /* ModuleStyleData.swift in Sources */,
 				B39FB82B2CDB030500967E3A /* WidgetSchema.swift in Sources */,
-				B39FB8122CDAB9A000967E3A /* StyleWallpaperConfiguration.swift in Sources */,
+				B39FB84D2CDC045100967E3A /* WidgetStyleProvider.swift in Sources */,
+				B39FB83D2CDBECF200967E3A /* WallpaperSetData.swift in Sources */,
+				B39FB8332CDBEC9A00967E3A /* WallpaperSet.swift in Sources */,
+				B39FB8392CDBECD500967E3A /* StyleBackgroundConfigurationData.swift in Sources */,
 				B39FB8102CDAB98300967E3A /* StyleModuleConfiguration.swift in Sources */,
+				B39FB8492CDBF97200967E3A /* CGBlendMode+FromName.swift in Sources */,
 				B39FB8052CDAB95B00967E3A /* WidgetStyle.swift in Sources */,
 				B39FB82F2CDB036C00967E3A /* Cloneable.swift in Sources */,
 			);
