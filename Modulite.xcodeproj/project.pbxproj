@@ -345,6 +345,10 @@
 		B39FB8122CDAB9A000967E3A /* StyleWallpaperConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39FB8112CDAB9A000967E3A /* StyleWallpaperConfiguration.swift */; };
 		B39FB8162CDAB9DC00967E3A /* ModuleTextConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39FB8152CDAB9DC00967E3A /* ModuleTextConfiguration.swift */; };
 		B39FB81C2CDABA1B00967E3A /* String+TextCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39FB81A2CDABA1B00967E3A /* String+TextCase.swift */; };
+		B39FB8232CDAEF9C00967E3A /* WidgetType.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39FB8222CDAEF9C00967E3A /* WidgetType.swift */; };
+		B39FB8252CDAF00A00967E3A /* WidgetContentBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39FB8242CDAF00A00967E3A /* WidgetContentBuilder.swift */; };
+		B39FB8272CDAF02000967E3A /* Builder.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39FB8262CDAF02000967E3A /* Builder.swift */; };
+		B39FB8292CDAFC2700967E3A /* WidgetModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39FB8282CDAFC2700967E3A /* WidgetModule.swift */; };
 		B3AEF83B2CCA705C0019E91A /* AppBlockingSessionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3AEF83A2CCA705C0019E91A /* AppBlockingSessionHeader.swift */; };
 		B3C1877F2C78D1E000A891A8 /* ModuliteWidgetConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3C1877E2C78D1E000A891A8 /* ModuliteWidgetConfiguration.swift */; };
 		B3C187822C79009B00A891A8 /* WidgetConfigurationBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3C187812C79009B00A891A8 /* WidgetConfigurationBuilder.swift */; };
@@ -786,6 +790,10 @@
 		B39FB8112CDAB9A000967E3A /* StyleWallpaperConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StyleWallpaperConfiguration.swift; sourceTree = "<group>"; };
 		B39FB8152CDAB9DC00967E3A /* ModuleTextConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModuleTextConfiguration.swift; sourceTree = "<group>"; };
 		B39FB81A2CDABA1B00967E3A /* String+TextCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+TextCase.swift"; sourceTree = "<group>"; };
+		B39FB8222CDAEF9C00967E3A /* WidgetType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetType.swift; sourceTree = "<group>"; };
+		B39FB8242CDAF00A00967E3A /* WidgetContentBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetContentBuilder.swift; sourceTree = "<group>"; };
+		B39FB8262CDAF02000967E3A /* Builder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Builder.swift; sourceTree = "<group>"; };
+		B39FB8282CDAFC2700967E3A /* WidgetModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetModule.swift; sourceTree = "<group>"; };
 		B3AEF83A2CCA705C0019E91A /* AppBlockingSessionHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppBlockingSessionHeader.swift; sourceTree = "<group>"; };
 		B3C1877E2C78D1E000A891A8 /* ModuliteWidgetConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModuliteWidgetConfiguration.swift; sourceTree = "<group>"; };
 		B3C187812C79009B00A891A8 /* WidgetConfigurationBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetConfigurationBuilder.swift; sourceTree = "<group>"; };
@@ -2474,6 +2482,7 @@
 		B39FB7F22CDAA53000967E3A /* WidgetStyling */ = {
 			isa = PBXGroup;
 			children = (
+				B39FB8212CDAEF9400967E3A /* Builders */,
 				B39FB81B2CDABA1B00967E3A /* Extensions */,
 				B39FB7FC2CDAB47500967E3A /* Models */,
 				B39FB7F02CDAA53000967E3A /* WidgetStyling.h */,
@@ -2485,6 +2494,7 @@
 		B39FB7FC2CDAB47500967E3A /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				B39FB8202CDAEF9000967E3A /* Widget */,
 				B39FB8042CDAB95B00967E3A /* Style */,
 				B39FB8092CDAB95B00967E3A /* Module */,
 			);
@@ -2519,6 +2529,24 @@
 				B39FB81A2CDABA1B00967E3A /* String+TextCase.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		B39FB8202CDAEF9000967E3A /* Widget */ = {
+			isa = PBXGroup;
+			children = (
+				B39FB8222CDAEF9C00967E3A /* WidgetType.swift */,
+				B39FB8282CDAFC2700967E3A /* WidgetModule.swift */,
+			);
+			path = Widget;
+			sourceTree = "<group>";
+		};
+		B39FB8212CDAEF9400967E3A /* Builders */ = {
+			isa = PBXGroup;
+			children = (
+				B39FB8262CDAF02000967E3A /* Builder.swift */,
+				B39FB8242CDAF00A00967E3A /* WidgetContentBuilder.swift */,
+			);
+			path = Builders;
 			sourceTree = "<group>";
 		};
 		B3C187802C79008800A891A8 /* Builders */ = {
@@ -3490,10 +3518,14 @@
 				B39FB7F32CDAA53000967E3A /* WidgetStyling.docc in Sources */,
 				B39FB81C2CDABA1B00967E3A /* String+TextCase.swift in Sources */,
 				B39FB80A2CDAB95B00967E3A /* AuxModuleStyle.swift in Sources */,
+				B39FB8252CDAF00A00967E3A /* WidgetContentBuilder.swift in Sources */,
 				B39FB80B2CDAB95B00967E3A /* MainModuleStyle.swift in Sources */,
+				B39FB8292CDAFC2700967E3A /* WidgetModule.swift in Sources */,
 				B39FB8162CDAB9DC00967E3A /* ModuleTextConfiguration.swift in Sources */,
 				B39FB80C2CDAB95B00967E3A /* ModuleStyle.swift in Sources */,
+				B39FB8272CDAF02000967E3A /* Builder.swift in Sources */,
 				B39FB80E2CDAB96B00967E3A /* StyleBackgroundConfiguration.swift in Sources */,
+				B39FB8232CDAEF9C00967E3A /* WidgetType.swift in Sources */,
 				B39FB8122CDAB9A000967E3A /* StyleWallpaperConfiguration.swift in Sources */,
 				B39FB8102CDAB98300967E3A /* StyleModuleConfiguration.swift in Sources */,
 				B39FB8052CDAB95B00967E3A /* WidgetStyle.swift in Sources */,
