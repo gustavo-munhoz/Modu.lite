@@ -10,7 +10,7 @@ import UIKit
 public protocol WidgetStyle {
     var identifier: String { get }
     var name: String { get }
-    var preview: UIImage { get }
+    var previewSet: PreviewSet { get }
     var backgroundConfiguration: StyleBackgroundConfiguration { get }
     var moduleConfiguration: StyleModuleConfiguration { get }
     var wallpaperSet: WallpaperSet { get }

@@ -11,31 +11,27 @@ class LoadedWidgetStyle: WidgetStyle {
     // MARK: - Properties
     var identifier: String
     var name: String
-    var preview: UIImage
+    var previewSet: PreviewSet
     var backgroundConfiguration: StyleBackgroundConfiguration
     var moduleConfiguration: StyleModuleConfiguration
     var wallpaperSet: WallpaperSet
     var isPurchased: Bool
     var isIncludedInPlus: Bool
     
-    enum WidgetStyleError: Swift.Error {
-        case previewNotFound
-    }
-    
     // MARK: - Initializers
     init(
         identifier: String,
         name: String,
-        preview: UIImage,
         isPurchased: Bool,
         isIncludedInPlus: Bool,
         backgroundConfiguration: StyleBackgroundConfiguration,
         moduleConfiguration: StyleModuleConfiguration,
+        previewSet: PreviewSet,
         wallpaperSet: WallpaperSet
     ) {
         self.identifier = identifier
         self.name = name
-        self.preview = preview
+        self.previewSet = previewSet
         self.isPurchased = isPurchased
         self.isIncludedInPlus = isIncludedInPlus
         self.backgroundConfiguration = backgroundConfiguration
@@ -44,18 +40,14 @@ class LoadedWidgetStyle: WidgetStyle {
     }
     
     convenience init(from data: WidgetStyleData) throws {
-        guard let previewImage = UIImage(named: data.previewImageName) else {
-            throw WidgetStyleError.previewNotFound
-        }
-        
         self.init(
             identifier: data.identifier,
             name: data.name,
-            preview: previewImage,
             isPurchased: data.isPurchased,
             isIncludedInPlus: data.isIncludedInPlus,
             backgroundConfiguration: try .create(from: data.backgroundConfiguration),
             moduleConfiguration: try .create(from: data.moduleConfiguration),
+            previewSet: try .create(from: data.previewSet),
             wallpaperSet: try .create(from: data.wallpaperSet)
         )
     }

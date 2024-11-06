@@ -10,11 +10,11 @@ import Foundation
 struct WidgetStyleData: Decodable {
     let identifier: String
     let name: String
-    let previewImageName: String
     let isPurchased: Bool
     let isIncludedInPlus: Bool
     
     let backgroundConfiguration: StyleBackgroundConfigurationData
     let moduleConfiguration: StyleModuleConfigurationData
     let wallpaperSet: WallpaperSetData
+    let previewSet: PreviewSetData
 }
