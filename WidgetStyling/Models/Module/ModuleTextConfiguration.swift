@@ -8,6 +8,7 @@
 import UIKit
 
 public class ModuleTextConfiguration {
+    // MARK: - Properties
     var font: UIFont?
     var textColor: UIColor?
     var textAlignment: NSTextAlignment?
@@ -20,6 +21,14 @@ public class ModuleTextConfiguration {
     var preffix: String?
     var suffix: String?
 
+    // MARK: - Initializers
+    init() { }
+    
+    convenience init(from data: ModuleTextConfigurationData) {
+        self.init()
+    }
+    
+    // MARK: - Methods
     func font(_ font: UIFont) -> Self {
         self.font = font
         return self
