@@ -340,9 +340,9 @@
 		B39FB80A2CDAB95B00967E3A /* AuxModuleStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39FB8062CDAB95B00967E3A /* AuxModuleStyle.swift */; };
 		B39FB80B2CDAB95B00967E3A /* MainModuleStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39FB8072CDAB95B00967E3A /* MainModuleStyle.swift */; };
 		B39FB80C2CDAB95B00967E3A /* ModuleStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39FB8082CDAB95B00967E3A /* ModuleStyle.swift */; };
-		B39FB80E2CDAB96B00967E3A /* WidgetBackgroundConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39FB80D2CDAB96B00967E3A /* WidgetBackgroundConfiguration.swift */; };
-		B39FB8102CDAB98300967E3A /* WidgetModuleConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39FB80F2CDAB98300967E3A /* WidgetModuleConfiguration.swift */; };
-		B39FB8122CDAB9A000967E3A /* WidgetWallpaperConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39FB8112CDAB9A000967E3A /* WidgetWallpaperConfiguration.swift */; };
+		B39FB80E2CDAB96B00967E3A /* StyleBackgroundConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39FB80D2CDAB96B00967E3A /* StyleBackgroundConfiguration.swift */; };
+		B39FB8102CDAB98300967E3A /* StyleModuleConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39FB80F2CDAB98300967E3A /* StyleModuleConfiguration.swift */; };
+		B39FB8122CDAB9A000967E3A /* StyleWallpaperConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39FB8112CDAB9A000967E3A /* StyleWallpaperConfiguration.swift */; };
 		B39FB8162CDAB9DC00967E3A /* ModuleTextConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39FB8152CDAB9DC00967E3A /* ModuleTextConfiguration.swift */; };
 		B39FB81C2CDABA1B00967E3A /* String+TextCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39FB81A2CDABA1B00967E3A /* String+TextCase.swift */; };
 		B3AEF83B2CCA705C0019E91A /* AppBlockingSessionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3AEF83A2CCA705C0019E91A /* AppBlockingSessionHeader.swift */; };
@@ -781,9 +781,9 @@
 		B39FB8062CDAB95B00967E3A /* AuxModuleStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuxModuleStyle.swift; sourceTree = "<group>"; };
 		B39FB8072CDAB95B00967E3A /* MainModuleStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainModuleStyle.swift; sourceTree = "<group>"; };
 		B39FB8082CDAB95B00967E3A /* ModuleStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModuleStyle.swift; sourceTree = "<group>"; };
-		B39FB80D2CDAB96B00967E3A /* WidgetBackgroundConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetBackgroundConfiguration.swift; sourceTree = "<group>"; };
-		B39FB80F2CDAB98300967E3A /* WidgetModuleConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetModuleConfiguration.swift; sourceTree = "<group>"; };
-		B39FB8112CDAB9A000967E3A /* WidgetWallpaperConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetWallpaperConfiguration.swift; sourceTree = "<group>"; };
+		B39FB80D2CDAB96B00967E3A /* StyleBackgroundConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StyleBackgroundConfiguration.swift; sourceTree = "<group>"; };
+		B39FB80F2CDAB98300967E3A /* StyleModuleConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StyleModuleConfiguration.swift; sourceTree = "<group>"; };
+		B39FB8112CDAB9A000967E3A /* StyleWallpaperConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StyleWallpaperConfiguration.swift; sourceTree = "<group>"; };
 		B39FB8152CDAB9DC00967E3A /* ModuleTextConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModuleTextConfiguration.swift; sourceTree = "<group>"; };
 		B39FB81A2CDABA1B00967E3A /* String+TextCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+TextCase.swift"; sourceTree = "<group>"; };
 		B3AEF83A2CCA705C0019E91A /* AppBlockingSessionHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppBlockingSessionHeader.swift; sourceTree = "<group>"; };
@@ -2485,21 +2485,21 @@
 		B39FB7FC2CDAB47500967E3A /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				B39FB8042CDAB95B00967E3A /* Widget */,
+				B39FB8042CDAB95B00967E3A /* Style */,
 				B39FB8092CDAB95B00967E3A /* Module */,
 			);
 			path = Models;
 			sourceTree = "<group>";
 		};
-		B39FB8042CDAB95B00967E3A /* Widget */ = {
+		B39FB8042CDAB95B00967E3A /* Style */ = {
 			isa = PBXGroup;
 			children = (
 				B39FB8032CDAB95B00967E3A /* WidgetStyle.swift */,
-				B39FB80D2CDAB96B00967E3A /* WidgetBackgroundConfiguration.swift */,
-				B39FB80F2CDAB98300967E3A /* WidgetModuleConfiguration.swift */,
-				B39FB8112CDAB9A000967E3A /* WidgetWallpaperConfiguration.swift */,
+				B39FB80D2CDAB96B00967E3A /* StyleBackgroundConfiguration.swift */,
+				B39FB80F2CDAB98300967E3A /* StyleModuleConfiguration.swift */,
+				B39FB8112CDAB9A000967E3A /* StyleWallpaperConfiguration.swift */,
 			);
-			path = Widget;
+			path = Style;
 			sourceTree = "<group>";
 		};
 		B39FB8092CDAB95B00967E3A /* Module */ = {
@@ -3493,9 +3493,9 @@
 				B39FB80B2CDAB95B00967E3A /* MainModuleStyle.swift in Sources */,
 				B39FB8162CDAB9DC00967E3A /* ModuleTextConfiguration.swift in Sources */,
 				B39FB80C2CDAB95B00967E3A /* ModuleStyle.swift in Sources */,
-				B39FB80E2CDAB96B00967E3A /* WidgetBackgroundConfiguration.swift in Sources */,
-				B39FB8122CDAB9A000967E3A /* WidgetWallpaperConfiguration.swift in Sources */,
-				B39FB8102CDAB98300967E3A /* WidgetModuleConfiguration.swift in Sources */,
+				B39FB80E2CDAB96B00967E3A /* StyleBackgroundConfiguration.swift in Sources */,
+				B39FB8122CDAB9A000967E3A /* StyleWallpaperConfiguration.swift in Sources */,
+				B39FB8102CDAB98300967E3A /* StyleModuleConfiguration.swift in Sources */,
 				B39FB8052CDAB95B00967E3A /* WidgetStyle.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -11,7 +11,7 @@ public protocol WidgetStyle {
     var identifier: String { get }
     var name: String { get }
     var preview: UIImage { get }
-    var backgroundConfiguration: WidgetBackgroundConfiguration { get }
-    var moduleConfiguration: WidgetModuleConfiguration { get }
-    var wallpaperConfiguration: WidgetWallpaperConfiguration { get }
+    var backgroundConfiguration: StyleBackgroundConfiguration { get }
+    var moduleConfiguration: StyleModuleConfiguration { get }
+    var wallpaperConfiguration: StyleWallpaperConfiguration { get }
 }
