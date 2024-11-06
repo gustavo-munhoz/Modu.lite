@@ -6,3 +6,8 @@
 //
 
 import Foundation
+
+protocol Builder {
+    associatedtype Product
+    func build() throws -> Product
+}
