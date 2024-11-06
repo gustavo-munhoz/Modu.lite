@@ -7,7 +7,7 @@
 
 import UIKit
 
-enum StyleBackground {
+public enum StyleBackground {
     case image(UIImage)
     case color(UIColor)
 }

@@ -8,6 +8,7 @@
 import UIKit
 
 public protocol ModuleStyle {
+    var identifier: String { get }
     var image: UIImage { get }
     var filterColors: [UIColor] { get }
     var defaultColor: UIColor { get }
