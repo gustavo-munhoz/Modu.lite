@@ -7,5 +7,8 @@
 
 public struct StyleModuleConfiguration {
     let mainModules: [MainModuleStyle]
+    let mainEmptyModule: MainModuleStyle
+    
     let auxModules: [AuxModuleStyle]
+    let auxEmptyModule: AuxModuleStyle
 }
