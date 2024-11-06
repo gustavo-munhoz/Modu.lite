@@ -8,6 +8,7 @@
 import UIKit
 
 public protocol ModuleStyle {
+    var image: UIImage { get }
     var filterColors: [UIColor] { get }
     var defaultColor: UIColor { get }
     var imageBlendMode: CGBlendMode? { get }
