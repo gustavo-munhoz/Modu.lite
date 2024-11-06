@@ -10,13 +10,13 @@ import UIKit
 public class WidgetModule {
     
     // MARK: - Properties
-    var isEmpty: Bool { appName == nil }
-    
     var position: Int
     var style: ModuleStyle
     let appName: String?
     let urlScheme: URL?
     var color: UIColor
+    
+    var isEmpty: Bool { appName == nil }
     
     // MARK: - Initializers
     init(
@@ -31,6 +31,15 @@ public class WidgetModule {
         self.appName = appName
         self.urlScheme = urlScheme
         self.color = color
+    }
+    
+    // MARK: - Helper functions
+    func canSetColor(to color: UIColor) -> Bool {
+        style.filterColors.contains(color)
+    }
+    
+    func availableColors() -> [UIColor] {
+        style.filterColors
     }
 }
 

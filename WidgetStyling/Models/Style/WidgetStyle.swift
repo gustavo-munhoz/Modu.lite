@@ -20,4 +20,11 @@ public protocol WidgetStyle {
     func getEmptyStyle(for type: WidgetType) -> ModuleStyle
     func getRandomStyle(for type: WidgetType) -> ModuleStyle
     func getModuleStyles(for type: WidgetType) -> [ModuleStyle]
+    func getBackground(for type: WidgetType) -> StyleBackground
+    func getWallpapers() -> WallpaperSet
+}
+
+public struct WallpaperSet {
+    let blockScreen: UIImage
+    let homeScreen: UIImage
 }
