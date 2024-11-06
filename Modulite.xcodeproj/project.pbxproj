@@ -50,7 +50,6 @@
 		AFDC1A522CB4600B008A816D /* ShieldConfigurationBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFDC1A502CB46005008A816D /* ShieldConfigurationBuilder.swift */; };
 		AFE15AB32CD97EFC000A255B /* PurchaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFE15AB22CD97EFC000A255B /* PurchaseManager.swift */; };
 		AFE15AB42CD97EFC000A255B /* PurchaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFE15AB22CD97EFC000A255B /* PurchaseManager.swift */; };
-		AFE15AB72CD99A2B000A255B /* Modulite.storekit in Resources */ = {isa = PBXBuildFile; fileRef = AFE15AB62CD99A2B000A255B /* Modulite.storekit */; };
 		AFE15ABB2CD9A194000A255B /* MultiLineGradientLabelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFE15ABA2CD9A194000A255B /* MultiLineGradientLabelView.swift */; };
 		AFE5D5022CADD4C700503572 /* FamilyControlsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFE5D5012CADD4C700503572 /* FamilyControlsManager.swift */; };
 		AFE5D5032CADD4C700503572 /* FamilyControlsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFE5D5012CADD4C700503572 /* FamilyControlsManager.swift */; };
@@ -468,6 +467,9 @@
 		AF0DB4A32CD40C6400451E18 /* StylePreviewCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StylePreviewCoordinator.swift; sourceTree = "<group>"; };
 		AF0DB51F2CD6DAA300451E18 /* TestModuliteIAP.storekit */ = {isa = PBXFileReference; lastKnownFileType = folder; path = TestModuliteIAP.storekit; sourceTree = "<group>"; };
 		AF0DB5262CD6DB8600451E18 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		AF34A7DA2CDA9C4000016A7A /* CantOpenAppViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CantOpenAppViewController.swift; sourceTree = "<group>"; };
+		AF34A7DC2CDA9C4D00016A7A /* CantOpenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CantOpenView.swift; sourceTree = "<group>"; };
+		AF34A7DE2CDBF48200016A7A /* Modu.storekit */ = {isa = PBXFileReference; lastKnownFileType = text; path = Modu.storekit; sourceTree = "<group>"; };
 		AF362C042CA5B1A300506443 /* ModuliteDeviceActivityMonitor.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = ModuliteDeviceActivityMonitor.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		AF362C122CA5B1B000506443 /* DeviceActivityMonitorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceActivityMonitorExtension.swift; sourceTree = "<group>"; };
 		AF362C132CA5B1B000506443 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -490,7 +492,6 @@
 		AFBBC50C2C7E459A00A9B256 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AFDC1A502CB46005008A816D /* ShieldConfigurationBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShieldConfigurationBuilder.swift; sourceTree = "<group>"; };
 		AFE15AB22CD97EFC000A255B /* PurchaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseManager.swift; sourceTree = "<group>"; };
-		AFE15AB62CD99A2B000A255B /* Modulite.storekit */ = {isa = PBXFileReference; lastKnownFileType = text; path = Modulite.storekit; sourceTree = "<group>"; };
 		AFE15ABA2CD9A194000A255B /* MultiLineGradientLabelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiLineGradientLabelView.swift; sourceTree = "<group>"; };
 		AFE5D5012CADD4C700503572 /* FamilyControlsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FamilyControlsManager.swift; sourceTree = "<group>"; };
 		AFE5D5092CADD51600503572 /* ModuliteShieldConfiguration.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = ModuliteShieldConfiguration.appex; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -1902,6 +1903,7 @@
 		B369278B2C66B6E30089F769 = {
 			isa = PBXGroup;
 			children = (
+				AF34A7DE2CDBF48200016A7A /* Modu.storekit */,
 				B39A25B72CAE1A72001C76A5 /* Config */,
 				AFABBD7E2C863036007BEFD8 /* ModuliteWidgetExtension.entitlements */,
 				B36927962C66B6E30089F769 /* Modulite */,
@@ -1935,7 +1937,6 @@
 		B36927962C66B6E30089F769 /* Modulite */ = {
 			isa = PBXGroup;
 			children = (
-				AFE15AB62CD99A2B000A255B /* Modulite.storekit */,
 				AF0DB51F2CD6DAA300451E18 /* TestModuliteIAP.storekit */,
 				B32F3BF02CD709DD000F4825 /* Fonts */,
 				B39A259B2CAB2933001C76A5 /* Prototype */,
@@ -2836,7 +2837,6 @@
 				AF0DB5252CD6DAA300451E18 /* TestModuliteIAP.storekit in Resources */,
 				B36927A12C66B6E40089F769 /* Assets.xcassets in Resources */,
 				B3987DFF2CA202C100896414 /* InfoPlist.xcstrings in Resources */,
-				AFE15AB72CD99A2B000A255B /* Modulite.storekit in Resources */,
 				B39A25E42CAFADF6001C76A5 /* BundleConfig.xcconfig in Resources */,
 				B3F0543C2C7D04D60057F04D /* apps.json in Resources */,
 				B39FB7B82CD9758200967E3A /* ArchivoSemiCondensed-Bold.ttf in Resources */,
