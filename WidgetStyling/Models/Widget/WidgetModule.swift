@@ -34,6 +34,22 @@ public class WidgetModule {
     }
 }
 
+extension WidgetModule {
+    static func createEmpty(
+        of style: WidgetStyle,
+        type: WidgetType,
+        at position: Int
+    ) -> WidgetModule {
+        WidgetModule(
+            style: style.getEmptyStyle(for: type),
+            position: position,
+            appName: nil,
+            urlScheme: nil,
+            color: .clear
+        )
+    }
+}
+
 extension Array where Element: WidgetModule {
     mutating func replace(at position: Int, with module: Element) {
         replaceSubrange(
