@@ -14,4 +14,6 @@ public protocol WidgetStyle {
     var backgroundConfiguration: StyleBackgroundConfiguration { get }
     var moduleConfiguration: StyleModuleConfiguration { get }
     var wallpaperConfiguration: StyleWallpaperConfiguration { get }
+    var isPurchased: Bool { get }
+    var isIncludedInPlus: Bool { get }
 }
