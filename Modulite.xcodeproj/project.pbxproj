@@ -30,6 +30,8 @@
 		AF0DB5242CD6DAA300451E18 /* TestModuliteIAP.storekit in Resources */ = {isa = PBXBuildFile; fileRef = AF0DB51F2CD6DAA300451E18 /* TestModuliteIAP.storekit */; };
 		AF0DB5252CD6DAA300451E18 /* TestModuliteIAP.storekit in Resources */ = {isa = PBXBuildFile; fileRef = AF0DB51F2CD6DAA300451E18 /* TestModuliteIAP.storekit */; };
 		AF0DB5272CD6DB8600451E18 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF0DB5262CD6DB8600451E18 /* StoreKit.framework */; };
+		AF34A7E22CDBFFCD00016A7A /* SubscriptionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF34A7E12CDBFFCD00016A7A /* SubscriptionManager.swift */; };
+		AF34A7E32CDBFFCD00016A7A /* SubscriptionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF34A7E12CDBFFCD00016A7A /* SubscriptionManager.swift */; };
 		AF362C052CA5B1A300506443 /* DeviceActivity.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AFABBD872C88E388007BEFD8 /* DeviceActivity.framework */; };
 		AF362C0D2CA5B1A300506443 /* ModuliteDeviceActivityMonitor.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = AF362C042CA5B1A300506443 /* ModuliteDeviceActivityMonitor.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		AF362C162CA5B1B000506443 /* DeviceActivityMonitorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF362C122CA5B1B000506443 /* DeviceActivityMonitorExtension.swift */; };
@@ -536,6 +538,9 @@
 		AF0DB4A32CD40C6400451E18 /* StylePreviewCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StylePreviewCoordinator.swift; sourceTree = "<group>"; };
 		AF0DB51F2CD6DAA300451E18 /* TestModuliteIAP.storekit */ = {isa = PBXFileReference; lastKnownFileType = folder; path = TestModuliteIAP.storekit; sourceTree = "<group>"; };
 		AF0DB5262CD6DB8600451E18 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		AF34A7E12CDBFFCD00016A7A /* SubscriptionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionManager.swift; sourceTree = "<group>"; };
+		AF34A7DA2CDA9C4000016A7A /* CantOpenAppViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CantOpenAppViewController.swift; sourceTree = "<group>"; };
+		AF34A7DC2CDA9C4D00016A7A /* CantOpenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CantOpenView.swift; sourceTree = "<group>"; };
 		AF34A7DE2CDBF48200016A7A /* Modu.storekit */ = {isa = PBXFileReference; lastKnownFileType = text; path = Modu.storekit; sourceTree = "<group>"; };
 		AF362C042CA5B1A300506443 /* ModuliteDeviceActivityMonitor.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = ModuliteDeviceActivityMonitor.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		AF362C122CA5B1B000506443 /* DeviceActivityMonitorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceActivityMonitorExtension.swift; sourceTree = "<group>"; };
@@ -1061,6 +1066,14 @@
 			path = StylePreview;
 			sourceTree = "<group>";
 		};
+		AF34A7E02CDBFFCC00016A7A /* PLUS */ = {
+			isa = PBXGroup;
+			children = (
+				AF34A7E12CDBFFCD00016A7A /* SubscriptionManager.swift */,
+			);
+			path = PLUS;
+			sourceTree = "<group>";
+		};
 		AF362C152CA5B1B000506443 /* ModuliteDeviceActivityMonitor */ = {
 			isa = PBXGroup;
 			children = (
@@ -1291,6 +1304,7 @@
 			isa = PBXGroup;
 			children = (
 				B3C6DD842CDEAC17002AEAF7 /* CoreDataPersistence */,
+				AF34A7E02CDBFFCC00016A7A /* PLUS */,
 				AF09AE732CD7047200E0707A /* Skins */,
 				AF362C7B2CAB320200506443 /* FamilyControls */,
 				B33808A42CC3050200D56884 /* UserPreferences */,
@@ -3323,6 +3337,7 @@
 			files = (
 				AF0026662CCAC8300052B101 /* ShieldContentFactory.swift in Sources */,
 				B37284742C82995C00D9A1E7 /* UIFont+TraitedTextStyle.swift in Sources */,
+				AF34A7E22CDBFFCD00016A7A /* SubscriptionManager.swift in Sources */,
 				B3987E0C2CA38A8A00896414 /* MainWidget.swift in Sources */,
 				B34C62F52CD179E9004E014B /* OnboardingPreferences.swift in Sources */,
 				B32F3BFF2CD70D77000F4825 /* SpaceGrotesk.swift in Sources */,
@@ -3596,6 +3611,7 @@
 				B39D89E02CB85C38005EEC46 /* BlockAppsCoordinator.swift in Sources */,
 				B35BFC4E2CB609CD00092B42 /* TutorialAddWidgetView.swift in Sources */,
 				B3D1B7CF2CB6FDF800DFC4F5 /* FAQStackView.swift in Sources */,
+				AF34A7E32CDBFFCD00016A7A /* SubscriptionManager.swift in Sources */,
 				B34F3E282C6D36D40041D7BD /* WidgetSetupViewController.swift in Sources */,
 				B32B60BC2C86492C007DDCE3 /* UIColorValueTransformer.swift in Sources */,
 				B39A25D12CAF1B0D001C76A5 /* GradientLabelView.swift in Sources */,
