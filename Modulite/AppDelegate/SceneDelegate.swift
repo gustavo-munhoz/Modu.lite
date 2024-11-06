@@ -78,12 +78,12 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                     case .invalidURL:
                         print("URL inválido fornecido.")
                         redirectingVC.showAlert {
-                            redirectingVC.dismiss(animated: false)
+                            redirectingVC.dismiss(animated: true)
                         }
                     case .cannotOpenApp:
                         print("Can't open app")
                         redirectingVC.showAlert {
-                            redirectingVC.dismiss(animated: false)
+                            redirectingVC.dismiss(animated: true)
                         }
                     }
                 } else {
