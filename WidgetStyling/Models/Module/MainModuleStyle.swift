@@ -19,6 +19,7 @@ public class MainModuleStyle: ModuleStyle {
     enum ModuleError: Swift.Error {
         case imageNotFound
         case colorNotFound
+        case undefinedBlendMode
     }
     
     // MARK: - Initializers
@@ -64,5 +65,27 @@ public class MainModuleStyle: ModuleStyle {
             imageBlendMode: .named(data.imageBlendMode ?? ""),
             textConfiguration: .create(from: data.textConfiguration)
         )
+    }
+    
+    // MARK: - Methods
+    public func blendedImage(with color: UIColor) throws -> UIImage {
+        guard let imageBlendMode else { throw ModuleError.undefinedBlendMode }
+        
+        let image = image.withConfiguration(
+            UIImage.Configuration(traitCollection: .init(userInterfaceStyle: .light))
+        )
+        
+        let renderer = UIGraphicsImageRenderer(size: image.size, format: image.imageRendererFormat)
+        
+        let blendedImage = renderer.image { context in
+            image.draw(in: CGRect(origin: .zero, size: image.size))
+            context.cgContext.setBlendMode(imageBlendMode)
+            context.cgContext.setFillColor(color.cgColor)
+            
+            let rect = CGRect(origin: .zero, size: image.size)
+            context.cgContext.fill(rect)
+        }
+        
+        return blendedImage
     }
 }
