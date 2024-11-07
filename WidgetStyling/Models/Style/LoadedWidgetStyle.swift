@@ -91,4 +91,8 @@ class LoadedWidgetStyle: WidgetStyle {
             homeScreen: wallpaperSet.homeScreen
         )
     }
+    
+    func getWidgetPreview() -> UIImage {
+        previewSet.widgetPreview
+    }
 }
