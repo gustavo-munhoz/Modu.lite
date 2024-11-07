@@ -10,16 +10,24 @@ import UIKit
 public class WidgetModule {
     
     // MARK: - Properties
-    var position: Int
-    var style: ModuleStyle
-    let appName: String?
-    let urlScheme: URL?
-    var color: UIColor
+    public var position: Int
+    public var style: ModuleStyle
+    public let appName: String?
+    public let urlScheme: URL?
+    public var color: UIColor
     
     var isEmpty: Bool { appName == nil }
     
+    public var blendedImage: UIImage {
+        do {
+            return try style.blendedImage(with: color)
+        } catch {
+            return style.image
+        }
+    }
+    
     // MARK: - Initializers
-    init(
+    public init(
         style: ModuleStyle,
         position: Int,
         appName: String?,

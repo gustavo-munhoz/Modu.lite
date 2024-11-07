@@ -10,23 +10,21 @@ import UIKit
 public class WidgetSchema: Cloneable {
     
     // MARK: - Properties
-    let id: UUID = UUID()
-    let type: WidgetType
-    var widgetStyle: WidgetStyle
-    var name: String?
-    var modules: [WidgetModule] = []
-    
-    var previewImage: UIImage?
+    public let id: UUID = UUID()
+    public let type: WidgetType
+    public var widgetStyle: WidgetStyle
+    public var name: String?
+    public var modules: [WidgetModule] = []
+    public var previewImage: UIImage?
+    public var createdAt: Date
     
     var availableModuleStyles: [ModuleStyle] {
         widgetStyle.getModuleStyles(for: type)
     }
     
-    var createdAt: Date
-    
     // MARK: - Initializers
     
-    init(
+    public init(
         type: WidgetType,
         style: WidgetStyle,
         name: String? = nil,

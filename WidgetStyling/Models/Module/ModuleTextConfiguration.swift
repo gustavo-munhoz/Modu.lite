@@ -9,17 +9,17 @@ import UIKit
 
 public class ModuleTextConfiguration {
     // MARK: - Properties
-    var font: UIFont?
-    var textColor: UIColor?
-    var textAlignment: NSTextAlignment?
-    var shadowColor: UIColor?
-    var shadowOffset: CGSize?
-    var shadowBlurRadius: CGFloat?
-    var letterSpacing: CGFloat?
-    var textCase: String.TextCase?
-    var shouldRemoveSpaces: Bool = false
-    var preffix: String?
-    var suffix: String?
+    public var font: UIFont?
+    public var textColor: UIColor?
+    public var textAlignment: NSTextAlignment?
+    public var shadowColor: UIColor?
+    public var shadowOffset: CGSize?
+    public var shadowBlurRadius: CGFloat?
+    public var letterSpacing: CGFloat?
+    public var textCase: String.TextCase?
+    public var shouldRemoveSpaces: Bool = false
+    public var prefix: String?
+    public var suffix: String?
 
     // MARK: - Initializers
     static func create(from data: ModuleTextConfigurationData) -> ModuleTextConfiguration {
@@ -71,7 +71,7 @@ public class ModuleTextConfiguration {
                 
         configuration.shouldRemoveSpaces = data.shouldRemoveSpaces ?? false
                 
-        configuration.preffix = data.prefix
+        configuration.prefix = data.prefix
         configuration.suffix = data.suffix
         
         return configuration
@@ -109,8 +109,8 @@ public class ModuleTextConfiguration {
         return self
     }
     
-    func preffix(_ preffix: String) -> Self {
-        self.preffix = preffix
+    func prefix(_ prefix: String) -> Self {
+        self.prefix = prefix
         return self
     }
     

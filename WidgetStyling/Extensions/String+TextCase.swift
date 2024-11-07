@@ -9,7 +9,7 @@ import Foundation
 
 extension String {
     
-    enum TextCase {
+    public enum TextCase {
         case upper
         case lower
         case camel
@@ -31,7 +31,7 @@ extension String {
         }
     }
     
-    func camelCased() -> String {
+    public func camelCased() -> String {
         let trimmedString = self.trimmingCharacters(in: .whitespacesAndNewlines)
         let words = trimmedString.components(separatedBy: CharacterSet.alphanumerics.inverted)
         
