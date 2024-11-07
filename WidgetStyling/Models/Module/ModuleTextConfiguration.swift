@@ -22,10 +22,59 @@ public class ModuleTextConfiguration {
     var suffix: String?
 
     // MARK: - Initializers
-    init() { }
-    
-    convenience init(from data: ModuleTextConfigurationData) {
-        self.init()
+    static func create(from data: ModuleTextConfigurationData) -> ModuleTextConfiguration {
+        let configuration = ModuleTextConfiguration()
+                
+        if let textStyleString = data.textStyle {
+            let textStyle = UIFont.TextStyle.from(textStyleString)
+            let weight = UIFont.Weight.from(string: data.fontWeight)
+            
+            if let fontName = data.fontName, !fontName.isEmpty, fontName.lowercased() != "system" {
+                if let customFont = UIFont(name: fontName, size: 0) {
+                    let fontMetrics = UIFontMetrics(forTextStyle: textStyle)
+                    let scaledFont = fontMetrics.scaledFont(for: customFont)
+                    configuration.font = scaledFont
+                }
+            } else {
+                configuration.font = UIFont(
+                    textStyle: textStyle,
+                    weight: weight
+                )
+            }
+        }
+                
+        if let textColorName = data.textColorName {
+            configuration.textColor = UIColor.fromWidgetStyling(named: textColorName)
+        }
+                
+        if let alignment = data.textAlignment {
+            configuration.textAlignment = NSTextAlignment(from: alignment)
+        }
+                
+        if let shadowColorName = data.shadowColorName {
+            configuration.shadowColor = UIColor.fromWidgetStyling(named: shadowColorName)
+        }
+        if let width = data.shadowOffsetWidth, let height = data.shadowOffsetHeight {
+            configuration.shadowOffset = CGSize(width: width, height: height)
+        }
+        if let blurRadius = data.shadowBlurRadius {
+            configuration.shadowBlurRadius = blurRadius
+        }
+                
+        if let spacing = data.letterSpacing {
+            configuration.letterSpacing = spacing
+        }
+                
+        if let caseString = data.textCase {
+            configuration.textCase = String.TextCase(from: caseString)
+        }
+                
+        configuration.shouldRemoveSpaces = data.shouldRemoveSpaces ?? false
+                
+        configuration.preffix = data.prefix
+        configuration.suffix = data.suffix
+        
+        return configuration
     }
     
     // MARK: - Methods
