@@ -25,15 +25,12 @@ public class WidgetStyleProvider {
     private func loadStyles() throws {
         let bundle = Bundle(for: Self.self)
         
-        guard let stylesFolderURL = bundle.url(
-            forResource: "WidgetStyles",
-            withExtension: nil
-        ) else {
+        guard let resourceURL = bundle.resourceURL else {
             throw ProviderError.directoryNotFound
         }
         
         let fileURLs = try FileManager.default.contentsOfDirectory(
-            at: stylesFolderURL,
+            at: resourceURL,
             includingPropertiesForKeys: nil,
             options: [.skipsHiddenFiles]
         )
@@ -56,4 +53,3 @@ public class WidgetStyleProvider {
     
     public func getAllStyles() -> [WidgetStyle] { styles }
 }
-
