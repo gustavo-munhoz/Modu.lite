@@ -22,4 +22,5 @@ public protocol WidgetStyle {
     func getModuleStyles(for type: WidgetType) -> [ModuleStyle]
     func getBackground(for type: WidgetType) -> StyleBackground
     func getWallpapers() -> WallpaperSet
+    func getWidgetPreview() -> UIImage
 }
