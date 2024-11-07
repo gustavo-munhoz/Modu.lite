@@ -7,6 +7,7 @@
 
 import UIKit
 import SnapKit
+import WidgetStyling
 
 class WidgetModuleCell: UICollectionViewCell {
     static let reuseId = "WidgetModuleCell"
@@ -49,6 +50,21 @@ class WidgetModuleCell: UICollectionViewCell {
         if module.appName != nil {
             appNameLabel.text = module.appName
             appNameLabel.configure(with: module.textConfiguration)
+        }
+        
+        addSubviews()
+        setupConstraints()
+    }
+    
+    func setup(with module: WidgetModule) {
+        subviews.forEach { $0.removeFromSuperview() }
+        moduleImageView.image = module.blendedImage
+        
+        layer.cornerRadius = 12
+        clipsToBounds = true
+        if let appName = module.appName {
+            appNameLabel.text = appName
+            appNameLabel.applyConfiguration(module.style.textConfiguration)
         }
         
         addSubviews()
