@@ -7,6 +7,7 @@
 
 import UIKit
 import CoreData
+import WidgetStyling
 
 extension PersistableModuleConfiguration {
     @NSManaged var index: Int16
@@ -41,5 +42,31 @@ extension PersistableModuleConfiguration {
         module.resultingImageURL = moduleImageUrl
         
         return module
+    }
+    
+    static func from(
+        module: WidgetModule,
+        widgetId: UUID,
+        using managedObjectContext: NSManagedObjectContext
+    ) -> PersistableModuleConfiguration {
+        let persistedModule = PersistableModuleConfiguration(context: managedObjectContext)
+        
+        persistedModule.index = Int16(module.position)
+        persistedModule.appName = module.appName
+        persistedModule.urlScheme = module.urlScheme
+        persistedModule.selectedStyleKey = module.style.identifier
+        persistedModule.selectedColor = module.color
+        
+        let moduleImage = module.createCompleteImage()
+        
+        let persistedModuleImageURL = FileManagerImagePersistenceController.shared.saveModuleImage(
+            image: moduleImage,
+            for: widgetId,
+            moduleIndex: module.position
+        )
+        
+        persistedModule.resultingImageURL = persistedModuleImageURL
+        
+        return persistedModule
     }
 }
