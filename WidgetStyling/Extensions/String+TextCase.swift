@@ -14,6 +14,21 @@ extension String {
         case lower
         case camel
         case capitalized
+        
+        init?(from string: String) {
+            switch string.lowercased() {
+            case "upper":
+                self = .upper
+            case "lower":
+                self = .lower
+            case "camel":
+                self = .camel
+            case "capitalized":
+                self = .capitalized
+            default:
+                return nil
+            }
+        }
     }
     
     func camelCased() -> String {
