@@ -47,6 +47,19 @@ public class WidgetStyleProvider {
         }
     }
     
+    public func getModuleStyle(by identifier: String) -> ModuleStyle? {
+        let allModules = styles.flatMap { style -> [ModuleStyle] in
+            var modules: [ModuleStyle] = []
+            modules.append(contentsOf: style.moduleConfiguration.mainModules)
+            modules.append(contentsOf: style.moduleConfiguration.auxModules)
+            modules.append(style.moduleConfiguration.mainEmptyModule)
+            modules.append(style.moduleConfiguration.auxEmptyModule)
+            return modules
+        }
+                
+        return allModules.first(where: { $0.identifier == identifier })
+    }
+    
     public func getStyle(by identifier: String) -> WidgetStyle? {
         styles.first(where: { $0.identifier == identifier })
     }
