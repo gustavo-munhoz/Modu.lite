@@ -246,7 +246,6 @@
 		B372846E2C8298F100D9A1E7 /* ModuleConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3EB15B52C7E4BF0003B1960 /* ModuleConfiguration.swift */; };
 		B37284702C82990B00D9A1E7 /* WidgetStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3C187832C791D1300A891A8 /* WidgetStyle.swift */; };
 		B37284712C82992200D9A1E7 /* ModuleAppNameTextConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3EB15B82C7E4CD6003B1960 /* ModuleAppNameTextConfiguration.swift */; };
-		B37284722C82992C00D9A1E7 /* String+TextCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3EB15BC2C7E7311003B1960 /* String+TextCase.swift */; };
 		B37284742C82995C00D9A1E7 /* UIFont+TraitedTextStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = B34F3E2A2C6E837F0041D7BD /* UIFont+TraitedTextStyle.swift */; };
 		B37284752C82996600D9A1E7 /* String+LocalizedKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = B34F3DF42C6701870041D7BD /* String+LocalizedKey.swift */; };
 		B37284762C82997700D9A1E7 /* ImageProcessingFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3CDD7062C77C59B00E558F8 /* ImageProcessingFactory.swift */; };
@@ -371,6 +370,9 @@
 		B39FB8622CDC319A00967E3A /* UIFont.TextStyle+FromString.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39FB8612CDC319A00967E3A /* UIFont.TextStyle+FromString.swift */; };
 		B39FB8742CDC441D00967E3A /* analog.json in Resources */ = {isa = PBXBuildFile; fileRef = B39FB8722CDC441D00967E3A /* analog.json */; };
 		B39FB8762CDC48D600967E3A /* UIImage+UIColor+FromWidgetStyling.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39FB8752CDC48D600967E3A /* UIImage+UIColor+FromWidgetStyling.swift */; };
+		B39FB8782CDD3E4100967E3A /* WidgetModule+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39FB8772CDD3E4100967E3A /* WidgetModule+Extensions.swift */; };
+		B39FB87A2CDD451300967E3A /* WidgetSchema+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39FB8792CDD451300967E3A /* WidgetSchema+Extensions.swift */; };
+		B39FB87B2CDD49D300967E3A /* WidgetModule+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39FB8772CDD3E4100967E3A /* WidgetModule+Extensions.swift */; };
 		B3AEF83B2CCA705C0019E91A /* AppBlockingSessionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3AEF83A2CCA705C0019E91A /* AppBlockingSessionHeader.swift */; };
 		B3C1877F2C78D1E000A891A8 /* ModuliteWidgetConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3C1877E2C78D1E000A891A8 /* ModuliteWidgetConfiguration.swift */; };
 		B3C187822C79009B00A891A8 /* WidgetConfigurationBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3C187812C79009B00A891A8 /* WidgetConfigurationBuilder.swift */; };
@@ -407,7 +409,6 @@
 		B3EB15B62C7E4BF0003B1960 /* ModuleConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3EB15B52C7E4BF0003B1960 /* ModuleConfiguration.swift */; };
 		B3EB15B92C7E4CD6003B1960 /* ModuleAppNameTextConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3EB15B82C7E4CD6003B1960 /* ModuleAppNameTextConfiguration.swift */; };
 		B3EB15BB2C7E5DC5003B1960 /* UILabel+AppNameConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3EB15BA2C7E5DC5003B1960 /* UILabel+AppNameConfiguration.swift */; };
-		B3EB15BD2C7E7311003B1960 /* String+TextCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3EB15BC2C7E7311003B1960 /* String+TextCase.swift */; };
 		B3F054362C7CF6CB0057F04D /* AppInfo+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3F054352C7CF6CB0057F04D /* AppInfo+CoreDataClass.swift */; };
 		B3F0543C2C7D04D60057F04D /* apps.json in Resources */ = {isa = PBXBuildFile; fileRef = B3F0543B2C7D04D60057F04D /* apps.json */; };
 /* End PBXBuildFile section */
@@ -540,8 +541,6 @@
 		AF0DB4A32CD40C6400451E18 /* StylePreviewCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StylePreviewCoordinator.swift; sourceTree = "<group>"; };
 		AF0DB51F2CD6DAA300451E18 /* TestModuliteIAP.storekit */ = {isa = PBXFileReference; lastKnownFileType = folder; path = TestModuliteIAP.storekit; sourceTree = "<group>"; };
 		AF0DB5262CD6DB8600451E18 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
-		AF34A7DA2CDA9C4000016A7A /* CantOpenAppViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CantOpenAppViewController.swift; sourceTree = "<group>"; };
-		AF34A7DC2CDA9C4D00016A7A /* CantOpenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CantOpenView.swift; sourceTree = "<group>"; };
 		AF34A7DE2CDBF48200016A7A /* Modu.storekit */ = {isa = PBXFileReference; lastKnownFileType = text; path = Modu.storekit; sourceTree = "<group>"; };
 		AF362C042CA5B1A300506443 /* ModuliteDeviceActivityMonitor.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = ModuliteDeviceActivityMonitor.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		AF362C122CA5B1B000506443 /* DeviceActivityMonitorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceActivityMonitorExtension.swift; sourceTree = "<group>"; };
@@ -837,6 +836,8 @@
 		B39FB8612CDC319A00967E3A /* UIFont.TextStyle+FromString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont.TextStyle+FromString.swift"; sourceTree = "<group>"; };
 		B39FB8722CDC441D00967E3A /* analog.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = analog.json; sourceTree = "<group>"; };
 		B39FB8752CDC48D600967E3A /* UIImage+UIColor+FromWidgetStyling.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+UIColor+FromWidgetStyling.swift"; sourceTree = "<group>"; };
+		B39FB8772CDD3E4100967E3A /* WidgetModule+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WidgetModule+Extensions.swift"; sourceTree = "<group>"; };
+		B39FB8792CDD451300967E3A /* WidgetSchema+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WidgetSchema+Extensions.swift"; sourceTree = "<group>"; };
 		B3AEF83A2CCA705C0019E91A /* AppBlockingSessionHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppBlockingSessionHeader.swift; sourceTree = "<group>"; };
 		B3C1877E2C78D1E000A891A8 /* ModuliteWidgetConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModuliteWidgetConfiguration.swift; sourceTree = "<group>"; };
 		B3C187812C79009B00A891A8 /* WidgetConfigurationBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetConfigurationBuilder.swift; sourceTree = "<group>"; };
@@ -873,7 +874,6 @@
 		B3EB15B52C7E4BF0003B1960 /* ModuleConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModuleConfiguration.swift; sourceTree = "<group>"; };
 		B3EB15B82C7E4CD6003B1960 /* ModuleAppNameTextConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModuleAppNameTextConfiguration.swift; sourceTree = "<group>"; };
 		B3EB15BA2C7E5DC5003B1960 /* UILabel+AppNameConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+AppNameConfiguration.swift"; sourceTree = "<group>"; };
-		B3EB15BC2C7E7311003B1960 /* String+TextCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+TextCase.swift"; sourceTree = "<group>"; };
 		B3F054352C7CF6CB0057F04D /* AppInfo+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppInfo+CoreDataClass.swift"; sourceTree = "<group>"; };
 		B3F0543B2C7D04D60057F04D /* apps.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = apps.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -1654,9 +1654,10 @@
 				B30201672CC7074400301646 /* SwiftUIView */,
 				B39A25C62CAF0806001C76A5 /* UIView */,
 				B34F3E2A2C6E837F0041D7BD /* UIFont+TraitedTextStyle.swift */,
-				B3EB15BC2C7E7311003B1960 /* String+TextCase.swift */,
 				B350C0482C8B8B680035682F /* UIEdgeInsets+Directions.swift */,
 				B39A25D42CAF260C001C76A5 /* CAGradientLayer+Gradient.swift */,
+				B39FB8772CDD3E4100967E3A /* WidgetModule+Extensions.swift */,
+				B39FB8792CDD451300967E3A /* WidgetSchema+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -3278,7 +3279,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B37284722C82992C00D9A1E7 /* String+TextCase.swift in Sources */,
 				AF0026662CCAC8300052B101 /* ShieldContentFactory.swift in Sources */,
 				B3850BB82C9521E600F400C0 /* WidgetBackground.swift in Sources */,
 				B37284742C82995C00D9A1E7 /* UIFont+TraitedTextStyle.swift in Sources */,
@@ -3315,6 +3315,7 @@
 				B32B60F52C87AB85007DDCE3 /* WidgetData.xcdatamodeld in Sources */,
 				B3987E2F2CA4F46A00896414 /* MainWidgetConfigurationQuery.swift in Sources */,
 				B3987E272CA4858E00896414 /* MainWidgetModuleData.swift in Sources */,
+				B39FB87B2CDD49D300967E3A /* WidgetModule+Extensions.swift in Sources */,
 				B32F3C122CD7463D000F4825 /* PixelOperator.swift in Sources */,
 				B37284762C82997700D9A1E7 /* ImageProcessingFactory.swift in Sources */,
 				B3987E242CA4857400896414 /* MainWidgetConfigurationData.swift in Sources */,
@@ -3382,6 +3383,7 @@
 				B39D89D22CB85602005EEC46 /* ComingSoonViewController.swift in Sources */,
 				B369279C2C66B6E30089F769 /* HomeViewController.swift in Sources */,
 				B35BFC5C2CB6F22100092B42 /* FAQView.swift in Sources */,
+				B39FB8782CDD3E4100967E3A /* WidgetModule+Extensions.swift in Sources */,
 				B35BFBC72CB4BC0900092B42 /* SubscriptionLocalizedTexts.swift in Sources */,
 				AF0DB4A02CD3F95500451E18 /* ImagePreviewCell.swift in Sources */,
 				B3C187842C791D1300A891A8 /* WidgetStyle.swift in Sources */,
@@ -3460,6 +3462,7 @@
 				B3D1B7DF2CB7121D00DFC4F5 /* HelpViewController.swift in Sources */,
 				B372846A2C81096A00D9A1E7 /* ModuleStyle.swift in Sources */,
 				B32B60B72C864301007DDCE3 /* AppInfo+CoreDataProperties.swift in Sources */,
+				B39FB87A2CDD451300967E3A /* WidgetSchema+Extensions.swift in Sources */,
 				B39D89E32CB85C3C005EEC46 /* UsageCoordinator.swift in Sources */,
 				AF09AE8E2CD7171200E0707A /* SkinUnlocklBadge.swift in Sources */,
 				B3D1B7CB2CB6FB0600DFC4F5 /* FAQQuestionAndAnswerView.swift in Sources */,
@@ -3515,7 +3518,6 @@
 				B3C187862C79208600A891A8 /* WidgetStyleFactory.swift in Sources */,
 				B3D1B7E42CB7128700DFC4F5 /* HelpLocalizedTexts.swift in Sources */,
 				B32B60C22C864BB2007DDCE3 /* WidgetData.xcdatamodeld in Sources */,
-				B3EB15BD2C7E7311003B1960 /* String+TextCase.swift in Sources */,
 				B33808B02CC47C0300D56884 /* RequestScreenTimeCoordinator.swift in Sources */,
 				B35BFB9B2CB46C8700092B42 /* SettingsLocalizedTexts.swift in Sources */,
 				B34F3E182C6B93FA0041D7BD /* TipCollectionViewCell.swift in Sources */,
