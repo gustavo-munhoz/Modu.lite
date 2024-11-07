@@ -370,7 +370,7 @@
 		B39FB8602CDC310400967E3A /* UIFont+TraitedTextStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = B34F3E2A2C6E837F0041D7BD /* UIFont+TraitedTextStyle.swift */; };
 		B39FB8622CDC319A00967E3A /* UIFont.TextStyle+FromString.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39FB8612CDC319A00967E3A /* UIFont.TextStyle+FromString.swift */; };
 		B39FB8742CDC441D00967E3A /* analog.json in Resources */ = {isa = PBXBuildFile; fileRef = B39FB8722CDC441D00967E3A /* analog.json */; };
-		B39FB8762CDC48D600967E3A /* UIImage&UIColor+FromWidgetStyling.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39FB8752CDC48D600967E3A /* UIImage&UIColor+FromWidgetStyling.swift */; };
+		B39FB8762CDC48D600967E3A /* UIImage+UIColor+FromWidgetStyling.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39FB8752CDC48D600967E3A /* UIImage+UIColor+FromWidgetStyling.swift */; };
 		B3AEF83B2CCA705C0019E91A /* AppBlockingSessionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3AEF83A2CCA705C0019E91A /* AppBlockingSessionHeader.swift */; };
 		B3C1877F2C78D1E000A891A8 /* ModuliteWidgetConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3C1877E2C78D1E000A891A8 /* ModuliteWidgetConfiguration.swift */; };
 		B3C187822C79009B00A891A8 /* WidgetConfigurationBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3C187812C79009B00A891A8 /* WidgetConfigurationBuilder.swift */; };
@@ -836,7 +836,7 @@
 		B39FB85E2CDC2FC600967E3A /* UIFont.Weight+FromString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont.Weight+FromString.swift"; sourceTree = "<group>"; };
 		B39FB8612CDC319A00967E3A /* UIFont.TextStyle+FromString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont.TextStyle+FromString.swift"; sourceTree = "<group>"; };
 		B39FB8722CDC441D00967E3A /* analog.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = analog.json; sourceTree = "<group>"; };
-		B39FB8752CDC48D600967E3A /* UIImage&UIColor+FromWidgetStyling.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage&UIColor+FromWidgetStyling.swift"; sourceTree = "<group>"; };
+		B39FB8752CDC48D600967E3A /* UIImage+UIColor+FromWidgetStyling.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+UIColor+FromWidgetStyling.swift"; sourceTree = "<group>"; };
 		B3AEF83A2CCA705C0019E91A /* AppBlockingSessionHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppBlockingSessionHeader.swift; sourceTree = "<group>"; };
 		B3C1877E2C78D1E000A891A8 /* ModuliteWidgetConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModuliteWidgetConfiguration.swift; sourceTree = "<group>"; };
 		B3C187812C79009B00A891A8 /* WidgetConfigurationBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetConfigurationBuilder.swift; sourceTree = "<group>"; };
@@ -2583,7 +2583,7 @@
 				B39FB85C2CDC26E900967E3A /* NSTextAlignment+FromString.swift */,
 				B39FB85E2CDC2FC600967E3A /* UIFont.Weight+FromString.swift */,
 				B39FB8612CDC319A00967E3A /* UIFont.TextStyle+FromString.swift */,
-				B39FB8752CDC48D600967E3A /* UIImage&UIColor+FromWidgetStyling.swift */,
+				B39FB8752CDC48D600967E3A /* UIImage+UIColor+FromWidgetStyling.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -3623,7 +3623,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B39FB85F2CDC2FC600967E3A /* UIFont.Weight+FromString.swift in Sources */,
-				B39FB8762CDC48D600967E3A /* UIImage&UIColor+FromWidgetStyling.swift in Sources */,
+				B39FB8762CDC48D600967E3A /* UIImage+UIColor+FromWidgetStyling.swift in Sources */,
 				B39FB8622CDC319A00967E3A /* UIFont.TextStyle+FromString.swift in Sources */,
 				B39FB7F32CDAA53000967E3A /* WidgetStyling.docc in Sources */,
 				B39FB81C2CDABA1B00967E3A /* String+TextCase.swift in Sources */,

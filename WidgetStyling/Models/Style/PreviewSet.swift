@@ -18,10 +18,10 @@ public struct PreviewSet {
     }
     
     static func create(from data: PreviewSetData) throws -> PreviewSet {
-        guard let widgetPreview = UIImage(named: data.widgetPreviewName),
-              let wallpaperPreview1 = UIImage(named: data.wallpaperPreview1Name),
-              let wallpaperPreview2 = UIImage(named: data.wallpaperPreview2Name),
-              let wallpaperPreview3 = UIImage(named: data.wallpaperPreview3Name)
+        guard let widgetPreview = UIImage.fromWidgetStyling(named: data.widgetPreviewName),
+              let wallpaperPreview1 = UIImage.fromWidgetStyling(named: data.wallpaperPreview1Name),
+              let wallpaperPreview2 = UIImage.fromWidgetStyling(named: data.wallpaperPreview2Name),
+              let wallpaperPreview3 = UIImage.fromWidgetStyling(named: data.wallpaperPreview3Name)
         else {
             throw PreviewError.imageNotFound
         }

@@ -20,13 +20,14 @@ public enum StyleBackground {
     static func create(from data: StyleBackgroundData) throws -> StyleBackground {
         switch data.type.lowercased() {
         case "image":
-            guard let image = UIImage(named: data.value) else {
+            guard let image = UIImage.fromWidgetStyling(named: data.value) else {
                 throw BackgroundError.imageNotFound
             }
             return .image(image)
             
         case "color":
-            guard let color = UIColor(named: data.value) else {
+            guard let color = UIColor.fromWidgetStyling(named: data.value) else {
+                print("color not found: \(data.value)")
                 throw BackgroundError.colorNotFound
             }
             return .color(color)

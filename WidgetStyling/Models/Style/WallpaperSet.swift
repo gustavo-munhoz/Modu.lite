@@ -16,8 +16,8 @@ public struct WallpaperSet {
     }
     
     static func create(from data: WallpaperSetData) throws -> WallpaperSet {
-        guard let blockImage = UIImage(named: data.blockedImageName),
-              let homeImage = UIImage(named: data.homeImageName) else {
+        guard let blockImage = UIImage.fromWidgetStyling(named: data.blockedImageName),
+              let homeImage = UIImage.fromWidgetStyling(named: data.homeImageName) else {
             throw WallpaperError.imageNotFound
         }
         

@@ -39,20 +39,20 @@ public class AuxModuleStyle: ModuleStyle {
     }
     
     convenience init(from data: ModuleStyleData) throws {
-        guard let image = UIImage(named: data.imageName) else {
+        guard let image = UIImage.fromWidgetStyling(named: data.imageName) else {
             throw ModuleError.imageNotFound
         }
         
         var filterColors: [UIColor] = []
         for color in data.filterColorNames {
-            guard let color = UIColor(named: color) else {
+            guard let color = UIColor.fromWidgetStyling(named: color) else {
                 throw ModuleError.colorNotFound
             }
             
             filterColors.append(color)
         }
         
-        guard let defaultColor = UIColor(named: data.defaultColorName) else {
+        guard let defaultColor = UIColor.fromWidgetStyling(named: data.defaultColorName) else {
             throw ModuleError.colorNotFound
         }
         
@@ -62,7 +62,7 @@ public class AuxModuleStyle: ModuleStyle {
             filterColors: filterColors,
             defaultColor: defaultColor,
             imageBlendMode: .named(data.imageBlendMode ?? ""),
-            textConfiguration: .init(from: data.textConfiguration)
+            textConfiguration: .create(from: data.textConfiguration)
         )
     }
 }
