@@ -365,6 +365,12 @@
 		B39FB8532CDC083E00967E3A /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B39FB8522CDC083E00967E3A /* Colors.xcassets */; };
 		B39FB8552CDC10D500967E3A /* PreviewSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39FB8542CDC10D500967E3A /* PreviewSet.swift */; };
 		B39FB8572CDC14D600967E3A /* PreviewSetData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39FB8562CDC14D600967E3A /* PreviewSetData.swift */; };
+		B39FB85D2CDC26E900967E3A /* NSTextAlignment+FromString.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39FB85C2CDC26E900967E3A /* NSTextAlignment+FromString.swift */; };
+		B39FB85F2CDC2FC600967E3A /* UIFont.Weight+FromString.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39FB85E2CDC2FC600967E3A /* UIFont.Weight+FromString.swift */; };
+		B39FB8602CDC310400967E3A /* UIFont+TraitedTextStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = B34F3E2A2C6E837F0041D7BD /* UIFont+TraitedTextStyle.swift */; };
+		B39FB8622CDC319A00967E3A /* UIFont.TextStyle+FromString.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39FB8612CDC319A00967E3A /* UIFont.TextStyle+FromString.swift */; };
+		B39FB8742CDC441D00967E3A /* analog.json in Resources */ = {isa = PBXBuildFile; fileRef = B39FB8722CDC441D00967E3A /* analog.json */; };
+		B39FB8762CDC48D600967E3A /* UIImage&UIColor+FromWidgetStyling.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39FB8752CDC48D600967E3A /* UIImage&UIColor+FromWidgetStyling.swift */; };
 		B3AEF83B2CCA705C0019E91A /* AppBlockingSessionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3AEF83A2CCA705C0019E91A /* AppBlockingSessionHeader.swift */; };
 		B3C1877F2C78D1E000A891A8 /* ModuliteWidgetConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3C1877E2C78D1E000A891A8 /* ModuliteWidgetConfiguration.swift */; };
 		B3C187822C79009B00A891A8 /* WidgetConfigurationBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3C187812C79009B00A891A8 /* WidgetConfigurationBuilder.swift */; };
@@ -826,6 +832,11 @@
 		B39FB8522CDC083E00967E3A /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		B39FB8542CDC10D500967E3A /* PreviewSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewSet.swift; sourceTree = "<group>"; };
 		B39FB8562CDC14D600967E3A /* PreviewSetData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewSetData.swift; sourceTree = "<group>"; };
+		B39FB85C2CDC26E900967E3A /* NSTextAlignment+FromString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSTextAlignment+FromString.swift"; sourceTree = "<group>"; };
+		B39FB85E2CDC2FC600967E3A /* UIFont.Weight+FromString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont.Weight+FromString.swift"; sourceTree = "<group>"; };
+		B39FB8612CDC319A00967E3A /* UIFont.TextStyle+FromString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont.TextStyle+FromString.swift"; sourceTree = "<group>"; };
+		B39FB8722CDC441D00967E3A /* analog.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = analog.json; sourceTree = "<group>"; };
+		B39FB8752CDC48D600967E3A /* UIImage&UIColor+FromWidgetStyling.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage&UIColor+FromWidgetStyling.swift"; sourceTree = "<group>"; };
 		B3AEF83A2CCA705C0019E91A /* AppBlockingSessionHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppBlockingSessionHeader.swift; sourceTree = "<group>"; };
 		B3C1877E2C78D1E000A891A8 /* ModuliteWidgetConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModuliteWidgetConfiguration.swift; sourceTree = "<group>"; };
 		B3C187812C79009B00A891A8 /* WidgetConfigurationBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetConfigurationBuilder.swift; sourceTree = "<group>"; };
@@ -2514,7 +2525,7 @@
 		B39FB7F22CDAA53000967E3A /* WidgetStyling */ = {
 			isa = PBXGroup;
 			children = (
-				B39FB84F2CDC04A700967E3A /* WidgetStyles */,
+				B39FB8732CDC441D00967E3A /* WidgetStyles */,
 				B39FB84B2CDC043300967E3A /* Providers */,
 				B39FB82D2CDB033100967E3A /* Prototype */,
 				B39FB8212CDAEF9400967E3A /* Builders */,
@@ -2569,6 +2580,10 @@
 			children = (
 				B39FB81A2CDABA1B00967E3A /* String+TextCase.swift */,
 				B39FB8482CDBF97200967E3A /* CGBlendMode+FromName.swift */,
+				B39FB85C2CDC26E900967E3A /* NSTextAlignment+FromString.swift */,
+				B39FB85E2CDC2FC600967E3A /* UIFont.Weight+FromString.swift */,
+				B39FB8612CDC319A00967E3A /* UIFont.TextStyle+FromString.swift */,
+				B39FB8752CDC48D600967E3A /* UIImage&UIColor+FromWidgetStyling.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -2630,9 +2645,10 @@
 			path = Providers;
 			sourceTree = "<group>";
 		};
-		B39FB84F2CDC04A700967E3A /* WidgetStyles */ = {
+		B39FB8732CDC441D00967E3A /* WidgetStyles */ = {
 			isa = PBXGroup;
 			children = (
+				B39FB8722CDC441D00967E3A /* analog.json */,
 			);
 			path = WidgetStyles;
 			sourceTree = "<group>";
@@ -3187,6 +3203,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B39FB8742CDC441D00967E3A /* analog.json in Resources */,
 				B39FB8512CDC082800967E3A /* Images.xcassets in Resources */,
 				B39FB8532CDC083E00967E3A /* Colors.xcassets in Resources */,
 			);
@@ -3605,6 +3622,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B39FB85F2CDC2FC600967E3A /* UIFont.Weight+FromString.swift in Sources */,
+				B39FB8762CDC48D600967E3A /* UIImage&UIColor+FromWidgetStyling.swift in Sources */,
+				B39FB8622CDC319A00967E3A /* UIFont.TextStyle+FromString.swift in Sources */,
 				B39FB7F32CDAA53000967E3A /* WidgetStyling.docc in Sources */,
 				B39FB81C2CDABA1B00967E3A /* String+TextCase.swift in Sources */,
 				B39FB8372CDBECC300967E3A /* WidgetStyleData.swift in Sources */,
@@ -3613,6 +3633,7 @@
 				B39FB8432CDBEF2300967E3A /* ModuleTextConfigurationData.swift in Sources */,
 				B39FB80A2CDAB95B00967E3A /* AuxModuleStyle.swift in Sources */,
 				B39FB8252CDAF00A00967E3A /* WidgetContentBuilder.swift in Sources */,
+				B39FB85D2CDC26E900967E3A /* NSTextAlignment+FromString.swift in Sources */,
 				B39FB83B2CDBECE300967E3A /* StyleModuleConfigurationData.swift in Sources */,
 				B39FB80B2CDAB95B00967E3A /* MainModuleStyle.swift in Sources */,
 				B39FB8292CDAFC2700967E3A /* WidgetModule.swift in Sources */,
@@ -3627,6 +3648,7 @@
 				B39FB82B2CDB030500967E3A /* WidgetSchema.swift in Sources */,
 				B39FB84D2CDC045100967E3A /* WidgetStyleProvider.swift in Sources */,
 				B39FB83D2CDBECF200967E3A /* WallpaperSetData.swift in Sources */,
+				B39FB8602CDC310400967E3A /* UIFont+TraitedTextStyle.swift in Sources */,
 				B39FB8332CDBEC9A00967E3A /* WallpaperSet.swift in Sources */,
 				B39FB8392CDBECD500967E3A /* StyleBackgroundConfigurationData.swift in Sources */,
 				B39FB8102CDAB98300967E3A /* StyleModuleConfiguration.swift in Sources */,
