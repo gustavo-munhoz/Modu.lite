@@ -7,6 +7,7 @@
 
 import UIKit
 
+@available(*, deprecated)
 class WidgetConfigurationBuilder {
     
     // MARK: - Properties

@@ -9,6 +9,7 @@ import UIKit
 import SwiftData
 
 /// Stores configuration settings for an individual module within the widget.
+@available(*, deprecated)
 class ModuleConfiguration {
     var isEmpty: Bool {
         appName == nil
