@@ -8,7 +8,7 @@
 
 import CoreData
 
-@objc(PersistableWidgetConfiguration)
+@objc(PersistableWidgetConfiguration) @available(*, deprecated)
 public class PersistableWidgetConfiguration: NSManagedObject {
 
 }

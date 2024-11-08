@@ -373,6 +373,17 @@
 		B39FB8782CDD3E4100967E3A /* WidgetModule+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39FB8772CDD3E4100967E3A /* WidgetModule+Extensions.swift */; };
 		B39FB87A2CDD451300967E3A /* WidgetSchema+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39FB8792CDD451300967E3A /* WidgetSchema+Extensions.swift */; };
 		B39FB87B2CDD49D300967E3A /* WidgetModule+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39FB8772CDD3E4100967E3A /* WidgetModule+Extensions.swift */; };
+		B39FB87E2CDD510600967E3A /* PersistentWidgetModule+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39FB87D2CDD510600967E3A /* PersistentWidgetModule+CoreDataClass.swift */; };
+		B39FB87F2CDD510600967E3A /* PersistentWidgetModule+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39FB87D2CDD510600967E3A /* PersistentWidgetModule+CoreDataClass.swift */; };
+		B39FB8812CDD511500967E3A /* PersistentWidgetModule+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39FB8802CDD511500967E3A /* PersistentWidgetModule+CoreDataProperties.swift */; };
+		B39FB8822CDD511500967E3A /* PersistentWidgetModule+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39FB8802CDD511500967E3A /* PersistentWidgetModule+CoreDataProperties.swift */; };
+		B39FB8842CDD51EB00967E3A /* PersistentWidgetSchema+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39FB8832CDD51EB00967E3A /* PersistentWidgetSchema+CoreDataClass.swift */; };
+		B39FB8852CDD51EB00967E3A /* PersistentWidgetSchema+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39FB8832CDD51EB00967E3A /* PersistentWidgetSchema+CoreDataClass.swift */; };
+		B39FB8872CDD51F100967E3A /* PersistentWidgetSchema+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39FB8862CDD51F100967E3A /* PersistentWidgetSchema+CoreDataProperties.swift */; };
+		B39FB8882CDD51F100967E3A /* PersistentWidgetSchema+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39FB8862CDD51F100967E3A /* PersistentWidgetSchema+CoreDataProperties.swift */; };
+		B39FB88A2CDD543200967E3A /* WidgetTypeTransformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39FB8892CDD543200967E3A /* WidgetTypeTransformer.swift */; };
+		B39FB88B2CDD543200967E3A /* WidgetTypeTransformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39FB8892CDD543200967E3A /* WidgetTypeTransformer.swift */; };
+		B39FB88C2CDD619800967E3A /* WidgetSchema+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39FB8792CDD451300967E3A /* WidgetSchema+Extensions.swift */; };
 		B3AEF83B2CCA705C0019E91A /* AppBlockingSessionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3AEF83A2CCA705C0019E91A /* AppBlockingSessionHeader.swift */; };
 		B3C1877F2C78D1E000A891A8 /* ModuliteWidgetConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3C1877E2C78D1E000A891A8 /* ModuliteWidgetConfiguration.swift */; };
 		B3C187822C79009B00A891A8 /* WidgetConfigurationBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3C187812C79009B00A891A8 /* WidgetConfigurationBuilder.swift */; };
@@ -838,6 +849,12 @@
 		B39FB8752CDC48D600967E3A /* UIImage+UIColor+FromWidgetStyling.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+UIColor+FromWidgetStyling.swift"; sourceTree = "<group>"; };
 		B39FB8772CDD3E4100967E3A /* WidgetModule+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WidgetModule+Extensions.swift"; sourceTree = "<group>"; };
 		B39FB8792CDD451300967E3A /* WidgetSchema+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WidgetSchema+Extensions.swift"; sourceTree = "<group>"; };
+		B39FB87C2CDD4BE300967E3A /* WidgetDataV2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = WidgetDataV2.xcdatamodel; sourceTree = "<group>"; };
+		B39FB87D2CDD510600967E3A /* PersistentWidgetModule+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PersistentWidgetModule+CoreDataClass.swift"; sourceTree = "<group>"; };
+		B39FB8802CDD511500967E3A /* PersistentWidgetModule+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PersistentWidgetModule+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		B39FB8832CDD51EB00967E3A /* PersistentWidgetSchema+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PersistentWidgetSchema+CoreDataClass.swift"; sourceTree = "<group>"; };
+		B39FB8862CDD51F100967E3A /* PersistentWidgetSchema+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PersistentWidgetSchema+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		B39FB8892CDD543200967E3A /* WidgetTypeTransformer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetTypeTransformer.swift; sourceTree = "<group>"; };
 		B3AEF83A2CCA705C0019E91A /* AppBlockingSessionHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppBlockingSessionHeader.swift; sourceTree = "<group>"; };
 		B3C1877E2C78D1E000A891A8 /* ModuliteWidgetConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModuliteWidgetConfiguration.swift; sourceTree = "<group>"; };
 		B3C187812C79009B00A891A8 /* WidgetConfigurationBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetConfigurationBuilder.swift; sourceTree = "<group>"; };
@@ -1282,6 +1299,8 @@
 			children = (
 				B32B60B92C864807007DDCE3 /* PersistableModuleConfiguration+CoreDataClass.swift */,
 				B32B60BE2C864AD9007DDCE3 /* PersistableModuleConfiguration+CoreDataProperties.swift */,
+				B39FB87D2CDD510600967E3A /* PersistentWidgetModule+CoreDataClass.swift */,
+				B39FB8802CDD511500967E3A /* PersistentWidgetModule+CoreDataProperties.swift */,
 			);
 			path = Persistence;
 			sourceTree = "<group>";
@@ -1291,6 +1310,8 @@
 			children = (
 				B32B60C42C865042007DDCE3 /* PersistableWidgetConfiguration+CoreDataClass.swift */,
 				B32B60C52C865042007DDCE3 /* PersistableWidgetConfiguration+CoreDataProperties.swift */,
+				B39FB8832CDD51EB00967E3A /* PersistentWidgetSchema+CoreDataClass.swift */,
+				B39FB8862CDD51F100967E3A /* PersistentWidgetSchema+CoreDataProperties.swift */,
 			);
 			path = Persistence;
 			sourceTree = "<group>";
@@ -2248,6 +2269,7 @@
 			isa = PBXGroup;
 			children = (
 				B32B60BB2C86492C007DDCE3 /* UIColorValueTransformer.swift */,
+				B39FB8892CDD543200967E3A /* WidgetTypeTransformer.swift */,
 			);
 			path = Transformers;
 			sourceTree = "<group>";
@@ -3301,9 +3323,12 @@
 				B32B60F72C87ABC1007DDCE3 /* PersistableModuleConfiguration+CoreDataProperties.swift in Sources */,
 				B37284772C829A8C00D9A1E7 /* WidgetStyleFactory.swift in Sources */,
 				B32B60FB2C87AC8D007DDCE3 /* AppInfoData.swift in Sources */,
+				B39FB88C2CDD619800967E3A /* WidgetSchema+Extensions.swift in Sources */,
+				B39FB8812CDD511500967E3A /* PersistentWidgetModule+CoreDataProperties.swift in Sources */,
 				B37284702C82990B00D9A1E7 /* WidgetStyle.swift in Sources */,
 				AFBBC5072C7E459900A9B256 /* ModuliteWidgetBundle.swift in Sources */,
 				B3987E052CA3602900896414 /* UIView+animateBorderColor.swift in Sources */,
+				B39FB8872CDD51F100967E3A /* PersistentWidgetSchema+CoreDataProperties.swift in Sources */,
 				B3987E2C2CA4F43100896414 /* SelectMainWidgetConfigurationIntent.swift in Sources */,
 				B3987E152CA38C7900896414 /* MainWidgetEntry.swift in Sources */,
 				B34C62E52CD16134004E014B /* AppsData.swift in Sources */,
@@ -3315,6 +3340,7 @@
 				B32B60F52C87AB85007DDCE3 /* WidgetData.xcdatamodeld in Sources */,
 				B3987E2F2CA4F46A00896414 /* MainWidgetConfigurationQuery.swift in Sources */,
 				B3987E272CA4858E00896414 /* MainWidgetModuleData.swift in Sources */,
+				B39FB87E2CDD510600967E3A /* PersistentWidgetModule+CoreDataClass.swift in Sources */,
 				B39FB87B2CDD49D300967E3A /* WidgetModule+Extensions.swift in Sources */,
 				B32F3C122CD7463D000F4825 /* PixelOperator.swift in Sources */,
 				B37284762C82997700D9A1E7 /* ImageProcessingFactory.swift in Sources */,
@@ -3325,11 +3351,13 @@
 				B37284712C82992200D9A1E7 /* ModuleAppNameTextConfiguration.swift in Sources */,
 				AFBBC5222C7E5D8D00A9B256 /* AppInfo+CoreDataClass.swift in Sources */,
 				B32B60F92C87AC81007DDCE3 /* FileManagerImagePersistenceController.swift in Sources */,
+				B39FB8842CDD51EB00967E3A /* PersistentWidgetSchema+CoreDataClass.swift in Sources */,
 				B32F3BE22CD56412000F4825 /* ButtonFactory.swift in Sources */,
 				B372846E2C8298F100D9A1E7 /* ModuleConfiguration.swift in Sources */,
 				B372846B2C8298BB00D9A1E7 /* ModuliteWidgetConfiguration.swift in Sources */,
 				B33808A72CC3051700D56884 /* UserPreference.swift in Sources */,
 				B3987E322CA4F48C00896414 /* MainWidgetConfigurationEntity.swift in Sources */,
+				B39FB88A2CDD543200967E3A /* WidgetTypeTransformer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3428,6 +3456,7 @@
 				B35BFBE92CB5AF9B00092B42 /* TutorialCenterCoordinator.swift in Sources */,
 				B32F3BD92CD41189000F4825 /* OnboardingNumberedTutorial.swift in Sources */,
 				B36927D32C66BBC10089F769 /* SceneDelegateRouter.swift in Sources */,
+				B39FB8852CDD51EB00967E3A /* PersistentWidgetSchema+CoreDataClass.swift in Sources */,
 				AFE15AB42CD97EFC000A255B /* PurchaseManager.swift in Sources */,
 				B32B61062C8A4140007DDCE3 /* ModalNavigationRouter.swift in Sources */,
 				B35BFB9F2CB47D9B00092B42 /* SettingsCoordinator.swift in Sources */,
@@ -3436,6 +3465,7 @@
 				AF09AE822CD70E3900E0707A /* PurchaseStylePreviewController.swift in Sources */,
 				B39FB7C22CDA95F400967E3A /* WidgetSetupViewController+StyleCollectionViewCellDelegate.swift in Sources */,
 				B39FB7C32CDA95F400967E3A /* WidgetSetupViewController+UICollectionViewDelegate.swift in Sources */,
+				B39FB8822CDD511500967E3A /* PersistentWidgetModule+CoreDataProperties.swift in Sources */,
 				B39FB7C42CDA95F400967E3A /* WidgetSetupViewController+UITextFieldDelegate.swift in Sources */,
 				B3C187822C79009B00A891A8 /* WidgetConfigurationBuilder.swift in Sources */,
 				B302016D2CC8230200301646 /* CreateBlockingSessionView.swift in Sources */,
@@ -3484,6 +3514,7 @@
 				B34C63092CD2D83A004E014B /* EditModuleTip.swift in Sources */,
 				B39A25A22CAB5B65001C76A5 /* WidgetEditorDownloadButton.swift in Sources */,
 				B32B61032C88EE1E007DDCE3 /* WidgetSetupAppsTagFlowLayout.swift in Sources */,
+				B39FB88B2CDD543200967E3A /* WidgetTypeTransformer.swift in Sources */,
 				B3987E2B2CA4F43100896414 /* SelectMainWidgetConfigurationIntent.swift in Sources */,
 				B32B60CA2C8657EC007DDCE3 /* AppInfoData.swift in Sources */,
 				B39D89D72CB858A0005EEC46 /* ComingSoonLocalizedTexts.swift in Sources */,
@@ -3543,6 +3574,7 @@
 				B39A25FC2CB06446001C76A5 /* TutorialCreateWidgetViewController.swift in Sources */,
 				B3987E192CA3938200896414 /* AuxiliaryWidget.swift in Sources */,
 				B3987E232CA4857400896414 /* MainWidgetConfigurationData.swift in Sources */,
+				B39FB87F2CDD510600967E3A /* PersistentWidgetModule+CoreDataClass.swift in Sources */,
 				B3D1B7E92CB7146E00DFC4F5 /* HelpTopicsStackView.swift in Sources */,
 				B39A25DE2CAF751B001C76A5 /* ModulitePlusLargeBadge.swift in Sources */,
 				B35BFBCD2CB4BE3D00092B42 /* SubscriptionDetailsDefaultLabel.swift in Sources */,
@@ -3559,6 +3591,7 @@
 				B35BFC462CB5F9A500092B42 /* TutorialEditWidgetView.swift in Sources */,
 				B3987E0F2CA38A9C00896414 /* MainWidgetView.swift in Sources */,
 				B34F3E072C6A93B30041D7BD /* UsageViewController.swift in Sources */,
+				B39FB8882CDD51F100967E3A /* PersistentWidgetSchema+CoreDataProperties.swift in Sources */,
 				B34C62F62CD179E9004E014B /* OnboardingPreferences.swift in Sources */,
 				B34F3E222C6D36390041D7BD /* WidgetEditorViewController.swift in Sources */,
 				B34F3E312C6E87A50041D7BD /* StyleCollectionViewCell.swift in Sources */,
@@ -4600,9 +4633,10 @@
 		B32B60C02C864BB2007DDCE3 /* WidgetData.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
+				B39FB87C2CDD4BE300967E3A /* WidgetDataV2.xcdatamodel */,
 				B32B60C12C864BB2007DDCE3 /* WidgetData.xcdatamodel */,
 			);
-			currentVersion = B32B60C12C864BB2007DDCE3 /* WidgetData.xcdatamodel */;
+			currentVersion = B39FB87C2CDD4BE300967E3A /* WidgetDataV2.xcdatamodel */;
 			path = WidgetData.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;

@@ -7,7 +7,7 @@
 
 import CoreData
 
-@objc(PersistableModuleConfiguration)
+@objc(PersistableModuleConfiguration) @available(*, deprecated)
 class PersistableModuleConfiguration: NSManagedObject {
     
 }
