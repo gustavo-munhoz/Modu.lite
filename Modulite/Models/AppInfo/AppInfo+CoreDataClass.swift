@@ -7,7 +7,7 @@
 
 import CoreData
 
-@objc(AppInfo)
-class AppInfo: NSManagedObject {
-    
-}
+//@objc(AppInfo)
+//class AppInfo: NSManagedObject {
+//    
+//}
