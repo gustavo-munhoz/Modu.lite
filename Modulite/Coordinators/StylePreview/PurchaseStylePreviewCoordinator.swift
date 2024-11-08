@@ -6,16 +6,19 @@
 //
 
 import Foundation
+import WidgetStyling
 
 class PurchaseStylePreviewCoordinator: Coordinator {
     var children: [Coordinator] = []
     
     var router: Router
-    var style: WidgetStyle = WidgetStyleFactory.styleForKey(.analog)
+    var style: WidgetStyle?
     
     var onBuy: ((WidgetStyle) -> Void)?
     
     func present(animated: Bool, onDismiss: (() -> Void)?) {
+        guard let style else { return }
+        
         let vc = PurchaseStylePreviewViewController(style: style)
         vc.delegate = self
         
@@ -36,6 +39,8 @@ extension PurchaseStylePreviewCoordinator: PurchaseStylePreviewControllerDelegat
     func purchaseStylePreviewViewControllerDidPressUseStyle(
         _ viewController: PurchaseStylePreviewViewController
     ) {
+        guard let style else { return }
+        
         onBuy?(style)
         dismiss(animated: true)
     }
