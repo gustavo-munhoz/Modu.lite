@@ -1,4 +1,9 @@
-# Modu.lite
+<h1 align="center">Modu.lite</h1>
+<h3 align="center">
+  <a href="https://github.com/gustavo-munhoz/Modu.lite"><img src="/Logo2.jpg" alt="OctoCoin Logo" width="300"></a>
+    <a href="https://github.com/gustavo-munhoz/Modu.lite"><img src="/Logo1.jpg" alt="OctoCoin Logo" width="300"></a>
+</h3>
+</p>
 
 Modu.lite is an app that embraces the trend of healthy phone use, reducing screen time, and minimizing overstimulation from social media, aligning with the concept of "dumbifying" smartphones. With Modu.lite, change the way you use and perceive your phone, and make the most out of life.
 
