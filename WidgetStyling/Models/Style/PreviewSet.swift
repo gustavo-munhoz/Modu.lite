@@ -8,7 +8,8 @@
 import UIKit
 
 public struct PreviewSet {
-    let widgetPreview: UIImage
+    let mainWidgetPreview: UIImage
+    let auxWidgetPreview: UIImage
     let wallpaperPreview1: UIImage
     let wallpaperPreview2: UIImage
     let wallpaperPreview3: UIImage
@@ -18,7 +19,8 @@ public struct PreviewSet {
     }
     
     static func create(from data: PreviewSetData) throws -> PreviewSet {
-        guard let widgetPreview = UIImage.fromWidgetStyling(named: data.widgetPreviewName),
+        guard let mainWidgetPreview = UIImage.fromWidgetStyling(named: data.mainWidgetPreview),
+              let auxWidgetPreview = UIImage.fromWidgetStyling(named: data.auxWidgetPreview),
               let wallpaperPreview1 = UIImage.fromWidgetStyling(named: data.wallpaperPreview1Name),
               let wallpaperPreview2 = UIImage.fromWidgetStyling(named: data.wallpaperPreview2Name),
               let wallpaperPreview3 = UIImage.fromWidgetStyling(named: data.wallpaperPreview3Name)
@@ -27,7 +29,8 @@ public struct PreviewSet {
         }
         
         return PreviewSet(
-            widgetPreview: widgetPreview,
+            mainWidgetPreview: mainWidgetPreview,
+            auxWidgetPreview: auxWidgetPreview,
             wallpaperPreview1: wallpaperPreview1,
             wallpaperPreview2: wallpaperPreview2,
             wallpaperPreview3: wallpaperPreview3

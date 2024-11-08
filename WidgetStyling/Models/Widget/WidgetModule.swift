@@ -58,7 +58,7 @@ extension WidgetModule {
         at position: Int
     ) -> WidgetModule {
         WidgetModule(
-            style: style.getEmptyStyle(for: type),
+            style: style.getEmptyModuleStyle(for: type),
             position: position,
             appName: nil,
             urlScheme: nil,
@@ -68,7 +68,7 @@ extension WidgetModule {
 }
 
 extension Array where Element: WidgetModule {
-    mutating func replace(at position: Int, with module: Element) {
+    public mutating func replace(at position: Int, with module: Element) {
         replaceSubrange(
             position...position,
             with: [module]

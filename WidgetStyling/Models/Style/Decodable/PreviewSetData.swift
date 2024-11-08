@@ -8,7 +8,8 @@
 import Foundation
 
 struct PreviewSetData: Decodable {
-    let widgetPreviewName: String
+    let mainWidgetPreview: String
+    let auxWidgetPreview: String
     let wallpaperPreview1Name: String
     let wallpaperPreview2Name: String
     let wallpaperPreview3Name: String

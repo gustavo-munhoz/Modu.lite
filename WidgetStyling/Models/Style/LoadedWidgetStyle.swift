@@ -53,7 +53,7 @@ class LoadedWidgetStyle: WidgetStyle {
     }
     
     // MARK: - Methods
-    func getEmptyStyle(for type: WidgetType) -> ModuleStyle {
+    func getEmptyModuleStyle(for type: WidgetType) -> ModuleStyle {
         switch type {
         case .main:
             return moduleConfiguration.mainEmptyModule
@@ -62,9 +62,9 @@ class LoadedWidgetStyle: WidgetStyle {
         }
     }
     
-    func getRandomStyle(for type: WidgetType) -> ModuleStyle {
+    func getRandomModuleStyle(for type: WidgetType) -> ModuleStyle {
         let styles = getModuleStyles(for: type)
-        return styles.randomElement() ?? getEmptyStyle(for: type)
+        return styles.randomElement() ?? getEmptyModuleStyle(for: type)
     }
     
     func getModuleStyles(for type: WidgetType) -> [ModuleStyle] {
@@ -92,7 +92,7 @@ class LoadedWidgetStyle: WidgetStyle {
         )
     }
     
-    func getWidgetPreview() -> UIImage {
-        previewSet.widgetPreview
+    func getWidgetPreview(for type: WidgetType) -> UIImage {
+        type == .main ? previewSet.mainWidgetPreview : previewSet.auxWidgetPreview
     }
 }
