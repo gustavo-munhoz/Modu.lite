@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import WidgetStyling
 
 extension WidgetEditorViewController: UICollectionViewDelegate {
     
@@ -43,7 +44,7 @@ extension WidgetEditorViewController: UICollectionViewDelegate {
         switch collectionView {
         case editorView.widgetLayoutCollectionView:
             // MARK: - Handle widget cell touch
-            if viewModel.selectedCellIndex == indexPath.row {
+            if viewModel.selectedCellPosition == indexPath.row {
                 clearSelectedModuleCell()
                 return
             }
@@ -71,10 +72,13 @@ extension WidgetEditorViewController: UICollectionViewDelegate {
         case editorView.moduleColorCollectionView:
             // MARK: - Handle module color touch
             
-            guard let color = viewModel.getAvailableColor(at: indexPath.row) else {
-                print("No colors found at \(indexPath.row)")
-                return
-            }
+//            guard let color = viewModel.getAvailableColor(at: indexPath.row) else {
+//                print("No colors found at \(indexPath.row)")
+//                return
+//            }
+            
+            // FIXME: Change to new colors
+            let color = UIColor.clear
             
             selectColorCell(color: color)
             viewModel.applyColorToSelectedModule(color)
@@ -107,7 +111,7 @@ extension WidgetEditorViewController: UICollectionViewDelegate {
     private func selectStyleCell(style: ModuleStyle) {
         editorView.moduleStyleCollectionView.subviews.forEach { cell in
             guard let cell = cell as? ModuleStyleCell else { return }
-            cell.setSelected(to: cell.style?.key == style.key)
+            cell.setSelected(to: cell.style?.identifier == style.identifier)
         }
     }
     
@@ -139,14 +143,14 @@ extension WidgetEditorViewController: UICollectionViewDelegate {
     private func selectModuleCell(at index: Int) {
         viewModel.setEditingCell(at: index)
         editorView.enableStylingCollectionViews(
-            didSelectEmptyCell: viewModel.isModuleEmpty(at: index)
+            didSelectEmptyCell: viewModel.isModuleEmpty(at: index) ?? false
         )
         
         editorView.widgetLayoutCollectionView.subviews.forEach { [weak self] cell in
             guard let cell = cell as? WidgetModuleCell else { return }
             
             let row = self?.editorView.widgetLayoutCollectionView.indexPath(for: cell)?.row
-            cell.setEditable(self?.viewModel.selectedCellIndex == row)
+            cell.setEditable(self?.viewModel.selectedCellPosition == row)
         }
         
         guard let selectedStyle = viewModel.getStyleFromSelectedModule(),
@@ -160,9 +164,12 @@ extension WidgetEditorViewController: UICollectionViewDelegate {
     }
     
     private func scrollToSelectedOptions() {
-        guard let styleIndex = viewModel.getIndexForSelectedStyle(),
-              let colorIndex = viewModel.getIndexForSelectedColor()
+        guard let styleIndex = viewModel.getIndexForSelectedStyle()
+//              let colorIndex = viewModel.getIndexForSelectedColor()
         else { return }
+        
+        // FIXME: Change to new colors
+        let colorIndex = 0
         
         let styleIndexPath = IndexPath(item: styleIndex, section: 0)
         editorView.moduleStyleCollectionView.scrollToItem(

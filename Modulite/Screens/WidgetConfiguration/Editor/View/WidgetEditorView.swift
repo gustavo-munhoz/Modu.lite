@@ -7,6 +7,7 @@
 
 import UIKit
 import SnapKit
+import WidgetStyling
 
 class WidgetEditorView: UIScrollView {
          
@@ -169,12 +170,14 @@ class WidgetEditorView: UIScrollView {
         }
     }
     
-    func setWidgetBackground(to background: WidgetBackground) {
+    func setWidgetBackground(to background: StyleBackground) {
         switch background {
         case .image(let image):
             widgetLayoutCollectionView.backgroundView = UIImageView(image: image)
         case .color(let color):
             widgetLayoutCollectionView.backgroundColor = color
+        @unknown default:
+            break
         }
     }
     

@@ -7,6 +7,7 @@
 
 import UIKit
 import TipKit
+import WidgetStyling
 
 class WidgetSetupViewController: UIViewController {
     static let didSelectWidgetStyle = Tips.Event(id: "didSelectWidgetStyle")
@@ -127,7 +128,7 @@ class WidgetSetupViewController: UIViewController {
         )
     }
     
-    func didFinishSelectingApps(apps: [AppInfo]) {
+    func didFinishSelectingApps(apps: [AppData]) {
         setSetupViewHasAppsSelected(to: !apps.isEmpty)
         viewModel.setSelectedApps(to: apps)
         
@@ -202,7 +203,7 @@ class WidgetSetupViewController: UIViewController {
     }
     
     private func handlePurchaseCompleted(for productId: String) {
-        if let index = viewModel.widgetStyles.firstIndex(where: { $0.key.rawValue == productId }) {
+        if let index = viewModel.widgetStyles.firstIndex(where: { $0.identifier == productId }) {
             viewModel.widgetStyles[index].isPurchased = true
             setupView.stylesCollectionView.reloadData()
         }
@@ -221,7 +222,7 @@ extension WidgetSetupViewController {
     func loadDataFromContent(_ content: WidgetContent) {
         setupView.widgetNameTextField.text = content.name
         viewModel.setWidgetStyle(to: content.style)
-        guard let apps = content.apps.filter({ $0 != nil }) as? [AppInfo] else { return }
+        guard let apps = content.apps.filter({ $0 != nil }) as? [AppData] else { return }
         
         viewModel.setSelectedApps(to: apps)
         

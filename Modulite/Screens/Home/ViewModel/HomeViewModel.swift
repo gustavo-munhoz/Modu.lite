@@ -6,31 +6,31 @@
 //
 
 import UIKit
+import WidgetStyling
 
 class HomeViewModel: NSObject {
     
     // MARK: - Properties
     
-    @Published var mainWidgets: [ModuliteWidgetConfiguration]
+    @Published var mainWidgets: [WidgetSchema]
     
-    @Published var auxiliaryWidgets: [UIImage] = []
+    @Published var auxiliaryWidgets: [WidgetSchema]
     
     @Published var tips: [UIImage] = []
     
     // MARK: - Init
     
     override init() {
-        let persistedWidgets = CoreDataPersistenceController.shared.fetchWidgets()
-        mainWidgets = persistedWidgets.map {
-            ModuliteWidgetConfiguration(persistedConfiguration: $0)
-        }
+        mainWidgets = CoreDataPersistenceController.shared.fetchMainWidgets()
+        auxiliaryWidgets = CoreDataPersistenceController.shared.fetchAuxWidgets()
+        
         super.init()
     }
     
     // MARK: - Getters
     
-    func getIndexFor(_ config: ModuliteWidgetConfiguration) -> Int? {
-        guard let index = mainWidgets.firstIndex(where: { $0.id == config.id }) else {
+    func getIndexFor(_ schema: WidgetSchema) -> Int? {
+        guard let index = mainWidgets.firstIndex(where: { $0.id == schema.id }) else {
             print("Widget not found in data source")
             return nil
         }
@@ -40,17 +40,17 @@ class HomeViewModel: NSObject {
     
     // MARK: - Actions
     
-    func addMainWidget(_ configuration: ModuliteWidgetConfiguration) {
-        mainWidgets.insert(configuration, at: 0)
+    func addMainWidget(_ schema: WidgetSchema) {
+        mainWidgets.insert(schema, at: 0)
     }
     
-    func updateMainWidget(_ configuration: ModuliteWidgetConfiguration) {
-        guard let idx = getIndexFor(configuration) else {
+    func updateMainWidget(_ schema: WidgetSchema) {
+        guard let idx = getIndexFor(schema) else {
             print("Tried to update a widget at an invalid index.")
             return
         }
         
-        mainWidgets[idx] = configuration
+        mainWidgets[idx] = schema
     }
     
     func deleteMainWidget(at idx: Int) {
@@ -64,8 +64,8 @@ class HomeViewModel: NSObject {
         mainWidgets.remove(at: idx)
     }
     
-    func deleteMainWidget(_ configuration: ModuliteWidgetConfiguration) {
-        guard let idx = mainWidgets.firstIndex(where: { $0.id == configuration.id }) else {
+    func deleteMainWidget(_ schema: WidgetSchema) {
+        guard let idx = mainWidgets.firstIndex(where: { $0.id == schema.id }) else {
             print("Tried to delete a widget that is not registered")
             return
         }

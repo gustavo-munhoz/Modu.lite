@@ -6,8 +6,9 @@
 //
 
 import Foundation
+import WidgetStyling
 
 struct AppListData: Codable {
     let version: Int
-    let apps: [AppInfoData]
+    let apps: [AppData]
 }

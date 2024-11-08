@@ -7,6 +7,7 @@
 
 import UIKit
 import WidgetKit
+import WidgetStyling
 
 /// A `Coordinator` that manages the presentation of the home screen in the application.
 class HomeCoordinator: Coordinator {
@@ -61,13 +62,13 @@ extension HomeCoordinator: HomeViewControllerDelegate {
     
     func homeViewControllerDidStartWidgetEditingFlow(
         _ viewController: HomeViewController,
-        widget: ModuliteWidgetConfiguration
+        widget: WidgetSchema
     ) {
-        let widgetCopy = widget.copy()
+        let widgetCopy = widget.clone()
         
         let coordinator = WidgetBuilderCoordinator(
             router: router,
-            configuration: widgetCopy
+            schema: widgetCopy
         )
         
         coordinator.onWidgetSave = { updatedWidget in

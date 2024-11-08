@@ -6,13 +6,14 @@
 //
 
 import UIKit
+import WidgetStyling
 
 extension WidgetEditorViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         switch collectionView {
         case editorView.widgetLayoutCollectionView: return viewModel.getCurrentModules().count
         case editorView.moduleStyleCollectionView: return viewModel.getAvailableStyles().count
-        case editorView.moduleColorCollectionView: return viewModel.getAvailableColors().count
+//        case editorView.moduleColorCollectionView: return viewModel.getAvailableColors().count
         default: return 0
         }
     }
@@ -40,20 +41,23 @@ extension WidgetEditorViewController: UICollectionViewDataSource {
             cell.setup(with: style)
             
             if let selectedStyle = viewModel.getStyleFromSelectedModule() {
-                cell.setSelected(to: selectedStyle.key == style.key)
+                cell.setSelected(to: selectedStyle.identifier == style.identifier)
             }
             
             return cell
             
         case editorView.moduleColorCollectionView:
             // MARK: - Create cells for colors
-            guard let color = viewModel.getAvailableColor(at: indexPath.row),
+            guard // let color = viewModel.getAvailableColor(at: indexPath.row),
                   let cell = collectionView.dequeueReusableCell(
                     withReuseIdentifier: ModuleColorCell.reuseId,
                     for: indexPath
                   ) as? ModuleColorCell else {
                 fatalError("Could not dequeue ModuleColorCell.")
             }
+            
+            // FIXME: Change to new colors
+            let color = UIColor.clear
             
             cell.setup(with: color)
             
@@ -80,7 +84,7 @@ extension WidgetEditorViewController: UICollectionViewDataSource {
             fatalError("Could not dequeue WidgetModuleCell.")
         }
         
-        if let index = viewModel.selectedCellIndex {
+        if let index = viewModel.selectedCellPosition {
             cell.setEditable(index == indexPath.row)
             
         } else {

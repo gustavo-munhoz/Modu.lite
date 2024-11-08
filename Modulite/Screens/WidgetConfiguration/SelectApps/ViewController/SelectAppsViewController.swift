@@ -6,16 +6,17 @@
 //
 
 import UIKit
+import WidgetStyling
 
 protocol SelectAppsViewControllerDelegate: AnyObject {
     func selectAppsViewControllerDidSelectApp(
         _ controller: SelectAppsViewController,
-        didSelect app: AppInfo
+        didSelect app: AppData
     )
     
     func selectAppsViewControllerDidDeselectApp(
         _ controller: SelectAppsViewController,
-        didDeselect app: AppInfo
+        didDeselect app: AppData
     )
 }
 
@@ -45,7 +46,7 @@ class SelectAppsViewController: UIViewController {
 extension SelectAppsViewController {
     class func instantiate(
         with delegate: SelectAppsViewControllerDelegate,
-        selectedApps: [AppInfo] = []
+        selectedApps: [AppData] = []
     ) -> SelectAppsViewController {
         
         let vc = SelectAppsViewController()
@@ -123,7 +124,7 @@ extension SelectAppsViewController: UICollectionViewDelegate {
     private func updateAndAnimateCollectionView(
         _ collectionView: UICollectionView,
         for indexPath: IndexPath
-    ) -> AppInfo? {
+    ) -> AppData? {
         
         let oldData = viewModel.apps
         let changedApp = viewModel.toggleAppSelection(at: indexPath.row)
@@ -144,8 +145,8 @@ extension SelectAppsViewController: UICollectionViewDelegate {
     }
 
     private func calculateMoves(
-        from oldData: [SelectableAppInfo],
-        to newData: [SelectableAppInfo]
+        from oldData: [SelectableAppData],
+        to newData: [SelectableAppData]
     ) -> [(from: Int, to: Int)] {
         
         var moves = [(from: Int, to: Int)]()

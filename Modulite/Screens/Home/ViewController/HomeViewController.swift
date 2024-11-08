@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import WidgetStyling
 
 protocol HomeViewControllerDelegate: AnyObject {
     func homeViewControllerDidStartWidgetCreationFlow(
@@ -15,7 +16,7 @@ protocol HomeViewControllerDelegate: AnyObject {
     
     func homeViewControllerDidStartWidgetEditingFlow(
         _ viewController: HomeViewController,
-        widget: ModuliteWidgetConfiguration
+        widget: WidgetSchema
     )
     
     func homeViewControllerDidFinishOnboarding(
@@ -91,7 +92,7 @@ class HomeViewController: UIViewController {
         viewModel.mainWidgets.count
     }
     
-    func updateMainWidget(_ widget: ModuliteWidgetConfiguration) {
+    func updateMainWidget(_ widget: WidgetSchema) {
         viewModel.updateMainWidget(widget)
         
         guard let index = viewModel.getIndexFor(widget) else {
@@ -106,7 +107,7 @@ class HomeViewController: UIViewController {
         }
     }
     
-    func registerNewWidget(_ widget: ModuliteWidgetConfiguration) {
+    func registerNewWidget(_ widget: WidgetSchema) {
         viewModel.addMainWidget(widget)
         
         guard let index = viewModel.getIndexFor(widget) else {
@@ -135,7 +136,7 @@ class HomeViewController: UIViewController {
         deleteWidget(widget)
     }
     
-    func deleteWidget(_ widget: ModuliteWidgetConfiguration) {
+    func deleteWidget(_ widget: WidgetSchema) {
         guard let index = viewModel.getIndexFor(widget) else {
             print("Widget not found in data source.")
             return
@@ -204,7 +205,7 @@ extension HomeViewController: UICollectionViewDataSource {
                 fatalError("Could not dequeue AuxiliaryWidgetCollectionViewCell.")
             }
             
-            cell.configure(with: viewModel.auxiliaryWidgets[indexPath.row])
+//            cell.configure(with: viewModel.auxiliaryWidgets[indexPath.row])
             
             return cell
             

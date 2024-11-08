@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import WidgetStyling
 
 protocol WidgetSetupViewControllerDelegate: AnyObject {
     func getPlaceholderName() -> String
@@ -18,7 +19,7 @@ protocol WidgetSetupViewControllerDelegate: AnyObject {
     
     func widgetSetupViewControllerDidDeselectApp(
         _ controller: WidgetSetupViewController,
-        app: AppInfo
+        app: AppData
     )
     
     func widgetSetupViewControllerDidSelectWidgetStyle(

@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import WidgetStyling
 
 class SelectAppsCoordinator: Coordinator {
     var children: [Coordinator] = []
@@ -13,9 +14,13 @@ class SelectAppsCoordinator: Coordinator {
     var router: Router
     
     unowned let selectAppsViewControllerDelegate: SelectAppsViewControllerDelegate
-    let selectedApps: [AppInfo]
+    let selectedApps: [AppData]
     
-    init(delegate: SelectAppsViewControllerDelegate, selectedApps: [AppInfo], router: Router) {
+    init(
+        delegate: SelectAppsViewControllerDelegate,
+        selectedApps: [AppData],
+        router: Router
+    ) {
         selectAppsViewControllerDelegate = delegate
         self.router = router
         self.selectedApps = selectedApps

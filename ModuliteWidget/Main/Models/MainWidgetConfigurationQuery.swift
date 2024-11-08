@@ -7,17 +7,18 @@
 
 import AppIntents
 import CoreData
+import WidgetStyling
 
 struct MainWidgetConfigurationQuery: EntityQuery {
     // TODO: Localize strings
     
     func entities(for identifiers: [UUID]) async throws -> [MainWidgetConfigurationEntity] {
-        let configurations = try await fetchWidgetConfigurations(identifiers: identifiers)
+        let configurations = try await fetchMainWidgetSchemas(identifiers: identifiers)
         return configurations.map { MainWidgetConfigurationEntity(id: $0.id, name: $0.name ?? "Unnamed Widget") }
     }
 
     func suggestedEntities() async throws -> [MainWidgetConfigurationEntity] {
-        let configurations = try await fetchAllWidgetConfigurations()
+        let configurations = try await fetchAllMainWidgetSchemas()
         return configurations.map { MainWidgetConfigurationEntity(id: $0.id, name: $0.name ?? "Unnamed Widget") }
     }
 
@@ -25,12 +26,12 @@ struct MainWidgetConfigurationQuery: EntityQuery {
         try? await suggestedEntities().first
     }
 
-    private func fetchWidgetConfigurations(identifiers: [UUID]) async throws -> [PersistableWidgetConfiguration] {
+    private func fetchMainWidgetSchemas(identifiers: [UUID]) async throws -> [WidgetSchema] {
         let predicate = NSPredicate(format: "id IN %@", identifiers.map { $0.uuidString })
-        return CoreDataPersistenceController.shared.fetchWidgets(predicate: predicate)
+        return CoreDataPersistenceController.shared.fetchMainWidgets(predicate: predicate)
     }
     
-    private func fetchAllWidgetConfigurations() async throws -> [PersistableWidgetConfiguration] {
-        CoreDataPersistenceController.shared.fetchWidgets()
+    private func fetchAllMainWidgetSchemas() async throws -> [WidgetSchema] {
+        CoreDataPersistenceController.shared.fetchMainWidgets()
     }
 }

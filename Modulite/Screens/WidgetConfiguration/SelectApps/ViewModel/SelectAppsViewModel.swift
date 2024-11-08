@@ -6,16 +6,17 @@
 //
 
 import Foundation
+import WidgetStyling
 
-typealias SelectableAppInfo = (data: AppInfo, isSelected: Bool)
+typealias SelectableAppData = (data: AppData, isSelected: Bool)
 
 class SelectAppsViewModel: NSObject {
     
     // MARK: - Properties        
     
-    private var unfilteredAppList: [SelectableAppInfo]
+    private var unfilteredAppList: [SelectableAppData]
     
-    @Published private(set) var apps: [SelectableAppInfo] = []
+    @Published private(set) var apps: [SelectableAppData] = []
     
     override init() {
         unfilteredAppList = CoreDataPersistenceController.shared.fetchApps().map { ($0, false) }
@@ -60,7 +61,7 @@ class SelectAppsViewModel: NSObject {
     }
     
     @discardableResult
-    func selectApp(at idx: Int) -> SelectableAppInfo? {
+    func selectApp(at idx: Int) -> SelectableAppData? {
         guard idx >= 0, idx < apps.count else {
             print("Tried selecting app at an invalid index.")
             return nil
@@ -87,7 +88,7 @@ class SelectAppsViewModel: NSObject {
     }
     
     @discardableResult
-    func selectApp(_ app: AppInfo) -> SelectableAppInfo? {
+    func selectApp(_ app: AppData) -> SelectableAppData? {
         guard let index = apps.firstIndex(where: { $0.data.name == app.name }) else {
             print("Tried to select an app that is not in apps list.")
             return nil
@@ -97,7 +98,7 @@ class SelectAppsViewModel: NSObject {
     }
     
     @discardableResult
-    func deselectApp(at idx: Int) -> SelectableAppInfo? {
+    func deselectApp(at idx: Int) -> SelectableAppData? {
         guard isAppSelected(at: idx) else {
             print("Tried to deselect an item that is not selected.")
             return nil
@@ -119,7 +120,7 @@ class SelectAppsViewModel: NSObject {
     }
     
     @discardableResult
-    func toggleAppSelection(at idx: Int) -> SelectableAppInfo? {
+    func toggleAppSelection(at idx: Int) -> SelectableAppData? {
         if apps[idx].isSelected {
             return deselectApp(at: idx)
         }

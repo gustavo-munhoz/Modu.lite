@@ -7,6 +7,7 @@
 
 import UIKit
 import TipKit
+import WidgetStyling
 
 extension Notification.Name {
     static let widgetEditorDidFinishOnboarding = Notification.Name("widgetEditorDidFinishOnboarding")
@@ -15,7 +16,7 @@ extension Notification.Name {
 protocol WidgetEditorViewControllerDelegate: AnyObject {
     func widgetEditorViewController(
         _ viewController: WidgetEditorViewController,
-        didSave widget: ModuliteWidgetConfiguration
+        didSave widget: WidgetSchema
     )
     
     func widgetEditorViewController(
@@ -70,9 +71,9 @@ class WidgetEditorViewController: UIViewController {
         
         setViewActions()
         
-        if let background = viewModel.getWidgetBackground() {
-            editorView.setWidgetBackground(to: background)
-        }
+        let background = viewModel.getWidgetBackground()
+        
+        editorView.setWidgetBackground(to: background)
     }
     
     override func viewDidLoad() {
@@ -256,7 +257,10 @@ class WidgetEditorViewController: UIViewController {
     func handleSaveWidgetButtonTouch() {
         clearSelectedModuleCell()
         
-        let widget = viewModel.saveWidget(from: editorView.widgetLayoutCollectionView)
+        guard let widget = viewModel.saveWidget(
+            from: editorView.widgetLayoutCollectionView
+        ) else { return }
+        
         delegate?.widgetEditorViewController(self, didSave: widget)
         
         if isOnboarding {
@@ -301,7 +305,7 @@ class WidgetEditorViewController: UIViewController {
 
 extension WidgetEditorViewController {
     class func instantiate(
-        builder: WidgetConfigurationBuilder,
+        builder: WidgetSchemaBuilder,
         delegate: WidgetEditorViewControllerDelegate
     ) -> WidgetEditorViewController {
         let vc = WidgetEditorViewController()
@@ -312,7 +316,7 @@ extension WidgetEditorViewController {
         return vc
     }
     
-    func loadDataFromBuilder(_ builder: WidgetConfigurationBuilder) {
+    func loadDataFromBuilder(_ builder: WidgetSchemaBuilder) {
         viewModel = WidgetEditorViewModel(widgetBuider: builder)
     }
 }
