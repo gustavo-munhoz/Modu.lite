@@ -7,7 +7,7 @@
 
 import UIKit
 
-public protocol ModuleStyle {
+public protocol ModuleStyle: AnyObject {
     var identifier: String { get }
     var image: UIImage { get }
     var filterColors: [UIColor] { get }
