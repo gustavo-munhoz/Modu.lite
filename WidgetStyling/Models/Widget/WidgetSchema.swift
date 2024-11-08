@@ -16,7 +16,7 @@ public class WidgetSchema: Cloneable {
     public var name: String?
     public var modules: [WidgetModule] = []
     public var previewImage: UIImage?
-    public var createdAt: Date
+    public var lastEditedAt: Date
     
     var availableModuleStyles: [ModuleStyle] {
         widgetStyle.getModuleStyles(for: type)
@@ -29,23 +29,23 @@ public class WidgetSchema: Cloneable {
         style: WidgetStyle,
         name: String? = nil,
         modules: [WidgetModule] = [],
-        createdAt: Date = .now
+        lastEditedAt: Date = .now
     ) {
         self.type = type
         self.widgetStyle = style
         self.name = name
         self.modules = modules
-        self.createdAt = createdAt
+        self.lastEditedAt = lastEditedAt
     }
     
     init(content: WidgetContent) {
         type = content.type
         widgetStyle = content.style
         name = content.name
-        createdAt = .now
+        lastEditedAt = .now
     }
     
-    required convenience init(_ prototype: WidgetSchema) {
+    public required convenience init(_ prototype: WidgetSchema) {
         self.init(
             type: prototype.type,
             style: prototype.widgetStyle,
@@ -55,6 +55,10 @@ public class WidgetSchema: Cloneable {
     }
     
     // MARK: - Helper methods
+    public func getBackground() -> StyleBackground {
+        widgetStyle.getBackground(for: self.type)
+    }
+    
     private func setup(from apps: [AppData?]) {
         for (idx, app) in apps.enumerated() {
             guard let app else {
@@ -62,7 +66,7 @@ public class WidgetSchema: Cloneable {
                 continue
             }
             
-            let moduleStyle = widgetStyle.getRandomStyle(for: type)
+            let moduleStyle = widgetStyle.getRandomModuleStyle(for: type)
             
             let module = WidgetModule(
                 style: moduleStyle,
@@ -88,7 +92,7 @@ public class WidgetSchema: Cloneable {
 }
 
 extension WidgetSchema {
-    func changeWidgetStyle(to newStyle: WidgetStyle) {
+    public func changeWidgetStyle(to newStyle: WidgetStyle) {
         for i in 0..<modules.count {
             let module = modules[i]
             
@@ -102,7 +106,7 @@ extension WidgetSchema {
                 continue
             }
             
-            let newModule = newStyle.getRandomStyle(for: type)
+            let newModule = newStyle.getRandomModuleStyle(for: type)
             
             modules[i] = WidgetModule(
                 style: newModule,
