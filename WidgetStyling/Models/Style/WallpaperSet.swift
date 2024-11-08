@@ -8,11 +8,15 @@
 import UIKit
 
 public struct WallpaperSet {
-    let blockScreen: UIImage
-    let homeScreen: UIImage
+    public let blockScreen: UIImage
+    public let homeScreen: UIImage
     
     enum WallpaperError: Swift.Error {
         case imageNotFound
+    }
+    
+    public func tuple() -> (blockScreen: UIImage, homeScreen: UIImage) {
+        (self.blockScreen, self.homeScreen)
     }
     
     static func create(from data: WallpaperSetData) throws -> WallpaperSet {

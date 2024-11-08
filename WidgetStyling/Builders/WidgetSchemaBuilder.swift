@@ -21,26 +21,26 @@ public class WidgetSchemaBuilder: Builder {
     }
     
     // MARK: - Initializers
-    init(content: WidgetContent) {
+    public init(content: WidgetContent) {
         self.schema = WidgetSchema(content: content)
     }
     
-    init(schema: WidgetSchema) {
+    public init(schema: WidgetSchema) {
         self.schema = schema
     }
     
     // MARK: - Getters
-    func getWidgetId() -> UUID { schema.id }
+    public func getWidgetId() -> UUID { schema.id }
     
-    func getWallpapers() -> WallpaperSet {
+    public func getWallpapers() -> WallpaperSet {
         schema.widgetStyle.getWallpapers()
     }
     
-    func getBackground() -> StyleBackground {
+    public func getBackground() -> StyleBackground {
         schema.widgetStyle.getBackground(for: schema.type)
     }
     
-    func getModule(at position: Int) throws -> WidgetModule {
+    public func getModule(at position: Int) throws -> WidgetModule {
         guard position >= 0, position < schema.modules.count else {
             throw SchemaError.invalidPosition
         }
@@ -48,9 +48,9 @@ public class WidgetSchemaBuilder: Builder {
         return schema.modules[position]
     }
     
-    func getCurrentModules() -> [WidgetModule] { schema.modules }
+    public func getCurrentModules() -> [WidgetModule] { schema.modules }
     
-    func getAvailableModuleStyle(at index: Int) throws -> ModuleStyle {
+    public func getAvailableModuleStyle(at index: Int) throws -> ModuleStyle {
         guard index >= 0, index < schema.availableModuleStyles.count else {
             throw SchemaError.invalidIndex
         }
@@ -58,11 +58,11 @@ public class WidgetSchemaBuilder: Builder {
         return schema.availableModuleStyles[index]
     }
     
-    func getAvailableModuleStyles() -> [ModuleStyle] {
+    public func getAvailableModuleStyles() -> [ModuleStyle] {
         schema.availableModuleStyles
     }
     
-    func getAvailableColorsForModule(at position: Int) throws -> [UIColor] {
+    public func getAvailableColorsForModule(at position: Int) throws -> [UIColor] {
         guard position >= 0, position < schema.type.maxModules else {
             throw SchemaError.invalidPosition
         }
@@ -70,7 +70,7 @@ public class WidgetSchemaBuilder: Builder {
         return schema.modules[position].availableColors()
     }
     
-    func getAvailableColorForModule(at position: Int, with idx: Int) throws -> UIColor {
+    public func getAvailableColorForModule(at position: Int, with idx: Int) throws -> UIColor {
         guard position >= 0, position < schema.type.maxModules else {
             throw SchemaError.invalidPosition
         }
@@ -84,7 +84,7 @@ public class WidgetSchemaBuilder: Builder {
         return module.availableColors()[idx]
     }
     
-    func isModuleEmpty(at position: Int) throws -> Bool {
+    public func isModuleEmpty(at position: Int) throws -> Bool {
         guard position >= 0, position < schema.type.maxModules else {
             throw SchemaError.invalidPosition
         }
@@ -94,7 +94,7 @@ public class WidgetSchemaBuilder: Builder {
     
     // MARK: - Setters
     
-    func setModuleStyle(_ style: ModuleStyle, at position: Int) throws {
+    public func setModuleStyle(_ style: ModuleStyle, at position: Int) throws {
         guard position >= 0, position < schema.modules.count else {
             throw SchemaError.invalidPosition
         }
@@ -106,7 +106,7 @@ public class WidgetSchemaBuilder: Builder {
         schema.modules[position].style = availableStyle
     }
     
-    func setModuleColor(_ color: UIColor, at position: Int) throws {
+    public func setModuleColor(_ color: UIColor, at position: Int) throws {
         guard position >= 0, position < schema.modules.count else {
             throw SchemaError.invalidPosition
         }
@@ -120,7 +120,7 @@ public class WidgetSchemaBuilder: Builder {
         module.color = color
     }
     
-    func moveModule(from position: Int, to newPosition: Int) throws {
+    public func moveModule(from position: Int, to newPosition: Int) throws {
         guard position != newPosition,
               position >= 0, position < schema.modules.count,
               newPosition >= 0, newPosition < schema.modules.count
@@ -137,7 +137,7 @@ public class WidgetSchemaBuilder: Builder {
     }
     
     // MARK: - Build
-    func build() throws -> WidgetSchema {
+    public func build() throws -> WidgetSchema {
         schema
     }
 }

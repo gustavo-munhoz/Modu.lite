@@ -25,29 +25,29 @@ public class WidgetContentBuilder: Builder {
     }
     
     // MARK: - Initializers
-    init(type: WidgetType) {
+    public init(type: WidgetType) {
         self.type = type
     }
     
     // MARK: - Getters
-    func getCurrentApps() -> [AppData] { apps }
+    public func getCurrentApps() -> [AppData] { apps }
     
     // MARK: - Setters
-    func setWidgetName(_ name: String) {
+    public func setWidgetName(_ name: String?) {
         self.name = name
     }
     
-    func setWidgetStyle(_ style: WidgetStyle) {
+    public func setWidgetStyle(_ style: WidgetStyle) {
         self.style = style
     }
     
-    func appendApp(_ app: AppData) throws {
+    public func appendApp(_ app: AppData) throws {
         guard apps.count < type.maxModules else { throw ContentError.maxAppsReached }
         
         apps.append(app)
     }
     
-    func removeApp(_ app: AppData) throws {
+    public func removeApp(_ app: AppData) throws {
         guard apps.count > 0 else { throw ContentError.emptyApps }
         guard let index = apps.firstIndex(of: app) else { throw ContentError.appNotFound }
         
@@ -55,7 +55,7 @@ public class WidgetContentBuilder: Builder {
     }
     
     // MARK: - Build
-    func build() throws -> WidgetContent {
+    public func build() throws -> WidgetContent {
         guard let name else { throw ContentError.missingName }
         guard let style else { throw ContentError.missingStyle }
         guard !apps.isEmpty else { throw ContentError.emptyApps }
@@ -67,15 +67,21 @@ public class WidgetContentBuilder: Builder {
     }
 }
 
-struct WidgetContent {
-    let type: WidgetType
-    let name: String
-    let style: WidgetStyle
-    let apps: [AppData?]
+public struct WidgetContent {
+    public let type: WidgetType
+    public let name: String
+    public let style: WidgetStyle
+    public let apps: [AppData?]
 }
 
-struct AppData: Equatable, Codable {
-    let name: String
-    let urlScheme: URL
-    let relevance: Int
+public struct AppData: Equatable, Codable {
+    public let name: String
+    public let urlScheme: URL
+    public let relevance: Int
+    
+    public init(name: String, urlScheme: URL, relevance: Int) {
+        self.name = name
+        self.urlScheme = urlScheme
+        self.relevance = relevance
+    }
 }

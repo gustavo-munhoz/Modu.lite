@@ -7,12 +7,12 @@
 
 import Foundation
 
-protocol Cloneable: AnyObject {
+public protocol Cloneable: AnyObject {
     init(_ prototype: Self)
 }
 
 extension Cloneable {
-    func clone() -> Self {
+    public func clone() -> Self {
         type(of: self).init(self)
     }
 }
