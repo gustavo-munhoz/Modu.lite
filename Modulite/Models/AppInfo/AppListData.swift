@@ -1,5 +1,5 @@
 //
-//  AppsData.swift
+//  AppListData.swift
 //  Modulite
 //
 //  Created by Gustavo Munhoz Correa on 29/10/24.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct AppsData: Codable {
+struct AppListData: Codable {
     let version: Int
     let apps: [AppInfoData]
 }

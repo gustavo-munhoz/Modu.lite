@@ -24,19 +24,19 @@ extension WidgetModule {
 }
 
 extension WidgetModule {
-    convenience init?(persisted: PersistableModuleConfiguration) {
+    convenience init?(persisted: PersistentWidgetModule) {
         let provider = try? WidgetStyleProvider()
         
         guard let moduleStyle = provider?.getModuleStyle(
-            by: persisted.selectedStyleKey
+            by: persisted.styleIdentifier
         ) else { return nil }
         
         self.init(
             style: moduleStyle,
-            position: Int(persisted.index),
+            position: Int(persisted.position),
             appName: persisted.appName,
             urlScheme: persisted.urlScheme,
-            color: persisted.selectedColor ?? .clear
+            color: persisted.selectedColor
         )
     }
 }
