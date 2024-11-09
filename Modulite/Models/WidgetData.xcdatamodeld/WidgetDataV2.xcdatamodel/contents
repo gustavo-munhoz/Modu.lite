@@ -1,25 +1,25 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="23231" systemVersion="24A348" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithSwiftData="YES" userDefinedModelVersionIdentifier="">
-    <entity name="AppInfo" representedClassName="AppInfo" syncable="YES">
+    <entity name="PersistentAppData" representedClassName="PersistentAppData" syncable="YES">
         <attribute name="name" attributeType="String"/>
         <attribute name="relevance" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="urlScheme" attributeType="URI"/>
     </entity>
-    <entity name="PersistentWidgetModule" representedClassName="PersistentWidgetModule" elementID="PersistableModuleConfiguration" versionHashModifier="1" syncable="YES">
+    <entity name="PersistentWidgetModule" representedClassName="PersistentWidgetModule" syncable="YES">
         <attribute name="appName" optional="YES" attributeType="String"/>
-        <attribute name="imageURL" attributeType="URI" versionHashModifier="1" elementID="resultingImageURL"/>
-        <attribute name="position" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" versionHashModifier="1" elementID="index"/>
+        <attribute name="imageURL" attributeType="URI"/>
+        <attribute name="position" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="selectedColor" attributeType="Transformable" valueTransformerName="UIColorValueTransformer"/>
-        <attribute name="styleIdentifier" attributeType="String" versionHashModifier="1" elementID="selectedStyleKey"/>
+        <attribute name="styleIdentifier" attributeType="String"/>
         <attribute name="urlScheme" optional="YES" attributeType="URI"/>
         <relationship name="widget" maxCount="1" deletionRule="Nullify" destinationEntity="PersistentWidgetSchema" inverseName="modules" inverseEntity="PersistentWidgetSchema"/>
     </entity>
-    <entity name="PersistentWidgetSchema" representedClassName="PersistentWidgetSchema" elementID="PersistableWidgetConfiguration" versionHashModifier="1" syncable="YES">
+    <entity name="PersistentWidgetSchema" representedClassName="PersistentWidgetSchema" syncable="YES">
         <attribute name="id" attributeType="UUID" usesScalarValueType="NO"/>
-        <attribute name="lastEditedAt" attributeType="Date" usesScalarValueType="NO" versionHashModifier="1" elementID="createdAt"/>
+        <attribute name="lastEditedAt" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="name" optional="YES" attributeType="String"/>
         <attribute name="previewImageUrl" attributeType="URI"/>
-        <attribute name="styleIdentifier" attributeType="String" versionHashModifier="1" elementID="widgetStyleKey"/>
+        <attribute name="styleIdentifier" attributeType="String"/>
         <attribute name="type" attributeType="String" valueTransformerName="WidgetTypeTransformer"/>
         <relationship name="modules" toMany="YES" minCount="6" maxCount="6" deletionRule="Cascade" destinationEntity="PersistentWidgetModule" inverseName="widget" inverseEntity="PersistentWidgetModule"/>
     </entity>
