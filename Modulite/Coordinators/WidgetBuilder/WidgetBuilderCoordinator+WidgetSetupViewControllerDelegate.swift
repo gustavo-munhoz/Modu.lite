@@ -17,9 +17,9 @@ extension WidgetBuilderCoordinator: WidgetSetupViewControllerDelegate {
     }
     
     func widgetSetupViewControllerDidPressNext(widgetName: String) {
-        guard let builder = try? configurationBuilder else { return }
-        
         contentBuilder.setWidgetName(widgetName)
+        
+        guard let builder = try? configurationBuilder else { return }
         
         let viewController = WidgetEditorViewController.instantiate(
             builder: builder,
