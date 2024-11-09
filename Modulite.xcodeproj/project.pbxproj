@@ -395,8 +395,6 @@
 		B3C6DD862CDEAC17002AEAF7 /* CoreDataPersistenceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3C6DD832CDEAC17002AEAF7 /* CoreDataPersistenceController.swift */; };
 		B3C6DD882CDEAC2E002AEAF7 /* PersistentWidgetModuleMigrationPolicy.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3C6DD872CDEAC2E002AEAF7 /* PersistentWidgetModuleMigrationPolicy.swift */; };
 		B3C6DD892CDEAC2E002AEAF7 /* PersistentWidgetModuleMigrationPolicy.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3C6DD872CDEAC2E002AEAF7 /* PersistentWidgetModuleMigrationPolicy.swift */; };
-		B3C6DD8B2CDEAD39002AEAF7 /* WidgetDataToWidgetDataV2.xcmappingmodel in Sources */ = {isa = PBXBuildFile; fileRef = B3C6DD8A2CDEAD39002AEAF7 /* WidgetDataToWidgetDataV2.xcmappingmodel */; };
-		B3C6DD8C2CDEAD39002AEAF7 /* WidgetDataToWidgetDataV2.xcmappingmodel in Sources */ = {isa = PBXBuildFile; fileRef = B3C6DD8A2CDEAD39002AEAF7 /* WidgetDataToWidgetDataV2.xcmappingmodel */; };
 		B3CC57C12CBF38D800945DE2 /* AppDeviceActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3CC57C02CBF38D800945DE2 /* AppDeviceActivity.swift */; };
 		B3CC57C32CBF38EB00945DE2 /* ActivityReport.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3CC57C22CBF38EB00945DE2 /* ActivityReport.swift */; };
 		B3CC57C52CBF393E00945DE2 /* TimeInterval+ToHoursAndMinutes.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3CC57C42CBF393E00945DE2 /* TimeInterval+ToHoursAndMinutes.swift */; };
@@ -871,7 +869,6 @@
 		B3C6DD7A2CDE9B28002AEAF7 /* WidgetSchema+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WidgetSchema+Extensions.swift"; sourceTree = "<group>"; };
 		B3C6DD832CDEAC17002AEAF7 /* CoreDataPersistenceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataPersistenceController.swift; sourceTree = "<group>"; };
 		B3C6DD872CDEAC2E002AEAF7 /* PersistentWidgetModuleMigrationPolicy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistentWidgetModuleMigrationPolicy.swift; sourceTree = "<group>"; };
-		B3C6DD8A2CDEAD39002AEAF7 /* WidgetDataToWidgetDataV2.xcmappingmodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcmappingmodel; path = WidgetDataToWidgetDataV2.xcmappingmodel; sourceTree = "<group>"; };
 		B3CC57C02CBF38D800945DE2 /* AppDeviceActivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDeviceActivity.swift; sourceTree = "<group>"; };
 		B3CC57C22CBF38EB00945DE2 /* ActivityReport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityReport.swift; sourceTree = "<group>"; };
 		B3CC57C42CBF393E00945DE2 /* TimeInterval+ToHoursAndMinutes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TimeInterval+ToHoursAndMinutes.swift"; sourceTree = "<group>"; };
@@ -2197,7 +2194,6 @@
 				B32B60B82C8647A9007DDCE3 /* Modules */,
 				B3EB15B72C7E4C7D003B1960 /* Widget */,
 				B32B60C02C864BB2007DDCE3 /* WidgetData.xcdatamodeld */,
-				B3C6DD8A2CDEAD39002AEAF7 /* WidgetDataToWidgetDataV2.xcmappingmodel */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -3378,7 +3374,6 @@
 				B30201692CC7074F00301646 /* View+PulseEffect.swift in Sources */,
 				B39A259E2CAB2969001C76A5 /* Copying.swift in Sources */,
 				B32B60FC2C87AC90007DDCE3 /* AppInfo+CoreDataProperties.swift in Sources */,
-				B3C6DD8B2CDEAD39002AEAF7 /* WidgetDataToWidgetDataV2.xcmappingmodel in Sources */,
 				B3987E132CA38AF400896414 /* MainWidgetProvider.swift in Sources */,
 				B32B60F52C87AB85007DDCE3 /* WidgetData.xcdatamodeld in Sources */,
 				B3987E2F2CA4F46A00896414 /* MainWidgetConfigurationQuery.swift in Sources */,
@@ -3590,7 +3585,6 @@
 				AF0DB4962CD2C08900451E18 /* StylePreviewView.swift in Sources */,
 				B3850BB52C94D1F200F400C0 /* UICollectionViewCell+toggleIsHighlighted.swift in Sources */,
 				B3C187862C79208600A891A8 /* WidgetStyleFactory.swift in Sources */,
-				B3C6DD8C2CDEAD39002AEAF7 /* WidgetDataToWidgetDataV2.xcmappingmodel in Sources */,
 				B3D1B7E42CB7128700DFC4F5 /* HelpLocalizedTexts.swift in Sources */,
 				B32B60C22C864BB2007DDCE3 /* WidgetData.xcdatamodeld in Sources */,
 				B33808B02CC47C0300D56884 /* RequestScreenTimeCoordinator.swift in Sources */,
