@@ -75,17 +75,16 @@ public class AuxModuleStyle: ModuleStyle {
             UIImage.Configuration(traitCollection: .init(userInterfaceStyle: .light))
         )
         
-        let renderer = UIGraphicsImageRenderer(size: image.size, format: image.imageRendererFormat)
-        
+        let renderer = UIGraphicsImageRenderer(size: image.size)
+
         let blendedImage = renderer.image { context in
             image.draw(in: CGRect(origin: .zero, size: image.size))
+                        
             context.cgContext.setBlendMode(imageBlendMode)
             context.cgContext.setFillColor(color.cgColor)
-            
-            let rect = CGRect(origin: .zero, size: image.size)
-            context.cgContext.fill(rect)
+            context.cgContext.fill(CGRect(origin: .zero, size: image.size))
         }
-        
+
         return blendedImage
     }
 }
