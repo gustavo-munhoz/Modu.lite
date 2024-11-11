@@ -22,6 +22,7 @@ public class WidgetModule {
         do {
             return try style.blendedImage(with: color)
         } catch {
+            print("Error blending image: \(error)")
             return style.image
         }
     }
@@ -42,7 +43,7 @@ public class WidgetModule {
     }
     
     // MARK: - Helper functions
-    func canSetColor(to color: UIColor) -> Bool {
+    public func canSetColor(to color: UIColor) -> Bool {
         style.filterColors.contains(color)
     }
     
