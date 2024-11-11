@@ -50,54 +50,6 @@ extension UILabel {
         }
     }
     
-    func configure(with config: ModuleAppNameTextConfiguration) {
-        if let textCase = config.textCase {
-            setText(toCase: textCase)
-        }
-        
-        if config.shouldRemoveSpaces {
-            removeSpaces()
-        }
-        
-        let attributedString = NSMutableAttributedString(string: text ?? "")
-        
-        font = config.font
-        textColor = config.textColor
-        textAlignment = config.textAlignment ?? .center
-                
-        if let shadowColor = config.shadowColor {
-            let shadow = NSShadow()
-            shadow.shadowColor = shadowColor
-            shadow.shadowBlurRadius = config.shadowBlurRadius ?? 0
-            shadow.shadowOffset = config.shadowOffset ?? .zero
-            
-            attributedString.addAttribute(
-                .shadow,
-                value: shadow,
-                range: NSRange(location: 0, length: attributedString.length)
-            )
-        }
-        
-        if let letterSpacing = config.letterSpacing {
-            attributedString.addAttribute(
-                .kern,
-                value: letterSpacing,
-                range: NSRange(
-                    location: 0,
-                    length: attributedString.length
-                )
-            )
-        }
-        
-        if let preffix = config.preffix {
-            attributedString.insert(NSAttributedString(string: preffix), at: 0)
-        }
-        
-        if !(attributedString.length == 0) {
-            attributedText = attributedString
-        }
-    }
-    
     private func removeSpaces() {
         text = text?.filter { $0 != " " }
     }
