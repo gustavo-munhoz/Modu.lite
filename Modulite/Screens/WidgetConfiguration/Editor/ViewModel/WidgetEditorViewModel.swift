@@ -30,11 +30,6 @@ class WidgetEditorViewModel: NSObject {
         guard let selectedStyle = getStyleFromSelectedModule() else { return nil }
         return getAvailableStyles().firstIndex(where: { $0.identifier == selectedStyle.identifier })
     }
-
-//    func getIndexForSelectedColor() -> Int? {
-//        guard let selectedColor = getColorFromSelectedModule() else { return nil }
-//        return getAvailableColors().firstIndex(of: selectedColor)
-//    }
     
     func getWidgetId() -> UUID {
         builder.getWidgetId()
@@ -42,6 +37,13 @@ class WidgetEditorViewModel: NSObject {
     
     func getWidgetBackground() -> StyleBackground {
         builder.getBackground()
+    }
+    
+    func getIndexForSelectedModuleColor() -> Int? {
+        guard let index = selectedCellPosition,
+              let color = getColorFromSelectedModule() else { return nil }
+        
+        return getAvailableColorsForModule(at: index).firstIndex(of: color)
     }
     
     func getColorFromSelectedModule() -> UIColor? {
@@ -70,6 +72,11 @@ class WidgetEditorViewModel: NSObject {
     
     func getAvailableStyle(at position: Int) -> ModuleStyle? {
         try? builder.getAvailableModuleStyle(at: position)
+    }
+    
+    func getAvailableColorsForSelectedModule() -> [UIColor] {
+        guard let index = selectedCellPosition else { return [] }
+        return getAvailableColorsForModule(at: index)
     }
     
     func getAvailableColorsForModule(at position: Int) -> [UIColor] {
@@ -176,13 +183,36 @@ class WidgetEditorViewModel: NSObject {
         try? builder.setModuleColor(color, at: selectedCellPosition)
     }
     
-    func applyStyleToSelectedModule(_ style: ModuleStyle) {
+    func applyStyleToSelectedModule(
+        _ style: ModuleStyle,
+        didSetToDefaultColor: @escaping (Bool) -> Void = { _ in }
+    ) {
         guard let selectedCellPosition else {
             print("Tried to edit item without selecting any.")
             return
         }
         
-        try? builder.setModuleStyle(style, at: selectedCellPosition)
+        do {
+            try builder.setModuleStyle(style, at: selectedCellPosition)
+                        
+            let currentColor = try builder.getModule(at: selectedCellPosition).color
+            
+            guard let canSetColor = (
+                try? builder.getModule(at: selectedCellPosition).canSetColor(
+                    to: currentColor
+                )
+            ), !canSetColor else { return }
+            
+            try builder.setModuleColor(
+                style.defaultColor,
+                at: selectedCellPosition
+            )
+            
+            didSetToDefaultColor(true)
+            
+        } catch {
+            print("Failed to apply style or set color: \(error)")
+        }
     }
     
     // MARK: - Helper methods
