@@ -45,3 +45,14 @@ extension PersistentWidgetModule {
         return persistedModule
     }
 }
+
+extension PersistentWidgetModule {
+    static func basicFetchRequest() -> NSFetchRequest<PersistentWidgetModule> {
+        guard let request = PersistentWidgetModule.fetchRequest()
+                as? NSFetchRequest<PersistentWidgetModule> else {
+            fatalError("Could not create PersistentWidgetModule fetch request.")
+        }
+        
+        return request
+    }
+}
