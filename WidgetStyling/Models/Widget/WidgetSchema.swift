@@ -42,6 +42,25 @@ public class WidgetSchema: Cloneable {
         type = content.type
         widgetStyle = content.style
         name = content.name
+        
+        for (pos, app) in content.apps.enumerated() {
+            let module = if app == nil {
+                widgetStyle.getEmptyModuleStyle(for: type)
+            } else {
+                widgetStyle.getRandomModuleStyle(for: type)
+            }
+            
+            modules.append(
+                WidgetModule(
+                    style: module,
+                    position: pos,
+                    appName: app?.name,
+                    urlScheme: app?.urlScheme,
+                    color: module.defaultColor
+                )
+            )
+        }
+        
         lastEditedAt = .now
     }
     
