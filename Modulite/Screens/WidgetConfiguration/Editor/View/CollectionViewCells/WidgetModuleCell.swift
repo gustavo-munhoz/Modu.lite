@@ -40,22 +40,6 @@ class WidgetModuleCell: UICollectionViewCell {
         appNameLabel.text = nil
     }
     
-//    func setup(with module: ModuleConfiguration) {
-//        subviews.forEach { $0.removeFromSuperview() }
-//        moduleImageView.image = module.resultingImage
-//        
-//        layer.cornerRadius = 12
-//        clipsToBounds = true
-//        
-//        if module.appName != nil {
-//            appNameLabel.text = module.appName
-//            appNameLabel.configure(with: module.textConfiguration)
-//        }
-//        
-//        addSubviews()
-//        setupConstraints()
-//    }
-    
     func setup(with module: WidgetModule) {
         subviews.forEach { $0.removeFromSuperview() }
         moduleImageView.image = module.blendedImage
