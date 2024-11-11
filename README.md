@@ -1,7 +1,7 @@
 <h1 align="center">Modu.lite</h1>
 <h3 align="center">
   <a href="https://github.com/gustavo-munhoz/Modu.lite"><img src="/Logo2.png" alt="OctoCoin Logo" width="300"></a>
-  <a href="https://github.com/gustavo-munhoz/Modu.lite"><img src="/Logo1.pgn" alt="OctoCoin Logo" width="300"></a>
+  <a href="https://github.com/gustavo-munhoz/Modu.lite"><img src="/Logo1.png" alt="OctoCoin Logo" width="500"></a>
 </h3>
 </p>
 
