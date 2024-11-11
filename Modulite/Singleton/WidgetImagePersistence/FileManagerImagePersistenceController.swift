@@ -97,6 +97,26 @@ class FileManagerImagePersistenceController {
     
     // MARK: - Delete images
     
+    func deleteAllWidgetImages() {
+        let fileManager = FileManager.default
+        
+        do {
+            let directoryContents = try fileManager.contentsOfDirectory(
+                at: baseDirectory,
+                includingPropertiesForKeys: nil
+            )
+            
+            for directory in directoryContents where UUID(uuidString: directory.lastPathComponent) != nil {
+                try fileManager.removeItem(at: directory)
+            }
+            
+            print("All widget images and directories deleted successfully.")
+            
+        } catch {
+            print("Failed to delete widget images and directories: \(error)")
+        }
+    }
+    
     func deleteWidgetAndModules(widgetId id: UUID) {
         let widgetDirectory = getDirectory(for: id)
         

@@ -35,6 +35,8 @@ struct CoreDataPersistenceController {
     init(inMemory: Bool = false) {
         container = NSPersistentContainer(name: "WidgetData")
         
+        resetAllDataIfNeeded(databaseVersion: 1)
+        
         guard let appGroupID = Bundle.main.object(forInfoDictionaryKey: "AppGroupID") as? String else {
             fatalError("Could not find App Group ID in Info.plist")
         }
@@ -47,9 +49,6 @@ struct CoreDataPersistenceController {
         
         let storeURL = appGroupURL.appendingPathComponent("WidgetData.sqlite")
         let description = NSPersistentStoreDescription(url: storeURL)
-        
-        description.shouldMigrateStoreAutomatically = true
-        description.shouldInferMappingModelAutomatically = true
         
         if inMemory {
             description.url = URL(filePath: "/dev/null")
@@ -71,29 +70,32 @@ struct CoreDataPersistenceController {
     }
     
     func executeInitialSetup() {
-        ensureDefaultSelectedColor()
         checkVersionAndPopulateIfNeeded()
     }
     
-    private func ensureDefaultSelectedColor() {
-        let fetchRequest = PersistentWidgetModule.basicFetchRequest()
+    private func resetAllDataIfNeeded(databaseVersion version: Int) {
+        let hasResetKey = "hasResetDataAtVersion\(version)"
+        guard !UserDefaults.standard.bool(forKey: hasResetKey) else { return }
+        
+        guard let appGroupID = Bundle.main.object(forInfoDictionaryKey: "AppGroupID") as? String,
+              let appGroupURL = FileManager.default.containerURL(
+                forSecurityApplicationGroupIdentifier: appGroupID
+              ) else { fatalError("Could not find App Group Container") }
+        
+        let storeURL = appGroupURL.appendingPathComponent("WidgetData.sqlite")
         
         do {
-            let results = try container.viewContext.fetch(fetchRequest)
-            for object in results {
-                if object.selectedColor == nil {
-                    object.selectedColor = UIColor.clear
-                }
-            }
+            try FileManager.default.removeItem(at: storeURL)
+            print("CoreData store successfully deleted")
             
-            if container.viewContext.hasChanges {
-                try container.viewContext.save()
-            }
+            FileManagerImagePersistenceController.shared.deleteAllWidgetImages()
+            
+            UserDefaults.standard.set(true, forKey: hasResetKey)
+            UserDefaults.standard.removeObject(forKey: "appsDataVersion")
         } catch {
-            print("Failed to update objects with default selectedColor: \(error.localizedDescription)")
+            print("Failed to delete CoreData store: \(error.localizedDescription)")
         }
     }
-
 }
 
 // MARK: - AppInfo
