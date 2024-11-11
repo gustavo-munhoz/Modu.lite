@@ -43,55 +43,95 @@ extension WidgetEditorViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         switch collectionView {
         case editorView.widgetLayoutCollectionView:
-            // MARK: - Handle widget cell touch
-            if viewModel.selectedCellPosition == indexPath.row {
-                clearSelectedModuleCell()
-                return
-            }
-            
-            dismissCurrentTip()
-            selectModuleCell(at: indexPath.row)
+            handleWidgetCellSelection(at: indexPath)
             
         case editorView.moduleStyleCollectionView:
-            // MARK: - Handle module style touch
-            
-            guard let style = viewModel.getAvailableStyle(at: indexPath.row) else {
-                print("No styles found at \(indexPath.row)")
-                return
-            }
-            
-            selectStyleCell(style: style)
-            viewModel.applyStyleToSelectedModule(style)
-            editorView.widgetLayoutCollectionView.reloadData()
-            editorView.moduleStyleCollectionView.scrollToItem(
-                at: indexPath,
-                at: .centeredHorizontally,
-                animated: true
-            )
+            handleModuleStyleSelection(at: indexPath)
             
         case editorView.moduleColorCollectionView:
-            // MARK: - Handle module color touch
+            handleModuleColorSelection(at: indexPath)
             
-//            guard let color = viewModel.getAvailableColor(at: indexPath.row) else {
-//                print("No colors found at \(indexPath.row)")
-//                return
-//            }
-            
-            // FIXME: Change to new colors
-            let color = UIColor.clear
-            
-            selectColorCell(color: color)
-            viewModel.applyColorToSelectedModule(color)
-            editorView.widgetLayoutCollectionView.reloadData()
-            editorView.moduleColorCollectionView.scrollToItem(
-                at: indexPath,
-                at: .centeredHorizontally,
-                animated: true
-            )
-            
-        default: return
-            
+        default:
+            return
         }
+    }
+
+    private func handleWidgetCellSelection(at indexPath: IndexPath) {
+        if viewModel.selectedCellPosition == indexPath.row {
+            clearSelectedModuleCell()
+            return
+        }
+        
+        dismissCurrentTip()
+        selectModuleCell(at: indexPath.row)
+    }
+
+    private func handleModuleStyleSelection(at indexPath: IndexPath) {
+        guard let style = viewModel.getAvailableStyle(at: indexPath.row) else {
+            print("No styles found at \(indexPath.row)")
+            return
+        }
+        
+        selectStyleCell(style: style)
+        
+        let previousColors = viewModel.getAvailableColorsForSelectedModule()
+        
+        viewModel.applyStyleToSelectedModule(style) { [weak self] didSetToDefaultColor in
+            self?.handleDefaultColorSelectionIfNeeded(didSetToDefaultColor)
+        }
+        
+        let newColors = viewModel.getAvailableColorsForSelectedModule()
+        updateColorCollectionView(previousColors: previousColors, newColors: newColors)
+        
+        editorView.widgetLayoutCollectionView.reloadData()
+        editorView.moduleStyleCollectionView.scrollToItem(
+            at: indexPath,
+            at: .centeredHorizontally,
+            animated: true
+        )
+    }
+
+    private func handleDefaultColorSelectionIfNeeded(_ didSetToDefaultColor: Bool) {
+        guard didSetToDefaultColor,
+              let selectedCellPosition = viewModel.selectedCellPosition else { return }
+        
+        let availableColors = viewModel.getAvailableColorsForModule(at: selectedCellPosition)
+        let defaultColor = viewModel.getModule(at: selectedCellPosition)?.style.defaultColor
+        
+        guard let defaultColor, let index = availableColors.firstIndex(of: defaultColor) else { return }
+        
+        selectColorCell(color: defaultColor)
+    }
+
+    private func updateColorCollectionView(previousColors: [UIColor], newColors: [UIColor]) {
+        let (indexPathsToRemove, indexPathsToAdd) = calculateColorDifferences(
+            previous: previousColors,
+            new: newColors
+        )
+        
+        editorView.moduleColorCollectionView.performBatchUpdates({ [weak self] in
+            guard let self else { return }
+            self.editorView.moduleColorCollectionView.deleteItems(at: indexPathsToRemove)
+            self.editorView.moduleColorCollectionView.insertItems(at: indexPathsToAdd)
+        })
+    }
+
+    private func handleModuleColorSelection(at indexPath: IndexPath) {
+        guard let selectedCellPosition = viewModel.selectedCellPosition else {
+            return
+        }
+        
+        let availableColors = viewModel.getAvailableColorsForModule(at: selectedCellPosition)
+        let color = availableColors[indexPath.row]
+        
+        selectColorCell(color: color)
+        viewModel.applyColorToSelectedModule(color)
+        editorView.widgetLayoutCollectionView.reloadData()
+        editorView.moduleColorCollectionView.scrollToItem(
+            at: indexPath,
+            at: .centeredHorizontally,
+            animated: true
+        )
     }
     
     private func sendEditModuleEventIfNeeded() {
@@ -120,6 +160,8 @@ extension WidgetEditorViewController: UICollectionViewDelegate {
             guard let cell = cell as? ModuleColorCell else { return }
             cell.setSelected(to: false)
         }
+        
+        editorView.moduleColorCollectionView.reloadData()
     }
     
     private func selectColorCell(color: UIColor) {
@@ -141,7 +183,20 @@ extension WidgetEditorViewController: UICollectionViewDelegate {
     }
     
     private func selectModuleCell(at index: Int) {
+        let previousColors = viewModel.getAvailableColorsForSelectedModule()
         viewModel.setEditingCell(at: index)
+        let newColors = viewModel.getAvailableColorsForSelectedModule()
+        
+        let (indexPathsToRemove, indexPathsToAdd) = calculateColorDifferences(
+            previous: previousColors,
+            new: newColors
+        )
+                
+        editorView.moduleColorCollectionView.performBatchUpdates({
+            editorView.moduleColorCollectionView.deleteItems(at: indexPathsToRemove)
+            editorView.moduleColorCollectionView.insertItems(at: indexPathsToAdd)
+        })
+        
         editorView.enableStylingCollectionViews(
             didSelectEmptyCell: viewModel.isModuleEmpty(at: index) ?? false
         )
@@ -163,13 +218,35 @@ extension WidgetEditorViewController: UICollectionViewDelegate {
         scrollToSelectedOptions()
     }
     
-    private func scrollToSelectedOptions() {
-        guard let styleIndex = viewModel.getIndexForSelectedStyle()
-//              let colorIndex = viewModel.getIndexForSelectedColor()
-        else { return }
+    private func calculateColorDifferences(
+        previous: [UIColor],
+        new: [UIColor]
+    ) -> (toRemove: [IndexPath], toAdd: [IndexPath]) {
+        let previousSet = Set(previous)
+        let newSet = Set(new)
         
-        // FIXME: Change to new colors
-        let colorIndex = 0
+        let colorsToRemove = previousSet.subtracting(newSet)
+        let colorsToAdd = newSet.subtracting(previousSet)
+        
+        var indexPathsToRemove: [IndexPath] = []
+        var indexPathsToAdd: [IndexPath] = []
+        
+        for (index, color) in previous.enumerated() where colorsToRemove.contains(color) {
+            indexPathsToRemove.append(IndexPath(item: index, section: 0))
+        }
+        
+        for (index, color) in new.enumerated() where colorsToAdd.contains(color) {
+            indexPathsToAdd.append(IndexPath(item: index, section: 0))
+        }
+        
+        return (toRemove: indexPathsToRemove, toAdd: indexPathsToAdd)
+    }
+
+    
+    private func scrollToSelectedOptions() {
+        guard let styleIndex = viewModel.getIndexForSelectedStyle(),
+              let colorIndex = viewModel.getIndexForSelectedModuleColor()
+        else { return }
         
         let styleIndexPath = IndexPath(item: styleIndex, section: 0)
         editorView.moduleStyleCollectionView.scrollToItem(
