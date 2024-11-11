@@ -13,7 +13,11 @@ extension WidgetEditorViewController: UICollectionViewDataSource {
         switch collectionView {
         case editorView.widgetLayoutCollectionView: return viewModel.getCurrentModules().count
         case editorView.moduleStyleCollectionView: return viewModel.getAvailableStyles().count
-//        case editorView.moduleColorCollectionView: return viewModel.getAvailableColors().count
+        case editorView.moduleColorCollectionView:
+            guard let selectedCellPosition = viewModel.selectedCellPosition else { return 0 }
+                        
+            return viewModel.getAvailableColorsForModule(at: selectedCellPosition).count
+            
         default: return 0
         }
     }
@@ -48,16 +52,19 @@ extension WidgetEditorViewController: UICollectionViewDataSource {
             
         case editorView.moduleColorCollectionView:
             // MARK: - Create cells for colors
-            guard // let color = viewModel.getAvailableColor(at: indexPath.row),
-                  let cell = collectionView.dequeueReusableCell(
+            guard let selectedCellPosition = viewModel.selectedCellPosition else {
+                fatalError("Implement placeholder view")
+            }
+            
+            guard let cell = collectionView.dequeueReusableCell(
                     withReuseIdentifier: ModuleColorCell.reuseId,
                     for: indexPath
                   ) as? ModuleColorCell else {
                 fatalError("Could not dequeue ModuleColorCell.")
             }
             
-            // FIXME: Change to new colors
-            let color = UIColor.clear
+            let availableColors = viewModel.getAvailableColorsForModule(at: selectedCellPosition)
+            let color = availableColors[indexPath.row]
             
             cell.setup(with: color)
             
