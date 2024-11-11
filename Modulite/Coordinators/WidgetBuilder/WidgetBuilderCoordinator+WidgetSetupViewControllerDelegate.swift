@@ -76,8 +76,7 @@ extension WidgetBuilderCoordinator: WidgetSetupViewControllerDelegate {
         _ controller: WidgetSetupViewController,
         app: AppData
     ) {
-        do { try contentBuilder.removeApp(app) }
-        catch { return }
+        do { try contentBuilder.removeApp(app) } catch { return }
         
         if contentBuilder.getCurrentApps().isEmpty {
             controller.setSetupViewHasAppsSelected(to: false)

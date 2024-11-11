@@ -142,8 +142,7 @@ extension WidgetBuilderCoordinator: SelectAppsViewControllerDelegate {
         _ controller: SelectAppsViewController,
         didSelect app: AppData
     ) {
-        do { try contentBuilder.appendApp(app) }
-        catch { return }
+        do { try contentBuilder.appendApp(app) } catch { return }
         
         guard let existingSchema else { return }
         guard let pos = existingSchema.modules.firstIndex(where: { $0.appName == nil }) else {
@@ -169,8 +168,7 @@ extension WidgetBuilderCoordinator: SelectAppsViewControllerDelegate {
         _ controller: SelectAppsViewController,
         didDeselect app: AppData
     ) {
-        do { try contentBuilder.removeApp(app) }
-        catch { return }
+        do { try contentBuilder.removeApp(app) } catch { return }
         
         guard let existingSchema else {return }
         guard let pos = existingSchema.modules.firstIndex(where: { $0.appName == app.name }) else {
