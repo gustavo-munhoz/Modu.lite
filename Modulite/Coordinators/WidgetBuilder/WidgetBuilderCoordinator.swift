@@ -15,7 +15,7 @@ class WidgetBuilderCoordinator: Coordinator {
     var children: [Coordinator] = []
     var router: Router
     
-    let contentBuilder = WidgetContentBuilder(type: .main)
+    let contentBuilder: WidgetContentBuilder
     var configurationBuilder: WidgetSchemaBuilder {
         get throws {
             let content = try contentBuilder.build()
@@ -41,16 +41,23 @@ class WidgetBuilderCoordinator: Coordinator {
     // MARK: - Initializers
     
     init(router: Router) {
+        self.contentBuilder = WidgetContentBuilder(type: .main)
         self.currentWidgetCount = 0
         self.router = router
     }
     
-    init(router: Router, currentWidgetCount: Int) {
+    init(
+        router: Router,
+        widgetType: WidgetType,
+        currentWidgetCount: Int
+    ) {
+        self.contentBuilder = WidgetContentBuilder(type: widgetType)
         self.currentWidgetCount = currentWidgetCount
         self.router = router
     }
     
     init(router: Router, schema: WidgetSchema) {
+        self.contentBuilder = WidgetContentBuilder(type: schema.type)
         self.currentWidgetCount = 0
         self.router = router
         
@@ -85,8 +92,11 @@ class WidgetBuilderCoordinator: Coordinator {
     // MARK: - Presenting
     
     func present(animated: Bool, onDismiss: (() -> Void)?) {
-        let viewController = WidgetSetupViewController.instantiate(delegate: self)
-                
+        let viewController = WidgetSetupViewController.instantiate(
+            delegate: self,
+            widgetType: contentBuilder.getWidgetType()
+        )
+        
         viewController.navigationItem.setHidesBackButton(
             shouldHideBackButton,
             animated: false

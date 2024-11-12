@@ -14,6 +14,8 @@ class SelectAppsViewModel: NSObject {
     
     // MARK: - Properties        
     
+    var maxApps: Int!
+    
     private var unfilteredAppList: [SelectableAppData]
     
     @Published private(set) var apps: [SelectableAppData] = []
@@ -40,7 +42,7 @@ class SelectAppsViewModel: NSObject {
     }
     
     func didReachMaxNumberOfApps() -> Bool {
-        unfilteredAppList.filter { $0.isSelected }.count == 6
+        unfilteredAppList.filter { $0.isSelected }.count == maxApps
     }
     
     func getSelectedAppsCount() -> Int {
@@ -67,7 +69,7 @@ class SelectAppsViewModel: NSObject {
             return nil
         }
         
-        guard apps.filter({ $0.isSelected }).count < 6 else {
+        guard apps.filter({ $0.isSelected }).count < maxApps else {
             print("Tried to select more than 6 apps.")
             return nil
         }

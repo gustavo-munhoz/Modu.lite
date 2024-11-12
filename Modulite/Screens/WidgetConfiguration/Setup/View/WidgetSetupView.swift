@@ -7,6 +7,7 @@
 
 import UIKit
 import SnapKit
+import WidgetStyling
 
 class WidgetSetupView: UIScrollView {
     
@@ -22,7 +23,6 @@ class WidgetSetupView: UIScrollView {
     
     private(set) lazy var widgetNameTextField: UITextField = {
         let textField = UITextField()
-        textField.placeholder = "Widget 1"
         textField.font = UIFont(textStyle: .title2, weight: .bold)
         textField.textColor = .textPrimary
         textField.backgroundColor = .potatoYellow
@@ -49,14 +49,7 @@ class WidgetSetupView: UIScrollView {
     }()
     
     // TODO: Create custom view with app count
-    private(set) lazy var selectAppsTitle: UILabel = {
-        let label = UILabel()
-        label.attributedText = CustomizedTextFactory.createTextWithAsterisk(
-            with: .localized(for: .widgetSetupViewAppsHeaderTitle)
-        )
-        
-        return label
-    }()
+    private(set) lazy var selectAppsTitle = UILabel()
     
     private(set) lazy var searchAppsButton: UIButton = {
         let button = ButtonFactory.mediumButton(
@@ -172,6 +165,30 @@ class WidgetSetupView: UIScrollView {
     }
     
     // MARK: - Setup methods
+    func setupWidgetNamePlaceholder(_ placeholder: String) {
+        widgetNameTextField.placeholder = placeholder
+    }
+    
+    func setupSetupSelectAppsTitle(maxsAppsCount: Int) {
+        selectAppsTitle.attributedText = CustomizedTextFactory.createTextWithAsterisk(
+            with: .localized(
+                for: .widgetSetupViewAppsHeaderTitle(maxApps: maxsAppsCount)
+            )
+        )
+    }
+    
+    func setupStyleCollectionViewHeight(_ height: CGFloat) {
+        stylesCollectionView.snp.makeConstraints { make in
+            make.height.equalTo(height)
+        }
+    }
+    
+    func setupStyleCellHeight(_ height: CGFloat) {
+        stylesCollectionView.collectionViewLayout = WidgetSetupStyleCompositionalLayout(
+            stylesHeight: height
+        )
+    }
+    
     func updateSelectedAppsCollectionViewHeight() {
         selectedAppsCollectionView.snp.updateConstraints { make in
             make.height.greaterThanOrEqualTo(selectedAppsCollectionView.contentSize.height)
@@ -234,6 +251,7 @@ class WidgetSetupView: UIScrollView {
         contentView.addSubview(nextViewButton)
     }
     
+    #warning("Depends on widget type")
     private func setupConstraints() {
         contentView.snp.makeConstraints { make in
             make.edges.equalToSuperview().inset(
@@ -251,7 +269,6 @@ class WidgetSetupView: UIScrollView {
         stylesCollectionView.snp.makeConstraints { make in
             make.left.right.equalToSuperview()
             make.top.equalTo(widgetNameTextField.snp.bottom).offset(16)
-            make.height.equalTo(270)
         }
         
         selectAppsTitle.snp.makeConstraints { make in

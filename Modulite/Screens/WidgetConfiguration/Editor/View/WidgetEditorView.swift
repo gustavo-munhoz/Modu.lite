@@ -225,7 +225,7 @@ class WidgetEditorView: UIScrollView {
         contentView.addSubview(downloadWallpaperButton)
         contentView.addSubview(saveWidgetButton)
     }
-    
+        
     private func setupConstraints() {
         contentView.snp.makeConstraints { make in
             make.edges.equalToSuperview().inset(UIEdgeInsets(top: 24, left: 24, bottom: 24, right: -24))

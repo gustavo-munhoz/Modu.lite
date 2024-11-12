@@ -9,7 +9,7 @@ import UIKit
 import WidgetStyling
 
 protocol WidgetSetupViewControllerDelegate: AnyObject {
-    func getPlaceholderName() -> String
+    func getWidgetCount() -> Int
     
     func widgetSetupViewControllerDidPressNext(widgetName: String)
     

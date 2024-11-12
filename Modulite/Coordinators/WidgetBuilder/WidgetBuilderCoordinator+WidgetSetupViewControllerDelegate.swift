@@ -10,10 +10,8 @@ import WidgetStyling
 
 extension WidgetBuilderCoordinator: WidgetSetupViewControllerDelegate {
 
-    func getPlaceholderName() -> String {
-        .localized(
-            for: .widgetSetupViewMainWidgetNamePlaceholder(number: currentWidgetCount + 1)
-        )
+    func getWidgetCount() -> Int {
+        currentWidgetCount
     }
     
     func widgetSetupViewControllerDidPressNext(widgetName: String) {
@@ -56,6 +54,7 @@ extension WidgetBuilderCoordinator: WidgetSetupViewControllerDelegate {
         let coordinator = SelectAppsCoordinator(
             delegate: self,
             selectedApps: contentBuilder.getCurrentApps(),
+            maxApps: parentController.strategy.type.maxModules,
             router: router
         )
         

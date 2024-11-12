@@ -38,10 +38,7 @@ extension HomeCoordinator: HomeViewControllerDelegate {
         _ viewController: HomeViewController,
         type: WidgetType
     ) {
-        guard type == .main else {
-            presentFeatureComingAlert(viewController)
-            return
-        }
+        // TODO: Check if user is plus to create AUX widget
         
         guard viewController.getCurrentMainWidgetCount() < 3 else {
             presentMaxWidgetCountAlert(viewController)
@@ -50,6 +47,7 @@ extension HomeCoordinator: HomeViewControllerDelegate {
         
         let coordinator = WidgetBuilderCoordinator(
             router: router,
+            widgetType: type,
             currentWidgetCount: viewController.getCurrentMainWidgetCount()
         )
         

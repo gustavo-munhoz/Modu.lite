@@ -7,6 +7,7 @@
 
 import UIKit
 import SnapKit
+import WidgetStyling
 
 class ModuleStyleCell: UICollectionViewCell {
     static let reuseId = "ModuleStyleCell"

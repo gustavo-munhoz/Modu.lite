@@ -7,6 +7,7 @@
 
 import UIKit
 import SnapKit
+import WidgetStyling
 
 class PurchaseStylePreviewView: UIView {
     var onBuyStylePressed: (() -> Void)?

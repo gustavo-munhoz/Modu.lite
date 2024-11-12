@@ -41,10 +41,11 @@ extension WidgetSetupViewController: UICollectionViewDataSource {
             let style = viewModel.widgetStyles[indexPath.row]
             
             cell.setup(
-                image: style.getWidgetPreview(for: .main),
+                image: style.getWidgetPreview(for: strategy.type),
                 title: style.name,
                 delegate: self,
-                isPurchased: style.isPurchased
+                isPurchased: style.isPurchased,
+                imageViewHeight: strategy.getStyleCellImageHeight()
             )
             
             cell.hasSelectionBeenMade = viewModel.isStyleSelected()
@@ -95,8 +96,13 @@ extension WidgetSetupViewController: UICollectionViewDataSource {
             header.setup(title: .localized(for: .widgetSetupViewStyleHeaderTitle))
             
         } else {
-            header.setup(title: .localized(for: .widgetSetupViewAppsHeaderTitle))
+            header.setup(
+                title: .localized(
+                    for: .widgetSetupViewAppsHeaderTitle(maxApps: strategy.type.maxModules)
+                )
+            )
         }
+        
         return header
     }
 }

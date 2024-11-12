@@ -98,7 +98,7 @@ extension WidgetEditorViewController: UICollectionViewDelegate {
         let availableColors = viewModel.getAvailableColorsForModule(at: selectedCellPosition)
         let defaultColor = viewModel.getModule(at: selectedCellPosition)?.style.defaultColor
         
-        guard let defaultColor, let index = availableColors.firstIndex(of: defaultColor) else { return }
+        guard let defaultColor else { return }
         
         selectColorCell(color: defaultColor)
     }

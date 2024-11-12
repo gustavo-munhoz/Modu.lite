@@ -28,6 +28,12 @@ class SelectAppsViewController: UIViewController {
     
     weak var delegate: SelectAppsViewControllerDelegate?
     
+    var maxApps: Int! {
+        didSet {
+            viewModel.maxApps = maxApps
+        }
+    }
+    
     // MARK: - Lifecycle
     
     override func loadView() {
@@ -46,14 +52,17 @@ class SelectAppsViewController: UIViewController {
 extension SelectAppsViewController {
     class func instantiate(
         with delegate: SelectAppsViewControllerDelegate,
-        selectedApps: [AppData] = []
+        selectedApps: [AppData] = [],
+        maxApps: Int
     ) -> SelectAppsViewController {
         
         let vc = SelectAppsViewController()
         vc.delegate = delegate
+        vc.maxApps = maxApps
+        
         selectedApps.forEach { vc.viewModel.selectApp($0) }
         
-        vc.selectAppsView.updateAppCountText(to: selectedApps.count)
+        vc.selectAppsView.updateAppCountText(to: selectedApps.count, of: maxApps)
         
         return vc
     }
@@ -86,7 +95,7 @@ extension SelectAppsViewController: UICollectionViewDelegate {
         
         delegate?.selectAppsViewControllerDidSelectApp(self, didSelect: app)
         
-        selectAppsView.updateAppCountText(to: viewModel.getSelectedAppsCount())
+        selectAppsView.updateAppCountText(to: viewModel.getSelectedAppsCount(), of: maxApps)
         
         if viewModel.didReachMaxNumberOfApps() {
             setCellsInteractionEnabled(collectionView, to: false)
@@ -108,7 +117,7 @@ extension SelectAppsViewController: UICollectionViewDelegate {
         
         delegate?.selectAppsViewControllerDidDeselectApp(self, didDeselect: app)
         
-        selectAppsView.updateAppCountText(to: viewModel.getSelectedAppsCount())
+        selectAppsView.updateAppCountText(to: viewModel.getSelectedAppsCount(), of: maxApps)
     }
     
     func setCellsInteractionEnabled(_ collectionView: UICollectionView, to value: Bool) {

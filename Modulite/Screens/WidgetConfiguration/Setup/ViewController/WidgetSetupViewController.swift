@@ -18,6 +18,8 @@ class WidgetSetupViewController: UIViewController {
     var viewModel = WidgetSetupViewModel()
     
     weak var delegate: WidgetSetupViewControllerDelegate?
+    var strategy: WidgetTypeStrategy!
+    
     var purchaseManager = PurchaseManager.shared
     
     private var isEditingWidget: Bool = false
@@ -44,6 +46,7 @@ class WidgetSetupViewController: UIViewController {
         
         configureViewDependencies()
         setupNavigationBar()
+        setupViewSizesWithStrategy()
     }
     
     override func viewWillLayoutSubviews() {
@@ -67,6 +70,21 @@ class WidgetSetupViewController: UIViewController {
     }
     
     // MARK: - Setup methods
+    
+    private func setupViewSizesWithStrategy() {
+        setupView.setupSetupSelectAppsTitle(
+            maxsAppsCount: strategy.type.maxModules
+        )
+        
+        setupView.setupStyleCollectionViewHeight(
+            strategy.getSetupStyleCollectionViewHeight()
+        )
+        
+        setupView.setupStyleCellHeight(
+            strategy.getSetupStyleCellHeight()
+        )
+    }
+    
     private func setupTipObservers() {
         styleTipObservationTask = styleTipObservationTask ?? createObservationTask(
             for: selectWidgetStyleTip,
@@ -117,7 +135,7 @@ class WidgetSetupViewController: UIViewController {
     }
     
     private func setPlaceholderName(to name: String) {
-        setupView.widgetNameTextField.placeholder = name
+        setupView.setupWidgetNamePlaceholder(name)
     }
     
     // MARK: - Actions
@@ -211,10 +229,23 @@ class WidgetSetupViewController: UIViewController {
 }
 
 extension WidgetSetupViewController {
-    class func instantiate(delegate: WidgetSetupViewControllerDelegate) -> WidgetSetupViewController {
+    class func instantiate(
+        delegate: WidgetSetupViewControllerDelegate,
+        widgetType: WidgetType
+    ) -> WidgetSetupViewController {
         let vc = WidgetSetupViewController()
         vc.delegate = delegate
-        vc.setPlaceholderName(to: delegate.getPlaceholderName())
+        
+        vc.strategy = (widgetType == .main) ? MainWidgetStrategy() : AuxWidgetStrategy()
+        
+        let count = delegate.getWidgetCount() + 1
+        let namePlaceholder: String = .localized(
+            for: widgetType == .main
+            ? .widgetSetupViewMainWidgetNamePlaceholder(number: count)
+            : .widgetSetupViewAuxWidgetNamePlaceholder(number: count)
+        )
+        
+        vc.setPlaceholderName(to: namePlaceholder)
         
         return vc
     }

@@ -9,6 +9,7 @@ import UIKit
 import WidgetStyling
 
 extension WidgetEditorViewController: UICollectionViewDataSource {
+    #warning("Depends on widget type")
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         switch collectionView {
         case editorView.widgetLayoutCollectionView: return viewModel.getCurrentModules().count
