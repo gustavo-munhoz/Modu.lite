@@ -6,9 +6,12 @@
 //
 
 import Foundation
+import WidgetStyling
 
 protocol WidgetTypeStrategy: AnyObject {
+    var type: WidgetType { get }
     func getSetupStyleCollectionViewHeight() -> CGFloat
     func getSetupStyleCellHeight() -> CGFloat
-    func getEditorLayoutCollectionViewHeight() -> CGFloat    
+    func getStyleCellImageHeight() -> CGFloat
+    func getEditorLayoutCollectionViewHeight() -> CGFloat
 }
