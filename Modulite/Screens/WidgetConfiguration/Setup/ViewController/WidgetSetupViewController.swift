@@ -161,6 +161,7 @@ class WidgetSetupViewController: UIViewController {
         if isOnboarding { dismissCurrentTip() }
         
         delegate?.widgetSetupViewControllerDidPressNext(
+            self,
             widgetName: setupView.getWidgetName()
         )
     }

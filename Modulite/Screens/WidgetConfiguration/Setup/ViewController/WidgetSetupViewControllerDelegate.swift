@@ -11,7 +11,10 @@ import WidgetStyling
 protocol WidgetSetupViewControllerDelegate: AnyObject {
     func getWidgetCount() -> Int
     
-    func widgetSetupViewControllerDidPressNext(widgetName: String)
+    func widgetSetupViewControllerDidPressNext(
+        _ controller: WidgetSetupViewController,
+        widgetName: String
+    )
     
     func widgetSetupViewControllerDidTapSearchApps(
         _ parentController: WidgetSetupViewController

@@ -17,6 +17,7 @@ class WidgetModuleCell: UICollectionViewCell {
     private(set) lazy var moduleImageView: UIImageView = {
         let view = UIImageView()
         view.overrideUserInterfaceStyle = .light
+        view.backgroundColor = .clear
         
         return view
     }()
@@ -40,16 +41,21 @@ class WidgetModuleCell: UICollectionViewCell {
         appNameLabel.text = nil
     }
     
-    func setup(with module: WidgetModule) {
+    func setup(
+        with module: WidgetModule,
+        cornerRadius: CGFloat
+    ) {
         subviews.forEach { $0.removeFromSuperview() }
         moduleImageView.image = module.blendedImage
         
-        layer.cornerRadius = 12
+        layer.cornerRadius = cornerRadius
         clipsToBounds = true
         if let appName = module.appName {
             appNameLabel.text = appName
             appNameLabel.applyConfiguration(module.style.textConfiguration)
         }
+        
+        backgroundColor = .clear
         
         addSubviews()
         setupConstraints()

@@ -46,6 +46,7 @@ class WidgetEditorViewController: UIViewController {
     private(set) var viewModel: WidgetEditorViewModel!
     
     weak var delegate: WidgetEditorViewControllerDelegate?
+    var strategy: WidgetTypeStrategy!
     
     private var isCreatingNewWidget: Bool = true
     
@@ -67,7 +68,7 @@ class WidgetEditorViewController: UIViewController {
         view = editorView
         editorView.setCollectionViewDelegates(to: self)
         editorView.setCollectionViewDataSources(to: self)
-        editorView.delegate = self
+        editorView.setScrollViewDelegate(to: self)
         
         setViewActions()
         
@@ -80,6 +81,7 @@ class WidgetEditorViewController: UIViewController {
         super.viewDidLoad()
         
         setupNavigationBar()
+        setupViewSizesWithStrategy()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -97,6 +99,18 @@ class WidgetEditorViewController: UIViewController {
     }
     
     // MARK: - Setup
+    func setupViewSizesWithStrategy() {
+        editorView.setupCollectionViewLayout(with: strategy)
+        
+        editorView.setupLayoutCollectionViewSize(
+            strategy.getEditorLayoutCollectionViewSize()
+        )
+        
+        editorView.setupModuleStyleItemSize(
+            strategy.getEditorModuleStyleItemSize()
+        )
+    }
+    
     func setIsOnboarding(_ isOnboarding: Bool) {
         self.isOnboarding = isOnboarding
     }
@@ -306,12 +320,14 @@ class WidgetEditorViewController: UIViewController {
 extension WidgetEditorViewController {
     class func instantiate(
         builder: WidgetSchemaBuilder,
-        delegate: WidgetEditorViewControllerDelegate
+        delegate: WidgetEditorViewControllerDelegate,
+        strategy: WidgetTypeStrategy
     ) -> WidgetEditorViewController {
         let vc = WidgetEditorViewController()
-        
+                
         vc.viewModel = WidgetEditorViewModel(widgetBuider: builder)
         vc.delegate = delegate
+        vc.strategy = strategy
         
         return vc
     }

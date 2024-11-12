@@ -7,7 +7,6 @@
 
 import UIKit
 
-#warning("Depends on widget type")
 class WidgetSetupStyleCompositionalLayout: UICollectionViewCompositionalLayout {
     init(stylesHeight: CGFloat = 196) {
         super.init { sectionIndex, _ -> NSCollectionLayoutSection? in

@@ -9,7 +9,7 @@ import UIKit
 import SnapKit
 import WidgetStyling
 
-class WidgetSetupView: UIScrollView {
+class WidgetSetupView: UIView {
     
     // MARK: - Properties
     
@@ -19,6 +19,7 @@ class WidgetSetupView: UIScrollView {
     var isStyleSelected = false
     var hasAppsSelected = false
     
+    private let scrollView = UIScrollView()
     private let contentView = UIView()
     
     private(set) lazy var widgetNameTextField: UITextField = {
@@ -48,7 +49,7 @@ class WidgetSetupView: UIScrollView {
         return collectionView
     }()
     
-    // TODO: Create custom view with app count
+    // TODO: Add label showing app count
     private(set) lazy var selectAppsTitle = UILabel()
     
     private(set) lazy var searchAppsButton: UIButton = {
@@ -84,7 +85,7 @@ class WidgetSetupView: UIScrollView {
         label.text = .localized(for: .widgetSetupViewSearchAppsHelperText)
         label.font = UIFont(textStyle: .caption1, symbolicTraits: .traitItalic)
         label.textColor = .systemGray
-        label.numberOfLines = -1
+        label.numberOfLines = 0
         label.lineBreakMode = .byWordWrapping
         
         return label
@@ -152,9 +153,8 @@ class WidgetSetupView: UIScrollView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         backgroundColor = .whiteTurnip
-        showsVerticalScrollIndicator = false
         
-        addSubviews()
+        setupViews()
         setupConstraints()
         setupCollectionViews()
         setupTapGestures()
@@ -163,8 +163,21 @@ class WidgetSetupView: UIScrollView {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
+
     // MARK: - Setup methods
+    private func setupViews() {
+        addSubview(scrollView)
+        scrollView.addSubview(contentView)
+        
+        contentView.addSubview(widgetNameTextField)
+        contentView.addSubview(stylesCollectionView)
+        contentView.addSubview(selectAppsTitle)
+        contentView.addSubview(searchAppsButton)
+        contentView.addSubview(selectedAppsCollectionView)
+        contentView.addSubview(searchAppsHelperText)
+        contentView.addSubview(nextViewButton)
+    }
+    
     func setupWidgetNamePlaceholder(_ placeholder: String) {
         widgetNameTextField.placeholder = placeholder
     }
@@ -219,7 +232,6 @@ class WidgetSetupView: UIScrollView {
         stylesCollectionView.register(
             StyleCollectionViewCell.self,
             forCellWithReuseIdentifier: StyleCollectionViewCell.reuseId
-        
         )
         stylesCollectionView.register(
             SetupHeaderReusableCell.self,
@@ -230,7 +242,6 @@ class WidgetSetupView: UIScrollView {
         selectedAppsCollectionView.register(
             SelectedAppCollectionViewCell.self,
             forCellWithReuseIdentifier: SelectedAppCollectionViewCell.reuseId
-        
         )
         
         selectedAppsCollectionView.register(
@@ -240,66 +251,54 @@ class WidgetSetupView: UIScrollView {
         )
     }
     
-    private func addSubviews() {
-        addSubview(contentView)
-        contentView.addSubview(widgetNameTextField)
-        contentView.addSubview(stylesCollectionView)
-        contentView.addSubview(selectAppsTitle)
-        contentView.addSubview(searchAppsButton)
-        contentView.addSubview(selectedAppsCollectionView)
-        contentView.addSubview(searchAppsHelperText)
-        contentView.addSubview(nextViewButton)
-    }
-    
-    #warning("Depends on widget type")
     private func setupConstraints() {
+        scrollView.snp.makeConstraints { make in
+            make.edges.equalTo(safeAreaLayoutGuide)
+        }
+        
         contentView.snp.makeConstraints { make in
-            make.edges.equalToSuperview().inset(
-                UIEdgeInsets(top: 24, left: 24, bottom: 0, right: -24)
-            )
-            make.width.equalToSuperview().offset(-48)
-            make.height.greaterThanOrEqualTo(700).priority(.required)
+            make.edges.equalToSuperview()
+            make.width.equalToSuperview()
+            make.height.greaterThanOrEqualToSuperview()
         }
         
         widgetNameTextField.snp.makeConstraints { make in
-            make.left.right.top.equalToSuperview()
+            make.left.right.top.equalToSuperview().inset(24)
             make.height.equalTo(37)
         }
         
         stylesCollectionView.snp.makeConstraints { make in
-            make.left.right.equalToSuperview()
+            make.left.right.equalToSuperview().inset(24)
             make.top.equalTo(widgetNameTextField.snp.bottom).offset(16)
         }
         
         selectAppsTitle.snp.makeConstraints { make in
-            make.left.right.equalToSuperview()
+            make.left.right.equalToSuperview().inset(24)
             make.top.equalTo(stylesCollectionView.snp.bottom).offset(24)
         }
         
         searchAppsButton.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
-            make.width.equalTo(230)
-            make.height.equalTo(45)
             make.top.equalTo(selectAppsTitle.snp.bottom).offset(15)
         }
         
         selectedAppsCollectionView.snp.makeConstraints { make in
-            make.left.right.equalToSuperview()
+            make.left.right.equalToSuperview().inset(24)
             make.top.equalTo(searchAppsButton.snp.bottom).offset(20)
-            make.bottom.equalTo(searchAppsHelperText.snp.top).offset(-12)
             make.height.greaterThanOrEqualTo(150)
         }
         
         searchAppsHelperText.snp.makeConstraints { make in
-            make.left.equalToSuperview()
+            make.left.equalToSuperview().inset(24)
             make.width.equalTo(220)
             make.height.greaterThanOrEqualTo(32)
-            make.bottom.equalTo(nextViewButton.snp.top).offset(-21)
+            make.top.equalTo(selectedAppsCollectionView.snp.bottom).offset(12)
         }
         
         nextViewButton.snp.makeConstraints { make in
-            make.right.equalToSuperview()
-            make.bottom.equalToSuperview().offset(-20)
+            make.right.equalToSuperview().inset(24)
+            make.top.equalTo(searchAppsHelperText.snp.bottom).offset(21)
+            make.bottom.equalToSuperview().inset(20)
         }
     }
 }

@@ -17,7 +17,7 @@ extension WidgetEditorViewController: UICollectionViewDragDelegate {
     ) -> [UIDragItem] {
         guard let item = viewModel.getModule(at: indexPath.row) else { return [] }
         
-        let image = item.createCompleteImage()
+        let image = item.createCompleteImage(for: strategy)
         let itemProvider = NSItemProvider(object: image as UIImage)
         let dragItem = UIDragItem(itemProvider: itemProvider)
         dragItem.localObject = item

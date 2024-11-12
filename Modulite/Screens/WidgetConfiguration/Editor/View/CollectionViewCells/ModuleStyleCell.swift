@@ -20,8 +20,6 @@ class ModuleStyleCell: UICollectionViewCell {
     
     private(set) lazy var styleImageView: UIImageView = {
         let view = UIImageView()
-        view.layer.cornerRadius = 12
-        view.clipsToBounds = true
         
         view.layer.borderWidth = 2
         view.layer.borderColor = UIColor.clear.cgColor
@@ -30,8 +28,12 @@ class ModuleStyleCell: UICollectionViewCell {
     }()
     
     // MARK: - Setup
-    func setup(with style: ModuleStyle) {
-        subviews.forEach { $0.removeFromSuperview() }
+    func setup(
+        with style: ModuleStyle,
+        cornerRadius: CGFloat
+    ) {
+        styleImageView.layer.cornerRadius = cornerRadius
+        styleImageView.clipsToBounds = true
         
         self.style = style
         styleImageView.image = style.image

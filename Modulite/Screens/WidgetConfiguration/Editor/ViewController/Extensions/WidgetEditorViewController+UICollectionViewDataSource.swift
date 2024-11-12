@@ -9,7 +9,6 @@ import UIKit
 import WidgetStyling
 
 extension WidgetEditorViewController: UICollectionViewDataSource {
-    #warning("Depends on widget type")
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         switch collectionView {
         case editorView.widgetLayoutCollectionView: return viewModel.getCurrentModules().count
@@ -43,7 +42,10 @@ extension WidgetEditorViewController: UICollectionViewDataSource {
                 fatalError("Could not dequeue ModuleStyleCell.")
             }
             
-            cell.setup(with: style)
+            cell.setup(
+                with: style,
+                cornerRadius: strategy.type == .main ? 12 : 21
+            )
             
             if let selectedStyle = viewModel.getStyleFromSelectedModule() {
                 cell.setSelected(to: selectedStyle.identifier == style.identifier)
@@ -99,7 +101,11 @@ extension WidgetEditorViewController: UICollectionViewDataSource {
             cell.startWiggling()
         }
         
-        cell.setup(with: module)
+        cell.setup(
+            with: module,
+            cornerRadius: strategy.type == .main ? 12 : 21
+        )
+        
         return cell
     }
 }

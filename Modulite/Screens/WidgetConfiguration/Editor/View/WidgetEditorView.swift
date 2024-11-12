@@ -9,7 +9,7 @@ import UIKit
 import SnapKit
 import WidgetStyling
 
-class WidgetEditorView: UIScrollView {
+class WidgetEditorView: UIView {
          
     // MARK: - Properties
     var onDownloadWallpaperButtonTapped: (() -> Void)?
@@ -25,6 +25,7 @@ class WidgetEditorView: UIScrollView {
         }
     }
     
+    private let scrollView = UIScrollView()
     private let contentView = UIView()
     
     private(set) lazy var layoutHeader: EditorSectionHeader = {
@@ -124,9 +125,8 @@ class WidgetEditorView: UIScrollView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         backgroundColor = .whiteTurnip
-        showsVerticalScrollIndicator = false
         
-        addSubviews()
+        setupViews()
         setupConstraints()
         setupCollectionViews()
     }
@@ -134,8 +134,47 @@ class WidgetEditorView: UIScrollView {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
+
     // MARK: - Setup methods
+
+    func setScrollViewDelegate(to delegate: UIScrollViewDelegate) {
+        scrollView.delegate = delegate
+    }
+    
+    private func setupViews() {
+        addSubview(scrollView)
+        scrollView.addSubview(contentView)
+        
+        contentView.addSubview(layoutHeader)
+        contentView.addSubview(widgetLayoutCollectionView)
+        contentView.addSubview(moduleStyleHeader)
+        contentView.addSubview(moduleStyleCollectionView)
+        contentView.addSubview(moduleColorCollectionView)
+        contentView.addSubview(wallpaperHeader)
+        contentView.addSubview(downloadWallpaperButton)
+        contentView.addSubview(saveWidgetButton)
+    }
+
+    func setupCollectionViewLayout(with strategy: WidgetTypeStrategy) {
+        widgetLayoutCollectionView.collectionViewLayout = createCompositionalLayout(for: strategy)
+    }
+    
+    func setupLayoutCollectionViewSize(_ size: CGSize) {
+        widgetLayoutCollectionView.snp.makeConstraints { make in
+            make.height.equalTo(size.height)
+            make.width.equalTo(size.width)
+        }
+    }
+
+    func setupModuleStyleItemSize(_ size: CGSize) {
+        let layout = UICollectionViewFlowLayout()
+        layout.itemSize = size
+        layout.scrollDirection = .horizontal
+        layout.minimumLineSpacing = 25
+        layout.sectionInset = .init(top: 0, left: 30, bottom: 0, right: 30)
+        
+        moduleStyleCollectionView.collectionViewLayout = layout
+    }
     
     func setLayoutInfoButtonAction(_ action: @escaping () -> Void) {
         layoutHeader.onInfoButtonPressed = action
@@ -164,9 +203,10 @@ class WidgetEditorView: UIScrollView {
         deleteWidgetButton.snp.removeConstraints()
         
         deleteWidgetButton.snp.makeConstraints { make in
-            make.top.width.height.equalTo(saveWidgetButton)
+            make.top.equalTo(saveWidgetButton)
+            make.height.width.equalTo(saveWidgetButton)
             make.left.equalToSuperview().inset(24)
-            make.right.lessThanOrEqualTo(saveWidgetButton.snp.left).inset(-30)
+            make.right.lessThanOrEqualTo(saveWidgetButton.snp.left).offset(-30)
         }
     }
     
@@ -213,24 +253,17 @@ class WidgetEditorView: UIScrollView {
             forCellWithReuseIdentifier: ModuleColorCell.reuseId
         )
     }
-    
-    private func addSubviews() {
-        addSubview(contentView)
-        contentView.addSubview(layoutHeader)
-        contentView.addSubview(widgetLayoutCollectionView)
-        contentView.addSubview(moduleStyleHeader)
-        contentView.addSubview(moduleStyleCollectionView)
-        contentView.addSubview(moduleColorCollectionView)
-        contentView.addSubview(wallpaperHeader)
-        contentView.addSubview(downloadWallpaperButton)
-        contentView.addSubview(saveWidgetButton)
-    }
-        
+         
     private func setupConstraints() {
+        scrollView.snp.makeConstraints { make in
+            make.edges.equalTo(safeAreaLayoutGuide)
+        }
+        
         contentView.snp.makeConstraints { make in
-            make.edges.equalToSuperview().inset(UIEdgeInsets(top: 24, left: 24, bottom: 24, right: -24))
+            make.verticalEdges.equalToSuperview().inset(24)
             make.width.equalToSuperview().offset(-48)
-            make.height.greaterThanOrEqualTo(950)
+            make.centerX.equalToSuperview()
+            make.height.greaterThanOrEqualToSuperview()
         }
         
         layoutHeader.snp.makeConstraints { make in
@@ -241,13 +274,11 @@ class WidgetEditorView: UIScrollView {
         widgetLayoutCollectionView.snp.makeConstraints { make in
             make.top.equalTo(layoutHeader.snp.bottom).offset(12)
             make.centerX.equalToSuperview()
-            make.width.equalTo(338)
-            make.height.equalTo(354)
         }
         
         moduleStyleHeader.snp.makeConstraints { make in
             make.top.equalTo(widgetLayoutCollectionView.snp.bottom).offset(24)
-            make.width.centerX.equalToSuperview()
+            make.left.right.equalToSuperview()
         }
         
         moduleStyleCollectionView.snp.makeConstraints { make in
@@ -275,11 +306,11 @@ class WidgetEditorView: UIScrollView {
         }
         
         saveWidgetButton.snp.makeConstraints { make in
-            make.top.equalTo(downloadWallpaperButton.snp.bottom).offset(24).priority(.high)
+            make.top.equalTo(downloadWallpaperButton.snp.bottom).offset(24)
             make.centerX.equalToSuperview()
             make.width.equalTo(182)
             make.height.equalTo(44)
-            make.bottom.equalToSuperview().offset(-20)
+            make.bottom.equalToSuperview().inset(20)
         }
     }
     
@@ -333,18 +364,23 @@ class WidgetEditorView: UIScrollView {
 }
 
 extension WidgetEditorView {
-    private func createCompositionalLayout() -> UICollectionViewLayout {
+    private func createCompositionalLayout(
+        for strategy: WidgetTypeStrategy = MainWidgetStrategy()
+    ) -> UICollectionViewLayout {
         let layout = UICollectionViewCompositionalLayout { _, _ -> NSCollectionLayoutSection? in
             let itemSize = NSCollectionLayoutSize(
                 widthDimension: .fractionalWidth(1/3),
                 heightDimension: .fractionalHeight(1.0)
             )
+            
             let item = NSCollectionLayoutItem(layoutSize: itemSize)
             item.contentInsets = NSDirectionalEdgeInsets(top: 5, leading: 5, bottom: 5, trailing: 5)
             
+            let groupHeight = strategy.type == .main ? 0.49 : 0.98
+            
             let groupSize = NSCollectionLayoutSize(
                 widthDimension: .fractionalWidth(1.0),
-                heightDimension: .fractionalHeight(0.49)
+                heightDimension: .fractionalHeight(groupHeight)
             )
             
             let group = NSCollectionLayoutGroup.horizontal(
