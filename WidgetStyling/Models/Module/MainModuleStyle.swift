@@ -16,12 +16,23 @@ public class MainModuleStyle: ModuleStyle {
     public var imageBlendMode: CGBlendMode?
     public var textConfiguration: ModuleTextConfiguration
     
-    enum ModuleError: Swift.Error {
+    enum ModuleError: Swift.Error, LocalizedError {
         case imageNotFound
         case colorNotFound
         case undefinedBlendMode
+        
+        var errorDescription: String? {
+            return switch self {
+            case .imageNotFound:
+                "The requested image for the module could not be found."
+            case .colorNotFound:
+                "The specified color for the module could not be found."
+            case .undefinedBlendMode:
+                "The blend mode for the module is undefined."
+            }
+        }
     }
-    
+
     // MARK: - Initializers
     init(
         identifier: String,
