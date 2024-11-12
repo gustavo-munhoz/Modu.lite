@@ -30,6 +30,7 @@ public class WidgetContentBuilder: Builder {
     }
     
     // MARK: - Getters
+    public func getWidgetType() -> WidgetType { type }
     public func getCurrentApps() -> [AppData] { apps }
     
     // MARK: - Setters

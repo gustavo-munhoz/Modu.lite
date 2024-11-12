@@ -11,7 +11,7 @@ public enum WidgetType: String {
     case main
     case auxiliary
     
-    var maxModules: Int {
+    public var maxModules: Int {
         switch self {
         case .main:
             return 6
