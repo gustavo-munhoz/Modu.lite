@@ -16,7 +16,7 @@
     "moduleConfiguration": {
         "mainModules": [
             {
-                "identifier": "analogKnob",
+                "identifier": "analogMainKnob",
                 "imageName": "analogMainKnob",
                 "filterColorNames": [
                     "meringue", "eggYolk", "cupcake",
@@ -37,7 +37,7 @@
                 }
             },
             {
-                "identifier": "analogRegular",
+                "identifier": "analogMainRegular",
                 "imageName": "analogMainRegular",
                 "filterColorNames": [
                     "meringue", "eggYolk", "cupcake",
@@ -58,7 +58,7 @@
                 }
             },
             {
-                "identifier": "analogScreen",
+                "identifier": "analogMainScreen",
                 "imageName": "analogMainScreen",
                 "filterColorNames": [
                     "meringue", "eggYolk", "cupcake",
@@ -79,7 +79,7 @@
                 }
             },
             {
-                "identifier": "analogSound",
+                "identifier": "analogMainSound",
                 "imageName": "analogMainSound",
                 "filterColorNames": [
                     "meringue", "eggYolk", "cupcake",
@@ -100,7 +100,7 @@
                 }
             },
             {
-                "identifier": "analogSwitch",
+                "identifier": "analogMainSwitch",
                 "imageName": "analogMainSwitch",
                 "filterColorNames": [
                     "meringue", "eggYolk", "cupcake",
