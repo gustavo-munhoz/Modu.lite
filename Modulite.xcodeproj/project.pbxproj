@@ -216,6 +216,10 @@
 		B363B5782CE3C5B9002912CC /* WidgetTypeStrategy.swift in Sources */ = {isa = PBXBuildFile; fileRef = B363B5762CE3C5B9002912CC /* WidgetTypeStrategy.swift */; };
 		B363B57A2CE3C5BE002912CC /* MainWidgetStrategy.swift in Sources */ = {isa = PBXBuildFile; fileRef = B363B5792CE3C5BE002912CC /* MainWidgetStrategy.swift */; };
 		B363B57C2CE3C5C7002912CC /* AuxWidgetStrategy.swift in Sources */ = {isa = PBXBuildFile; fileRef = B363B57B2CE3C5C7002912CC /* AuxWidgetStrategy.swift */; };
+		B363B57D2CE3E0E8002912CC /* WidgetModule+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3C6DD792CDE9B28002AEAF7 /* WidgetModule+Extensions.swift */; };
+		B363B57E2CE3E0EF002912CC /* WidgetTypeStrategy.swift in Sources */ = {isa = PBXBuildFile; fileRef = B363B5762CE3C5B9002912CC /* WidgetTypeStrategy.swift */; };
+		B363B57F2CE3E20A002912CC /* MainWidgetStrategy.swift in Sources */ = {isa = PBXBuildFile; fileRef = B363B5792CE3C5BE002912CC /* MainWidgetStrategy.swift */; };
+		B363B5802CE3E214002912CC /* AuxWidgetStrategy.swift in Sources */ = {isa = PBXBuildFile; fileRef = B363B57B2CE3C5C7002912CC /* AuxWidgetStrategy.swift */; };
 		B36927982C66B6E30089F769 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B36927972C66B6E30089F769 /* AppDelegate.swift */; };
 		B369279A2C66B6E30089F769 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B36927992C66B6E30089F769 /* SceneDelegate.swift */; };
 		B369279C2C66B6E30089F769 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B369279B2C66B6E30089F769 /* HomeViewController.swift */; };
@@ -363,7 +367,6 @@
 		B3C6DD7D2CDE9B28002AEAF7 /* WidgetModule+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3C6DD792CDE9B28002AEAF7 /* WidgetModule+Extensions.swift */; };
 		B3C6DD7E2CDE9B28002AEAF7 /* WidgetSchema+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3C6DD7A2CDE9B28002AEAF7 /* WidgetSchema+Extensions.swift */; };
 		B3C6DD7F2CDE9B28002AEAF7 /* AppData+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3C6DD782CDE9B28002AEAF7 /* AppData+Extensions.swift */; };
-		B3C6DD802CDE9B28002AEAF7 /* WidgetModule+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3C6DD792CDE9B28002AEAF7 /* WidgetModule+Extensions.swift */; };
 		B3C6DD812CDE9B28002AEAF7 /* WidgetSchema+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3C6DD7A2CDE9B28002AEAF7 /* WidgetSchema+Extensions.swift */; };
 		B3C6DD852CDEAC17002AEAF7 /* CoreDataPersistenceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3C6DD832CDEAC17002AEAF7 /* CoreDataPersistenceController.swift */; };
 		B3C6DD862CDEAC17002AEAF7 /* CoreDataPersistenceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3C6DD832CDEAC17002AEAF7 /* CoreDataPersistenceController.swift */; };
@@ -3303,6 +3306,7 @@
 				B33808A92CC30CD900D56884 /* ScreenTimePreferences.swift in Sources */,
 				B3C6DD862CDEAC17002AEAF7 /* CoreDataPersistenceController.swift in Sources */,
 				B32B60F32C8782E2007DDCE3 /* UIView+asImage.swift in Sources */,
+				B363B57D2CE3E0E8002912CC /* WidgetModule+Extensions.swift in Sources */,
 				B32B60A62C838ED9007DDCE3 /* UILabel+AppNameConfiguration.swift in Sources */,
 				B3987E102CA38A9C00896414 /* MainWidgetView.swift in Sources */,
 				AFE15AB32CD97EFC000A255B /* PurchaseManager.swift in Sources */,
@@ -3310,6 +3314,7 @@
 				B3987E212CA4801600896414 /* UIColorValueTransformer.swift in Sources */,
 				B3987E202CA3A3BC00896414 /* MainWidgetModuleButton.swift in Sources */,
 				B39FB8812CDD511500967E3A /* PersistentWidgetModule+CoreDataProperties.swift in Sources */,
+				B363B57E2CE3E0EF002912CC /* WidgetTypeStrategy.swift in Sources */,
 				B3C6DD722CDE997F002AEAF7 /* PersistentAppData+CoreDataClass.swift in Sources */,
 				B3C6DD732CDE997F002AEAF7 /* PersistentAppData+CoreDataProperties.swift in Sources */,
 				AFBBC5072C7E459900A9B256 /* ModuliteWidgetBundle.swift in Sources */,
@@ -3317,6 +3322,7 @@
 				B39FB8872CDD51F100967E3A /* PersistentWidgetSchema+CoreDataProperties.swift in Sources */,
 				B3987E2C2CA4F43100896414 /* SelectMainWidgetConfigurationIntent.swift in Sources */,
 				B3987E152CA38C7900896414 /* MainWidgetEntry.swift in Sources */,
+				B363B57F2CE3E20A002912CC /* MainWidgetStrategy.swift in Sources */,
 				B34C62E52CD16134004E014B /* AppListData.swift in Sources */,
 				B32B60A52C838EB0007DDCE3 /* WidgetModuleCell.swift in Sources */,
 				B30201692CC7074F00301646 /* View+PulseEffect.swift in Sources */,
@@ -3329,10 +3335,10 @@
 				B37284762C82997700D9A1E7 /* ImageProcessingFactory.swift in Sources */,
 				B3987E242CA4857400896414 /* MainWidgetConfigurationData.swift in Sources */,
 				B3987E182CA3938200896414 /* AuxiliaryWidget.swift in Sources */,
+				B363B5802CE3E214002912CC /* AuxWidgetStrategy.swift in Sources */,
 				AF763F262CAF4492002FBE26 /* FamilyControlsManager.swift in Sources */,
 				B32B60F92C87AC81007DDCE3 /* FileManagerImagePersistenceController.swift in Sources */,
 				B3C6DD7F2CDE9B28002AEAF7 /* AppData+Extensions.swift in Sources */,
-				B3C6DD802CDE9B28002AEAF7 /* WidgetModule+Extensions.swift in Sources */,
 				B3C6DD812CDE9B28002AEAF7 /* WidgetSchema+Extensions.swift in Sources */,
 				B39FB8842CDD51EB00967E3A /* PersistentWidgetSchema+CoreDataClass.swift in Sources */,
 				B32F3BE22CD56412000F4825 /* ButtonFactory.swift in Sources */,
