@@ -276,8 +276,8 @@
         "homeImageName": "analogHomeWallpaper"
     },
     "previewSet": {
-        "mainWidgetPreview": "analogWidgetPreview",
-        "auxWidgetPreview": "analogWidgetPreview",
+        "mainWidgetPreview": "analogMainWidgetPreview",
+        "auxWidgetPreview": "analogAuxWidgetPreview",
         "wallpaperPreview1Name": "analogWallpaperPreview1",
         "wallpaperPreview2Name": "analogWallpaperPreview2",
         "wallpaperPreview3Name": "analogWallpaperPreview3"
