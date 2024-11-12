@@ -213,6 +213,9 @@
 		B363B56B2CE3907C002912CC /* ArchivoSemiCondensed-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B363B5692CE3907C002912CC /* ArchivoSemiCondensed-Bold.ttf */; };
 		B363B56D2CE390A8002912CC /* PixelOperator8-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B363B5652CE3907C002912CC /* PixelOperator8-Bold.ttf */; };
 		B363B56E2CE390A8002912CC /* ArchivoSemiCondensed-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B363B5692CE3907C002912CC /* ArchivoSemiCondensed-Bold.ttf */; };
+		B363B5782CE3C5B9002912CC /* WidgetTypeStrategy.swift in Sources */ = {isa = PBXBuildFile; fileRef = B363B5762CE3C5B9002912CC /* WidgetTypeStrategy.swift */; };
+		B363B57A2CE3C5BE002912CC /* MainWidgetStrategy.swift in Sources */ = {isa = PBXBuildFile; fileRef = B363B5792CE3C5BE002912CC /* MainWidgetStrategy.swift */; };
+		B363B57C2CE3C5C7002912CC /* AuxWidgetStrategy.swift in Sources */ = {isa = PBXBuildFile; fileRef = B363B57B2CE3C5C7002912CC /* AuxWidgetStrategy.swift */; };
 		B36927982C66B6E30089F769 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B36927972C66B6E30089F769 /* AppDelegate.swift */; };
 		B369279A2C66B6E30089F769 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B36927992C66B6E30089F769 /* SceneDelegate.swift */; };
 		B369279C2C66B6E30089F769 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B369279B2C66B6E30089F769 /* HomeViewController.swift */; };
@@ -698,6 +701,9 @@
 		B363B54F2CE2EBDF002912CC /* UIImage+UIColor+FromWidgetStyling.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+UIColor+FromWidgetStyling.swift"; sourceTree = "<group>"; };
 		B363B5652CE3907C002912CC /* PixelOperator8-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "PixelOperator8-Bold.ttf"; sourceTree = "<group>"; };
 		B363B5692CE3907C002912CC /* ArchivoSemiCondensed-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ArchivoSemiCondensed-Bold.ttf"; sourceTree = "<group>"; };
+		B363B5762CE3C5B9002912CC /* WidgetTypeStrategy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetTypeStrategy.swift; sourceTree = "<group>"; };
+		B363B5792CE3C5BE002912CC /* MainWidgetStrategy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainWidgetStrategy.swift; sourceTree = "<group>"; };
+		B363B57B2CE3C5C7002912CC /* AuxWidgetStrategy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuxWidgetStrategy.swift; sourceTree = "<group>"; };
 		B36927942C66B6E30089F769 /* Modulite.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Modulite.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B36927972C66B6E30089F769 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B36927992C66B6E30089F769 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -2004,6 +2010,24 @@
 			path = Archivo;
 			sourceTree = "<group>";
 		};
+		B363B5732CE3C5AD002912CC /* Strategy */ = {
+			isa = PBXGroup;
+			children = (
+				B363B5772CE3C5B9002912CC /* WidgetTypeStrategy */,
+			);
+			path = Strategy;
+			sourceTree = "<group>";
+		};
+		B363B5772CE3C5B9002912CC /* WidgetTypeStrategy */ = {
+			isa = PBXGroup;
+			children = (
+				B363B5762CE3C5B9002912CC /* WidgetTypeStrategy.swift */,
+				B363B5792CE3C5BE002912CC /* MainWidgetStrategy.swift */,
+				B363B57B2CE3C5C7002912CC /* AuxWidgetStrategy.swift */,
+			);
+			path = WidgetTypeStrategy;
+			sourceTree = "<group>";
+		};
 		B369278B2C66B6E30089F769 = {
 			isa = PBXGroup;
 			children = (
@@ -2045,6 +2069,7 @@
 		B36927962C66B6E30089F769 /* Modulite */ = {
 			isa = PBXGroup;
 			children = (
+				B363B5732CE3C5AD002912CC /* Strategy */,
 				AF0DB51F2CD6DAA300451E18 /* TestModuliteIAP.storekit */,
 				B32F3BF02CD709DD000F4825 /* Fonts */,
 				B39A259B2CAB2933001C76A5 /* Prototype */,
@@ -3406,6 +3431,7 @@
 				B39FB8852CDD51EB00967E3A /* PersistentWidgetSchema+CoreDataClass.swift in Sources */,
 				AFE15AB42CD97EFC000A255B /* PurchaseManager.swift in Sources */,
 				B32B61062C8A4140007DDCE3 /* ModalNavigationRouter.swift in Sources */,
+				B363B57C2CE3C5C7002912CC /* AuxWidgetStrategy.swift in Sources */,
 				B35BFB9F2CB47D9B00092B42 /* SettingsCoordinator.swift in Sources */,
 				B3987E2E2CA4F46A00896414 /* MainWidgetConfigurationQuery.swift in Sources */,
 				B35BFBC52CB4B6CE00092B42 /* SubscriptionDetailsCoordinator.swift in Sources */,
@@ -3450,6 +3476,7 @@
 				B34F3E352C6E93570041D7BD /* WidgetSetupViewModel.swift in Sources */,
 				B35BFB812CB2429200092B42 /* TutorialWallpaperViewController.swift in Sources */,
 				B34F3DF82C69A3810041D7BD /* DebugOptions.swift in Sources */,
+				B363B57A2CE3C5BE002912CC /* MainWidgetStrategy.swift in Sources */,
 				B35BFBC12CB4B61400092B42 /* SubscriptionDetailsView.swift in Sources */,
 				B34C63092CD2D83A004E014B /* EditModuleTip.swift in Sources */,
 				B39A25A22CAB5B65001C76A5 /* WidgetEditorDownloadButton.swift in Sources */,
@@ -3550,6 +3577,7 @@
 				B39D89D52CB85620005EEC46 /* ComingSoonView.swift in Sources */,
 				B39FB7C82CDA964B00967E3A /* WidgetSetupViewController+SelectedAppCollectionViewCellDelegate.swift in Sources */,
 				B302017B2CC9707800301646 /* WeekDaysSelectorView.swift in Sources */,
+				B363B5782CE3C5B9002912CC /* WidgetTypeStrategy.swift in Sources */,
 				B3C6DD7C2CDE9B28002AEAF7 /* AppData+Extensions.swift in Sources */,
 				B3C6DD7D2CDE9B28002AEAF7 /* WidgetModule+Extensions.swift in Sources */,
 				B3C6DD7E2CDE9B28002AEAF7 /* WidgetSchema+Extensions.swift in Sources */,
