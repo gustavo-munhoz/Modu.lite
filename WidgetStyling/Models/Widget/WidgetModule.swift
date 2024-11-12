@@ -22,7 +22,6 @@ public class WidgetModule {
         do {
             return try style.blendedImage(with: color)
         } catch {
-            print("Error blending image: \(error)")
             return style.image
         }
     }
