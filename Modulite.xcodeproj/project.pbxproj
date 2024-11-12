@@ -111,9 +111,6 @@
 		B32F3C092CD745C3000F4825 /* SpaceGrotesk-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B32F3C032CD745C3000F4825 /* SpaceGrotesk-Medium.ttf */; };
 		B32F3C0A2CD745C3000F4825 /* SpaceGrotesk-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B32F3C042CD745C3000F4825 /* SpaceGrotesk-Regular.ttf */; };
 		B32F3C0B2CD745C3000F4825 /* SpaceGrotesk-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B32F3C052CD745C3000F4825 /* SpaceGrotesk-SemiBold.ttf */; };
-		B32F3C0F2CD7462F000F4825 /* PixelOperator8-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B32F3C0E2CD7462F000F4825 /* PixelOperator8-Bold.ttf */; };
-		B32F3C112CD7463D000F4825 /* PixelOperator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B32F3C102CD7463D000F4825 /* PixelOperator.swift */; };
-		B32F3C122CD7463D000F4825 /* PixelOperator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B32F3C102CD7463D000F4825 /* PixelOperator.swift */; };
 		B338088D2CC1902E00D56884 /* AppUsageItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = B338088C2CC1902E00D56884 /* AppUsageItem.swift */; };
 		B338088F2CC1905500D56884 /* AppUsageList.swift in Sources */ = {isa = PBXBuildFile; fileRef = B338088E2CC1905500D56884 /* AppUsageList.swift */; };
 		B33808912CC19E6500D56884 /* Date+Operations.swift in Sources */ = {isa = PBXBuildFile; fileRef = B33808902CC19E6500D56884 /* Date+Operations.swift */; };
@@ -212,8 +209,10 @@
 		B35BFC602CB6F4A500092B42 /* FAQCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B35BFC5F2CB6F4A500092B42 /* FAQCoordinator.swift */; };
 		B363B53F2CE2DB97002912CC /* retromacGreen.json in Resources */ = {isa = PBXBuildFile; fileRef = B363B53E2CE2DB97002912CC /* retromacGreen.json */; };
 		B363B5502CE2EBDF002912CC /* UIImage+UIColor+FromWidgetStyling.swift in Sources */ = {isa = PBXBuildFile; fileRef = B363B54F2CE2EBDF002912CC /* UIImage+UIColor+FromWidgetStyling.swift */; };
-		B363B5512CE2ECF8002912CC /* PixelOperator8-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B32F3C0E2CD7462F000F4825 /* PixelOperator8-Bold.ttf */; };
-		B363B5522CE2ECF8002912CC /* ArchivoSemiCondensed-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B39FB7B72CD9758200967E3A /* ArchivoSemiCondensed-Bold.ttf */; };
+		B363B5672CE3907C002912CC /* PixelOperator8-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B363B5652CE3907C002912CC /* PixelOperator8-Bold.ttf */; };
+		B363B56B2CE3907C002912CC /* ArchivoSemiCondensed-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B363B5692CE3907C002912CC /* ArchivoSemiCondensed-Bold.ttf */; };
+		B363B56D2CE390A8002912CC /* PixelOperator8-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B363B5652CE3907C002912CC /* PixelOperator8-Bold.ttf */; };
+		B363B56E2CE390A8002912CC /* ArchivoSemiCondensed-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B363B5692CE3907C002912CC /* ArchivoSemiCondensed-Bold.ttf */; };
 		B36927982C66B6E30089F769 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B36927972C66B6E30089F769 /* AppDelegate.swift */; };
 		B369279A2C66B6E30089F769 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B36927992C66B6E30089F769 /* SceneDelegate.swift */; };
 		B369279C2C66B6E30089F769 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B369279B2C66B6E30089F769 /* HomeViewController.swift */; };
@@ -299,9 +298,6 @@
 		B39D89E02CB85C38005EEC46 /* BlockAppsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39D89DE2CB85C38005EEC46 /* BlockAppsCoordinator.swift */; };
 		B39D89E32CB85C3C005EEC46 /* UsageCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39D89E12CB85C3C005EEC46 /* UsageCoordinator.swift */; };
 		B39D89E92CB86058005EEC46 /* ComingSoonCircularIconView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39D89E72CB86058005EEC46 /* ComingSoonCircularIconView.swift */; };
-		B39FB7B82CD9758200967E3A /* ArchivoSemiCondensed-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B39FB7B72CD9758200967E3A /* ArchivoSemiCondensed-Bold.ttf */; };
-		B39FB7BA2CD9758A00967E3A /* Archivo.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39FB7B92CD9758A00967E3A /* Archivo.swift */; };
-		B39FB7BB2CD975F900967E3A /* Archivo.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39FB7B92CD9758A00967E3A /* Archivo.swift */; };
 		B39FB7C22CDA95F400967E3A /* WidgetSetupViewController+StyleCollectionViewCellDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39FB7BE2CDA95F400967E3A /* WidgetSetupViewController+StyleCollectionViewCellDelegate.swift */; };
 		B39FB7C32CDA95F400967E3A /* WidgetSetupViewController+UICollectionViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39FB7BF2CDA95F400967E3A /* WidgetSetupViewController+UICollectionViewDelegate.swift */; };
 		B39FB7C42CDA95F400967E3A /* WidgetSetupViewController+UITextFieldDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39FB7C02CDA95F400967E3A /* WidgetSetupViewController+UITextFieldDelegate.swift */; };
@@ -606,8 +602,6 @@
 		B32F3C032CD745C3000F4825 /* SpaceGrotesk-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SpaceGrotesk-Medium.ttf"; sourceTree = "<group>"; };
 		B32F3C042CD745C3000F4825 /* SpaceGrotesk-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SpaceGrotesk-Regular.ttf"; sourceTree = "<group>"; };
 		B32F3C052CD745C3000F4825 /* SpaceGrotesk-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SpaceGrotesk-SemiBold.ttf"; sourceTree = "<group>"; };
-		B32F3C0E2CD7462F000F4825 /* PixelOperator8-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "PixelOperator8-Bold.ttf"; sourceTree = "<group>"; };
-		B32F3C102CD7463D000F4825 /* PixelOperator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PixelOperator.swift; sourceTree = "<group>"; };
 		B338088C2CC1902E00D56884 /* AppUsageItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppUsageItem.swift; sourceTree = "<group>"; };
 		B338088E2CC1905500D56884 /* AppUsageList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppUsageList.swift; sourceTree = "<group>"; };
 		B33808902CC19E6500D56884 /* Date+Operations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Operations.swift"; sourceTree = "<group>"; };
@@ -702,6 +696,8 @@
 		B363B53E2CE2DB97002912CC /* retromacGreen.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = retromacGreen.json; sourceTree = "<group>"; };
 		B363B5402CE2E664002912CC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		B363B54F2CE2EBDF002912CC /* UIImage+UIColor+FromWidgetStyling.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+UIColor+FromWidgetStyling.swift"; sourceTree = "<group>"; };
+		B363B5652CE3907C002912CC /* PixelOperator8-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "PixelOperator8-Bold.ttf"; sourceTree = "<group>"; };
+		B363B5692CE3907C002912CC /* ArchivoSemiCondensed-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ArchivoSemiCondensed-Bold.ttf"; sourceTree = "<group>"; };
 		B36927942C66B6E30089F769 /* Modulite.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Modulite.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B36927972C66B6E30089F769 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B36927992C66B6E30089F769 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -769,8 +765,6 @@
 		B39D89DE2CB85C38005EEC46 /* BlockAppsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockAppsCoordinator.swift; sourceTree = "<group>"; };
 		B39D89E12CB85C3C005EEC46 /* UsageCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsageCoordinator.swift; sourceTree = "<group>"; };
 		B39D89E72CB86058005EEC46 /* ComingSoonCircularIconView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComingSoonCircularIconView.swift; sourceTree = "<group>"; };
-		B39FB7B72CD9758200967E3A /* ArchivoSemiCondensed-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ArchivoSemiCondensed-Bold.ttf"; sourceTree = "<group>"; };
-		B39FB7B92CD9758A00967E3A /* Archivo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Archivo.swift; sourceTree = "<group>"; };
 		B39FB7BE2CDA95F400967E3A /* WidgetSetupViewController+StyleCollectionViewCellDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WidgetSetupViewController+StyleCollectionViewCellDelegate.swift"; sourceTree = "<group>"; };
 		B39FB7BF2CDA95F400967E3A /* WidgetSetupViewController+UICollectionViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WidgetSetupViewController+UICollectionViewDelegate.swift"; sourceTree = "<group>"; };
 		B39FB7C02CDA95F400967E3A /* WidgetSetupViewController+UITextFieldDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WidgetSetupViewController+UITextFieldDelegate.swift"; sourceTree = "<group>"; };
@@ -1389,8 +1383,6 @@
 			children = (
 				B32F3BF72CD709E8000F4825 /* Files */,
 				B32F3BFD2CD70A0F000F4825 /* SpaceGrotesk.swift */,
-				B39FB7B92CD9758A00967E3A /* Archivo.swift */,
-				B32F3C102CD7463D000F4825 /* PixelOperator.swift */,
 			);
 			path = Fonts;
 			sourceTree = "<group>";
@@ -1398,8 +1390,8 @@
 		B32F3BF72CD709E8000F4825 /* Files */ = {
 			isa = PBXGroup;
 			children = (
-				B39FB7B62CD9757600967E3A /* Archivo */,
-				B32F3C0D2CD74620000F4825 /* PixelOperator */,
+				B363B5662CE3907C002912CC /* PixelOperator */,
+				B363B56A2CE3907C002912CC /* Archivo */,
 				B32F3C062CD745C3000F4825 /* SpaceGrotesk */,
 			);
 			path = Files;
@@ -1415,14 +1407,6 @@
 				B32F3C052CD745C3000F4825 /* SpaceGrotesk-SemiBold.ttf */,
 			);
 			path = SpaceGrotesk;
-			sourceTree = "<group>";
-		};
-		B32F3C0D2CD74620000F4825 /* PixelOperator */ = {
-			isa = PBXGroup;
-			children = (
-				B32F3C0E2CD7462F000F4825 /* PixelOperator8-Bold.ttf */,
-			);
-			path = PixelOperator;
 			sourceTree = "<group>";
 		};
 		B33808982CC3004400D56884 /* View */ = {
@@ -2004,6 +1988,22 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		B363B5662CE3907C002912CC /* PixelOperator */ = {
+			isa = PBXGroup;
+			children = (
+				B363B5652CE3907C002912CC /* PixelOperator8-Bold.ttf */,
+			);
+			path = PixelOperator;
+			sourceTree = "<group>";
+		};
+		B363B56A2CE3907C002912CC /* Archivo */ = {
+			isa = PBXGroup;
+			children = (
+				B363B5692CE3907C002912CC /* ArchivoSemiCondensed-Bold.ttf */,
+			);
+			path = Archivo;
+			sourceTree = "<group>";
+		};
 		B369278B2C66B6E30089F769 = {
 			isa = PBXGroup;
 			children = (
@@ -2468,14 +2468,6 @@
 				B39D89E72CB86058005EEC46 /* ComingSoonCircularIconView.swift */,
 			);
 			path = Components;
-			sourceTree = "<group>";
-		};
-		B39FB7B62CD9757600967E3A /* Archivo */ = {
-			isa = PBXGroup;
-			children = (
-				B39FB7B72CD9758200967E3A /* ArchivoSemiCondensed-Bold.ttf */,
-			);
-			path = Archivo;
 			sourceTree = "<group>";
 		};
 		B39FB7C12CDA95F400967E3A /* Extensions */ = {
@@ -3165,16 +3157,16 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B363B56B2CE3907C002912CC /* ArchivoSemiCondensed-Bold.ttf in Resources */,
 				AF0DB5252CD6DAA300451E18 /* TestModuliteIAP.storekit in Resources */,
 				B36927A12C66B6E40089F769 /* Assets.xcassets in Resources */,
 				B3987DFF2CA202C100896414 /* InfoPlist.xcstrings in Resources */,
 				B39A25E42CAFADF6001C76A5 /* BundleConfig.xcconfig in Resources */,
 				B3F0543C2C7D04D60057F04D /* apps.json in Resources */,
-				B39FB7B82CD9758200967E3A /* ArchivoSemiCondensed-Bold.ttf in Resources */,
 				B32F3C072CD745C3000F4825 /* SpaceGrotesk-Bold.ttf in Resources */,
 				B32F3C082CD745C3000F4825 /* SpaceGrotesk-Light.ttf in Resources */,
+				B363B5672CE3907C002912CC /* PixelOperator8-Bold.ttf in Resources */,
 				B32F3C092CD745C3000F4825 /* SpaceGrotesk-Medium.ttf in Resources */,
-				B32F3C0F2CD7462F000F4825 /* PixelOperator8-Bold.ttf in Resources */,
 				B32F3C0A2CD745C3000F4825 /* SpaceGrotesk-Regular.ttf in Resources */,
 				B32F3C0B2CD745C3000F4825 /* SpaceGrotesk-SemiBold.ttf in Resources */,
 				B36927A42C66B6E40089F769 /* Base in Resources */,
@@ -3203,8 +3195,8 @@
 				B39FB8742CDC441D00967E3A /* analog.json in Resources */,
 				B363B53F2CE2DB97002912CC /* retromacGreen.json in Resources */,
 				B39FB8512CDC082800967E3A /* Images.xcassets in Resources */,
-				B363B5512CE2ECF8002912CC /* PixelOperator8-Bold.ttf in Resources */,
-				B363B5522CE2ECF8002912CC /* ArchivoSemiCondensed-Bold.ttf in Resources */,
+				B363B56D2CE390A8002912CC /* PixelOperator8-Bold.ttf in Resources */,
+				B363B56E2CE390A8002912CC /* ArchivoSemiCondensed-Bold.ttf in Resources */,
 				B39FB8532CDC083E00967E3A /* Colors.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -3287,7 +3279,6 @@
 				B3C6DD862CDEAC17002AEAF7 /* CoreDataPersistenceController.swift in Sources */,
 				B32B60F32C8782E2007DDCE3 /* UIView+asImage.swift in Sources */,
 				B32B60A62C838ED9007DDCE3 /* UILabel+AppNameConfiguration.swift in Sources */,
-				B39FB7BB2CD975F900967E3A /* Archivo.swift in Sources */,
 				B3987E102CA38A9C00896414 /* MainWidgetView.swift in Sources */,
 				AFE15AB32CD97EFC000A255B /* PurchaseManager.swift in Sources */,
 				B37284752C82996600D9A1E7 /* String+LocalizedKey.swift in Sources */,
@@ -3310,7 +3301,6 @@
 				B3987E2F2CA4F46A00896414 /* MainWidgetConfigurationQuery.swift in Sources */,
 				B3987E272CA4858E00896414 /* MainWidgetModuleData.swift in Sources */,
 				B39FB87E2CDD510600967E3A /* PersistentWidgetModule+CoreDataClass.swift in Sources */,
-				B32F3C122CD7463D000F4825 /* PixelOperator.swift in Sources */,
 				B37284762C82997700D9A1E7 /* ImageProcessingFactory.swift in Sources */,
 				B3987E242CA4857400896414 /* MainWidgetConfigurationData.swift in Sources */,
 				B3987E182CA3938200896414 /* AuxiliaryWidget.swift in Sources */,
@@ -3457,7 +3447,6 @@
 				B3CDD7072C77C59B00E558F8 /* ImageProcessingFactory.swift in Sources */,
 				AF09AE862CD7102700E0707A /* GradientButton.swift in Sources */,
 				B34F3E092C6A96A20041D7BD /* RootTabCoordinator.swift in Sources */,
-				B32F3C112CD7463D000F4825 /* PixelOperator.swift in Sources */,
 				B34F3E352C6E93570041D7BD /* WidgetSetupViewModel.swift in Sources */,
 				B35BFB812CB2429200092B42 /* TutorialWallpaperViewController.swift in Sources */,
 				B34F3DF82C69A3810041D7BD /* DebugOptions.swift in Sources */,
@@ -3503,7 +3492,6 @@
 				B35BFBDD2CB5A9A800092B42 /* TutorialCenterViewController.swift in Sources */,
 				B3987E162CA38C7900896414 /* MainWidgetEntry.swift in Sources */,
 				B338089D2CC3005600D56884 /* RequestScreenTimeView.swift in Sources */,
-				B39FB7BA2CD9758A00967E3A /* Archivo.swift in Sources */,
 				B39A25FA2CB06437001C76A5 /* TutorialCreateWidgetView.swift in Sources */,
 				B30201712CC8C99B00301646 /* BlockingTypeSelectButton.swift in Sources */,
 				B35BFC502CB609DC00092B42 /* TutorialAddWidgetViewController.swift in Sources */,
