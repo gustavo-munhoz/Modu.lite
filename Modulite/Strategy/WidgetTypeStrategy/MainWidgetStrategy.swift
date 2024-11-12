@@ -23,7 +23,11 @@ class MainWidgetStrategy: WidgetTypeStrategy {
         187
     }
     
-    func getEditorLayoutCollectionViewHeight() -> CGFloat {
-        0
+    func getEditorLayoutCollectionViewSize() -> CGSize {
+        CGSize(width: 338, height: 354)
+    }
+    
+    func getEditorModuleStyleItemSize() -> CGSize {
+        CGSize(width: 86.4, height: 136)
     }
 }

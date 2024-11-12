@@ -13,5 +13,6 @@ protocol WidgetTypeStrategy: AnyObject {
     func getSetupStyleCollectionViewHeight() -> CGFloat
     func getSetupStyleCellHeight() -> CGFloat
     func getStyleCellImageHeight() -> CGFloat
-    func getEditorLayoutCollectionViewHeight() -> CGFloat
+    func getEditorLayoutCollectionViewSize() -> CGSize
+    func getEditorModuleStyleItemSize() -> CGSize
 }

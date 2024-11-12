@@ -23,7 +23,11 @@ class AuxWidgetStrategy: WidgetTypeStrategy {
         86
     }
     
-    func getEditorLayoutCollectionViewHeight() -> CGFloat {
-        0
+    func getEditorLayoutCollectionViewSize() -> CGSize {
+        CGSize(width: 351, height: 164)
+    }
+    
+    func getEditorModuleStyleItemSize() -> CGSize {
+        CGSize(width: 108, height: 154)
     }
 }
