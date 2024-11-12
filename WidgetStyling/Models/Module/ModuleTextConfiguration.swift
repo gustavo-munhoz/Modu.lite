@@ -30,7 +30,7 @@ public class ModuleTextConfiguration {
             let weight = UIFont.Weight.from(string: data.fontWeight)
             
             if let fontName = data.fontName, !fontName.isEmpty, fontName.lowercased() != "system" {
-                if let customFont = UIFont(name: fontName, size: 0) {
+                if let customFont = UIFont(name: fontName, size: 11) {
                     let fontMetrics = UIFontMetrics(forTextStyle: textStyle)
                     let scaledFont = fontMetrics.scaledFont(for: customFont)
                     configuration.font = scaledFont
