@@ -15,21 +15,25 @@ class SelectAppsCoordinator: Coordinator {
     
     unowned let selectAppsViewControllerDelegate: SelectAppsViewControllerDelegate
     let selectedApps: [AppData]
+    let maxApps: Int
     
     init(
         delegate: SelectAppsViewControllerDelegate,
         selectedApps: [AppData],
+        maxApps: Int,
         router: Router
     ) {
         selectAppsViewControllerDelegate = delegate
         self.router = router
         self.selectedApps = selectedApps
+        self.maxApps = maxApps
     }
     
     func present(animated: Bool, onDismiss: (() -> Void)?) {
         let viewController = SelectAppsViewController.instantiate(
             with: selectAppsViewControllerDelegate,
-            selectedApps: selectedApps
+            selectedApps: selectedApps,
+            maxApps: maxApps
         )
         
         router.present(viewController, animated: animated, onDismiss: onDismiss)
