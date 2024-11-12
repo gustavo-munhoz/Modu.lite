@@ -50,8 +50,7 @@ extension WidgetSetupViewController: UICollectionViewDataSource {
             cell.hasSelectionBeenMade = viewModel.isStyleSelected()
             
             if let selectedStyle = viewModel.selectedStyle,
-               selectedStyle.isEqual(to: style)
-            {
+               selectedStyle.isEqual(to: style) {
                 collectionView.selectItem(at: indexPath, animated: true, scrollPosition: [])
             }
             

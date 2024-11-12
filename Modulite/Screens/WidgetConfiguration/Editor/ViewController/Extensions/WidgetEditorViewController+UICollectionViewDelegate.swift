@@ -242,7 +242,6 @@ extension WidgetEditorViewController: UICollectionViewDelegate {
         return (toRemove: indexPathsToRemove, toAdd: indexPathsToAdd)
     }
 
-    
     private func scrollToSelectedOptions() {
         guard let styleIndex = viewModel.getIndexForSelectedStyle(),
               let colorIndex = viewModel.getIndexForSelectedModuleColor()
