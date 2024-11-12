@@ -14,14 +14,18 @@ extension WidgetBuilderCoordinator: WidgetSetupViewControllerDelegate {
         currentWidgetCount
     }
     
-    func widgetSetupViewControllerDidPressNext(widgetName: String) {
+    func widgetSetupViewControllerDidPressNext(
+        _ controller: WidgetSetupViewController,
+        widgetName: String
+    ) {
         contentBuilder.setWidgetName(widgetName)
         
         guard let builder = try? configurationBuilder else { return }
         
         let viewController = WidgetEditorViewController.instantiate(
             builder: builder,
-            delegate: self
+            delegate: self,
+            strategy: controller.strategy
         )
         
         viewController.setIsOnboarding(isOnboarding)

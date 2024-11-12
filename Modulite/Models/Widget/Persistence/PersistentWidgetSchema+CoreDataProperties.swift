@@ -42,7 +42,7 @@ extension PersistentWidgetSchema {
         for module in schema.modules {
             let persistentModule = PersistentWidgetModule.from(
                 module: module,
-                widgetId: persistedSchema.id,
+                schema: schema,
                 using: managedObjectContext
             )
             

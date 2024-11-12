@@ -9,12 +9,15 @@ import UIKit
 import WidgetStyling
 
 extension WidgetModule {
-    func createCompleteImage() -> UIImage {
+    func createCompleteImage(for strategy: WidgetTypeStrategy) -> UIImage {
         let cell = WidgetModuleCell()
-        cell.setup(with: self)
+        cell.setup(
+            with: self,
+            cornerRadius: strategy.type == .main ? 12 : 18
+        )
         cell.frame = CGRect(
             origin: .zero,
-            size: CGSize(width: 108, height: 170)
+            size: strategy.getEditorModuleStyleItemSize()
         )
         
         cell.layoutIfNeeded()

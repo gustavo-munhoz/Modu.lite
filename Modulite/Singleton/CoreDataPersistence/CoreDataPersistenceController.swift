@@ -278,7 +278,7 @@ extension CoreDataPersistenceController {
             for module in schema.modules {
                 let persistentModule = PersistentWidgetModule.from(
                     module: module,
-                    widgetId: existingWidget.id,
+                    schema: schema,
                     using: context
                 )
                 
