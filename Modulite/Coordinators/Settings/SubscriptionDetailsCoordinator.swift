@@ -49,6 +49,10 @@ extension SubscriptionDetailsCoordinator: SubscriptionDetailsViewControllerDeleg
     func subscriptionDetailsViewControllerDidPressUpgrade(
         _ viewController: SubscriptionDetailsViewController
     ) {
-        presentFeatureComingAlert(viewController)
+        let router = ModalNavigationRouter(parentViewController: viewController)
+        router.setHasSaveButton(false)
+        
+        let coordinator = OfferPlusCoordinator(router: router)
+        presentChild(coordinator, animated: true)
     }
 }

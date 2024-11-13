@@ -79,7 +79,7 @@
     {
       "displayPrice" : "0.99",
       "familyShareable" : false,
-      "internalID" : "ADE37E97",
+      "internalID" : "A7087662",
       "localizations" : [
         {
           "description" : "",
@@ -88,7 +88,6 @@
         }
       ],
       "productID" : "modutouch3",
-      "promotionalImageID" : "8573FAF6",
       "referenceName" : "Modutouch3",
       "type" : "NonConsumable"
     }
@@ -160,7 +159,7 @@
           "codeOffers" : [
 
           ],
-          "displayPrice" : "10",
+          "displayPrice" : "9.99",
           "familyShareable" : false,
           "groupNumber" : 1,
           "internalID" : "A27E63E9",
@@ -188,7 +187,7 @@
           "codeOffers" : [
 
           ],
-          "displayPrice" : "100",
+          "displayPrice" : "99.90",
           "familyShareable" : false,
           "groupNumber" : 1,
           "internalID" : "A732048D",

@@ -239,6 +239,11 @@ extension String {
         case widgetStyleNameRetromac
         case widgetStyleNameRetromacGreen
         case widgetStyleModutouch3
+        
+        // MARK: - Purchase
+        case restorePurchaseSettings
+        case buttonUpgrandeNow
+        case startingAtUSD999
     }
             
     /// Returns a localized string using the key and associated values defined by the `LocalizedKey` enum.

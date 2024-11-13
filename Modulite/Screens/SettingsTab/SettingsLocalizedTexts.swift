@@ -12,4 +12,19 @@ enum SettingsLocalizedTexts: LocalizedKeyProtocol {
     case settingsViewTutorialsTitle
     case settingsViewFAQTitle
     case settingsViewHelpTitle
+    
+    case offerPlusTitle
+    case offerPlusMonthlyTitle
+    case offerPlusYearlyTitle
+    case offerPlusMonthlyPrice
+    case offerPlusYearlyPrice
+    case offerPlusMonthlySubtext
+    case offerPLusYearlySubtext
+    
+    case offerPlusUnlimitedWidgets
+    case offerplusLimitlessAuxiliaryWidgets
+    case offerPLusUnlimitedAppBlockingSessions
+    case offerPlusManyMoreSkinsOptions
+    case offerPlusSubscribeNow
+    case offerPlusNoThnakYou
 }

@@ -71,7 +71,7 @@ class StylePreviewViewController: UIViewController {
             "\(style.identifier)Preview2",
             "\(style.identifier)Preview3"
         ]
-        
+        // TODO: Change texts to localized
         texts = [
             "Lock Screen",
             "Home Screen\n(Main Widget)",
