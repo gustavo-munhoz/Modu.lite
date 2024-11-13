@@ -29,6 +29,7 @@ extension PersistentWidgetSchema {
         let persistedSchema = PersistentWidgetSchema(context: managedObjectContext)
         
         persistedSchema.id = schema.id
+        persistedSchema.type = schema.type.rawValue
         persistedSchema.name = schema.name
         persistedSchema.styleIdentifier = schema.widgetStyle.identifier
         
