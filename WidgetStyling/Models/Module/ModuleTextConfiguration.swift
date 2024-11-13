@@ -26,41 +26,69 @@ public class ModuleTextConfiguration {
     // MARK: - Initializers
     static func create(from data: ModuleTextConfigurationData) -> ModuleTextConfiguration {
         let configuration = ModuleTextConfiguration()
-                
-        if let fontSize = data.fontSize {
-            let weight = UIFont.Weight.from(string: data.fontWeight)
-            
-            if let fontName = data.fontName, !fontName.isEmpty, fontName.lowercased() != "system" {
-                if let customFont = UIFont(name: fontName, size: fontSize) {
-                    configuration.font = customFont
-                }
-            } else {
-                configuration.font = UIFont.systemFont(ofSize: fontSize, weight: weight)
+        
+        configureFont(for: configuration, from: data)
+        configureColors(for: configuration, from: data)
+        configureTextProperties(for: configuration, from: data)
+        
+        configuration.shouldRemoveSpaces = data.shouldRemoveSpaces ?? false
+        configuration.prefix = data.prefix
+        configuration.suffix = data.suffix
+
+        return configuration
+    }
+
+    // MARK: - Helper Methods
+
+    private static func configureFont(
+        for configuration: ModuleTextConfiguration,
+        from data: ModuleTextConfigurationData
+    ) {
+        guard let fontSize = data.fontSize else { return }
+        let weight = UIFont.Weight.from(string: data.fontWeight)
+        
+        if let fontName = data.fontName, !fontName.isEmpty, fontName.lowercased() != "system" {
+            if let customFont = UIFont(name: fontName, size: fontSize) {
+                configuration.font = customFont
             }
+        } else {
+            configuration.font = UIFont.systemFont(ofSize: fontSize, weight: weight)
         }
-                
+    }
+
+    private static func configureColors(
+        for configuration: ModuleTextConfiguration,
+        from data: ModuleTextConfigurationData
+    ) {
         if let textColorName = data.textColorName {
             configuration.textColor = UIColor.fromWidgetStyling(named: textColorName)
         }
-                
-        if let alignment = data.textAlignment {
-            configuration.textAlignment = NSTextAlignment(from: alignment)
-        }
-                
+        
         if let shadowColorName = data.shadowColorName {
             configuration.shadowColor = UIColor.fromWidgetStyling(named: shadowColorName)
         }
+    }
+
+    private static func configureTextProperties(
+        for configuration: ModuleTextConfiguration,
+        from data: ModuleTextConfigurationData
+    ) {
+        if let alignment = data.textAlignment {
+            configuration.textAlignment = NSTextAlignment(from: alignment)
+        }
+        
         if let width = data.shadowOffsetWidth, let height = data.shadowOffsetHeight {
             configuration.shadowOffset = CGSize(width: width, height: height)
         }
+        
         if let blurRadius = data.shadowBlurRadius {
             configuration.shadowBlurRadius = blurRadius
         }
-                
+        
         if let spacing = data.letterSpacing {
             configuration.letterSpacing = spacing
         }
-                
+        
         if let caseString = data.textCase {
             configuration.textCase = String.TextCase(from: caseString)
         }
@@ -68,13 +96,6 @@ public class ModuleTextConfiguration {
         if let bottomOffset = data.bottomOffset {
             configuration.bottomOffset = bottomOffset
         }
-                
-        configuration.shouldRemoveSpaces = data.shouldRemoveSpaces ?? false
-                
-        configuration.prefix = data.prefix
-        configuration.suffix = data.suffix
-        
-        return configuration
     }
     
     // MARK: - Methods
