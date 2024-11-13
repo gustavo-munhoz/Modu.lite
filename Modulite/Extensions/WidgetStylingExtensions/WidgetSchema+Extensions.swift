@@ -38,6 +38,7 @@ extension WidgetSchema {
         }
         
         self.init(
+            id: persisted.id,
             type: type,
             style: style,
             name: persisted.name,

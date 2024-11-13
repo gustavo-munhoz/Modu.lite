@@ -10,7 +10,7 @@ import UIKit
 public class WidgetSchema: Cloneable {
     
     // MARK: - Properties
-    public let id: UUID = UUID()
+    public let id: UUID
     public let type: WidgetType
     public var widgetStyle: WidgetStyle
     public var name: String?
@@ -25,6 +25,7 @@ public class WidgetSchema: Cloneable {
     // MARK: - Initializers
     
     public init(
+        id: UUID = UUID(),
         type: WidgetType,
         style: WidgetStyle,
         name: String? = nil,
@@ -32,6 +33,7 @@ public class WidgetSchema: Cloneable {
         previewImage: UIImage? = nil,
         lastEditedAt: Date = .now
     ) {
+        self.id = id
         self.type = type
         self.widgetStyle = style
         self.name = name
@@ -41,6 +43,7 @@ public class WidgetSchema: Cloneable {
     }
     
     init(content: WidgetContent) {
+        id = UUID()
         type = content.type
         widgetStyle = content.style
         name = content.name
