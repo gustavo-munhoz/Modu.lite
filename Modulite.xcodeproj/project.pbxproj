@@ -220,6 +220,7 @@
 		B363B57E2CE3E0EF002912CC /* WidgetTypeStrategy.swift in Sources */ = {isa = PBXBuildFile; fileRef = B363B5762CE3C5B9002912CC /* WidgetTypeStrategy.swift */; };
 		B363B57F2CE3E20A002912CC /* MainWidgetStrategy.swift in Sources */ = {isa = PBXBuildFile; fileRef = B363B5792CE3C5BE002912CC /* MainWidgetStrategy.swift */; };
 		B363B5802CE3E214002912CC /* AuxWidgetStrategy.swift in Sources */ = {isa = PBXBuildFile; fileRef = B363B57B2CE3C5C7002912CC /* AuxWidgetStrategy.swift */; };
+		B363B5822CE43ABC002912CC /* tapedeck.json in Resources */ = {isa = PBXBuildFile; fileRef = B363B5812CE43ABC002912CC /* tapedeck.json */; };
 		B36927982C66B6E30089F769 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B36927972C66B6E30089F769 /* AppDelegate.swift */; };
 		B369279A2C66B6E30089F769 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B36927992C66B6E30089F769 /* SceneDelegate.swift */; };
 		B369279C2C66B6E30089F769 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B369279B2C66B6E30089F769 /* HomeViewController.swift */; };
@@ -707,6 +708,7 @@
 		B363B5762CE3C5B9002912CC /* WidgetTypeStrategy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetTypeStrategy.swift; sourceTree = "<group>"; };
 		B363B5792CE3C5BE002912CC /* MainWidgetStrategy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainWidgetStrategy.swift; sourceTree = "<group>"; };
 		B363B57B2CE3C5C7002912CC /* AuxWidgetStrategy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuxWidgetStrategy.swift; sourceTree = "<group>"; };
+		B363B5812CE43ABC002912CC /* tapedeck.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = tapedeck.json; sourceTree = "<group>"; };
 		B36927942C66B6E30089F769 /* Modulite.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Modulite.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B36927972C66B6E30089F769 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B36927992C66B6E30089F769 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -2645,6 +2647,7 @@
 		B39FB8732CDC441D00967E3A /* WidgetStyles */ = {
 			isa = PBXGroup;
 			children = (
+				B363B5812CE43ABC002912CC /* tapedeck.json */,
 				B39FB8722CDC441D00967E3A /* analog.json */,
 				B363B53E2CE2DB97002912CC /* retromacGreen.json */,
 			);
@@ -3222,6 +3225,7 @@
 			files = (
 				B39FB8742CDC441D00967E3A /* analog.json in Resources */,
 				B363B53F2CE2DB97002912CC /* retromacGreen.json in Resources */,
+				B363B5822CE43ABC002912CC /* tapedeck.json in Resources */,
 				B39FB8512CDC082800967E3A /* Images.xcassets in Resources */,
 				B363B56D2CE390A8002912CC /* PixelOperator8-Bold.ttf in Resources */,
 				B363B56E2CE390A8002912CC /* ArchivoSemiCondensed-Bold.ttf in Resources */,
