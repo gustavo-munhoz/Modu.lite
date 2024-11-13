@@ -19,9 +19,8 @@ protocol WidgetEditorViewControllerDelegate: AnyObject {
         didSave widget: WidgetSchema
     )
     
-    func widgetEditorViewController(
-        _ viewController: WidgetEditorViewController,
-        didDeleteWithId id: UUID
+    func widgetEditorViewControllerDidDeleteWidget(
+        _ viewController: WidgetEditorViewController
     )
     
     func widgetEditorViewControllerDidPressBack(
@@ -302,8 +301,7 @@ class WidgetEditorViewController: UIViewController {
         ) { [weak self] _ in
             guard let self = self else { return }
             
-            let id = self.viewModel.getWidgetId()
-            delegate?.widgetEditorViewController(self, didDeleteWithId: id)
+            delegate?.widgetEditorViewControllerDidDeleteWidget(self)
         }
         
         let cancelAction = UIAlertAction(
