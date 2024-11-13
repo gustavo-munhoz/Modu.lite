@@ -25,7 +25,7 @@ class WidgetEditorView: UIView {
         }
     }
     
-    private let scrollView = UIScrollView()
+    let scrollView = UIScrollView()
     private let contentView = UIView()
     
     private(set) lazy var layoutHeader: EditorSectionHeader = {

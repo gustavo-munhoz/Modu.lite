@@ -11,7 +11,7 @@ import WidgetStyling
 extension WidgetEditorViewController: UICollectionViewDelegate {
     
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-        if scrollView === editorView {
+        if scrollView === editorView.scrollView {
             let bottomEdge = scrollView.contentOffset.y + scrollView.frame.size.height
             if bottomEdge >= scrollView.contentSize.height {
                 sendEditModuleEventIfNeeded()

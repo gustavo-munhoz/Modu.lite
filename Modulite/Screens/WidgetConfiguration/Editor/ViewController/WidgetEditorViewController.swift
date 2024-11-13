@@ -82,6 +82,7 @@ class WidgetEditorViewController: UIViewController {
         
         setupNavigationBar()
         setupViewSizesWithStrategy()
+        editorView.setScrollViewDelegate(to: self)
     }
     
     override func viewDidAppear(_ animated: Bool) {
