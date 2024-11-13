@@ -1,5 +1,5 @@
 //
-//  MainWidgetCollectionViewCell.swift
+//  HomeWidgetCollectionViewCell.swift
 //  Modulite
 //
 //  Created by Gustavo Munhoz Correa on 13/08/24.
@@ -9,11 +9,11 @@ import UIKit
 import SnapKit
 
 protocol MainWidgetCollectionViewCellDelegate: AnyObject {
-    func mainWidgetCellDidRequestEdit(_ cell: MainWidgetCollectionViewCell)
-    func mainWidgetCellDidRequestDelete(_ cell: MainWidgetCollectionViewCell)
+    func mainWidgetCellDidRequestEdit(_ cell: HomeWidgetCollectionViewCell)
+    func mainWidgetCellDidRequestDelete(_ cell: HomeWidgetCollectionViewCell)
 }
 
-class MainWidgetCollectionViewCell: UICollectionViewCell {
+class HomeWidgetCollectionViewCell: UICollectionViewCell {
     static let reuseId = "MainWidgetCollectionViewCell"
     
     weak var delegate: MainWidgetCollectionViewCellDelegate?
@@ -87,7 +87,7 @@ class MainWidgetCollectionViewCell: UICollectionViewCell {
     }
 }
 
-extension MainWidgetCollectionViewCell: UIContextMenuInteractionDelegate {
+extension HomeWidgetCollectionViewCell: UIContextMenuInteractionDelegate {
     func contextMenuInteraction(
             _ interaction: UIContextMenuInteraction,
             configurationForMenuAtLocation location: CGPoint
