@@ -35,8 +35,6 @@ struct CoreDataPersistenceController {
     init(inMemory: Bool = false) {
         container = NSPersistentContainer(name: "WidgetData")
         
-        resetAllDataIfNeeded(databaseVersion: 1)
-        
         guard let appGroupID = Bundle.main.object(forInfoDictionaryKey: "AppGroupID") as? String else {
             fatalError("Could not find App Group ID in Info.plist")
         }
@@ -70,31 +68,40 @@ struct CoreDataPersistenceController {
     }
     
     func executeInitialSetup() {
+        resetAllDataIfNeeded(databaseVersion: 1)
         checkVersionAndPopulateIfNeeded()
     }
     
     private func resetAllDataIfNeeded(databaseVersion version: Int) {
         let hasResetKey = "hasResetDataAtVersion\(version)"
         guard !UserDefaults.standard.bool(forKey: hasResetKey) else { return }
-        
-        guard let appGroupID = Bundle.main.object(forInfoDictionaryKey: "AppGroupID") as? String,
-              let appGroupURL = FileManager.default.containerURL(
-                forSecurityApplicationGroupIdentifier: appGroupID
-              ) else { fatalError("Could not find App Group Container") }
-        
-        let storeURL = appGroupURL.appendingPathComponent("WidgetData.sqlite")
-        
-        do {
-            try FileManager.default.removeItem(at: storeURL)
-            print("CoreData store successfully deleted")
-            
-            FileManagerImagePersistenceController.shared.deleteAllWidgetImages()
-            
-            UserDefaults.standard.set(true, forKey: hasResetKey)
-            UserDefaults.standard.removeObject(forKey: "appsDataVersion")
-        } catch {
-            print("Failed to delete CoreData store: \(error.localizedDescription)")
+
+        let context = container.viewContext
+        container.performBackgroundTask { context in
+            let entityNames = Array(container.managedObjectModel.entitiesByName.keys)
+            for entityName in entityNames {
+                let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: entityName)
+                let batchDeleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
+                do {
+                    try context.execute(batchDeleteRequest)
+                } catch {
+                    print("Failed to batch delete entity \(entityName): \(error)")
+                }
+            }
+
+            do {
+                try context.save()
+            } catch {
+                print("Failed to save context after batch deletes: \(error)")
+            }
         }
+        
+        FileManagerImagePersistenceController.shared.deleteAllWidgetImages()
+
+        UserDefaults.standard.set(true, forKey: hasResetKey)
+        UserDefaults.standard.removeObject(forKey: "appsDataVersion")
+
+        print("All data successfully cleared")
     }
 }
 
