@@ -140,20 +140,6 @@ class WidgetEditorView: UIView {
     func setScrollViewDelegate(to delegate: UIScrollViewDelegate) {
         scrollView.delegate = delegate
     }
-    
-    private func setupViews() {
-        addSubview(scrollView)
-        scrollView.addSubview(contentView)
-        
-        contentView.addSubview(layoutHeader)
-        contentView.addSubview(widgetLayoutCollectionView)
-        contentView.addSubview(moduleStyleHeader)
-        contentView.addSubview(moduleStyleCollectionView)
-        contentView.addSubview(moduleColorCollectionView)
-        contentView.addSubview(wallpaperHeader)
-        contentView.addSubview(downloadWallpaperButton)
-        contentView.addSubview(saveWidgetButton)
-    }
 
     func setupCollectionViewLayout(with strategy: WidgetTypeStrategy) {
         widgetLayoutCollectionView.collectionViewLayout = createCompositionalLayout(for: strategy)
@@ -253,21 +239,36 @@ class WidgetEditorView: UIView {
             forCellWithReuseIdentifier: ModuleColorCell.reuseId
         )
     }
-         
+    
+    private func setupViews() {
+        addSubview(scrollView)
+        scrollView.addSubview(contentView)
+        
+        contentView.addSubview(layoutHeader)
+        contentView.addSubview(widgetLayoutCollectionView)
+        contentView.addSubview(moduleStyleHeader)
+        contentView.addSubview(moduleStyleCollectionView)
+        contentView.addSubview(moduleColorCollectionView)
+        contentView.addSubview(wallpaperHeader)
+        contentView.addSubview(downloadWallpaperButton)
+        contentView.addSubview(saveWidgetButton)
+    }
+    
     private func setupConstraints() {
         scrollView.snp.makeConstraints { make in
-            make.edges.equalTo(safeAreaLayoutGuide)
+            make.top.equalTo(safeAreaLayoutGuide)
+            make.left.right.bottom.equalToSuperview()
         }
         
         contentView.snp.makeConstraints { make in
-            make.verticalEdges.equalToSuperview().inset(24)
-            make.width.equalToSuperview().offset(-48)
+            make.verticalEdges.equalTo(scrollView.contentLayoutGuide)
             make.centerX.equalToSuperview()
-            make.height.greaterThanOrEqualToSuperview()
+            make.width.equalTo(scrollView.frameLayoutGuide).offset(-48)
         }
         
         layoutHeader.snp.makeConstraints { make in
-            make.top.left.right.equalToSuperview()
+            make.top.equalToSuperview().offset(12)
+            make.left.right.equalToSuperview()
             make.height.equalTo(25)
         }
         
@@ -310,7 +311,7 @@ class WidgetEditorView: UIView {
             make.centerX.equalToSuperview()
             make.width.equalTo(182)
             make.height.equalTo(44)
-            make.bottom.equalToSuperview().inset(20)
+            make.bottom.equalToSuperview().inset(32)
         }
     }
     

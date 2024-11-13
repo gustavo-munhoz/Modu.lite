@@ -165,19 +165,6 @@ class WidgetSetupView: UIView {
     }
 
     // MARK: - Setup methods
-    private func setupViews() {
-        addSubview(scrollView)
-        scrollView.addSubview(contentView)
-        
-        contentView.addSubview(widgetNameTextField)
-        contentView.addSubview(stylesCollectionView)
-        contentView.addSubview(selectAppsTitle)
-        contentView.addSubview(searchAppsButton)
-        contentView.addSubview(selectedAppsCollectionView)
-        contentView.addSubview(searchAppsHelperText)
-        contentView.addSubview(nextViewButton)
-    }
-    
     func setupWidgetNamePlaceholder(_ placeholder: String) {
         widgetNameTextField.placeholder = placeholder
     }
@@ -251,19 +238,33 @@ class WidgetSetupView: UIView {
         )
     }
     
+    private func setupViews() {
+        addSubview(scrollView)
+        scrollView.addSubview(contentView)
+        
+        contentView.addSubview(widgetNameTextField)
+        contentView.addSubview(stylesCollectionView)
+        contentView.addSubview(selectAppsTitle)
+        contentView.addSubview(searchAppsButton)
+        contentView.addSubview(selectedAppsCollectionView)
+        contentView.addSubview(searchAppsHelperText)
+        contentView.addSubview(nextViewButton)
+    }
+    
     private func setupConstraints() {
         scrollView.snp.makeConstraints { make in
-            make.edges.equalTo(safeAreaLayoutGuide)
+            make.top.equalTo(safeAreaLayoutGuide)
+            make.left.right.bottom.equalToSuperview()
         }
         
         contentView.snp.makeConstraints { make in
-            make.edges.equalToSuperview()
-            make.width.equalToSuperview()
-            make.height.greaterThanOrEqualToSuperview()
+            make.edges.equalTo(scrollView.contentLayoutGuide)
+            make.height.width.equalTo(scrollView.frameLayoutGuide)
         }
         
         widgetNameTextField.snp.makeConstraints { make in
-            make.left.right.top.equalToSuperview().inset(24)
+            make.top.equalToSuperview().offset(12)
+            make.left.right.equalToSuperview().inset(24)
             make.height.equalTo(37)
         }
         
@@ -298,7 +299,7 @@ class WidgetSetupView: UIView {
         nextViewButton.snp.makeConstraints { make in
             make.right.equalToSuperview().inset(24)
             make.top.equalTo(searchAppsHelperText.snp.bottom).offset(21)
-            make.bottom.equalToSuperview().inset(20)
+            make.bottom.equalToSuperview().inset(32)
         }
     }
 }
