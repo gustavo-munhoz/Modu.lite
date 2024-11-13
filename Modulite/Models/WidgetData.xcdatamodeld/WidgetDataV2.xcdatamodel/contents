@@ -21,6 +21,6 @@
         <attribute name="previewImageUrl" attributeType="URI"/>
         <attribute name="styleIdentifier" attributeType="String"/>
         <attribute name="type" attributeType="String" valueTransformerName="WidgetTypeTransformer"/>
-        <relationship name="modules" toMany="YES" minCount="6" maxCount="6" deletionRule="Cascade" destinationEntity="PersistentWidgetModule" inverseName="widget" inverseEntity="PersistentWidgetModule"/>
+        <relationship name="modules" toMany="YES" minCount="3" maxCount="6" deletionRule="Cascade" destinationEntity="PersistentWidgetModule" inverseName="widget" inverseEntity="PersistentWidgetModule"/>
     </entity>
 </model>
