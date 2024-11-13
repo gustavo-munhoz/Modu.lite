@@ -10,6 +10,7 @@ import UIKit
 public class ModuleTextConfiguration {
     // MARK: - Properties
     public var font: UIFont?
+    public var fontSize: CGFloat?
     public var textColor: UIColor?
     public var textAlignment: NSTextAlignment?
     public var shadowColor: UIColor?
@@ -20,26 +21,21 @@ public class ModuleTextConfiguration {
     public var shouldRemoveSpaces: Bool = false
     public var prefix: String?
     public var suffix: String?
+    public var bottomOffset: CGFloat?
 
     // MARK: - Initializers
     static func create(from data: ModuleTextConfigurationData) -> ModuleTextConfiguration {
         let configuration = ModuleTextConfiguration()
                 
-        if let textStyleString = data.textStyle {
-            let textStyle = UIFont.TextStyle.from(textStyleString)
+        if let fontSize = data.fontSize {
             let weight = UIFont.Weight.from(string: data.fontWeight)
             
             if let fontName = data.fontName, !fontName.isEmpty, fontName.lowercased() != "system" {
-                if let customFont = UIFont(name: fontName, size: 8) {
-                    let fontMetrics = UIFontMetrics(forTextStyle: textStyle)
-                    let scaledFont = fontMetrics.scaledFont(for: customFont)
-                    configuration.font = scaledFont
+                if let customFont = UIFont(name: fontName, size: fontSize) {
+                    configuration.font = customFont
                 }
             } else {
-                configuration.font = UIFont(
-                    textStyle: textStyle,
-                    weight: weight
-                )
+                configuration.font = UIFont.systemFont(ofSize: fontSize, weight: weight)
             }
         }
                 
@@ -67,6 +63,10 @@ public class ModuleTextConfiguration {
                 
         if let caseString = data.textCase {
             configuration.textCase = String.TextCase(from: caseString)
+        }
+        
+        if let bottomOffset = data.bottomOffset {
+            configuration.bottomOffset = bottomOffset
         }
                 
         configuration.shouldRemoveSpaces = data.shouldRemoveSpaces ?? false

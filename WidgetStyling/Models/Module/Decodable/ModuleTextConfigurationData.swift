@@ -10,7 +10,7 @@ import UIKit
 struct ModuleTextConfigurationData: Decodable {
     // MARK: - Properties
     let fontName: String?
-    let textStyle: String?
+    let fontSize: CGFloat?
     let fontWeight: String?
     let textColorName: String?
     let textAlignment: String?
@@ -23,4 +23,5 @@ struct ModuleTextConfigurationData: Decodable {
     let shouldRemoveSpaces: Bool?
     let prefix: String?
     let suffix: String?
+    let bottomOffset: CGFloat?
 }
