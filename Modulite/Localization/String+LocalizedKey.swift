@@ -174,8 +174,9 @@ extension String {
         
         // MARK: - WidgetSetupView & WidgetSetupViewController
         case widgetSetupViewMainWidgetNamePlaceholder(number: Int)
+        case widgetSetupViewAuxWidgetNamePlaceholder(number: Int)
         case widgetSetupViewStyleHeaderTitle
-        case widgetSetupViewAppsHeaderTitle
+        case widgetSetupViewAppsHeaderTitle(maxApps: Int)
         case widgetSetupViewSearchAppsButtonTitle
         case widgetSetupViewSearchAppsHelperText
         
@@ -184,7 +185,7 @@ extension String {
         // MARK: - SearchAppsView
         case selectAppsViewTitle
         case selectAppsViewSubtitle
-        case selectAppsViewAppsSelected(count: Int)
+        case selectAppsViewAppsSelected(count: Int, max: Int)
         case selectAppsViewSearchBarPlaceholder
         
         // MARK: - WidgetEditorView & WidgetEditorViewController

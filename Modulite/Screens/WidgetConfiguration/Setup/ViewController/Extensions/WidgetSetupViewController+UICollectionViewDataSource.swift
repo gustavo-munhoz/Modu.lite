@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import WidgetStyling
 
 // MARK: - UICollectionViewDataSource
 extension WidgetSetupViewController: UICollectionViewDataSource {
@@ -40,15 +41,17 @@ extension WidgetSetupViewController: UICollectionViewDataSource {
             let style = viewModel.widgetStyles[indexPath.row]
             
             cell.setup(
-                image: style.previewImage,
+                image: style.getWidgetPreview(for: strategy.type),
                 title: style.name,
                 delegate: self,
-                isPurchased: style.isPurchased
+                isPurchased: style.isPurchased,
+                imageViewHeight: strategy.getStyleCellImageHeight()
             )
             
             cell.hasSelectionBeenMade = viewModel.isStyleSelected()
             
-            if style == viewModel.selectedStyle {
+            if let selectedStyle = viewModel.selectedStyle,
+               selectedStyle.isEqual(to: style) {
                 collectionView.selectItem(at: indexPath, animated: true, scrollPosition: [])
             }
             
@@ -93,8 +96,13 @@ extension WidgetSetupViewController: UICollectionViewDataSource {
             header.setup(title: .localized(for: .widgetSetupViewStyleHeaderTitle))
             
         } else {
-            header.setup(title: .localized(for: .widgetSetupViewAppsHeaderTitle))
+            header.setup(
+                title: .localized(
+                    for: .widgetSetupViewAppsHeaderTitle(maxApps: strategy.type.maxModules)
+                )
+            )
         }
+        
         return header
     }
 }

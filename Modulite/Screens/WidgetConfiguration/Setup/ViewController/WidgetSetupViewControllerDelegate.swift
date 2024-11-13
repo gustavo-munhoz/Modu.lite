@@ -6,11 +6,15 @@
 //
 
 import UIKit
+import WidgetStyling
 
 protocol WidgetSetupViewControllerDelegate: AnyObject {
-    func getPlaceholderName() -> String
+    func getWidgetCount() -> Int
     
-    func widgetSetupViewControllerDidPressNext(widgetName: String)
+    func widgetSetupViewControllerDidPressNext(
+        _ controller: WidgetSetupViewController,
+        widgetName: String
+    )
     
     func widgetSetupViewControllerDidTapSearchApps(
         _ parentController: WidgetSetupViewController
@@ -18,7 +22,7 @@ protocol WidgetSetupViewControllerDelegate: AnyObject {
     
     func widgetSetupViewControllerDidDeselectApp(
         _ controller: WidgetSetupViewController,
-        app: AppInfo
+        app: AppData
     )
     
     func widgetSetupViewControllerDidSelectWidgetStyle(

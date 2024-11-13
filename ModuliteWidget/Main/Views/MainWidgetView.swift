@@ -7,9 +7,10 @@
 
 import SwiftUI
 import WidgetKit
+import WidgetStyling
 
 struct MainWidgetView: View {
-    var entry: MainWidgetProvider.Entry
+    var entry: MainWidgetIntentProvider.Entry
     
     private let columns = [
         GridItem(.flexible()),
@@ -57,7 +58,7 @@ struct MainWidgetView: View {
 
 extension View {
     @ViewBuilder
-    func backgroundView(for background: WidgetBackground) -> some View {
+    func backgroundView(for background: StyleBackground) -> some View {
         switch background {
         case .image(let uiImage):
             Image(uiImage: uiImage)
@@ -66,6 +67,9 @@ extension View {
             
         case .color(let uiColor):
             Color(uiColor)
+            
+        @unknown default:
+            Color(.clear)
         }
     }
     

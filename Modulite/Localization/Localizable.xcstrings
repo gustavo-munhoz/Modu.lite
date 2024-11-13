@@ -1293,7 +1293,7 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "%d/6 apps selected"
+            "value" : "%d/%d apps selected"
           }
         }
       }
@@ -2800,7 +2800,18 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Select up to 6 apps"
+            "value" : "Select up to %d apps"
+          }
+        }
+      }
+    },
+    "widgetSetupViewAuxWidgetNamePlaceholder" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Auxiliary Widget %d"
           }
         }
       }

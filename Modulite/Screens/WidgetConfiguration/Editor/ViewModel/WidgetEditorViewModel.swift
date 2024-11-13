@@ -7,17 +7,18 @@
 
 import UIKit
 import Photos
+import WidgetStyling
 
 class WidgetEditorViewModel: NSObject {
     
     // MARK: - Properties
-    @Published private(set) var selectedCellIndex: Int?
+    @Published private(set) var selectedCellPosition: Int?
     
-    let builder: WidgetConfigurationBuilder
+    let builder: WidgetSchemaBuilder
     
     // MARK: - Initializers
     init(
-        widgetBuider: WidgetConfigurationBuilder
+        widgetBuider: WidgetSchemaBuilder
     ) {
         builder = widgetBuider
         super.init()
@@ -27,75 +28,82 @@ class WidgetEditorViewModel: NSObject {
     
     func getIndexForSelectedStyle() -> Int? {
         guard let selectedStyle = getStyleFromSelectedModule() else { return nil }
-        return getAvailableStyles().firstIndex(where: { $0.key == selectedStyle.key })
-    }
-
-    func getIndexForSelectedColor() -> Int? {
-        guard let selectedColor = getColorFromSelectedModule() else { return nil }
-        return getAvailableColors().firstIndex(of: selectedColor)
+        return getAvailableStyles().firstIndex(where: { $0.identifier == selectedStyle.identifier })
     }
     
     func getWidgetId() -> UUID {
         builder.getWidgetId()
     }
     
-    func getWidgetBackground() -> WidgetBackground? {
-        builder.getStyleBackground()
+    func getWidgetBackground() -> StyleBackground {
+        builder.getBackground()
+    }
+    
+    func getIndexForSelectedModuleColor() -> Int? {
+        guard let index = selectedCellPosition,
+              let color = getColorFromSelectedModule() else { return nil }
+        
+        return getAvailableColorsForModule(at: index).firstIndex(of: color)
     }
     
     func getColorFromSelectedModule() -> UIColor? {
-        guard let index = selectedCellIndex else { return nil }
+        guard let index = selectedCellPosition else { return nil }
         
-        return builder.getModule(at: index)?.selectedColor
+        return try? builder.getModule(at: index).color
     }
     
     func getStyleFromSelectedModule() -> ModuleStyle? {
-        guard let index = selectedCellIndex else { return nil }
+        guard let index = selectedCellPosition else { return nil }
         
-        return builder.getModule(at: index)?.selectedStyle
+        return try? builder.getModule(at: index).style
     }
     
-    func getCurrentModules() -> [ModuleConfiguration?] {
+    func getCurrentModules() -> [WidgetModule] {
         builder.getCurrentModules()
     }
     
-    func getModule(at index: Int) -> ModuleConfiguration? {
-        builder.getModule(at: index)
+    func getModule(at position: Int) -> WidgetModule? {
+        try? builder.getModule(at: position)
     }
     
     func getAvailableStyles() -> [ModuleStyle] {
-        builder.getAvailableStyles()
+        builder.getAvailableModuleStyles()
     }
     
-    func getAvailableStyle(at index: Int) -> ModuleStyle? {
-        builder.getAvailableStyle(at: index)
+    func getAvailableStyle(at position: Int) -> ModuleStyle? {
+        try? builder.getAvailableModuleStyle(at: position)
     }
     
-    func getAvailableColors() -> [UIColor] {
-        builder.getAvailableColors()
+    func getAvailableColorsForSelectedModule() -> [UIColor] {
+        guard let index = selectedCellPosition else { return [] }
+        return getAvailableColorsForModule(at: index)
     }
     
-    func getAvailableColor(at index: Int) -> UIColor? {
-        builder.getAvailableColor(at: index)
+    func getAvailableColorsForModule(at position: Int) -> [UIColor] {
+        (try? builder.getAvailableColorsForModule(at: position)) ?? []
     }
     
-    func isModuleEmpty(at index: Int) -> Bool {
-        builder.isModuleEmpty(at: index)
+    func getAvailableColorForModule(at position: Int, colorIndex: Int) -> UIColor? {
+        try? builder.getAvailableColorForModule(at: position, with: colorIndex)
+    }
+    
+    func isModuleEmpty(at index: Int) -> Bool? {
+        try? builder.isModuleEmpty(at: index)
     }
     
     // MARK: - Setters
     
     func setEditingCell(at index: Int) {
-        selectedCellIndex = index
+        selectedCellPosition = index
     }
     
     func clearEditingCell() {
-        selectedCellIndex = nil
+        selectedCellPosition = nil
     }
     
     // MARK: - Actions
     func saveWallpaperImageToPhotos(completion: @escaping (Result<Void, Error>) -> Void) {
-        let (blocked, home) = builder.getStyleWallpapers()
+        let (blocked, home) = builder.getWallpapers().tuple()
         
         let screenSize = UIScreen.main.bounds.size
         
@@ -142,40 +150,69 @@ class WidgetEditorViewModel: NSObject {
     }
     
     @discardableResult
-    func saveWidget(from collectionView: UICollectionView) -> ModuliteWidgetConfiguration {
-        let widgetConfiguration = builder.build()
-        let persistedConfig = CoreDataPersistenceController.shared.registerOrUpdateWidget(
-            widgetConfiguration,
-            widgetImage: collectionView.asImage()
-        )
-        
-        widgetConfiguration.previewImage = FileManagerImagePersistenceController.shared.getWidgetImage(
-            with: persistedConfig.id
-        )
-        
-        return widgetConfiguration
+    func saveWidget(from collectionView: UICollectionView) -> WidgetSchema? {
+        do {
+            let widgetSchema = try builder.build()
+            let persistedSchema = CoreDataPersistenceController.shared.registerOrUpdateWidget(
+                widgetSchema,
+                widgetImage: collectionView.asImage()
+            )
+            
+            widgetSchema.previewImage = FileManagerImagePersistenceController.shared.getWidgetImage(
+                with: persistedSchema.id
+            )
+            
+            return widgetSchema
+            
+        } catch {
+            print("Could not save widget: \(error.localizedDescription).")
+            return nil
+        }
     }
     
-    func moveItem(from sourceIndex: Int, to destinationIndex: Int) {
-        builder.moveItem(from: sourceIndex, to: destinationIndex)
+    func moveItem(from sourcePosition: Int, to destinationPosition: Int) {
+        try? builder.moveModule(from: sourcePosition, to: destinationPosition)
     }
 
     func applyColorToSelectedModule(_ color: UIColor) {
-        guard let index = selectedCellIndex else {
+        guard let selectedCellPosition else {
             print("Tried to edit item without selecting any.")
             return
         }
         
-        builder.setModuleColor(at: index, color: color)
+        try? builder.setModuleColor(color, at: selectedCellPosition)
     }
     
-    func applyStyleToSelectedModule(_ style: ModuleStyle) {
-        guard let index = selectedCellIndex else {
+    func applyStyleToSelectedModule(
+        _ style: ModuleStyle,
+        didSetToDefaultColor: @escaping (Bool) -> Void = { _ in }
+    ) {
+        guard let selectedCellPosition else {
             print("Tried to edit item without selecting any.")
             return
         }
         
-        builder.setModuleStyle(at: index, style: style)
+        do {
+            try builder.setModuleStyle(style, at: selectedCellPosition)
+                        
+            let currentColor = try builder.getModule(at: selectedCellPosition).color
+            
+            guard let canSetColor = (
+                try? builder.getModule(at: selectedCellPosition).canSetColor(
+                    to: currentColor
+                )
+            ), !canSetColor else { return }
+            
+            try builder.setModuleColor(
+                style.defaultColor,
+                at: selectedCellPosition
+            )
+            
+            didSetToDefaultColor(true)
+            
+        } catch {
+            print("Failed to apply style or set color: \(error)")
+        }
     }
     
     // MARK: - Helper methods

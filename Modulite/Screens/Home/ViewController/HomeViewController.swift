@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import WidgetStyling
 
 protocol HomeViewControllerDelegate: AnyObject {
     func homeViewControllerDidStartWidgetCreationFlow(
@@ -15,7 +16,7 @@ protocol HomeViewControllerDelegate: AnyObject {
     
     func homeViewControllerDidStartWidgetEditingFlow(
         _ viewController: HomeViewController,
-        widget: ModuliteWidgetConfiguration
+        widget: WidgetSchema
     )
     
     func homeViewControllerDidFinishOnboarding(
@@ -91,7 +92,7 @@ class HomeViewController: UIViewController {
         viewModel.mainWidgets.count
     }
     
-    func updateMainWidget(_ widget: ModuliteWidgetConfiguration) {
+    func updateMainWidget(_ widget: WidgetSchema) {
         viewModel.updateMainWidget(widget)
         
         guard let index = viewModel.getIndexFor(widget) else {
@@ -106,7 +107,7 @@ class HomeViewController: UIViewController {
         }
     }
     
-    func registerNewWidget(_ widget: ModuliteWidgetConfiguration) {
+    func registerNewWidget(_ widget: WidgetSchema) {
         viewModel.addMainWidget(widget)
         
         guard let index = viewModel.getIndexFor(widget) else {
@@ -135,7 +136,7 @@ class HomeViewController: UIViewController {
         deleteWidget(widget)
     }
     
-    func deleteWidget(_ widget: ModuliteWidgetConfiguration) {
+    func deleteWidget(_ widget: WidgetSchema) {
         guard let index = viewModel.getIndexFor(widget) else {
             print("Widget not found in data source.")
             return
@@ -184,9 +185,9 @@ extension HomeViewController: UICollectionViewDataSource {
         switch collectionView {
         case homeView.mainWidgetsCollectionView:
             guard let cell = collectionView.dequeueReusableCell(
-                    withReuseIdentifier: MainWidgetCollectionViewCell.reuseId,
+                    withReuseIdentifier: HomeWidgetCollectionViewCell.reuseId,
                     for: indexPath
-                  ) as? MainWidgetCollectionViewCell else {
+                  ) as? HomeWidgetCollectionViewCell else {
                 fatalError("Could not dequeue MainWidgetCollectionViewCell.")
             }
             
@@ -198,13 +199,18 @@ extension HomeViewController: UICollectionViewDataSource {
             
         case homeView.auxiliaryWidgetsCollectionView:
             guard let cell = collectionView.dequeueReusableCell(
-                withReuseIdentifier: AuxiliaryWidgetCollectionViewCell.reuseId,
+                withReuseIdentifier: HomeWidgetCollectionViewCell.reuseId,
                 for: indexPath
-            ) as? AuxiliaryWidgetCollectionViewCell else {
+            ) as? HomeWidgetCollectionViewCell else {
                 fatalError("Could not dequeue AuxiliaryWidgetCollectionViewCell.")
             }
             
-            cell.configure(with: viewModel.auxiliaryWidgets[indexPath.row])
+            let schema = viewModel.auxiliaryWidgets[indexPath.row]
+            
+            cell.configure(
+                image: schema.previewImage,
+                name: schema.name
+            )
             
             return cell
             
@@ -295,9 +301,9 @@ extension HomeViewController: UICollectionViewDelegate {
     }
 }
 
-// MARK: - MainWidgetCollectionViewCellDelegate
-extension HomeViewController: MainWidgetCollectionViewCellDelegate {
-    func mainWidgetCellDidRequestEdit(_ cell: MainWidgetCollectionViewCell) {
+// MARK: - HomeWidgetCollectionViewCellDelegate
+extension HomeViewController: HomeWidgetCollectionViewCellDelegate {
+    func homeWidgetCellDidRequestEdit(_ cell: HomeWidgetCollectionViewCell) {
         guard let indexPath = homeView.mainWidgetsCollectionView.indexPath(for: cell) else {
             print("Could not find index path for cell.")
             return
@@ -307,7 +313,7 @@ extension HomeViewController: MainWidgetCollectionViewCellDelegate {
         delegate?.homeViewControllerDidStartWidgetEditingFlow(self, widget: widget)
     }
     
-    func mainWidgetCellDidRequestDelete(_ cell: MainWidgetCollectionViewCell) {
+    func homeWidgetCellDidRequestDelete(_ cell: HomeWidgetCollectionViewCell) {
         guard let indexPath = homeView.mainWidgetsCollectionView.indexPath(for: cell) else {
             print("Could not find index path for cell.")
             return
@@ -317,7 +323,7 @@ extension HomeViewController: MainWidgetCollectionViewCellDelegate {
     }
     
     private func presentWidgetDeletionWarning(
-        for cell: MainWidgetCollectionViewCell,
+        for cell: HomeWidgetCollectionViewCell,
         in indexPath: IndexPath
     ) {
         let alert = UIAlertController(

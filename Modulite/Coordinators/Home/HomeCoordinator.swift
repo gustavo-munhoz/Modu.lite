@@ -7,6 +7,7 @@
 
 import UIKit
 import WidgetKit
+import WidgetStyling
 
 /// A `Coordinator` that manages the presentation of the home screen in the application.
 class HomeCoordinator: Coordinator {
@@ -37,10 +38,7 @@ extension HomeCoordinator: HomeViewControllerDelegate {
         _ viewController: HomeViewController,
         type: WidgetType
     ) {
-        guard type == .main else {
-            presentFeatureComingAlert(viewController)
-            return
-        }
+        // TODO: Check if user is plus to create AUX widget
         
         guard viewController.getCurrentMainWidgetCount() < 3 else {
             presentMaxWidgetCountAlert(viewController)
@@ -49,6 +47,7 @@ extension HomeCoordinator: HomeViewControllerDelegate {
         
         let coordinator = WidgetBuilderCoordinator(
             router: router,
+            widgetType: type,
             currentWidgetCount: viewController.getCurrentMainWidgetCount()
         )
         
@@ -61,13 +60,13 @@ extension HomeCoordinator: HomeViewControllerDelegate {
     
     func homeViewControllerDidStartWidgetEditingFlow(
         _ viewController: HomeViewController,
-        widget: ModuliteWidgetConfiguration
+        widget: WidgetSchema
     ) {
-        let widgetCopy = widget.copy()
+        let widgetCopy = widget.clone()
         
         let coordinator = WidgetBuilderCoordinator(
             router: router,
-            configuration: widgetCopy
+            schema: widgetCopy
         )
         
         coordinator.onWidgetSave = { updatedWidget in

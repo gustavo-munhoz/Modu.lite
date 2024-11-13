@@ -7,6 +7,7 @@
 
 import UIKit
 import TipKit
+import WidgetStyling
 
 class WidgetSetupViewController: UIViewController {
     static let didSelectWidgetStyle = Tips.Event(id: "didSelectWidgetStyle")
@@ -17,6 +18,8 @@ class WidgetSetupViewController: UIViewController {
     var viewModel = WidgetSetupViewModel()
     
     weak var delegate: WidgetSetupViewControllerDelegate?
+    var strategy: WidgetTypeStrategy!
+    
     var purchaseManager = PurchaseManager.shared
     
     private var isEditingWidget: Bool = false
@@ -43,6 +46,7 @@ class WidgetSetupViewController: UIViewController {
         
         configureViewDependencies()
         setupNavigationBar()
+        setupViewSizesWithStrategy()
     }
     
     override func viewWillLayoutSubviews() {
@@ -66,6 +70,21 @@ class WidgetSetupViewController: UIViewController {
     }
     
     // MARK: - Setup methods
+    
+    private func setupViewSizesWithStrategy() {
+        setupView.setupSetupSelectAppsTitle(
+            maxsAppsCount: strategy.type.maxModules
+        )
+        
+        setupView.setupStyleCollectionViewHeight(
+            strategy.getSetupStyleCollectionViewHeight()
+        )
+        
+        setupView.setupStyleCellHeight(
+            strategy.getSetupStyleCellHeight()
+        )
+    }
+    
     private func setupTipObservers() {
         styleTipObservationTask = styleTipObservationTask ?? createObservationTask(
             for: selectWidgetStyleTip,
@@ -116,7 +135,7 @@ class WidgetSetupViewController: UIViewController {
     }
     
     private func setPlaceholderName(to name: String) {
-        setupView.widgetNameTextField.placeholder = name
+        setupView.setupWidgetNamePlaceholder(name)
     }
     
     // MARK: - Actions
@@ -127,7 +146,7 @@ class WidgetSetupViewController: UIViewController {
         )
     }
     
-    func didFinishSelectingApps(apps: [AppInfo]) {
+    func didFinishSelectingApps(apps: [AppData]) {
         setSetupViewHasAppsSelected(to: !apps.isEmpty)
         viewModel.setSelectedApps(to: apps)
         
@@ -142,6 +161,7 @@ class WidgetSetupViewController: UIViewController {
         if isOnboarding { dismissCurrentTip() }
         
         delegate?.widgetSetupViewControllerDidPressNext(
+            self,
             widgetName: setupView.getWidgetName()
         )
     }
@@ -202,7 +222,7 @@ class WidgetSetupViewController: UIViewController {
     }
     
     private func handlePurchaseCompleted(for productId: String) {
-        if let index = viewModel.widgetStyles.firstIndex(where: { $0.key.rawValue == productId }) {
+        if let index = viewModel.widgetStyles.firstIndex(where: { $0.identifier == productId }) {
             viewModel.widgetStyles[index].isPurchased = true
             setupView.stylesCollectionView.reloadData()
         }
@@ -210,10 +230,23 @@ class WidgetSetupViewController: UIViewController {
 }
 
 extension WidgetSetupViewController {
-    class func instantiate(delegate: WidgetSetupViewControllerDelegate) -> WidgetSetupViewController {
+    class func instantiate(
+        delegate: WidgetSetupViewControllerDelegate,
+        widgetType: WidgetType
+    ) -> WidgetSetupViewController {
         let vc = WidgetSetupViewController()
         vc.delegate = delegate
-        vc.setPlaceholderName(to: delegate.getPlaceholderName())
+        
+        vc.strategy = (widgetType == .main) ? MainWidgetStrategy() : AuxWidgetStrategy()
+        
+        let count = delegate.getWidgetCount() + 1
+        let namePlaceholder: String = .localized(
+            for: widgetType == .main
+            ? .widgetSetupViewMainWidgetNamePlaceholder(number: count)
+            : .widgetSetupViewAuxWidgetNamePlaceholder(number: count)
+        )
+        
+        vc.setPlaceholderName(to: namePlaceholder)
         
         return vc
     }
@@ -221,7 +254,7 @@ extension WidgetSetupViewController {
     func loadDataFromContent(_ content: WidgetContent) {
         setupView.widgetNameTextField.text = content.name
         viewModel.setWidgetStyle(to: content.style)
-        guard let apps = content.apps.filter({ $0 != nil }) as? [AppInfo] else { return }
+        guard let apps = content.apps.filter({ $0 != nil }) as? [AppData] else { return }
         
         viewModel.setSelectedApps(to: apps)
         

@@ -102,15 +102,15 @@ class StyleCollectionViewCell: UICollectionViewCell {
         image: UIImage,
         title: String,
         delegate: StyleCollectionViewCellDelegate,
-        isPurchased: Bool
+        isPurchased: Bool,
+        imageViewHeight: CGFloat
     ) {
-        subviews.forEach { $0.removeFromSuperview() }
         self.delegate = delegate
         styleImageView.image = image
         styleTitle.text = title
         
         addSubviews()
-        setupConstraints()
+        setupConstraints(imageViewHeight: imageViewHeight)
         
         self.isPurchased = isPurchased
         unlockBadge.isHidden = isPurchased
@@ -124,9 +124,9 @@ class StyleCollectionViewCell: UICollectionViewCell {
         addSubview(unlockBadge)
     }
     
-    private func setupConstraints() {
+    private func setupConstraints(imageViewHeight: CGFloat) {
         styleImageView.snp.makeConstraints { make in
-            make.height.equalTo(187)
+            make.height.equalTo(imageViewHeight)
             make.left.right.top.equalToSuperview()
         }
         

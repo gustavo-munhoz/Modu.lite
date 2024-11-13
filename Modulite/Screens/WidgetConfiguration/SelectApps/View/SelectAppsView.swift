@@ -33,7 +33,6 @@ class SelectAppsView: UIView {
     private(set) lazy var appsSelectedLabel: PaddedLabel = {
         let label = PaddedLabel()
                 
-        label.text = .localized(for: .selectAppsViewAppsSelected(count: 0))
         label.font = UIFont(textStyle: .callout, weight: .bold)
         label.textAlignment = .center
         label.edgeInsets = UIEdgeInsets(vertical: 4, horizontal: 10)
@@ -166,8 +165,10 @@ class SelectAppsView: UIView {
         endEditing(true)
     }
     
-    func updateAppCountText(to count: Int) {
-        appsSelectedLabel.text = .localized(for: .selectAppsViewAppsSelected(count: count))
+    func updateAppCountText(to count: Int, of max: Int) {
+        appsSelectedLabel.text = .localized(
+            for: .selectAppsViewAppsSelected(count: count, max: max)
+        )
         
         updateSelectedLabelBorderColor(for: count)
     }

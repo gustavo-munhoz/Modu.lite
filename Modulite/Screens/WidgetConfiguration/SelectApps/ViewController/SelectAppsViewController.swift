@@ -6,16 +6,17 @@
 //
 
 import UIKit
+import WidgetStyling
 
 protocol SelectAppsViewControllerDelegate: AnyObject {
     func selectAppsViewControllerDidSelectApp(
         _ controller: SelectAppsViewController,
-        didSelect app: AppInfo
+        didSelect app: AppData
     )
     
     func selectAppsViewControllerDidDeselectApp(
         _ controller: SelectAppsViewController,
-        didDeselect app: AppInfo
+        didDeselect app: AppData
     )
 }
 
@@ -26,6 +27,12 @@ class SelectAppsViewController: UIViewController {
     private let viewModel = SelectAppsViewModel()
     
     weak var delegate: SelectAppsViewControllerDelegate?
+    
+    var maxApps: Int! {
+        didSet {
+            viewModel.maxApps = maxApps
+        }
+    }
     
     // MARK: - Lifecycle
     
@@ -45,14 +52,17 @@ class SelectAppsViewController: UIViewController {
 extension SelectAppsViewController {
     class func instantiate(
         with delegate: SelectAppsViewControllerDelegate,
-        selectedApps: [AppInfo] = []
+        selectedApps: [AppData] = [],
+        maxApps: Int
     ) -> SelectAppsViewController {
         
         let vc = SelectAppsViewController()
         vc.delegate = delegate
+        vc.maxApps = maxApps
+        
         selectedApps.forEach { vc.viewModel.selectApp($0) }
         
-        vc.selectAppsView.updateAppCountText(to: selectedApps.count)
+        vc.selectAppsView.updateAppCountText(to: selectedApps.count, of: maxApps)
         
         return vc
     }
@@ -85,7 +95,7 @@ extension SelectAppsViewController: UICollectionViewDelegate {
         
         delegate?.selectAppsViewControllerDidSelectApp(self, didSelect: app)
         
-        selectAppsView.updateAppCountText(to: viewModel.getSelectedAppsCount())
+        selectAppsView.updateAppCountText(to: viewModel.getSelectedAppsCount(), of: maxApps)
         
         if viewModel.didReachMaxNumberOfApps() {
             setCellsInteractionEnabled(collectionView, to: false)
@@ -107,7 +117,7 @@ extension SelectAppsViewController: UICollectionViewDelegate {
         
         delegate?.selectAppsViewControllerDidDeselectApp(self, didDeselect: app)
         
-        selectAppsView.updateAppCountText(to: viewModel.getSelectedAppsCount())
+        selectAppsView.updateAppCountText(to: viewModel.getSelectedAppsCount(), of: maxApps)
     }
     
     func setCellsInteractionEnabled(_ collectionView: UICollectionView, to value: Bool) {
@@ -123,7 +133,7 @@ extension SelectAppsViewController: UICollectionViewDelegate {
     private func updateAndAnimateCollectionView(
         _ collectionView: UICollectionView,
         for indexPath: IndexPath
-    ) -> AppInfo? {
+    ) -> AppData? {
         
         let oldData = viewModel.apps
         let changedApp = viewModel.toggleAppSelection(at: indexPath.row)
@@ -144,8 +154,8 @@ extension SelectAppsViewController: UICollectionViewDelegate {
     }
 
     private func calculateMoves(
-        from oldData: [SelectableAppInfo],
-        to newData: [SelectableAppInfo]
+        from oldData: [SelectableAppData],
+        to newData: [SelectableAppData]
     ) -> [(from: Int, to: Int)] {
         
         var moves = [(from: Int, to: Int)]()

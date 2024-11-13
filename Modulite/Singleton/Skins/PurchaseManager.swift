@@ -6,6 +6,7 @@
 //
 
 import StoreKit
+import WidgetStyling
 
 final class PurchaseManager: NSObject, ObservableObject {
     static let shared = PurchaseManager()
@@ -21,7 +22,8 @@ final class PurchaseManager: NSObject, ObservableObject {
     // MARK: - Produto e Compras
 
     func fetchProducts() async throws -> [Product] {
-        let productIDs: [String] = WidgetStyleKey.allCases.map(\.rawValue)
+        let provider = try WidgetStyleProvider()
+        let productIDs = provider.getAllStyles().map { $0.identifier }
         let products = try await Product.products(for: productIDs)
         return products
     }

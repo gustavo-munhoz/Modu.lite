@@ -1,0 +1,194 @@
+{
+    "identifier": "tapedeck",
+    "name": "Tapedeck",
+    "isPurchased": true,
+    "isIncludedInPlus": true,
+    "backgroundConfiguration": {
+        "mainBackground": {
+            "type": "color",
+            "value": "burntCoconut"
+        },
+        "auxBackground": {
+            "type": "color",
+            "value": "cremeBrulee"
+        }
+    },
+    "moduleConfiguration": {
+        "mainModules": [
+            {
+                "identifier": "tapedeckMain8seg",
+                "imageName": "tapedeckMain8seg",
+                "filterColorNames": [
+                    "monsterGreen", "orangeJuice", "cupcake",
+                    "sweetTooth", "sugarMint", "ketchupRed"
+                ],
+                "defaultColorName": "orangeJuice",
+                "imageBlendMode": "hue",
+                "textConfiguration": {
+                    "fontName": "ArchivoSemiCondensed-Bold",
+                    "fontSize": 9,
+                    "fontWeight": "bold",
+                    "textColorName": "meringue",
+                    "textCase": "upper",
+                    "bottomOffset": 16
+                }
+            },
+            {
+                "identifier": "tapedeckMainPower",
+                "imageName": "tapedeckMainPower",
+                "filterColorNames": [
+                    "monsterGreen", "orangeJuice", "cupcake",
+                    "sweetTooth", "sugarMint", "ketchupRed"
+                ],
+                "defaultColorName": "ketchupRed",
+                "imageBlendMode": "hue",
+                "textConfiguration": {
+                    "fontName": "ArchivoSemiCondensed-Bold",
+                    "fontSize": 9,
+                    "fontWeight": "bold",
+                    "textColorName": "meringue",
+                    "textCase": "upper",
+                    "bottomOffset": 16
+                }
+            },
+            {
+                "identifier": "tapedeckMainSelector",
+                "imageName": "tapedeckMainSelector",
+                "filterColorNames": [
+                    "monsterGreen", "orangeJuice", "cupcake",
+                    "sweetTooth", "sugarMint", "ketchupRed"
+                ],
+                "defaultColorName": "orangeJuice",
+                "imageBlendMode": "hue",
+                "textConfiguration": {
+                    "fontName": "ArchivoSemiCondensed-Bold",
+                    "fontSize": 9,
+                    "fontWeight": "bold",
+                    "textColorName": "meringue",
+                    "textCase": "upper",
+                    "bottomOffset": 16
+                }
+            },
+            {
+                "identifier": "tapedeckMainSlider",
+                "imageName": "tapedeckMainSlider",
+                "filterColorNames": [
+                    "monsterGreen", "orangeJuice", "cupcake",
+                    "sweetTooth", "sugarMint", "ketchupRed"
+                ],
+                "defaultColorName": "orangeJuice",
+                "imageBlendMode": "hue",
+                "textConfiguration": {
+                    "fontName": "ArchivoSemiCondensed-Bold",
+                    "fontSize": 9,
+                    "fontWeight": "bold",
+                    "textColorName": "meringue",
+                    "textCase": "upper",
+                    "bottomOffset": 16
+                }
+            },
+            {
+                "identifier": "tapedeckMainSound",
+                "imageName": "tapedeckMainSound",
+                "filterColorNames": ["none"],
+                "defaultColorName": "none",
+                "textConfiguration": {
+                    "fontName": "ArchivoSemiCondensed-Bold",
+                    "fontSize": 9,
+                    "fontWeight": "bold",
+                    "textColorName": "meringue",
+                    "textCase": "upper",
+                    "bottomOffset": 16
+                }
+            }
+        ],
+        "mainEmptyModule": {
+            "identifier": "tapedeckMainEmpty",
+            "imageName": "tapedeckMainEmpty",
+            "filterColorNames": ["none"],
+            "defaultColorName": "none",
+            "textConfiguration": {
+                "fontName": "ArchivoSemiCondensed-Bold",
+                "fontSize": 9,
+                "fontWeight": "bold",
+                "textColorName": "meringue",
+                "textCase": "upper",
+                "bottomOffset": 16
+            }
+        },
+        "auxModules": [
+            {
+                "identifier": "tapedeckAuxButton",
+                "imageName": "tapedeckAuxButton",
+                "filterColorNames": ["none"],
+                "defaultColorName": "none",
+                "textConfiguration": {
+                    "fontName": "ArchivoSemiCondensed-Bold",
+                    "fontSize": 9,
+                    "fontWeight": "bold",
+                    "textColorName": "meringue",
+                    "textCase": "upper",
+                    "bottomOffset": 21
+                }
+            },
+            {
+                "identifier": "tapedeckAuxButtonBlue",
+                "imageName": "tapedeckAuxButtonBlue",
+                "filterColorNames": ["none"],
+                "defaultColorName": "none",
+                "textConfiguration": {
+                    "fontName": "ArchivoSemiCondensed-Bold",
+                    "fontSize": 9,
+                    "fontWeight": "bold",
+                    "textColorName": "meringue",
+                    "textCase": "upper",
+                    "bottomOffset": 21
+                }
+            },
+            {
+                "identifier": "tapedeckAuxInput",
+                "imageName": "tapedeckAuxInput",
+                "filterColorNames": ["none"],
+                "defaultColorName": "none",
+                "textConfiguration": {
+                    "fontName": "ArchivoSemiCondensed-Bold",
+                    "fontSize": 9,
+                    "fontWeight": "bold",
+                    "textColorName": "meringue",
+                    "textCase": "upper",
+                    "bottomOffset": 21
+                }
+            }
+        ],
+        "auxEmptyModule": {
+            "identifier": "tapedeckAuxEmpty",
+            "imageName": "tapedeckAuxEmpty",
+            "filterColorNames": [
+                "monsterGreen", "orangeJuice", "cupcake",
+                "sweetTooth", "sugarMint", "ketchupRed"
+            ],
+            "defaultColorName": "none",
+            "imageBlendMode": "hue",
+            "textConfiguration": {
+                "fontName": "ArchivoSemiCondensed-Bold",
+                "fontSize": 9,
+                "fontWeight": "bold",
+                "textColorName": "meringue",
+                "textCase": "upper",
+                "bottomOffset": 21
+            }
+        }
+    },
+    "wallpaperSet": {
+        "blockedImageName": "tapedeckBlockedWallpaper",
+        "homeImageName": "tapedeckHomeWallpaper"
+    },
+    "previewSet": {
+        "mainWidgetPreview": "tapedeckMainWidgetPreview",
+        "auxWidgetPreview": "tapedeckAuxWidgetPreview",
+        "wallpaperPreview1Name": "tapedeckWallpaperPreview1",
+        "wallpaperPreview2Name": "tapedeckWallpaperPreview2",
+        "wallpaperPreview3Name": "tapedeckWallpaperPreview3"
+    }
+}
+

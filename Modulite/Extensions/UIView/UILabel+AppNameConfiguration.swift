@@ -6,23 +6,20 @@
 //
 
 import UIKit
+import WidgetStyling
 
 extension UILabel {
-    func configure(with config: ModuleAppNameTextConfiguration) {
-        if let textCase = config.textCase {
-            setText(toCase: textCase)
-        }
+    func applyConfiguration(_ config: ModuleTextConfiguration) {
+        if let textCase = config.textCase { setText(toCase: textCase) }
         
-        if config.shouldRemoveSpaces {
-            removeSpaces()
-        }
+        if config.shouldRemoveSpaces { removeSpaces() }
         
         let attributedString = NSMutableAttributedString(string: text ?? "")
         
         font = config.font
         textColor = config.textColor
         textAlignment = config.textAlignment ?? .center
-                
+        
         if let shadowColor = config.shadowColor {
             let shadow = NSShadow()
             shadow.shadowColor = shadowColor
@@ -40,15 +37,12 @@ extension UILabel {
             attributedString.addAttribute(
                 .kern,
                 value: letterSpacing,
-                range: NSRange(
-                    location: 0,
-                    length: attributedString.length
-                )
+                range: NSRange(location: 0, length: attributedString.length)
             )
         }
         
-        if let preffix = config.preffix {
-            attributedString.insert(NSAttributedString(string: preffix), at: 0)
+        if let prefix = config.prefix {
+            attributedString.insert(NSAttributedString(string: prefix), at: 0)
         }
         
         if !(attributedString.length == 0) {
@@ -70,6 +64,8 @@ extension UILabel {
             text = text?.camelCased()
         case .capitalized:
             text = text?.capitalized
+        @unknown default:
+            break
         }
     }
 }

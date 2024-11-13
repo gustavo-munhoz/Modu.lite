@@ -6,12 +6,16 @@
 //
 
 import UIKit
+import WidgetStyling
 
 // MARK: - UICollectionViewDelegate
 extension WidgetSetupViewController: UICollectionViewDelegate {
     
     func selectStyle(_ style: WidgetStyle) {
-        guard let index = viewModel.widgetStyles.firstIndex(of: style) else { return }
+        guard let index = viewModel.widgetStyles.firstIndex(where: {
+            style.isEqual(to: $0)
+        }) else { return }
+        
         let indexPath = IndexPath(item: index, section: 1)
         
         viewModel.selectStyle(at: index)
@@ -27,18 +31,20 @@ extension WidgetSetupViewController: UICollectionViewDelegate {
     }
     
     func handleStylePurchase(for style: WidgetStyle) {
-        let productID = style.key.rawValue
+        let productID = style.identifier
+        
         Task {
             do {
                 let products = try await purchaseManager.fetchProducts()
                 if let product = products.first(where: { $0.id == productID }) {
                     try await purchaseManager.purchase(product: product)
                     
-                    if let index = viewModel.widgetStyles.firstIndex(where: { $0.key == style.key }) {
-                        viewModel.widgetStyles[index].isPurchased = true
+                    if let index = viewModel.widgetStyles.firstIndex(where: { $0.identifier == style.identifier }) {
+                        viewModel.widgetStyles[index].updateIsPurchased(to: true)
                         print("Widget \(productID) purchase successful")
                         selectStyle(viewModel.widgetStyles[index])
                     }
+                    
                     setupView.stylesCollectionView.reloadData()
                     
                 } else {

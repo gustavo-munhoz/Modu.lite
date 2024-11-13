@@ -6,28 +6,33 @@
 //
 
 import UIKit
+import WidgetStyling
 
 extension WidgetBuilderCoordinator: WidgetSetupViewControllerDelegate {
 
-    func getPlaceholderName() -> String {
-        .localized(
-            for: .widgetSetupViewMainWidgetNamePlaceholder(number: currentWidgetCount + 1)
-        )
+    func getWidgetCount() -> Int {
+        currentWidgetCount
     }
     
-    func widgetSetupViewControllerDidPressNext(widgetName: String) {
+    func widgetSetupViewControllerDidPressNext(
+        _ controller: WidgetSetupViewController,
+        widgetName: String
+    ) {
         contentBuilder.setWidgetName(widgetName)
         
+        guard let builder = try? configurationBuilder else { return }
+        
         let viewController = WidgetEditorViewController.instantiate(
-            builder: configurationBuilder,
-            delegate: self
+            builder: builder,
+            delegate: self,
+            strategy: controller.strategy
         )
         
         viewController.setIsOnboarding(isOnboarding)
         
-        if injectedConfiguration != nil {
-            viewController.loadDataFromBuilder(configurationBuilder)
-            viewController.navigationItem.title = .localized(for: .widgetEditingNavigationTitle)
+        if existingSchema != nil {
+            viewController.loadDataFromBuilder(builder)
+            viewController.navigationItem.title = String.localized(for: .widgetEditingNavigationTitle)
             viewController.setIsEditingViewToTrue()
         }
         
@@ -40,8 +45,8 @@ extension WidgetBuilderCoordinator: WidgetSetupViewControllerDelegate {
     ) {
         contentBuilder.setWidgetStyle(style)
         
-        if let config = injectedConfiguration {
-            config.randomizeWithNewStyle(style)
+        if let existingSchema {
+            existingSchema.changeWidgetStyle(to: style)
         }
     }
     
@@ -53,6 +58,7 @@ extension WidgetBuilderCoordinator: WidgetSetupViewControllerDelegate {
         let coordinator = SelectAppsCoordinator(
             delegate: self,
             selectedApps: contentBuilder.getCurrentApps(),
+            maxApps: parentController.strategy.type.maxModules,
             router: router
         )
         
@@ -71,25 +77,30 @@ extension WidgetBuilderCoordinator: WidgetSetupViewControllerDelegate {
     
     func widgetSetupViewControllerDidDeselectApp(
         _ controller: WidgetSetupViewController,
-        app: AppInfo
+        app: AppData
     ) {
-        contentBuilder.removeApp(app)
+        do { try contentBuilder.removeApp(app) } catch { return }
         
         if contentBuilder.getCurrentApps().isEmpty {
             controller.setSetupViewHasAppsSelected(to: false)
         }
         
-        guard let config = injectedConfiguration else { return }
-        guard let idx = config.modules.firstIndex(where: { $0.appName == app.name }) else {
+        guard let existingSchema else { return }
+        guard let pos = existingSchema.modules.firstIndex(where: { $0.appName == app.name }) else {
             print("Tried to deselect an app that is not in injected configuration.")
             return
         }
         
-        config.modules.replace(
-            at: idx,
-            with: ModuleConfiguration.empty(
-                style: config.widgetStyle!,
-                at: idx
+        let emptyModule = existingSchema.widgetStyle.getEmptyModuleStyle(for: .main)
+        
+        existingSchema.modules.replace(
+            at: pos,
+            with: WidgetModule(
+                style: emptyModule,
+                position: pos,
+                appName: nil,
+                urlScheme: nil,
+                color: emptyModule.defaultColor
             )
         )
     }

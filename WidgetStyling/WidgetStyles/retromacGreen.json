@@ -1,0 +1,818 @@
+{
+    "identifier": "retromacGreen",
+    "name": "Retromac Green",
+    "isPurchased": true,
+    "isIncludedInPlus": true,
+    "backgroundConfiguration": {
+        "mainBackground": {
+            "type": "color",
+            "value": "retromacGreen"
+        },
+        "auxBackground": {
+            "type": "color",
+            "value": "retromacGreen"
+        }
+    },
+    "moduleConfiguration": {
+        "mainModules": [
+            {
+                "identifier": "retromacMainBook",
+                "imageName": "retromacMainBook",
+                "filterColorNames": ["none"],
+                "defaultColorName": "none",
+                "textConfiguration": {
+                    "fontName": "PixelOperator8-Bold",
+                    "fontSize": 9,
+                    "textColorName": "squidInk",
+                    "textAlignment": "center",
+                    "textCase": "capitalized",
+                    "bottomOffset": 19
+                }
+            },
+            {
+                "identifier": "retromacMainCalculator",
+                "imageName": "retromacMainCalculator",
+                "filterColorNames": ["none"],
+                "defaultColorName": "none",
+                "textConfiguration": {
+                    "fontName": "PixelOperator8-Bold",
+                    "fontSize": 9,
+                    "textColorName": "squidInk",
+                    "textAlignment": "center",
+                    "textCase": "capitalized",
+                    "bottomOffset": 19
+                }
+            },
+            {
+                "identifier": "retromacMainCamera",
+                "imageName": "retromacMainCamera",
+                "filterColorNames": ["none"],
+                "defaultColorName": "none",
+                "textConfiguration": {
+                    "fontName": "PixelOperator8-Bold",
+                    "fontSize": 9,
+                    "textColorName": "squidInk",
+                    "textAlignment": "center",
+                    "textCase": "capitalized",
+                    "bottomOffset": 19
+                }
+            },
+            {
+                "identifier": "retromacMainCar",
+                "imageName": "retromacMainCar",
+                "filterColorNames": ["none"],
+                "defaultColorName": "none",
+                "textConfiguration": {
+                    "fontName": "PixelOperator8-Bold",
+                    "fontSize": 9,
+                    "textColorName": "squidInk",
+                    "textAlignment": "center",
+                    "textCase": "capitalized",
+                    "bottomOffset": 19
+                }
+            },
+            {
+                "identifier": "retromacMainChart",
+                "imageName": "retromacMainChart",
+                "filterColorNames": ["none"],
+                "defaultColorName": "none",
+                "textConfiguration": {
+                    "fontName": "PixelOperator8-Bold",
+                    "fontSize": 9,
+                    "textColorName": "squidInk",
+                    "textAlignment": "center",
+                    "textCase": "capitalized",
+                    "bottomOffset": 19
+                }
+            },
+            {
+                "identifier": "retromacMainClock",
+                "imageName": "retromacMainClock",
+                "filterColorNames": ["none"],
+                "defaultColorName": "none",
+                "textConfiguration": {
+                    "fontName": "PixelOperator8-Bold",
+                    "fontSize": 9,
+                    "textColorName": "squidInk",
+                    "textAlignment": "center",
+                    "textCase": "capitalized",
+                    "bottomOffset": 19
+                }
+            },
+            {
+                "identifier": "retromacMainCloud",
+                "imageName": "retromacMainCloud",
+                "filterColorNames": ["none"],
+                "defaultColorName": "none",
+                "textConfiguration": {
+                    "fontName": "PixelOperator8-Bold",
+                    "fontSize": 9,
+                    "textColorName": "squidInk",
+                    "textAlignment": "center",
+                    "textCase": "capitalized",
+                    "bottomOffset": 19
+                }
+            },
+            {
+                "identifier": "retromacMainDoc",
+                "imageName": "retromacMainDoc",
+                "filterColorNames": ["none"],
+                "defaultColorName": "none",
+                "textConfiguration": {
+                    "fontName": "PixelOperator8-Bold",
+                    "fontSize": 9,
+                    "textColorName": "squidInk",
+                    "textAlignment": "center",
+                    "textCase": "capitalized",
+                    "bottomOffset": 19
+                }
+            },
+            {
+                "identifier": "retromacMainEmail",
+                "imageName": "retromacMainEmail",
+                "filterColorNames": ["none"],
+                "defaultColorName": "none",
+                "textConfiguration": {
+                    "fontName": "PixelOperator8-Bold",
+                    "fontSize": 9,
+                    "textColorName": "squidInk",
+                    "textAlignment": "center",
+                    "textCase": "capitalized",
+                    "bottomOffset": 19
+                }
+            },
+            {
+                "identifier": "retromacMainGame",
+                "imageName": "retromacMainGame",
+                "filterColorNames": ["none"],
+                "defaultColorName": "none",
+                "textConfiguration": {
+                    "fontName": "PixelOperator8-Bold",
+                    "fontSize": 9,
+                    "textColorName": "squidInk",
+                    "textAlignment": "center",
+                    "textCase": "capitalized",
+                    "bottomOffset": 19
+                }
+            },
+            {
+                "identifier": "retromacMainGear",
+                "imageName": "retromacMainGear",
+                "filterColorNames": ["none"],
+                "defaultColorName": "none",
+                "textConfiguration": {
+                    "fontName": "PixelOperator8-Bold",
+                    "fontSize": 9,
+                    "textColorName": "squidInk",
+                    "textAlignment": "center",
+                    "textCase": "capitalized",
+                    "bottomOffset": 19
+                }
+            },
+            {
+                "identifier": "retromacMainHeart",
+                "imageName": "retromacMainHeart",
+                "filterColorNames": ["none"],
+                "defaultColorName": "none",
+                "textConfiguration": {
+                    "fontName": "PixelOperator8-Bold",
+                    "fontSize": 9,
+                    "textColorName": "squidInk",
+                    "textAlignment": "center",
+                    "textCase": "capitalized",
+                    "bottomOffset": 19
+                }
+            },
+            {
+                "identifier": "retromacMainMail",
+                "imageName": "retromacMainMail",
+                "filterColorNames": ["none"],
+                "defaultColorName": "none",
+                "textConfiguration": {
+                    "fontName": "PixelOperator8-Bold",
+                    "fontSize": 9,
+                    "textColorName": "squidInk",
+                    "textAlignment": "center",
+                    "textCase": "capitalized",
+                    "bottomOffset": 19
+                }
+            },
+            {
+                "identifier": "retromacMainMap",
+                "imageName": "retromacMainMap",
+                "filterColorNames": ["none"],
+                "defaultColorName": "none",
+                "textConfiguration": {
+                    "fontName": "PixelOperator8-Bold",
+                    "fontSize": 9,
+                    "textColorName": "squidInk",
+                    "textAlignment": "center",
+                    "textCase": "capitalized",
+                    "bottomOffset": 19
+                }
+            },
+            {
+                "identifier": "retromacMainMessage",
+                "imageName": "retromacMainMessage",
+                "filterColorNames": ["none"],
+                "defaultColorName": "none",
+                "textConfiguration": {
+                    "fontName": "PixelOperator8-Bold",
+                    "fontSize": 9,
+                    "textColorName": "squidInk",
+                    "textAlignment": "center",
+                    "textCase": "capitalized",
+                    "bottomOffset": 19
+                }
+            },
+            {
+                "identifier": "retromacMainMoney",
+                "imageName": "retromacMainMoney",
+                "filterColorNames": ["none"],
+                "defaultColorName": "none",
+                "textConfiguration": {
+                    "fontName": "PixelOperator8-Bold",
+                    "fontSize": 9,
+                    "textColorName": "squidInk",
+                    "textAlignment": "center",
+                    "textCase": "capitalized",
+                    "bottomOffset": 19
+                }
+            },
+            {
+                "identifier": "retromacMainMusic",
+                "imageName": "retromacMainMusic",
+                "filterColorNames": ["none"],
+                "defaultColorName": "none",
+                "textConfiguration": {
+                    "fontName": "PixelOperator8-Bold",
+                    "fontSize": 9,
+                    "textColorName": "squidInk",
+                    "textAlignment": "center",
+                    "textCase": "capitalized",
+                    "bottomOffset": 19
+                }
+            },
+            {
+                "identifier": "retromacMainPet",
+                "imageName": "retromacMainPet",
+                "filterColorNames": ["none"],
+                "defaultColorName": "none",
+                "textConfiguration": {
+                    "fontName": "PixelOperator8-Bold",
+                    "fontSize": 9,
+                    "textColorName": "squidInk",
+                    "textAlignment": "center",
+                    "textCase": "capitalized",
+                    "bottomOffset": 19
+                }
+            },
+            {
+                "identifier": "retromacMainPhone",
+                "imageName": "retromacMainPhone",
+                "filterColorNames": ["none"],
+                "defaultColorName": "none",
+                "textConfiguration": {
+                    "fontName": "PixelOperator8-Bold",
+                    "fontSize": 9,
+                    "textColorName": "squidInk",
+                    "textAlignment": "center",
+                    "textCase": "capitalized",
+                    "bottomOffset": 19
+                }
+            },
+            {
+                "identifier": "retromacMainPhoto",
+                "imageName": "retromacMainPhoto",
+                "filterColorNames": ["none"],
+                "defaultColorName": "none",
+                "textConfiguration": {
+                    "fontName": "PixelOperator8-Bold",
+                    "fontSize": 9,
+                    "textColorName": "squidInk",
+                    "textAlignment": "center",
+                    "textCase": "capitalized",
+                    "bottomOffset": 19
+                }
+            },
+            {
+                "identifier": "retromacMainReading",
+                "imageName": "retromacMainReading",
+                "filterColorNames": ["none"],
+                "defaultColorName": "none",
+                "textConfiguration": {
+                    "fontName": "PixelOperator8-Bold",
+                    "fontSize": 9,
+                    "textColorName": "squidInk",
+                    "textAlignment": "center",
+                    "textCase": "capitalized",
+                    "bottomOffset": 19
+                }
+            },
+            {
+                "identifier": "retromacMainSmile",
+                "imageName": "retromacMainSmile",
+                "filterColorNames": ["none"],
+                "defaultColorName": "none",
+                "textConfiguration": {
+                    "fontName": "PixelOperator8-Bold",
+                    "fontSize": 9,
+                    "textColorName": "squidInk",
+                    "textAlignment": "center",
+                    "textCase": "capitalized",
+                    "bottomOffset": 19
+                }
+            },
+            {
+                "identifier": "retromacMainSocial",
+                "imageName": "retromacMainSocial",
+                "filterColorNames": ["none"],
+                "defaultColorName": "none",
+                "textConfiguration": {
+                    "fontName": "PixelOperator8-Bold",
+                    "fontSize": 9,
+                    "textColorName": "squidInk",
+                    "textAlignment": "center",
+                    "textCase": "capitalized",
+                    "bottomOffset": 19
+                }
+            },
+            {
+                "identifier": "retromacMainSparkle",
+                "imageName": "retromacMainSparkle",
+                "filterColorNames": ["none"],
+                "defaultColorName": "none",
+                "textConfiguration": {
+                    "fontName": "PixelOperator8-Bold",
+                    "fontSize": 9,
+                    "textColorName": "squidInk",
+                    "textAlignment": "center",
+                    "textCase": "capitalized",
+                    "bottomOffset": 19
+                }
+            },
+            {
+                "identifier": "retromacMainTelephone",
+                "imageName": "retromacMainTelephone",
+                "filterColorNames": ["none"],
+                "defaultColorName": "none",
+                "textConfiguration": {
+                    "fontName": "PixelOperator8-Bold",
+                    "fontSize": 9,
+                    "textColorName": "squidInk",
+                    "textAlignment": "center",
+                    "textCase": "capitalized",
+                    "bottomOffset": 19
+                }
+            },
+            {
+                "identifier": "retromacMainWeb",
+                "imageName": "retromacMainWeb",
+                "filterColorNames": ["none"],
+                "defaultColorName": "none",
+                "textConfiguration": {
+                    "fontName": "PixelOperator8-Bold",
+                    "fontSize": 9,
+                    "textColorName": "squidInk",
+                    "textAlignment": "center",
+                    "textCase": "capitalized",
+                    "bottomOffset": 19
+                }
+            },
+            {
+                "identifier": "retromacMainWork",
+                "imageName": "retromacMainWork",
+                "filterColorNames": ["none"],
+                "defaultColorName": "none",
+                "textConfiguration": {
+                    "fontName": "PixelOperator8-Bold",
+                    "fontSize": 9,
+                    "textColorName": "squidInk",
+                    "textAlignment": "center",
+                    "textCase": "capitalized",
+                    "bottomOffset": 19
+                }
+            }
+        ],
+        "mainEmptyModule": {
+            "identifier": "retromacMainEmpty",
+            "imageName": "retromacMainEmpty",
+            "filterColorNames": ["none"],
+            "defaultColorName": "none",
+            "textConfiguration": {
+                "fontName": "PixelOperator8-Bold",
+                "fontSize": 9,
+                "textColorName": "squidInk",
+                "textAlignment": "center",
+                "textCase": "capitalized",
+                "bottomOffset": 19
+            }
+        },
+        "auxModules": [
+            {
+                "identifier": "retromacAuxBook",
+                "imageName": "retromacAuxBook",
+                "filterColorNames": ["none"],
+                "defaultColorName": "none",
+                "textConfiguration": {
+                    "fontName": "PixelOperator8-Bold",
+                    "fontSize": 9,
+                    "textColorName": "squidInk",
+                    "textAlignment": "center",
+                    "textCase": "capitalized",
+                    "bottomOffset": 12
+                }
+            },
+            {
+                "identifier": "retromacAuxCalculator",
+                "imageName": "retromacAuxCalculator",
+                "filterColorNames": ["none"],
+                "defaultColorName": "none",
+                "textConfiguration": {
+                    "fontName": "PixelOperator8-Bold",
+                    "fontSize": 9,
+                    "textColorName": "squidInk",
+                    "textAlignment": "center",
+                    "textCase": "capitalized",
+                    "bottomOffset": 12
+                }
+            },
+            {
+                "identifier": "retromacAuxCamera",
+                "imageName": "retromacAuxCamera",
+                "filterColorNames": ["none"],
+                "defaultColorName": "none",
+                "textConfiguration": {
+                    "fontName": "PixelOperator8-Bold",
+                    "fontSize": 9,
+                    "textColorName": "squidInk",
+                    "textAlignment": "center",
+                    "textCase": "capitalized",
+                    "bottomOffset": 12
+                }
+            },
+            {
+                "identifier": "retromacAuxCar",
+                "imageName": "retromacAuxCar",
+                "filterColorNames": ["none"],
+                "defaultColorName": "none",
+                "textConfiguration": {
+                    "fontName": "PixelOperator8-Bold",
+                    "fontSize": 9,
+                    "textColorName": "squidInk",
+                    "textAlignment": "center",
+                    "textCase": "capitalized",
+                    "bottomOffset": 12
+                }
+            },
+            {
+                "identifier": "retromacAuxChart",
+                "imageName": "retromacAuxChart",
+                "filterColorNames": ["none"],
+                "defaultColorName": "none",
+                "textConfiguration": {
+                    "fontName": "PixelOperator8-Bold",
+                    "fontSize": 9,
+                    "textColorName": "squidInk",
+                    "textAlignment": "center",
+                    "textCase": "capitalized",
+                    "bottomOffset": 12
+                }
+            },
+            {
+                "identifier": "retromacAuxClock",
+                "imageName": "retromacAuxClock",
+                "filterColorNames": ["none"],
+                "defaultColorName": "none",
+                "textConfiguration": {
+                    "fontName": "PixelOperator8-Bold",
+                    "fontSize": 9,
+                    "textColorName": "squidInk",
+                    "textAlignment": "center",
+                    "textCase": "capitalized",
+                    "bottomOffset": 12
+                }
+            },
+            {
+                "identifier": "retromacAuxCloud",
+                "imageName": "retromacAuxCloud",
+                "filterColorNames": ["none"],
+                "defaultColorName": "none",
+                "textConfiguration": {
+                    "fontName": "PixelOperator8-Bold",
+                    "fontSize": 9,
+                    "textColorName": "squidInk",
+                    "textAlignment": "center",
+                    "textCase": "capitalized",
+                    "bottomOffset": 12
+                }
+            },
+            {
+                "identifier": "retromacAuxDoc",
+                "imageName": "retromacAuxDoc",
+                "filterColorNames": ["none"],
+                "defaultColorName": "none",
+                "textConfiguration": {
+                    "fontName": "PixelOperator8-Bold",
+                    "fontSize": 9,
+                    "textColorName": "squidInk",
+                    "textAlignment": "center",
+                    "textCase": "capitalized",
+                    "bottomOffset": 12
+                }
+            },
+            {
+                "identifier": "retromacAuxEmail",
+                "imageName": "retromacAuxEmail",
+                "filterColorNames": ["none"],
+                "defaultColorName": "none",
+                "textConfiguration": {
+                    "fontName": "PixelOperator8-Bold",
+                    "fontSize": 9,
+                    "textColorName": "squidInk",
+                    "textAlignment": "center",
+                    "textCase": "capitalized",
+                    "bottomOffset": 12
+                }
+            },
+            {
+                "identifier": "retromacAuxGame",
+                "imageName": "retromacAuxGame",
+                "filterColorNames": ["none"],
+                "defaultColorName": "none",
+                "textConfiguration": {
+                    "fontName": "PixelOperator8-Bold",
+                    "fontSize": 9,
+                    "textColorName": "squidInk",
+                    "textAlignment": "center",
+                    "textCase": "capitalized",
+                    "bottomOffset": 12
+                }
+            },
+            {
+                "identifier": "retromacAuxGear",
+                "imageName": "retromacAuxGear",
+                "filterColorNames": ["none"],
+                "defaultColorName": "none",
+                "textConfiguration": {
+                    "fontName": "PixelOperator8-Bold",
+                    "fontSize": 9,
+                    "textColorName": "squidInk",
+                    "textAlignment": "center",
+                    "textCase": "capitalized",
+                    "bottomOffset": 12
+                }
+            },
+            {
+                "identifier": "retromacAuxHeart",
+                "imageName": "retromacAuxHeart",
+                "filterColorNames": ["none"],
+                "defaultColorName": "none",
+                "textConfiguration": {
+                    "fontName": "PixelOperator8-Bold",
+                    "fontSize": 9,
+                    "textColorName": "squidInk",
+                    "textAlignment": "center",
+                    "textCase": "capitalized",
+                    "bottomOffset": 12
+                }
+            },
+            {
+                "identifier": "retromacAuxMail",
+                "imageName": "retromacAuxMail",
+                "filterColorNames": ["none"],
+                "defaultColorName": "none",
+                "textConfiguration": {
+                    "fontName": "PixelOperator8-Bold",
+                    "fontSize": 9,
+                    "textColorName": "squidInk",
+                    "textAlignment": "center",
+                    "textCase": "capitalized",
+                    "bottomOffset": 12
+                }
+            },
+            {
+                "identifier": "retromacAuxMap",
+                "imageName": "retromacAuxMap",
+                "filterColorNames": ["none"],
+                "defaultColorName": "none",
+                "textConfiguration": {
+                    "fontName": "PixelOperator8-Bold",
+                    "fontSize": 9,
+                    "textColorName": "squidInk",
+                    "textAlignment": "center",
+                    "textCase": "capitalized",
+                    "bottomOffset": 12
+                }
+            },
+            {
+                "identifier": "retromacAuxMessage",
+                "imageName": "retromacAuxMessage",
+                "filterColorNames": ["none"],
+                "defaultColorName": "none",
+                "textConfiguration": {
+                    "fontName": "PixelOperator8-Bold",
+                    "fontSize": 9,
+                    "textColorName": "squidInk",
+                    "textAlignment": "center",
+                    "textCase": "capitalized",
+                    "bottomOffset": 12
+                }
+            },
+            {
+                "identifier": "retromacAuxMoney",
+                "imageName": "retromacAuxMoney",
+                "filterColorNames": ["none"],
+                "defaultColorName": "none",
+                "textConfiguration": {
+                    "fontName": "PixelOperator8-Bold",
+                    "fontSize": 9,
+                    "textColorName": "squidInk",
+                    "textAlignment": "center",
+                    "textCase": "capitalized",
+                    "bottomOffset": 12
+                }
+            },
+            {
+                "identifier": "retromacAuxMusic",
+                "imageName": "retromacAuxMusic",
+                "filterColorNames": ["none"],
+                "defaultColorName": "none",
+                "textConfiguration": {
+                    "fontName": "PixelOperator8-Bold",
+                    "fontSize": 9,
+                    "textColorName": "squidInk",
+                    "textAlignment": "center",
+                    "textCase": "capitalized",
+                    "bottomOffset": 12
+                }
+            },
+            {
+                "identifier": "retromacAuxPet",
+                "imageName": "retromacAuxPet",
+                "filterColorNames": ["none"],
+                "defaultColorName": "none",
+                "textConfiguration": {
+                    "fontName": "PixelOperator8-Bold",
+                    "fontSize": 9,
+                    "textColorName": "squidInk",
+                    "textAlignment": "center",
+                    "textCase": "capitalized",
+                    "bottomOffset": 12
+                }
+            },
+            {
+                "identifier": "retromacAuxPhone",
+                "imageName": "retromacAuxPhone",
+                "filterColorNames": ["none"],
+                "defaultColorName": "none",
+                "textConfiguration": {
+                    "fontName": "PixelOperator8-Bold",
+                    "fontSize": 9,
+                    "textColorName": "squidInk",
+                    "textAlignment": "center",
+                    "textCase": "capitalized",
+                    "bottomOffset": 12
+                }
+            },
+            {
+                "identifier": "retromacAuxPhoto",
+                "imageName": "retromacAuxPhoto",
+                "filterColorNames": ["none"],
+                "defaultColorName": "none",
+                "textConfiguration": {
+                    "fontName": "PixelOperator8-Bold",
+                    "fontSize": 9,
+                    "textColorName": "squidInk",
+                    "textAlignment": "center",
+                    "textCase": "capitalized",
+                    "bottomOffset": 12
+                }
+            },
+            {
+                "identifier": "retromacAuxReading",
+                "imageName": "retromacAuxReading",
+                "filterColorNames": ["none"],
+                "defaultColorName": "none",
+                "textConfiguration": {
+                    "fontName": "PixelOperator8-Bold",
+                    "fontSize": 9,
+                    "textColorName": "squidInk",
+                    "textAlignment": "center",
+                    "textCase": "capitalized",
+                    "bottomOffset": 12
+                }
+            },
+            {
+                "identifier": "retromacAuxSmile",
+                "imageName": "retromacAuxSmile",
+                "filterColorNames": ["none"],
+                "defaultColorName": "none",
+                "textConfiguration": {
+                    "fontName": "PixelOperator8-Bold",
+                    "fontSize": 9,
+                    "textColorName": "squidInk",
+                    "textAlignment": "center",
+                    "textCase": "capitalized",
+                    "bottomOffset": 12
+                }
+            },
+            {
+                "identifier": "retromacAuxSocial",
+                "imageName": "retromacAuxSocial",
+                "filterColorNames": ["none"],
+                "defaultColorName": "none",
+                "textConfiguration": {
+                    "fontName": "PixelOperator8-Bold",
+                    "fontSize": 9,
+                    "textColorName": "squidInk",
+                    "textAlignment": "center",
+                    "textCase": "capitalized",
+                    "bottomOffset": 12
+                }
+            },
+            {
+                "identifier": "retromacAuxSparkle",
+                "imageName": "retromacAuxSparkle",
+                "filterColorNames": ["none"],
+                "defaultColorName": "none",
+                "textConfiguration": {
+                    "fontName": "PixelOperator8-Bold",
+                    "fontSize": 9,
+                    "textColorName": "squidInk",
+                    "textAlignment": "center",
+                    "textCase": "capitalized",
+                    "bottomOffset": 12
+                }
+            },
+            {
+                "identifier": "retromacAuxTelephone",
+                "imageName": "retromacAuxTelephone",
+                "filterColorNames": ["none"],
+                "defaultColorName": "none",
+                "textConfiguration": {
+                    "fontName": "PixelOperator8-Bold",
+                    "fontSize": 9,
+                    "textColorName": "squidInk",
+                    "textAlignment": "center",
+                    "textCase": "capitalized",
+                    "bottomOffset": 12
+                }
+            },
+            {
+                "identifier": "retromacAuxWeb",
+                "imageName": "retromacAuxWeb",
+                "filterColorNames": ["none"],
+                "defaultColorName": "none",
+                "textConfiguration": {
+                    "fontName": "PixelOperator8-Bold",
+                    "fontSize": 9,
+                    "textColorName": "squidInk",
+                    "textAlignment": "center",
+                    "textCase": "capitalized",
+                    "bottomOffset": 12
+                }
+            },
+            {
+                "identifier": "retromacAuxWork",
+                "imageName": "retromacAuxWork",
+                "filterColorNames": ["none"],
+                "defaultColorName": "none",
+                "textConfiguration": {
+                    "fontName": "PixelOperator8-Bold",
+                    "fontSize": 9,
+                    "textColorName": "squidInk",
+                    "textAlignment": "center",
+                    "textCase": "capitalized",
+                    "bottomOffset": 12
+                }
+            }
+        ],
+        "auxEmptyModule": {
+            "identifier": "retromacAuxEmpty",
+            "imageName": "retromacAuxEmpty",
+            "filterColorNames": ["none"],
+            "defaultColorName": "none",
+            "textConfiguration": {
+                "fontName": "PixelOperator8-Bold",
+                "fontSize": 9,
+                "textColorName": "squidInk",
+                "textAlignment": "center",
+                "textCase": "capitalized",
+                "bottomOffset": 12
+            }
+        }
+    },
+    "wallpaperSet": {
+        "blockedImageName": "retromacGreenBlockedWallpaper",
+        "homeImageName": "retromacGreenHomeWallpaper"
+    },
+    "previewSet": {
+        "mainWidgetPreview": "retromacGreenMainWidgetPreview",
+        "auxWidgetPreview": "retromacGreenAuxWidgetPreview",
+        "wallpaperPreview1Name": "retromacGreenWallpaperPreview1",
+        "wallpaperPreview2Name": "retromacGreenWallpaperPreview2",
+        "wallpaperPreview3Name": "retromacGreenWallpaperPreview3"
+    }
+}
+

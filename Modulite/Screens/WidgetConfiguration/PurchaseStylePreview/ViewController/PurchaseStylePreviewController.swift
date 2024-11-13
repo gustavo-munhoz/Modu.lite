@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import WidgetStyling
 
 protocol PurchaseStylePreviewControllerDelegate: AnyObject {
     func purchaseStylePreviewViewControllerDidPressUseStyle(
@@ -66,11 +67,10 @@ class PurchaseStylePreviewViewController: UIViewController {
     
     private func configureView() {
         styleView.configure(with: style)
-        print(style.key.rawValue.lowercased())
         imageNames = [
-            "\(style.key.rawValue)Preview1",
-            "\(style.key.rawValue)Preview2",
-            "\(style.key.rawValue)Preview3"
+            "\(style.identifier)Preview1",
+            "\(style.identifier)Preview2",
+            "\(style.identifier)Preview3"
         ]
         
         texts = [

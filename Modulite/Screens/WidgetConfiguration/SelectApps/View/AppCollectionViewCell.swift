@@ -72,7 +72,7 @@ class AppCollectionViewCell: UICollectionViewCell {
         selectedImageView.image = nil
     }
     
-    func setup(with app: SelectableAppInfo) {
+    func setup(with app: SelectableAppData) {
         appNameLabel.text = app.data.name
         
         if selectedImageView.image == getImageForState(selected: app.isSelected) {

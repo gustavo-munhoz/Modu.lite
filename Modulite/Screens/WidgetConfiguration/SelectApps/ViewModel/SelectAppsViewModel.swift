@@ -6,16 +6,19 @@
 //
 
 import Foundation
+import WidgetStyling
 
-typealias SelectableAppInfo = (data: AppInfo, isSelected: Bool)
+typealias SelectableAppData = (data: AppData, isSelected: Bool)
 
 class SelectAppsViewModel: NSObject {
     
     // MARK: - Properties        
     
-    private var unfilteredAppList: [SelectableAppInfo]
+    var maxApps: Int!
     
-    @Published private(set) var apps: [SelectableAppInfo] = []
+    private var unfilteredAppList: [SelectableAppData]
+    
+    @Published private(set) var apps: [SelectableAppData] = []
     
     override init() {
         unfilteredAppList = CoreDataPersistenceController.shared.fetchApps().map { ($0, false) }
@@ -39,7 +42,7 @@ class SelectAppsViewModel: NSObject {
     }
     
     func didReachMaxNumberOfApps() -> Bool {
-        unfilteredAppList.filter { $0.isSelected }.count == 6
+        unfilteredAppList.filter { $0.isSelected }.count == maxApps
     }
     
     func getSelectedAppsCount() -> Int {
@@ -60,13 +63,13 @@ class SelectAppsViewModel: NSObject {
     }
     
     @discardableResult
-    func selectApp(at idx: Int) -> SelectableAppInfo? {
+    func selectApp(at idx: Int) -> SelectableAppData? {
         guard idx >= 0, idx < apps.count else {
             print("Tried selecting app at an invalid index.")
             return nil
         }
         
-        guard apps.filter({ $0.isSelected }).count < 6 else {
+        guard apps.filter({ $0.isSelected }).count < maxApps else {
             print("Tried to select more than 6 apps.")
             return nil
         }
@@ -87,7 +90,7 @@ class SelectAppsViewModel: NSObject {
     }
     
     @discardableResult
-    func selectApp(_ app: AppInfo) -> SelectableAppInfo? {
+    func selectApp(_ app: AppData) -> SelectableAppData? {
         guard let index = apps.firstIndex(where: { $0.data.name == app.name }) else {
             print("Tried to select an app that is not in apps list.")
             return nil
@@ -97,7 +100,7 @@ class SelectAppsViewModel: NSObject {
     }
     
     @discardableResult
-    func deselectApp(at idx: Int) -> SelectableAppInfo? {
+    func deselectApp(at idx: Int) -> SelectableAppData? {
         guard isAppSelected(at: idx) else {
             print("Tried to deselect an item that is not selected.")
             return nil
@@ -119,7 +122,7 @@ class SelectAppsViewModel: NSObject {
     }
     
     @discardableResult
-    func toggleAppSelection(at idx: Int) -> SelectableAppInfo? {
+    func toggleAppSelection(at idx: Int) -> SelectableAppData? {
         if apps[idx].isSelected {
             return deselectApp(at: idx)
         }
