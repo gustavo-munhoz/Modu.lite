@@ -371,6 +371,7 @@
 		B3C6DD812CDE9B28002AEAF7 /* WidgetSchema+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3C6DD7A2CDE9B28002AEAF7 /* WidgetSchema+Extensions.swift */; };
 		B3C6DD852CDEAC17002AEAF7 /* CoreDataPersistenceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3C6DD832CDEAC17002AEAF7 /* CoreDataPersistenceController.swift */; };
 		B3C6DD862CDEAC17002AEAF7 /* CoreDataPersistenceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3C6DD832CDEAC17002AEAF7 /* CoreDataPersistenceController.swift */; };
+		B3CB2C502CE56D7A009BADFB /* HomeViewController+HomeWidgetCollectionViewCellDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3CB2C4F2CE56D7A009BADFB /* HomeViewController+HomeWidgetCollectionViewCellDelegate.swift */; };
 		B3CC57C12CBF38D800945DE2 /* AppDeviceActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3CC57C02CBF38D800945DE2 /* AppDeviceActivity.swift */; };
 		B3CC57C32CBF38EB00945DE2 /* ActivityReport.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3CC57C22CBF38EB00945DE2 /* ActivityReport.swift */; };
 		B3CC57C52CBF393E00945DE2 /* TimeInterval+ToHoursAndMinutes.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3CC57C42CBF393E00945DE2 /* TimeInterval+ToHoursAndMinutes.swift */; };
@@ -831,6 +832,7 @@
 		B3C6DD792CDE9B28002AEAF7 /* WidgetModule+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WidgetModule+Extensions.swift"; sourceTree = "<group>"; };
 		B3C6DD7A2CDE9B28002AEAF7 /* WidgetSchema+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WidgetSchema+Extensions.swift"; sourceTree = "<group>"; };
 		B3C6DD832CDEAC17002AEAF7 /* CoreDataPersistenceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataPersistenceController.swift; sourceTree = "<group>"; };
+		B3CB2C4F2CE56D7A009BADFB /* HomeViewController+HomeWidgetCollectionViewCellDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomeViewController+HomeWidgetCollectionViewCellDelegate.swift"; sourceTree = "<group>"; };
 		B3CC57C02CBF38D800945DE2 /* AppDeviceActivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDeviceActivity.swift; sourceTree = "<group>"; };
 		B3CC57C22CBF38EB00945DE2 /* ActivityReport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityReport.swift; sourceTree = "<group>"; };
 		B3CC57C42CBF393E00945DE2 /* TimeInterval+ToHoursAndMinutes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TimeInterval+ToHoursAndMinutes.swift"; sourceTree = "<group>"; };
@@ -2221,6 +2223,7 @@
 			isa = PBXGroup;
 			children = (
 				B369279B2C66B6E30089F769 /* HomeViewController.swift */,
+				B3CB2C4F2CE56D7A009BADFB /* HomeViewController+HomeWidgetCollectionViewCellDelegate.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -3464,6 +3467,7 @@
 				B39A25AA2CAC7C89001C76A5 /* WidgetEditorViewController+UICollectionViewDataSource.swift in Sources */,
 				B34F3E3E2C74CE090041D7BD /* EditorSectionHeader.swift in Sources */,
 				B33808932CC2FFED00D56884 /* RequestScreenTimeViewController.swift in Sources */,
+				B3CB2C502CE56D7A009BADFB /* HomeViewController+HomeWidgetCollectionViewCellDelegate.swift in Sources */,
 				B35BFC522CB60B7300092B42 /* TutorialStepsStackView.swift in Sources */,
 				B34F3DFD2C6A92890041D7BD /* RootTabBarController.swift in Sources */,
 				B35BFC5E2CB6F23300092B42 /* FAQViewController.swift in Sources */,

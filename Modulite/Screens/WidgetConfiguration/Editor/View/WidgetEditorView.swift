@@ -121,7 +121,6 @@ class WidgetEditorView: UIView {
     }()
     
     // MARK: - Initializers
-    
     override init(frame: CGRect) {
         super.init(frame: frame)
         backgroundColor = .whiteTurnip
@@ -136,7 +135,6 @@ class WidgetEditorView: UIView {
     }
 
     // MARK: - Setup methods
-
     func setScrollViewDelegate(to delegate: UIScrollViewDelegate) {
         scrollView.delegate = delegate
     }
@@ -184,6 +182,7 @@ class WidgetEditorView: UIView {
             make.height.equalTo(44)
             make.width.equalTo(130)
             make.right.equalToSuperview().inset(24)
+            make.bottom.equalToSuperview().inset(32)
         }
         
         deleteWidgetButton.snp.removeConstraints()
@@ -193,6 +192,7 @@ class WidgetEditorView: UIView {
             make.height.width.equalTo(saveWidgetButton)
             make.left.equalToSuperview().inset(24)
             make.right.lessThanOrEqualTo(saveWidgetButton.snp.left).offset(-30)
+            make.bottom.equalToSuperview().inset(32)
         }
     }
     

@@ -40,7 +40,8 @@ extension HomeCoordinator: HomeViewControllerDelegate {
     ) {
         // TODO: Check if user is plus to create AUX widget
         
-        guard viewController.getCurrentMainWidgetCount() < 3 else {
+        // TODO: Remove main widget limit for plus
+        guard viewController.getCurrentWidgetCount(for: .main) < 3 else {
             presentMaxWidgetCountAlert(viewController)
             return
         }
@@ -48,11 +49,11 @@ extension HomeCoordinator: HomeViewControllerDelegate {
         let coordinator = WidgetBuilderCoordinator(
             router: router,
             widgetType: type,
-            currentWidgetCount: viewController.getCurrentMainWidgetCount()
+            currentWidgetCount: viewController.getCurrentWidgetCount(for: type)
         )
         
         coordinator.onWidgetSave = { widget in
-            viewController.registerNewWidget(widget)
+            viewController.registerNewWidget(widget, type: type)
         }
         
         presentChild(coordinator, animated: true)
@@ -70,12 +71,12 @@ extension HomeCoordinator: HomeViewControllerDelegate {
         )
         
         coordinator.onWidgetSave = { updatedWidget in
-            viewController.updateMainWidget(updatedWidget)
+            viewController.updateWidget(updatedWidget, type: widget.type)
             WidgetCenter.shared.reloadAllTimelines()
         }
         
-        coordinator.onWidgetDelete = { widgetId in
-            viewController.deleteMainWidget(with: widgetId)
+        coordinator.onWidgetDelete = {
+            viewController.deleteWidget(widget, type: widget.type)
             WidgetCenter.shared.reloadAllTimelines()
         }
         
