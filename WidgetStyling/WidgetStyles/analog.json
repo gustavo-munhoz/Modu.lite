@@ -26,14 +26,15 @@
                 "imageBlendMode": "plusDarker",
                 "textConfiguration": {
                     "fontName": "system",
-                    "textStyle": "caption2",
+                    "fontSize": 11,
                     "fontWeight": "semibold",
                     "textColorName": "iceCold",
                     "shadowColorName": "iceCold",
                     "shadowBlurRadius": 5,
                     "textCase": "lower",
                     "shouldRemoveSpaces": true,
-                    "prefix": "."
+                    "prefix": ".",
+                    "bottomOffset": 19
                 }
             },
             {
@@ -47,14 +48,15 @@
                 "imageBlendMode": "plusDarker",
                 "textConfiguration": {
                     "fontName": "system",
-                    "textStyle": "caption2",
+                    "fontSize": 11,
                     "fontWeight": "semibold",
                     "textColorName": "iceCold",
                     "shadowColorName": "iceCold",
                     "shadowBlurRadius": 5,
                     "textCase": "lower",
                     "shouldRemoveSpaces": true,
-                    "prefix": "."
+                    "prefix": ".",
+                    "bottomOffset": 19
                 }
             },
             {
@@ -68,14 +70,15 @@
                 "imageBlendMode": "plusDarker",
                 "textConfiguration": {
                     "fontName": "system",
-                    "textStyle": "caption2",
+                    "fontSize": 11,
                     "fontWeight": "semibold",
                     "textColorName": "iceCold",
                     "shadowColorName": "iceCold",
                     "shadowBlurRadius": 5,
                     "textCase": "lower",
                     "shouldRemoveSpaces": true,
-                    "prefix": "."
+                    "prefix": ".",
+                    "bottomOffset": 19
                 }
             },
             {
@@ -89,14 +92,15 @@
                 "imageBlendMode": "plusDarker",
                 "textConfiguration": {
                     "fontName": "system",
-                    "textStyle": "caption2",
+                    "fontSize": 11,
                     "fontWeight": "semibold",
                     "textColorName": "iceCold",
                     "shadowColorName": "iceCold",
                     "shadowBlurRadius": 5,
                     "textCase": "lower",
                     "shouldRemoveSpaces": true,
-                    "prefix": "."
+                    "prefix": ".",
+                    "bottomOffset": 19
                 }
             },
             {
@@ -110,14 +114,15 @@
                 "imageBlendMode": "plusDarker",
                 "textConfiguration": {
                     "fontName": "system",
-                    "textStyle": "caption2",
+                    "fontSize": 11,
                     "fontWeight": "semibold",
                     "textColorName": "iceCold",
                     "shadowColorName": "iceCold",
                     "shadowBlurRadius": 5,
                     "textCase": "lower",
                     "shouldRemoveSpaces": true,
-                    "prefix": "."
+                    "prefix": ".",
+                    "bottomOffset": 19
                 }
             }
         ],
@@ -132,14 +137,15 @@
             "imageBlendMode": "plusDarker",
             "textConfiguration": {
                 "fontName": "system",
-                "textStyle": "caption2",
+                "fontSize": 11,
                 "fontWeight": "semibold",
                 "textColorName": "iceCold",
                 "shadowColorName": "iceCold",
                 "shadowBlurRadius": 5,
                 "textCase": "lower",
                 "shouldRemoveSpaces": true,
-                "prefix": "."
+                "prefix": ".",
+                "bottomOffset": 19
             }
         },
         "auxModules": [
@@ -154,14 +160,15 @@
                 "imageBlendMode": "plusDarker",
                 "textConfiguration": {
                     "fontName": "system",
-                    "textStyle": "caption2",
+                    "fontSize": 11,
                     "fontWeight": "semibold",
                     "textColorName": "iceCold",
                     "shadowColorName": "iceCold",
                     "shadowBlurRadius": 5,
                     "textCase": "lower",
                     "shouldRemoveSpaces": true,
-                    "prefix": "."
+                    "prefix": ".",
+                    "bottomOffset": 19
                 }
             },
             {
@@ -175,14 +182,15 @@
                 "imageBlendMode": "plusDarker",
                 "textConfiguration": {
                     "fontName": "system",
-                    "textStyle": "caption2",
+                    "fontSize": 11,
                     "fontWeight": "semibold",
                     "textColorName": "iceCold",
                     "shadowColorName": "iceCold",
                     "shadowBlurRadius": 5,
                     "textCase": "lower",
                     "shouldRemoveSpaces": true,
-                    "prefix": "."
+                    "prefix": ".",
+                    "bottomOffset": 19
                 }
             },
             {
@@ -196,14 +204,15 @@
                 "imageBlendMode": "plusDarker",
                 "textConfiguration": {
                     "fontName": "system",
-                    "textStyle": "caption2",
+                    "fontSize": 11,
                     "fontWeight": "semibold",
                     "textColorName": "iceCold",
                     "shadowColorName": "iceCold",
                     "shadowBlurRadius": 5,
                     "textCase": "lower",
                     "shouldRemoveSpaces": true,
-                    "prefix": "."
+                    "prefix": ".",
+                    "bottomOffset": 19
                 }
             },
             {
@@ -217,14 +226,15 @@
                 "imageBlendMode": "plusDarker",
                 "textConfiguration": {
                     "fontName": "system",
-                    "textStyle": "caption2",
+                    "fontSize": 11,
                     "fontWeight": "semibold",
                     "textColorName": "iceCold",
                     "shadowColorName": "iceCold",
                     "shadowBlurRadius": 5,
                     "textCase": "lower",
                     "shouldRemoveSpaces": true,
-                    "prefix": "."
+                    "prefix": ".",
+                    "bottomOffset": 19
                 }
             },
             {
@@ -238,20 +248,21 @@
                 "imageBlendMode": "plusDarker",
                 "textConfiguration": {
                     "fontName": "system",
-                    "textStyle": "caption2",
+                    "fontSize": 11,
                     "fontWeight": "semibold",
                     "textColorName": "iceCold",
                     "shadowColorName": "iceCold",
                     "shadowBlurRadius": 5,
                     "textCase": "lower",
                     "shouldRemoveSpaces": true,
-                    "prefix": "."
+                    "prefix": ".",
+                    "bottomOffset": 19
                 }
             }
         ],
         "auxEmptyModule": {
-            "identifier": "analogAuxRegular",
-            "imageName": "analogAuxRegular",
+            "identifier": "analogAuxEmpty",
+            "imageName": "analogAuxEmpty",
             "filterColorNames": [
                 "meringue", "eggYolk", "cupcake",
                 "sweetTooth", "sugarMint", "burntEnds"
@@ -260,14 +271,15 @@
             "imageBlendMode": "plusDarker",
             "textConfiguration": {
                 "fontName": "system",
-                "textStyle": "caption2",
+                "fontSize": 11,
                 "fontWeight": "semibold",
                 "textColorName": "iceCold",
                 "shadowColorName": "iceCold",
                 "shadowBlurRadius": 5,
                 "textCase": "lower",
                 "shouldRemoveSpaces": true,
-                "prefix": "."
+                "prefix": ".",
+                "bottomOffset": 19
             }
         }
     },
@@ -283,4 +295,3 @@
         "wallpaperPreview3Name": "analogWallpaperPreview3"
     }
 }
-
