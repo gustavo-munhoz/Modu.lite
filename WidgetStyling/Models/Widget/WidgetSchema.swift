@@ -29,12 +29,14 @@ public class WidgetSchema: Cloneable {
         style: WidgetStyle,
         name: String? = nil,
         modules: [WidgetModule] = [],
+        previewImage: UIImage? = nil,
         lastEditedAt: Date = .now
     ) {
         self.type = type
         self.widgetStyle = style
         self.name = name
         self.modules = modules
+        self.previewImage = previewImage
         self.lastEditedAt = lastEditedAt
     }
     

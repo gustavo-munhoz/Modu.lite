@@ -32,11 +32,17 @@ extension WidgetSchema {
             return nil
         }
         
+        guard let image = FileManagerImagePersistenceController.shared.getWidgetImage(with: persisted.id) else {
+            print("Could not find image for widget with id \(persisted.id).")
+            return nil
+        }
+        
         self.init(
             type: type,
             style: style,
             name: persisted.name,
             modules: modules,
+            previewImage: image,
             lastEditedAt: persisted.lastEditedAt
         )
     }
