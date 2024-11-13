@@ -58,7 +58,7 @@ class WidgetModuleCell: UICollectionViewCell {
         backgroundColor = .clear
         
         addSubviews()
-        setupConstraints()
+        setupConstraints(bottomOffset: module.getBottomOffset())
     }
     
     private func addSubviews() {
@@ -66,13 +66,13 @@ class WidgetModuleCell: UICollectionViewCell {
         addSubview(appNameLabel)
     }
     
-    private func setupConstraints() {
+    private func setupConstraints(bottomOffset: CGFloat) {
         moduleImageView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }
         
         appNameLabel.snp.makeConstraints { make in
-            make.centerY.equalTo(snp.bottom).multipliedBy(0.82)
+            make.bottom.equalTo(snp.bottom).offset(-bottomOffset)
             make.height.equalTo(20)
             make.width.equalToSuperview().multipliedBy(0.8)
             make.centerX.equalToSuperview()
