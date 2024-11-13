@@ -31,7 +31,7 @@ class WidgetBuilderCoordinator: Coordinator {
     var currentWidgetCount: Int
     
     var onWidgetSave: ((WidgetSchema) -> Void)?
-    var onWidgetDelete: ((UUID) -> Void)?
+    var onWidgetDelete: (() -> Void)?
     
     var existingSchema: WidgetSchema?
     
@@ -211,11 +211,10 @@ extension WidgetBuilderCoordinator: WidgetEditorViewControllerDelegate {
         dismiss(animated: true)
     }
     
-    func widgetEditorViewController(
-        _ viewController: WidgetEditorViewController,
-        didDeleteWithId id: UUID
+    func widgetEditorViewControllerDidDeleteWidget(
+        _ viewController: WidgetEditorViewController
     ) {
-        onWidgetDelete?(id)
+        onWidgetDelete?()
         dismiss(animated: true)
     }
     
