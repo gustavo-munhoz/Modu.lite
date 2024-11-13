@@ -8,15 +8,15 @@
 import UIKit
 import SnapKit
 
-protocol MainWidgetCollectionViewCellDelegate: AnyObject {
-    func mainWidgetCellDidRequestEdit(_ cell: HomeWidgetCollectionViewCell)
-    func mainWidgetCellDidRequestDelete(_ cell: HomeWidgetCollectionViewCell)
+protocol HomeWidgetCollectionViewCellDelegate: AnyObject {
+    func homeWidgetCellDidRequestEdit(_ cell: HomeWidgetCollectionViewCell)
+    func homeWidgetCellDidRequestDelete(_ cell: HomeWidgetCollectionViewCell)
 }
 
 class HomeWidgetCollectionViewCell: UICollectionViewCell {
     static let reuseId = "MainWidgetCollectionViewCell"
     
-    weak var delegate: MainWidgetCollectionViewCellDelegate?
+    weak var delegate: HomeWidgetCollectionViewCellDelegate?
     
     // MARK: - Properties
     override var isHighlighted: Bool {
@@ -110,7 +110,7 @@ extension HomeWidgetCollectionViewCell: UIContextMenuInteractionDelegate {
         ) { [weak self] _ in
             guard let self = self else { return }
             
-            self.delegate?.mainWidgetCellDidRequestEdit(self)
+            self.delegate?.homeWidgetCellDidRequestEdit(self)
         }
         
         let deleteAction = UIAction(
@@ -120,7 +120,7 @@ extension HomeWidgetCollectionViewCell: UIContextMenuInteractionDelegate {
         ) { [weak self] _ in
             guard let self = self else { return }
             
-            self.delegate?.mainWidgetCellDidRequestDelete(self)
+            self.delegate?.homeWidgetCellDidRequestDelete(self)
         }
         
         return UIMenu(title: widgetNameLabel.text!, children: [editAction, deleteAction])

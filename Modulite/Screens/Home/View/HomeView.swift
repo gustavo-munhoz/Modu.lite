@@ -76,8 +76,8 @@ class HomeView: UIScrollView {
         
     private func setupCollectionViews() {
         mainWidgetsCollectionView.register(
-            MainWidgetCollectionViewCell.self,
-            forCellWithReuseIdentifier: MainWidgetCollectionViewCell.reuseId
+            HomeWidgetCollectionViewCell.self,
+            forCellWithReuseIdentifier: HomeWidgetCollectionViewCell.reuseId
         )
         
         mainWidgetsCollectionView.register(
@@ -87,8 +87,8 @@ class HomeView: UIScrollView {
         )
         
         auxiliaryWidgetsCollectionView.register(
-            AuxiliaryWidgetCollectionViewCell.self,
-            forCellWithReuseIdentifier: AuxiliaryWidgetCollectionViewCell.reuseId
+            HomeWidgetCollectionViewCell.self,
+            forCellWithReuseIdentifier: HomeWidgetCollectionViewCell.reuseId
         )
         auxiliaryWidgetsCollectionView.register(
             HomeHeaderReusableCell.self,
