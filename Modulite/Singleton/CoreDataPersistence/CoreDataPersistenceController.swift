@@ -75,8 +75,7 @@ struct CoreDataPersistenceController {
     private func resetAllDataIfNeeded(databaseVersion version: Int) {
         let hasResetKey = "hasResetDataAtVersion\(version)"
         guard !UserDefaults.standard.bool(forKey: hasResetKey) else { return }
-
-        let context = container.viewContext
+        
         container.performBackgroundTask { context in
             let entityNames = Array(container.managedObjectModel.entitiesByName.keys)
             for entityName in entityNames {
