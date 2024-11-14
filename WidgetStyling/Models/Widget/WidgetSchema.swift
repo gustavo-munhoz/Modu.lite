@@ -71,10 +71,12 @@ public class WidgetSchema: Cloneable {
     
     public required convenience init(_ prototype: WidgetSchema) {
         self.init(
+            id: prototype.id,
             type: prototype.type,
             style: prototype.widgetStyle,
             name: prototype.name,
-            modules: prototype.modules
+            modules: prototype.modules,
+            previewImage: prototype.previewImage
         )
     }
     
