@@ -14,8 +14,12 @@ public struct PreviewSet {
     let wallpaperPreview2: UIImage
     let wallpaperPreview3: UIImage
     
-    enum PreviewError: Swift.Error {
+    enum PreviewError: Swift.Error, LocalizedError {
         case imageNotFound
+        
+        var errorDescription: String? {
+            return "The requested preview image could not be found."
+        }
     }
     
     static func create(from data: PreviewSetData) throws -> PreviewSet {
