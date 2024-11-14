@@ -119,6 +119,8 @@ public class WidgetSchema: Cloneable {
 
 extension WidgetSchema {
     public func changeWidgetStyle(to newStyle: WidgetStyle) {
+        widgetStyle = newStyle
+        
         for i in 0..<modules.count {
             let module = modules[i]
             
