@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "mt3Demo.png",
+      "filename" : "modutouch3AuxBusiness.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "mt3Demo@2x.png",
+      "filename" : "modutouch3AuxBusiness@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "mt3Demo@3x.png",
+      "filename" : "modutouch3AuxBusiness@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }
