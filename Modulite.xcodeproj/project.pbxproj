@@ -237,6 +237,7 @@
 		B37284742C82995C00D9A1E7 /* UIFont+TraitedTextStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = B34F3E2A2C6E837F0041D7BD /* UIFont+TraitedTextStyle.swift */; };
 		B37284752C82996600D9A1E7 /* String+LocalizedKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = B34F3DF42C6701870041D7BD /* String+LocalizedKey.swift */; };
 		B37284762C82997700D9A1E7 /* ImageProcessingFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3CDD7062C77C59B00E558F8 /* ImageProcessingFactory.swift */; };
+		B384D9362CE585F000D17B93 /* retromacWhite.json in Resources */ = {isa = PBXBuildFile; fileRef = B384D9352CE585F000D17B93 /* retromacWhite.json */; };
 		B3850BB52C94D1F200F400C0 /* UICollectionViewCell+toggleIsHighlighted.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3850BB42C94D1F200F400C0 /* UICollectionViewCell+toggleIsHighlighted.swift */; };
 		B3850BBB2C963A0500F400C0 /* UIFontExtensionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3850BBA2C963A0500F400C0 /* UIFontExtensionTests.swift */; };
 		B3850BBD2C963BD500F400C0 /* UITextFieldExtensionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3850BBC2C963BD500F400C0 /* UITextFieldExtensionTests.swift */; };
@@ -727,6 +728,7 @@
 		B36927D22C66BBC10089F769 /* SceneDelegateRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegateRouter.swift; sourceTree = "<group>"; };
 		B36927D42C66BCE60089F769 /* HomeCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCoordinator.swift; sourceTree = "<group>"; };
 		B36927D92C66C2770089F769 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		B384D9352CE585F000D17B93 /* retromacWhite.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = retromacWhite.json; sourceTree = "<group>"; };
 		B3850BB42C94D1F200F400C0 /* UICollectionViewCell+toggleIsHighlighted.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionViewCell+toggleIsHighlighted.swift"; sourceTree = "<group>"; };
 		B3850BBA2C963A0500F400C0 /* UIFontExtensionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIFontExtensionTests.swift; sourceTree = "<group>"; };
 		B3850BBC2C963BD500F400C0 /* UITextFieldExtensionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextFieldExtensionTests.swift; sourceTree = "<group>"; };
@@ -2653,6 +2655,7 @@
 				B363B5812CE43ABC002912CC /* tapedeck.json */,
 				B39FB8722CDC441D00967E3A /* analog.json */,
 				B363B53E2CE2DB97002912CC /* retromacGreen.json */,
+				B384D9352CE585F000D17B93 /* retromacWhite.json */,
 			);
 			path = WidgetStyles;
 			sourceTree = "<group>";
@@ -3226,6 +3229,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B384D9362CE585F000D17B93 /* retromacWhite.json in Resources */,
 				B39FB8742CDC441D00967E3A /* analog.json in Resources */,
 				B363B53F2CE2DB97002912CC /* retromacGreen.json in Resources */,
 				B363B5822CE43ABC002912CC /* tapedeck.json in Resources */,
