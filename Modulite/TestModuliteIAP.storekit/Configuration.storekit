@@ -15,7 +15,7 @@
   ],
   "products" : [
     {
-      "displayPrice" : "0.99",
+      "displayPrice" : "0",
       "familyShareable" : false,
       "internalID" : "BA808B82",
       "localizations" : [
@@ -31,7 +31,7 @@
       "type" : "NonConsumable"
     },
     {
-      "displayPrice" : "0.99",
+      "displayPrice" : "0",
       "familyShareable" : false,
       "internalID" : "EC81E3B4",
       "localizations" : [
@@ -47,7 +47,7 @@
       "type" : "NonConsumable"
     },
     {
-      "displayPrice" : "0.99",
+      "displayPrice" : "0",
       "familyShareable" : false,
       "internalID" : "A4600E60",
       "localizations" : [
@@ -62,7 +62,7 @@
       "type" : "NonConsumable"
     },
     {
-      "displayPrice" : "0.99",
+      "displayPrice" : "0",
       "familyShareable" : false,
       "internalID" : "9C0C0A0D",
       "localizations" : [
@@ -74,6 +74,22 @@
       ],
       "productID" : "retromacWhite",
       "referenceName" : "Retromac White",
+      "type" : "NonConsumable"
+    },
+    {
+      "displayPrice" : "0.99",
+      "familyShareable" : false,
+      "internalID" : "ADE37E97",
+      "localizations" : [
+        {
+          "description" : "",
+          "displayName" : "",
+          "locale" : "en_US"
+        }
+      ],
+      "productID" : "modutouch3",
+      "promotionalImageID" : "8573FAF6",
+      "referenceName" : "Modutouch3",
       "type" : "NonConsumable"
     }
   ],
