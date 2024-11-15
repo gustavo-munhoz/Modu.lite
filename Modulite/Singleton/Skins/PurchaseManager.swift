@@ -13,19 +13,26 @@ final class PurchaseManager: NSObject, ObservableObject {
     
     @Published var purchasedSkins: Set<String> = []
     
+    private(set) var products: [Product] = []
+    
     private override init() {
         super.init()
         fetchPurchasedProducts()
         startObservingTransactionUpdates()
+        
+        Task { self.products = await fetchProducts() }
     }
     
     // MARK: - Produto e Compras
 
-    func fetchProducts() async throws -> [Product] {
-        let provider = try WidgetStyleProvider()
-        let productIDs = provider.getAllStyles().map { $0.identifier }
-        let products = try await Product.products(for: productIDs)
-        return products
+    func fetchProducts() async -> [Product] {
+        do {
+            let provider = try WidgetStyleProvider()
+            let productIDs = provider.getAllStyles().map { $0.identifier }
+            return try await Product.products(for: productIDs)
+        } catch {
+            return []
+        }
     }
 
     func fetchPurchasedProducts() async throws {
@@ -39,9 +46,8 @@ final class PurchaseManager: NSObject, ObservableObject {
         }
     }
     
-    func fetchProduct(productID: String) async throws -> Product? {
-        let products = try await fetchProducts()
-        return products.first(where: { $0.id == productID })
+    func getProduct(id: String) -> Product? {
+        return products.first(where: { $0.id == id })
     }
 
     func purchase(product: Product) async throws {

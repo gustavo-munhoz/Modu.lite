@@ -35,21 +35,27 @@ extension WidgetSetupViewController: UICollectionViewDelegate {
         
         Task {
             do {
-                let products = try await purchaseManager.fetchProducts()
-                if let product = products.first(where: { $0.id == productID }) {
-                    try await purchaseManager.purchase(product: product)
-                    
-                    if let index = viewModel.widgetStyles.firstIndex(where: { $0.identifier == style.identifier }) {
-                        viewModel.widgetStyles[index].updateIsPurchased(to: true)
-                        print("Widget \(productID) purchase successful")
-                        selectStyle(viewModel.widgetStyles[index])
-                    }
-                    
-                    setupView.stylesCollectionView.reloadData()
-                    
-                } else {
-                    print("Produto não encontrado")
+                guard let product = purchaseManager.getProduct(id: productID) else {
+                    print("Product not found in purchase manager.")
+                    return
                 }
+                
+                try await purchaseManager.purchase(product: product)
+                
+                guard let style = viewModel.widgetStyles.first(
+                    where: { $0.identifier == style.identifier }
+                ) else { return }
+                
+                style.updateIsPurchased(to: true)
+                print("Widget Style \(productID) purchased successfully.")
+                selectStyle(style)
+                delegate?.widgetSetupViewControllerDidSelectWidgetStyle(
+                    self,
+                    style: style
+                )
+                
+                setupView.stylesCollectionView.reloadData()
+                
             } catch PurchaseError.failedVerification {
                 print("Falha na verificação da compra para o produto \(productID).")
                 
