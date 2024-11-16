@@ -47,7 +47,6 @@
 		AFBBC50F2C7E459A00A9B256 /* ModuliteWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = AFBBC5022C7E459900A9B256 /* ModuliteWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		AFDC1A512CB46005008A816D /* ShieldConfigurationBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFDC1A502CB46005008A816D /* ShieldConfigurationBuilder.swift */; };
 		AFDC1A522CB4600B008A816D /* ShieldConfigurationBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFDC1A502CB46005008A816D /* ShieldConfigurationBuilder.swift */; };
-		AFE15AB32CD97EFC000A255B /* PurchaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFE15AB22CD97EFC000A255B /* PurchaseManager.swift */; };
 		AFE15AB42CD97EFC000A255B /* PurchaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFE15AB22CD97EFC000A255B /* PurchaseManager.swift */; };
 		AFE15ABB2CD9A194000A255B /* MultiLineGradientLabelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFE15ABA2CD9A194000A255B /* MultiLineGradientLabelView.swift */; };
 		AFE5D5022CADD4C700503572 /* FamilyControlsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFE5D5012CADD4C700503572 /* FamilyControlsManager.swift */; };
@@ -239,6 +238,7 @@
 		B37284762C82997700D9A1E7 /* ImageProcessingFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3CDD7062C77C59B00E558F8 /* ImageProcessingFactory.swift */; };
 		B384D9362CE585F000D17B93 /* retromacWhite.json in Resources */ = {isa = PBXBuildFile; fileRef = B384D9352CE585F000D17B93 /* retromacWhite.json */; };
 		B384D9382CE6787B00D17B93 /* modutouch3.json in Resources */ = {isa = PBXBuildFile; fileRef = B384D9372CE6787B00D17B93 /* modutouch3.json */; };
+		B384D9422CE7A64700D17B93 /* WidgetStylingProvider+PurchasedSkins.swift in Sources */ = {isa = PBXBuildFile; fileRef = B384D9402CE7A64700D17B93 /* WidgetStylingProvider+PurchasedSkins.swift */; };
 		B3850BB52C94D1F200F400C0 /* UICollectionViewCell+toggleIsHighlighted.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3850BB42C94D1F200F400C0 /* UICollectionViewCell+toggleIsHighlighted.swift */; };
 		B3850BBB2C963A0500F400C0 /* UIFontExtensionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3850BBA2C963A0500F400C0 /* UIFontExtensionTests.swift */; };
 		B3850BBD2C963BD500F400C0 /* UITextFieldExtensionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3850BBC2C963BD500F400C0 /* UITextFieldExtensionTests.swift */; };
@@ -731,6 +731,7 @@
 		B36927D92C66C2770089F769 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		B384D9352CE585F000D17B93 /* retromacWhite.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = retromacWhite.json; sourceTree = "<group>"; };
 		B384D9372CE6787B00D17B93 /* modutouch3.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = modutouch3.json; sourceTree = "<group>"; };
+		B384D9402CE7A64700D17B93 /* WidgetStylingProvider+PurchasedSkins.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WidgetStylingProvider+PurchasedSkins.swift"; sourceTree = "<group>"; };
 		B3850BB42C94D1F200F400C0 /* UICollectionViewCell+toggleIsHighlighted.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionViewCell+toggleIsHighlighted.swift"; sourceTree = "<group>"; };
 		B3850BBA2C963A0500F400C0 /* UIFontExtensionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIFontExtensionTests.swift; sourceTree = "<group>"; };
 		B3850BBC2C963BD500F400C0 /* UITextFieldExtensionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextFieldExtensionTests.swift; sourceTree = "<group>"; };
@@ -2686,6 +2687,7 @@
 				B3C6DD782CDE9B28002AEAF7 /* AppData+Extensions.swift */,
 				B3C6DD792CDE9B28002AEAF7 /* WidgetModule+Extensions.swift */,
 				B3C6DD7A2CDE9B28002AEAF7 /* WidgetSchema+Extensions.swift */,
+				B384D9402CE7A64700D17B93 /* WidgetStylingProvider+PurchasedSkins.swift */,
 			);
 			path = WidgetStylingExtensions;
 			sourceTree = "<group>";
@@ -3324,7 +3326,6 @@
 				B363B57D2CE3E0E8002912CC /* WidgetModule+Extensions.swift in Sources */,
 				B32B60A62C838ED9007DDCE3 /* UILabel+AppNameConfiguration.swift in Sources */,
 				B3987E102CA38A9C00896414 /* MainWidgetView.swift in Sources */,
-				AFE15AB32CD97EFC000A255B /* PurchaseManager.swift in Sources */,
 				B37284752C82996600D9A1E7 /* String+LocalizedKey.swift in Sources */,
 				B3987E212CA4801600896414 /* UIColorValueTransformer.swift in Sources */,
 				B3987E202CA3A3BC00896414 /* MainWidgetModuleButton.swift in Sources */,
@@ -3547,6 +3548,7 @@
 				B30201752CC8C9D800301646 /* AsteriskText.swift in Sources */,
 				B3D1B7D12CB7024700DFC4F5 /* FAQSummaryStackView.swift in Sources */,
 				B32F3BFE2CD70A0F000F4825 /* SpaceGrotesk.swift in Sources */,
+				B384D9422CE7A64700D17B93 /* WidgetStylingProvider+PurchasedSkins.swift in Sources */,
 				B3EB15BB2C7E5DC5003B1960 /* UILabel+AppNameConfiguration.swift in Sources */,
 				B34C63072CD2D835004E014B /* DragModuleTip.swift in Sources */,
 				B34F3E2B2C6E83800041D7BD /* UIFont+TraitedTextStyle.swift in Sources */,
