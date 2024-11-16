@@ -24,9 +24,9 @@ public class WidgetStyleProvider {
     // MARK: - Methods
     public func setPurchasedStyles(_ styleIds: Set<String>) {
         styles = styles.map {
-            if styleIds.contains($0.identifier) {
-                $0.updateIsPurchased(to: true)
-            }
+            $0.updateIsPurchased(
+                to: styleIds.contains($0.identifier)
+            )
             return $0
         }
     }
