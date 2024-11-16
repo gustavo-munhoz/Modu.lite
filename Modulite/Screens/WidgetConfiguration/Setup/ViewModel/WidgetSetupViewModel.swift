@@ -14,7 +14,9 @@ class WidgetSetupViewModel: NSObject {
     
     @Published private(set) var widgetStyles: [WidgetStyle] = {
         do {
-            let provider = try WidgetStyleProvider()
+            let provider = try WidgetStyleProvider(
+                purchasedSkins: PurchaseManager.shared.purchasedSkins
+            )
             return provider.getAllStyles()
             
         } catch {

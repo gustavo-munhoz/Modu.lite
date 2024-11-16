@@ -22,6 +22,15 @@ public class WidgetStyleProvider {
     }
     
     // MARK: - Methods
+    public func setPurchasedStyles(_ styleIds: Set<String>) {
+        styles = styles.map {
+            if styleIds.contains($0.identifier) {
+                $0.updateIsPurchased(to: true)
+            }
+            return $0
+        }
+    }
+    
     private func loadStyles() throws {
         let bundle = Bundle(for: Self.self)
         

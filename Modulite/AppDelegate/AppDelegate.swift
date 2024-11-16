@@ -18,6 +18,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         CoreDataPersistenceController.shared.executeInitialSetup()
         
+        PurchaseManager.shared.initialize()
+        
         try? Tips.configure([.displayFrequency(.immediate)])
         
         return true

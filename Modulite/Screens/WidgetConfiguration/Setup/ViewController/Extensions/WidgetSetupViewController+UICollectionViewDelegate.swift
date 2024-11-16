@@ -35,7 +35,7 @@ extension WidgetSetupViewController: UICollectionViewDelegate {
         
         Task {
             do {
-                guard let product = purchaseManager.getProduct(id: productID) else {
+                guard let product = purchaseManager.getProduct(withID: productID) else {
                     print("Product not found in purchase manager.")
                     return
                 }
