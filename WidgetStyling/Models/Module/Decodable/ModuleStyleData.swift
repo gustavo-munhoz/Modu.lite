@@ -14,4 +14,5 @@ struct ModuleStyleData: Decodable {
     let defaultColorName: String
     let imageBlendMode: String?
     let textConfiguration: ModuleTextConfigurationData
+    let forcedUserInterfaceStyle: String?
 }

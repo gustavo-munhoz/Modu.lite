@@ -14,6 +14,9 @@ public protocol ModuleStyle: AnyObject {
     var defaultColor: UIColor { get }
     var imageBlendMode: CGBlendMode? { get }
     var textConfiguration: ModuleTextConfiguration { get }
+    var forcedUserInterfaceStyle: UIUserInterfaceStyle? { get }
     
     func blendedImage(with color: UIColor) throws -> UIImage
+    func imageWithForcedTraitIfNeeded() -> UIImage
+    func getFinalModuleImage(color: UIColor) -> UIImage
 }
