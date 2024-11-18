@@ -19,11 +19,7 @@ public class WidgetModule {
     var isEmpty: Bool { appName == nil }
     
     public var blendedImage: UIImage {
-        do {
-            return try style.blendedImage(with: color)
-        } catch {
-            return style.image
-        }
+        style.getFinalModuleImage(color: color)
     }
     
     // MARK: - Initializers
