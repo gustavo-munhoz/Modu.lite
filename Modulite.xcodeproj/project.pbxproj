@@ -239,6 +239,8 @@
 		B384D9362CE585F000D17B93 /* retromacWhite.json in Resources */ = {isa = PBXBuildFile; fileRef = B384D9352CE585F000D17B93 /* retromacWhite.json */; };
 		B384D9382CE6787B00D17B93 /* modutouch3.json in Resources */ = {isa = PBXBuildFile; fileRef = B384D9372CE6787B00D17B93 /* modutouch3.json */; };
 		B384D9422CE7A64700D17B93 /* WidgetStylingProvider+PurchasedSkins.swift in Sources */ = {isa = PBXBuildFile; fileRef = B384D9402CE7A64700D17B93 /* WidgetStylingProvider+PurchasedSkins.swift */; };
+		B384D9442CEBB1FD00D17B93 /* UIUserInterfaceStyle+fromString.swift in Sources */ = {isa = PBXBuildFile; fileRef = B384D9432CEBB1FD00D17B93 /* UIUserInterfaceStyle+fromString.swift */; };
+		B384D9462CEBB65200D17B93 /* BaseModuleStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = B384D9452CEBB65200D17B93 /* BaseModuleStyle.swift */; };
 		B3850BB52C94D1F200F400C0 /* UICollectionViewCell+toggleIsHighlighted.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3850BB42C94D1F200F400C0 /* UICollectionViewCell+toggleIsHighlighted.swift */; };
 		B3850BBB2C963A0500F400C0 /* UIFontExtensionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3850BBA2C963A0500F400C0 /* UIFontExtensionTests.swift */; };
 		B3850BBD2C963BD500F400C0 /* UITextFieldExtensionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3850BBC2C963BD500F400C0 /* UITextFieldExtensionTests.swift */; };
@@ -732,6 +734,8 @@
 		B384D9352CE585F000D17B93 /* retromacWhite.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = retromacWhite.json; sourceTree = "<group>"; };
 		B384D9372CE6787B00D17B93 /* modutouch3.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = modutouch3.json; sourceTree = "<group>"; };
 		B384D9402CE7A64700D17B93 /* WidgetStylingProvider+PurchasedSkins.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WidgetStylingProvider+PurchasedSkins.swift"; sourceTree = "<group>"; };
+		B384D9432CEBB1FD00D17B93 /* UIUserInterfaceStyle+fromString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIUserInterfaceStyle+fromString.swift"; sourceTree = "<group>"; };
+		B384D9452CEBB65200D17B93 /* BaseModuleStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseModuleStyle.swift; sourceTree = "<group>"; };
 		B3850BB42C94D1F200F400C0 /* UICollectionViewCell+toggleIsHighlighted.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionViewCell+toggleIsHighlighted.swift"; sourceTree = "<group>"; };
 		B3850BBA2C963A0500F400C0 /* UIFontExtensionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIFontExtensionTests.swift; sourceTree = "<group>"; };
 		B3850BBC2C963BD500F400C0 /* UITextFieldExtensionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextFieldExtensionTests.swift; sourceTree = "<group>"; };
@@ -2578,6 +2582,7 @@
 				B39FB8072CDAB95B00967E3A /* MainModuleStyle.swift */,
 				B39FB8082CDAB95B00967E3A /* ModuleStyle.swift */,
 				B39FB8152CDAB9DC00967E3A /* ModuleTextConfiguration.swift */,
+				B384D9452CEBB65200D17B93 /* BaseModuleStyle.swift */,
 			);
 			path = Module;
 			sourceTree = "<group>";
@@ -2591,6 +2596,7 @@
 				B39FB85C2CDC26E900967E3A /* NSTextAlignment+FromString.swift */,
 				B39FB85E2CDC2FC600967E3A /* UIFont.Weight+FromString.swift */,
 				B39FB8612CDC319A00967E3A /* UIFont.TextStyle+FromString.swift */,
+				B384D9432CEBB1FD00D17B93 /* UIUserInterfaceStyle+fromString.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -3674,6 +3680,8 @@
 				B39FB84D2CDC045100967E3A /* WidgetStyleProvider.swift in Sources */,
 				B39FB83D2CDBECF200967E3A /* WallpaperSetData.swift in Sources */,
 				B39FB8602CDC310400967E3A /* UIFont+TraitedTextStyle.swift in Sources */,
+				B384D9462CEBB65200D17B93 /* BaseModuleStyle.swift in Sources */,
+				B384D9442CEBB1FD00D17B93 /* UIUserInterfaceStyle+fromString.swift in Sources */,
 				B39FB8332CDBEC9A00967E3A /* WallpaperSet.swift in Sources */,
 				B39FB8392CDBECD500967E3A /* StyleBackgroundConfigurationData.swift in Sources */,
 				B39FB8102CDAB98300967E3A /* StyleModuleConfiguration.swift in Sources */,
