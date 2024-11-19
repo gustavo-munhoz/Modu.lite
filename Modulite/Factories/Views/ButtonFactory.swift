@@ -178,6 +178,49 @@ enum ButtonFactory {
         
         return button
     }
+    
+    static func textButton(
+        text: String,
+        textStyle: UIFont.TextStyle = .body,
+        color: UIColor = .white
+    ) -> UIButton {
+        var config = UIButton.Configuration.plain()
+        
+        let attributedText = NSMutableAttributedString(
+            string: text,
+            attributes: [
+                .font: UIFont(textStyle: textStyle, weight: .bold, italic: true),
+                .foregroundColor: color
+            ]
+        )
+        
+        attributedText.append(NSAttributedString(string: " "))
+        attributedText.addAttributes([
+            .underlineStyle: NSUnderlineStyle.single.rawValue,
+            .underlineColor: color
+        ], range: .init(location: 0, length: attributedText.length))
+        
+        config.attributedTitle = AttributedString(attributedText)
+        
+        config.baseForegroundColor = color
+        
+        let button = UIButton(configuration: config)
+        
+        button.configurationUpdateHandler = { button in
+            UIView.animate(withDuration: 0.1) {
+                switch button.state {
+                case .highlighted:
+                    button.alpha = 0.6
+                    button.transform = .init(scaleX: 0.97, y: 0.97)
+                default:
+                    button.alpha = 1
+                    button.transform = .identity
+                }
+            }
+        }
+        
+        return button
+    }
 }
 
 extension ButtonFactory {
