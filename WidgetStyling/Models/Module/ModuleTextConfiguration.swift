@@ -21,7 +21,7 @@ public class ModuleTextConfiguration {
     public var shouldRemoveSpaces: Bool = false
     public var prefix: String?
     public var suffix: String?
-    public var bottomOffset: CGFloat?
+    public var bottomRelativePosition: CGFloat?
 
     // MARK: - Initializers
     static func create(from data: ModuleTextConfigurationData) -> ModuleTextConfiguration {
@@ -65,7 +65,21 @@ public class ModuleTextConfiguration {
         }
         
         if let shadowColorName = data.shadowColorName {
-            configuration.shadowColor = UIColor.fromWidgetStyling(named: shadowColorName)
+            configuration.shadowColor = UIColor.fromWidgetStyling(
+                named: shadowColorName
+            )?.withAlphaComponent(0.25)
+        }
+        
+        if let shadowOffsetWidth = data.shadowOffsetWidth,
+           let shadowOffsetHeight = data.shadowOffsetHeight {
+            configuration.shadowOffset = CGSize(
+                width: shadowOffsetWidth,
+                height: shadowOffsetHeight
+            )
+        }
+        
+        if let shadowBlurRadius = data.shadowBlurRadius {
+            configuration.shadowBlurRadius = shadowBlurRadius
         }
     }
 
@@ -93,8 +107,8 @@ public class ModuleTextConfiguration {
             configuration.textCase = String.TextCase(from: caseString)
         }
         
-        if let bottomOffset = data.bottomOffset {
-            configuration.bottomOffset = bottomOffset
+        if let bottomRelativePosition = data.bottomRelativePosition {
+            configuration.bottomRelativePosition = bottomRelativePosition
         }
     }
     
