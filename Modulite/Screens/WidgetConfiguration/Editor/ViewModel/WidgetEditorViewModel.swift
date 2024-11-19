@@ -153,9 +153,24 @@ class WidgetEditorViewModel: NSObject {
     func saveWidget(from collectionView: UICollectionView) -> WidgetSchema? {
         do {
             let widgetSchema = try builder.build()
+            
+            let widgetImage = collectionView.asImage()
+            
+            var moduleImages: [Int: UIImage] = [:]
+            for cell in collectionView.visibleCells {
+                guard let moduleCell = cell as? WidgetModuleCell else { continue }
+                guard let indexPath = collectionView.indexPath(for: moduleCell) else { continue }
+                
+                let module = widgetSchema.modules[indexPath.item]
+                let moduleImage = moduleCell.asImage()
+                
+                moduleImages[module.position] = moduleImage
+            }
+            
             let persistedSchema = CoreDataPersistenceController.shared.registerOrUpdateWidget(
                 widgetSchema,
-                widgetImage: collectionView.asImage()
+                widgetImage: widgetImage,
+                moduleImages: moduleImages
             )
             
             widgetSchema.previewImage = FileManagerImagePersistenceController.shared.getWidgetImage(

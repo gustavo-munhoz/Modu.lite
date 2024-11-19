@@ -21,6 +21,7 @@ extension PersistentWidgetModule {
 extension PersistentWidgetModule {
     static func from(
         module: WidgetModule,
+        imageURL: URL,
         schema: WidgetSchema,
         using managedObjectContext: NSManagedObjectContext
     ) -> PersistentWidgetModule {
@@ -31,24 +32,7 @@ extension PersistentWidgetModule {
         persistedModule.urlScheme = module.urlScheme
         persistedModule.styleIdentifier = module.style.identifier
         persistedModule.selectedColor = module.color
-        
-        let strategy: WidgetTypeStrategy = if schema.type == .main {
-            MainWidgetStrategy()
-        } else {
-            AuxWidgetStrategy()
-        }
-        
-        let moduleImage = module.createCompleteImage(
-            for: strategy
-        )
-        
-        let persistedModuleImageURL = FileManagerImagePersistenceController.shared.saveModuleImage(
-            image: moduleImage,
-            for: schema.id,
-            moduleIndex: module.position
-        )
-        
-        persistedModule.imageURL = persistedModuleImageURL
+        persistedModule.imageURL = imageURL
         
         return persistedModule
     }

@@ -26,7 +26,7 @@
                     "textColorName": "squidInk",
                     "textAlignment": "center",
                     "textCase": "capitalized",
-                    "bottomOffset": 19
+                    "bottomRelativePosition": 0.9
                 },
                 "forcedUserInterfaceStyle": "light"
             },
@@ -41,7 +41,7 @@
                     "textColorName": "squidInk",
                     "textAlignment": "center",
                     "textCase": "capitalized",
-                    "bottomOffset": 19
+                    "bottomRelativePosition": 0.9
                 },
                 "forcedUserInterfaceStyle": "light"
             },
@@ -56,7 +56,7 @@
                     "textColorName": "squidInk",
                     "textAlignment": "center",
                     "textCase": "capitalized",
-                    "bottomOffset": 19
+                    "bottomRelativePosition": 0.9
                 },
                 "forcedUserInterfaceStyle": "light"
             },
@@ -71,7 +71,7 @@
                     "textColorName": "squidInk",
                     "textAlignment": "center",
                     "textCase": "capitalized",
-                    "bottomOffset": 19
+                    "bottomRelativePosition": 0.9
                 },
                 "forcedUserInterfaceStyle": "light"
             },
@@ -86,7 +86,7 @@
                     "textColorName": "squidInk",
                     "textAlignment": "center",
                     "textCase": "capitalized",
-                    "bottomOffset": 19
+                    "bottomRelativePosition": 0.9
                 },
                 "forcedUserInterfaceStyle": "light"
             },
@@ -101,7 +101,7 @@
                     "textColorName": "squidInk",
                     "textAlignment": "center",
                     "textCase": "capitalized",
-                    "bottomOffset": 19
+                    "bottomRelativePosition": 0.9
                 },
                 "forcedUserInterfaceStyle": "light"
             },
@@ -116,7 +116,7 @@
                     "textColorName": "squidInk",
                     "textAlignment": "center",
                     "textCase": "capitalized",
-                    "bottomOffset": 19
+                    "bottomRelativePosition": 0.9
                 },
                 "forcedUserInterfaceStyle": "light"
             },
@@ -131,7 +131,7 @@
                     "textColorName": "squidInk",
                     "textAlignment": "center",
                     "textCase": "capitalized",
-                    "bottomOffset": 19
+                    "bottomRelativePosition": 0.9
                 },
                 "forcedUserInterfaceStyle": "light"
             },
@@ -146,7 +146,7 @@
                     "textColorName": "squidInk",
                     "textAlignment": "center",
                     "textCase": "capitalized",
-                    "bottomOffset": 19
+                    "bottomRelativePosition": 0.9
                 },
                 "forcedUserInterfaceStyle": "light"
             },
@@ -161,7 +161,7 @@
                     "textColorName": "squidInk",
                     "textAlignment": "center",
                     "textCase": "capitalized",
-                    "bottomOffset": 19
+                    "bottomRelativePosition": 0.9
                 },
                 "forcedUserInterfaceStyle": "light"
             },
@@ -176,7 +176,7 @@
                     "textColorName": "squidInk",
                     "textAlignment": "center",
                     "textCase": "capitalized",
-                    "bottomOffset": 19
+                    "bottomRelativePosition": 0.9
                 },
                 "forcedUserInterfaceStyle": "light"
             },
@@ -191,7 +191,7 @@
                     "textColorName": "squidInk",
                     "textAlignment": "center",
                     "textCase": "capitalized",
-                    "bottomOffset": 19
+                    "bottomRelativePosition": 0.9
                 },
                 "forcedUserInterfaceStyle": "light"
             },
@@ -206,7 +206,7 @@
                     "textColorName": "squidInk",
                     "textAlignment": "center",
                     "textCase": "capitalized",
-                    "bottomOffset": 19
+                    "bottomRelativePosition": 0.9
                 },
                 "forcedUserInterfaceStyle": "light"
             },
@@ -221,7 +221,7 @@
                     "textColorName": "squidInk",
                     "textAlignment": "center",
                     "textCase": "capitalized",
-                    "bottomOffset": 19
+                    "bottomRelativePosition": 0.9
                 },
                 "forcedUserInterfaceStyle": "light"
             },
@@ -236,7 +236,7 @@
                     "textColorName": "squidInk",
                     "textAlignment": "center",
                     "textCase": "capitalized",
-                    "bottomOffset": 19
+                    "bottomRelativePosition": 0.9
                 },
                 "forcedUserInterfaceStyle": "light"
             },
@@ -251,7 +251,7 @@
                     "textColorName": "squidInk",
                     "textAlignment": "center",
                     "textCase": "capitalized",
-                    "bottomOffset": 19
+                    "bottomRelativePosition": 0.9
                 },
                 "forcedUserInterfaceStyle": "light"
             },
@@ -266,7 +266,7 @@
                     "textColorName": "squidInk",
                     "textAlignment": "center",
                     "textCase": "capitalized",
-                    "bottomOffset": 19
+                    "bottomRelativePosition": 0.9
                 },
                 "forcedUserInterfaceStyle": "light"
             },
@@ -281,7 +281,7 @@
                     "textColorName": "squidInk",
                     "textAlignment": "center",
                     "textCase": "capitalized",
-                    "bottomOffset": 19
+                    "bottomRelativePosition": 0.9
                 },
                 "forcedUserInterfaceStyle": "light"
             },
@@ -296,7 +296,7 @@
                     "textColorName": "squidInk",
                     "textAlignment": "center",
                     "textCase": "capitalized",
-                    "bottomOffset": 19
+                    "bottomRelativePosition": 0.9
                 },
                 "forcedUserInterfaceStyle": "light"
             },
@@ -311,7 +311,7 @@
                     "textColorName": "squidInk",
                     "textAlignment": "center",
                     "textCase": "capitalized",
-                    "bottomOffset": 19
+                    "bottomRelativePosition": 0.9
                 },
                 "forcedUserInterfaceStyle": "light"
             },
@@ -326,7 +326,7 @@
                     "textColorName": "squidInk",
                     "textAlignment": "center",
                     "textCase": "capitalized",
-                    "bottomOffset": 19
+                    "bottomRelativePosition": 0.9
                 },
                 "forcedUserInterfaceStyle": "light"
             },
@@ -341,7 +341,7 @@
                     "textColorName": "squidInk",
                     "textAlignment": "center",
                     "textCase": "capitalized",
-                    "bottomOffset": 19
+                    "bottomRelativePosition": 0.9
                 },
                 "forcedUserInterfaceStyle": "light"
             },
@@ -356,7 +356,7 @@
                     "textColorName": "squidInk",
                     "textAlignment": "center",
                     "textCase": "capitalized",
-                    "bottomOffset": 19
+                    "bottomRelativePosition": 0.9
                 },
                 "forcedUserInterfaceStyle": "light"
             },
@@ -371,7 +371,7 @@
                     "textColorName": "squidInk",
                     "textAlignment": "center",
                     "textCase": "capitalized",
-                    "bottomOffset": 19
+                    "bottomRelativePosition": 0.9
                 },
                 "forcedUserInterfaceStyle": "light"
             },
@@ -386,7 +386,7 @@
                     "textColorName": "squidInk",
                     "textAlignment": "center",
                     "textCase": "capitalized",
-                    "bottomOffset": 19
+                    "bottomRelativePosition": 0.9
                 },
                 "forcedUserInterfaceStyle": "light"
             },
@@ -401,7 +401,7 @@
                     "textColorName": "squidInk",
                     "textAlignment": "center",
                     "textCase": "capitalized",
-                    "bottomOffset": 19
+                    "bottomRelativePosition": 0.9
                 },
                 "forcedUserInterfaceStyle": "light"
             },
@@ -416,7 +416,7 @@
                     "textColorName": "squidInk",
                     "textAlignment": "center",
                     "textCase": "capitalized",
-                    "bottomOffset": 19
+                    "bottomRelativePosition": 0.9
                 },
                 "forcedUserInterfaceStyle": "light"
             }
@@ -432,7 +432,7 @@
                 "textColorName": "squidInk",
                 "textAlignment": "center",
                 "textCase": "capitalized",
-                "bottomOffset": 19
+                "bottomRelativePosition": 0.9
             },
             "forcedUserInterfaceStyle": "light"
         },
@@ -448,7 +448,7 @@
                     "textColorName": "squidInk",
                     "textAlignment": "center",
                     "textCase": "capitalized",
-                    "bottomOffset": 12
+                    "bottomRelativePosition": 0.92
                 },
                 "forcedUserInterfaceStyle": "light"
             },
@@ -463,7 +463,7 @@
                     "textColorName": "squidInk",
                     "textAlignment": "center",
                     "textCase": "capitalized",
-                    "bottomOffset": 12
+                    "bottomRelativePosition": 0.92
                 },
                 "forcedUserInterfaceStyle": "light"
             },
@@ -478,7 +478,7 @@
                     "textColorName": "squidInk",
                     "textAlignment": "center",
                     "textCase": "capitalized",
-                    "bottomOffset": 12
+                    "bottomRelativePosition": 0.92
                 },
                 "forcedUserInterfaceStyle": "light"
             },
@@ -493,7 +493,7 @@
                     "textColorName": "squidInk",
                     "textAlignment": "center",
                     "textCase": "capitalized",
-                    "bottomOffset": 12
+                    "bottomRelativePosition": 0.92
                 },
                 "forcedUserInterfaceStyle": "light"
             },
@@ -508,7 +508,7 @@
                     "textColorName": "squidInk",
                     "textAlignment": "center",
                     "textCase": "capitalized",
-                    "bottomOffset": 12
+                    "bottomRelativePosition": 0.92
                 },
                 "forcedUserInterfaceStyle": "light"
             },
@@ -523,7 +523,7 @@
                     "textColorName": "squidInk",
                     "textAlignment": "center",
                     "textCase": "capitalized",
-                    "bottomOffset": 12
+                    "bottomRelativePosition": 0.92
                 },
                 "forcedUserInterfaceStyle": "light"
             },
@@ -538,7 +538,7 @@
                     "textColorName": "squidInk",
                     "textAlignment": "center",
                     "textCase": "capitalized",
-                    "bottomOffset": 12
+                    "bottomRelativePosition": 0.92
                 },
                 "forcedUserInterfaceStyle": "light"
             },
@@ -553,7 +553,7 @@
                     "textColorName": "squidInk",
                     "textAlignment": "center",
                     "textCase": "capitalized",
-                    "bottomOffset": 12
+                    "bottomRelativePosition": 0.92
                 },
                 "forcedUserInterfaceStyle": "light"
             },
@@ -568,7 +568,7 @@
                     "textColorName": "squidInk",
                     "textAlignment": "center",
                     "textCase": "capitalized",
-                    "bottomOffset": 12
+                    "bottomRelativePosition": 0.92
                 },
                 "forcedUserInterfaceStyle": "light"
             },
@@ -583,7 +583,7 @@
                     "textColorName": "squidInk",
                     "textAlignment": "center",
                     "textCase": "capitalized",
-                    "bottomOffset": 12
+                    "bottomRelativePosition": 0.92
                 },
                 "forcedUserInterfaceStyle": "light"
             },
@@ -598,7 +598,7 @@
                     "textColorName": "squidInk",
                     "textAlignment": "center",
                     "textCase": "capitalized",
-                    "bottomOffset": 12
+                    "bottomRelativePosition": 0.92
                 },
                 "forcedUserInterfaceStyle": "light"
             },
@@ -613,7 +613,7 @@
                     "textColorName": "squidInk",
                     "textAlignment": "center",
                     "textCase": "capitalized",
-                    "bottomOffset": 12
+                    "bottomRelativePosition": 0.92
                 },
                 "forcedUserInterfaceStyle": "light"
             },
@@ -628,7 +628,7 @@
                     "textColorName": "squidInk",
                     "textAlignment": "center",
                     "textCase": "capitalized",
-                    "bottomOffset": 12
+                    "bottomRelativePosition": 0.92
                 },
                 "forcedUserInterfaceStyle": "light"
             },
@@ -643,7 +643,7 @@
                     "textColorName": "squidInk",
                     "textAlignment": "center",
                     "textCase": "capitalized",
-                    "bottomOffset": 12
+                    "bottomRelativePosition": 0.92
                 },
                 "forcedUserInterfaceStyle": "light"
             },
@@ -658,7 +658,7 @@
                     "textColorName": "squidInk",
                     "textAlignment": "center",
                     "textCase": "capitalized",
-                    "bottomOffset": 12
+                    "bottomRelativePosition": 0.92
                 },
                 "forcedUserInterfaceStyle": "light"
             },
@@ -673,7 +673,7 @@
                     "textColorName": "squidInk",
                     "textAlignment": "center",
                     "textCase": "capitalized",
-                    "bottomOffset": 12
+                    "bottomRelativePosition": 0.92
                 },
                 "forcedUserInterfaceStyle": "light"
             },
@@ -688,7 +688,7 @@
                     "textColorName": "squidInk",
                     "textAlignment": "center",
                     "textCase": "capitalized",
-                    "bottomOffset": 12
+                    "bottomRelativePosition": 0.92
                 },
                 "forcedUserInterfaceStyle": "light"
             },
@@ -703,7 +703,7 @@
                     "textColorName": "squidInk",
                     "textAlignment": "center",
                     "textCase": "capitalized",
-                    "bottomOffset": 12
+                    "bottomRelativePosition": 0.92
                 },
                 "forcedUserInterfaceStyle": "light"
             },
@@ -718,7 +718,7 @@
                     "textColorName": "squidInk",
                     "textAlignment": "center",
                     "textCase": "capitalized",
-                    "bottomOffset": 12
+                    "bottomRelativePosition": 0.92
                 },
                 "forcedUserInterfaceStyle": "light"
             },
@@ -733,7 +733,7 @@
                     "textColorName": "squidInk",
                     "textAlignment": "center",
                     "textCase": "capitalized",
-                    "bottomOffset": 12
+                    "bottomRelativePosition": 0.92
                 },
                 "forcedUserInterfaceStyle": "light"
             },
@@ -748,7 +748,7 @@
                     "textColorName": "squidInk",
                     "textAlignment": "center",
                     "textCase": "capitalized",
-                    "bottomOffset": 12
+                    "bottomRelativePosition": 0.92
                 },
                 "forcedUserInterfaceStyle": "light"
             },
@@ -763,7 +763,7 @@
                     "textColorName": "squidInk",
                     "textAlignment": "center",
                     "textCase": "capitalized",
-                    "bottomOffset": 12
+                    "bottomRelativePosition": 0.92
                 },
                 "forcedUserInterfaceStyle": "light"
             },
@@ -778,7 +778,7 @@
                     "textColorName": "squidInk",
                     "textAlignment": "center",
                     "textCase": "capitalized",
-                    "bottomOffset": 12
+                    "bottomRelativePosition": 0.92
                 },
                 "forcedUserInterfaceStyle": "light"
             },
@@ -793,7 +793,7 @@
                     "textColorName": "squidInk",
                     "textAlignment": "center",
                     "textCase": "capitalized",
-                    "bottomOffset": 12
+                    "bottomRelativePosition": 0.92
                 },
                 "forcedUserInterfaceStyle": "light"
             },
@@ -808,7 +808,7 @@
                     "textColorName": "squidInk",
                     "textAlignment": "center",
                     "textCase": "capitalized",
-                    "bottomOffset": 12
+                    "bottomRelativePosition": 0.92
                 },
                 "forcedUserInterfaceStyle": "light"
             },
@@ -823,7 +823,7 @@
                     "textColorName": "squidInk",
                     "textAlignment": "center",
                     "textCase": "capitalized",
-                    "bottomOffset": 12
+                    "bottomRelativePosition": 0.92
                 },
                 "forcedUserInterfaceStyle": "light"
             },
@@ -838,7 +838,7 @@
                     "textColorName": "squidInk",
                     "textAlignment": "center",
                     "textCase": "capitalized",
-                    "bottomOffset": 12
+                    "bottomRelativePosition": 0.92
                 },
                 "forcedUserInterfaceStyle": "light"
             }
@@ -854,7 +854,7 @@
                 "textColorName": "squidInk",
                 "textAlignment": "center",
                 "textCase": "capitalized",
-                "bottomOffset": 12
+                "bottomRelativePosition": 0.92
             },
             "forcedUserInterfaceStyle": "light"
         }

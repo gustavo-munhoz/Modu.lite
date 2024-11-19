@@ -26,9 +26,11 @@
                     "fontWeight": "medium",
                     "textColorName": "squidInk",
                     "shadowColorName": "squidInk",
+                    "shadowOffsetHeight": 4,
+                    "shadowOffsetWidth": 0,
                     "shadowBlurRadius": 4,
                     "textCase": "capitalized",
-                    "bottomOffset": 25
+                    "bottomRelativePosition": 0.9
                 }
             },
             {
@@ -42,9 +44,11 @@
                     "fontWeight": "medium",
                     "textColorName": "squidInk",
                     "shadowColorName": "squidInk",
+                    "shadowOffsetHeight": 4,
+                    "shadowOffsetWidth": 0,
                     "shadowBlurRadius": 4,
                     "textCase": "capitalized",
-                    "bottomOffset": 25
+                    "bottomRelativePosition": 0.9
                 }
             },
             {
@@ -58,9 +62,11 @@
                     "fontWeight": "medium",
                     "textColorName": "squidInk",
                     "shadowColorName": "squidInk",
+                    "shadowOffsetHeight": 4,
+                    "shadowOffsetWidth": 0,
                     "shadowBlurRadius": 4,
                     "textCase": "capitalized",
-                    "bottomOffset": 25
+                    "bottomRelativePosition": 0.9
                 }
             },
             {
@@ -74,9 +80,11 @@
                     "fontWeight": "medium",
                     "textColorName": "squidInk",
                     "shadowColorName": "squidInk",
+                    "shadowOffsetHeight": 4,
+                    "shadowOffsetWidth": 0,
                     "shadowBlurRadius": 4,
                     "textCase": "capitalized",
-                    "bottomOffset": 25
+                    "bottomRelativePosition": 0.9
                 }
             },
             {
@@ -90,9 +98,11 @@
                     "fontWeight": "medium",
                     "textColorName": "squidInk",
                     "shadowColorName": "squidInk",
+                    "shadowOffsetHeight": 4,
+                    "shadowOffsetWidth": 0,
                     "shadowBlurRadius": 4,
                     "textCase": "capitalized",
-                    "bottomOffset": 25
+                    "bottomRelativePosition": 0.9
                 }
             },
             {
@@ -106,9 +116,11 @@
                     "fontWeight": "medium",
                     "textColorName": "squidInk",
                     "shadowColorName": "squidInk",
+                    "shadowOffsetHeight": 4,
+                    "shadowOffsetWidth": 0,
                     "shadowBlurRadius": 4,
                     "textCase": "capitalized",
-                    "bottomOffset": 25
+                    "bottomRelativePosition": 0.9
                 }
             },
             {
@@ -122,9 +134,11 @@
                     "fontWeight": "medium",
                     "textColorName": "squidInk",
                     "shadowColorName": "squidInk",
+                    "shadowOffsetHeight": 4,
+                    "shadowOffsetWidth": 0,
                     "shadowBlurRadius": 4,
                     "textCase": "capitalized",
-                    "bottomOffset": 25
+                    "bottomRelativePosition": 0.9
                 }
             },
             {
@@ -138,9 +152,11 @@
                     "fontWeight": "medium",
                     "textColorName": "squidInk",
                     "shadowColorName": "squidInk",
+                    "shadowOffsetHeight": 4,
+                    "shadowOffsetWidth": 0,
                     "shadowBlurRadius": 4,
                     "textCase": "capitalized",
-                    "bottomOffset": 25
+                    "bottomRelativePosition": 0.9
                 }
             },
             {
@@ -154,9 +170,11 @@
                     "fontWeight": "medium",
                     "textColorName": "squidInk",
                     "shadowColorName": "squidInk",
+                    "shadowOffsetHeight": 4,
+                    "shadowOffsetWidth": 0,
                     "shadowBlurRadius": 4,
                     "textCase": "capitalized",
-                    "bottomOffset": 25
+                    "bottomRelativePosition": 0.9
                 }
             },
             {
@@ -170,9 +188,11 @@
                     "fontWeight": "medium",
                     "textColorName": "squidInk",
                     "shadowColorName": "squidInk",
+                    "shadowOffsetHeight": 4,
+                    "shadowOffsetWidth": 0,
                     "shadowBlurRadius": 4,
                     "textCase": "capitalized",
-                    "bottomOffset": 25
+                    "bottomRelativePosition": 0.9
                 }
             }
         ],
@@ -187,9 +207,11 @@
                 "fontWeight": "medium",
                 "textColorName": "squidInk",
                 "shadowColorName": "squidInk",
+                "shadowOffsetHeight": 4,
+                "shadowOffsetWidth": 0,
                 "shadowBlurRadius": 4,
                 "textCase": "capitalized",
-                "bottomOffset": 25
+                "bottomRelativePosition": 0.9
             }
         },
         "auxModules": [
@@ -204,9 +226,11 @@
                     "fontWeight": "medium",
                     "textColorName": "meringue",
                     "shadowColorName": "squidInk",
+                    "shadowOffsetHeight": 4,
+                    "shadowOffsetWidth": 0,
                     "shadowBlurRadius": 4,
                     "textCase": "capitalized",
-                    "bottomOffset": 25
+                    "bottomRelativePosition": 0.9
                 }
             },
             {
@@ -220,9 +244,11 @@
                     "fontWeight": "medium",
                     "textColorName": "meringue",
                     "shadowColorName": "squidInk",
+                    "shadowOffsetHeight": 4,
+                    "shadowOffsetWidth": 0,
                     "shadowBlurRadius": 4,
                     "textCase": "capitalized",
-                    "bottomOffset": 25
+                    "bottomRelativePosition": 0.9
                 }
             },
             {
@@ -236,9 +262,11 @@
                     "fontWeight": "medium",
                     "textColorName": "meringue",
                     "shadowColorName": "squidInk",
+                    "shadowOffsetHeight": 4,
+                    "shadowOffsetWidth": 0,
                     "shadowBlurRadius": 4,
                     "textCase": "capitalized",
-                    "bottomOffset": 25
+                    "bottomRelativePosition": 0.9
                 }
             },
             {
@@ -252,9 +280,11 @@
                     "fontWeight": "medium",
                     "textColorName": "meringue",
                     "shadowColorName": "squidInk",
+                    "shadowOffsetHeight": 4,
+                    "shadowOffsetWidth": 0,
                     "shadowBlurRadius": 4,
                     "textCase": "capitalized",
-                    "bottomOffset": 25
+                    "bottomRelativePosition": 0.9
                 }
             },
             {
@@ -268,9 +298,11 @@
                     "fontWeight": "medium",
                     "textColorName": "meringue",
                     "shadowColorName": "squidInk",
+                    "shadowOffsetHeight": 4,
+                    "shadowOffsetWidth": 0,
                     "shadowBlurRadius": 4,
                     "textCase": "capitalized",
-                    "bottomOffset": 25
+                    "bottomRelativePosition": 0.9
                 }
             },
             {
@@ -284,9 +316,11 @@
                     "fontWeight": "medium",
                     "textColorName": "meringue",
                     "shadowColorName": "squidInk",
+                    "shadowOffsetHeight": 4,
+                    "shadowOffsetWidth": 0,
                     "shadowBlurRadius": 4,
                     "textCase": "capitalized",
-                    "bottomOffset": 25
+                    "bottomRelativePosition": 0.9
                 }
             },
             {
@@ -300,9 +334,11 @@
                     "fontWeight": "medium",
                     "textColorName": "meringue",
                     "shadowColorName": "squidInk",
+                    "shadowOffsetHeight": 4,
+                    "shadowOffsetWidth": 0,
                     "shadowBlurRadius": 4,
                     "textCase": "capitalized",
-                    "bottomOffset": 25
+                    "bottomRelativePosition": 0.9
                 }
             },
             {
@@ -316,9 +352,11 @@
                     "fontWeight": "medium",
                     "textColorName": "meringue",
                     "shadowColorName": "squidInk",
+                    "shadowOffsetHeight": 4,
+                    "shadowOffsetWidth": 0,
                     "shadowBlurRadius": 4,
                     "textCase": "capitalized",
-                    "bottomOffset": 25
+                    "bottomRelativePosition": 0.9
                 }
             },
             {
@@ -332,9 +370,11 @@
                     "fontWeight": "medium",
                     "textColorName": "meringue",
                     "shadowColorName": "squidInk",
+                    "shadowOffsetHeight": 4,
+                    "shadowOffsetWidth": 0,
                     "shadowBlurRadius": 4,
                     "textCase": "capitalized",
-                    "bottomOffset": 25
+                    "bottomRelativePosition": 0.9
                 }
             },
             {
@@ -348,9 +388,11 @@
                     "fontWeight": "medium",
                     "textColorName": "meringue",
                     "shadowColorName": "squidInk",
+                    "shadowOffsetHeight": 4,
+                    "shadowOffsetWidth": 0,
                     "shadowBlurRadius": 4,
                     "textCase": "capitalized",
-                    "bottomOffset": 25
+                    "bottomRelativePosition": 0.9
                 }
             }
         ],
@@ -365,9 +407,11 @@
                 "fontWeight": "medium",
                 "textColorName": "meringue",
                 "shadowColorName": "squidInk",
+                "shadowOffsetHeight": 4,
+                "shadowOffsetWidth": 0,
                 "shadowBlurRadius": 4,
                 "textCase": "capitalized",
-                "bottomOffset": 25
+                "bottomRelativePosition": 0.9
             }
         }
     },

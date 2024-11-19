@@ -23,5 +23,5 @@ struct ModuleTextConfigurationData: Decodable {
     let shouldRemoveSpaces: Bool?
     let prefix: String?
     let suffix: String?
-    let bottomOffset: CGFloat?
+    let bottomRelativePosition: CGFloat?
 }

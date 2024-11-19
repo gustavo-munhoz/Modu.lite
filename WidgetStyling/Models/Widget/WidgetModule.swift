@@ -38,8 +38,8 @@ public class WidgetModule {
     }
     
     // MARK: - Helper functions
-    public func getBottomOffset() -> CGFloat {
-        style.textConfiguration.bottomOffset ?? 0
+    public func getBottomPosition() -> CGFloat {
+        style.textConfiguration.bottomRelativePosition ?? 0
     }
     
     public func canSetColor(to color: UIColor) -> Bool {
