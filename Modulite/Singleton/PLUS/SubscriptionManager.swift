@@ -7,115 +7,144 @@
 
 import StoreKit
 
-class SubscriptionManager: NSObject, ObservableObject {
+final class SubscriptionManager {
     static let shared = SubscriptionManager()
     
-    @Published var activeSubscription: String?
+    @Published private(set) var activeSubscription: String?
+    @Published private(set) var products: [Product] = []
     
-    private override init() {
-        super.init()
+    // MARK: - Initialization
+    
+    private init() {}
+    
+    @MainActor func initialize() {
         Task {
             await fetchActiveSubscriptions()
+            await fetchProducts()
             startObservingTransactionUpdates()
         }
     }
     
-    // MARK: - Produtos e Assinaturas
-    func fetchProducts() async throws -> [Product] {
-        let productIDs: [String] = ["modulite.plus.monthly", "modulite.plus.yearly"]
-        let products = try await Product.products(for: productIDs)
-        return products
-    }
-
-    func fetchActiveSubscriptions() async {
-        for await result in Transaction.currentEntitlements {
-            switch result {
-            case .verified(let transaction):
-                if transaction.productType == .autoRenewable {
-                    await handleSubscription(transaction: transaction)
-                }
-            case .unverified:
-                print("Assinatura não verificada")
+    // MARK: - Fetch Products
+    
+    private func fetchProducts() async {
+        do {
+            let productIDs = ["modulite.plus.monthly", "modulite.plus.yearly"]
+            let fetchedProducts = try await Product.products(for: productIDs)
+            await MainActor.run {
+                self.products = fetchedProducts
+            }
+        } catch {
+            print("Failed to fetch subscription products: \(error.localizedDescription)")
+            await MainActor.run {
+                self.products = []
             }
         }
     }
     
-    func purchase(subscription: Product) async throws {
-        let result = try await subscription.purchase()
-        switch result {
-        case .success(let verification):
-            switch verification {
-            case .verified(let transaction):
-                if transaction.productType == .autoRenewable {
-                    await handleSubscription(transaction: transaction)
-                }
+    // MARK: - Fetch Active Subscriptions
+    
+    private func fetchActiveSubscriptions() async {
+        for await result in Transaction.currentEntitlements {
+            switch result {
+            case .verified(let transaction) where transaction.productType == .autoRenewable:
+                await handleSubscription(transaction)
             case .unverified:
-                throw SubscriptionError.failedVerification
+                print("Unverified subscription entitlement")
+            default:
+                break
             }
-        case .userCancelled:
-            throw SubscriptionError.userCancelled
-        case .pending:
-            throw SubscriptionError.pending
-        @unknown default:
-            throw SubscriptionError.unknown
+        }
+    }
+    
+    // MARK: - Purchase Subscription
+    
+    // SubscriptionManager.swift
+
+    func purchase(subscription: Product, completion: @escaping (Result<Void, SubscriptionError>) -> Void) {
+        Task {
+            do {
+                let result = try await subscription.purchase()
+                switch result {
+                case .success(let verification):
+                    switch verification {
+                    case .verified(let transaction) where transaction.productType == .autoRenewable:
+                        await handleSubscription(transaction)
+                        completion(.success(()))
+                    case .unverified:
+                        completion(.failure(.failedVerification))
+                    case .verified:
+                        print("Verified subscription entitlement")
+                        completion(.success(()))
+                    }
+                case .userCancelled:
+                    completion(.failure(.userCancelled))
+                case .pending:
+                    completion(.failure(.pending))
+                @unknown default:
+                    completion(.failure(.unknown))
+                }
+            } catch {
+                completion(.failure(.unknown))
+            }
         }
     }
 
+    // MARK: - Restore Purchases
+    
     func restorePurchases() async throws {
-        for await result in Transaction.currentEntitlements {
-            switch result {
-            case .verified(let transaction):
-                if transaction.productType == .autoRenewable {
-                    await handleSubscription(transaction: transaction)
-                }
-            case .unverified:
-                throw SubscriptionError.failedVerification
-            }
-        }
+        try await AppStore.sync()
+        await fetchActiveSubscriptions()
     }
     
-    // MARK: - Observação de Atualizações de Transação
-
+    // MARK: - Transaction Updates
+    
     private func startObservingTransactionUpdates() {
         Task {
             for await result in Transaction.updates {
                 switch result {
-                case .verified(let transaction):
-                    if transaction.productType == .autoRenewable {
-                        await handleSubscription(transaction: transaction)
-                    }
+                case .verified(let transaction) where transaction.productType == .autoRenewable:
+                    await handleSubscription(transaction)
                 case .unverified:
-                    print("Erro de verificação de transação")
+                    print("Transaction verification failed")
+                case .verified(_):
+                    print("Verified subscription entitlement")
                 }
             }
         }
     }
     
-    private func handleSubscription(transaction: Transaction) async {
-        // Registra a assinatura ativa
+    private func handleSubscription(_ transaction: Transaction) async {
         activeSubscription = transaction.productID
         saveActiveSubscription(transaction.productID)
-        
-        // Finaliza a transação
+        print("Subscription purchased: \(transaction.productID)")
         await transaction.finish()
     }
     
-    // MARK: - Persistência de Assinatura
-
+    // MARK: - Subscription Persistence
+    
     private func saveActiveSubscription(_ productID: String) {
         UserDefaults.standard.set(productID, forKey: "activeSubscription")
     }
-
+    
     private func loadActiveSubscription() {
         if let savedSubscription = UserDefaults.standard.string(forKey: "activeSubscription") {
             activeSubscription = savedSubscription
         }
     }
     
+    // MARK: - Helper Methods
+    
     func isSubscribed(to productID: String) -> Bool {
         activeSubscription == productID
     }
+    
+    func getProduct(withID id: String) -> Product? {
+        return products.first { $0.id == id }
+    }
 }
+
+// MARK: - SubscriptionError Enum
 
 enum SubscriptionError: Error {
     case failedVerification
