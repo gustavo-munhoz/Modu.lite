@@ -95,4 +95,12 @@ class LoadedWidgetStyle: WidgetStyle {
     func getWidgetPreview(for type: WidgetType) -> UIImage {
         type == .main ? previewSet.mainWidgetPreview : previewSet.auxWidgetPreview
     }
+    
+    func getWallpaperPreviewImages() -> [UIImage] {
+        [
+            previewSet.wallpaperPreview1,
+            previewSet.wallpaperPreview2,
+            previewSet.wallpaperPreview3
+        ]
+    }
 }
