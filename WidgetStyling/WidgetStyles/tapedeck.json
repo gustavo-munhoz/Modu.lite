@@ -30,7 +30,7 @@
                     "fontWeight": "bold",
                     "textColorName": "meringue",
                     "textCase": "upper",
-                    "bottomOffset": 16
+                    "bottomRelativePosition": 0.9
                 }
             },
             {
@@ -48,7 +48,7 @@
                     "fontWeight": "bold",
                     "textColorName": "meringue",
                     "textCase": "upper",
-                    "bottomOffset": 16
+                    "bottomRelativePosition": 0.9
                 }
             },
             {
@@ -66,7 +66,7 @@
                     "fontWeight": "bold",
                     "textColorName": "meringue",
                     "textCase": "upper",
-                    "bottomOffset": 16
+                    "bottomRelativePosition": 0.9
                 }
             },
             {
@@ -84,7 +84,7 @@
                     "fontWeight": "bold",
                     "textColorName": "meringue",
                     "textCase": "upper",
-                    "bottomOffset": 16
+                    "bottomRelativePosition": 0.9
                 }
             },
             {
@@ -98,7 +98,7 @@
                     "fontWeight": "bold",
                     "textColorName": "meringue",
                     "textCase": "upper",
-                    "bottomOffset": 16
+                    "bottomRelativePosition": 0.9
                 }
             }
         ],
@@ -113,7 +113,7 @@
                 "fontWeight": "bold",
                 "textColorName": "meringue",
                 "textCase": "upper",
-                "bottomOffset": 16
+                "bottomRelativePosition": 0.9
             }
         },
         "auxModules": [
@@ -128,7 +128,7 @@
                     "fontWeight": "bold",
                     "textColorName": "meringue",
                     "textCase": "upper",
-                    "bottomOffset": 21
+                    "bottomRelativePosition": 0.856
                 }
             },
             {
@@ -142,7 +142,7 @@
                     "fontWeight": "bold",
                     "textColorName": "meringue",
                     "textCase": "upper",
-                    "bottomOffset": 21
+                    "bottomRelativePosition": 0.856
                 }
             },
             {
@@ -156,7 +156,7 @@
                     "fontWeight": "bold",
                     "textColorName": "meringue",
                     "textCase": "upper",
-                    "bottomOffset": 21
+                    "bottomRelativePosition": 0.856
                 }
             }
         ],
@@ -175,7 +175,7 @@
                 "fontWeight": "bold",
                 "textColorName": "meringue",
                 "textCase": "upper",
-                "bottomOffset": 21
+                "bottomRelativePosition": 0.9
             }
         }
     },
