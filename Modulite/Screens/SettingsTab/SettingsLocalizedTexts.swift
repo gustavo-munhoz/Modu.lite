@@ -20,6 +20,7 @@ enum SettingsLocalizedTexts: LocalizedKeyProtocol {
     case offerPlusYearlyPrice
     case offerPlusMonthlySubtext
     case offerPLusYearlySubtext
+    case offerPlusYearlyPriceWithoutDiscount
     
     case offerPlusUnlimitedWidgets
     case offerplusLimitlessAuxiliaryWidgets
@@ -27,4 +28,12 @@ enum SettingsLocalizedTexts: LocalizedKeyProtocol {
     case offerPlusManyMoreSkinsOptions
     case offerPlusSubscribeNow
     case offerPlusNoThnakYou
+    case offerPlusForOnly
+    case offerPlusFor
+    case offerPlusCancelAnytime
+    case offerPlusFrom
+    case offerPlusAprox
+    case offerPlus2MonthsOff
+    case offerPlusYearlyMonthlyPrice
+    
 }

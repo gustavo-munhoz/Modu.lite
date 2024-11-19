@@ -901,6 +901,72 @@
         }
       }
     },
+    "offerPlus2MonthsOff" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "2 MONTHS OFF"
+          }
+        }
+      }
+    },
+    "offerPlusAprox" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "aprox."
+          }
+        }
+      }
+    },
+    "offerPlusCancelAnytime" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "cancel any time"
+          }
+        }
+      }
+    },
+    "offerPlusFor" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "for"
+          }
+        }
+      }
+    },
+    "offerPlusForOnly" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "for only"
+          }
+        }
+      }
+    },
+    "offerPlusFrom" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "from"
+          }
+        }
+      }
+    },
     "offerplusLimitlessAuxiliaryWidgets" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -1000,6 +1066,17 @@
         }
       }
     },
+    "offerPlusYearlyMonthlyPrice" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "US$8.32/mo"
+          }
+        }
+      }
+    },
     "offerPlusYearlyPrice" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -1007,6 +1084,17 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "US$99.90"
+          }
+        }
+      }
+    },
+    "offerPlusYearlyPriceWithoutDiscount" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "US$119.88"
           }
         }
       }
