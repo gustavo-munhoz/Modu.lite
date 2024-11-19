@@ -15,21 +15,35 @@ public struct PreviewSet {
     let wallpaperPreview3: UIImage
     
     enum PreviewError: Swift.Error, LocalizedError {
-        case imageNotFound
+        case imageNotFound(previewName: String)
         
         var errorDescription: String? {
-            return "The requested preview image could not be found."
+            switch self {
+            case .imageNotFound(let previewName):
+                return "The requested preview image '\(previewName)' could not be found."
+            }
         }
     }
     
     static func create(from data: PreviewSetData) throws -> PreviewSet {
-        guard let mainWidgetPreview = UIImage.fromWidgetStyling(named: data.mainWidgetPreview),
-              let auxWidgetPreview = UIImage.fromWidgetStyling(named: data.auxWidgetPreview),
-              let wallpaperPreview1 = UIImage.fromWidgetStyling(named: data.wallpaperPreview1Name),
-              let wallpaperPreview2 = UIImage.fromWidgetStyling(named: data.wallpaperPreview2Name),
-              let wallpaperPreview3 = UIImage.fromWidgetStyling(named: data.wallpaperPreview3Name)
-        else {
-            throw PreviewError.imageNotFound
+        guard let mainWidgetPreview = UIImage.fromWidgetStyling(named: data.mainWidgetPreview) else {
+            throw PreviewError.imageNotFound(previewName: data.mainWidgetPreview)
+        }
+        
+        guard let auxWidgetPreview = UIImage.fromWidgetStyling(named: data.auxWidgetPreview) else {
+            throw PreviewError.imageNotFound(previewName: data.auxWidgetPreview)
+        }
+        
+        guard let wallpaperPreview1 = UIImage.fromWidgetStyling(named: data.wallpaperPreview1Name) else {
+            throw PreviewError.imageNotFound(previewName: data.wallpaperPreview1Name)
+        }
+        
+        guard let wallpaperPreview2 = UIImage.fromWidgetStyling(named: data.wallpaperPreview2Name) else {
+            throw PreviewError.imageNotFound(previewName: data.wallpaperPreview2Name)
+        }
+        
+        guard let wallpaperPreview3 = UIImage.fromWidgetStyling(named: data.wallpaperPreview3Name) else {
+            throw PreviewError.imageNotFound(previewName: data.wallpaperPreview3Name)
         }
         
         return PreviewSet(
