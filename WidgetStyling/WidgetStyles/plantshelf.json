@@ -1,0 +1,398 @@
+{
+    "identifier": "plantshelf",
+    "name": "Plantshelf",
+    "isPurchased": false,
+    "isIncludedInPlus": true,
+    "backgroundConfiguration": {
+        "mainBackground": {
+            "type": "image",
+            "value": "plantshelfMainBackground"
+        },
+        "auxBackground": {
+            "type": "image",
+            "value": "plantshelfAuxBackground"
+        }
+    },
+    "moduleConfiguration": {
+        "mainModules": [
+            {
+                "identifier": "plantshelfMainBeauty",
+                "imageName": "plantshelfMainBeauty",
+                "filterColorNames": ["none"],
+                "defaultColorName": "none",
+                "textConfiguration": {
+                    "fontName": "system",
+                    "fontSize": 9,
+                    "fontWeight": "regular",
+                    "textColorName": "whiteTurnip",
+                    "textCase": "upper",
+                    "bottomRelativePosition": 0.93
+                }
+            },
+            {
+                "identifier": "plantshelfMainBigroundcacti",
+                "imageName": "plantshelfMainBigroundcacti",
+                "filterColorNames": ["none"],
+                "defaultColorName": "none",
+                "textConfiguration": {
+                    "fontName": "system",
+                    "fontSize": 9,
+                    "fontWeight": "regular",
+                    "textColorName": "whiteTurnip",
+                    "textCase": "upper",
+                    "bottomRelativePosition": 0.93
+                }
+            },
+            {
+                "identifier": "plantshelfMainCacti",
+                "imageName": "plantshelfMainCacti",
+                "filterColorNames": ["none"],
+                "defaultColorName": "none",
+                "textConfiguration": {
+                    "fontName": "system",
+                    "fontSize": 9,
+                    "fontWeight": "regular",
+                    "textColorName": "whiteTurnip",
+                    "textCase": "upper",
+                    "bottomRelativePosition": 0.93
+                }
+            },
+            {
+                "identifier": "plantshelfMainLittledude",
+                "imageName": "plantshelfMainLittledude",
+                "filterColorNames": ["none"],
+                "defaultColorName": "none",
+                "textConfiguration": {
+                    "fontName": "system",
+                    "fontSize": 9,
+                    "fontWeight": "regular",
+                    "textColorName": "whiteTurnip",
+                    "textCase": "upper",
+                    "bottomRelativePosition": 0.93
+                }
+            },
+            {
+                "identifier": "plantshelfMainLittlesucc",
+                "imageName": "plantshelfMainLittlesucc",
+                "filterColorNames": ["none"],
+                "defaultColorName": "none",
+                "textConfiguration": {
+                    "fontName": "system",
+                    "fontSize": 9,
+                    "fontWeight": "regular",
+                    "textColorName": "whiteTurnip",
+                    "textCase": "upper",
+                    "bottomRelativePosition": 0.93
+                }
+            },
+            {
+                "identifier": "plantshelfMainRoundleaves",
+                "imageName": "plantshelfMainRoundleaves",
+                "filterColorNames": ["none"],
+                "defaultColorName": "none",
+                "textConfiguration": {
+                    "fontName": "system",
+                    "fontSize": 9,
+                    "fontWeight": "regular",
+                    "textColorName": "whiteTurnip",
+                    "textCase": "upper",
+                    "bottomRelativePosition": 0.93
+                }
+            },
+            {
+                "identifier": "plantshelfMainSaintgeorge",
+                "imageName": "plantshelfMainSaintgeorge",
+                "filterColorNames": ["none"],
+                "defaultColorName": "none",
+                "textConfiguration": {
+                    "fontName": "system",
+                    "fontSize": 9,
+                    "fontWeight": "regular",
+                    "textColorName": "whiteTurnip",
+                    "textCase": "upper",
+                    "bottomRelativePosition": 0.93
+                }
+            },
+            {
+                "identifier": "plantshelfMainSingleflower",
+                "imageName": "plantshelfMainSingleflower",
+                "filterColorNames": ["none"],
+                "defaultColorName": "none",
+                "textConfiguration": {
+                    "fontName": "system",
+                    "fontSize": 9,
+                    "fontWeight": "regular",
+                    "textColorName": "whiteTurnip",
+                    "textCase": "upper",
+                    "bottomRelativePosition": 0.93
+                }
+            },
+            {
+                "identifier": "plantshelfMainSucculent",
+                "imageName": "plantshelfMainSucculent",
+                "filterColorNames": ["none"],
+                "defaultColorName": "none",
+                "textConfiguration": {
+                    "fontName": "system",
+                    "fontSize": 9,
+                    "fontWeight": "regular",
+                    "textColorName": "whiteTurnip",
+                    "textCase": "upper",
+                    "bottomRelativePosition": 0.93
+                }
+            },
+            {
+                "identifier": "plantshelfMainTequila",
+                "imageName": "plantshelfMainTequila",
+                "filterColorNames": ["none"],
+                "defaultColorName": "none",
+                "textConfiguration": {
+                    "fontName": "system",
+                    "fontSize": 9,
+                    "fontWeight": "regular",
+                    "textColorName": "whiteTurnip",
+                    "textCase": "upper",
+                    "bottomRelativePosition": 0.93
+                }
+            },
+            {
+                "identifier": "plantshelfMainThreeboys",
+                "imageName": "plantshelfMainThreeboys",
+                "filterColorNames": ["none"],
+                "defaultColorName": "none",
+                "textConfiguration": {
+                    "fontName": "system",
+                    "fontSize": 9,
+                    "fontWeight": "regular",
+                    "textColorName": "whiteTurnip",
+                    "textCase": "upper",
+                    "bottomRelativePosition": 0.93
+                }
+            },
+            {
+                "identifier": "plantshelfMainWibblywobbly",
+                "imageName": "plantshelfMainWibblywobbly",
+                "filterColorNames": ["none"],
+                "defaultColorName": "none",
+                "textConfiguration": {
+                    "fontName": "system",
+                    "fontSize": 9,
+                    "fontWeight": "regular",
+                    "textColorName": "whiteTurnip",
+                    "textCase": "upper",
+                    "bottomRelativePosition": 0.93
+                }
+            }
+        ],
+        "mainEmptyModule": {
+            "identifier": "plantshelfMainEmpty",
+            "imageName": "plantshelfMainEmpty",
+            "filterColorNames": ["none"],
+            "defaultColorName": "none",
+            "textConfiguration": {
+                "fontName": "system",
+                "fontSize": 9,
+                "fontWeight": "regular",
+                "textColorName": "whiteTurnip",
+                "textCase": "upper",
+                "bottomRelativePosition": 0.93
+            }
+        },
+        "auxModules": [
+            {
+                "identifier": "plantshelfAuxBeauty",
+                "imageName": "plantshelfAuxBeauty",
+                "filterColorNames": ["none"],
+                "defaultColorName": "none",
+                "textConfiguration": {
+                    "fontName": "system",
+                    "fontSize": 9,
+                    "fontWeight": "regular",
+                    "textColorName": "whiteTurnip",
+                    "textCase": "upper",
+                    "bottomRelativePosition": 0.94
+                }
+            },
+            {
+                "identifier": "plantshelfAuxBigroundcacti",
+                "imageName": "plantshelfAuxBigroundcacti",
+                "filterColorNames": ["none"],
+                "defaultColorName": "none",
+                "textConfiguration": {
+                    "fontName": "system",
+                    "fontSize": 9,
+                    "fontWeight": "regular",
+                    "textColorName": "whiteTurnip",
+                    "textCase": "upper",
+                    "bottomRelativePosition": 0.94
+                }
+            },
+            {
+                "identifier": "plantshelfAuxCacti",
+                "imageName": "plantshelfAuxCacti",
+                "filterColorNames": ["none"],
+                "defaultColorName": "none",
+                "textConfiguration": {
+                    "fontName": "system",
+                    "fontSize": 9,
+                    "fontWeight": "regular",
+                    "textColorName": "whiteTurnip",
+                    "textCase": "upper",
+                    "bottomRelativePosition": 0.94
+                }
+            },
+            {
+                "identifier": "plantshelfAuxLittledude",
+                "imageName": "plantshelfAuxLittledude",
+                "filterColorNames": ["none"],
+                "defaultColorName": "none",
+                "textConfiguration": {
+                    "fontName": "system",
+                    "fontSize": 9,
+                    "fontWeight": "regular",
+                    "textColorName": "whiteTurnip",
+                    "textCase": "upper",
+                    "bottomRelativePosition": 0.94
+                }
+            },
+            {
+                "identifier": "plantshelfAuxLittlesucc",
+                "imageName": "plantshelfAuxLittlesucc",
+                "filterColorNames": ["none"],
+                "defaultColorName": "none",
+                "textConfiguration": {
+                    "fontName": "system",
+                    "fontSize": 9,
+                    "fontWeight": "regular",
+                    "textColorName": "whiteTurnip",
+                    "textCase": "upper",
+                    "bottomRelativePosition": 0.94
+                }
+            },
+            {
+                "identifier": "plantshelfAuxRoundleaves",
+                "imageName": "plantshelfAuxRoundleaves",
+                "filterColorNames": ["none"],
+                "defaultColorName": "none",
+                "textConfiguration": {
+                    "fontName": "system",
+                    "fontSize": 9,
+                    "fontWeight": "regular",
+                    "textColorName": "whiteTurnip",
+                    "textCase": "upper",
+                    "bottomRelativePosition": 0.94
+                }
+            },
+            {
+                "identifier": "plantshelfAuxSaintgeorge",
+                "imageName": "plantshelfAuxSaintgeorge",
+                "filterColorNames": ["none"],
+                "defaultColorName": "none",
+                "textConfiguration": {
+                    "fontName": "system",
+                    "fontSize": 9,
+                    "fontWeight": "regular",
+                    "textColorName": "whiteTurnip",
+                    "textCase": "upper",
+                    "bottomRelativePosition": 0.94
+                }
+            },
+            {
+                "identifier": "plantshelfAuxSingleflower",
+                "imageName": "plantshelfAuxSingleflower",
+                "filterColorNames": ["none"],
+                "defaultColorName": "none",
+                "textConfiguration": {
+                    "fontName": "system",
+                    "fontSize": 9,
+                    "fontWeight": "regular",
+                    "textColorName": "whiteTurnip",
+                    "textCase": "upper",
+                    "bottomRelativePosition": 0.94
+                }
+            },
+            {
+                "identifier": "plantshelfAuxSucculent",
+                "imageName": "plantshelfAuxSucculent",
+                "filterColorNames": ["none"],
+                "defaultColorName": "none",
+                "textConfiguration": {
+                    "fontName": "system",
+                    "fontSize": 9,
+                    "fontWeight": "regular",
+                    "textColorName": "whiteTurnip",
+                    "textCase": "upper",
+                    "bottomRelativePosition": 0.94
+                }
+            },
+            {
+                "identifier": "plantshelfAuxTequila",
+                "imageName": "plantshelfAuxTequila",
+                "filterColorNames": ["none"],
+                "defaultColorName": "none",
+                "textConfiguration": {
+                    "fontName": "system",
+                    "fontSize": 9,
+                    "fontWeight": "regular",
+                    "textColorName": "whiteTurnip",
+                    "textCase": "upper",
+                    "bottomRelativePosition": 0.94
+                }
+            },
+            {
+                "identifier": "plantshelfAuxThreeboys",
+                "imageName": "plantshelfAuxThreeboys",
+                "filterColorNames": ["none"],
+                "defaultColorName": "none",
+                "textConfiguration": {
+                    "fontName": "system",
+                    "fontSize": 9,
+                    "fontWeight": "regular",
+                    "textColorName": "whiteTurnip",
+                    "textCase": "upper",
+                    "bottomRelativePosition": 0.94
+                }
+            },
+            {
+                "identifier": "plantshelfAuxWibblywobbly",
+                "imageName": "plantshelfAuxWibblywobbly",
+                "filterColorNames": ["none"],
+                "defaultColorName": "none",
+                "textConfiguration": {
+                    "fontName": "system",
+                    "fontSize": 9,
+                    "fontWeight": "regular",
+                    "textColorName": "whiteTurnip",
+                    "textCase": "upper",
+                    "bottomRelativePosition": 0.94
+                }
+            }
+        ],
+        "auxEmptyModule": {
+            "identifier": "plantshelfAuxEmpty",
+            "imageName": "plantshelfAuxEmpty",
+            "filterColorNames": ["none"],
+            "defaultColorName": "none",
+            "textConfiguration": {
+                "fontName": "system",
+                "fontSize": 9,
+                "fontWeight": "regular",
+                "textColorName": "whiteTurnip",
+                "textCase": "upper",
+                "bottomRelativePosition": 0.94
+            }
+        }
+    },
+    "wallpaperSet": {
+        "blockedImageName": "plantshelfBlockedWallpaper",
+        "homeImageName": "plantshelfHomeWallpaper"
+    },
+    "previewSet": {
+        "mainWidgetPreview": "plantshelfMainWidgetPreview",
+        "auxWidgetPreview": "plantshelfAuxWidgetPreview",
+        "wallpaperPreview1Name": "plantshelfWallpaperPreview1",
+        "wallpaperPreview2Name": "plantshelfWallpaperPreview2",
+        "wallpaperPreview3Name": "plantshelfWallpaperPreview3"
+    }
+}
+
