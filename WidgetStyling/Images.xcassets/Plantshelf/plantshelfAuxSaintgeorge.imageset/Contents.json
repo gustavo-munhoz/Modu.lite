@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "retromacDarkAuxWidgetPreview.png",
+      "filename" : "plantshelfAuxSaintgeorge.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "retromacDarkAuxWidgetPreview@2x.png",
+      "filename" : "plantshelfAuxSaintgeorge@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "retromacDarkAuxWidgetPreview@3x.png",
+      "filename" : "plantshelfAuxSaintgeorge@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

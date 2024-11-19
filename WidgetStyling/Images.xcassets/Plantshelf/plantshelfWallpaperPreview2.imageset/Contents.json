@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "retromacDarkAuxWidgetPreview.png",
+      "filename" : "plantshelfPreview2.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "retromacDarkAuxWidgetPreview@2x.png",
+      "filename" : "plantshelfPreview2@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "retromacDarkAuxWidgetPreview@3x.png",
+      "filename" : "plantshelfPreview2@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }
