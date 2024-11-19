@@ -259,7 +259,7 @@ class WidgetSetupView: UIView {
         
         contentView.snp.makeConstraints { make in
             make.edges.equalTo(scrollView.contentLayoutGuide)
-            make.height.width.equalTo(scrollView.frameLayoutGuide)
+            make.width.equalTo(scrollView.frameLayoutGuide)
         }
         
         widgetNameTextField.snp.makeConstraints { make in
