@@ -23,6 +23,7 @@ public protocol WidgetStyle: AnyObject {
     func getBackground(for type: WidgetType) -> StyleBackground
     func getWallpapers() -> WallpaperSet
     func getWidgetPreview(for type: WidgetType) -> UIImage
+    func getWallpaperPreviewImages() -> [UIImage]
     
     func isEqual(to other: WidgetStyle) -> Bool
     
