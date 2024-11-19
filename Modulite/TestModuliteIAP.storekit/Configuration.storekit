@@ -91,6 +91,21 @@
       "promotionalImageID" : "8573FAF6",
       "referenceName" : "Modutouch3",
       "type" : "NonConsumable"
+    },
+    {
+      "displayPrice" : "0.99",
+      "familyShareable" : false,
+      "internalID" : "FD0C041F",
+      "localizations" : [
+        {
+          "description" : "",
+          "displayName" : "",
+          "locale" : "en_US"
+        }
+      ],
+      "productID" : "plantshelf",
+      "referenceName" : "Plantshelf",
+      "type" : "NonConsumable"
     }
   ],
   "settings" : {
