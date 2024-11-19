@@ -11,6 +11,14 @@ import SnapKit
 class OfferPlusView: UIView {
     
     // MARK: - Properties
+    enum SubscriptionOption: String {
+        case monthly, year
+    }
+    
+    var onSubscribe: ((_ option: SubscriptionOption) -> Void)?
+    var onClose: (() -> Void)?
+    private var selectedOption: SubscriptionOption?
+    
     private lazy var closeButton: UIButton = {
         let button = UIButton(type: .system)
         button.setImage(UIImage(systemName: "xmark"), for: .normal)
@@ -28,6 +36,7 @@ class OfferPlusView: UIView {
         let label = UILabel()
         label.text = .localized(for: SettingsLocalizedTexts.offerPlusTitle)
         label.font = .spaceGrotesk(textStyle: .largeTitle, weight: .bold)
+        label.textColor = .white
         return label
     }()
     
@@ -41,7 +50,7 @@ class OfferPlusView: UIView {
     private lazy var featuresStackView: UIStackView = {
         let stackView = UIStackView()
         stackView.axis = .vertical
-        stackView.spacing = 5
+        stackView.spacing = 16
         stackView.alignment = .leading
         stackView.layer.shadowColor = UIColor.black.cgColor
         stackView.layer.shadowRadius = 4
@@ -63,65 +72,75 @@ class OfferPlusView: UIView {
         let label = UILabel()
         label.text = text
         label.textColor = .white
-        label.font = UIFont.systemFont(ofSize: 13, weight: .bold)
+        label.font = UIFont.systemFont(ofSize: 16, weight: .bold)
         label.layer.shadowColor = UIColor.black.cgColor
         label.layer.shadowOpacity = 0.5
         label.layer.shadowOffset = CGSize(width: 0, height: 4)
         
         let stackView = UIStackView(arrangedSubviews: [iconImageView, label])
         stackView.axis = .horizontal
-        stackView.spacing = 8
+        stackView.spacing = 16
         stackView.alignment = .center
         
         return stackView
     }
     
-//    private lazy var oneMonthOptionView: UIView = {
-//        let view = createOptionView(
-//            title: "1 month",
-//            price: "U$9.99",
-//            subtext: "cancel at anytime",
-//            highlight: false
-//        )
-//        return view
-//    }()
-//    
-//    private lazy var twelveMonthOptionView: UIView = {
-//        let view = createOptionView(
-//            title: "12 months",
-//            price: "U$99.90",
-//            subtext: "approx. U$8.32/mo",
-//            highlight: true
-//        )
-//        return view
-//    }()
+    private(set) lazy var monthSelectionView: SubscriptionMonthOptionView = {
+        let view = SubscriptionMonthOptionView()
+        view.onSelectionChanged = { [weak self] isSelected in
+            if isSelected {
+                self?.selectOption(.monthly)
+            } else {
+                self?.deselectOption()
+            }
+        }
+        return view
+    }()
+
+    private(set) lazy var yearSelectionView: SubscriptionYearOptionView = {
+        let view = SubscriptionYearOptionView()
+        view.onSelectionChanged = { [weak self] isSelected in
+            if isSelected {
+                self?.selectOption(.year)
+            } else {
+                self?.deselectOption()
+            }
+        }
+        return view
+    }()
     
     private lazy var subscribeButton: UIButton = {
         let button = ButtonFactory.mediumButton(
             titleKey: SettingsLocalizedTexts.offerPlusSubscribeNow,
-            foregroundColor: UIColor.carrotOrange,
+            foregroundColor: UIColor.lightGray,
             backgroundColor: UIColor.white
         )
+
+        button.isEnabled = false
+        button.addTarget(self, action: #selector(subscribeTapped), for: .touchUpInside)
         return button
     }()
     
-    private lazy var noThanksButton: UIButton = {
-        let button = UIButton(type: .system)
-        button.setTitle(.localized(for: SettingsLocalizedTexts.offerPlusNoThnakYou), for: .normal)
-        button.setTitleColor(.white, for: .normal)
-        button.titleLabel?.font = UIFont.systemFont(ofSize: 14, weight: .regular)
-        button.addTarget(self, action: #selector(noThanksTapped), for: .touchUpInside)
+    private(set) lazy var noThanksButton: UIButton = {
+        let button = ButtonFactory.textButton(
+            text: .localized(for: SettingsLocalizedTexts.offerPlusNoThnakYou)
+        )
+        button.addTarget(self, action: #selector(closeTapped), for: .touchUpInside)
+        
         return button
+    }()
+    
+    private(set) lazy var gradientBackgroundView: GradientBackgroundView = {
+        return GradientBackgroundView(gradient: Gradient.ice(direction: CGVector(dx: 0, dy: 1)))
     }()
     
     // MARK: - Initializer
-    
     override init(frame: CGRect) {
         super.init(frame: frame)
-        backgroundColor = UIColor(red: 0.15, green: 0.4, blue: 0.5, alpha: 1)
         addSubviews()
         setupConstraints()
         setupFeatures()
+        SubscriptionManager.shared.initialize()
     }
     
     required init?(coder: NSCoder) {
@@ -131,17 +150,23 @@ class OfferPlusView: UIView {
     // MARK: - Setup
     
     private func addSubviews() {
+        addSubview(gradientBackgroundView)
         addSubview(closeButton)
         addSubview(titleLabel)
         addSubview(logoView)
         addSubview(featuresStackView)
-//        addSubview(oneMonthOptionView)
-//        addSubview(twelveMonthOptionView)
+        addSubview(monthSelectionView)
+        addSubview(yearSelectionView)
         addSubview(subscribeButton)
         addSubview(noThanksButton)
     }
     
     private func setupConstraints() {
+        
+        gradientBackgroundView.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
+        }
+        
         closeButton.snp.makeConstraints { make in
             make.top.equalTo(safeAreaLayoutGuide)
             make.left.equalTo(safeAreaLayoutGuide).offset(30)
@@ -149,53 +174,59 @@ class OfferPlusView: UIView {
         
         titleLabel.snp.makeConstraints { make in
             make.top.equalTo(closeButton.snp.bottom).offset(16)
-            make.centerX.equalToSuperview()
+            make.left.equalTo(closeButton)
         }
         
         logoView.snp.makeConstraints { make in
             make.top.equalTo(titleLabel.snp.bottom).offset(8)
-            make.left.equalToSuperview().offset(32)
-            make.height.equalTo(96)
+            make.left.equalTo(titleLabel)
+            make.height.equalTo(150)
+
+        }
+        featuresStackView.snp.makeConstraints { make in
+            make.top.equalTo(logoView.snp.bottom).offset(16)
+            make.left.equalTo(logoView).offset(10)
+        }
+        
+        monthSelectionView.snp.makeConstraints { make in
+            make.top.equalTo(featuresStackView.snp.bottom).offset(70)
+            make.left.equalTo(featuresStackView).offset(10)
+        }
+        
+        yearSelectionView.snp.makeConstraints { make in
+            make.bottom.equalTo(monthSelectionView)
+            make.left.equalTo(monthSelectionView.snp.right).offset(16)
+        }
+        
+        subscribeButton.snp.makeConstraints { make in
+            make.bottom.equalTo(noThanksButton.snp.top).offset(-20)
             make.centerX.equalToSuperview()
         }
         
-        featuresStackView.snp.makeConstraints { make in
-            make.top.equalTo(logoView.snp.bottom).offset(16)
-            make.left.equalToSuperview().offset(32)
-            make.right.equalToSuperview().offset(-32)
-        }
-        
-//        oneMonthOptionView.snp.makeConstraints { make in
-//            make.top.equalTo(featuresStackView.snp.bottom).offset(24)
-//            make.left.equalToSuperview().offset(32)
-//            make.width.equalTo(120)
-//        }
-//        
-//        twelveMonthOptionView.snp.makeConstraints { make in
-//            make.top.equalTo(featuresStackView.snp.bottom).offset(24)
-//            make.right.equalToSuperview().offset(-32)
-//            make.width.equalTo(120)
-//        }
-        
-//        subscribeButton.snp.makeConstraints { make in
-//            make.top.equalTo(oneMonthOptionView.snp.bottom).offset(24)
-//            make.centerX.equalToSuperview()
-//            make.width.equalTo(200)
-//            make.height.equalTo(44)
-//        }
-        
         noThanksButton.snp.makeConstraints { make in
-            make.top.equalTo(subscribeButton.snp.bottom).offset(8)
+            make.bottom.equalToSuperview().offset(-60)
             make.centerX.equalToSuperview()
         }
     }
     
     private func setupFeatures() {
-        let features = [
-            ("infinity", "Unlimited widgets"),
-            ("infinity", "Limitless auxiliary widgets"),
-            ("lock", "Unlimited app blocking sessions"),
-            ("square.on.square.dashed", "Many more skins options")
+        let features: [(String, String)] = [
+            (
+                "rectangle.grid.3x2.fill",
+                .localized(for: SettingsLocalizedTexts.offerPlusUnlimitedWidgets)
+            ),
+            (
+                "infinity",
+                .localized(for: SettingsLocalizedTexts.offerplusLimitlessAuxiliaryWidgets)
+            ),
+            (
+                "lock",
+                .localized(for: SettingsLocalizedTexts.offerPLusUnlimitedAppBlockingSessions)
+            ),
+            (
+                "square.on.square.dashed",
+                .localized(for: SettingsLocalizedTexts.offerPlusManyMoreSkinsOptions)
+            )
         ]
         
         for (iconName, text) in features {
@@ -204,53 +235,68 @@ class OfferPlusView: UIView {
         }
     }
 
-    private func createOptionView(title: String, price: String, subtext: String, highlight: Bool) -> UIView {
-        let container = UIView()
-        container.layer.cornerRadius = 8
-        container.layer.borderWidth = highlight ? 2 : 1
-        container.layer.borderColor = highlight ? UIColor.red.cgColor : UIColor.white.cgColor
-        container.backgroundColor = highlight ? UIColor(red: 1, green: 0.5, blue: 0.3, alpha: 1) : .clear
-        
-        let titleLabel = UILabel()
-        titleLabel.text = title
-        titleLabel.font = UIFont.boldSystemFont(ofSize: 16)
-        titleLabel.textColor = .white
-        
-        let priceLabel = UILabel()
-        priceLabel.text = price
-        priceLabel.font = UIFont.boldSystemFont(ofSize: 14)
-        priceLabel.textColor = .white
-        
-        let subtextLabel = UILabel()
-        subtextLabel.text = subtext
-        subtextLabel.font = UIFont.systemFont(ofSize: 10)
-        subtextLabel.textColor = .white
-        
-        let stackView = UIStackView(arrangedSubviews: [titleLabel, priceLabel, subtextLabel])
-        stackView.axis = .vertical
-        stackView.alignment = .center
-        stackView.spacing = 4
-        
-        container.addSubview(stackView)
-        stackView.snp.makeConstraints { make in
-            make.center.equalToSuperview()
-        }
-        
-        return container
-    }
-    
     // MARK: - Actions
     
     @objc func closeTapped() {
-        // Ação para o botão de fechar
+        onClose?()
     }
     
-    @objc func subscribeTapped() {
-        // Ação para o botão de inscrição
+    @objc private func subscribeTapped() {
+        guard let option = selectedOption else { return }
+        onSubscribe?(option)
     }
     
-    @objc func noThanksTapped() {
-        // Ação para o botão "No, thank you"
+    private func selectOption(_ option: SubscriptionOption) {
+        selectedOption = option
+        updateSubscribeButtonState()
+        updateSelection()
+    }
+    
+    private func updateSubscribeButtonState() {
+        let isEnabled = selectedOption != nil
+        subscribeButton.isEnabled = isEnabled
+        subscribeButton.tintColor = isEnabled ? .white : .lightGray
+
+        let titleColor: UIColor = isEnabled ? .carrotOrange : .lightGray
+        let attributes: [NSAttributedString.Key: Any] = [
+            .foregroundColor: titleColor,
+            .font: UIFont.spaceGrotesk(textStyle: .title3, weight: .semibold)
+        ]
+
+        let attributedTitle = NSAttributedString(
+            string: NSLocalizedString(
+                .localized(for: SettingsLocalizedTexts.offerPlusSubscribeNow),
+                comment: ""
+            ),
+            attributes: attributes
+        )
+        subscribeButton.setAttributedTitle(attributedTitle, for: .normal)
+    }
+
+    private func updateSelection() {
+        switch selectedOption {
+        case .monthly:
+            monthSelectionView.isSelected = true
+            monthSelectionView.updateSelectionState()
+            yearSelectionView.isSelected = false
+            yearSelectionView.updateSelectionState()
+        case .year:
+            monthSelectionView.isSelected = false
+            monthSelectionView.updateSelectionState()
+            yearSelectionView.isSelected = true
+            yearSelectionView.updateSelectionState()
+        case .none:
+            monthSelectionView.isSelected = false
+            monthSelectionView.updateSelectionState()
+            yearSelectionView.isSelected = false
+            yearSelectionView.updateSelectionState()
+        }
+    }
+    
+    private func deselectOption() {
+        selectedOption = nil
+        updateSubscribeButtonState()
+        updateSelection()
     }
 }
 
