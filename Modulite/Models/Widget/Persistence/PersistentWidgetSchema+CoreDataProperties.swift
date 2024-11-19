@@ -24,6 +24,7 @@ extension PersistentWidgetSchema {
     static func from(
         schema: WidgetSchema,
         widgetImage: UIImage,
+        moduleImages: [Int: UIImage],
         using managedObjectContext: NSManagedObjectContext
     ) -> PersistentWidgetSchema {
         let persistedSchema = PersistentWidgetSchema(context: managedObjectContext)
@@ -41,8 +42,19 @@ extension PersistentWidgetSchema {
         persistedSchema.previewImageUrl = widgetImageURL
         
         for module in schema.modules {
+            guard let image = moduleImages[module.position] else {
+                fatalError("Fatal error: module image not found.")
+            }
+            
+            let imageURL = FileManagerImagePersistenceController.shared.saveModuleImage(
+                image: image,
+                for: schema.id,
+                moduleIndex: module.position
+            )
+            
             let persistentModule = PersistentWidgetModule.from(
                 module: module,
+                imageURL: imageURL,
                 schema: schema,
                 using: managedObjectContext
             )

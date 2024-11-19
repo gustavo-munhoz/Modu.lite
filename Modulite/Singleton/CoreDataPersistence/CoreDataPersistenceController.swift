@@ -245,7 +245,8 @@ extension CoreDataPersistenceController {
     @discardableResult
     func registerOrUpdateWidget(
         _ schema: WidgetSchema,
-        widgetImage: UIImage
+        widgetImage: UIImage,
+        moduleImages: [Int: UIImage]
     ) -> PersistentWidgetSchema {
         let context = container.viewContext
         let fetchRequest = PersistentWidgetSchema.basicFetchRequest()
@@ -256,6 +257,7 @@ extension CoreDataPersistenceController {
                 let newWidget = PersistentWidgetSchema.from(
                     schema: schema,
                     widgetImage: widgetImage,
+                    moduleImages: moduleImages,
                     using: context
                 )
                 
@@ -279,17 +281,13 @@ extension CoreDataPersistenceController {
                     context.delete(module)
                 }
             }
-            
-            var newModules: Set<PersistentWidgetModule> = []
-            for module in schema.modules {
-                let persistentModule = PersistentWidgetModule.from(
-                    module: module,
-                    schema: schema,
-                    using: context
-                )
-                
-                newModules.insert(persistentModule)
-            }
+
+            let newModules = createPersistentModules(
+                schema: schema,
+                modules: schema.modules,
+                moduleImages: moduleImages,
+                context: context
+            )
             
             existingWidget.modules = newModules as NSSet
             existingWidget.lastEditedAt = .now
@@ -303,5 +301,35 @@ extension CoreDataPersistenceController {
             print("Error registering or updating widget: \(error.localizedDescription)")
             fatalError("Failed to register or update widget.")
         }
+    }
+    
+    private func createPersistentModules(
+        schema: WidgetSchema,
+        modules: [WidgetModule],
+        moduleImages: [Int: UIImage],
+        context: NSManagedObjectContext
+    ) -> Set<PersistentWidgetModule> {
+        Set(
+            modules.map {
+                guard let image = moduleImages[$0.position] else {
+                    fatalError("Fatal error: module image not found")
+                }
+                
+                let imageURL = FileManagerImagePersistenceController.shared.saveModuleImage(
+                    image: image,
+                    for: schema.id,
+                    moduleIndex: $0.position
+                )
+                
+                let persistentModule = PersistentWidgetModule.from(
+                    module: $0,
+                    imageURL: imageURL,
+                    schema: schema,
+                    using: context
+                )
+                
+                return persistentModule
+            }
+        )
     }
 }
