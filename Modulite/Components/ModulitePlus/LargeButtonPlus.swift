@@ -168,11 +168,23 @@ class LargeButtonPlus: UIView {
     }
     
     private func setupFeatures() {
-        let features = [
-            ("infinity", "Unlimited widgets"),
-            ("infinity", "Limitless auxiliary widgets"),
-            ("lock", "Unlimited app blocking sessions"),
-            ("square.on.square.dashed", "Many more skins options")
+        let features: [(String, String)] = [
+            (
+                "rectangle.grid.3x2.fill",
+                .localized(for: SettingsLocalizedTexts.offerPlusUnlimitedWidgets)
+            ),
+            (
+                "infinity",
+                .localized(for: SettingsLocalizedTexts.offerplusLimitlessAuxiliaryWidgets)
+            ),
+            (
+                "lock",
+                .localized(for: SettingsLocalizedTexts.offerPLusUnlimitedAppBlockingSessions)
+            ),
+            (
+                "square.on.square.dashed",
+                .localized(for: SettingsLocalizedTexts.offerPlusManyMoreSkinsOptions)
+            )
         ]
         
         for (iconName, text) in features {
