@@ -1,0 +1,23 @@
+{
+  "images" : [
+    {
+      "filename" : "RetromacDarkAuxWidgetPreview.png",
+      "idiom" : "universal",
+      "scale" : "1x"
+    },
+    {
+      "filename" : "RetromacDarkAuxWidgetPreview@2x.png",
+      "idiom" : "universal",
+      "scale" : "2x"
+    },
+    {
+      "filename" : "RetromacDarkAuxWidgetPreview@3x.png",
+      "idiom" : "universal",
+      "scale" : "3x"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}
