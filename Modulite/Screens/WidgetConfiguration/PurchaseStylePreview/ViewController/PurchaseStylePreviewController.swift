@@ -22,7 +22,7 @@ class PurchaseStylePreviewViewController: UIViewController {
     private var style: WidgetStyle
     var onStyleSelected: ((WidgetStyle) -> Void)?
     
-    private var imageNames: [String] = []
+    private var wallpaperImages: [UIImage] = []
     private var texts: [String] = []
     
     weak var delegate: PurchaseStylePreviewControllerDelegate?
@@ -67,11 +67,8 @@ class PurchaseStylePreviewViewController: UIViewController {
     
     private func configureView() {
         styleView.configure(with: style)
-        imageNames = [
-            "\(style.identifier)Preview1",
-            "\(style.identifier)Preview2",
-            "\(style.identifier)Preview3"
-        ]
+        
+        wallpaperImages = style.getWallpaperPreviewImages()
         
         texts = [
             "Lock Screen",
@@ -79,7 +76,7 @@ class PurchaseStylePreviewViewController: UIViewController {
             "Home Screen\n(Main Widget + Auxiliary Widget)"
         ]
         
-        styleView.pageControl.numberOfPages = imageNames.count
+        styleView.pageControl.numberOfPages = wallpaperImages.count
         styleView.collectionView.reloadData()
     }
     
@@ -95,7 +92,7 @@ extension PurchaseStylePreviewViewController: UICollectionViewDataSource {
         _ collectionView: UICollectionView,
         numberOfItemsInSection section: Int
     ) -> Int {
-        return imageNames.count
+        return wallpaperImages.count
     }
     
     func collectionView(
@@ -109,7 +106,7 @@ extension PurchaseStylePreviewViewController: UICollectionViewDataSource {
             return UICollectionViewCell()
         }
         
-        let image = UIImage(named: imageNames[indexPath.item])
+        let image = wallpaperImages[indexPath.row]
         let text = texts[indexPath.item]
         cell.configure(with: image, text: text)
         return cell
