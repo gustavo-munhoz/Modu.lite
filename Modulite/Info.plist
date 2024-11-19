@@ -2,8 +2,16 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>AppStoreKeyID</key>
+	<string>$(APP_STORE_KEY_ID)</string>
+	<key>AppStoreIssuerID</key>
+	<string>$(APP_STORE_ISSUER_ID)</string>
+	<key>AppStorePrivateKey</key>
+	<string>$(APP_STORE_PRIVATE_KEY)</string>
 	<key>AppGroupID</key>
 	<string>$(APP_GROUP_ID)</string>
+	<key>CFBundleIdentifier</key>
+	<string>$(BUNDLE_ID)</string>
 	<key>CFBundleURLTypes</key>
 	<array>
 		<dict>

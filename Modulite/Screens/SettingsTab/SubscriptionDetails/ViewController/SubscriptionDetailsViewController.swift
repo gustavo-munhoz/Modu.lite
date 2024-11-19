@@ -28,7 +28,7 @@ class SubscriptionDetailsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        subscriptionView.purchasedSkinsCountLabel.text = "\(PurchaseManager.shared.purchasedSkins.count)"
         setupNavigationBar()
         setupViewActions()
     }

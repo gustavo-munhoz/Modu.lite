@@ -30,6 +30,15 @@
 		AF0DB5242CD6DAA300451E18 /* TestModuliteIAP.storekit in Resources */ = {isa = PBXBuildFile; fileRef = AF0DB51F2CD6DAA300451E18 /* TestModuliteIAP.storekit */; };
 		AF0DB5252CD6DAA300451E18 /* TestModuliteIAP.storekit in Resources */ = {isa = PBXBuildFile; fileRef = AF0DB51F2CD6DAA300451E18 /* TestModuliteIAP.storekit */; };
 		AF0DB5272CD6DB8600451E18 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF0DB5262CD6DB8600451E18 /* StoreKit.framework */; };
+		AF0E1AB22CDEDD8800D0573E /* LargeButtonPlus.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF0E1AB12CDEDD8800D0573E /* LargeButtonPlus.swift */; };
+		AF0E1AC02CE5182B00D0573E /* OfferPlusCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF0E1ABF2CE5182B00D0573E /* OfferPlusCoordinator.swift */; };
+		AF0E1ACA2CE519E200D0573E /* OfferPlusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF0E1AC92CE519E200D0573E /* OfferPlusView.swift */; };
+		AF0E1ACC2CE51A0500D0573E /* OfferPlusViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF0E1ACB2CE51A0500D0573E /* OfferPlusViewController.swift */; };
+		AF0E1ACE2CE53B0A00D0573E /* SubscriptionMonthOptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF0E1ACD2CE53B0A00D0573E /* SubscriptionMonthOptionView.swift */; };
+		AF0E1AD02CE672F500D0573E /* SubscriptionYearOptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF0E1ACF2CE672F500D0573E /* SubscriptionYearOptionView.swift */; };
+		AF0E1AD22CE6863600D0573E /* GradientBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF0E1AD12CE6863600D0573E /* GradientBackgroundView.swift */; };
+		AF34A7E22CDBFFCD00016A7A /* SubscriptionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF34A7E12CDBFFCD00016A7A /* SubscriptionManager.swift */; };
+		AF34A7E32CDBFFCD00016A7A /* SubscriptionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF34A7E12CDBFFCD00016A7A /* SubscriptionManager.swift */; };
 		AF362C052CA5B1A300506443 /* DeviceActivity.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AFABBD872C88E388007BEFD8 /* DeviceActivity.framework */; };
 		AF362C0D2CA5B1A300506443 /* ModuliteDeviceActivityMonitor.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = AF362C042CA5B1A300506443 /* ModuliteDeviceActivityMonitor.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		AF362C162CA5B1B000506443 /* DeviceActivityMonitorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF362C122CA5B1B000506443 /* DeviceActivityMonitorExtension.swift */; };
@@ -538,7 +547,15 @@
 		AF0DB4A32CD40C6400451E18 /* StylePreviewCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StylePreviewCoordinator.swift; sourceTree = "<group>"; };
 		AF0DB51F2CD6DAA300451E18 /* TestModuliteIAP.storekit */ = {isa = PBXFileReference; lastKnownFileType = folder; path = TestModuliteIAP.storekit; sourceTree = "<group>"; };
 		AF0DB5262CD6DB8600451E18 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		AF0E1AB12CDEDD8800D0573E /* LargeButtonPlus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LargeButtonPlus.swift; sourceTree = "<group>"; };
+		AF0E1ABF2CE5182B00D0573E /* OfferPlusCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfferPlusCoordinator.swift; sourceTree = "<group>"; };
+		AF0E1AC92CE519E200D0573E /* OfferPlusView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfferPlusView.swift; sourceTree = "<group>"; };
+		AF0E1ACB2CE51A0500D0573E /* OfferPlusViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfferPlusViewController.swift; sourceTree = "<group>"; };
+		AF0E1ACD2CE53B0A00D0573E /* SubscriptionMonthOptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionMonthOptionView.swift; sourceTree = "<group>"; };
+		AF0E1ACF2CE672F500D0573E /* SubscriptionYearOptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionYearOptionView.swift; sourceTree = "<group>"; };
+		AF0E1AD12CE6863600D0573E /* GradientBackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientBackgroundView.swift; sourceTree = "<group>"; };
 		AF34A7DE2CDBF48200016A7A /* Modu.storekit */ = {isa = PBXFileReference; lastKnownFileType = text; path = Modu.storekit; sourceTree = "<group>"; };
+		AF34A7E12CDBFFCD00016A7A /* SubscriptionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionManager.swift; sourceTree = "<group>"; };
 		AF362C042CA5B1A300506443 /* ModuliteDeviceActivityMonitor.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = ModuliteDeviceActivityMonitor.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		AF362C122CA5B1B000506443 /* DeviceActivityMonitorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceActivityMonitorExtension.swift; sourceTree = "<group>"; };
 		AF362C132CA5B1B000506443 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -1065,6 +1082,57 @@
 			path = StylePreview;
 			sourceTree = "<group>";
 		};
+		AF0E1ABD2CE5181600D0573E /* OfferPlus */ = {
+			isa = PBXGroup;
+			children = (
+				AF0E1ABF2CE5182B00D0573E /* OfferPlusCoordinator.swift */,
+			);
+			path = OfferPlus;
+			sourceTree = "<group>";
+		};
+		AF0E1AC22CE519BA00D0573E /* OfferPlus */ = {
+			isa = PBXGroup;
+			children = (
+				AF0E1AC62CE519D600D0573E /* View */,
+				AF0E1AC72CE519D600D0573E /* ViewController */,
+				AF0E1AC82CE519D600D0573E /* ViewModel */,
+			);
+			path = OfferPlus;
+			sourceTree = "<group>";
+		};
+		AF0E1AC62CE519D600D0573E /* View */ = {
+			isa = PBXGroup;
+			children = (
+				AF0E1ACF2CE672F500D0573E /* SubscriptionYearOptionView.swift */,
+				AF0E1ACD2CE53B0A00D0573E /* SubscriptionMonthOptionView.swift */,
+				AF0E1AC92CE519E200D0573E /* OfferPlusView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		AF0E1AC72CE519D600D0573E /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				AF0E1ACB2CE51A0500D0573E /* OfferPlusViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		AF0E1AC82CE519D600D0573E /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		AF34A7E02CDBFFCC00016A7A /* PLUS */ = {
+			isa = PBXGroup;
+			children = (
+				AF34A7E12CDBFFCD00016A7A /* SubscriptionManager.swift */,
+			);
+			path = PLUS;
+			sourceTree = "<group>";
+		};
 		AF362C152CA5B1B000506443 /* ModuliteDeviceActivityMonitor */ = {
 			isa = PBXGroup;
 			children = (
@@ -1295,6 +1363,7 @@
 			isa = PBXGroup;
 			children = (
 				B3C6DD842CDEAC17002AEAF7 /* CoreDataPersistence */,
+				AF34A7E02CDBFFCC00016A7A /* PLUS */,
 				AF09AE732CD7047200E0707A /* Skins */,
 				AF362C7B2CAB320200506443 /* FamilyControls */,
 				B33808A42CC3050200D56884 /* UserPreferences */,
@@ -1601,6 +1670,7 @@
 		B34F3E012C6A93800041D7BD /* SettingsTab */ = {
 			isa = PBXGroup;
 			children = (
+				AF0E1AC22CE519BA00D0573E /* OfferPlus */,
 				B3D1B7DB2CB7121000DFC4F5 /* Help */,
 				B35BFC542CB6F20300092B42 /* FAQ */,
 				B35BFBD12CB5A81500092B42 /* TutorialCenter */,
@@ -2148,6 +2218,7 @@
 		B36927C82C66B8330089F769 /* Coordinators */ = {
 			isa = PBXGroup;
 			children = (
+				AF0E1ABD2CE5181600D0573E /* OfferPlus */,
 				AF0DB4A22CD40C5900451E18 /* StylePreview */,
 				B34C62F92CD18478004E014B /* Onboarding */,
 				B33808AE2CC47BFD00D56884 /* RequestScreenTime */,
@@ -2404,6 +2475,7 @@
 		B39A25D02CAF1B0D001C76A5 /* Gradients */ = {
 			isa = PBXGroup;
 			children = (
+				AF0E1AD12CE6863600D0573E /* GradientBackgroundView.swift */,
 				AFE15ABA2CD9A194000A255B /* MultiLineGradientLabelView.swift */,
 				AF09AE852CD7102700E0707A /* GradientButton.swift */,
 				B39A25CF2CAF1B0D001C76A5 /* GradientLabelView.swift */,
@@ -2418,6 +2490,7 @@
 				B39A25D72CAF275F001C76A5 /* ModulitePlusSmallBadge.swift */,
 				B39A25DD2CAF751B001C76A5 /* ModulitePlusLargeBadge.swift */,
 				B35BFB942CB4632900092B42 /* ModuliteFreeSmallBadge.swift */,
+				AF0E1AB12CDEDD8800D0573E /* LargeButtonPlus.swift */,
 			);
 			path = ModulitePlus;
 			sourceTree = "<group>";
@@ -3331,6 +3404,7 @@
 			files = (
 				AF0026662CCAC8300052B101 /* ShieldContentFactory.swift in Sources */,
 				B37284742C82995C00D9A1E7 /* UIFont+TraitedTextStyle.swift in Sources */,
+				AF34A7E22CDBFFCD00016A7A /* SubscriptionManager.swift in Sources */,
 				B3987E0C2CA38A8A00896414 /* MainWidget.swift in Sources */,
 				B34C62F52CD179E9004E014B /* OnboardingPreferences.swift in Sources */,
 				B32F3BFF2CD70D77000F4825 /* SpaceGrotesk.swift in Sources */,
@@ -3418,6 +3492,7 @@
 				B34F3E242C6D366A0041D7BD /* WidgetEditorView.swift in Sources */,
 				B35BFB952CB4632900092B42 /* ModuliteFreeSmallBadge.swift in Sources */,
 				B35BFBCB2CB4BC7600092B42 /* SubscriptionDetailsSmallTitle.swift in Sources */,
+				AF0E1AD22CE6863600D0573E /* GradientBackgroundView.swift in Sources */,
 				B34C62F12CD1761D004E014B /* WelcomeView.swift in Sources */,
 				B35BFBED2CB5BA8000092B42 /* TutorialCenterSmallTitle.swift in Sources */,
 				B39D89D22CB85602005EEC46 /* ComingSoonViewController.swift in Sources */,
@@ -3435,6 +3510,7 @@
 				B35BFBDF2CB5A9FE00092B42 /* TutorialCenterViewModel.swift in Sources */,
 				B369279A2C66B6E30089F769 /* SceneDelegate.swift in Sources */,
 				B32F3BE12CD56412000F4825 /* ButtonFactory.swift in Sources */,
+				AF0E1AB22CDEDD8800D0573E /* LargeButtonPlus.swift in Sources */,
 				B32B60F22C878290007DDCE3 /* UIView+asImage.swift in Sources */,
 				B35BFBF32CB5CCD200092B42 /* TutorialCoordinator.swift in Sources */,
 				B39A25D82CAF275F001C76A5 /* ModulitePlusSmallBadge.swift in Sources */,
@@ -3448,6 +3524,7 @@
 				B35BFBB62CB4B5F600092B42 /* PreferenceTableViewCell.swift in Sources */,
 				B35BFBB72CB4B5F600092B42 /* SettingsView.swift in Sources */,
 				B35BFBB82CB4B5F600092B42 /* SettingsViewController.swift in Sources */,
+				AF0E1AC02CE5182B00D0573E /* OfferPlusCoordinator.swift in Sources */,
 				B32F3BA52CD2E7D7000F4825 /* ProceedToEditorTip.swift in Sources */,
 				B35BFBB92CB4B5F600092B42 /* SettingsViewModel.swift in Sources */,
 				AFFB446C2CC6E35A007CDA51 /* AppBlockingViewModel.swift in Sources */,
@@ -3522,6 +3599,7 @@
 				B39D89D72CB858A0005EEC46 /* ComingSoonLocalizedTexts.swift in Sources */,
 				B3987E262CA4858E00896414 /* MainWidgetModuleData.swift in Sources */,
 				AFFB44632CC6DB5C007CDA51 /* AppBlockingSession.swift in Sources */,
+				AF0E1ACE2CE53B0A00D0573E /* SubscriptionMonthOptionView.swift in Sources */,
 				AF09AE842CD70E7B00E0707A /* PurchaseStylePreviewView.swift in Sources */,
 				AF0DB49A2CD2C09E00451E18 /* StylePreviewViewModel.swift in Sources */,
 				AFFB446E2CC6E37B007CDA51 /* AppBlockingView.swift in Sources */,
@@ -3533,12 +3611,14 @@
 				B34F3E402C74E3270041D7BD /* WidgetModuleCell.swift in Sources */,
 				B33808AC2CC31D8300D56884 /* RequestScreenTimeTexts.swift in Sources */,
 				B35BFB892CB4605C00092B42 /* TutorialMultiParagraphLabel.swift in Sources */,
+				AF0E1AD02CE672F500D0573E /* SubscriptionYearOptionView.swift in Sources */,
 				B34C62D62CCC1585004E014B /* WallpaperSaveError.swift in Sources */,
 				B35BFB8A2CB4605C00092B42 /* TutorialTextParagraphLabel.swift in Sources */,
 				AFE15ABB2CD9A194000A255B /* MultiLineGradientLabelView.swift in Sources */,
 				B35BFBE72CB5AAA600092B42 /* TutorialCenterLocalizedTexts.swift in Sources */,
 				B32F3BDD2CD41FFF000F4825 /* OnboardingCompletionCoordinator.swift in Sources */,
 				B35BFB8B2CB4605C00092B42 /* TutorialTitleLabel.swift in Sources */,
+				AF0E1ACA2CE519E200D0573E /* OfferPlusView.swift in Sources */,
 				AF5F2D142CD165E500EBAAB5 /* RedirectingViewController.swift in Sources */,
 				B34F3E1C2C6BD3DA0041D7BD /* HomeViewModel.swift in Sources */,
 				B34C62D82CCC18D8004E014B /* WidgetEditorLocalizedTexts.swift in Sources */,
@@ -3604,7 +3684,9 @@
 				B39D89E02CB85C38005EEC46 /* BlockAppsCoordinator.swift in Sources */,
 				B35BFC4E2CB609CD00092B42 /* TutorialAddWidgetView.swift in Sources */,
 				B3D1B7CF2CB6FDF800DFC4F5 /* FAQStackView.swift in Sources */,
+				AF34A7E32CDBFFCD00016A7A /* SubscriptionManager.swift in Sources */,
 				B34F3E282C6D36D40041D7BD /* WidgetSetupViewController.swift in Sources */,
+				AF0E1ACC2CE51A0500D0573E /* OfferPlusViewController.swift in Sources */,
 				B32B60BC2C86492C007DDCE3 /* UIColorValueTransformer.swift in Sources */,
 				B39A25D12CAF1B0D001C76A5 /* GradientLabelView.swift in Sources */,
 				B3D1B7E12CB7122200DFC4F5 /* HelpViewModel.swift in Sources */,

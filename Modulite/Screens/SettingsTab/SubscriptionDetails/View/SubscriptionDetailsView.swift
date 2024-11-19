@@ -113,6 +113,12 @@ class SubscriptionDetailsView: UIView {
         return view
     }()
     
+    private(set) lazy var modulitePlusBadge: UIView = {
+        let view = LargeButtonPlus()
+        view.onUpgradeButtonPress = didTapUpgradeToPlus
+        return view
+    }()
+    
     // MARK: - Initializers
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -128,6 +134,7 @@ class SubscriptionDetailsView: UIView {
     
     // MARK: - Actions
     @objc private func didTapUpgradeToPlus() {
+        print("Upgrade to Plus Tapped")
         onUpgradeToPlusTapped?()
     }
     
@@ -139,6 +146,7 @@ class SubscriptionDetailsView: UIView {
         
         addSubview(skinsTitleLabel)
         addSubview(purchasedSkinsStack)
+        addSubview(modulitePlusBadge)
     }
     
     private func setupConstraints() {
@@ -167,5 +175,14 @@ class SubscriptionDetailsView: UIView {
             make.top.equalTo(skinsTitleLabel.snp.bottom).offset(16)
             make.left.right.equalTo(skinsTitleLabel)
         }
+        
+        modulitePlusBadge.snp.makeConstraints { make in
+            make.left.right.equalTo(purchasedSkinsStack)
+            make.top.equalTo(purchasedSkinsStack.snp.bottom).offset(24)
+        }
     }
+}
+
+#Preview {
+    SubscriptionDetailsView()
 }

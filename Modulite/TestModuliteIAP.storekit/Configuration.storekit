@@ -79,7 +79,7 @@
     {
       "displayPrice" : "0.99",
       "familyShareable" : false,
-      "internalID" : "ADE37E97",
+      "internalID" : "A7087662",
       "localizations" : [
         {
           "description" : "",
@@ -88,7 +88,6 @@
         }
       ],
       "productID" : "modutouch3",
-      "promotionalImageID" : "8573FAF6",
       "referenceName" : "Modutouch3",
       "type" : "NonConsumable"
     },
@@ -161,7 +160,71 @@
     ]
   },
   "subscriptionGroups" : [
+    {
+      "id" : "92EBC93D",
+      "localizations" : [
 
+      ],
+      "name" : "PLUS",
+      "subscriptions" : [
+        {
+          "adHocOffers" : [
+
+          ],
+          "codeOffers" : [
+
+          ],
+          "displayPrice" : "9.99",
+          "familyShareable" : false,
+          "groupNumber" : 1,
+          "internalID" : "A27E63E9",
+          "introductoryOffer" : null,
+          "localizations" : [
+            {
+              "description" : "",
+              "displayName" : "",
+              "locale" : "en_US"
+            }
+          ],
+          "productID" : "modulite.plus.monthly",
+          "recurringSubscriptionPeriod" : "P1M",
+          "referenceName" : "Monthly plus",
+          "subscriptionGroupID" : "92EBC93D",
+          "type" : "RecurringSubscription",
+          "winbackOffers" : [
+
+          ]
+        },
+        {
+          "adHocOffers" : [
+
+          ],
+          "codeOffers" : [
+
+          ],
+          "displayPrice" : "99.90",
+          "familyShareable" : false,
+          "groupNumber" : 1,
+          "internalID" : "A732048D",
+          "introductoryOffer" : null,
+          "localizations" : [
+            {
+              "description" : "",
+              "displayName" : "",
+              "locale" : "en_US"
+            }
+          ],
+          "productID" : "modulite.plus.yearly",
+          "recurringSubscriptionPeriod" : "P1Y",
+          "referenceName" : "Yearly plus",
+          "subscriptionGroupID" : "92EBC93D",
+          "type" : "RecurringSubscription",
+          "winbackOffers" : [
+
+          ]
+        }
+      ]
+    }
   ],
   "version" : {
     "major" : 4,

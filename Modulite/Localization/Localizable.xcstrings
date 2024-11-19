@@ -87,6 +87,17 @@
         }
       }
     },
+    "buttonUpgrandeNow" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "UPGRADE NOW!"
+          }
+        }
+      }
+    },
     "cancel" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -860,9 +871,6 @@
         }
       }
     },
-    "Key" : {
-      "extractionState" : "manual"
-    },
     "Loading..." : {
 
     },
@@ -889,6 +897,215 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "NEXT"
+          }
+        }
+      }
+    },
+    "offerPlus2MonthsOff" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "2 MONTHS OFF"
+          }
+        }
+      }
+    },
+    "offerPlusAprox" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "aprox."
+          }
+        }
+      }
+    },
+    "offerPlusCancelAnytime" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "cancel any time"
+          }
+        }
+      }
+    },
+    "offerPlusFor" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "for"
+          }
+        }
+      }
+    },
+    "offerPlusForOnly" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "for only"
+          }
+        }
+      }
+    },
+    "offerPlusFrom" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "from"
+          }
+        }
+      }
+    },
+    "offerplusLimitlessAuxiliaryWidgets" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Limitless auxiliary widgets"
+          }
+        }
+      }
+    },
+    "offerPlusManyMoreSkinsOptions" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Many more skins options"
+          }
+        }
+      }
+    },
+    "offerPlusMonthlyPrice" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "US$9.99"
+          }
+        }
+      }
+    },
+    "offerPlusMonthlyTitle" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "1 month"
+          }
+        }
+      }
+    },
+    "offerPlusNoThnakYou" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No, thank you"
+          }
+        }
+      }
+    },
+    "offerPlusSubscribeNow" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "SUBSCRIBE NOW"
+          }
+        }
+      }
+    },
+    "offerPlusTitle" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Upgrade now to"
+          }
+        }
+      }
+    },
+    "offerPLusUnlimitedAppBlockingSessions" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Unlimited app blocking sessions"
+          }
+        }
+      }
+    },
+    "offerPlusUnlimitedWidgets" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Unlimited widgets"
+          }
+        }
+      }
+    },
+    "offerPlusYearlyMonthlyPrice" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "US$8.32/mo"
+          }
+        }
+      }
+    },
+    "offerPlusYearlyPrice" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "US$99.90"
+          }
+        }
+      }
+    },
+    "offerPlusYearlyPriceWithoutDiscount" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "US$119.88"
+          }
+        }
+      }
+    },
+    "offerPlusYearlyTitle" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "12 months"
           }
         }
       }
@@ -1252,6 +1469,17 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "We need access to Screen Time to present your usage"
+          }
+        }
+      }
+    },
+    "restorePurchaseSettings" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Restore Purchase"
           }
         }
       }
@@ -1638,6 +1866,17 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "UNLOCK FOR"
+          }
+        }
+      }
+    },
+    "startingAtUSD999" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "starting at USD$9.99/month"
           }
         }
       }

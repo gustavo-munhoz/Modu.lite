@@ -67,7 +67,6 @@ class StylePreviewViewController: UIViewController {
         styleView.configure(with: style)
         
         wallpaperImages = style.getWallpaperPreviewImages()
-        
         texts = [
             "Lock Screen",
             "Home Screen\n(Main Widget)",
