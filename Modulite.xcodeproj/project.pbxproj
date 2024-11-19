@@ -250,6 +250,8 @@
 		B384D9422CE7A64700D17B93 /* WidgetStylingProvider+PurchasedSkins.swift in Sources */ = {isa = PBXBuildFile; fileRef = B384D9402CE7A64700D17B93 /* WidgetStylingProvider+PurchasedSkins.swift */; };
 		B384D9442CEBB1FD00D17B93 /* UIUserInterfaceStyle+fromString.swift in Sources */ = {isa = PBXBuildFile; fileRef = B384D9432CEBB1FD00D17B93 /* UIUserInterfaceStyle+fromString.swift */; };
 		B384D9462CEBB65200D17B93 /* BaseModuleStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = B384D9452CEBB65200D17B93 /* BaseModuleStyle.swift */; };
+		B384D94A2CED1E3A00D17B93 /* retromacDark.json in Resources */ = {isa = PBXBuildFile; fileRef = B384D9492CED1E3A00D17B93 /* retromacDark.json */; };
+		B384D94E2CED269800D17B93 /* plantshelf.json in Resources */ = {isa = PBXBuildFile; fileRef = B384D94D2CED269800D17B93 /* plantshelf.json */; };
 		B3850BB52C94D1F200F400C0 /* UICollectionViewCell+toggleIsHighlighted.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3850BB42C94D1F200F400C0 /* UICollectionViewCell+toggleIsHighlighted.swift */; };
 		B3850BBB2C963A0500F400C0 /* UIFontExtensionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3850BBA2C963A0500F400C0 /* UIFontExtensionTests.swift */; };
 		B3850BBD2C963BD500F400C0 /* UITextFieldExtensionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3850BBC2C963BD500F400C0 /* UITextFieldExtensionTests.swift */; };
@@ -753,6 +755,8 @@
 		B384D9402CE7A64700D17B93 /* WidgetStylingProvider+PurchasedSkins.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WidgetStylingProvider+PurchasedSkins.swift"; sourceTree = "<group>"; };
 		B384D9432CEBB1FD00D17B93 /* UIUserInterfaceStyle+fromString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIUserInterfaceStyle+fromString.swift"; sourceTree = "<group>"; };
 		B384D9452CEBB65200D17B93 /* BaseModuleStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseModuleStyle.swift; sourceTree = "<group>"; };
+		B384D9492CED1E3A00D17B93 /* retromacDark.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = retromacDark.json; sourceTree = "<group>"; };
+		B384D94D2CED269800D17B93 /* plantshelf.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = plantshelf.json; sourceTree = "<group>"; };
 		B3850BB42C94D1F200F400C0 /* UICollectionViewCell+toggleIsHighlighted.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionViewCell+toggleIsHighlighted.swift"; sourceTree = "<group>"; };
 		B3850BBA2C963A0500F400C0 /* UIFontExtensionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIFontExtensionTests.swift; sourceTree = "<group>"; };
 		B3850BBC2C963BD500F400C0 /* UITextFieldExtensionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextFieldExtensionTests.swift; sourceTree = "<group>"; };
@@ -2734,11 +2738,13 @@
 		B39FB8732CDC441D00967E3A /* WidgetStyles */ = {
 			isa = PBXGroup;
 			children = (
+				B384D94D2CED269800D17B93 /* plantshelf.json */,
 				B363B5812CE43ABC002912CC /* tapedeck.json */,
 				B39FB8722CDC441D00967E3A /* analog.json */,
 				B363B53E2CE2DB97002912CC /* retromacGreen.json */,
 				B384D9352CE585F000D17B93 /* retromacWhite.json */,
 				B384D9372CE6787B00D17B93 /* modutouch3.json */,
+				B384D9492CED1E3A00D17B93 /* retromacDark.json */,
 			);
 			path = WidgetStyles;
 			sourceTree = "<group>";
@@ -3313,9 +3319,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B384D94A2CED1E3A00D17B93 /* retromacDark.json in Resources */,
 				B384D9382CE6787B00D17B93 /* modutouch3.json in Resources */,
 				B384D9362CE585F000D17B93 /* retromacWhite.json in Resources */,
 				B39FB8742CDC441D00967E3A /* analog.json in Resources */,
+				B384D94E2CED269800D17B93 /* plantshelf.json in Resources */,
 				B363B53F2CE2DB97002912CC /* retromacGreen.json in Resources */,
 				B363B5822CE43ABC002912CC /* tapedeck.json in Resources */,
 				B39FB8512CDC082800967E3A /* Images.xcassets in Resources */,
