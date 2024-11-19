@@ -35,6 +35,8 @@
     "_developerTeamID" : "7U55BCTM6U",
     "_failTransactionsEnabled" : false,
     "_lastSynchronizedDate" : 752612866.91919601,
+    "_locale" : "en_US",
+    "_storefront" : "USA",
     "_storeKitErrors" : [
       {
         "current" : null,

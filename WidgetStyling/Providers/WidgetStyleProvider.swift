@@ -73,5 +73,7 @@ public class WidgetStyleProvider {
         styles.first(where: { $0.identifier == identifier })
     }
     
-    public func getAllStyles() -> [WidgetStyle] { styles }
+    public func getAllStyles() -> [WidgetStyle] {
+        styles.sorted(by: { $0.name < $1.name })
+    }
 }

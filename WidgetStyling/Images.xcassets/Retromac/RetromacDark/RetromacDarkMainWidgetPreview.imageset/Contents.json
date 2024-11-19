@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "RetromacDarkMainWidgetPreview.png",
+      "filename" : "retromacDarkMainWidgetPreview.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "RetromacDarkMainWidgetPreview@2x.png",
+      "filename" : "retromacDarkMainWidgetPreview@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "RetromacDarkMainWidgetPreview@3x.png",
+      "filename" : "retromacDarkMainWidgetPreview@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }
