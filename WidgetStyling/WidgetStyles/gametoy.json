@@ -1,0 +1,730 @@
+{
+    "identifier": "gametoy",
+    "name": "Game Toy",
+    "isPurchased": false,
+    "isIncludedInPlus": true,
+    "backgroundConfiguration": {
+        "mainBackground": {
+            "type": "color",
+            "value": "custard"
+        },
+        "auxBackground": {
+            "type": "color",
+            "value": "lemonYellow"
+        }
+    },
+    "moduleConfiguration": {
+        "mainModules": [
+            {
+                "identifier": "retromacMainBook",
+                "imageName": "retromacMainBook",
+                "filterColorNames": ["none"],
+                "defaultColorName": "none",
+                "shadowColorName": "squidInk",
+                "shadowOffsetHeight": 3,
+                "shadowBlurRadius": 3,
+                "shadowOpacity": 0.5,
+                "textConfiguration": {
+                    "fontName": "PixelOperator8-Bold",
+                    "fontSize": 9,
+                    "textColorName": "squidInk",
+                    "shadowColorName": "squidInk",
+                    "shadowOffsetHeight": 3,
+                    "shadowBlurRadius": 3,
+                    "shadowOpacity": 0.25,
+                    "textAlignment": "center",
+                    "textCase": "capitalized",
+                    "bottomRelativePosition": 0.9
+                },
+                "forcedUserInterfaceStyle": "light"
+            },
+            {
+                "identifier": "retromacMainCalculator",
+                "imageName": "retromacMainCalculator",
+                "filterColorNames": ["none"],
+                "defaultColorName": "none",
+                "shadowColorName": "squidInk",
+                "shadowOffsetHeight": 3,
+                "shadowBlurRadius": 3,
+                "shadowOpacity": 0.5,
+                "textConfiguration": {
+                    "fontName": "PixelOperator8-Bold",
+                    "fontSize": 9,
+                    "textColorName": "squidInk",
+                    "shadowColorName": "squidInk",
+                    "shadowOffsetHeight": 3,
+                    "shadowBlurRadius": 3,
+                    "shadowOpacity": 0.25,
+                    "textAlignment": "center",
+                    "textCase": "capitalized",
+                    "bottomRelativePosition": 0.9
+                },
+                "forcedUserInterfaceStyle": "light"
+            },
+            {
+                "identifier": "retromacMainCamera",
+                "imageName": "retromacMainCamera",
+                "filterColorNames": ["none"],
+                "defaultColorName": "none",
+                "shadowColorName": "squidInk",
+                "shadowOffsetHeight": 3,
+                "shadowBlurRadius": 3,
+                "shadowOpacity": 0.5,
+                "textConfiguration": {
+                    "fontName": "PixelOperator8-Bold",
+                    "fontSize": 9,
+                    "textColorName": "squidInk",
+                    "shadowColorName": "squidInk",
+                    "shadowOffsetHeight": 3,
+                    "shadowBlurRadius": 3,
+                    "shadowOpacity": 0.25,
+                    "textAlignment": "center",
+                    "textCase": "capitalized",
+                    "bottomRelativePosition": 0.9
+                },
+                "forcedUserInterfaceStyle": "light"
+            },
+            {
+                "identifier": "retromacMainCar",
+                "imageName": "retromacMainCar",
+                "filterColorNames": ["none"],
+                "defaultColorName": "none",
+                "shadowColorName": "squidInk",
+                "shadowOffsetHeight": 3,
+                "shadowBlurRadius": 3,
+                "shadowOpacity": 0.5,
+                "textConfiguration": {
+                    "fontName": "PixelOperator8-Bold",
+                    "fontSize": 9,
+                    "textColorName": "squidInk",
+                    "shadowColorName": "squidInk",
+                    "shadowOffsetHeight": 3,
+                    "shadowBlurRadius": 3,
+                    "shadowOpacity": 0.25,
+                    "textAlignment": "center",
+                    "textCase": "capitalized",
+                    "bottomRelativePosition": 0.9
+                },
+                "forcedUserInterfaceStyle": "light"
+            },
+            {
+                "identifier": "retromacMainChart",
+                "imageName": "retromacMainChart",
+                "filterColorNames": ["none"],
+                "defaultColorName": "none",
+                "shadowColorName": "squidInk",
+                "shadowOffsetHeight": 3,
+                "shadowBlurRadius": 3,
+                "shadowOpacity": 0.5,
+                "textConfiguration": {
+                    "fontName": "PixelOperator8-Bold",
+                    "fontSize": 9,
+                    "textColorName": "squidInk",
+                    "shadowColorName": "squidInk",
+                    "shadowOffsetHeight": 3,
+                    "shadowBlurRadius": 3,
+                    "shadowOpacity": 0.25,
+                    "textAlignment": "center",
+                    "textCase": "capitalized",
+                    "bottomRelativePosition": 0.9
+                },
+                "forcedUserInterfaceStyle": "light"
+            },
+            {
+                "identifier": "retromacMainClock",
+                "imageName": "retromacMainClock",
+                "filterColorNames": ["none"],
+                "defaultColorName": "none",
+                "shadowColorName": "squidInk",
+                "shadowOffsetHeight": 3,
+                "shadowBlurRadius": 3,
+                "shadowOpacity": 0.5,
+                "textConfiguration": {
+                    "fontName": "PixelOperator8-Bold",
+                    "fontSize": 9,
+                    "textColorName": "squidInk",
+                    "shadowColorName": "squidInk",
+                    "shadowOffsetHeight": 3,
+                    "shadowBlurRadius": 3,
+                    "shadowOpacity": 0.25,
+                    "textAlignment": "center",
+                    "textCase": "capitalized",
+                    "bottomRelativePosition": 0.9
+                },
+                "forcedUserInterfaceStyle": "light"
+            },
+            {
+                "identifier": "retromacMainCloud",
+                "imageName": "retromacMainCloud",
+                "filterColorNames": ["none"],
+                "defaultColorName": "none",
+                "shadowColorName": "squidInk",
+                "shadowOffsetHeight": 3,
+                "shadowBlurRadius": 3,
+                "shadowOpacity": 0.5,
+                "textConfiguration": {
+                    "fontName": "PixelOperator8-Bold",
+                    "fontSize": 9,
+                    "textColorName": "squidInk",
+                    "shadowColorName": "squidInk",
+                    "shadowOffsetHeight": 3,
+                    "shadowBlurRadius": 3,
+                    "shadowOpacity": 0.25,
+                    "textAlignment": "center",
+                    "textCase": "capitalized",
+                    "bottomRelativePosition": 0.9
+                },
+                "forcedUserInterfaceStyle": "light"
+            },
+            {
+                "identifier": "retromacMainDoc",
+                "imageName": "retromacMainDoc",
+                "filterColorNames": ["none"],
+                "defaultColorName": "none",
+                "shadowColorName": "squidInk",
+                "shadowOffsetHeight": 3,
+                "shadowBlurRadius": 3,
+                "shadowOpacity": 0.5,
+                "textConfiguration": {
+                    "fontName": "PixelOperator8-Bold",
+                    "fontSize": 9,
+                    "textColorName": "squidInk",
+                    "shadowColorName": "squidInk",
+                    "shadowOffsetHeight": 3,
+                    "shadowBlurRadius": 3,
+                    "shadowOpacity": 0.25,
+                    "textAlignment": "center",
+                    "textCase": "capitalized",
+                    "bottomRelativePosition": 0.9
+                },
+                "forcedUserInterfaceStyle": "light"
+            },
+            {
+                "identifier": "retromacMainEmail",
+                "imageName": "retromacMainEmail",
+                "filterColorNames": ["none"],
+                "defaultColorName": "none",
+                "shadowColorName": "squidInk",
+                "shadowOffsetHeight": 3,
+                "shadowBlurRadius": 3,
+                "shadowOpacity": 0.5,
+                "textConfiguration": {
+                    "fontName": "PixelOperator8-Bold",
+                    "fontSize": 9,
+                    "textColorName": "squidInk",
+                    "shadowColorName": "squidInk",
+                    "shadowOffsetHeight": 3,
+                    "shadowBlurRadius": 3,
+                    "shadowOpacity": 0.25,
+                    "textAlignment": "center",
+                    "textCase": "capitalized",
+                    "bottomRelativePosition": 0.9
+                },
+                "forcedUserInterfaceStyle": "light"
+            },
+            {
+                "identifier": "retromacMainGame",
+                "imageName": "retromacMainGame",
+                "filterColorNames": ["none"],
+                "defaultColorName": "none",
+                "shadowColorName": "squidInk",
+                "shadowOffsetHeight": 3,
+                "shadowBlurRadius": 3,
+                "shadowOpacity": 0.5,
+                "textConfiguration": {
+                    "fontName": "PixelOperator8-Bold",
+                    "fontSize": 9,
+                    "textColorName": "squidInk",
+                    "shadowColorName": "squidInk",
+                    "shadowOffsetHeight": 3,
+                    "shadowBlurRadius": 3,
+                    "shadowOpacity": 0.25,
+                    "textAlignment": "center",
+                    "textCase": "capitalized",
+                    "bottomRelativePosition": 0.9
+                },
+                "forcedUserInterfaceStyle": "light"
+            },
+            {
+                "identifier": "retromacMainGear",
+                "imageName": "retromacMainGear",
+                "filterColorNames": ["none"],
+                "defaultColorName": "none",
+                "shadowColorName": "squidInk",
+                "shadowOffsetHeight": 3,
+                "shadowBlurRadius": 3,
+                "shadowOpacity": 0.5,
+                "textConfiguration": {
+                    "fontName": "PixelOperator8-Bold",
+                    "fontSize": 9,
+                    "textColorName": "squidInk",
+                    "shadowColorName": "squidInk",
+                    "shadowOffsetHeight": 3,
+                    "shadowBlurRadius": 3,
+                    "shadowOpacity": 0.25,
+                    "textAlignment": "center",
+                    "textCase": "capitalized",
+                    "bottomRelativePosition": 0.9
+                },
+                "forcedUserInterfaceStyle": "light"
+            },
+            {
+                "identifier": "retromacMainHeart",
+                "imageName": "retromacMainHeart",
+                "filterColorNames": ["none"],
+                "defaultColorName": "none",
+                "shadowColorName": "squidInk",
+                "shadowOffsetHeight": 3,
+                "shadowBlurRadius": 3,
+                "shadowOpacity": 0.5,
+                "textConfiguration": {
+                    "fontName": "PixelOperator8-Bold",
+                    "fontSize": 9,
+                    "textColorName": "squidInk",
+                    "shadowColorName": "squidInk",
+                    "shadowOffsetHeight": 3,
+                    "shadowBlurRadius": 3,
+                    "shadowOpacity": 0.25,
+                    "textAlignment": "center",
+                    "textCase": "capitalized",
+                    "bottomRelativePosition": 0.9
+                },
+                "forcedUserInterfaceStyle": "light"
+            },
+            {
+                "identifier": "retromacMainMail",
+                "imageName": "retromacMainMail",
+                "filterColorNames": ["none"],
+                "defaultColorName": "none",
+                "shadowColorName": "squidInk",
+                "shadowOffsetHeight": 3,
+                "shadowBlurRadius": 3,
+                "shadowOpacity": 0.5,
+                "textConfiguration": {
+                    "fontName": "PixelOperator8-Bold",
+                    "fontSize": 9,
+                    "textColorName": "squidInk",
+                    "shadowColorName": "squidInk",
+                    "shadowOffsetHeight": 3,
+                    "shadowBlurRadius": 3,
+                    "shadowOpacity": 0.25,
+                    "textAlignment": "center",
+                    "textCase": "capitalized",
+                    "bottomRelativePosition": 0.9
+                },
+                "forcedUserInterfaceStyle": "light"
+            },
+            {
+                "identifier": "retromacMainMap",
+                "imageName": "retromacMainMap",
+                "filterColorNames": ["none"],
+                "defaultColorName": "none",
+                "shadowColorName": "squidInk",
+                "shadowOffsetHeight": 3,
+                "shadowBlurRadius": 3,
+                "shadowOpacity": 0.5,
+                "textConfiguration": {
+                    "fontName": "PixelOperator8-Bold",
+                    "fontSize": 9,
+                    "textColorName": "squidInk",
+                    "shadowColorName": "squidInk",
+                    "shadowOffsetHeight": 3,
+                    "shadowBlurRadius": 3,
+                    "shadowOpacity": 0.25,
+                    "textAlignment": "center",
+                    "textCase": "capitalized",
+                    "bottomRelativePosition": 0.9
+                },
+                "forcedUserInterfaceStyle": "light"
+            },
+            {
+                "identifier": "retromacMainMessage",
+                "imageName": "retromacMainMessage",
+                "filterColorNames": ["none"],
+                "defaultColorName": "none",
+                "shadowColorName": "squidInk",
+                "shadowOffsetHeight": 3,
+                "shadowBlurRadius": 3,
+                "shadowOpacity": 0.5,
+                "textConfiguration": {
+                    "fontName": "PixelOperator8-Bold",
+                    "fontSize": 9,
+                    "textColorName": "squidInk",
+                    "shadowColorName": "squidInk",
+                    "shadowOffsetHeight": 3,
+                    "shadowBlurRadius": 3,
+                    "shadowOpacity": 0.25,
+                    "textAlignment": "center",
+                    "textCase": "capitalized",
+                    "bottomRelativePosition": 0.9
+                },
+                "forcedUserInterfaceStyle": "light"
+            },
+            {
+                "identifier": "retromacMainMoney",
+                "imageName": "retromacMainMoney",
+                "filterColorNames": ["none"],
+                "defaultColorName": "none",
+                "shadowColorName": "squidInk",
+                "shadowOffsetHeight": 3,
+                "shadowBlurRadius": 3,
+                "shadowOpacity": 0.5,
+                "textConfiguration": {
+                    "fontName": "PixelOperator8-Bold",
+                    "fontSize": 9,
+                    "textColorName": "squidInk",
+                    "shadowColorName": "squidInk",
+                    "shadowOffsetHeight": 3,
+                    "shadowBlurRadius": 3,
+                    "shadowOpacity": 0.25,
+                    "textAlignment": "center",
+                    "textCase": "capitalized",
+                    "bottomRelativePosition": 0.9
+                },
+                "forcedUserInterfaceStyle": "light"
+            },
+            {
+                "identifier": "retromacMainMusic",
+                "imageName": "retromacMainMusic",
+                "filterColorNames": ["none"],
+                "defaultColorName": "none",
+                "shadowColorName": "squidInk",
+                "shadowOffsetHeight": 3,
+                "shadowBlurRadius": 3,
+                "shadowOpacity": 0.5,
+                "textConfiguration": {
+                    "fontName": "PixelOperator8-Bold",
+                    "fontSize": 9,
+                    "textColorName": "squidInk",
+                    "shadowColorName": "squidInk",
+                    "shadowOffsetHeight": 3,
+                    "shadowBlurRadius": 3,
+                    "shadowOpacity": 0.25,
+                    "textAlignment": "center",
+                    "textCase": "capitalized",
+                    "bottomRelativePosition": 0.9
+                },
+                "forcedUserInterfaceStyle": "light"
+            },
+            {
+                "identifier": "retromacMainPet",
+                "imageName": "retromacMainPet",
+                "filterColorNames": ["none"],
+                "defaultColorName": "none",
+                "shadowColorName": "squidInk",
+                "shadowOffsetHeight": 3,
+                "shadowBlurRadius": 3,
+                "shadowOpacity": 0.5,
+                "textConfiguration": {
+                    "fontName": "PixelOperator8-Bold",
+                    "fontSize": 9,
+                    "textColorName": "squidInk",
+                    "shadowColorName": "squidInk",
+                    "shadowOffsetHeight": 3,
+                    "shadowBlurRadius": 3,
+                    "shadowOpacity": 0.25,
+                    "textAlignment": "center",
+                    "textCase": "capitalized",
+                    "bottomRelativePosition": 0.9
+                },
+                "forcedUserInterfaceStyle": "light"
+            },
+            {
+                "identifier": "retromacMainPhone",
+                "imageName": "retromacMainPhone",
+                "filterColorNames": ["none"],
+                "defaultColorName": "none",
+                "shadowColorName": "squidInk",
+                "shadowOffsetHeight": 3,
+                "shadowBlurRadius": 3,
+                "shadowOpacity": 0.5,
+                "textConfiguration": {
+                    "fontName": "PixelOperator8-Bold",
+                    "fontSize": 9,
+                    "textColorName": "squidInk",
+                    "shadowColorName": "squidInk",
+                    "shadowOffsetHeight": 3,
+                    "shadowBlurRadius": 3,
+                    "shadowOpacity": 0.25,
+                    "textAlignment": "center",
+                    "textCase": "capitalized",
+                    "bottomRelativePosition": 0.9
+                },
+                "forcedUserInterfaceStyle": "light"
+            },
+            {
+                "identifier": "retromacMainPhoto",
+                "imageName": "retromacMainPhoto",
+                "filterColorNames": ["none"],
+                "defaultColorName": "none",
+                "shadowColorName": "squidInk",
+                "shadowOffsetHeight": 3,
+                "shadowBlurRadius": 3,
+                "shadowOpacity": 0.5,
+                "textConfiguration": {
+                    "fontName": "PixelOperator8-Bold",
+                    "fontSize": 9,
+                    "textColorName": "squidInk",
+                    "shadowColorName": "squidInk",
+                    "shadowOffsetHeight": 3,
+                    "shadowBlurRadius": 3,
+                    "shadowOpacity": 0.25,
+                    "textAlignment": "center",
+                    "textCase": "capitalized",
+                    "bottomRelativePosition": 0.9
+                },
+                "forcedUserInterfaceStyle": "light"
+            },
+            {
+                "identifier": "retromacMainReading",
+                "imageName": "retromacMainReading",
+                "filterColorNames": ["none"],
+                "defaultColorName": "none",
+                "shadowColorName": "squidInk",
+                "shadowOffsetHeight": 3,
+                "shadowBlurRadius": 3,
+                "shadowOpacity": 0.5,
+                "textConfiguration": {
+                    "fontName": "PixelOperator8-Bold",
+                    "fontSize": 9,
+                    "textColorName": "squidInk",
+                    "shadowColorName": "squidInk",
+                    "shadowOffsetHeight": 3,
+                    "shadowBlurRadius": 3,
+                    "shadowOpacity": 0.25,
+                    "textAlignment": "center",
+                    "textCase": "capitalized",
+                    "bottomRelativePosition": 0.9
+                },
+                "forcedUserInterfaceStyle": "light"
+            },
+            {
+                "identifier": "retromacMainSmile",
+                "imageName": "retromacMainSmile",
+                "filterColorNames": ["none"],
+                "defaultColorName": "none",
+                "shadowColorName": "squidInk",
+                "shadowOffsetHeight": 3,
+                "shadowBlurRadius": 3,
+                "shadowOpacity": 0.5,
+                "textConfiguration": {
+                    "fontName": "PixelOperator8-Bold",
+                    "fontSize": 9,
+                    "textColorName": "squidInk",
+                    "shadowColorName": "squidInk",
+                    "shadowOffsetHeight": 3,
+                    "shadowBlurRadius": 3,
+                    "shadowOpacity": 0.25,
+                    "textAlignment": "center",
+                    "textCase": "capitalized",
+                    "bottomRelativePosition": 0.9
+                },
+                "forcedUserInterfaceStyle": "light"
+            },
+            {
+                "identifier": "retromacMainSocial",
+                "imageName": "retromacMainSocial",
+                "filterColorNames": ["none"],
+                "defaultColorName": "none",
+                "shadowColorName": "squidInk",
+                "shadowOffsetHeight": 3,
+                "shadowBlurRadius": 3,
+                "shadowOpacity": 0.5,
+                "textConfiguration": {
+                    "fontName": "PixelOperator8-Bold",
+                    "fontSize": 9,
+                    "textColorName": "squidInk",
+                    "shadowColorName": "squidInk",
+                    "shadowOffsetHeight": 3,
+                    "shadowBlurRadius": 3,
+                    "shadowOpacity": 0.25,
+                    "textAlignment": "center",
+                    "textCase": "capitalized",
+                    "bottomRelativePosition": 0.9
+                },
+                "forcedUserInterfaceStyle": "light"
+            },
+            {
+                "identifier": "retromacMainSparkle",
+                "imageName": "retromacMainSparkle",
+                "filterColorNames": ["none"],
+                "defaultColorName": "none",
+                "shadowColorName": "squidInk",
+                "shadowOffsetHeight": 3,
+                "shadowBlurRadius": 3,
+                "shadowOpacity": 0.5,
+                "textConfiguration": {
+                    "fontName": "PixelOperator8-Bold",
+                    "fontSize": 9,
+                    "textColorName": "squidInk",
+                    "shadowColorName": "squidInk",
+                    "shadowOffsetHeight": 3,
+                    "shadowBlurRadius": 3,
+                    "shadowOpacity": 0.25,
+                    "textAlignment": "center",
+                    "textCase": "capitalized",
+                    "bottomRelativePosition": 0.9
+                },
+                "forcedUserInterfaceStyle": "light"
+            },
+            {
+                "identifier": "retromacMainTelephone",
+                "imageName": "retromacMainTelephone",
+                "filterColorNames": ["none"],
+                "defaultColorName": "none",
+                "shadowColorName": "squidInk",
+                "shadowOffsetHeight": 3,
+                "shadowBlurRadius": 3,
+                "shadowOpacity": 0.5,
+                "textConfiguration": {
+                    "fontName": "PixelOperator8-Bold",
+                    "fontSize": 9,
+                    "textColorName": "squidInk",
+                    "shadowColorName": "squidInk",
+                    "shadowOffsetHeight": 3,
+                    "shadowBlurRadius": 3,
+                    "shadowOpacity": 0.25,
+                    "textAlignment": "center",
+                    "textCase": "capitalized",
+                    "bottomRelativePosition": 0.9
+                },
+                "forcedUserInterfaceStyle": "light"
+            },
+            {
+                "identifier": "retromacMainWeb",
+                "imageName": "retromacMainWeb",
+                "filterColorNames": ["none"],
+                "defaultColorName": "none",
+                "shadowColorName": "squidInk",
+                "shadowOffsetHeight": 3,
+                "shadowBlurRadius": 3,
+                "shadowOpacity": 0.5,
+                "textConfiguration": {
+                    "fontName": "PixelOperator8-Bold",
+                    "fontSize": 9,
+                    "textColorName": "squidInk",
+                    "shadowColorName": "squidInk",
+                    "shadowOffsetHeight": 3,
+                    "shadowBlurRadius": 3,
+                    "shadowOpacity": 0.25,
+                    "textAlignment": "center",
+                    "textCase": "capitalized",
+                    "bottomRelativePosition": 0.9
+                },
+                "forcedUserInterfaceStyle": "light"
+            },
+            {
+                "identifier": "retromacMainWork",
+                "imageName": "retromacMainWork",
+                "filterColorNames": ["none"],
+                "defaultColorName": "none",
+                "shadowColorName": "squidInk",
+                "shadowOffsetHeight": 3,
+                "shadowBlurRadius": 3,
+                "shadowOpacity": 0.5,
+                "textConfiguration": {
+                    "fontName": "PixelOperator8-Bold",
+                    "fontSize": 9,
+                    "textColorName": "squidInk",
+                    "shadowColorName": "squidInk",
+                    "shadowOffsetHeight": 3,
+                    "shadowBlurRadius": 3,
+                    "shadowOpacity": 0.25,
+                    "textAlignment": "center",
+                    "textCase": "capitalized",
+                    "bottomRelativePosition": 0.9
+                },
+                "forcedUserInterfaceStyle": "light"
+            }
+        ],
+        "mainEmptyModule": {
+            "identifier": "retromacMainEmpty",
+            "imageName": "retromacMainEmpty",
+            "filterColorNames": ["none"],
+            "defaultColorName": "none",
+            "textConfiguration": {
+                "fontName": "PixelOperator8-Bold",
+                "fontSize": 9,
+                "textColorName": "squidInk",
+                "shadowColorName": "squidInk",
+                "shadowOffsetHeight": 3,
+                "shadowBlurRadius": 3,
+                "shadowOpacity": 0.25,
+                "textAlignment": "center",
+                "textCase": "capitalized",
+                "bottomRelativePosition": 0.9
+            },
+            "forcedUserInterfaceStyle": "light"
+        },
+        "auxModules": [
+            {
+                "identifier": "gametoyAuxButtonset",
+                "imageName": "gametoyAuxButtonset",
+                "filterColorNames": ["none"],
+                "defaultColorName": "none",
+                "textConfiguration": {
+                    "fontName": "ArchivoSemiCondensed-Bold",
+                    "fontSize": 10,
+                    "textColorName": "squidInk",
+                    "textAlignment": "center",
+                    "textCase": "upper",
+                    "bottomRelativePosition": 0.92
+                }
+            },
+            {
+                "identifier": "gametoyAuxDpad",
+                "imageName": "gametoyAuxDpad",
+                "filterColorNames": ["none"],
+                "defaultColorName": "none",
+                "textConfiguration": {
+                    "fontName": "ArchivoSemiCondensed-Bold",
+                    "fontSize": 10,
+                    "textColorName": "squidInk",
+                    "textAlignment": "center",
+                    "textCase": "upper",
+                    "bottomRelativePosition": 0.92
+                }
+            },
+            {
+                "identifier": "gametoyAuxPowertoggle",
+                "imageName": "gametoyAuxPowertoggle",
+                "filterColorNames": ["none"],
+                "defaultColorName": "none",
+                "textConfiguration": {
+                    "fontName": "ArchivoSemiCondensed-Bold",
+                    "fontSize": 10,
+                    "textColorName": "squidInk",
+                    "textAlignment": "center",
+                    "textCase": "upper",
+                    "bottomRelativePosition": 0.92
+                }
+            }
+        ],
+        "auxEmptyModule": {
+            "identifier": "gametoyAuxEmpty",
+            "imageName": "gametoyAuxEmpty",
+            "filterColorNames": ["none"],
+            "defaultColorName": "none",
+            "textConfiguration": {
+                "fontName": "ArchivoSemiCondensed-Bold",
+                "fontSize": 10,
+                "textColorName": "squidInk",
+                "textAlignment": "center",
+                "textCase": "upper",
+                "bottomRelativePosition": 0.92
+            }
+        }
+    },
+    "wallpaperSet": {
+        "blockedImageName": "gametoyBlockedWallpaper",
+        "homeImageName": "gametoyHomeWallpaper"
+    },
+    "previewSet": {
+        "mainWidgetPreview": "gametoyMainWidgetPreview",
+        "auxWidgetPreview": "gametoyAuxWidgetPreview",
+        "wallpaperPreview1Name": "gametoyWallpaperPreview1",
+        "wallpaperPreview2Name": "gametoyWallpaperPreview2",
+        "wallpaperPreview3Name": "gametoyWallpaperPreview3"
+    }
+}
+
