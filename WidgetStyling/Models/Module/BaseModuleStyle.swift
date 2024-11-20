@@ -14,6 +14,10 @@ public class BaseModuleStyle: ModuleStyle {
     public var filterColors: [UIColor]
     public var defaultColor: UIColor
     public var imageBlendMode: CGBlendMode?
+    public var shadowColorName: String?
+    public var shadowOpacity: CGFloat?
+    public var shadowOffset: CGSize?
+    public var shadowBlurRadius: CGFloat?
     public var textConfiguration: ModuleTextConfiguration
     public var forcedUserInterfaceStyle: UIUserInterfaceStyle?
     
@@ -41,6 +45,11 @@ public class BaseModuleStyle: ModuleStyle {
         filterColors: [UIColor],
         defaultColor: UIColor,
         imageBlendMode: CGBlendMode? = nil,
+        shadowColorName: String? = nil,
+        shadowOpacity: CGFloat? = nil,
+        shadowOffsetWidth: CGFloat? = nil,
+        shadowOffsetHeight: CGFloat? = nil,
+        shadowBlurRadius: CGFloat? = nil,
         textConfiguration: ModuleTextConfiguration,
         forcedUserInterfaceStyle: UIUserInterfaceStyle? = nil
     ) {
@@ -49,6 +58,13 @@ public class BaseModuleStyle: ModuleStyle {
         self.filterColors = filterColors
         self.defaultColor = defaultColor
         self.imageBlendMode = imageBlendMode
+        self.shadowColorName = shadowColorName
+        self.shadowOpacity = shadowOpacity
+        self.shadowOffset = CGSize(
+            width: shadowOffsetWidth ?? 0,
+            height: shadowOffsetHeight ?? 0
+        )
+        self.shadowBlurRadius = shadowBlurRadius
         self.textConfiguration = textConfiguration
         self.forcedUserInterfaceStyle = forcedUserInterfaceStyle
     }
@@ -76,23 +92,49 @@ public class BaseModuleStyle: ModuleStyle {
             filterColors: filterColors,
             defaultColor: defaultColor,
             imageBlendMode: CGBlendMode.named(data.imageBlendMode ?? ""),
+            shadowColorName: data.shadowColorName,
+            shadowOpacity: data.shadowOpacity,
+            shadowOffsetWidth: data.shadowOffsetWidth,
+            shadowOffsetHeight: data.shadowOffsetHeight,
+            shadowBlurRadius: data.shadowBlurRadius,
             textConfiguration: ModuleTextConfiguration.create(from: data.textConfiguration),
             forcedUserInterfaceStyle: UIUserInterfaceStyle.fromString(data.forcedUserInterfaceStyle)
         )
     }
     
     // MARK: - Methods
+    public func getFinalModuleImage(color: UIColor) -> UIImage {
+        do {
+            var finalImage = try blendedImage(with: color)
+                        
+            if let shadowColorName = shadowColorName,
+               let shadowColor = UIColor.fromWidgetStyling(named: shadowColorName) {
+                finalImage = applyShadow(
+                    to: finalImage,
+                    shadowColor: shadowColor
+                )
+            }
+            
+            return finalImage
+        } catch {
+            var imageToReturn = imageWithForcedTraitIfNeeded()
+                        
+            if let shadowColorName = shadowColorName,
+               let shadowColor = UIColor.fromWidgetStyling(named: shadowColorName) {
+                imageToReturn = applyShadow(
+                    to: imageToReturn,
+                    shadowColor: shadowColor
+                )
+            }
+            
+            return imageToReturn
+        }
+    }
+    
     public func blendedImage(with color: UIColor) throws -> UIImage {
         guard let imageBlendMode = imageBlendMode else { throw ModuleError.undefinedBlendMode }
         
-        var imageToBlend = image
-        if let forcedStyle = forcedUserInterfaceStyle {
-            imageToBlend = imageToBlend.withConfiguration(
-                UIImage.Configuration(
-                    traitCollection: UITraitCollection(userInterfaceStyle: forcedStyle)
-                )
-            )
-        }
+        let imageToBlend = imageWithForcedTraitIfNeeded()
         
         let renderer = UIGraphicsImageRenderer(size: imageToBlend.size)
         let blendedImage = renderer.image { context in
@@ -105,14 +147,6 @@ public class BaseModuleStyle: ModuleStyle {
         return blendedImage
     }
     
-    public func getFinalModuleImage(color: UIColor) -> UIImage {
-        do {
-            return try blendedImage(with: color)
-        } catch {
-            return imageWithForcedTraitIfNeeded()
-        }
-    }
-    
     public func imageWithForcedTraitIfNeeded() -> UIImage {
         guard let forcedStyle = forcedUserInterfaceStyle else { return image }
         return image.withConfiguration(
@@ -121,4 +155,40 @@ public class BaseModuleStyle: ModuleStyle {
             )
         )
     }
+    
+    private func applyShadow(to image: UIImage, shadowColor: UIColor) -> UIImage {
+        let shadowOpacity = Float(self.shadowOpacity ?? 1.0)
+        let shadowOffset = self.shadowOffset ?? CGSize(width: 0, height: 0)
+        let shadowBlurRadius = self.shadowBlurRadius ?? 5.0
+
+        let imageSize = image.size
+
+        // Cria um renderer com o tamanho original da imagem
+        let renderer = UIGraphicsImageRenderer(size: imageSize)
+
+        let imageWithShadow = renderer.image { context in
+            let cgContext = context.cgContext
+
+            // Salva o estado atual do contexto
+            cgContext.saveGState()
+
+            // Configura a sombra
+            cgContext.setShadow(
+                offset: shadowOffset,
+                blur: shadowBlurRadius,
+                color: shadowColor.withAlphaComponent(CGFloat(shadowOpacity)).cgColor
+            )
+
+            // Desenha a imagem com a sombra
+            cgContext.beginTransparencyLayer(auxiliaryInfo: nil)
+            image.draw(in: CGRect(origin: .zero, size: imageSize))
+            cgContext.endTransparencyLayer()
+
+            // Restaura o estado do contexto
+            cgContext.restoreGState()
+        }
+
+        return imageWithShadow
+    }
+
 }

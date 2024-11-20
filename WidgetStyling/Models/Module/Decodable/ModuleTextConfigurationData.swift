@@ -15,6 +15,7 @@ struct ModuleTextConfigurationData: Decodable {
     let textColorName: String?
     let textAlignment: String?
     let shadowColorName: String?
+    let shadowOpacity: CGFloat?
     let shadowOffsetWidth: CGFloat?
     let shadowOffsetHeight: CGFloat?
     let shadowBlurRadius: CGFloat?

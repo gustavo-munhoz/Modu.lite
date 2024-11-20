@@ -13,6 +13,11 @@ struct ModuleStyleData: Decodable {
     let filterColorNames: [String]
     let defaultColorName: String
     let imageBlendMode: String?
+    let shadowColorName: String?
+    let shadowOpacity: CGFloat?
+    let shadowOffsetWidth: CGFloat?
+    let shadowOffsetHeight: CGFloat?
+    let shadowBlurRadius: CGFloat?
     let textConfiguration: ModuleTextConfigurationData
     let forcedUserInterfaceStyle: String?
 }

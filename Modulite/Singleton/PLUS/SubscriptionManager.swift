@@ -107,7 +107,7 @@ final class SubscriptionManager {
                     await handleSubscription(transaction)
                 case .unverified:
                     print("Transaction verification failed")
-                case .verified(_):
+                case .verified:
                     print("Verified subscription entitlement")
                 }
             }

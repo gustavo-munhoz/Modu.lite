@@ -20,7 +20,8 @@ extension UILabel {
         textColor = config.textColor
         textAlignment = config.textAlignment ?? .center
         
-        if let shadowColor = config.shadowColor {
+        if let rawColor = config.shadowColor {
+            let shadowColor = rawColor.withAlphaComponent(config.shadowOpacity ?? 1)
             let shadow = NSShadow()
             shadow.shadowColor = shadowColor
             shadow.shadowBlurRadius = config.shadowBlurRadius ?? 0
