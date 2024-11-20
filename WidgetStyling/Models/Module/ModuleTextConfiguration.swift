@@ -16,6 +16,7 @@ public class ModuleTextConfiguration {
     public var shadowColor: UIColor?
     public var shadowOffset: CGSize?
     public var shadowBlurRadius: CGFloat?
+    public var shadowOpacity: CGFloat?
     public var letterSpacing: CGFloat?
     public var textCase: String.TextCase?
     public var shouldRemoveSpaces: Bool = false
@@ -67,15 +68,16 @@ public class ModuleTextConfiguration {
         if let shadowColorName = data.shadowColorName {
             configuration.shadowColor = UIColor.fromWidgetStyling(
                 named: shadowColorName
-            )?.withAlphaComponent(0.25)
+            )
         }
         
-        if let shadowOffsetWidth = data.shadowOffsetWidth,
-           let shadowOffsetHeight = data.shadowOffsetHeight {
-            configuration.shadowOffset = CGSize(
-                width: shadowOffsetWidth,
-                height: shadowOffsetHeight
-            )
+        configuration.shadowOffset = CGSize(
+            width: data.shadowOffsetWidth ?? 0,
+            height: data.shadowOffsetHeight ?? 0
+        )
+        
+        if let shadowOpacity = data.shadowOpacity {
+            configuration.shadowOpacity = shadowOpacity
         }
         
         if let shadowBlurRadius = data.shadowBlurRadius {

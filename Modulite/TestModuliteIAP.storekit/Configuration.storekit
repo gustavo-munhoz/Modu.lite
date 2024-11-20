@@ -105,6 +105,21 @@
       "productID" : "plantshelf",
       "referenceName" : "Plantshelf",
       "type" : "NonConsumable"
+    },
+    {
+      "displayPrice" : "0.99",
+      "familyShareable" : false,
+      "internalID" : "9F33C1F0",
+      "localizations" : [
+        {
+          "description" : "",
+          "displayName" : "",
+          "locale" : "en_US"
+        }
+      ],
+      "productID" : "gametoy",
+      "referenceName" : "Gametoy",
+      "type" : "NonConsumable"
     }
   ],
   "settings" : {
