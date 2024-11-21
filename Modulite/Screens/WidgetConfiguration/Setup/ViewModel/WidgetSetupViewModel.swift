@@ -29,6 +29,15 @@ class WidgetSetupViewModel: NSObject {
     @Published private(set) var selectedStyle: WidgetStyle?
     @Published private(set) var selectedApps: [AppData] = []
     
+    // MARK: - Initializer
+    init(isOnboarding: Bool = false) {
+        super.init()
+        
+        if isOnboarding {
+            widgetStyles = widgetStyles.filter(\.isPurchased)
+        }
+    }
+    
     // MARK: - Getters
     func getIndexForSelectedStyle() -> Int? {
         guard let selectedStyle = selectedStyle else { return nil }
