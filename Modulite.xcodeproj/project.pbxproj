@@ -434,6 +434,12 @@
 		B3F4EF9C2CEF0E78006615BA /* AuxWidgetProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3F4EF9A2CEF0E78006615BA /* AuxWidgetProvider.swift */; };
 		B3F4EF9E2CEF0EB4006615BA /* AuxWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3F4EF9D2CEF0EB4006615BA /* AuxWidgetView.swift */; };
 		B3F4EF9F2CEF0EB4006615BA /* AuxWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3F4EF9D2CEF0EB4006615BA /* AuxWidgetView.swift */; };
+		B3F4EFA32CEF14AA006615BA /* Specification.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3F4EFA22CEF14AA006615BA /* Specification.swift */; };
+		B3F4EFA52CEF15B0006615BA /* IsPlusSubscriberSpecification.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3F4EFA42CEF15B0006615BA /* IsPlusSubscriberSpecification.swift */; };
+		B3F4EFA72CEF15C9006615BA /* HasPurchasedStyleSpecification.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3F4EFA62CEF15C9006615BA /* HasPurchasedStyleSpecification.swift */; };
+		B3F4EFA92CEF15E1006615BA /* IsStyleIncludedInPlusSpecification.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3F4EFA82CEF15E1006615BA /* IsStyleIncludedInPlusSpecification.swift */; };
+		B3F4EFAA2CEF16AA006615BA /* IsPlusSubscriberSpecification.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3F4EFA42CEF15B0006615BA /* IsPlusSubscriberSpecification.swift */; };
+		B3F4EFAB2CEF16AA006615BA /* Specification.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3F4EFA22CEF14AA006615BA /* Specification.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -919,6 +925,10 @@
 		B3F4EF972CEF0E63006615BA /* AuxWidgetEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuxWidgetEntry.swift; sourceTree = "<group>"; };
 		B3F4EF9A2CEF0E78006615BA /* AuxWidgetProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuxWidgetProvider.swift; sourceTree = "<group>"; };
 		B3F4EF9D2CEF0EB4006615BA /* AuxWidgetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuxWidgetView.swift; sourceTree = "<group>"; };
+		B3F4EFA22CEF14AA006615BA /* Specification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Specification.swift; sourceTree = "<group>"; };
+		B3F4EFA42CEF15B0006615BA /* IsPlusSubscriberSpecification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IsPlusSubscriberSpecification.swift; sourceTree = "<group>"; };
+		B3F4EFA62CEF15C9006615BA /* HasPurchasedStyleSpecification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HasPurchasedStyleSpecification.swift; sourceTree = "<group>"; };
+		B3F4EFA82CEF15E1006615BA /* IsStyleIncludedInPlusSpecification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IsStyleIncludedInPlusSpecification.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -2196,6 +2206,7 @@
 				B32B60C82C865130007DDCE3 /* Singleton */,
 				B3C187802C79008800A891A8 /* Builders */,
 				B3CDD7052C77C51500E558F8 /* Factories */,
+				B3F4EFA12CEF148B006615BA /* Specification */,
 				B34F3E292C6E83670041D7BD /* Extensions */,
 				B34F3DF72C69A3810041D7BD /* DebugOptions.swift */,
 				B36927A52C66B6E40089F769 /* Info.plist */,
@@ -2997,6 +3008,17 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		B3F4EFA12CEF148B006615BA /* Specification */ = {
+			isa = PBXGroup;
+			children = (
+				B3F4EFA22CEF14AA006615BA /* Specification.swift */,
+				B3F4EFA42CEF15B0006615BA /* IsPlusSubscriberSpecification.swift */,
+				B3F4EFA62CEF15C9006615BA /* HasPurchasedStyleSpecification.swift */,
+				B3F4EFA82CEF15E1006615BA /* IsStyleIncludedInPlusSpecification.swift */,
+			);
+			path = Specification;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -3516,6 +3538,8 @@
 				B32F3BE22CD56412000F4825 /* ButtonFactory.swift in Sources */,
 				B33808A72CC3051700D56884 /* UserPreference.swift in Sources */,
 				B3987E322CA4F48C00896414 /* MainWidgetConfigurationEntity.swift in Sources */,
+				B3F4EFAA2CEF16AA006615BA /* IsPlusSubscriberSpecification.swift in Sources */,
+				B3F4EFAB2CEF16AA006615BA /* Specification.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3613,10 +3637,12 @@
 				B35BFBE92CB5AF9B00092B42 /* TutorialCenterCoordinator.swift in Sources */,
 				B32F3BD92CD41189000F4825 /* OnboardingNumberedTutorial.swift in Sources */,
 				B36927D32C66BBC10089F769 /* SceneDelegateRouter.swift in Sources */,
+				B3F4EFA52CEF15B0006615BA /* IsPlusSubscriberSpecification.swift in Sources */,
 				B39FB8852CDD51EB00967E3A /* PersistentWidgetSchema+CoreDataClass.swift in Sources */,
 				AFE15AB42CD97EFC000A255B /* PurchaseManager.swift in Sources */,
 				B32B61062C8A4140007DDCE3 /* ModalNavigationRouter.swift in Sources */,
 				B363B57C2CE3C5C7002912CC /* AuxWidgetStrategy.swift in Sources */,
+				B3F4EFA32CEF14AA006615BA /* Specification.swift in Sources */,
 				B35BFB9F2CB47D9B00092B42 /* SettingsCoordinator.swift in Sources */,
 				B3987E2E2CA4F46A00896414 /* MainWidgetConfigurationQuery.swift in Sources */,
 				B35BFBC52CB4B6CE00092B42 /* SubscriptionDetailsCoordinator.swift in Sources */,
@@ -3684,6 +3710,7 @@
 				B35BFBEB2CB5B9D600092B42 /* TutorialCenterButtonLabel.swift in Sources */,
 				B35BFBCF2CB55F3F00092B42 /* SeparatorView.swift in Sources */,
 				B34F3E402C74E3270041D7BD /* WidgetModuleCell.swift in Sources */,
+				B3F4EFA72CEF15C9006615BA /* HasPurchasedStyleSpecification.swift in Sources */,
 				B33808AC2CC31D8300D56884 /* RequestScreenTimeTexts.swift in Sources */,
 				B35BFB892CB4605C00092B42 /* TutorialMultiParagraphLabel.swift in Sources */,
 				AF0E1AD02CE672F500D0573E /* SubscriptionYearOptionView.swift in Sources */,
@@ -3697,6 +3724,7 @@
 				AF5F2D142CD165E500EBAAB5 /* RedirectingViewController.swift in Sources */,
 				B34F3E1C2C6BD3DA0041D7BD /* HomeViewModel.swift in Sources */,
 				B34C62D82CCC18D8004E014B /* WidgetEditorLocalizedTexts.swift in Sources */,
+				B3F4EFA92CEF15E1006615BA /* IsStyleIncludedInPlusSpecification.swift in Sources */,
 				B32B61012C88EC1A007DDCE3 /* WidgetSetupStyleCompositionalLayout.swift in Sources */,
 				B3D1B7CD2CB6FC5400DFC4F5 /* FAQViewModel.swift in Sources */,
 				B302017F2CC9C11C00301646 /* AppBlockingSessionCell.swift in Sources */,
