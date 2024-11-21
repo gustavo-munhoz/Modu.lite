@@ -28,7 +28,7 @@ struct MainWidgetView: View {
                         Group {
                             LazyVGrid(columns: columns, spacing: 2) {
                                 ForEach(config.modules) { module in
-                                    MainWidgetModuleButton(
+                                    WidgetModuleButton(
                                         moduleImage: module.image,
                                         stringURL: module.associatedURLScheme?.absoluteString
                                     )

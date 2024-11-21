@@ -275,8 +275,8 @@
 		B3987E162CA38C7900896414 /* MainWidgetEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3987E142CA38C7900896414 /* MainWidgetEntry.swift */; };
 		B3987E182CA3938200896414 /* AuxiliaryWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3987E172CA3938200896414 /* AuxiliaryWidget.swift */; };
 		B3987E192CA3938200896414 /* AuxiliaryWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3987E172CA3938200896414 /* AuxiliaryWidget.swift */; };
-		B3987E1F2CA3A3BC00896414 /* MainWidgetModuleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3987E1E2CA3A3BC00896414 /* MainWidgetModuleButton.swift */; };
-		B3987E202CA3A3BC00896414 /* MainWidgetModuleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3987E1E2CA3A3BC00896414 /* MainWidgetModuleButton.swift */; };
+		B3987E1F2CA3A3BC00896414 /* WidgetModuleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3987E1E2CA3A3BC00896414 /* WidgetModuleButton.swift */; };
+		B3987E202CA3A3BC00896414 /* WidgetModuleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3987E1E2CA3A3BC00896414 /* WidgetModuleButton.swift */; };
 		B3987E212CA4801600896414 /* UIColorValueTransformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B32B60BB2C86492C007DDCE3 /* UIColorValueTransformer.swift */; };
 		B3987E232CA4857400896414 /* MainWidgetConfigurationData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3987E222CA4857400896414 /* MainWidgetConfigurationData.swift */; };
 		B3987E242CA4857400896414 /* MainWidgetConfigurationData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3987E222CA4857400896414 /* MainWidgetConfigurationData.swift */; };
@@ -791,7 +791,7 @@
 		B3987E112CA38AF400896414 /* MainWidgetProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainWidgetProvider.swift; sourceTree = "<group>"; };
 		B3987E142CA38C7900896414 /* MainWidgetEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainWidgetEntry.swift; sourceTree = "<group>"; };
 		B3987E172CA3938200896414 /* AuxiliaryWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuxiliaryWidget.swift; sourceTree = "<group>"; };
-		B3987E1E2CA3A3BC00896414 /* MainWidgetModuleButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainWidgetModuleButton.swift; sourceTree = "<group>"; };
+		B3987E1E2CA3A3BC00896414 /* WidgetModuleButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetModuleButton.swift; sourceTree = "<group>"; };
 		B3987E222CA4857400896414 /* MainWidgetConfigurationData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainWidgetConfigurationData.swift; sourceTree = "<group>"; };
 		B3987E252CA4858E00896414 /* MainWidgetModuleData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainWidgetModuleData.swift; sourceTree = "<group>"; };
 		B3987E2A2CA4F43100896414 /* SelectMainWidgetConfigurationIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectMainWidgetConfigurationIntent.swift; sourceTree = "<group>"; };
@@ -1280,6 +1280,7 @@
 		AFBBC5052C7E459900A9B256 /* ModuliteWidget */ = {
 			isa = PBXGroup;
 			children = (
+				B3987E1E2CA3A3BC00896414 /* WidgetModuleButton.swift */,
 				AFBBC5062C7E459900A9B256 /* ModuliteWidgetBundle.swift */,
 				B3987E0A2CA388FB00896414 /* Auxiliary */,
 				B3987E092CA388F900896414 /* Main */,
@@ -2419,7 +2420,6 @@
 			isa = PBXGroup;
 			children = (
 				B3987E0E2CA38A9C00896414 /* MainWidgetView.swift */,
-				B3987E1E2CA3A3BC00896414 /* MainWidgetModuleButton.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -3480,7 +3480,7 @@
 				B37284752C82996600D9A1E7 /* String+LocalizedKey.swift in Sources */,
 				B3F4EF8A2CEF0D4F006615BA /* AuxWidgetConfigurationData.swift in Sources */,
 				B3987E212CA4801600896414 /* UIColorValueTransformer.swift in Sources */,
-				B3987E202CA3A3BC00896414 /* MainWidgetModuleButton.swift in Sources */,
+				B3987E202CA3A3BC00896414 /* WidgetModuleButton.swift in Sources */,
 				B39FB8812CDD511500967E3A /* PersistentWidgetModule+CoreDataProperties.swift in Sources */,
 				B363B57E2CE3E0EF002912CC /* WidgetTypeStrategy.swift in Sources */,
 				B3C6DD722CDE997F002AEAF7 /* PersistentAppData+CoreDataClass.swift in Sources */,
@@ -3739,7 +3739,7 @@
 				B3C6DD702CDE997F002AEAF7 /* PersistentAppData+CoreDataClass.swift in Sources */,
 				B3C6DD712CDE997F002AEAF7 /* PersistentAppData+CoreDataProperties.swift in Sources */,
 				B350C05A2C8F92C90035682F /* WidgetBuilderCoordinator.swift in Sources */,
-				B3987E1F2CA3A3BC00896414 /* MainWidgetModuleButton.swift in Sources */,
+				B3987E1F2CA3A3BC00896414 /* WidgetModuleButton.swift in Sources */,
 				B32F3BBF2CD40606000F4825 /* OnboardingTutorialsViewController.swift in Sources */,
 				B39A26062CB06E60001C76A5 /* SelectAppsCoordinator.swift in Sources */,
 				AF09AE962CD727C400E0707A /* PurchaseStylePreviewViewModel.swift in Sources */,
