@@ -54,6 +54,12 @@
         }
       }
     },
+    "Auxiliary Widget" : {
+
+    },
+    "Auxiliary Widget Configuration" : {
+
+    },
     "back" : {
       "extractionState" : "manual",
       "localizations" : {
