@@ -5,4 +5,10 @@
 //  Created by Gustavo Munhoz Correa on 21/11/24.
 //
 
-import Foundation
+struct IsPlusSubscriberSpecification: Specification {
+    let subscriptionManager = SubscriptionManager.shared
+
+    func isSatisfied() -> Bool {
+        subscriptionManager.activeSubscription != nil
+    }
+}
