@@ -76,4 +76,8 @@ public class WidgetStyleProvider {
     public func getAllStyles() -> [WidgetStyle] {
         styles.sorted(by: { $0.name < $1.name })
     }
+    
+    public func getStylesContainedInPlus() -> [WidgetStyle] {
+        styles.filter { $0.isIncludedInPlus }
+    }
 }
