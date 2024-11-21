@@ -85,6 +85,7 @@ class HomeHeaderReusableCell: UICollectionViewCell {
             
         } else {
             shouldAddCount = false
+            countLabel.removeFromSuperview()
         }
         
         if didAddSubviews { return }

@@ -64,6 +64,18 @@ class HomeWidgetCollectionViewCell: UICollectionViewCell {
     }
 
     // MARK: - Setup methods
+    func disableInteraction() {
+        isUserInteractionEnabled = false
+        widgetImageView.alpha = 0.3
+        widgetNameLabel.alpha = 0.3
+    }
+    
+    func enableInteraction() {
+        isUserInteractionEnabled = true
+        widgetImageView.alpha = 1
+        widgetNameLabel.alpha = 1
+    }
+    
     func configure(image: UIImage?, name: String?) {
         widgetImageView.image = image
         widgetNameLabel.text = name
