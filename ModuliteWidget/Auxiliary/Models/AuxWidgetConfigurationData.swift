@@ -6,3 +6,11 @@
 //
 
 import Foundation
+import WidgetStyling
+
+struct AuxWidgetConfigurationData {
+    let id: UUID
+    let name: String
+    let background: StyleBackground
+    let modules: [AuxWidgetModuleData]
+}
