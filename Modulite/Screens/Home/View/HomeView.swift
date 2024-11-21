@@ -33,7 +33,7 @@ class HomeView: UIScrollView {
     /// Collection view for displaying auxiliary widgets.
     private(set) lazy var auxiliaryWidgetsCollectionView = createCollectionView(for: .auxiliaryWidgets)
     
-    private let auxWidgetsPlaceholderView = AuxiliaryWidgetsPlaceholderView()
+    private(set) var auxWidgetsPlaceholderView: UIView = AuxiliaryWidgetsPlaceholderView()
     
     /// Collection view for displaying tips.
     private(set) lazy var tipsCollectionView: UICollectionView = createCollectionView(for: .tips)
@@ -192,6 +192,20 @@ class HomeView: UIScrollView {
     
     func setAuxWidgetPlaceholderVisibility(to shouldShow: Bool) {
         auxWidgetsPlaceholderView.isHidden = !shouldShow
+    }
+    
+    func setAuxWidgetPlaceholderToPlusVersion() {
+        auxWidgetsPlaceholderView.removeFromSuperview()
+        auxWidgetsPlaceholderView = MainWidgetsPlaceholderView()
+        
+        contentView.insertSubview(
+            auxWidgetsPlaceholderView,
+            belowSubview: auxiliaryWidgetsCollectionView
+        )
+        
+        auxWidgetsPlaceholderView.snp.makeConstraints { make in
+            make.edges.equalTo(auxiliaryWidgetsCollectionView)
+        }
     }
     
     // MARK: - Helper methods
