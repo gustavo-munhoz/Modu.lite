@@ -29,7 +29,13 @@ class SettingsView: UIView {
         return view
     }()
     
-    private(set) var subscriptionFreeBadge = ModuliteFreeSmallBadge()
+    private(set) var subscriptionBadge: UIView = {
+        if IsPlusSubscriberSpecification().isSatisfied() {
+            return ModulitePlusSmallBadge()
+        }
+        
+        return ModuliteFreeSmallBadge()
+    }()
     
     private(set) lazy var preferencesTableView: UITableView = {
         let view = UITableView()
@@ -72,7 +78,7 @@ class SettingsView: UIView {
     private func addSubviews() {
         addSubview(profilePicture)
         addSubview(usernameTextField)
-        addSubview(subscriptionFreeBadge)
+        addSubview(subscriptionBadge)
         addSubview(preferencesTableView)
     }
     
@@ -88,7 +94,7 @@ class SettingsView: UIView {
             make.left.equalTo(profilePicture.snp.right).offset(16)
         }
         
-        subscriptionFreeBadge.snp.makeConstraints { make in
+        subscriptionBadge.snp.makeConstraints { make in
             make.top.equalTo(usernameTextField.snp.bottom).offset(5)
             make.left.equalTo(usernameTextField)
         }
