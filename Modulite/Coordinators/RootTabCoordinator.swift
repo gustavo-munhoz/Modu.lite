@@ -60,23 +60,16 @@ class RootTabCoordinator: Coordinator {
         
         guard let router = router as? SceneDelegateRouter else { return }
         
-        UIView.transition(
-            with: router.window,
-            duration: 0.5,
-            options: .transitionCrossDissolve,
-            animations: { [weak self] in
-                guard let self else { return }
-                router.window.rootViewController = self.rootTabBarController
-            })
-    }
-    
-    private func getKeyWindow() -> UIWindow? {
-        let connectedScenes = UIApplication.shared.connectedScenes
-        
-        let windowScene = connectedScenes
-            .first { $0.activationState == .foregroundActive } as? UIWindowScene
-        
-        return windowScene?.windows.first { $0.isKeyWindow }
+        DispatchQueue.main.async {
+            UIView.transition(
+                with: router.window,
+                duration: 0.5,
+                options: .transitionCrossDissolve,
+                animations: { [weak self] in
+                    guard let self else { return }
+                    router.window.rootViewController = self.rootTabBarController
+                })
+        }
     }
     
     /// Configures the view controllers and their corresponding coordinators for each tab.
