@@ -15,7 +15,9 @@ final class SubscriptionManager {
     
     // MARK: - Initialization
     
-    private init() {}
+    private init() {
+        loadActiveSubscription()
+    }
     
     @MainActor func initialize() {
         Task {
