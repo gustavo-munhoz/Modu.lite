@@ -1,16 +1,16 @@
 //
-//  MainWidgetView.swift
+//  AuxWidgetView.swift
 //  Modulite
 //
-//  Created by Gustavo Munhoz Correa on 24/09/24.
+//  Created by Gustavo Munhoz Correa on 21/11/24.
 //
 
 import SwiftUI
 import WidgetKit
 import WidgetStyling
 
-struct MainWidgetView: View {
-    var entry: MainWidgetIntentProvider.Entry
+struct AuxWidgetView: View {
+    var entry: AuxWidgetIntentProvider.Entry
     
     private let columns = [
         GridItem(.flexible()),
@@ -43,7 +43,7 @@ struct MainWidgetView: View {
                     }
                     
                 } else {
-                    Image(.homeWidgetTutorialMain)
+                    Image("homeWidgetTutorialAux")
                         .resizable()
                         .scaledToFill()
                         .padding(.all, -16)
@@ -52,33 +52,6 @@ struct MainWidgetView: View {
                         }
                 }
             }
-        }
-    }
-}
-
-extension View {
-    @ViewBuilder
-    func backgroundView(for background: StyleBackground) -> some View {
-        switch background {
-        case .image(let uiImage):
-            Image(uiImage: uiImage)
-                .resizable()
-                .scaledToFill()
-            
-        case .color(let uiColor):
-            Color(uiColor)
-            
-        @unknown default:
-            Color(.clear)
-        }
-    }
-    
-    @ViewBuilder
-    func widgetBackground<T: View>(@ViewBuilder content: () -> T) -> some View {
-        if #available(iOSApplicationExtension 17.0, *) {
-            containerBackground(for: .widget, content: content)
-        } else {
-            background(content())
         }
     }
 }

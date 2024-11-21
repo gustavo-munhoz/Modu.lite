@@ -6,7 +6,6 @@
 //
 
 import AppIntents
-import CoreData
 
 struct MainWidgetConfigurationEntity: AppEntity {
     var id: UUID

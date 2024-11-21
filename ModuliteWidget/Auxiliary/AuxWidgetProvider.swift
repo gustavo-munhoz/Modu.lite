@@ -1,8 +1,8 @@
 //
-//  MainWidgetProvider.swift
+//  AuxWidgetProvider.swift
 //  Modulite
 //
-//  Created by Gustavo Munhoz Correa on 24/09/24.
+//  Created by Gustavo Munhoz Correa on 21/11/24.
 //
 
 import SwiftUI
@@ -10,49 +10,49 @@ import WidgetKit
 import AppIntents
 import WidgetStyling
 
-struct MainWidgetIntentProvider: AppIntentTimelineProvider {
-    typealias Intent = SelectMainWidgetConfigurationIntent
-    typealias Entry = MainWidgetEntry
+struct AuxWidgetIntentProvider: AppIntentTimelineProvider {
+    typealias Intent = SelectAuxWidgetConfigurationIntent
+    typealias Entry = AuxWidgetEntry
     
-    func placeholder(in context: Context) -> MainWidgetEntry {
-        MainWidgetEntry(date: .now, configuration: nil)
+    func placeholder(in context: Context) -> AuxWidgetEntry {
+        AuxWidgetEntry(date: .now, configuration: nil)
     }
     
     func snapshot(
-        for configuration: SelectMainWidgetConfigurationIntent,
+        for configuration: SelectAuxWidgetConfigurationIntent,
         in context: Context
-    ) async -> MainWidgetEntry {
+    ) async -> AuxWidgetEntry {
         placeholder(in: context)
     }
     
     func timeline(
-        for configuration: SelectMainWidgetConfigurationIntent,
+        for configuration: SelectAuxWidgetConfigurationIntent,
         in context: Context
-    ) async -> Timeline<MainWidgetEntry> {
+    ) async -> Timeline<AuxWidgetEntry> {
         guard let widgetConfiguration = configuration.widgetConfiguration,
-              let widgetData = await loadMainWidgetData(for: widgetConfiguration.id) else {
+              let widgetData = await loadAuxWidgetData(for: widgetConfiguration.id) else {
             let entry = placeholder(in: context)
             return Timeline(entries: [entry], policy: .atEnd)
         }
         
-        let entry = MainWidgetEntry(date: .now, configuration: widgetData)
+        let entry = AuxWidgetEntry(date: .now, configuration: widgetData)
         return Timeline(entries: [entry], policy: .atEnd)
     }
     
-    private func loadMainWidgetData(for id: UUID) async -> MainWidgetConfigurationData? {
+    private func loadAuxWidgetData(for id: UUID) async -> AuxWidgetConfigurationData? {
         let predicate = NSPredicate(format: "id == %@", id.uuidString)
-        let widgets = CoreDataPersistenceController.shared.fetchMainWidgets(predicate: predicate)
+        let widgets = CoreDataPersistenceController.shared.fetchAuxWidgets(predicate: predicate)
         
         if let widget = widgets.first {
-            return convertToMainWidgetConfigurationData(widget)
+            return convertToAuxWidgetConfigurationData(widget)
         }
         
         return nil
     }
     
-    private func convertToMainWidgetConfigurationData(
+    private func convertToAuxWidgetConfigurationData(
         _ schema: WidgetSchema
-    ) -> MainWidgetConfigurationData {
+    ) -> AuxWidgetConfigurationData {
         let background = schema.getBackground()
         
         let moduleImages = FileManagerImagePersistenceController.shared.getModuleImages(
@@ -63,7 +63,7 @@ struct MainWidgetIntentProvider: AppIntentTimelineProvider {
             .sorted(by: { $0.position < $1.position })
             .map(
             { module in
-                MainWidgetModuleData(
+                AuxWidgetModuleData(
                     id: UUID(),
                     index: Int(module.position),
                     image: Image(uiImage: moduleImages[Int(module.position)]),
@@ -71,7 +71,7 @@ struct MainWidgetIntentProvider: AppIntentTimelineProvider {
                 )
         })
         
-        return MainWidgetConfigurationData(
+        return AuxWidgetConfigurationData(
             id: schema.id,
             name: schema.name ?? "Widget",
             background: background,
