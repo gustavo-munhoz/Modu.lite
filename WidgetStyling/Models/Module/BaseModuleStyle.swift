@@ -149,11 +149,13 @@ public class BaseModuleStyle: ModuleStyle {
     
     public func imageWithForcedTraitIfNeeded() -> UIImage {
         guard let forcedStyle = forcedUserInterfaceStyle else { return image }
-        return image.withConfiguration(
-            UIImage.Configuration(
-                traitCollection: UITraitCollection(userInterfaceStyle: forcedStyle)
+        return image
+            .withConfiguration(
+                UIImage.Configuration(
+                    traitCollection: UITraitCollection(userInterfaceStyle: forcedStyle)
+                )
             )
-        )
+            .withRenderingMode(.alwaysOriginal)
     }
     
     private func applyShadow(to image: UIImage, shadowColor: UIColor) -> UIImage {
@@ -162,29 +164,24 @@ public class BaseModuleStyle: ModuleStyle {
         let shadowBlurRadius = self.shadowBlurRadius ?? 5.0
 
         let imageSize = image.size
-
-        // Cria um renderer com o tamanho original da imagem
+        
         let renderer = UIGraphicsImageRenderer(size: imageSize)
 
         let imageWithShadow = renderer.image { context in
             let cgContext = context.cgContext
-
-            // Salva o estado atual do contexto
+            
             cgContext.saveGState()
-
-            // Configura a sombra
+            
             cgContext.setShadow(
                 offset: shadowOffset,
                 blur: shadowBlurRadius,
                 color: shadowColor.withAlphaComponent(CGFloat(shadowOpacity)).cgColor
             )
-
-            // Desenha a imagem com a sombra
+            
             cgContext.beginTransparencyLayer(auxiliaryInfo: nil)
             image.draw(in: CGRect(origin: .zero, size: imageSize))
             cgContext.endTransparencyLayer()
-
-            // Restaura o estado do contexto
+            
             cgContext.restoreGState()
         }
 
