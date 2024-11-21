@@ -5,4 +5,10 @@
 //  Created by Gustavo Munhoz Correa on 21/11/24.
 //
 
-import Foundation
+import WidgetKit
+import SwiftUI
+
+struct AuxWidgetEntry: TimelineEntry {
+    let date: Date
+    let configuration: AuxWidgetConfigurationData?
+}
