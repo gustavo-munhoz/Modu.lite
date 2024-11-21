@@ -20,6 +20,8 @@ class RootTabCoordinator: Coordinator {
     /// The root tab bar controller managed by this coordinator.
     lazy var rootTabBarController = RootTabBarController.instantiate(delegate: self)
     
+    private var loadingViewController: LoadingViewController?
+    
     /// Initializes the coordinator with a router.
     /// - Parameter router: The router used for presenting the root tab bar controller.
     init(router: Router) {
@@ -31,8 +33,50 @@ class RootTabCoordinator: Coordinator {
     ///   - animated: Indicates whether the presentation should be animated.
     ///   - onDismiss: An optional closure that is called when the tab bar controller is dismissed.
     func present(animated: Bool, onDismiss: (() -> Void)?) {
-        router.present(rootTabBarController, animated: animated, onDismiss: onDismiss)
+        let loadingVC = LoadingViewController()
+        self.loadingViewController = loadingVC
+        
+        guard let router = router as? SceneDelegateRouter else { return }
+                
+        router.window.rootViewController = loadingVC
+        router.window.makeKeyAndVisible()
+        
+        loadData()
+    }
+    
+    private func loadData() {
+        Task { @MainActor [weak self] in
+            guard let self else { return }
+            
+            await SubscriptionManager.shared.initialize()
+            await PurchaseManager.shared.initialize()
+            
+            self.showRootTabBarController()
+        }
+    }
+    
+    private func showRootTabBarController() {
         setupTabs(for: rootTabBarController)
+        
+        guard let router = router as? SceneDelegateRouter else { return }
+        
+        UIView.transition(
+            with: router.window,
+            duration: 0.5,
+            options: .transitionCrossDissolve,
+            animations: { [weak self] in
+                guard let self else { return }
+                router.window.rootViewController = self.rootTabBarController
+            })
+    }
+    
+    private func getKeyWindow() -> UIWindow? {
+        let connectedScenes = UIApplication.shared.connectedScenes
+        
+        let windowScene = connectedScenes
+            .first { $0.activationState == .foregroundActive } as? UIWindowScene
+        
+        return windowScene?.windows.first { $0.isKeyWindow }
     }
     
     /// Configures the view controllers and their corresponding coordinators for each tab.

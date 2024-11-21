@@ -140,7 +140,6 @@ class OfferPlusView: UIView {
         addSubviews()
         setupConstraints()
         setupFeatures()
-        SubscriptionManager.shared.initialize()
     }
     
     required init?(coder: NSCoder) {

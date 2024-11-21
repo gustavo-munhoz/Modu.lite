@@ -7,6 +7,7 @@
 
 import UIKit
 import WidgetStyling
+import Combine
 
 protocol HomeViewControllerDelegate: AnyObject {
     func homeViewControllerDidStartWidgetCreationFlow(
@@ -31,6 +32,7 @@ class HomeViewController: UIViewController {
     private(set) var viewModel = HomeViewModel()
     
     weak var delegate: HomeViewControllerDelegate?
+    private var cancellables = Set<AnyCancellable>()
     
     // MARK: - Lifecycle
     override func loadView() {
@@ -47,6 +49,7 @@ class HomeViewController: UIViewController {
         setupNavigationBar()
         updatePlaceholderViews()
         setupOnboardingObserverIfNeeded()
+        setupSubscriptions()
     }
     
     deinit {
@@ -58,6 +61,17 @@ class HomeViewController: UIViewController {
     }
     
     // MARK: - Setup methods
+    private func setupSubscriptions() {
+        SubscriptionManager.shared.$activeSubscription
+            .receive(on: RunLoop.main)
+            .sink { [weak self] _ in
+                guard let self else { return }
+                self.homeView.mainWidgetsCollectionView.reloadData()
+                self.homeView.auxiliaryWidgetsCollectionView.reloadData()
+            }
+            .store(in: &cancellables)
+    }
+    
     private func setupNavigationBar() {
         navigationItem.title = "Modu.lite"
         navigationItem.titleView = UIView()
@@ -83,7 +97,12 @@ class HomeViewController: UIViewController {
         homeView.setMainWidgetPlaceholderVisibility(to: false)
         homeView.mainWidgetsCollectionView.reloadData()
     }
-    func updatePlaceholderViews() {
+    
+    @MainActor func updatePlaceholderViews() {
+        if IsPlusSubscriberSpecification().isSatisfied() {
+            homeView.setAuxWidgetPlaceholderToPlusVersion()
+        }
+        
         homeView.setMainWidgetPlaceholderVisibility(to: viewModel.mainWidgets.isEmpty)
         homeView.setAuxWidgetPlaceholderVisibility(to: viewModel.auxiliaryWidgets.isEmpty)
     }
@@ -234,6 +253,12 @@ extension HomeViewController: UICollectionViewDataSource {
             cell.configure(image: schema.previewImage, name: schema.name)
             cell.delegate = self
             
+            if !IsPlusSubscriberSpecification().isSatisfied() {
+                cell.disableInteraction()
+            } else {
+                cell.enableInteraction()
+            }
+            
             return cell
             
         case homeView.tipsCollectionView:
@@ -259,55 +284,96 @@ extension HomeViewController: UICollectionViewDataSource {
         guard kind == UICollectionView.elementKindSectionHeader else {
             return UICollectionReusableView()
         }
-        
-        guard let header = collectionView.dequeueReusableSupplementaryView(
+
+        guard let header = dequeueHeader(
+            for: collectionView,
+            kind: kind,
+            indexPath: indexPath
+        ) else {
+            fatalError("Error dequeueing Header cell.")
+        }
+
+        configureHeader(header, for: collectionView)
+
+        return header
+    }
+
+    private func dequeueHeader(
+        for collectionView: UICollectionView,
+        kind: String,
+        indexPath: IndexPath
+    ) -> HomeHeaderReusableCell? {
+        collectionView.dequeueReusableSupplementaryView(
             ofKind: kind,
             withReuseIdentifier: HomeHeaderReusableCell.reuseId,
             for: indexPath
-        ) as? HomeHeaderReusableCell else {
-            fatalError("Error dequeueing Header cell.")
-        }
-        
+        ) as? HomeHeaderReusableCell
+    }
+
+    private func configureHeader(
+        _ header: HomeHeaderReusableCell,
+        for collectionView: UICollectionView
+    ) {
         switch collectionView {
         case homeView.mainWidgetsCollectionView:
-            header.setup(
-                title: .localized(for: .homeViewMainSectionHeaderTitle),
-                buttonImage: UIImage(systemName: "plus.circle")!,
-                buttonAction: { [weak self] in
-                    guard let self = self else { return }
-                    self.delegate?.homeViewControllerDidStartWidgetCreationFlow(
-                        self,
-                        type: .main
-                    )
-                },
-                countValues: (current: viewModel.mainWidgets.count, max: 3)
-            )
-            
-            header.updateCurrentCount(to: viewModel.mainWidgets.count)
-            
+            configureMainWidgetsHeader(header)
+
         case homeView.auxiliaryWidgetsCollectionView:
-            header.setup(
-                title: .localized(for: .homeViewAuxiliarySectionHeaderTitle),
-                buttonImage: UIImage(systemName: "plus.circle")!,
-                buttonAction: { [weak self] in
-                    guard let self = self else { return }
-                    self.delegate?.homeViewControllerDidStartWidgetCreationFlow(
-                        self,
-                        type: .auxiliary
-                    )
-                },
-                isPlusExclusive: true
-            )
-            
+            configureAuxiliaryWidgetsHeader(header)
+
         case homeView.tipsCollectionView:
-            header.setup(
-                title: .localized(for: .homeViewTipsSectionHeaderTitle)
-            )
-            
-        default: fatalError("Unsupported collection view.")
+            configureTipsHeader(header)
+
+        default:
+            fatalError("Unsupported collection view.")
         }
-        
-        return header
+    }
+
+    private func configureMainWidgetsHeader(_ header: HomeHeaderReusableCell) {
+        let countValues: (Int, Int)? = {
+            if !IsPlusSubscriberSpecification().isSatisfied() {
+                return (current: viewModel.mainWidgets.count, max: 3)
+            }
+            return nil
+        }()
+
+        header.setup(
+            title: .localized(for: .homeViewMainSectionHeaderTitle),
+            buttonImage: UIImage(systemName: "plus.circle")!,
+            buttonAction: { [weak self] in
+                guard let self = self else { return }
+                self.delegate?.homeViewControllerDidStartWidgetCreationFlow(
+                    self,
+                    type: .main
+                )
+            },
+            countValues: countValues
+        )
+
+        if let countValues = countValues {
+            header.updateCurrentCount(to: countValues.0)
+        }
+    }
+
+    private func configureAuxiliaryWidgetsHeader(_ header: HomeHeaderReusableCell) {
+        header.setup(
+            title: .localized(for: .homeViewAuxiliarySectionHeaderTitle),
+            buttonImage: UIImage(systemName: "plus.circle")!,
+            buttonAction: { [weak self] in
+                guard let self = self else { return }
+                self.delegate?.homeViewControllerDidStartWidgetCreationFlow(
+                    self,
+                    type: .auxiliary
+                )
+            },
+            isPlusExclusive: true
+        )
+    }
+
+    private func configureTipsHeader(_ header: HomeHeaderReusableCell) {
+        header.setup(
+            title: .localized(for: .homeViewTipsSectionHeaderTitle)
+        )
     }
 }
 

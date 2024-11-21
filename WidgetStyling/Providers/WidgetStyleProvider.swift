@@ -12,6 +12,11 @@ public class WidgetStyleProvider {
     // MARK: - Properties
     private(set) var styles: [WidgetStyle] = []
     
+    private let freeStyleIds: Set<String> = [
+        "analog", "retromacDark", "retromacGreen",
+        "retromacWhite", "tapedeck"
+    ]
+    
     enum ProviderError: Swift.Error {
         case directoryNotFound
     }
@@ -75,5 +80,13 @@ public class WidgetStyleProvider {
     
     public func getAllStyles() -> [WidgetStyle] {
         styles.sorted(by: { $0.name < $1.name })
+    }
+    
+    public func getStylesContainedInPlus() -> [WidgetStyle] {
+        styles.filter { $0.isIncludedInPlus }
+    }
+    
+    public func getFreeStyles() -> [WidgetStyle] {
+        styles.filter { freeStyleIds.contains($0.identifier) }
     }
 }

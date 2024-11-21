@@ -26,11 +26,15 @@ struct AuxWidgetConfigurationQuery: EntityQuery {
     }
 
     private func fetchAuxWidgetSchemas(identifiers: [UUID]) async throws -> [WidgetSchema] {
+        guard IsPlusSubscriberSpecification().isSatisfied() else { return [] }
+        
         let predicate = NSPredicate(format: "id IN %@", identifiers.map { $0.uuidString })
         return CoreDataPersistenceController.shared.fetchAuxWidgets(predicate: predicate)
     }
     
     private func fetchAllAuxWidgetSchemas() async throws -> [WidgetSchema] {
-        CoreDataPersistenceController.shared.fetchAuxWidgets()
+        guard IsPlusSubscriberSpecification().isSatisfied() else { return [] }
+        
+        return CoreDataPersistenceController.shared.fetchAuxWidgets()
     }
 }

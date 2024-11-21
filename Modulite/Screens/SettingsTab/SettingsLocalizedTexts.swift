@@ -36,4 +36,5 @@ enum SettingsLocalizedTexts: LocalizedKeyProtocol {
     case offerPlus2MonthsOff
     case offerPlusYearlyMonthlyPrice
     
+    case cancelSubscriptionButtonTitle
 }
