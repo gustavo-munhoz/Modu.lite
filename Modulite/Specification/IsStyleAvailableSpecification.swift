@@ -6,3 +6,15 @@
 //
 
 import Foundation
+
+struct IsStyleAvailableSpecification: Specification {
+    
+    let styleIdentifier: String
+    
+    func isSatisfied() -> Bool {
+        IsPlusSubscriberSpecification()
+            .and(IsStyleIncludedInPlusSpecification(styleIdentifier: styleIdentifier))
+            .or(HasPurchasedStyleSpecification(styleIdentifier: styleIdentifier))
+            .isSatisfied()
+    }
+}

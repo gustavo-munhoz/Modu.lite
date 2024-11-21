@@ -6,9 +6,9 @@
 //
 
 struct IsPlusSubscriberSpecification: Specification {
-    let subscriptionManager = SubscriptionManager.shared
+    private let subscriptionManager = SubscriptionManager.shared
 
     func isSatisfied() -> Bool {
-        subscriptionManager.activeSubscription != nil
+        subscriptionManager.isAnySubscriptionActive()
     }
 }
