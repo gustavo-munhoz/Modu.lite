@@ -14,17 +14,16 @@ final class PurchaseManager {
     
     @Published private(set) var products: [Product] = []
     @Published private(set) var purchasedSkins: Set<String> = []
+    @Published private(set) var freeSkins: Set<String> = []
     
     // MARK: - Initialization
     
     private init() { }
     
-    @MainActor func initialize() {
-        Task {
-            await updatePurchasedProducts()
-            await fetchProducts()
-            startObservingTransactionUpdates()
-        }
+    @MainActor func initialize() async {
+        await updatePurchasedProducts()
+        await fetchProducts()
+        startObservingTransactionUpdates()
     }
     
     // MARK: - Fetch Products
@@ -35,6 +34,7 @@ final class PurchaseManager {
             let productIDs = provider.getAllStyles().map { $0.identifier }
             let storeProducts = try await Product.products(for: productIDs)
             await MainActor.run {
+                self.freeSkins = Set(provider.getFreeStyles().map(\.identifier))
                 self.products = storeProducts
             }
         } catch {
@@ -118,7 +118,7 @@ final class PurchaseManager {
     // MARK: - Helper Methods
     
     func isSkinPurchased(_ skinID: String) -> Bool {
-        return purchasedSkins.contains(skinID)
+        purchasedSkins.contains(skinID) || freeSkins.contains(skinID)
     }
     
     func getProduct(withID id: String) -> Product? {

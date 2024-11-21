@@ -15,16 +15,12 @@ final class SubscriptionManager {
     
     // MARK: - Initialization
     
-    private init() {
-        loadActiveSubscription()
-    }
+    private init() { }
     
-    @MainActor func initialize() {
-        Task {
-            await fetchActiveSubscriptions()
-            await fetchProducts()
-            startObservingTransactionUpdates()
-        }
+    @MainActor func initialize() async {
+        await fetchActiveSubscriptions()
+        await fetchProducts()
+        startObservingTransactionUpdates()
     }
     
     // MARK: - Fetch Products
@@ -44,26 +40,41 @@ final class SubscriptionManager {
         }
     }
     
-    // MARK: - Fetch Active Subscriptions
+    // MARK: - Fetch Active Subscription
     
     private func fetchActiveSubscriptions() async {
+        var foundActiveSubscription = false
         for await result in Transaction.currentEntitlements {
             switch result {
             case .verified(let transaction) where transaction.productType == .autoRenewable:
-                await handleSubscription(transaction)
+                await MainActor.run {
+                    self.activeSubscription = transaction.productID
+                }
+                foundActiveSubscription = true
+                
             case .unverified:
                 print("Unverified subscription entitlement")
             default:
                 break
             }
+            if foundActiveSubscription {
+                break
+            }
+        }
+        
+        if !foundActiveSubscription {
+            await MainActor.run {
+                self.activeSubscription = nil
+            }
         }
     }
     
     // MARK: - Purchase Subscription
-    
-    // SubscriptionManager.swift
 
-    func purchase(subscription: Product, completion: @escaping (Result<Void, SubscriptionError>) -> Void) {
+    func purchase(
+        subscription: Product,
+        completion: @escaping (Result<Void, SubscriptionError>) -> Void
+    ) {
         Task {
             do {
                 let result = try await subscription.purchase()
@@ -75,8 +86,7 @@ final class SubscriptionManager {
                         completion(.success(()))
                     case .unverified:
                         completion(.failure(.failedVerification))
-                    case .verified:
-                        print("Verified subscription entitlement")
+                    default:
                         completion(.success(()))
                     }
                 case .userCancelled:
@@ -93,14 +103,14 @@ final class SubscriptionManager {
     }
 
     // MARK: - Restore Purchases
-    
+
     func restorePurchases() async throws {
         try await AppStore.sync()
         await fetchActiveSubscriptions()
     }
     
     // MARK: - Transaction Updates
-    
+
     private func startObservingTransactionUpdates() {
         Task {
             for await result in Transaction.updates {
@@ -109,40 +119,50 @@ final class SubscriptionManager {
                     await handleSubscription(transaction)
                 case .unverified:
                     print("Transaction verification failed")
-                case .verified:
-                    print("Verified subscription entitlement")
+                default:
+                    break
                 }
             }
         }
     }
-    
+
     private func handleSubscription(_ transaction: Transaction) async {
-        activeSubscription = transaction.productID
-        saveActiveSubscription(transaction.productID)
-        print("Subscription purchased: \(transaction.productID)")
+        await MainActor.run {
+            self.activeSubscription = transaction.productID
+        }
         await transaction.finish()
     }
     
-    // MARK: - Subscription Persistence
-    
-    private func saveActiveSubscription(_ productID: String) {
-        UserDefaults.standard.set(productID, forKey: "activeSubscription")
-    }
-    
-    private func loadActiveSubscription() {
-        if let savedSubscription = UserDefaults.standard.string(forKey: "activeSubscription") {
-            activeSubscription = savedSubscription
-        }
-    }
-    
     // MARK: - Helper Methods
-    
+
     func isSubscribed(to productID: String) -> Bool {
-        activeSubscription == productID
+        return activeSubscription == productID
+    }
+    
+    func isAnySubscriptionActive() -> Bool {
+        return activeSubscription != nil
     }
     
     func getProduct(withID id: String) -> Product? {
         return products.first { $0.id == id }
+    }
+
+    // MARK: - Manage Subscriptions
+
+    func manageSubscriptions(in windowScene: UIWindowScene?) {
+        Task { @MainActor in
+            do {
+                guard let windowScene = windowScene else {
+                    print("Failed to obtain UIWindowScene.")
+                    return
+                }
+                
+                try await AppStore.showManageSubscriptions(in: windowScene)
+                
+            } catch {
+                print("Failed to open manage subscriptions: \(error)")
+            }
+        }
     }
 }
 
