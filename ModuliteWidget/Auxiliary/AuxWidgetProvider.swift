@@ -18,7 +18,7 @@ struct AuxWidgetIntentProvider: AppIntentTimelineProvider {
         Task {
             await SubscriptionManager.shared.initialize()
             WidgetCenter.shared.reloadTimelines(ofKind: "AuxWidget")
-        }   
+        }
     }
     
     func placeholder(in context: Context) -> AuxWidgetEntry {
