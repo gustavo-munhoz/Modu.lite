@@ -38,11 +38,15 @@ extension HomeCoordinator: HomeViewControllerDelegate {
         _ viewController: HomeViewController,
         type: WidgetType
     ) {
-        // TODO: Check if user is plus to create AUX widget
+        let isPlusSpec = IsPlusSubscriberSpecification()
         
-        // TODO: Remove main widget limit for plus
-        guard viewController.getCurrentWidgetCount(for: .main) < 3 else {
-            presentMaxWidgetCountAlert(viewController)
+        if type == .auxiliary && !isPlusSpec.isSatisfied() {
+            presentPlusModal(in: viewController)
+            return
+        }
+                
+        if viewController.getCurrentWidgetCount(for: .main) >= 3 && !isPlusSpec.isSatisfied() {
+            presentPlusModal(in: viewController)
             return
         }
         
@@ -96,6 +100,20 @@ extension HomeCoordinator: HomeViewControllerDelegate {
         let coordinator = OnboardingCompletionCoordinator(router: router)
         
         presentChild(coordinator, animated: true)
+    }
+    
+    private func presentPlusModal(in viewController: UIViewController) {
+        let router = ModalNavigationRouter(
+            parentViewController: viewController,
+            presentationStyle: .fullScreen
+        )
+        
+        router.setHasSaveButton(false)
+        
+        let coordinator = OfferPlusCoordinator(router: router)
+        presentChild(coordinator, animated: true)
+        
+        return
     }
     
     private func presentFeatureComingAlert(_ parentViewController: UIViewController) {

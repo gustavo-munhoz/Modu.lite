@@ -234,6 +234,12 @@ extension HomeViewController: UICollectionViewDataSource {
             cell.configure(image: schema.previewImage, name: schema.name)
             cell.delegate = self
             
+            if !IsPlusSubscriberSpecification().isSatisfied() {
+                cell.isUserInteractionEnabled = false
+                cell.widgetImageView.alpha = 0.3
+                cell.widgetNameLabel.alpha = 0.3
+            }
+            
             return cell
             
         case homeView.tipsCollectionView:
@@ -270,6 +276,14 @@ extension HomeViewController: UICollectionViewDataSource {
         
         switch collectionView {
         case homeView.mainWidgetsCollectionView:
+            let countValues: (Int, Int)? = {
+                if !IsPlusSubscriberSpecification().isSatisfied() {
+                    return (current: viewModel.mainWidgets.count, max: 3)
+                }
+                
+                return nil
+            }()
+            
             header.setup(
                 title: .localized(for: .homeViewMainSectionHeaderTitle),
                 buttonImage: UIImage(systemName: "plus.circle")!,
@@ -280,10 +294,12 @@ extension HomeViewController: UICollectionViewDataSource {
                         type: .main
                     )
                 },
-                countValues: (current: viewModel.mainWidgets.count, max: 3)
+                countValues: countValues
             )
             
-            header.updateCurrentCount(to: viewModel.mainWidgets.count)
+            if countValues != nil {
+                header.updateCurrentCount(to: viewModel.mainWidgets.count)
+            }
             
         case homeView.auxiliaryWidgetsCollectionView:
             header.setup(
