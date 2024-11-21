@@ -20,7 +20,7 @@ class StyleCollectionViewCell: UICollectionViewCell {
     
     weak var delegate: StyleCollectionViewCellDelegate?
     
-    private var isPurchased: Bool = false
+    private var isAvailable: Bool = false
     
     var hasSelectionBeenMade: Bool = false {
         didSet {
@@ -102,7 +102,7 @@ class StyleCollectionViewCell: UICollectionViewCell {
         image: UIImage,
         title: String,
         delegate: StyleCollectionViewCellDelegate,
-        isPurchased: Bool,
+        isAvailable: Bool,
         imageViewHeight: CGFloat
     ) {
         self.delegate = delegate
@@ -112,8 +112,8 @@ class StyleCollectionViewCell: UICollectionViewCell {
         addSubviews()
         setupConstraints(imageViewHeight: imageViewHeight)
         
-        self.isPurchased = isPurchased
-        unlockBadge.isHidden = isPurchased
+        self.isAvailable = isAvailable
+        unlockBadge.isHidden = isAvailable
     }
     
     private func addSubviews() {
@@ -152,7 +152,7 @@ class StyleCollectionViewCell: UICollectionViewCell {
     
     // MARK: - Actions
     @objc private func previewButtonTapped() {
-        if isPurchased {
+        if isAvailable {
             delegate?.styleCollectionViewCellDidPressPreview(self)
         }
         delegate?.styleCollectionViewCellDidPressPurchasePreview(self)
