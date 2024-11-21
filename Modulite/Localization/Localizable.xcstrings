@@ -118,6 +118,17 @@
     "Cancel" : {
 
     },
+    "cancelSubscriptionButtonTitle" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cancel subscription"
+          }
+        }
+      }
+    },
     "comingSoonMessagePlural" : {
       "extractionState" : "manual",
       "localizations" : {
