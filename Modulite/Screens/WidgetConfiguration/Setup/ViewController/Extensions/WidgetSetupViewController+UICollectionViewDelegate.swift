@@ -80,7 +80,11 @@ extension WidgetSetupViewController: UICollectionViewDelegate {
         
         let widgetStyle = viewModel.widgetStyles[indexPath.row]
         
-        if widgetStyle.isPurchased {
+        let isAvailable = IsStyleAvailableSpecification(
+            styleIdentifier: widgetStyle.identifier
+        ).isSatisfied()
+        
+        if isAvailable {
             guard let style = viewModel.selectStyle(at: indexPath.row) else { return }
             
             didMakeChangesToWidget = true

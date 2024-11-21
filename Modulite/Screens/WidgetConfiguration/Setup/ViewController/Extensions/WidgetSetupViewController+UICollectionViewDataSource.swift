@@ -40,11 +40,15 @@ extension WidgetSetupViewController: UICollectionViewDataSource {
             
             let style = viewModel.widgetStyles[indexPath.row]
             
+            let isAvailable = IsStyleAvailableSpecification(
+                styleIdentifier: style.identifier
+            ).isSatisfied()
+            
             cell.setup(
                 image: style.getWidgetPreview(for: strategy.type),
                 title: style.name,
                 delegate: self,
-                isPurchased: style.isPurchased,
+                isAvailable: isAvailable,
                 imageViewHeight: strategy.getStyleCellImageHeight()
             )
             
