@@ -418,6 +418,22 @@
 		B3D90AC62C9A592500CA8054 /* FileManagerImagePersistenceControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3D90AC52C9A592500CA8054 /* FileManagerImagePersistenceControllerTests.swift */; };
 		B3EB15BB2C7E5DC5003B1960 /* UILabel+AppNameConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3EB15BA2C7E5DC5003B1960 /* UILabel+AppNameConfiguration.swift */; };
 		B3F0543C2C7D04D60057F04D /* apps.json in Resources */ = {isa = PBXBuildFile; fileRef = B3F0543B2C7D04D60057F04D /* apps.json */; };
+		B3F4EF862CEF0D22006615BA /* SelectAuxWidgetConfigurationIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3F4EF852CEF0D22006615BA /* SelectAuxWidgetConfigurationIntent.swift */; };
+		B3F4EF872CEF0D22006615BA /* SelectAuxWidgetConfigurationIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3F4EF852CEF0D22006615BA /* SelectAuxWidgetConfigurationIntent.swift */; };
+		B3F4EF892CEF0D4F006615BA /* AuxWidgetConfigurationData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3F4EF882CEF0D4F006615BA /* AuxWidgetConfigurationData.swift */; };
+		B3F4EF8A2CEF0D4F006615BA /* AuxWidgetConfigurationData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3F4EF882CEF0D4F006615BA /* AuxWidgetConfigurationData.swift */; };
+		B3F4EF8C2CEF0D6C006615BA /* AuxWidgetModuleData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3F4EF8B2CEF0D6C006615BA /* AuxWidgetModuleData.swift */; };
+		B3F4EF8D2CEF0D6C006615BA /* AuxWidgetModuleData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3F4EF8B2CEF0D6C006615BA /* AuxWidgetModuleData.swift */; };
+		B3F4EF8F2CEF0D8B006615BA /* AuxWidgetConfigurationQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3F4EF8E2CEF0D8B006615BA /* AuxWidgetConfigurationQuery.swift */; };
+		B3F4EF902CEF0D8B006615BA /* AuxWidgetConfigurationQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3F4EF8E2CEF0D8B006615BA /* AuxWidgetConfigurationQuery.swift */; };
+		B3F4EF952CEF0DC3006615BA /* AuxWidgetConfigurationEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3F4EF942CEF0DC3006615BA /* AuxWidgetConfigurationEntity.swift */; };
+		B3F4EF962CEF0DC3006615BA /* AuxWidgetConfigurationEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3F4EF942CEF0DC3006615BA /* AuxWidgetConfigurationEntity.swift */; };
+		B3F4EF982CEF0E63006615BA /* AuxWidgetEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3F4EF972CEF0E63006615BA /* AuxWidgetEntry.swift */; };
+		B3F4EF992CEF0E63006615BA /* AuxWidgetEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3F4EF972CEF0E63006615BA /* AuxWidgetEntry.swift */; };
+		B3F4EF9B2CEF0E78006615BA /* AuxWidgetProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3F4EF9A2CEF0E78006615BA /* AuxWidgetProvider.swift */; };
+		B3F4EF9C2CEF0E78006615BA /* AuxWidgetProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3F4EF9A2CEF0E78006615BA /* AuxWidgetProvider.swift */; };
+		B3F4EF9E2CEF0EB4006615BA /* AuxWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3F4EF9D2CEF0EB4006615BA /* AuxWidgetView.swift */; };
+		B3F4EF9F2CEF0EB4006615BA /* AuxWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3F4EF9D2CEF0EB4006615BA /* AuxWidgetView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -895,6 +911,14 @@
 		B3D90AC52C9A592500CA8054 /* FileManagerImagePersistenceControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileManagerImagePersistenceControllerTests.swift; sourceTree = "<group>"; };
 		B3EB15BA2C7E5DC5003B1960 /* UILabel+AppNameConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+AppNameConfiguration.swift"; sourceTree = "<group>"; };
 		B3F0543B2C7D04D60057F04D /* apps.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = apps.json; sourceTree = "<group>"; };
+		B3F4EF852CEF0D22006615BA /* SelectAuxWidgetConfigurationIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectAuxWidgetConfigurationIntent.swift; sourceTree = "<group>"; };
+		B3F4EF882CEF0D4F006615BA /* AuxWidgetConfigurationData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuxWidgetConfigurationData.swift; sourceTree = "<group>"; };
+		B3F4EF8B2CEF0D6C006615BA /* AuxWidgetModuleData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuxWidgetModuleData.swift; sourceTree = "<group>"; };
+		B3F4EF8E2CEF0D8B006615BA /* AuxWidgetConfigurationQuery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuxWidgetConfigurationQuery.swift; sourceTree = "<group>"; };
+		B3F4EF942CEF0DC3006615BA /* AuxWidgetConfigurationEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuxWidgetConfigurationEntity.swift; sourceTree = "<group>"; };
+		B3F4EF972CEF0E63006615BA /* AuxWidgetEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuxWidgetEntry.swift; sourceTree = "<group>"; };
+		B3F4EF9A2CEF0E78006615BA /* AuxWidgetProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuxWidgetProvider.swift; sourceTree = "<group>"; };
+		B3F4EF9D2CEF0EB4006615BA /* AuxWidgetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuxWidgetView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -2370,7 +2394,12 @@
 		B3987E0A2CA388FB00896414 /* Auxiliary */ = {
 			isa = PBXGroup;
 			children = (
+				B3F4EF822CEF0D0E006615BA /* Intents */,
+				B3F4EF832CEF0D0E006615BA /* Models */,
+				B3F4EF842CEF0D0E006615BA /* Views */,
 				B3987E172CA3938200896414 /* AuxiliaryWidget.swift */,
+				B3F4EF972CEF0E63006615BA /* AuxWidgetEntry.swift */,
+				B3F4EF9A2CEF0E78006615BA /* AuxWidgetProvider.swift */,
 			);
 			path = Auxiliary;
 			sourceTree = "<group>";
@@ -2941,6 +2970,33 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		B3F4EF822CEF0D0E006615BA /* Intents */ = {
+			isa = PBXGroup;
+			children = (
+				B3F4EF852CEF0D22006615BA /* SelectAuxWidgetConfigurationIntent.swift */,
+			);
+			path = Intents;
+			sourceTree = "<group>";
+		};
+		B3F4EF832CEF0D0E006615BA /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				B3F4EF882CEF0D4F006615BA /* AuxWidgetConfigurationData.swift */,
+				B3F4EF8B2CEF0D6C006615BA /* AuxWidgetModuleData.swift */,
+				B3F4EF8E2CEF0D8B006615BA /* AuxWidgetConfigurationQuery.swift */,
+				B3F4EF942CEF0DC3006615BA /* AuxWidgetConfigurationEntity.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		B3F4EF842CEF0D0E006615BA /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				B3F4EF9D2CEF0EB4006615BA /* AuxWidgetView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -3408,17 +3464,21 @@
 			files = (
 				AF0026662CCAC8300052B101 /* ShieldContentFactory.swift in Sources */,
 				B37284742C82995C00D9A1E7 /* UIFont+TraitedTextStyle.swift in Sources */,
+				B3F4EF8F2CEF0D8B006615BA /* AuxWidgetConfigurationQuery.swift in Sources */,
 				AF34A7E22CDBFFCD00016A7A /* SubscriptionManager.swift in Sources */,
 				B3987E0C2CA38A8A00896414 /* MainWidget.swift in Sources */,
 				B34C62F52CD179E9004E014B /* OnboardingPreferences.swift in Sources */,
 				B32F3BFF2CD70D77000F4825 /* SpaceGrotesk.swift in Sources */,
+				B3F4EF9C2CEF0E78006615BA /* AuxWidgetProvider.swift in Sources */,
 				B33808A92CC30CD900D56884 /* ScreenTimePreferences.swift in Sources */,
 				B3C6DD862CDEAC17002AEAF7 /* CoreDataPersistenceController.swift in Sources */,
 				B32B60F32C8782E2007DDCE3 /* UIView+asImage.swift in Sources */,
+				B3F4EF862CEF0D22006615BA /* SelectAuxWidgetConfigurationIntent.swift in Sources */,
 				B363B57D2CE3E0E8002912CC /* WidgetModule+Extensions.swift in Sources */,
 				B32B60A62C838ED9007DDCE3 /* UILabel+AppNameConfiguration.swift in Sources */,
 				B3987E102CA38A9C00896414 /* MainWidgetView.swift in Sources */,
 				B37284752C82996600D9A1E7 /* String+LocalizedKey.swift in Sources */,
+				B3F4EF8A2CEF0D4F006615BA /* AuxWidgetConfigurationData.swift in Sources */,
 				B3987E212CA4801600896414 /* UIColorValueTransformer.swift in Sources */,
 				B3987E202CA3A3BC00896414 /* MainWidgetModuleButton.swift in Sources */,
 				B39FB8812CDD511500967E3A /* PersistentWidgetModule+CoreDataProperties.swift in Sources */,
@@ -3429,7 +3489,9 @@
 				B3987E052CA3602900896414 /* UIView+animateBorderColor.swift in Sources */,
 				B39FB8872CDD51F100967E3A /* PersistentWidgetSchema+CoreDataProperties.swift in Sources */,
 				B3987E2C2CA4F43100896414 /* SelectMainWidgetConfigurationIntent.swift in Sources */,
+				B3F4EF9F2CEF0EB4006615BA /* AuxWidgetView.swift in Sources */,
 				B3987E152CA38C7900896414 /* MainWidgetEntry.swift in Sources */,
+				B3F4EF992CEF0E63006615BA /* AuxWidgetEntry.swift in Sources */,
 				B363B57F2CE3E20A002912CC /* MainWidgetStrategy.swift in Sources */,
 				B34C62E52CD16134004E014B /* AppListData.swift in Sources */,
 				B32B60A52C838EB0007DDCE3 /* WidgetModuleCell.swift in Sources */,
@@ -3438,12 +3500,14 @@
 				B3987E132CA38AF400896414 /* MainWidgetProvider.swift in Sources */,
 				B32B60F52C87AB85007DDCE3 /* WidgetData.xcdatamodeld in Sources */,
 				B3987E2F2CA4F46A00896414 /* MainWidgetConfigurationQuery.swift in Sources */,
+				B3F4EF962CEF0DC3006615BA /* AuxWidgetConfigurationEntity.swift in Sources */,
 				B3987E272CA4858E00896414 /* MainWidgetModuleData.swift in Sources */,
 				B39FB87E2CDD510600967E3A /* PersistentWidgetModule+CoreDataClass.swift in Sources */,
 				B37284762C82997700D9A1E7 /* ImageProcessingFactory.swift in Sources */,
 				B3987E242CA4857400896414 /* MainWidgetConfigurationData.swift in Sources */,
 				B3987E182CA3938200896414 /* AuxiliaryWidget.swift in Sources */,
 				B363B5802CE3E214002912CC /* AuxWidgetStrategy.swift in Sources */,
+				B3F4EF8C2CEF0D6C006615BA /* AuxWidgetModuleData.swift in Sources */,
 				AF763F262CAF4492002FBE26 /* FamilyControlsManager.swift in Sources */,
 				B32B60F92C87AC81007DDCE3 /* FileManagerImagePersistenceController.swift in Sources */,
 				B3C6DD7F2CDE9B28002AEAF7 /* AppData+Extensions.swift in Sources */,
@@ -3493,11 +3557,13 @@
 				B3987E042CA3602900896414 /* UIView+animateBorderColor.swift in Sources */,
 				AF5F2D182CD165F400EBAAB5 /* RedirectingView.swift in Sources */,
 				B3D1B7DD2CB7121700DFC4F5 /* HelpView.swift in Sources */,
+				B3F4EF9B2CEF0E78006615BA /* AuxWidgetProvider.swift in Sources */,
 				B34F3E242C6D366A0041D7BD /* WidgetEditorView.swift in Sources */,
 				B35BFB952CB4632900092B42 /* ModuliteFreeSmallBadge.swift in Sources */,
 				B35BFBCB2CB4BC7600092B42 /* SubscriptionDetailsSmallTitle.swift in Sources */,
 				AF0E1AD22CE6863600D0573E /* GradientBackgroundView.swift in Sources */,
 				B34C62F12CD1761D004E014B /* WelcomeView.swift in Sources */,
+				B3F4EF952CEF0DC3006615BA /* AuxWidgetConfigurationEntity.swift in Sources */,
 				B35BFBED2CB5BA8000092B42 /* TutorialCenterSmallTitle.swift in Sources */,
 				B39D89D22CB85602005EEC46 /* ComingSoonViewController.swift in Sources */,
 				B369279C2C66B6E30089F769 /* HomeViewController.swift in Sources */,
@@ -3521,6 +3587,7 @@
 				B34F3E0B2C6A9E350041D7BD /* NavigationRouter.swift in Sources */,
 				AF0DB4982CD2C09500451E18 /* StylePreviewViewController.swift in Sources */,
 				B36927DA2C66C2770089F769 /* HomeView.swift in Sources */,
+				B3F4EF982CEF0E63006615BA /* AuxWidgetEntry.swift in Sources */,
 				B30201732CC8C9C200301646 /* TimeSelectPicker.swift in Sources */,
 				B36927D52C66BCE60089F769 /* HomeCoordinator.swift in Sources */,
 				B3987E122CA38AF400896414 /* MainWidgetProvider.swift in Sources */,
@@ -3529,6 +3596,7 @@
 				B35BFBB72CB4B5F600092B42 /* SettingsView.swift in Sources */,
 				B35BFBB82CB4B5F600092B42 /* SettingsViewController.swift in Sources */,
 				AF0E1AC02CE5182B00D0573E /* OfferPlusCoordinator.swift in Sources */,
+				B3F4EF872CEF0D22006615BA /* SelectAuxWidgetConfigurationIntent.swift in Sources */,
 				B32F3BA52CD2E7D7000F4825 /* ProceedToEditorTip.swift in Sources */,
 				B35BFBB92CB4B5F600092B42 /* SettingsViewModel.swift in Sources */,
 				AFFB446C2CC6E35A007CDA51 /* AppBlockingViewModel.swift in Sources */,
@@ -3601,10 +3669,13 @@
 				B32B61032C88EE1E007DDCE3 /* WidgetSetupAppsTagFlowLayout.swift in Sources */,
 				B3987E2B2CA4F43100896414 /* SelectMainWidgetConfigurationIntent.swift in Sources */,
 				B39D89D72CB858A0005EEC46 /* ComingSoonLocalizedTexts.swift in Sources */,
+				B3F4EF8D2CEF0D6C006615BA /* AuxWidgetModuleData.swift in Sources */,
 				B3987E262CA4858E00896414 /* MainWidgetModuleData.swift in Sources */,
+				B3F4EF892CEF0D4F006615BA /* AuxWidgetConfigurationData.swift in Sources */,
 				AFFB44632CC6DB5C007CDA51 /* AppBlockingSession.swift in Sources */,
 				AF0E1ACE2CE53B0A00D0573E /* SubscriptionMonthOptionView.swift in Sources */,
 				AF09AE842CD70E7B00E0707A /* PurchaseStylePreviewView.swift in Sources */,
+				B3F4EF902CEF0D8B006615BA /* AuxWidgetConfigurationQuery.swift in Sources */,
 				AF0DB49A2CD2C09E00451E18 /* StylePreviewViewModel.swift in Sources */,
 				AFFB446E2CC6E37B007CDA51 /* AppBlockingView.swift in Sources */,
 				B32B610A2C8A4485007DDCE3 /* SelectAppsView.swift in Sources */,
@@ -3633,6 +3704,7 @@
 				AF0DB4962CD2C08900451E18 /* StylePreviewView.swift in Sources */,
 				B3850BB52C94D1F200F400C0 /* UICollectionViewCell+toggleIsHighlighted.swift in Sources */,
 				B3D1B7E42CB7128700DFC4F5 /* HelpLocalizedTexts.swift in Sources */,
+				B3F4EF9E2CEF0EB4006615BA /* AuxWidgetView.swift in Sources */,
 				B32B60C22C864BB2007DDCE3 /* WidgetData.xcdatamodeld in Sources */,
 				B33808B02CC47C0300D56884 /* RequestScreenTimeCoordinator.swift in Sources */,
 				B35BFB9B2CB46C8700092B42 /* SettingsLocalizedTexts.swift in Sources */,
