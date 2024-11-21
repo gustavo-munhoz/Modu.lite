@@ -26,7 +26,13 @@ class WidgetSetupViewController: UIViewController {
     
     var didMakeChangesToWidget: Bool = false
     
-    var isOnboarding: Bool = false
+    var isOnboarding: Bool = false {
+        didSet {
+            if isOnboarding {
+                viewModel = WidgetSetupViewModel(isOnboarding: true)
+            }
+        }
+    }
     
     private var selectWidgetStyleTip = SelectWidgetStyleTip()
     private var selectAppsTip = SelectAppsTip()
