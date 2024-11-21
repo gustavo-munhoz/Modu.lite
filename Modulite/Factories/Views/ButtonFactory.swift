@@ -182,14 +182,16 @@ enum ButtonFactory {
     static func textButton(
         text: String,
         textStyle: UIFont.TextStyle = .body,
-        color: UIColor = .white
+        color: UIColor = .white,
+        isItalic: Bool = true,
+        horizontalAlignment: UIControl.ContentHorizontalAlignment = .center
     ) -> UIButton {
         var config = UIButton.Configuration.plain()
         
         let attributedText = NSMutableAttributedString(
             string: text,
             attributes: [
-                .font: UIFont(textStyle: textStyle, weight: .bold, italic: true),
+                .font: UIFont(textStyle: textStyle, weight: .bold, italic: isItalic),
                 .foregroundColor: color
             ]
         )
@@ -203,9 +205,10 @@ enum ButtonFactory {
         config.attributedTitle = AttributedString(attributedText)
         
         config.baseForegroundColor = color
+        config.contentInsets = .zero
         
         let button = UIButton(configuration: config)
-        
+        button.contentHorizontalAlignment = horizontalAlignment
         button.configurationUpdateHandler = { button in
             UIView.animate(withDuration: 0.1) {
                 switch button.state {
