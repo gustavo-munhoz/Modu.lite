@@ -68,7 +68,33 @@ class RootTabCoordinator: Coordinator {
                 animations: { [weak self] in
                     guard let self else { return }
                     router.window.rootViewController = self.rootTabBarController
+                }, completion: { @MainActor [weak self] _ in
+                    self?.presentMajorChangesIfNeeded()
                 })
+        }
+    }
+    
+    private func presentMajorChangesIfNeeded() {
+        guard UserPreference<Onboarding>.shared.bool(for: .hasCompletedOnboarding) else { return }
+        
+        func isFirstLaunchForCurrentVersion() -> Bool {
+            let currentVersion = Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as? String
+            let storedVersion = UserDefaults.standard.string(forKey: "appVersion")
+            
+            if currentVersion == "2.0" && storedVersion != currentVersion {
+                UserDefaults.standard.set(currentVersion, forKey: "appVersion")
+                return true
+            }
+            return false
+        }
+        
+        if true { // isFirstLaunchForCurrentVersion() {
+            let router = ModalNavigationRouter(parentViewController: rootTabBarController)
+            router.setHasSaveButton(false)
+            
+            let coordinator = MajorChangesCoordinator(router: router)
+            
+            presentChild(coordinator, animated: true)
         }
     }
     
@@ -92,8 +118,8 @@ class RootTabCoordinator: Coordinator {
         
         let tabBarItem = createTabBarItem(
             titleKey: .homeViewControllerTabBarItemTitle,
-            imageName: "square.grid.3x2.fill",
-            selectedImageName: "square.grid.3x2.fill"
+            imageName: "rectangle.grid.3x2.fill",
+            selectedImageName: "rectangle.grid.3x2.fill"
         )
         
         tabBarItem.tag = 0
