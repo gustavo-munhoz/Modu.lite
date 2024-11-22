@@ -456,6 +456,10 @@
 		B3F4EFC32CEFDCA1006615BA /* SpaceGrotesk-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B32F3C012CD745C3000F4825 /* SpaceGrotesk-Bold.ttf */; };
 		B3F4EFC82CEFF2A0006615BA /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = B3F4EFC72CEFF2A0006615BA /* Lottie */; };
 		B3F4EFCA2CEFF2D0006615BA /* U_animation.json in Resources */ = {isa = PBXBuildFile; fileRef = B3F4EFC92CEFF2D0006615BA /* U_animation.json */; };
+		B3F4EFD22CF001D1006615BA /* MajorChangesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3F4EFD12CF001D1006615BA /* MajorChangesView.swift */; };
+		B3F4EFD42CF001D8006615BA /* MajorChangesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3F4EFD32CF001D8006615BA /* MajorChangesViewController.swift */; };
+		B3F4EFD62CF00261006615BA /* MajorChangesLocalizedTexts.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3F4EFD52CF00261006615BA /* MajorChangesLocalizedTexts.swift */; };
+		B3F4EFDA2CF00490006615BA /* MajorChangesCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3F4EFD92CF00490006615BA /* MajorChangesCoordinator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -948,6 +952,10 @@
 		B3F4EFAC2CEF79EC006615BA /* IsStyleAvailableSpecification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IsStyleAvailableSpecification.swift; sourceTree = "<group>"; };
 		B3F4EFBA2CEFD9E1006615BA /* LoadingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingViewController.swift; sourceTree = "<group>"; };
 		B3F4EFC92CEFF2D0006615BA /* U_animation.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = U_animation.json; sourceTree = "<group>"; };
+		B3F4EFD12CF001D1006615BA /* MajorChangesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MajorChangesView.swift; sourceTree = "<group>"; };
+		B3F4EFD32CF001D8006615BA /* MajorChangesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MajorChangesViewController.swift; sourceTree = "<group>"; };
+		B3F4EFD52CF00261006615BA /* MajorChangesLocalizedTexts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MajorChangesLocalizedTexts.swift; sourceTree = "<group>"; };
+		B3F4EFD92CF00490006615BA /* MajorChangesCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MajorChangesCoordinator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -2277,6 +2285,7 @@
 		B36927C82C66B8330089F769 /* Coordinators */ = {
 			isa = PBXGroup;
 			children = (
+				B3F4EFD82CF00488006615BA /* MajorChanges */,
 				AF0E1ABD2CE5181600D0573E /* OfferPlus */,
 				AF0DB4A22CD40C5900451E18 /* StylePreview */,
 				B34C62F92CD18478004E014B /* Onboarding */,
@@ -2320,6 +2329,7 @@
 		B36927CB2C66B8430089F769 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				B3F4EFD02CF001CC006615BA /* MajorChanges */,
 				B3F4EFB42CEFBF13006615BA /* Loading */,
 				AF5F2D0B2CD15AE800EBAAB5 /* Redirecting */,
 				B34F3DFC2C6A92890041D7BD /* RootTabBarController.swift */,
@@ -3058,6 +3068,40 @@
 			path = ViewController;
 			sourceTree = "<group>";
 		};
+		B3F4EFCE2CF001CC006615BA /* View */ = {
+			isa = PBXGroup;
+			children = (
+				B3F4EFD12CF001D1006615BA /* MajorChangesView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		B3F4EFCF2CF001CC006615BA /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				B3F4EFD32CF001D8006615BA /* MajorChangesViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		B3F4EFD02CF001CC006615BA /* MajorChanges */ = {
+			isa = PBXGroup;
+			children = (
+				B3F4EFCE2CF001CC006615BA /* View */,
+				B3F4EFCF2CF001CC006615BA /* ViewController */,
+				B3F4EFD52CF00261006615BA /* MajorChangesLocalizedTexts.swift */,
+			);
+			path = MajorChanges;
+			sourceTree = "<group>";
+		};
+		B3F4EFD82CF00488006615BA /* MajorChanges */ = {
+			isa = PBXGroup;
+			children = (
+				B3F4EFD92CF00490006615BA /* MajorChangesCoordinator.swift */,
+			);
+			path = MajorChanges;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -3636,6 +3680,7 @@
 				B3987E042CA3602900896414 /* UIView+animateBorderColor.swift in Sources */,
 				AF5F2D182CD165F400EBAAB5 /* RedirectingView.swift in Sources */,
 				B3D1B7DD2CB7121700DFC4F5 /* HelpView.swift in Sources */,
+				B3F4EFD42CF001D8006615BA /* MajorChangesViewController.swift in Sources */,
 				B3F4EF9B2CEF0E78006615BA /* AuxWidgetProvider.swift in Sources */,
 				B34F3E242C6D366A0041D7BD /* WidgetEditorView.swift in Sources */,
 				B35BFB952CB4632900092B42 /* ModuliteFreeSmallBadge.swift in Sources */,
@@ -3796,6 +3841,7 @@
 				B35BFBDD2CB5A9A800092B42 /* TutorialCenterViewController.swift in Sources */,
 				B3987E162CA38C7900896414 /* MainWidgetEntry.swift in Sources */,
 				B338089D2CC3005600D56884 /* RequestScreenTimeView.swift in Sources */,
+				B3F4EFD22CF001D1006615BA /* MajorChangesView.swift in Sources */,
 				B39A25FA2CB06437001C76A5 /* TutorialCreateWidgetView.swift in Sources */,
 				B30201712CC8C99B00301646 /* BlockingTypeSelectButton.swift in Sources */,
 				B35BFC502CB609DC00092B42 /* TutorialAddWidgetViewController.swift in Sources */,
@@ -3817,6 +3863,7 @@
 				B3987E232CA4857400896414 /* MainWidgetConfigurationData.swift in Sources */,
 				B39FB87F2CDD510600967E3A /* PersistentWidgetModule+CoreDataClass.swift in Sources */,
 				B3D1B7E92CB7146E00DFC4F5 /* HelpTopicsStackView.swift in Sources */,
+				B3F4EFDA2CF00490006615BA /* MajorChangesCoordinator.swift in Sources */,
 				B39A25DE2CAF751B001C76A5 /* ModulitePlusLargeBadge.swift in Sources */,
 				B35BFBCD2CB4BE3D00092B42 /* SubscriptionDetailsDefaultLabel.swift in Sources */,
 				B35BFBE52CB5AA9F00092B42 /* TutorialCenterOptionButton.swift in Sources */,
@@ -3862,6 +3909,7 @@
 				B3C6DD7D2CDE9B28002AEAF7 /* WidgetModule+Extensions.swift in Sources */,
 				B3C6DD7E2CDE9B28002AEAF7 /* WidgetSchema+Extensions.swift in Sources */,
 				B33808AA2CC30CD900D56884 /* ScreenTimePreferences.swift in Sources */,
+				B3F4EFD62CF00261006615BA /* MajorChangesLocalizedTexts.swift in Sources */,
 				B33808B82CC7070800D56884 /* LoadingView.swift in Sources */,
 				AFE5D5032CADD4C700503572 /* FamilyControlsManager.swift in Sources */,
 				B35BFC602CB6F4A500092B42 /* FAQCoordinator.swift in Sources */,
