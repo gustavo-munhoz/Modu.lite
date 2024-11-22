@@ -1,0 +1,23 @@
+{
+  "images" : [
+    {
+      "filename" : "gametoyMainWidgetPreview.png",
+      "idiom" : "universal",
+      "scale" : "1x"
+    },
+    {
+      "filename" : "gametoyMainWidgetPreview@2x.png",
+      "idiom" : "universal",
+      "scale" : "2x"
+    },
+    {
+      "filename" : "gametoyMainWidgetPreview@3x.png",
+      "idiom" : "universal",
+      "scale" : "3x"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

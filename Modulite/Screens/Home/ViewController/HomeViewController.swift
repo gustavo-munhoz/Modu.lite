@@ -6,6 +6,8 @@
 //
 
 import UIKit
+import WidgetStyling
+import Combine
 
 protocol HomeViewControllerDelegate: AnyObject {
     func homeViewControllerDidStartWidgetCreationFlow(
@@ -15,7 +17,7 @@ protocol HomeViewControllerDelegate: AnyObject {
     
     func homeViewControllerDidStartWidgetEditingFlow(
         _ viewController: HomeViewController,
-        widget: ModuliteWidgetConfiguration
+        widget: WidgetSchema
     )
     
     func homeViewControllerDidFinishOnboarding(
@@ -30,6 +32,7 @@ class HomeViewController: UIViewController {
     private(set) var viewModel = HomeViewModel()
     
     weak var delegate: HomeViewControllerDelegate?
+    private var cancellables = Set<AnyCancellable>()
     
     // MARK: - Lifecycle
     override func loadView() {
@@ -46,6 +49,7 @@ class HomeViewController: UIViewController {
         setupNavigationBar()
         updatePlaceholderViews()
         setupOnboardingObserverIfNeeded()
+        setupSubscriptions()
     }
     
     deinit {
@@ -57,6 +61,17 @@ class HomeViewController: UIViewController {
     }
     
     // MARK: - Setup methods
+    private func setupSubscriptions() {
+        SubscriptionManager.shared.$activeSubscription
+            .receive(on: RunLoop.main)
+            .sink { [weak self] _ in
+                guard let self else { return }
+                self.homeView.mainWidgetsCollectionView.reloadData()
+                self.homeView.auxiliaryWidgetsCollectionView.reloadData()
+            }
+            .store(in: &cancellables)
+    }
+    
     private func setupNavigationBar() {
         navigationItem.title = "Modu.lite"
         navigationItem.titleView = UIView()
@@ -82,77 +97,106 @@ class HomeViewController: UIViewController {
         homeView.setMainWidgetPlaceholderVisibility(to: false)
         homeView.mainWidgetsCollectionView.reloadData()
     }
-    func updatePlaceholderViews() {
+    
+    @MainActor func updatePlaceholderViews() {
+        if IsPlusSubscriberSpecification().isSatisfied() {
+            homeView.setAuxWidgetPlaceholderToPlusVersion()
+        }
+        
         homeView.setMainWidgetPlaceholderVisibility(to: viewModel.mainWidgets.isEmpty)
         homeView.setAuxWidgetPlaceholderVisibility(to: viewModel.auxiliaryWidgets.isEmpty)
     }
     
-    func getCurrentMainWidgetCount() -> Int {
-        viewModel.mainWidgets.count
+    func getCurrentWidgetCount(for type: WidgetType) -> Int {
+        switch type {
+        case .main:
+            return viewModel.mainWidgets.count
+        case .auxiliary:
+            return viewModel.auxiliaryWidgets.count
+        @unknown default:
+            fatalError("Invalid widget type")
+        }
     }
     
-    func updateMainWidget(_ widget: ModuliteWidgetConfiguration) {
-        viewModel.updateMainWidget(widget)
+    func updateWidget(_ widget: WidgetSchema, type: WidgetType) {
+        viewModel.updateWidget(widget, type: type)
         
-        guard let index = viewModel.getIndexFor(widget) else {
+        guard let index = viewModel.getIndexFor(widget, type: type) else {
             print("Widget not found in data source.")
             return
         }
         
         let indexPath = IndexPath(item: index, section: 0)
+        let collectionView = getCollectionView(for: type)
         
-        homeView.mainWidgetsCollectionView.performBatchUpdates { [weak self] in
-            self?.homeView.mainWidgetsCollectionView.reloadItems(at: [indexPath])
+        collectionView.performBatchUpdates {
+            collectionView.reloadItems(at: [indexPath])
         }
     }
     
-    func registerNewWidget(_ widget: ModuliteWidgetConfiguration) {
-        viewModel.addMainWidget(widget)
+    func registerNewWidget(_ widget: WidgetSchema, type: WidgetType) {
+        viewModel.addWidget(widget, type: type)
         
-        guard let index = viewModel.getIndexFor(widget) else {
+        guard let index = viewModel.getIndexFor(widget, type: type) else {
             print("Widget not found in data source.")
             return
         }
         
         let indexPath = IndexPath(item: index, section: 0)
+        let collectionView = getCollectionView(for: type)
         
-        homeView.mainWidgetsCollectionView.performBatchUpdates { [weak self] in
-            self?.homeView.mainWidgetsCollectionView.insertItems(at: [indexPath])
-        } completion: { [weak self] _ in
+        collectionView.performBatchUpdates {
+            collectionView.insertItems(at: [indexPath])
+        } completion: { _ in
             let indexSet = IndexSet(integer: 0)
-            self?.homeView.mainWidgetsCollectionView.reloadSections(indexSet)
+            collectionView.reloadSections(indexSet)
         }
         
         updatePlaceholderViews()
     }
     
-    func deleteMainWidget(with id: UUID) {
-        guard let widget = viewModel.mainWidgets.first(where: { $0.id == id }) else {
-            print("Widget with id \(id) not found in view model.")
-            return
-        }
-        
-        deleteWidget(widget)
-    }
-    
-    func deleteWidget(_ widget: ModuliteWidgetConfiguration) {
-        guard let index = viewModel.getIndexFor(widget) else {
+    func deleteWidget(_ widget: WidgetSchema, type: WidgetType) {
+        guard let index = viewModel.getIndexFor(widget, type: type) else {
             print("Widget not found in data source.")
             return
         }
         
         let indexPath = IndexPath(item: index, section: 0)
+        let collectionView = getCollectionView(for: type)
         
-        viewModel.deleteMainWidget(widget)
-        homeView.mainWidgetsCollectionView.performBatchUpdates { [weak self] in
-            self?.homeView.mainWidgetsCollectionView.deleteItems(at: [indexPath])
-        }
-        completion: { [weak self] _ in
+        viewModel.deleteWidget(widget, type: type)
+        
+        collectionView.performBatchUpdates {
+            collectionView.deleteItems(at: [indexPath])
+        } completion: { _ in
             let indexSet = IndexSet(integer: 0)
-            self?.homeView.mainWidgetsCollectionView.reloadSections(indexSet)
+            collectionView.reloadSections(indexSet)
         }
         
         updatePlaceholderViews()
+    }
+    
+    // MARK: - Helper Methods
+    
+    private func getCollectionView(for type: WidgetType) -> UICollectionView {
+        switch type {
+        case .main:
+            return homeView.mainWidgetsCollectionView
+        case .auxiliary:
+            return homeView.auxiliaryWidgetsCollectionView
+        @unknown default:
+            fatalError("Invalid widget type")
+        }
+    }
+    
+    private func widgetType(for collectionView: UICollectionView) -> WidgetType? {
+        if collectionView == homeView.mainWidgetsCollectionView {
+            return .main
+        } else if collectionView == homeView.auxiliaryWidgetsCollectionView {
+            return .auxiliary
+        } else {
+            return nil
+        }
     }
 }
 
@@ -184,27 +228,36 @@ extension HomeViewController: UICollectionViewDataSource {
         switch collectionView {
         case homeView.mainWidgetsCollectionView:
             guard let cell = collectionView.dequeueReusableCell(
-                    withReuseIdentifier: MainWidgetCollectionViewCell.reuseId,
+                    withReuseIdentifier: HomeWidgetCollectionViewCell.reuseId,
                     for: indexPath
-                  ) as? MainWidgetCollectionViewCell else {
+                  ) as? HomeWidgetCollectionViewCell else {
                 fatalError("Could not dequeue MainWidgetCollectionViewCell.")
             }
             
-            let widget = viewModel.mainWidgets[indexPath.row]
-            cell.configure(image: widget.previewImage, name: widget.name)
+            let schema = viewModel.mainWidgets[indexPath.row]
+            cell.configure(image: schema.previewImage, name: schema.name)
             cell.delegate = self
             
             return cell
             
         case homeView.auxiliaryWidgetsCollectionView:
             guard let cell = collectionView.dequeueReusableCell(
-                withReuseIdentifier: AuxiliaryWidgetCollectionViewCell.reuseId,
+                withReuseIdentifier: HomeWidgetCollectionViewCell.reuseId,
                 for: indexPath
-            ) as? AuxiliaryWidgetCollectionViewCell else {
+            ) as? HomeWidgetCollectionViewCell else {
                 fatalError("Could not dequeue AuxiliaryWidgetCollectionViewCell.")
             }
             
-            cell.configure(with: viewModel.auxiliaryWidgets[indexPath.row])
+            let schema = viewModel.auxiliaryWidgets[indexPath.row]
+            
+            cell.configure(image: schema.previewImage, name: schema.name)
+            cell.delegate = self
+            
+            if !IsPlusSubscriberSpecification().isSatisfied() {
+                cell.disableInteraction()
+            } else {
+                cell.enableInteraction()
+            }
             
             return cell
             
@@ -231,55 +284,96 @@ extension HomeViewController: UICollectionViewDataSource {
         guard kind == UICollectionView.elementKindSectionHeader else {
             return UICollectionReusableView()
         }
-        
-        guard let header = collectionView.dequeueReusableSupplementaryView(
+
+        guard let header = dequeueHeader(
+            for: collectionView,
+            kind: kind,
+            indexPath: indexPath
+        ) else {
+            fatalError("Error dequeueing Header cell.")
+        }
+
+        configureHeader(header, for: collectionView)
+
+        return header
+    }
+
+    private func dequeueHeader(
+        for collectionView: UICollectionView,
+        kind: String,
+        indexPath: IndexPath
+    ) -> HomeHeaderReusableCell? {
+        collectionView.dequeueReusableSupplementaryView(
             ofKind: kind,
             withReuseIdentifier: HomeHeaderReusableCell.reuseId,
             for: indexPath
-        ) as? HomeHeaderReusableCell else {
-            fatalError("Error dequeueing Header cell.")
-        }
-        
+        ) as? HomeHeaderReusableCell
+    }
+
+    private func configureHeader(
+        _ header: HomeHeaderReusableCell,
+        for collectionView: UICollectionView
+    ) {
         switch collectionView {
         case homeView.mainWidgetsCollectionView:
-            header.setup(
-                title: .localized(for: .homeViewMainSectionHeaderTitle),
-                buttonImage: UIImage(systemName: "plus.circle")!,
-                buttonAction: { [weak self] in
-                    guard let self = self else { return }
-                    self.delegate?.homeViewControllerDidStartWidgetCreationFlow(
-                        self,
-                        type: .main
-                    )
-                },
-                countValues: (current: viewModel.mainWidgets.count, max: 3)
-            )
-            
-            header.updateCurrentCount(to: viewModel.mainWidgets.count)
-            
+            configureMainWidgetsHeader(header)
+
         case homeView.auxiliaryWidgetsCollectionView:
-            header.setup(
-                title: .localized(for: .homeViewAuxiliarySectionHeaderTitle),
-                buttonImage: UIImage(systemName: "plus.circle")!,
-                buttonAction: { [weak self] in
-                    guard let self = self else { return }
-                    self.delegate?.homeViewControllerDidStartWidgetCreationFlow(
-                        self,
-                        type: .auxiliary
-                    )
-                },
-                isPlusExclusive: true
-            )
-            
+            configureAuxiliaryWidgetsHeader(header)
+
         case homeView.tipsCollectionView:
-            header.setup(
-                title: .localized(for: .homeViewTipsSectionHeaderTitle)
-            )
-            
-        default: fatalError("Unsupported collection view.")
+            configureTipsHeader(header)
+
+        default:
+            fatalError("Unsupported collection view.")
         }
-        
-        return header
+    }
+
+    private func configureMainWidgetsHeader(_ header: HomeHeaderReusableCell) {
+        let countValues: (Int, Int)? = {
+            if !IsPlusSubscriberSpecification().isSatisfied() {
+                return (current: viewModel.mainWidgets.count, max: 3)
+            }
+            return nil
+        }()
+
+        header.setup(
+            title: .localized(for: .homeViewMainSectionHeaderTitle),
+            buttonImage: UIImage(systemName: "plus.circle")!,
+            buttonAction: { [weak self] in
+                guard let self = self else { return }
+                self.delegate?.homeViewControllerDidStartWidgetCreationFlow(
+                    self,
+                    type: .main
+                )
+            },
+            countValues: countValues
+        )
+
+        if let countValues = countValues {
+            header.updateCurrentCount(to: countValues.0)
+        }
+    }
+
+    private func configureAuxiliaryWidgetsHeader(_ header: HomeHeaderReusableCell) {
+        header.setup(
+            title: .localized(for: .homeViewAuxiliarySectionHeaderTitle),
+            buttonImage: UIImage(systemName: "plus.circle")!,
+            buttonAction: { [weak self] in
+                guard let self = self else { return }
+                self.delegate?.homeViewControllerDidStartWidgetCreationFlow(
+                    self,
+                    type: .auxiliary
+                )
+            },
+            isPlusExclusive: true
+        )
+    }
+
+    private func configureTipsHeader(_ header: HomeHeaderReusableCell) {
+        header.setup(
+            title: .localized(for: .homeViewTipsSectionHeaderTitle)
+        )
     }
 }
 
@@ -288,64 +382,19 @@ extension HomeViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         switch collectionView {
         case homeView.mainWidgetsCollectionView:
-            delegate?.homeViewControllerDidStartWidgetEditingFlow(self, widget: viewModel.mainWidgets[indexPath.row])
+            delegate?.homeViewControllerDidStartWidgetEditingFlow(
+                self,
+                widget: viewModel.mainWidgets[indexPath.row]
+            )
+            
+        case homeView.auxiliaryWidgetsCollectionView:
+            delegate?.homeViewControllerDidStartWidgetEditingFlow(
+                self,
+                widget: viewModel.auxiliaryWidgets[indexPath.row]
+            )
+            
         default:
             return
         }
-    }
-}
-
-// MARK: - MainWidgetCollectionViewCellDelegate
-extension HomeViewController: MainWidgetCollectionViewCellDelegate {
-    func mainWidgetCellDidRequestEdit(_ cell: MainWidgetCollectionViewCell) {
-        guard let indexPath = homeView.mainWidgetsCollectionView.indexPath(for: cell) else {
-            print("Could not find index path for cell.")
-            return
-        }
-        
-        let widget = viewModel.mainWidgets[indexPath.row]
-        delegate?.homeViewControllerDidStartWidgetEditingFlow(self, widget: widget)
-    }
-    
-    func mainWidgetCellDidRequestDelete(_ cell: MainWidgetCollectionViewCell) {
-        guard let indexPath = homeView.mainWidgetsCollectionView.indexPath(for: cell) else {
-            print("Could not find index path for cell.")
-            return
-        }
-        
-        presentWidgetDeletionWarning(for: cell, in: indexPath)
-    }
-    
-    private func presentWidgetDeletionWarning(
-        for cell: MainWidgetCollectionViewCell,
-        in indexPath: IndexPath
-    ) {
-        let alert = UIAlertController(
-            title: .localized(
-                for: .homeViewDeleteWidgetAlertTitle(widgetName: cell.widgetName)
-            ),
-            message: .localized(for: .homeViewDeleteWidgetAlertMessage),
-            preferredStyle: .alert
-        )
-        
-        let deleteAction = UIAlertAction(
-            title: .localized(for: .delete),
-            style: .destructive
-        ) { [weak self] _ in
-            guard let self = self else { return }
-            
-            let widget = self.viewModel.mainWidgets[indexPath.row]
-            self.deleteWidget(widget)
-        }
-        
-        let cancelAction = UIAlertAction(
-            title: .localized(for: .cancel),
-            style: .cancel
-        )
-        
-        alert.addAction(cancelAction)
-        alert.addAction(deleteAction)
-        
-        present(alert, animated: true, completion: nil)
     }
 }

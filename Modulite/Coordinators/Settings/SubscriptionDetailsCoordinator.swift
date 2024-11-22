@@ -49,6 +49,25 @@ extension SubscriptionDetailsCoordinator: SubscriptionDetailsViewControllerDeleg
     func subscriptionDetailsViewControllerDidPressUpgrade(
         _ viewController: SubscriptionDetailsViewController
     ) {
-        presentFeatureComingAlert(viewController)
+        let router = ModalNavigationRouter(
+            parentViewController: viewController,
+            presentationStyle: .fullScreen
+        )
+        router.setHasSaveButton(false)
+        
+        let coordinator = OfferPlusCoordinator(router: router)
+        
+        presentChild(coordinator, animated: true)
+    }
+    
+    func subscriptionDetailsViewControllerDidPressCancel(
+        _ viewController: SubscriptionDetailsViewController
+    ) {
+        guard let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene else {
+            print("Failed to obtain UIWindowScene.")
+            return
+        }
+        
+        SubscriptionManager.shared.manageSubscriptions(in: windowScene)
     }
 }

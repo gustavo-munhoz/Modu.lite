@@ -6,13 +6,18 @@
 //
 
 import UIKit
+import WidgetStyling
 
 extension WidgetEditorViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         switch collectionView {
         case editorView.widgetLayoutCollectionView: return viewModel.getCurrentModules().count
         case editorView.moduleStyleCollectionView: return viewModel.getAvailableStyles().count
-        case editorView.moduleColorCollectionView: return viewModel.getAvailableColors().count
+        case editorView.moduleColorCollectionView:
+            guard let selectedCellPosition = viewModel.selectedCellPosition else { return 0 }
+                        
+            return viewModel.getAvailableColorsForModule(at: selectedCellPosition).count
+            
         default: return 0
         }
     }
@@ -37,23 +42,32 @@ extension WidgetEditorViewController: UICollectionViewDataSource {
                 fatalError("Could not dequeue ModuleStyleCell.")
             }
             
-            cell.setup(with: style)
+            cell.setup(
+                with: style,
+                cornerRadius: strategy.type == .main ? 12 : 21
+            )
             
             if let selectedStyle = viewModel.getStyleFromSelectedModule() {
-                cell.setSelected(to: selectedStyle.key == style.key)
+                cell.setSelected(to: selectedStyle.identifier == style.identifier)
             }
             
             return cell
             
         case editorView.moduleColorCollectionView:
             // MARK: - Create cells for colors
-            guard let color = viewModel.getAvailableColor(at: indexPath.row),
-                  let cell = collectionView.dequeueReusableCell(
+            guard let selectedCellPosition = viewModel.selectedCellPosition else {
+                fatalError("Implement placeholder view")
+            }
+            
+            guard let cell = collectionView.dequeueReusableCell(
                     withReuseIdentifier: ModuleColorCell.reuseId,
                     for: indexPath
                   ) as? ModuleColorCell else {
                 fatalError("Could not dequeue ModuleColorCell.")
             }
+            
+            let availableColors = viewModel.getAvailableColorsForModule(at: selectedCellPosition)
+            let color = availableColors[indexPath.row]
             
             cell.setup(with: color)
             
@@ -80,14 +94,18 @@ extension WidgetEditorViewController: UICollectionViewDataSource {
             fatalError("Could not dequeue WidgetModuleCell.")
         }
         
-        if let index = viewModel.selectedCellIndex {
+        if let index = viewModel.selectedCellPosition {
             cell.setEditable(index == indexPath.row)
             
         } else {
             cell.startWiggling()
         }
         
-        cell.setup(with: module)
+        cell.setup(
+            with: module,
+            cornerRadius: strategy.type == .main ? 12 : 21
+        )
+        
         return cell
     }
 }

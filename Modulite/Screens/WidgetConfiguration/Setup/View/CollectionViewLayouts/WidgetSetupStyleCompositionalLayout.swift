@@ -8,7 +8,7 @@
 import UIKit
 
 class WidgetSetupStyleCompositionalLayout: UICollectionViewCompositionalLayout {
-    init() {
+    init(stylesHeight: CGFloat = 196) {
         super.init { sectionIndex, _ -> NSCollectionLayoutSection? in
             let itemSize = NSCollectionLayoutSize(
                 widthDimension: .fractionalWidth(1),
@@ -18,7 +18,7 @@ class WidgetSetupStyleCompositionalLayout: UICollectionViewCompositionalLayout {
             
             let groupSize = NSCollectionLayoutSize(
                 widthDimension: .absolute(180),
-                heightDimension: .absolute(196)
+                heightDimension: .absolute(stylesHeight)
             )
             
             let group = NSCollectionLayoutGroup.horizontal(

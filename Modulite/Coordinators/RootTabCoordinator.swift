@@ -20,6 +20,8 @@ class RootTabCoordinator: Coordinator {
     /// The root tab bar controller managed by this coordinator.
     lazy var rootTabBarController = RootTabBarController.instantiate(delegate: self)
     
+    private var loadingViewController: LoadingViewController?
+    
     /// Initializes the coordinator with a router.
     /// - Parameter router: The router used for presenting the root tab bar controller.
     init(router: Router) {
@@ -31,8 +33,69 @@ class RootTabCoordinator: Coordinator {
     ///   - animated: Indicates whether the presentation should be animated.
     ///   - onDismiss: An optional closure that is called when the tab bar controller is dismissed.
     func present(animated: Bool, onDismiss: (() -> Void)?) {
-        router.present(rootTabBarController, animated: animated, onDismiss: onDismiss)
+        let loadingVC = LoadingViewController()
+        self.loadingViewController = loadingVC
+        
+        guard let router = router as? SceneDelegateRouter else { return }
+                
+        router.window.rootViewController = loadingVC
+        router.window.makeKeyAndVisible()
+        
+        loadData()
+    }
+    
+    private func loadData() {
+        Task { @MainActor [weak self] in
+            guard let self else { return }
+            
+            await SubscriptionManager.shared.initialize()
+            await PurchaseManager.shared.initialize()
+            
+            self.showRootTabBarController()
+        }
+    }
+    
+    private func showRootTabBarController() {
         setupTabs(for: rootTabBarController)
+        
+        guard let router = router as? SceneDelegateRouter else { return }
+        
+        DispatchQueue.main.async {
+            UIView.transition(
+                with: router.window,
+                duration: 0.5,
+                options: .transitionCrossDissolve,
+                animations: { [weak self] in
+                    guard let self else { return }
+                    router.window.rootViewController = self.rootTabBarController
+                }, completion: { @MainActor [weak self] _ in
+                    self?.presentMajorChangesIfNeeded()
+                })
+        }
+    }
+    
+    private func presentMajorChangesIfNeeded() {
+        guard UserPreference<Onboarding>.shared.bool(for: .hasCompletedOnboarding) else { return }
+        
+        func isFirstLaunchForCurrentVersion() -> Bool {
+            let currentVersion = Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as? String
+            let storedVersion = UserDefaults.standard.string(forKey: "appVersion")
+            
+            if currentVersion == "2.0" && storedVersion != currentVersion {
+                UserDefaults.standard.set(currentVersion, forKey: "appVersion")
+                return true
+            }
+            return false
+        }
+        
+        if true { // isFirstLaunchForCurrentVersion() {
+            let router = ModalNavigationRouter(parentViewController: rootTabBarController)
+            router.setHasSaveButton(false)
+            
+            let coordinator = MajorChangesCoordinator(router: router)
+            
+            presentChild(coordinator, animated: true)
+        }
     }
     
     /// Configures the view controllers and their corresponding coordinators for each tab.
@@ -55,8 +118,8 @@ class RootTabCoordinator: Coordinator {
         
         let tabBarItem = createTabBarItem(
             titleKey: .homeViewControllerTabBarItemTitle,
-            imageName: "square.grid.3x2.fill",
-            selectedImageName: "square.grid.3x2.fill"
+            imageName: "rectangle.grid.3x2.fill",
+            selectedImageName: "rectangle.grid.3x2.fill"
         )
         
         tabBarItem.tag = 0

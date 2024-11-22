@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import WidgetStyling
 
 protocol StylePreviewViewControllerDelegate: AnyObject {
     func stylePreviewViewControllerDidPressUseStyle(
@@ -22,7 +23,7 @@ class StylePreviewViewController: UIViewController {
     private var style: WidgetStyle
     var onStyleSelected: ((WidgetStyle) -> Void)?
     
-    private var imageNames: [String] = []
+    private var wallpaperImages: [UIImage] = []
     private var texts: [String] = []
     
     weak var delegate: StylePreviewViewControllerDelegate?
@@ -65,19 +66,14 @@ class StylePreviewViewController: UIViewController {
     private func configureView() {
         styleView.configure(with: style)
         
-        imageNames = [
-            "\(style.key.rawValue)Preview1",
-            "\(style.key.rawValue)Preview2",
-            "\(style.key.rawValue)Preview3"
-        ]
-        
+        wallpaperImages = style.getWallpaperPreviewImages()
         texts = [
             "Lock Screen",
             "Home Screen\n(Main Widget)",
             "Home Screen\n(Main Widget + Auxiliary Widget)"
         ]
         
-        styleView.pageControl.numberOfPages = imageNames.count
+        styleView.pageControl.numberOfPages = wallpaperImages.count
         styleView.collectionView.reloadData()
     }
     
@@ -93,7 +89,7 @@ extension StylePreviewViewController: UICollectionViewDataSource {
         _ collectionView: UICollectionView,
         numberOfItemsInSection section: Int
     ) -> Int {
-        return imageNames.count
+        wallpaperImages.count
     }
     
     func collectionView(
@@ -107,7 +103,7 @@ extension StylePreviewViewController: UICollectionViewDataSource {
             return UICollectionViewCell()
         }
         
-        let image = UIImage(named: imageNames[indexPath.item])
+        let image = wallpaperImages[indexPath.item]
         let text = texts[indexPath.item]
         cell.configure(with: image, text: text)
         return cell

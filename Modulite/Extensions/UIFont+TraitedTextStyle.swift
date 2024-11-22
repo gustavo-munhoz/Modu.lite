@@ -54,4 +54,25 @@ extension UIFont {
         
         self.init(descriptor: descriptor, size: 0)
     }
+    
+    convenience init(
+        textStyle: UIFont.TextStyle,
+        weight: UIFont.Weight,
+        italic: Bool,
+        fontSize: CGFloat
+    ) {
+        var traits: [UIFontDescriptor.TraitKey: Any] = [
+            UIFontDescriptor.TraitKey.weight: weight
+        ]
+        
+        if italic {
+            traits[UIFontDescriptor.TraitKey.symbolic] = UIFontDescriptor.SymbolicTraits.traitItalic.rawValue
+        }
+        
+        let descriptor = UIFontDescriptor
+            .preferredFontDescriptor(withTextStyle: textStyle)
+            .addingAttributes([.traits: traits])
+        
+        self.init(descriptor: descriptor, size: fontSize)
+    }
 }

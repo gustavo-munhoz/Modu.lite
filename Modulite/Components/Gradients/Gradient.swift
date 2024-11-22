@@ -49,4 +49,15 @@ struct Gradient {
             direction: direction
         )
     }
+    
+    static func ice(direction: CGVector = CGVector(dx: 1, dy: 1)) -> Gradient {
+        Gradient(
+            colors: [
+                UIColor(red: 0.10196078431372549, green: 0.29411764705882354, blue: 0.37254901960784315, alpha: 1),
+                UIColor(red: 0.42745098039215684, green: 0.7019607843137254, blue: 0.6901960784313725, alpha: 1)
+
+            ],
+            direction: direction
+        )
+    }
 }

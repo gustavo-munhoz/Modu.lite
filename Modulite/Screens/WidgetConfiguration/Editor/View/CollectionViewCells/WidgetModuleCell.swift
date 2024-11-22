@@ -7,6 +7,7 @@
 
 import UIKit
 import SnapKit
+import WidgetStyling
 
 class WidgetModuleCell: UICollectionViewCell {
     static let reuseId = "WidgetModuleCell"
@@ -16,6 +17,7 @@ class WidgetModuleCell: UICollectionViewCell {
     private(set) lazy var moduleImageView: UIImageView = {
         let view = UIImageView()
         view.overrideUserInterfaceStyle = .light
+        view.backgroundColor = .clear
         
         return view
     }()
@@ -39,20 +41,24 @@ class WidgetModuleCell: UICollectionViewCell {
         appNameLabel.text = nil
     }
     
-    func setup(with module: ModuleConfiguration) {
+    func setup(
+        with module: WidgetModule,
+        cornerRadius: CGFloat
+    ) {
         subviews.forEach { $0.removeFromSuperview() }
-        moduleImageView.image = module.resultingImage
+        moduleImageView.image = module.blendedImage
         
-        layer.cornerRadius = 12
+        layer.cornerRadius = cornerRadius
         clipsToBounds = true
-        
-        if module.appName != nil {
-            appNameLabel.text = module.appName
-            appNameLabel.configure(with: module.textConfiguration)
+        if let appName = module.appName {
+            appNameLabel.text = appName
+            appNameLabel.applyConfiguration(module.style.textConfiguration)
         }
         
+        backgroundColor = .clear
+        
         addSubviews()
-        setupConstraints()
+        setupConstraints(bottomPosition: module.getBottomPosition())
     }
     
     private func addSubviews() {
@@ -60,13 +66,13 @@ class WidgetModuleCell: UICollectionViewCell {
         addSubview(appNameLabel)
     }
     
-    private func setupConstraints() {
+    private func setupConstraints(bottomPosition: CGFloat) {
         moduleImageView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }
         
         appNameLabel.snp.makeConstraints { make in
-            make.centerY.equalTo(snp.bottom).multipliedBy(0.82)
+            make.bottom.equalTo(snp.bottom).multipliedBy(bottomPosition)
             make.height.equalTo(20)
             make.width.equalToSuperview().multipliedBy(0.8)
             make.centerX.equalToSuperview()

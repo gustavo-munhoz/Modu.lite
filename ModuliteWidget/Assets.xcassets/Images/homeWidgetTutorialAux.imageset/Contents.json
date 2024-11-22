@@ -1,0 +1,23 @@
+{
+  "images" : [
+    {
+      "filename" : "homeWidgetTutorialAux.png",
+      "idiom" : "universal",
+      "scale" : "1x"
+    },
+    {
+      "filename" : "homeWidgetTutorialAux@2x.png",
+      "idiom" : "universal",
+      "scale" : "2x"
+    },
+    {
+      "filename" : "homeWidgetTutorialAux@3x.png",
+      "idiom" : "universal",
+      "scale" : "3x"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

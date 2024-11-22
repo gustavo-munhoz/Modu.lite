@@ -13,6 +13,7 @@ class SubscriptionDetailsView: UIView {
     // MARK: - Properties
     
     var onUpgradeToPlusTapped: (() -> Void)?
+    var onCancelSubscriptionTaped: (() -> Void)?
     
     private let planTitleLabel = SubscriptionDetailsSmallTitle(
         localizedKey: .subsctiptionDetailsViewPlanTitle
@@ -23,7 +24,14 @@ class SubscriptionDetailsView: UIView {
             localizedKey: .subsctiptionDetailsViewCurrentPlan
         )
         
-        let badge = ModuliteFreeSmallBadge()
+        let badge: UIView = {
+            if IsPlusSubscriberSpecification().isSatisfied() {
+                return ModulitePlusSmallBadge()
+            }
+            
+            return ModuliteFreeSmallBadge()
+        }()
+        
         badge.frame = CGRect(x: 0, y: 0, width: 70, height: 30)
         
         let spacer = UIView()
@@ -77,6 +85,22 @@ class SubscriptionDetailsView: UIView {
         return button
     }()
     
+    private(set) lazy var subscriptionPlanImage: UIImageView = {
+        let view = UIImageView(image: .subscriptionPlusFrame)
+        view.contentMode = .scaleAspectFit
+        
+        let separator = SeparatorView()
+        
+        view.addSubview(separator)
+            
+        separator.snp.makeConstraints { make in
+            make.top.equalTo(view.snp.bottom).offset(12)
+            make.left.right.equalToSuperview()
+        }
+        
+        return view
+    }()
+    
     private let skinsTitleLabel = SubscriptionDetailsSmallTitle(
         localizedKey: .subsctiptionDetailsViewSkinsTitle
     )
@@ -113,6 +137,25 @@ class SubscriptionDetailsView: UIView {
         return view
     }()
     
+    private(set) lazy var modulitePlusBadge: UIView = {
+        let view = LargeButtonPlus()
+        view.onUpgradeButtonPress = didTapUpgradeToPlus
+        return view
+    }()
+    
+    private(set) lazy var cancelSubscriptionButton: UIButton = {
+        let button = ButtonFactory.textButton(
+            text: .localized(for: SettingsLocalizedTexts.cancelSubscriptionButtonTitle),
+            color: .ketchupRed,
+            isItalic: false,
+            horizontalAlignment: .leading
+        )
+        
+        button.addTarget(self, action: #selector(didTapCancelSubscription), for: .touchUpInside)
+        
+        return button
+    }()
+    
     // MARK: - Initializers
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -131,14 +174,24 @@ class SubscriptionDetailsView: UIView {
         onUpgradeToPlusTapped?()
     }
     
+    @objc private func didTapCancelSubscription() {
+        onCancelSubscriptionTaped?()
+    }
+    
     // MARK: - Setup Methods
     private func addSubviews() {
         addSubview(planTitleLabel)
         addSubview(currentPlanStack)
-        addSubview(upgradeToPlusButton)
-        
         addSubview(skinsTitleLabel)
         addSubview(purchasedSkinsStack)
+        
+        if !IsPlusSubscriberSpecification().isSatisfied() {
+            addSubview(upgradeToPlusButton)
+            addSubview(modulitePlusBadge)
+        } else {
+            addSubview(subscriptionPlanImage)
+            addSubview(cancelSubscriptionButton)
+        }
     }
     
     private func setupConstraints() {
@@ -152,20 +205,51 @@ class SubscriptionDetailsView: UIView {
             make.left.right.equalTo(planTitleLabel)
         }
         
-        upgradeToPlusButton.snp.makeConstraints { make in
-            make.top.equalTo(currentPlanStack.snp.bottom).offset(8)
-            make.height.equalTo(40)
-            make.left.right.equalTo(currentPlanStack)
+        let isFreeUser = !IsPlusSubscriberSpecification().isSatisfied()
+        var lastView: UIView = currentPlanStack
+        
+        if isFreeUser {
+            upgradeToPlusButton.snp.makeConstraints { make in
+                make.top.equalTo(lastView.snp.bottom).offset(8)
+                make.height.equalTo(40)
+                make.left.right.equalTo(lastView)
+            }
+            lastView = upgradeToPlusButton
+        } else {
+            subscriptionPlanImage.snp.makeConstraints { make in
+                make.top.equalTo(lastView.snp.bottom).offset(16)
+                make.left.right.equalTo(lastView)
+            }
+            
+            lastView = subscriptionPlanImage
         }
         
         skinsTitleLabel.snp.makeConstraints { make in
-            make.top.equalTo(upgradeToPlusButton.snp.bottom).offset(16)
-            make.left.right.equalTo(upgradeToPlusButton)
+            make.top.equalTo(lastView.snp.bottom).offset(32)
+            make.left.right.equalTo(lastView)
         }
         
         purchasedSkinsStack.snp.makeConstraints { make in
             make.top.equalTo(skinsTitleLabel.snp.bottom).offset(16)
             make.left.right.equalTo(skinsTitleLabel)
         }
+        
+        lastView = purchasedSkinsStack
+        
+        if isFreeUser {
+            modulitePlusBadge.snp.makeConstraints { make in
+                make.top.equalTo(lastView.snp.bottom).offset(24)
+                make.left.right.equalTo(lastView)
+            }
+        } else {
+            cancelSubscriptionButton.snp.makeConstraints { make in
+                make.top.equalTo(lastView.snp.bottom).offset(32)
+                make.left.right.equalTo(lastView)
+            }
+        }
     }
+}
+
+#Preview {
+    SubscriptionDetailsView()
 }

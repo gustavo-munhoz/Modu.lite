@@ -15,7 +15,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         _ application: UIApplication,
         didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?
     ) -> Bool {
-        
         CoreDataPersistenceController.shared.executeInitialSetup()
         
         try? Tips.configure([.displayFrequency(.immediate)])

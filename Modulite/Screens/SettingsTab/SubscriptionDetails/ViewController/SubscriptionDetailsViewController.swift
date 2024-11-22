@@ -12,6 +12,10 @@ protocol SubscriptionDetailsViewControllerDelegate: AnyObject {
     func subscriptionDetailsViewControllerDidPressUpgrade(
         _ viewController: SubscriptionDetailsViewController
     )
+    
+    func subscriptionDetailsViewControllerDidPressCancel(
+        _ viewController: SubscriptionDetailsViewController
+    )
 }
 
 class SubscriptionDetailsViewController: UIViewController {
@@ -28,7 +32,7 @@ class SubscriptionDetailsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        subscriptionView.purchasedSkinsCountLabel.text = "\(PurchaseManager.shared.purchasedSkins.count)"
         setupNavigationBar()
         setupViewActions()
     }
@@ -44,12 +48,17 @@ class SubscriptionDetailsViewController: UIViewController {
     
     private func setupViewActions() {
         subscriptionView.onUpgradeToPlusTapped = didPressUpgrade
+        subscriptionView.onCancelSubscriptionTaped = didPressCancel
     }
     
     // MARK: - Actions
     
     func didPressUpgrade() {
         delegate?.subscriptionDetailsViewControllerDidPressUpgrade(self)
+    }
+    
+    func didPressCancel() {
+        delegate?.subscriptionDetailsViewControllerDidPressCancel(self)
     }
 }
 

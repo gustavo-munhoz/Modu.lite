@@ -27,13 +27,13 @@ final class UIColorValueTransformer: ValueTransformer {
 
     // return UIColor
     override func reverseTransformedValue(_ value: Any?) -> Any? {
-        guard let data = value as? Data else { return nil }
-    
+        guard let data = value as? Data else { return UIColor.clear }
+        
         do {
             let color = try NSKeyedUnarchiver.unarchivedObject(ofClass: UIColor.self, from: data)
-            return color
+            return color ?? UIColor.clear
         } catch {
-            return nil
+            return UIColor.clear
         }
     }
 }

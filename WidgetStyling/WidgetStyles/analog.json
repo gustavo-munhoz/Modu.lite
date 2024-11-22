@@ -1,0 +1,297 @@
+{
+    "identifier": "analog",
+    "name": "Analog",
+    "isPurchased": true,
+    "isIncludedInPlus": true,
+    "backgroundConfiguration": {
+        "mainBackground": {
+            "type": "color",
+            "value": "squidInk"
+        },
+        "auxBackground": {
+            "type": "color",
+            "value": "squidInk"
+        }
+    },
+    "moduleConfiguration": {
+        "mainModules": [
+            {
+                "identifier": "analogMainKnob",
+                "imageName": "analogMainKnob",
+                "filterColorNames": [
+                    "meringue", "eggYolk", "cupcake",
+                    "sweetTooth", "sugarMint", "burntEnds"
+                ],
+                "defaultColorName": "meringue",
+                "imageBlendMode": "plusDarker",
+                "textConfiguration": {
+                    "fontName": "system",
+                    "fontSize": 11,
+                    "fontWeight": "semibold",
+                    "textColorName": "iceCold",
+                    "shadowColorName": "iceCold",
+                    "shadowBlurRadius": 5,
+                    "textCase": "lower",
+                    "shouldRemoveSpaces": true,
+                    "prefix": ".",
+                    "bottomRelativePosition": 0.885
+                }
+            },
+            {
+                "identifier": "analogMainRegular",
+                "imageName": "analogMainRegular",
+                "filterColorNames": [
+                    "meringue", "eggYolk", "cupcake",
+                    "sweetTooth", "sugarMint", "burntEnds"
+                ],
+                "defaultColorName": "meringue",
+                "imageBlendMode": "plusDarker",
+                "textConfiguration": {
+                    "fontName": "system",
+                    "fontSize": 11,
+                    "fontWeight": "semibold",
+                    "textColorName": "iceCold",
+                    "shadowColorName": "iceCold",
+                    "shadowBlurRadius": 5,
+                    "textCase": "lower",
+                    "shouldRemoveSpaces": true,
+                    "prefix": ".",
+                    "bottomRelativePosition": 0.885
+                }
+            },
+            {
+                "identifier": "analogMainScreen",
+                "imageName": "analogMainScreen",
+                "filterColorNames": [
+                    "meringue", "eggYolk", "cupcake",
+                    "sweetTooth", "sugarMint", "burntEnds"
+                ],
+                "defaultColorName": "meringue",
+                "imageBlendMode": "plusDarker",
+                "textConfiguration": {
+                    "fontName": "system",
+                    "fontSize": 11,
+                    "fontWeight": "semibold",
+                    "textColorName": "iceCold",
+                    "shadowColorName": "iceCold",
+                    "shadowBlurRadius": 5,
+                    "textCase": "lower",
+                    "shouldRemoveSpaces": true,
+                    "prefix": ".",
+                    "bottomRelativePosition": 0.885
+                }
+            },
+            {
+                "identifier": "analogMainSound",
+                "imageName": "analogMainSound",
+                "filterColorNames": [
+                    "meringue", "eggYolk", "cupcake",
+                    "sweetTooth", "sugarMint", "burntEnds"
+                ],
+                "defaultColorName": "meringue",
+                "imageBlendMode": "plusDarker",
+                "textConfiguration": {
+                    "fontName": "system",
+                    "fontSize": 11,
+                    "fontWeight": "semibold",
+                    "textColorName": "iceCold",
+                    "shadowColorName": "iceCold",
+                    "shadowBlurRadius": 5,
+                    "textCase": "lower",
+                    "shouldRemoveSpaces": true,
+                    "prefix": ".",
+                    "bottomRelativePosition": 0.885
+                }
+            },
+            {
+                "identifier": "analogMainSwitch",
+                "imageName": "analogMainSwitch",
+                "filterColorNames": [
+                    "meringue", "eggYolk", "cupcake",
+                    "sweetTooth", "sugarMint", "burntEnds"
+                ],
+                "defaultColorName": "meringue",
+                "imageBlendMode": "plusDarker",
+                "textConfiguration": {
+                    "fontName": "system",
+                    "fontSize": 11,
+                    "fontWeight": "semibold",
+                    "textColorName": "iceCold",
+                    "shadowColorName": "iceCold",
+                    "shadowBlurRadius": 5,
+                    "textCase": "lower",
+                    "shouldRemoveSpaces": true,
+                    "prefix": ".",
+                    "bottomRelativePosition": 0.885
+                }
+            }
+        ],
+        "mainEmptyModule": {
+            "identifier": "analogMainEmpty",
+            "imageName": "analogMainEmpty",
+            "filterColorNames": [
+                "meringue", "eggYolk", "cupcake",
+                "sweetTooth", "sugarMint", "burntEnds"
+            ],
+            "defaultColorName": "meringue",
+            "imageBlendMode": "plusDarker",
+            "textConfiguration": {
+                "fontName": "system",
+                "fontSize": 11,
+                "fontWeight": "semibold",
+                "textColorName": "iceCold",
+                "shadowColorName": "iceCold",
+                "shadowBlurRadius": 5,
+                "textCase": "lower",
+                "shouldRemoveSpaces": true,
+                "prefix": ".",
+                "bottomRelativePosition": 0.885
+            }
+        },
+        "auxModules": [
+            {
+                "identifier": "analogAuxKnob",
+                "imageName": "analogAuxKnob",
+                "filterColorNames": [
+                    "meringue", "eggYolk", "cupcake",
+                    "sweetTooth", "sugarMint", "burntEnds"
+                ],
+                "defaultColorName": "meringue",
+                "imageBlendMode": "plusDarker",
+                "textConfiguration": {
+                    "fontName": "system",
+                    "fontSize": 11,
+                    "fontWeight": "semibold",
+                    "textColorName": "iceCold",
+                    "shadowColorName": "iceCold",
+                    "shadowBlurRadius": 5,
+                    "textCase": "lower",
+                    "shouldRemoveSpaces": true,
+                    "prefix": ".",
+                    "bottomRelativePosition": 0.87
+                }
+            },
+            {
+                "identifier": "analogAuxRegular",
+                "imageName": "analogAuxRegular",
+                "filterColorNames": [
+                    "meringue", "eggYolk", "cupcake",
+                    "sweetTooth", "sugarMint", "burntEnds"
+                ],
+                "defaultColorName": "meringue",
+                "imageBlendMode": "plusDarker",
+                "textConfiguration": {
+                    "fontName": "system",
+                    "fontSize": 11,
+                    "fontWeight": "semibold",
+                    "textColorName": "iceCold",
+                    "shadowColorName": "iceCold",
+                    "shadowBlurRadius": 5,
+                    "textCase": "lower",
+                    "shouldRemoveSpaces": true,
+                    "prefix": ".",
+                    "bottomRelativePosition": 0.87
+                }
+            },
+            {
+                "identifier": "analogAuxScreen",
+                "imageName": "analogAuxScreen",
+                "filterColorNames": [
+                    "meringue", "eggYolk", "cupcake",
+                    "sweetTooth", "sugarMint", "burntEnds"
+                ],
+                "defaultColorName": "meringue",
+                "imageBlendMode": "plusDarker",
+                "textConfiguration": {
+                    "fontName": "system",
+                    "fontSize": 11,
+                    "fontWeight": "semibold",
+                    "textColorName": "iceCold",
+                    "shadowColorName": "iceCold",
+                    "shadowBlurRadius": 5,
+                    "textCase": "lower",
+                    "shouldRemoveSpaces": true,
+                    "prefix": ".",
+                    "bottomRelativePosition": 0.87
+                }
+            },
+            {
+                "identifier": "analogAuxSound",
+                "imageName": "analogAuxSound",
+                "filterColorNames": [
+                    "meringue", "eggYolk", "cupcake",
+                    "sweetTooth", "sugarMint", "burntEnds"
+                ],
+                "defaultColorName": "meringue",
+                "imageBlendMode": "plusDarker",
+                "textConfiguration": {
+                    "fontName": "system",
+                    "fontSize": 11,
+                    "fontWeight": "semibold",
+                    "textColorName": "iceCold",
+                    "shadowColorName": "iceCold",
+                    "shadowBlurRadius": 5,
+                    "textCase": "lower",
+                    "shouldRemoveSpaces": true,
+                    "prefix": ".",
+                    "bottomRelativePosition": 0.87
+                }
+            },
+            {
+                "identifier": "analogAuxSwitch",
+                "imageName": "analogAuxSwitch",
+                "filterColorNames": [
+                    "meringue", "eggYolk", "cupcake",
+                    "sweetTooth", "sugarMint", "burntEnds"
+                ],
+                "defaultColorName": "meringue",
+                "imageBlendMode": "plusDarker",
+                "textConfiguration": {
+                    "fontName": "system",
+                    "fontSize": 11,
+                    "fontWeight": "semibold",
+                    "textColorName": "iceCold",
+                    "shadowColorName": "iceCold",
+                    "shadowBlurRadius": 5,
+                    "textCase": "lower",
+                    "shouldRemoveSpaces": true,
+                    "prefix": ".",
+                    "bottomRelativePosition": 0.87
+                }
+            }
+        ],
+        "auxEmptyModule": {
+            "identifier": "analogAuxEmpty",
+            "imageName": "analogAuxEmpty",
+            "filterColorNames": [
+                "meringue", "eggYolk", "cupcake",
+                "sweetTooth", "sugarMint", "burntEnds"
+            ],
+            "defaultColorName": "meringue",
+            "imageBlendMode": "plusDarker",
+            "textConfiguration": {
+                "fontName": "system",
+                "fontSize": 11,
+                "fontWeight": "semibold",
+                "textColorName": "iceCold",
+                "shadowColorName": "iceCold",
+                "shadowBlurRadius": 5,
+                "textCase": "lower",
+                "shouldRemoveSpaces": true,
+                "prefix": ".",
+                "bottomRelativePosition": 0.87
+            }
+        }
+    },
+    "wallpaperSet": {
+        "blockedImageName": "analogBlockedWallpaper",
+        "homeImageName": "analogHomeWallpaper"
+    },
+    "previewSet": {
+        "mainWidgetPreview": "analogMainWidgetPreview",
+        "auxWidgetPreview": "analogAuxWidgetPreview",
+        "wallpaperPreview1Name": "analogWallpaperPreview1",
+        "wallpaperPreview2Name": "analogWallpaperPreview2",
+        "wallpaperPreview3Name": "analogWallpaperPreview3"
+    }
+}

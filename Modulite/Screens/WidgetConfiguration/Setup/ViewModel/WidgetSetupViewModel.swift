@@ -6,27 +6,42 @@
 //
 
 import UIKit
+import WidgetStyling
 
 class WidgetSetupViewModel: NSObject {
     
     private(set) var widgetId: UUID!
     
-    @Published private(set) var widgetStyles: [WidgetStyle] = [
-        WidgetStyleFactory.styleForKey(.analog),
-        WidgetStyleFactory.styleForKey(.tapedeck),
-        WidgetStyleFactory.styleForKey(.retromacWhite),
-        WidgetStyleFactory.styleForKey(.retromacGreen)
-//        WidgetStyleFactory.styleForKey(.modutouch3)
-    ]
+    @Published private(set) var widgetStyles: [WidgetStyle] = {
+        do {
+            let provider = try WidgetStyleProvider(
+                purchasedSkins: PurchaseManager.shared.purchasedSkins
+            )
+            return provider.getAllStyles()
+            
+        } catch {
+            print("Error loading widget styles: \(error.localizedDescription)")
+            return []
+        }
+    }()
     
     @Published private(set) var widgetName: String?
     @Published private(set) var selectedStyle: WidgetStyle?
-    @Published private(set) var selectedApps: [AppInfo] = []
+    @Published private(set) var selectedApps: [AppData] = []
+    
+    // MARK: - Initializer
+    init(isOnboarding: Bool = false) {
+        super.init()
+        
+        if isOnboarding {
+            widgetStyles = widgetStyles.filter(\.isPurchased)
+        }
+    }
     
     // MARK: - Getters
     func getIndexForSelectedStyle() -> Int? {
         guard let selectedStyle = selectedStyle else { return nil }
-        return widgetStyles.firstIndex(where: { $0.key == selectedStyle.key })
+        return widgetStyles.firstIndex(where: { $0.identifier == selectedStyle.identifier })
     }
 
     func isStyleSelected() -> Bool {
@@ -47,7 +62,7 @@ class WidgetSetupViewModel: NSObject {
         self.selectedStyle = style
     }
     
-    func setSelectedApps(to apps: [AppInfo]) {
+    func setSelectedApps(to apps: [AppData]) {
         guard apps.count <= 6 else {
             print("Tried to add more than 6 apps at once")
             return
@@ -58,7 +73,7 @@ class WidgetSetupViewModel: NSObject {
     
     // MARK: - Actions
         
-    func addSelectedApp(_ app: AppInfo) {
+    func addSelectedApp(_ app: AppData) {
         guard selectedApps.count < 6 else {
             print("Tried to add more than 6 apps.")
             return
@@ -67,7 +82,7 @@ class WidgetSetupViewModel: NSObject {
         selectedApps.append(app)
     }
     
-    func removeSelectedApp(_ app: AppInfo) {
+    func removeSelectedApp(_ app: AppData) {
         guard let index = selectedApps.firstIndex(where: { $0.name == app.name }) else {
             print("Tried to remove an app that is not selected")
             return
@@ -83,7 +98,7 @@ class WidgetSetupViewModel: NSObject {
             return nil
         }
         
-        guard selectedStyle != widgetStyles[index] else {
+        guard selectedStyle?.identifier != widgetStyles[index].identifier else {
             print("Tried to select an already selected style.")
             return nil
         }
@@ -97,8 +112,8 @@ class WidgetSetupViewModel: NSObject {
     }
     
     func updatePurchaseStatus() {
-        for style in widgetStyles {
-            style.isPurchased = PurchaseManager.shared.isSkinPurchased(for: style.key.rawValue)
-        }
+//        for style in widgetStyles {
+//            style.isPurchased = PurchaseManager.shared.isSkinPurchased(for: style.identifier)
+//        }
     }
 }

@@ -7,6 +7,7 @@
 
 import UIKit
 import WidgetKit
+import WidgetStyling
 
 /// A `Coordinator` that manages the presentation of the home screen in the application.
 class HomeCoordinator: Coordinator {
@@ -37,23 +38,26 @@ extension HomeCoordinator: HomeViewControllerDelegate {
         _ viewController: HomeViewController,
         type: WidgetType
     ) {
-        guard type == .main else {
-            presentFeatureComingAlert(viewController)
+        let isPlusSpec = IsPlusSubscriberSpecification()
+        
+        if type == .auxiliary && !isPlusSpec.isSatisfied() {
+            presentPlusModal(in: viewController)
             return
         }
-        
-        guard viewController.getCurrentMainWidgetCount() < 3 else {
-            presentMaxWidgetCountAlert(viewController)
+                
+        if viewController.getCurrentWidgetCount(for: .main) >= 3 && !isPlusSpec.isSatisfied() {
+            presentPlusModal(in: viewController)
             return
         }
         
         let coordinator = WidgetBuilderCoordinator(
             router: router,
-            currentWidgetCount: viewController.getCurrentMainWidgetCount()
+            widgetType: type,
+            currentWidgetCount: viewController.getCurrentWidgetCount(for: type)
         )
         
         coordinator.onWidgetSave = { widget in
-            viewController.registerNewWidget(widget)
+            viewController.registerNewWidget(widget, type: type)
         }
         
         presentChild(coordinator, animated: true)
@@ -61,22 +65,22 @@ extension HomeCoordinator: HomeViewControllerDelegate {
     
     func homeViewControllerDidStartWidgetEditingFlow(
         _ viewController: HomeViewController,
-        widget: ModuliteWidgetConfiguration
+        widget: WidgetSchema
     ) {
-        let widgetCopy = widget.copy()
+        let widgetCopy = widget.clone()
         
         let coordinator = WidgetBuilderCoordinator(
             router: router,
-            configuration: widgetCopy
+            schema: widgetCopy
         )
         
         coordinator.onWidgetSave = { updatedWidget in
-            viewController.updateMainWidget(updatedWidget)
+            viewController.updateWidget(updatedWidget, type: widget.type)
             WidgetCenter.shared.reloadAllTimelines()
         }
         
-        coordinator.onWidgetDelete = { widgetId in
-            viewController.deleteMainWidget(with: widgetId)
+        coordinator.onWidgetDelete = {
+            viewController.deleteWidget(widget, type: widget.type)
             WidgetCenter.shared.reloadAllTimelines()
         }
         
@@ -96,6 +100,20 @@ extension HomeCoordinator: HomeViewControllerDelegate {
         let coordinator = OnboardingCompletionCoordinator(router: router)
         
         presentChild(coordinator, animated: true)
+    }
+    
+    private func presentPlusModal(in viewController: UIViewController) {
+        let router = ModalNavigationRouter(
+            parentViewController: viewController,
+            presentationStyle: .fullScreen
+        )
+        
+        router.setHasSaveButton(false)
+        
+        let coordinator = OfferPlusCoordinator(router: router)
+        presentChild(coordinator, animated: true)
+        
+        return
     }
     
     private func presentFeatureComingAlert(_ parentViewController: UIViewController) {

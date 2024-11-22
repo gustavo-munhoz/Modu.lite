@@ -1,0 +1,189 @@
+{
+  "appPolicies" : {
+    "eula" : "",
+    "policies" : [
+      {
+        "locale" : "en_US",
+        "policyText" : "",
+        "policyURL" : ""
+      }
+    ]
+  },
+  "identifier" : "F5073583",
+  "nonRenewingSubscriptions" : [
+
+  ],
+  "products" : [
+    {
+      "displayPrice" : "0.99",
+      "familyShareable" : false,
+      "internalID" : "6738506671",
+      "localizations" : [
+        {
+          "description" : "A style themed with old small game devices!",
+          "displayName" : "Gametoy",
+          "locale" : "en_US"
+        }
+      ],
+      "productID" : "gametoy",
+      "referenceName" : "Gametoy",
+      "type" : "NonConsumable"
+    },
+    {
+      "displayPrice" : "0.99",
+      "familyShareable" : false,
+      "internalID" : "6737855225",
+      "localizations" : [
+        {
+          "description" : "Based on past-tech smartphones.",
+          "displayName" : "Modutouch3",
+          "locale" : "en_US"
+        }
+      ],
+      "productID" : "modutouch3",
+      "referenceName" : "Modutouch3",
+      "type" : "NonConsumable"
+    },
+    {
+      "displayPrice" : "0.99",
+      "familyShareable" : false,
+      "internalID" : "6738397401",
+      "localizations" : [
+        {
+          "description" : "A widget style with plants in a shelf!",
+          "displayName" : "Plantshelf",
+          "locale" : "en_US"
+        }
+      ],
+      "productID" : "plantshelf",
+      "referenceName" : "Plantshelf",
+      "type" : "NonConsumable"
+    }
+  ],
+  "settings" : {
+    "_applicationInternalID" : "6667117474",
+    "_developerTeamID" : "7U55BCTM6U",
+    "_failTransactionsEnabled" : false,
+    "_lastSynchronizedDate" : 753935012.07161999,
+    "_locale" : "en_US",
+    "_storefront" : "USA",
+    "_storeKitErrors" : [
+      {
+        "current" : null,
+        "enabled" : false,
+        "name" : "Load Products"
+      },
+      {
+        "current" : null,
+        "enabled" : false,
+        "name" : "Purchase"
+      },
+      {
+        "current" : null,
+        "enabled" : false,
+        "name" : "Verification"
+      },
+      {
+        "current" : null,
+        "enabled" : false,
+        "name" : "App Store Sync"
+      },
+      {
+        "current" : null,
+        "enabled" : false,
+        "name" : "Subscription Status"
+      },
+      {
+        "current" : null,
+        "enabled" : false,
+        "name" : "App Transaction"
+      },
+      {
+        "current" : null,
+        "enabled" : false,
+        "name" : "Manage Subscriptions Sheet"
+      },
+      {
+        "current" : null,
+        "enabled" : false,
+        "name" : "Refund Request Sheet"
+      },
+      {
+        "current" : null,
+        "enabled" : false,
+        "name" : "Offer Code Redeem Sheet"
+      }
+    ]
+  },
+  "subscriptionGroups" : [
+    {
+      "id" : "21577735",
+      "localizations" : [
+
+      ],
+      "name" : "PLUS",
+      "subscriptions" : [
+        {
+          "adHocOffers" : [
+
+          ],
+          "codeOffers" : [
+
+          ],
+          "displayPrice" : "9.99",
+          "familyShareable" : false,
+          "groupNumber" : 1,
+          "internalID" : "6738505091",
+          "introductoryOffer" : null,
+          "localizations" : [
+            {
+              "description" : "Your subscription will be renewed monthly.",
+              "displayName" : "Monthly Subscription",
+              "locale" : "en_US"
+            }
+          ],
+          "productID" : "modulite.plus.monthly",
+          "recurringSubscriptionPeriod" : "P1M",
+          "referenceName" : "Monthly Plus",
+          "subscriptionGroupID" : "21577735",
+          "type" : "RecurringSubscription",
+          "winbackOffers" : [
+
+          ]
+        },
+        {
+          "adHocOffers" : [
+
+          ],
+          "codeOffers" : [
+
+          ],
+          "displayPrice" : "99.99",
+          "familyShareable" : false,
+          "groupNumber" : 2,
+          "internalID" : "6738506476",
+          "introductoryOffer" : null,
+          "localizations" : [
+            {
+              "description" : "Your subscription will be renewed yearly.",
+              "displayName" : "Yearly Plus",
+              "locale" : "en_US"
+            }
+          ],
+          "productID" : "modulite.plus.yearly",
+          "recurringSubscriptionPeriod" : "P1Y",
+          "referenceName" : "Yearly Plus",
+          "subscriptionGroupID" : "21577735",
+          "type" : "RecurringSubscription",
+          "winbackOffers" : [
+
+          ]
+        }
+      ]
+    }
+  ],
+  "version" : {
+    "major" : 4,
+    "minor" : 0
+  }
+}

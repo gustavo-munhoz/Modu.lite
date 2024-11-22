@@ -174,8 +174,9 @@ extension String {
         
         // MARK: - WidgetSetupView & WidgetSetupViewController
         case widgetSetupViewMainWidgetNamePlaceholder(number: Int)
+        case widgetSetupViewAuxWidgetNamePlaceholder(number: Int)
         case widgetSetupViewStyleHeaderTitle
-        case widgetSetupViewAppsHeaderTitle
+        case widgetSetupViewAppsHeaderTitle(maxApps: Int)
         case widgetSetupViewSearchAppsButtonTitle
         case widgetSetupViewSearchAppsHelperText
         
@@ -184,7 +185,7 @@ extension String {
         // MARK: - SearchAppsView
         case selectAppsViewTitle
         case selectAppsViewSubtitle
-        case selectAppsViewAppsSelected(count: Int)
+        case selectAppsViewAppsSelected(count: Int, max: Int)
         case selectAppsViewSearchBarPlaceholder
         
         // MARK: - WidgetEditorView & WidgetEditorViewController
@@ -238,6 +239,11 @@ extension String {
         case widgetStyleNameRetromac
         case widgetStyleNameRetromacGreen
         case widgetStyleModutouch3
+        
+        // MARK: - Purchase
+        case restorePurchaseSettings
+        case buttonUpgrandeNow
+        case startingAtUSD999
     }
             
     /// Returns a localized string using the key and associated values defined by the `LocalizedKey` enum.

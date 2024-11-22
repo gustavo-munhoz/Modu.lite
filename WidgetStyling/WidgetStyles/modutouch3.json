@@ -1,0 +1,430 @@
+{
+    "identifier": "modutouch3",
+    "name": "Modutouch3",
+    "isPurchased": false,
+    "isIncludedInPlus": true,
+    "backgroundConfiguration": {
+        "mainBackground": {
+            "type": "image",
+            "value": "modutouch3MainBackground"
+        },
+        "auxBackground": {
+            "type": "image",
+            "value": "modutouch3AuxBackground"
+        }
+    },
+    "moduleConfiguration": {
+        "mainModules": [
+            {
+                "identifier": "modutouch3MainBear",
+                "imageName": "modutouch3MainBear",
+                "filterColorNames": ["none"],
+                "defaultColorName": "none",
+                "textConfiguration": {
+                    "fontName": "system",
+                    "fontSize": 12,
+                    "fontWeight": "medium",
+                    "textColorName": "squidInk",
+                    "shadowColorName": "squidInk",
+                    "shadowOffsetHeight": 2,
+                    "shadowBlurRadius": 4,
+                    "shadowOpacity": 0.25,
+                    "textCase": "capitalized",
+                    "bottomRelativePosition": 0.9
+                }
+            },
+            {
+                "identifier": "modutouch3MainBusiness",
+                "imageName": "modutouch3MainBusiness",
+                "filterColorNames": ["none"],
+                "defaultColorName": "none",
+                "textConfiguration": {
+                    "fontName": "system",
+                    "fontSize": 12,
+                    "fontWeight": "medium",
+                    "textColorName": "squidInk",
+                    "shadowColorName": "squidInk",
+                    "shadowOffsetHeight": 2,
+                    "shadowBlurRadius": 4,
+                    "shadowOpacity": 0.25,
+                    "textCase": "capitalized",
+                    "bottomRelativePosition": 0.9
+                }
+            },
+            {
+                "identifier": "modutouch3MainCamera",
+                "imageName": "modutouch3MainCamera",
+                "filterColorNames": ["none"],
+                "defaultColorName": "none",
+                "textConfiguration": {
+                    "fontName": "system",
+                    "fontSize": 12,
+                    "fontWeight": "medium",
+                    "textColorName": "squidInk",
+                    "shadowColorName": "squidInk",
+                    "shadowOffsetHeight": 2,
+                    "shadowBlurRadius": 4,
+                    "shadowOpacity": 0.25,
+                    "textCase": "capitalized",
+                    "bottomRelativePosition": 0.9
+                }
+            },
+            {
+                "identifier": "modutouch3MainCar",
+                "imageName": "modutouch3MainCar",
+                "filterColorNames": ["none"],
+                "defaultColorName": "none",
+                "textConfiguration": {
+                    "fontName": "system",
+                    "fontSize": 12,
+                    "fontWeight": "medium",
+                    "textColorName": "squidInk",
+                    "shadowColorName": "squidInk",
+                    "shadowOffsetHeight": 2,
+                    "shadowBlurRadius": 4,
+                    "shadowOpacity": 0.25,
+                    "textCase": "capitalized",
+                    "bottomRelativePosition": 0.9
+                }
+            },
+            {
+                "identifier": "modutouch3MainFrog",
+                "imageName": "modutouch3MainFrog",
+                "filterColorNames": ["none"],
+                "defaultColorName": "none",
+                "textConfiguration": {
+                    "fontName": "system",
+                    "fontSize": 12,
+                    "fontWeight": "medium",
+                    "textColorName": "squidInk",
+                    "shadowColorName": "squidInk",
+                    "shadowOffsetHeight": 2,
+                    "shadowBlurRadius": 4,
+                    "shadowOpacity": 0.25,
+                    "textCase": "capitalized",
+                    "bottomRelativePosition": 0.9
+                }
+            },
+            {
+                "identifier": "modutouch3MainMail",
+                "imageName": "modutouch3MainMail",
+                "filterColorNames": ["none"],
+                "defaultColorName": "none",
+                "textConfiguration": {
+                    "fontName": "system",
+                    "fontSize": 12,
+                    "fontWeight": "medium",
+                    "textColorName": "squidInk",
+                    "shadowColorName": "squidInk",
+                    "shadowOffsetHeight": 2,
+                    "shadowBlurRadius": 4,
+                    "shadowOpacity": 0.25,
+                    "textCase": "capitalized",
+                    "bottomRelativePosition": 0.9
+                }
+            },
+            {
+                "identifier": "modutouch3MainMap",
+                "imageName": "modutouch3MainMap",
+                "filterColorNames": ["none"],
+                "defaultColorName": "none",
+                "textConfiguration": {
+                    "fontName": "system",
+                    "fontSize": 12,
+                    "fontWeight": "medium",
+                    "textColorName": "squidInk",
+                    "shadowColorName": "squidInk",
+                    "shadowOffsetHeight": 2,
+                    "shadowBlurRadius": 4,
+                    "shadowOpacity": 0.25,
+                    "textCase": "capitalized",
+                    "bottomRelativePosition": 0.9
+                }
+            },
+            {
+                "identifier": "modutouch3MainMoney",
+                "imageName": "modutouch3MainMoney",
+                "filterColorNames": ["none"],
+                "defaultColorName": "none",
+                "textConfiguration": {
+                    "fontName": "system",
+                    "fontSize": 12,
+                    "fontWeight": "medium",
+                    "textColorName": "squidInk",
+                    "shadowColorName": "squidInk",
+                    "shadowOffsetHeight": 2,
+                    "shadowBlurRadius": 4,
+                    "shadowOpacity": 0.25,
+                    "textCase": "capitalized",
+                    "bottomRelativePosition": 0.9
+                }
+            },
+            {
+                "identifier": "modutouch3MainPhone",
+                "imageName": "modutouch3MainPhone",
+                "filterColorNames": ["none"],
+                "defaultColorName": "none",
+                "textConfiguration": {
+                    "fontName": "system",
+                    "fontSize": 12,
+                    "fontWeight": "medium",
+                    "textColorName": "squidInk",
+                    "shadowColorName": "squidInk",
+                    "shadowOffsetHeight": 2,
+                    "shadowBlurRadius": 4,
+                    "shadowOpacity": 0.25,
+                    "textCase": "capitalized",
+                    "bottomRelativePosition": 0.9
+                }
+            },
+            {
+                "identifier": "modutouch3MainTools",
+                "imageName": "modutouch3MainTools",
+                "filterColorNames": ["none"],
+                "defaultColorName": "none",
+                "textConfiguration": {
+                    "fontName": "system",
+                    "fontSize": 12,
+                    "fontWeight": "medium",
+                    "textColorName": "squidInk",
+                    "shadowColorName": "squidInk",
+                    "shadowOffsetHeight": 2,
+                    "shadowBlurRadius": 4,
+                    "shadowOpacity": 0.25,
+                    "textCase": "capitalized",
+                    "bottomRelativePosition": 0.9
+                }
+            }
+        ],
+        "mainEmptyModule": {
+            "identifier": "modutouch3MainEmpty",
+            "imageName": "modutouch3MainEmpty",
+            "filterColorNames": ["none"],
+            "defaultColorName": "none",
+            "textConfiguration": {
+                "fontName": "system",
+                "fontSize": 12,
+                "fontWeight": "medium",
+                "textColorName": "squidInk",
+                "shadowColorName": "squidInk",
+                "shadowOffsetHeight": 2,
+                "shadowBlurRadius": 4,
+                "shadowOpacity": 0.25,
+                "textCase": "capitalized",
+                "bottomRelativePosition": 0.9
+            }
+        },
+        "auxModules": [
+            {
+                "identifier": "modutouch3AuxBear",
+                "imageName": "modutouch3AuxBear",
+                "filterColorNames": ["none"],
+                "defaultColorName": "none",
+                "textConfiguration": {
+                    "fontName": "system",
+                    "fontSize": 12,
+                    "fontWeight": "medium",
+                    "textColorName": "meringue",
+                    "shadowColorName": "squidInk",
+                    "shadowOffsetHeight": 2,
+                    "shadowBlurRadius": 4,
+                    "shadowOpacity": 0.25,
+                    "textCase": "capitalized",
+                    "bottomRelativePosition": 0.9
+                }
+            },
+            {
+                "identifier": "modutouch3AuxBusiness",
+                "imageName": "modutouch3AuxBusiness",
+                "filterColorNames": ["none"],
+                "defaultColorName": "none",
+                "textConfiguration": {
+                    "fontName": "system",
+                    "fontSize": 12,
+                    "fontWeight": "medium",
+                    "textColorName": "meringue",
+                    "shadowColorName": "squidInk",
+                    "shadowOffsetHeight": 2,
+                    "shadowBlurRadius": 4,
+                    "shadowOpacity": 0.25,
+                    "textCase": "capitalized",
+                    "bottomRelativePosition": 0.9
+                }
+            },
+            {
+                "identifier": "modutouch3AuxCamera",
+                "imageName": "modutouch3AuxCamera",
+                "filterColorNames": ["none"],
+                "defaultColorName": "none",
+                "textConfiguration": {
+                    "fontName": "system",
+                    "fontSize": 12,
+                    "fontWeight": "medium",
+                    "textColorName": "meringue",
+                    "shadowColorName": "squidInk",
+                    "shadowOffsetHeight": 2,
+                    "shadowBlurRadius": 4,
+                    "shadowOpacity": 0.25,
+                    "textCase": "capitalized",
+                    "bottomRelativePosition": 0.9
+                }
+            },
+            {
+                "identifier": "modutouch3AuxCar",
+                "imageName": "modutouch3AuxCar",
+                "filterColorNames": ["none"],
+                "defaultColorName": "none",
+                "textConfiguration": {
+                    "fontName": "system",
+                    "fontSize": 12,
+                    "fontWeight": "medium",
+                    "textColorName": "meringue",
+                    "shadowColorName": "squidInk",
+                    "shadowOffsetHeight": 2,
+                    "shadowBlurRadius": 4,
+                    "shadowOpacity": 0.25,
+                    "textCase": "capitalized",
+                    "bottomRelativePosition": 0.9
+                }
+            },
+            {
+                "identifier": "modutouch3AuxFrog",
+                "imageName": "modutouch3AuxFrog",
+                "filterColorNames": ["none"],
+                "defaultColorName": "none",
+                "textConfiguration": {
+                    "fontName": "system",
+                    "fontSize": 12,
+                    "fontWeight": "medium",
+                    "textColorName": "meringue",
+                    "shadowColorName": "squidInk",
+                    "shadowOffsetHeight": 2,
+                    "shadowBlurRadius": 4,
+                    "shadowOpacity": 0.25,
+                    "textCase": "capitalized",
+                    "bottomRelativePosition": 0.9
+                }
+            },
+            {
+                "identifier": "modutouch3AuxMail",
+                "imageName": "modutouch3AuxMail",
+                "filterColorNames": ["none"],
+                "defaultColorName": "none",
+                "textConfiguration": {
+                    "fontName": "system",
+                    "fontSize": 12,
+                    "fontWeight": "medium",
+                    "textColorName": "meringue",
+                    "shadowColorName": "squidInk",
+                    "shadowOffsetHeight": 2,
+                    "shadowBlurRadius": 4,
+                    "shadowOpacity": 0.25,
+                    "textCase": "capitalized",
+                    "bottomRelativePosition": 0.9
+                }
+            },
+            {
+                "identifier": "modutouch3AuxMap",
+                "imageName": "modutouch3AuxMap",
+                "filterColorNames": ["none"],
+                "defaultColorName": "none",
+                "textConfiguration": {
+                    "fontName": "system",
+                    "fontSize": 12,
+                    "fontWeight": "medium",
+                    "textColorName": "meringue",
+                    "shadowColorName": "squidInk",
+                    "shadowOffsetHeight": 2,
+                    "shadowBlurRadius": 4,
+                    "shadowOpacity": 0.25,
+                    "textCase": "capitalized",
+                    "bottomRelativePosition": 0.9
+                }
+            },
+            {
+                "identifier": "modutouch3AuxMoney",
+                "imageName": "modutouch3AuxMoney",
+                "filterColorNames": ["none"],
+                "defaultColorName": "none",
+                "textConfiguration": {
+                    "fontName": "system",
+                    "fontSize": 12,
+                    "fontWeight": "medium",
+                    "textColorName": "meringue",
+                    "shadowColorName": "squidInk",
+                    "shadowOffsetHeight": 2,
+                    "shadowBlurRadius": 4,
+                    "shadowOpacity": 0.25,
+                    "textCase": "capitalized",
+                    "bottomRelativePosition": 0.9
+                }
+            },
+            {
+                "identifier": "modutouch3AuxPhone",
+                "imageName": "modutouch3AuxPhone",
+                "filterColorNames": ["none"],
+                "defaultColorName": "none",
+                "textConfiguration": {
+                    "fontName": "system",
+                    "fontSize": 12,
+                    "fontWeight": "medium",
+                    "textColorName": "meringue",
+                    "shadowColorName": "squidInk",
+                    "shadowOffsetHeight": 2,
+                    "shadowBlurRadius": 4,
+                    "shadowOpacity": 0.25,
+                    "textCase": "capitalized",
+                    "bottomRelativePosition": 0.9
+                }
+            },
+            {
+                "identifier": "modutouch3AuxTools",
+                "imageName": "modutouch3AuxTools",
+                "filterColorNames": ["none"],
+                "defaultColorName": "none",
+                "textConfiguration": {
+                    "fontName": "system",
+                    "fontSize": 12,
+                    "fontWeight": "medium",
+                    "textColorName": "meringue",
+                    "shadowColorName": "squidInk",
+                    "shadowOffsetHeight": 2,
+                    "shadowBlurRadius": 4,
+                    "shadowOpacity": 0.25,
+                    "textCase": "capitalized",
+                    "bottomRelativePosition": 0.9
+                }
+            }
+        ],
+        "auxEmptyModule": {
+            "identifier": "modutouch3AuxEmpty",
+            "imageName": "modutouch3AuxEmpty",
+            "filterColorNames": ["none"],
+            "defaultColorName": "none",
+            "textConfiguration": {
+                "fontName": "system",
+                "fontSize": 12,
+                "fontWeight": "medium",
+                "textColorName": "meringue",
+                "shadowColorName": "squidInk",
+                "shadowOffsetHeight": 2,
+                "shadowBlurRadius": 4,
+                "shadowOpacity": 0.25,
+                "textCase": "capitalized",
+                "bottomRelativePosition": 0.9
+            }
+        }
+    },
+    "wallpaperSet": {
+        "blockedImageName": "modutouch3BlockedWallpaper",
+        "homeImageName": "modutouch3HomeWallpaper"
+    },
+    "previewSet": {
+        "mainWidgetPreview": "modutouch3MainWidgetPreview",
+        "auxWidgetPreview": "modutouch3AuxWidgetPreview",
+        "wallpaperPreview1Name": "modutouch3WallpaperPreview1",
+        "wallpaperPreview2Name": "modutouch3WallpaperPreview2",
+        "wallpaperPreview3Name": "modutouch3WallpaperPreview3"
+    }
+}
+

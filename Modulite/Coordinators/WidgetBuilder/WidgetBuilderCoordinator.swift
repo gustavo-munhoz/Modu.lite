@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import WidgetStyling
 
 class WidgetBuilderCoordinator: Coordinator {
     
@@ -14,26 +15,25 @@ class WidgetBuilderCoordinator: Coordinator {
     var children: [Coordinator] = []
     var router: Router
     
-    let contentBuilder = WidgetContentBuilder()
-    var configurationBuilder: WidgetConfigurationBuilder {
-        let content = contentBuilder.build()
-        
-        if let config = injectedConfiguration {
-            return WidgetConfigurationBuilder(
-                content: content,
-                configuration: config
-            )
+    let contentBuilder: WidgetContentBuilder
+    var configurationBuilder: WidgetSchemaBuilder {
+        get throws {
+            let content = try contentBuilder.build()
+            
+            if let existingSchema {
+                return WidgetSchemaBuilder(schema: existingSchema)
+            }
+            
+            return WidgetSchemaBuilder(content: content)
         }
-        
-        return WidgetConfigurationBuilder(content: content)
     }
     
     var currentWidgetCount: Int
     
-    var onWidgetSave: ((ModuliteWidgetConfiguration) -> Void)?
-    var onWidgetDelete: ((UUID) -> Void)?
+    var onWidgetSave: ((WidgetSchema) -> Void)?
+    var onWidgetDelete: (() -> Void)?
     
-    var injectedConfiguration: ModuliteWidgetConfiguration?
+    var existingSchema: WidgetSchema?
     
     var shouldHideBackButton = false
     var isOnboarding = false
@@ -41,35 +41,42 @@ class WidgetBuilderCoordinator: Coordinator {
     // MARK: - Initializers
     
     init(router: Router) {
+        self.contentBuilder = WidgetContentBuilder(type: .main)
         self.currentWidgetCount = 0
         self.router = router
     }
     
-    init(router: Router, currentWidgetCount: Int) {
+    init(
+        router: Router,
+        widgetType: WidgetType,
+        currentWidgetCount: Int
+    ) {
+        self.contentBuilder = WidgetContentBuilder(type: widgetType)
         self.currentWidgetCount = currentWidgetCount
         self.router = router
     }
     
-    init(router: Router, configuration: ModuliteWidgetConfiguration) {
+    init(router: Router, schema: WidgetSchema) {
+        self.contentBuilder = WidgetContentBuilder(type: schema.type)
         self.currentWidgetCount = 0
         self.router = router
         
-        injectedConfiguration = configuration
-        injectedConfiguration?.modules.sort(by: { $0.index < $1.index })
+        existingSchema = schema
+        existingSchema?.modules.sort(by: { $0.position < $1.position })
         
-        contentBuilder.setWidgetName(configuration.name!)
-        contentBuilder.setWidgetStyle(configuration.widgetStyle!)
+        contentBuilder.setWidgetName(schema.name)
+        contentBuilder.setWidgetStyle(schema.widgetStyle)
         
-        for module in injectedConfiguration!.modules {
+        for module in existingSchema!.modules {
             guard let appName = module.appName,
-                  let url = module.associatedURLScheme else { continue }
+                  let url = module.urlScheme else { continue }
             
-            guard let appInfo = CoreDataPersistenceController.shared.fetchAppInfo(
+            guard let appInfo = CoreDataPersistenceController.shared.fetchAppData(
                 named: appName,
                 urlScheme: url.absoluteString
             ) else { continue }
             
-            contentBuilder.appendApp(appInfo)
+            try? contentBuilder.appendApp(appInfo)
         }
     }
     
@@ -85,8 +92,11 @@ class WidgetBuilderCoordinator: Coordinator {
     // MARK: - Presenting
     
     func present(animated: Bool, onDismiss: (() -> Void)?) {
-        let viewController = WidgetSetupViewController.instantiate(delegate: self)
-                
+        let viewController = WidgetSetupViewController.instantiate(
+            delegate: self,
+            widgetType: contentBuilder.getWidgetType()
+        )
+        
         viewController.navigationItem.setHidesBackButton(
             shouldHideBackButton,
             animated: false
@@ -94,9 +104,10 @@ class WidgetBuilderCoordinator: Coordinator {
         
         viewController.isOnboarding = isOnboarding
         
-        if injectedConfiguration != nil {
+        if existingSchema != nil {
+            guard let content = try? contentBuilder.build() else { return }
             viewController.navigationItem.title = .localized(for: .widgetEditingNavigationTitle)
-            viewController.loadDataFromContent(contentBuilder.build())
+            viewController.loadDataFromContent(content)
             viewController.setToWidgetEditingMode()
         }
         
@@ -139,45 +150,52 @@ class WidgetBuilderCoordinator: Coordinator {
 extension WidgetBuilderCoordinator: SelectAppsViewControllerDelegate {
     func selectAppsViewControllerDidSelectApp(
         _ controller: SelectAppsViewController,
-        didSelect app: AppInfo
+        didSelect app: AppData
     ) {
-        contentBuilder.appendApp(app)
+        do { try contentBuilder.appendApp(app) } catch { return }
         
-        guard let config = injectedConfiguration else { return }
-        guard let idx = config.modules.firstIndex(where: { $0.appName == nil }) else {
+        guard let existingSchema else { return }
+        guard let pos = existingSchema.modules.firstIndex(where: { $0.appName == nil }) else {
             print("Tried selecting an app with maximum count selected.")
             return
         }
         
-        config.modules.replace(
-            at: idx,
-            with: ModuleConfiguration(
-                index: idx,
+        let randomModule = existingSchema.widgetStyle.getRandomModuleStyle(for: .main)
+        
+        existingSchema.modules.replace(
+            at: pos,
+            with: WidgetModule(
+                style: randomModule,
+                position: pos,
                 appName: app.name,
-                associatedURLScheme: app.urlScheme,
-                selectedStyle: contentBuilder.getRandomModuleStyle(),
-                selectedColor: nil
+                urlScheme: app.urlScheme,
+                color: randomModule.defaultColor
             )
         )
     }
     
     func selectAppsViewControllerDidDeselectApp(
         _ controller: SelectAppsViewController,
-        didDeselect app: AppInfo
+        didDeselect app: AppData
     ) {
-        contentBuilder.removeApp(app)
+        do { try contentBuilder.removeApp(app) } catch { return }
         
-        guard let config = injectedConfiguration else {return }
-        guard let idx = config.modules.firstIndex(where: { $0.appName == app.name }) else {
+        guard let existingSchema else {return }
+        guard let pos = existingSchema.modules.firstIndex(where: { $0.appName == app.name }) else {
             print("Tried to deselect an app that is not in injected configuration.")
             return
         }
         
-        config.modules.replace(
-            at: idx,
-            with: ModuleConfiguration.empty(
-                style: config.widgetStyle!,
-                at: idx
+        let emptyModule = existingSchema.widgetStyle.getEmptyModuleStyle(for: .main)
+        
+        existingSchema.modules.replace(
+            at: pos,
+            with: WidgetModule(
+                style: emptyModule,
+                position: pos,
+                appName: nil,
+                urlScheme: nil,
+                color: emptyModule.defaultColor
             )
         )
     }
@@ -187,17 +205,16 @@ extension WidgetBuilderCoordinator: SelectAppsViewControllerDelegate {
 extension WidgetBuilderCoordinator: WidgetEditorViewControllerDelegate {
     func widgetEditorViewController(
         _ viewController: WidgetEditorViewController,
-        didSave widget: ModuliteWidgetConfiguration
+        didSave widget: WidgetSchema
     ) {
         onWidgetSave?(widget)
         dismiss(animated: true)
     }
     
-    func widgetEditorViewController(
-        _ viewController: WidgetEditorViewController,
-        didDeleteWithId id: UUID
+    func widgetEditorViewControllerDidDeleteWidget(
+        _ viewController: WidgetEditorViewController
     ) {
-        onWidgetDelete?(id)
+        onWidgetDelete?()
         dismiss(animated: true)
     }
     

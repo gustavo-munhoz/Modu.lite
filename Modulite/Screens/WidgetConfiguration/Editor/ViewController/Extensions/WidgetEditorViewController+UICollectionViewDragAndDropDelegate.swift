@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import WidgetStyling
 
 // MARK: - UICollectionViewDragDelegate
 extension WidgetEditorViewController: UICollectionViewDragDelegate {
@@ -14,10 +15,9 @@ extension WidgetEditorViewController: UICollectionViewDragDelegate {
         itemsForBeginning session: any UIDragSession,
         at indexPath: IndexPath
     ) -> [UIDragItem] {
-        guard let item = viewModel.getModule(at: indexPath.row),
-              let image = item.resultingImage
-        else { return [] }
+        guard let item = viewModel.getModule(at: indexPath.row) else { return [] }
         
+        let image = item.createCompleteImage(for: strategy)
         let itemProvider = NSItemProvider(object: image as UIImage)
         let dragItem = UIDragItem(itemProvider: itemProvider)
         dragItem.localObject = item

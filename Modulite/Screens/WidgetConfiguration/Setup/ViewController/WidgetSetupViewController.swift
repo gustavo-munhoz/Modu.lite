@@ -7,6 +7,7 @@
 
 import UIKit
 import TipKit
+import WidgetStyling
 
 class WidgetSetupViewController: UIViewController {
     static let didSelectWidgetStyle = Tips.Event(id: "didSelectWidgetStyle")
@@ -17,13 +18,21 @@ class WidgetSetupViewController: UIViewController {
     var viewModel = WidgetSetupViewModel()
     
     weak var delegate: WidgetSetupViewControllerDelegate?
+    var strategy: WidgetTypeStrategy!
+    
     var purchaseManager = PurchaseManager.shared
     
     private var isEditingWidget: Bool = false
     
-    var didMakeChanges: Bool = false
+    var didMakeChangesToWidget: Bool = false
     
-    var isOnboarding: Bool = false
+    var isOnboarding: Bool = false {
+        didSet {
+            if isOnboarding {
+                viewModel = WidgetSetupViewModel(isOnboarding: true)
+            }
+        }
+    }
     
     private var selectWidgetStyleTip = SelectWidgetStyleTip()
     private var selectAppsTip = SelectAppsTip()
@@ -43,6 +52,7 @@ class WidgetSetupViewController: UIViewController {
         
         configureViewDependencies()
         setupNavigationBar()
+        setupViewSizesWithStrategy()
     }
     
     override func viewWillLayoutSubviews() {
@@ -62,10 +72,25 @@ class WidgetSetupViewController: UIViewController {
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
 
-        breakdownTipObservers()
+        teardownTipObservers()
     }
     
     // MARK: - Setup methods
+    
+    private func setupViewSizesWithStrategy() {
+        setupView.setupSetupSelectAppsTitle(
+            maxsAppsCount: strategy.type.maxModules
+        )
+        
+        setupView.setupStyleCollectionViewHeight(
+            strategy.getSetupStyleCollectionViewHeight()
+        )
+        
+        setupView.setupStyleCellHeight(
+            strategy.getSetupStyleCellHeight()
+        )
+    }
+    
     private func setupTipObservers() {
         styleTipObservationTask = styleTipObservationTask ?? createObservationTask(
             for: selectWidgetStyleTip,
@@ -83,7 +108,7 @@ class WidgetSetupViewController: UIViewController {
         )
     }
     
-    private func breakdownTipObservers() {
+    private func teardownTipObservers() {
         styleTipObservationTask?.cancel()
         styleTipObservationTask = nil
         
@@ -116,18 +141,18 @@ class WidgetSetupViewController: UIViewController {
     }
     
     private func setPlaceholderName(to name: String) {
-        setupView.widgetNameTextField.placeholder = name
+        setupView.setupWidgetNamePlaceholder(name)
     }
     
     // MARK: - Actions
     @objc func handleBackButtonPress() {
         delegate?.widgetSetupViewControllerDidPressBack(
             self,
-            didMakeChanges: didMakeChanges
+            didMakeChanges: didMakeChangesToWidget
         )
     }
     
-    func didFinishSelectingApps(apps: [AppInfo]) {
+    func didFinishSelectingApps(apps: [AppData]) {
         setSetupViewHasAppsSelected(to: !apps.isEmpty)
         viewModel.setSelectedApps(to: apps)
         
@@ -142,6 +167,7 @@ class WidgetSetupViewController: UIViewController {
         if isOnboarding { dismissCurrentTip() }
         
         delegate?.widgetSetupViewControllerDidPressNext(
+            self,
             widgetName: setupView.getWidgetName()
         )
     }
@@ -202,7 +228,7 @@ class WidgetSetupViewController: UIViewController {
     }
     
     private func handlePurchaseCompleted(for productId: String) {
-        if let index = viewModel.widgetStyles.firstIndex(where: { $0.key.rawValue == productId }) {
+        if let index = viewModel.widgetStyles.firstIndex(where: { $0.identifier == productId }) {
             viewModel.widgetStyles[index].isPurchased = true
             setupView.stylesCollectionView.reloadData()
         }
@@ -210,10 +236,23 @@ class WidgetSetupViewController: UIViewController {
 }
 
 extension WidgetSetupViewController {
-    class func instantiate(delegate: WidgetSetupViewControllerDelegate) -> WidgetSetupViewController {
+    class func instantiate(
+        delegate: WidgetSetupViewControllerDelegate,
+        widgetType: WidgetType
+    ) -> WidgetSetupViewController {
         let vc = WidgetSetupViewController()
         vc.delegate = delegate
-        vc.setPlaceholderName(to: delegate.getPlaceholderName())
+        
+        vc.strategy = (widgetType == .main) ? MainWidgetStrategy() : AuxWidgetStrategy()
+        
+        let count = delegate.getWidgetCount() + 1
+        let namePlaceholder: String = .localized(
+            for: widgetType == .main
+            ? .widgetSetupViewMainWidgetNamePlaceholder(number: count)
+            : .widgetSetupViewAuxWidgetNamePlaceholder(number: count)
+        )
+        
+        vc.setPlaceholderName(to: namePlaceholder)
         
         return vc
     }
@@ -221,143 +260,11 @@ extension WidgetSetupViewController {
     func loadDataFromContent(_ content: WidgetContent) {
         setupView.widgetNameTextField.text = content.name
         viewModel.setWidgetStyle(to: content.style)
-        guard let apps = content.apps.filter({ $0 != nil }) as? [AppInfo] else { return }
+        guard let apps = content.apps.filter({ $0 != nil }) as? [AppData] else { return }
         
         viewModel.setSelectedApps(to: apps)
         
         setSetupViewStyleSelected(to: true)
         setSetupViewHasAppsSelected(to: true)
-    }
-}
-
-// MARK: - SelectedAppCollectionViewCellDelegate
-extension WidgetSetupViewController: SelectedAppCollectionViewCellDelegate {
-    func selectedAppCollectionViewCellDidPressDelete(_ cell: SelectedAppCollectionViewCell) {
-        guard let indexPath = setupView.selectedAppsCollectionView.indexPath(for: cell) else {
-            print("Could not get IndexPath for app cell")
-            return
-        }
-        
-        didMakeChanges = true
-        
-        let app = viewModel.selectedApps[indexPath.row]
-        viewModel.removeSelectedApp(app)
-        delegate?.widgetSetupViewControllerDidDeselectApp(self, app: app)
-        setupView.selectedAppsCollectionView.performBatchUpdates({ [weak self] in
-            self?.setupView.selectedAppsCollectionView.deleteItems(at: [indexPath])
-            
-        }, completion: { _ in
-            UIView.animate(withDuration: 0.3) { [weak self] in
-                self?.setupView.setNeedsLayout()
-                self?.setupView.layoutIfNeeded()
-            }
-        })
-    }
-}
-
-// MARK: - UICollectionViewDataSource
-extension WidgetSetupViewController: UICollectionViewDataSource {
-    func numberOfSections(in collectionView: UICollectionView) -> Int {
-        2
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        guard section != 0 else { return 0 }
-        
-        switch collectionView {
-        case setupView.stylesCollectionView: return viewModel.widgetStyles.count
-        case setupView.selectedAppsCollectionView: return viewModel.selectedApps.count
-        default: return 0
-        }
-    }
-    
-    func collectionView(
-        _ collectionView: UICollectionView,
-        cellForItemAt indexPath: IndexPath
-    ) -> UICollectionViewCell {
-        
-        switch collectionView {
-        case setupView.stylesCollectionView:
-            guard let cell = collectionView.dequeueReusableCell(
-                withReuseIdentifier: StyleCollectionViewCell.reuseId,
-                for: indexPath
-            ) as? StyleCollectionViewCell else {
-                fatalError("Could not dequeue StyleCollectionViewCell")
-            }
-            
-            let style = viewModel.widgetStyles[indexPath.row]
-            
-            cell.setup(
-                image: style.previewImage,
-                title: style.name,
-                delegate: self,
-                isPurchased: style.isPurchased
-            )
-            
-            cell.hasSelectionBeenMade = viewModel.isStyleSelected()
-            
-            if style == viewModel.selectedStyle {
-                collectionView.selectItem(at: indexPath, animated: true, scrollPosition: [])
-            }
-            
-            return cell
-            
-        case setupView.selectedAppsCollectionView:
-            guard let cell = collectionView.dequeueReusableCell(
-                withReuseIdentifier: SelectedAppCollectionViewCell.reuseId,
-                for: indexPath
-            ) as? SelectedAppCollectionViewCell else {
-                fatalError("Could not dequeue StyleCollectionViewCell")
-            }
-            
-            cell.setup(with: viewModel.selectedApps[indexPath.row].name)
-            cell.delegate = self
-            
-            return cell
-        
-        default: fatalError("Unsupported View Controller.")
-        }
-    }
-    
-    func collectionView(
-        _ collectionView: UICollectionView,
-        viewForSupplementaryElementOfKind kind: String,
-        at indexPath: IndexPath
-    ) -> UICollectionReusableView {
-        
-        guard kind == UICollectionView.elementKindSectionHeader else {
-            return UICollectionReusableView()
-        }
-        
-        guard let header = collectionView.dequeueReusableSupplementaryView(
-            ofKind: kind,
-            withReuseIdentifier: SetupHeaderReusableCell.reuseId,
-            for: indexPath
-        ) as? SetupHeaderReusableCell else {
-            fatalError("Could not dequeue SetupHeader cell.")
-        }
-        
-        if collectionView === setupView.stylesCollectionView {
-            header.setup(title: .localized(for: .widgetSetupViewStyleHeaderTitle))
-            
-        } else {
-            header.setup(title: .localized(for: .widgetSetupViewAppsHeaderTitle))
-        }
-        return header
-    }
-}
-
-// MARK: - UICollectionViewDelegateFlowLayout
-extension WidgetSetupViewController: UICollectionViewDelegateFlowLayout {
-    func collectionView(
-        _ collectionView: UICollectionView,
-        layout collectionViewLayout: UICollectionViewLayout,
-        sizeForItemAt indexPath: IndexPath
-    ) -> CGSize {
-        let text = viewModel.selectedApps[indexPath.row].name
-        let font = UIFont(textStyle: .title3, weight: .semibold)
-        let size = (text as NSString).size(withAttributes: [NSAttributedString.Key.font: font])
-        
-        return CGSize(width: size.width + 45, height: size.height + 24)
     }
 }

@@ -7,6 +7,7 @@
 
 import UIKit
 import TipKit
+import WidgetStyling
 
 extension Notification.Name {
     static let widgetEditorDidFinishOnboarding = Notification.Name("widgetEditorDidFinishOnboarding")
@@ -15,12 +16,11 @@ extension Notification.Name {
 protocol WidgetEditorViewControllerDelegate: AnyObject {
     func widgetEditorViewController(
         _ viewController: WidgetEditorViewController,
-        didSave widget: ModuliteWidgetConfiguration
+        didSave widget: WidgetSchema
     )
     
-    func widgetEditorViewController(
-        _ viewController: WidgetEditorViewController,
-        didDeleteWithId id: UUID
+    func widgetEditorViewControllerDidDeleteWidget(
+        _ viewController: WidgetEditorViewController
     )
     
     func widgetEditorViewControllerDidPressBack(
@@ -45,6 +45,7 @@ class WidgetEditorViewController: UIViewController {
     private(set) var viewModel: WidgetEditorViewModel!
     
     weak var delegate: WidgetEditorViewControllerDelegate?
+    var strategy: WidgetTypeStrategy!
     
     private var isCreatingNewWidget: Bool = true
     
@@ -66,19 +67,21 @@ class WidgetEditorViewController: UIViewController {
         view = editorView
         editorView.setCollectionViewDelegates(to: self)
         editorView.setCollectionViewDataSources(to: self)
-        editorView.delegate = self
+        editorView.setScrollViewDelegate(to: self)
         
         setViewActions()
         
-        if let background = viewModel.getWidgetBackground() {
-            editorView.setWidgetBackground(to: background)
-        }
+        let background = viewModel.getWidgetBackground()
+        
+        editorView.setWidgetBackground(to: background)
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setupNavigationBar()
+        setupViewSizesWithStrategy()
+        editorView.setScrollViewDelegate(to: self)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -96,6 +99,18 @@ class WidgetEditorViewController: UIViewController {
     }
     
     // MARK: - Setup
+    func setupViewSizesWithStrategy() {
+        editorView.setupCollectionViewLayout(with: strategy)
+        
+        editorView.setupLayoutCollectionViewSize(
+            strategy.getEditorLayoutCollectionViewSize()
+        )
+        
+        editorView.setupModuleStyleItemSize(
+            strategy.getEditorModuleStyleItemSize()
+        )
+    }
+    
     func setIsOnboarding(_ isOnboarding: Bool) {
         self.isOnboarding = isOnboarding
     }
@@ -256,7 +271,10 @@ class WidgetEditorViewController: UIViewController {
     func handleSaveWidgetButtonTouch() {
         clearSelectedModuleCell()
         
-        let widget = viewModel.saveWidget(from: editorView.widgetLayoutCollectionView)
+        guard let widget = viewModel.saveWidget(
+            from: editorView.widgetLayoutCollectionView
+        ) else { return }
+        
         delegate?.widgetEditorViewController(self, didSave: widget)
         
         if isOnboarding {
@@ -283,8 +301,7 @@ class WidgetEditorViewController: UIViewController {
         ) { [weak self] _ in
             guard let self = self else { return }
             
-            let id = self.viewModel.getWidgetId()
-            delegate?.widgetEditorViewController(self, didDeleteWithId: id)
+            delegate?.widgetEditorViewControllerDidDeleteWidget(self)
         }
         
         let cancelAction = UIAlertAction(
@@ -301,18 +318,20 @@ class WidgetEditorViewController: UIViewController {
 
 extension WidgetEditorViewController {
     class func instantiate(
-        builder: WidgetConfigurationBuilder,
-        delegate: WidgetEditorViewControllerDelegate
+        builder: WidgetSchemaBuilder,
+        delegate: WidgetEditorViewControllerDelegate,
+        strategy: WidgetTypeStrategy
     ) -> WidgetEditorViewController {
         let vc = WidgetEditorViewController()
-        
+                
         vc.viewModel = WidgetEditorViewModel(widgetBuider: builder)
         vc.delegate = delegate
+        vc.strategy = strategy
         
         return vc
     }
     
-    func loadDataFromBuilder(_ builder: WidgetConfigurationBuilder) {
+    func loadDataFromBuilder(_ builder: WidgetSchemaBuilder) {
         viewModel = WidgetEditorViewModel(widgetBuider: builder)
     }
 }
