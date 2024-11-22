@@ -6,3 +6,8 @@
 //
 
 import Foundation
+
+enum MajorChangesLocalizedTexts: LocalizedKeyProtocol {
+    case majorChangesTitle
+    case majorChangesDescription
+}
