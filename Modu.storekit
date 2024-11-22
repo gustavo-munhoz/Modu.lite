@@ -17,6 +17,21 @@
     {
       "displayPrice" : "0.99",
       "familyShareable" : false,
+      "internalID" : "6738506671",
+      "localizations" : [
+        {
+          "description" : "A style themed with old small game devices!",
+          "displayName" : "Gametoy",
+          "locale" : "en_US"
+        }
+      ],
+      "productID" : "gametoy",
+      "referenceName" : "Gametoy",
+      "type" : "NonConsumable"
+    },
+    {
+      "displayPrice" : "0.99",
+      "familyShareable" : false,
       "internalID" : "6737855225",
       "localizations" : [
         {
@@ -49,7 +64,7 @@
     "_applicationInternalID" : "6667117474",
     "_developerTeamID" : "7U55BCTM6U",
     "_failTransactionsEnabled" : false,
-    "_lastSynchronizedDate" : 753835474.11402202,
+    "_lastSynchronizedDate" : 753935012.07161999,
     "_locale" : "en_US",
     "_storefront" : "USA",
     "_storeKitErrors" : [
@@ -101,7 +116,71 @@
     ]
   },
   "subscriptionGroups" : [
+    {
+      "id" : "21577735",
+      "localizations" : [
 
+      ],
+      "name" : "PLUS",
+      "subscriptions" : [
+        {
+          "adHocOffers" : [
+
+          ],
+          "codeOffers" : [
+
+          ],
+          "displayPrice" : "9.99",
+          "familyShareable" : false,
+          "groupNumber" : 1,
+          "internalID" : "6738505091",
+          "introductoryOffer" : null,
+          "localizations" : [
+            {
+              "description" : "Your subscription will be renewed monthly.",
+              "displayName" : "Monthly Subscription",
+              "locale" : "en_US"
+            }
+          ],
+          "productID" : "modulite.plus.monthly",
+          "recurringSubscriptionPeriod" : "P1M",
+          "referenceName" : "Monthly Plus",
+          "subscriptionGroupID" : "21577735",
+          "type" : "RecurringSubscription",
+          "winbackOffers" : [
+
+          ]
+        },
+        {
+          "adHocOffers" : [
+
+          ],
+          "codeOffers" : [
+
+          ],
+          "displayPrice" : "99.99",
+          "familyShareable" : false,
+          "groupNumber" : 2,
+          "internalID" : "6738506476",
+          "introductoryOffer" : null,
+          "localizations" : [
+            {
+              "description" : "Your subscription will be renewed yearly.",
+              "displayName" : "Yearly Plus",
+              "locale" : "en_US"
+            }
+          ],
+          "productID" : "modulite.plus.yearly",
+          "recurringSubscriptionPeriod" : "P1Y",
+          "referenceName" : "Yearly Plus",
+          "subscriptionGroupID" : "21577735",
+          "type" : "RecurringSubscription",
+          "winbackOffers" : [
+
+          ]
+        }
+      ]
+    }
   ],
   "version" : {
     "major" : 4,
