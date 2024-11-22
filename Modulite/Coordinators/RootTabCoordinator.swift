@@ -88,7 +88,7 @@ class RootTabCoordinator: Coordinator {
             return false
         }
         
-        if true { // isFirstLaunchForCurrentVersion() {
+        if isFirstLaunchForCurrentVersion() {
             let router = ModalNavigationRouter(parentViewController: rootTabBarController)
             router.setHasSaveButton(false)
             
