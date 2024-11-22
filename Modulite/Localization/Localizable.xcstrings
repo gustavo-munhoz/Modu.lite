@@ -904,6 +904,28 @@
     "Main Widget Configuration" : {
 
     },
+    "majorChangesDescription" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "We're thrilled to announce some exciting **new features** and **fresh skins** coming to Modu.lite! However, to bring these upgrades to life, **we needed to reset the app**, which, *by consequence*, **removed the widgets you previously built**. We understand this may be an inconvenience, and **we apologize** for any disruption.\n\\\n\\\nAs a thank-you for your patience and understanding, we're offering a **free new skin for everyone**: *the Retromac Dark*. We hope you enjoy this gift as we work to make Modu.lite better than ever!\n\\\n\\\nWarm regards,  \n*The Modu.lite Team*\n"
+          }
+        }
+      }
+    },
+    "majorChangesTitle" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "MAJOR CHANGES"
+          }
+        }
+      }
+    },
     "My screen time" : {
 
     },
