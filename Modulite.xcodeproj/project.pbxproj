@@ -85,6 +85,7 @@
 		B30201792CC9705800301646 /* SelectableDay.swift in Sources */ = {isa = PBXBuildFile; fileRef = B30201782CC9705800301646 /* SelectableDay.swift */; };
 		B302017B2CC9707800301646 /* WeekDaysSelectorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B302017A2CC9707800301646 /* WeekDaysSelectorView.swift */; };
 		B302017F2CC9C11C00301646 /* AppBlockingSessionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B302017E2CC9C11C00301646 /* AppBlockingSessionCell.swift */; };
+		B32860742CF2CB9800E813B6 /* minimalDigital.json in Resources */ = {isa = PBXBuildFile; fileRef = B32860732CF2CB9800E813B6 /* minimalDigital.json */; };
 		B32B60A52C838EB0007DDCE3 /* WidgetModuleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B34F3E3F2C74E3270041D7BD /* WidgetModuleCell.swift */; };
 		B32B60A62C838ED9007DDCE3 /* UILabel+AppNameConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3EB15BA2C7E5DC5003B1960 /* UILabel+AppNameConfiguration.swift */; };
 		B32B60A82C838F0C007DDCE3 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = B32B60A72C838F0C007DDCE3 /* SnapKit */; };
@@ -649,6 +650,7 @@
 		B30201782CC9705800301646 /* SelectableDay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectableDay.swift; sourceTree = "<group>"; };
 		B302017A2CC9707800301646 /* WeekDaysSelectorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekDaysSelectorView.swift; sourceTree = "<group>"; };
 		B302017E2CC9C11C00301646 /* AppBlockingSessionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppBlockingSessionCell.swift; sourceTree = "<group>"; };
+		B32860732CF2CB9800E813B6 /* minimalDigital.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = minimalDigital.json; sourceTree = "<group>"; };
 		B32B60BB2C86492C007DDCE3 /* UIColorValueTransformer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorValueTransformer.swift; sourceTree = "<group>"; };
 		B32B60C12C864BB2007DDCE3 /* WidgetData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = WidgetData.xcdatamodel; sourceTree = "<group>"; };
 		B32B60EF2C876F4A007DDCE3 /* FileManagerImagePersistenceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileManagerImagePersistenceController.swift; sourceTree = "<group>"; };
@@ -2820,6 +2822,7 @@
 				B384D9372CE6787B00D17B93 /* modutouch3.json */,
 				B384D9492CED1E3A00D17B93 /* retromacDark.json */,
 				B384D94F2CED3CE500D17B93 /* gametoy.json */,
+				B32860732CF2CB9800E813B6 /* minimalDigital.json */,
 			);
 			path = WidgetStyles;
 			sourceTree = "<group>";
@@ -3496,6 +3499,7 @@
 				B384D94A2CED1E3A00D17B93 /* retromacDark.json in Resources */,
 				B384D9382CE6787B00D17B93 /* modutouch3.json in Resources */,
 				B384D9362CE585F000D17B93 /* retromacWhite.json in Resources */,
+				B32860742CF2CB9800E813B6 /* minimalDigital.json in Resources */,
 				B39FB8742CDC441D00967E3A /* analog.json in Resources */,
 				B384D94E2CED269800D17B93 /* plantshelf.json in Resources */,
 				B363B53F2CE2DB97002912CC /* retromacGreen.json in Resources */,
