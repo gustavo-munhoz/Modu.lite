@@ -23,6 +23,11 @@ protocol SettingsViewControllerDelegate: AnyObject {
     func settingsViewControllerDidPressHelp(
         _ viewController: SettingsViewController
     )
+    
+    func settingsViewControllerDidPressPresentWebsite(
+        _ viewController: SettingsViewController,
+        url: URL
+    )
 }
 
 class SettingsViewController: UIViewController {
@@ -74,6 +79,18 @@ extension SettingsViewController: UITableViewDelegate {
             delegate?.settingsViewControllerDidPressFAQ(self)
         case .help:
             delegate?.settingsViewControllerDidPressHelp(self)
+            
+        case .termsOfUse:
+            delegate?.settingsViewControllerDidPressPresentWebsite(
+                self,
+                url: viewModel.getTermsOfUseURL()
+            )
+            
+        case .privacyPolicy:
+            delegate?.settingsViewControllerDidPressPresentWebsite(
+                self,
+                url: viewModel.getPrivacyPolicyURL()
+            )
         }
     }
 }

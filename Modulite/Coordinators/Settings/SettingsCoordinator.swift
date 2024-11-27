@@ -56,4 +56,16 @@ extension SettingsCoordinator: SettingsViewControllerDelegate {
         
         presentChild(coordinator, animated: true)
     }
+    
+    func settingsViewControllerDidPressPresentWebsite(
+        _ viewController: SettingsViewController,
+        url: URL
+    ) {
+        let coordinator = WebPresentingCoordinator(
+            url: url,
+            router: router
+        )
+        
+        presentChild(coordinator, animated: true)
+    }
 }
