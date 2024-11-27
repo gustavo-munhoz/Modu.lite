@@ -1634,6 +1634,17 @@
         }
       }
     },
+    "settingsViewPrivacyPolicyTitle" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Privacy Policy"
+          }
+        }
+      }
+    },
     "settingsViewSubscriptionDetailsTitle" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -1641,6 +1652,17 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Subscription Details"
+          }
+        }
+      }
+    },
+    "settingsViewTermsOfUseTitle" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Terms of Use"
           }
         }
       }
