@@ -24,6 +24,8 @@ public class WidgetStyleProvider {
     // MARK: - Initializer
     public init() throws {
         try loadStyles()
+        
+        styles.removeAll(where: { $0.identifier == "minimaldigital" })
     }
     
     // MARK: - Methods
