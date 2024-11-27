@@ -1,0 +1,142 @@
+{
+    "identifier": "minimaldigital",
+    "name": "Minimal Digital",
+    "isPurchased": false,
+    "isIncludedInPlus": true,
+    "backgroundConfiguration": {
+        "mainBackground": {
+            "type": "color",
+            "value": "burntCoconut"
+        },
+        "auxBackground": {
+            "type": "color",
+            "value": "burntCoconut"
+        }
+    },
+    "moduleConfiguration": {
+        "mainModules": [
+            {
+                "identifier": "minimaldigitalMainSquare",
+                "imageName": "minimaldigitalMainSquare",
+                "filterColorNames": [
+                    "monsterGreen", "cupcake", "none",
+                    "sweetTooth", "eggYolk", "sugarMint"
+                ],
+                "defaultColorName": "none",
+                "imageBlendMode": "darken",
+                "textConfiguration": {
+                    "fontName": "PixelOperator8-Bold",
+                    "fontSize": 8,
+                    "fontWeight": "bold",
+                    "textColorName": "meringue",
+                    "textCase": "capitalized",
+                    "bottomRelativePosition": 0.9
+                }
+            },
+            {
+                "identifier": "minimaldigitalMainCircle",
+                "imageName": "minimaldigitalMainCircle",
+                "filterColorNames": [
+                    "monsterGreen", "cupcake", "none",
+                    "sweetTooth", "eggYolk", "sugarMint"
+                ],
+                "defaultColorName": "none",
+                "imageBlendMode": "darken",
+                "textConfiguration": {
+                    "fontName": "PixelOperator8-Bold",
+                    "fontSize": 8,
+                    "fontWeight": "bold",
+                    "textColorName": "meringue",
+                    "textCase": "capitalized",
+                    "bottomRelativePosition": 0.9
+                }
+            }
+        ],
+        "mainEmptyModule": {
+            "identifier": "minimaldigitalMainEmpty",
+            "imageName": "minimaldigitalMainEmpty",
+            "filterColorNames": [
+                "monsterGreen", "cupcake", "meringue",
+                "sweetTooth", "eggYolk", "sugarMint"
+            ],
+            "defaultColorName": "meringue",
+            "imageBlendMode": "darken",
+            "textConfiguration": {
+                "fontName": "PixelOperator8-Bold",
+                "fontSize": 8,
+                "fontWeight": "bold",
+                "textColorName": "meringue",
+                "textCase": "capitalized",
+                "bottomRelativePosition": 0.9
+            }
+        },
+        "auxModules": [
+            {
+                "identifier": "minimaldigitalAuxSquare",
+                "imageName": "minimaldigitalAuxSquare",
+                "filterColorNames": [
+                    "monsterGreen", "cupcake", "none",
+                    "sweetTooth", "eggYolk", "sugarMint"
+                ],
+                "defaultColorName": "none",
+                "imageBlendMode": "darken",
+                "textConfiguration": {
+                    "fontName": "PixelOperator8-Bold",
+                    "fontSize": 8,
+                    "fontWeight": "bold",
+                    "textColorName": "meringue",
+                    "textCase": "capitalized",
+                    "bottomRelativePosition": 0.92
+                }
+            },
+            {
+                "identifier": "minimaldigitalAuxCircle",
+                "imageName": "minimaldigitalAuxCircle",
+                "filterColorNames": [
+                    "monsterGreen", "cupcake", "none",
+                    "sweetTooth", "eggYolk", "sugarMint"
+                ],
+                "defaultColorName": "none",
+                "imageBlendMode": "darken",
+                "textConfiguration": {
+                    "fontName": "PixelOperator8-Bold",
+                    "fontSize": 8,
+                    "fontWeight": "bold",
+                    "textColorName": "meringue",
+                    "textCase": "capitalized",
+                    "bottomRelativePosition": 0.92
+                }
+            }
+        ],
+        "auxEmptyModule": {
+            "identifier": "minimaldigitalAuxEmpty",
+            "imageName": "minimaldigitalAuxEmpty",
+            "filterColorNames": [
+                "monsterGreen", "cupcake", "meringue",
+                "sweetTooth", "eggYolk", "sugarMint"
+            ],
+            "defaultColorName": "meringue",
+            "imageBlendMode": "darken",
+            "textConfiguration": {
+                "fontName": "PixelOperator8-Bold",
+                "fontSize": 8,
+                "fontWeight": "bold",
+                "textColorName": "meringue",
+                "textCase": "capitalized",
+                "bottomRelativePosition": 0.92
+            }
+        }
+    },
+    "wallpaperSet": {
+        "blockedImageName": "minimaldigitalBlockedWallpaper",
+        "homeImageName": "minimaldigitalHomeWallpaper"
+    },
+    "previewSet": {
+        "mainWidgetPreview": "minimaldigitalMainWidgetPreview",
+        "auxWidgetPreview": "minimaldigitalAuxWidgetPreview",
+        "wallpaperPreview1Name": "minimaldigitalWallpaperPreview1",
+        "wallpaperPreview2Name": "minimaldigitalWallpaperPreview2",
+        "wallpaperPreview3Name": "minimaldigitalWallpaperPreview3"
+    }
+}
+
