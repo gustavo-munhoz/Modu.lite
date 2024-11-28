@@ -380,6 +380,10 @@
 		B3A8BD6C2CF7BD90004F129E /* WebPresentingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3A8BD6B2CF7BD90004F129E /* WebPresentingView.swift */; };
 		B3A8BD6E2CF7BD9A004F129E /* WebPresentingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3A8BD6D2CF7BD9A004F129E /* WebPresentingViewController.swift */; };
 		B3AEF83B2CCA705C0019E91A /* AppBlockingSessionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3AEF83A2CCA705C0019E91A /* AppBlockingSessionHeader.swift */; };
+		B3AF96552CF92CD100AB2277 /* HasCompletedOnboardingSpecification.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3AF96542CF92CD100AB2277 /* HasCompletedOnboardingSpecification.swift */; };
+		B3AF96562CF92CD100AB2277 /* HasCompletedOnboardingSpecification.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3AF96542CF92CD100AB2277 /* HasCompletedOnboardingSpecification.swift */; };
+		B3AF96582CF92D3A00AB2277 /* DidOpenWithEventSpecification.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3AF96572CF92D3A00AB2277 /* DidOpenWithEventSpecification.swift */; };
+		B3AF96592CF92D3A00AB2277 /* DidOpenWithEventSpecification.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3AF96572CF92D3A00AB2277 /* DidOpenWithEventSpecification.swift */; };
 		B3C6DD702CDE997F002AEAF7 /* PersistentAppData+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3C6DD6D2CDE997F002AEAF7 /* PersistentAppData+CoreDataClass.swift */; };
 		B3C6DD712CDE997F002AEAF7 /* PersistentAppData+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3C6DD6E2CDE997F002AEAF7 /* PersistentAppData+CoreDataProperties.swift */; };
 		B3C6DD722CDE997F002AEAF7 /* PersistentAppData+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3C6DD6D2CDE997F002AEAF7 /* PersistentAppData+CoreDataClass.swift */; };
@@ -908,6 +912,8 @@
 		B3A8BD6B2CF7BD90004F129E /* WebPresentingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebPresentingView.swift; sourceTree = "<group>"; };
 		B3A8BD6D2CF7BD9A004F129E /* WebPresentingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebPresentingViewController.swift; sourceTree = "<group>"; };
 		B3AEF83A2CCA705C0019E91A /* AppBlockingSessionHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppBlockingSessionHeader.swift; sourceTree = "<group>"; };
+		B3AF96542CF92CD100AB2277 /* HasCompletedOnboardingSpecification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HasCompletedOnboardingSpecification.swift; sourceTree = "<group>"; };
+		B3AF96572CF92D3A00AB2277 /* DidOpenWithEventSpecification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DidOpenWithEventSpecification.swift; sourceTree = "<group>"; };
 		B3C6DD6D2CDE997F002AEAF7 /* PersistentAppData+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PersistentAppData+CoreDataClass.swift"; sourceTree = "<group>"; };
 		B3C6DD6E2CDE997F002AEAF7 /* PersistentAppData+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PersistentAppData+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		B3C6DD782CDE9B28002AEAF7 /* AppData+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppData+Extensions.swift"; sourceTree = "<group>"; };
@@ -3092,6 +3098,8 @@
 				B3F4EFA62CEF15C9006615BA /* HasPurchasedStyleSpecification.swift */,
 				B3F4EFA82CEF15E1006615BA /* IsStyleIncludedInPlusSpecification.swift */,
 				B3F4EFAC2CEF79EC006615BA /* IsStyleAvailableSpecification.swift */,
+				B3AF96542CF92CD100AB2277 /* HasCompletedOnboardingSpecification.swift */,
+				B3AF96572CF92D3A00AB2277 /* DidOpenWithEventSpecification.swift */,
 			);
 			path = Specification;
 			sourceTree = "<group>";
@@ -3652,6 +3660,7 @@
 				B3987E2C2CA4F43100896414 /* SelectMainWidgetConfigurationIntent.swift in Sources */,
 				B3F4EF9F2CEF0EB4006615BA /* AuxWidgetView.swift in Sources */,
 				B3987E152CA38C7900896414 /* MainWidgetEntry.swift in Sources */,
+				B3AF96592CF92D3A00AB2277 /* DidOpenWithEventSpecification.swift in Sources */,
 				B3F4EF992CEF0E63006615BA /* AuxWidgetEntry.swift in Sources */,
 				B363B57F2CE3E20A002912CC /* MainWidgetStrategy.swift in Sources */,
 				B34C62E52CD16134004E014B /* AppListData.swift in Sources */,
@@ -3673,6 +3682,7 @@
 				B3F4EFB02CEF7B34006615BA /* IsStyleIncludedInPlusSpecification.swift in Sources */,
 				B363B5802CE3E214002912CC /* AuxWidgetStrategy.swift in Sources */,
 				B3F4EF8C2CEF0D6C006615BA /* AuxWidgetModuleData.swift in Sources */,
+				B3AF96552CF92CD100AB2277 /* HasCompletedOnboardingSpecification.swift in Sources */,
 				AF763F262CAF4492002FBE26 /* FamilyControlsManager.swift in Sources */,
 				B32B60F92C87AC81007DDCE3 /* FileManagerImagePersistenceController.swift in Sources */,
 				B3C6DD7F2CDE9B28002AEAF7 /* AppData+Extensions.swift in Sources */,
@@ -3812,6 +3822,7 @@
 				B34F3E3E2C74CE090041D7BD /* EditorSectionHeader.swift in Sources */,
 				B33808932CC2FFED00D56884 /* RequestScreenTimeViewController.swift in Sources */,
 				B3CB2C502CE56D7A009BADFB /* HomeViewController+HomeWidgetCollectionViewCellDelegate.swift in Sources */,
+				B3AF96562CF92CD100AB2277 /* HasCompletedOnboardingSpecification.swift in Sources */,
 				B35BFC522CB60B7300092B42 /* TutorialStepsStackView.swift in Sources */,
 				B3A8BD6E2CF7BD9A004F129E /* WebPresentingViewController.swift in Sources */,
 				B34F3DFD2C6A92890041D7BD /* RootTabBarController.swift in Sources */,
@@ -3858,6 +3869,7 @@
 				B35BFBEB2CB5B9D600092B42 /* TutorialCenterButtonLabel.swift in Sources */,
 				B35BFBCF2CB55F3F00092B42 /* SeparatorView.swift in Sources */,
 				B34F3E402C74E3270041D7BD /* WidgetModuleCell.swift in Sources */,
+				B3AF96582CF92D3A00AB2277 /* DidOpenWithEventSpecification.swift in Sources */,
 				B3F4EFA72CEF15C9006615BA /* HasPurchasedStyleSpecification.swift in Sources */,
 				B33808AC2CC31D8300D56884 /* RequestScreenTimeTexts.swift in Sources */,
 				B35BFB892CB4605C00092B42 /* TutorialMultiParagraphLabel.swift in Sources */,
