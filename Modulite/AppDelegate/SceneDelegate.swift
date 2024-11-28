@@ -47,7 +47,17 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             return false
         }
 
-        guard let host = url.host, host == "app" else {
+        guard let host = url.host else {
+            print("Unable to extract URL host.")
+            return false
+        }
+        
+        switch host {
+        case "app": break
+        case "plus":
+            registerShouldPresentOfferPlus()
+            return true
+        default:
             print("Invalid URL host: \(url.host ?? "nil")")
             return false
         }
@@ -83,6 +93,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         } else {
             print("Invalid URL for scheme: \(urlScheme)")
         }
+    }
+    
+    private func registerShouldPresentOfferPlus() {
+        UserDefaults.standard.set(true, forKey: "shouldPresentOfferPlus")
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
