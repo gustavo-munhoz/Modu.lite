@@ -23,6 +23,11 @@ protocol HomeViewControllerDelegate: AnyObject {
     func homeViewControllerDidFinishOnboarding(
         _ viewController: HomeViewController
     )
+    
+    func homeViewController(
+        _ viewController: HomeViewController,
+        shouldPresentOfferPlus: Bool
+    )
 }
 
 class HomeViewController: UIViewController {
@@ -50,6 +55,12 @@ class HomeViewController: UIViewController {
         updatePlaceholderViews()
         setupOnboardingObserverIfNeeded()
         setupSubscriptions()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        checkIfDidShouldPresentPlus()
     }
     
     deinit {
@@ -90,6 +101,18 @@ class HomeViewController: UIViewController {
     }
     
     // MARK: - Actions
+    private func checkIfDidShouldPresentPlus() {
+        let spec = HasCompletedOnboardingSpecification()
+                       .and(DidOpenWithEventSpecification())
+        
+        delegate?.homeViewController(
+            self,
+            shouldPresentOfferPlus: spec.isSatisfied()
+        )
+        
+        UserDefaults.standard.set(false, forKey: "shouldPresentOfferPlus")
+    }
+    
     @objc private func handleOnboardingCompletion() {
         delegate?.homeViewControllerDidFinishOnboarding(self)
         

@@ -102,6 +102,15 @@ extension HomeCoordinator: HomeViewControllerDelegate {
         presentChild(coordinator, animated: true)
     }
     
+    func homeViewController(
+        _ viewController: HomeViewController,
+        shouldPresentOfferPlus: Bool
+    ) {
+        guard shouldPresentOfferPlus else { return }
+        
+        presentPlusModal(in: viewController)
+    }
+    
     private func presentPlusModal(in viewController: UIViewController) {
         let router = ModalNavigationRouter(
             parentViewController: viewController,

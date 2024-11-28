@@ -6,3 +6,9 @@
 //
 
 import Foundation
+
+struct DidOpenWithEventSpecification: Specification {
+    func isSatisfied() -> Bool {
+        UserDefaults.standard.bool(forKey: "shouldPresentOfferPlus")
+    }
+}

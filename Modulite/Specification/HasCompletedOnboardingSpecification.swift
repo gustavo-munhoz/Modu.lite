@@ -6,3 +6,9 @@
 //
 
 import Foundation
+
+struct HasCompletedOnboardingSpecification: Specification {
+    func isSatisfied() -> Bool {
+        UserPreference<Onboarding>.shared.bool(for: .hasCompletedOnboarding)
+    }
+}
